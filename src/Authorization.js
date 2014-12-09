@@ -8,8 +8,8 @@
 *   Guillermo Martinez.
 */
 
-var db = require('./db');
-var ErrorMessage = require('./error');
+var db = require('./DBConnection');
+var ErrorMessage = require('./ErrorMessage');
 var crypt = require('./Cryptography');
 
 var Authorization = function () {

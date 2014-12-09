@@ -35,4 +35,4 @@ var Cryptography = function () {
     };
 };
 
-module.exports = new Crypt();
+module.exports = new Cryptography();

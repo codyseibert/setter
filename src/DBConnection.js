@@ -17,7 +17,7 @@ var DBConnection = function () {
         host: 'localhost',
         database: 'setter',
         user: 'root',
-        password: 'pOwerOverwhelming'
+        password: 'BigBlueDog'
     });
     connection.connect();
 

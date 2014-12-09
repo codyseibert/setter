@@ -34,7 +34,7 @@ var Mailer = function () {
     };
 
     this.mailActivationCode = function (account_id, email, code) {
-        var activation_url = 'http://setter.rocks/api/accounts/' + account_id + '/activate/' + code;
+        var activation_url = 'http://setter.com/api/accounts/' + account_id + '/activate/' + code;
 
         transport.sendMail({
             from: from_email,

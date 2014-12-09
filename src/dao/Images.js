@@ -8,7 +8,7 @@
 *   Guillermo Martinez.
 */
 
-var db = require('../db');
+var db = require('../DBConnection');
 
 var ImagesDAO = function () {
     'use strict';

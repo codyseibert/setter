@@ -6,15 +6,15 @@
 *   Guillermo Martinez.
 */
 
-var app = require('./app');
+var app = require('./SETTER');
 
-var routeController = require('./controllers/accounts');
+var AccountsController = require('./controllers/Accounts');
 
 var RouteToControllerBinder = function () {
     'use strict';
 
     // Example
-    app.post('/api/accounts/login', routeController.login);
+    //app.post('/api/accounts/login', AccountsController.login);
 };
 
 module.exports = new RouteToControllerBinder();

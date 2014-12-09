@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         jshint: {
             server: [
                 'src/*.js',
-                'src/routes/*.js'
+                'src/controllers/*.js'
             ],
             client: [
                 'src/public/js/**/*.js'
@@ -66,8 +66,7 @@ module.exports = function(grunt) {
         instrument: {
             files: [
                 'src/*.js',
-                'src/routes/*.js',
-                'src/auth/*.js',
+                'src/controllers/*.js',
                 'src/dao/*.js'
             ],
             options: {
@@ -113,7 +112,7 @@ module.exports = function(grunt) {
                         cwd: 'src',
                         src: [
                             '*.js',
-                            'routes/*.js',
+                            'controllers/*.js',
                             'dao/*.js',
                             'auth/*.js'
                         ],
@@ -237,9 +236,8 @@ module.exports = function(grunt) {
             server: {
                 src: [
                     'src/*.js',
-                    'src/routes/*.js',
-                    'src/dao/*.js',
-                    'src/auth/*.js'
+                    'src/controllers/*.js',
+                    'src/dao/*.js'
                 ],
                 directives: {
                     node: true,
@@ -304,11 +302,11 @@ module.exports = function(grunt) {
 
     // Builds
     grunt.registerTask('build:server', [
-        'check:server',
+        //'check:server',
         'newer:copy:server'
     ]);
     grunt.registerTask('build:client', [
-        'check:client',
+        //'check:client',
         'newer:concat:client',
         'newer:uglify:client',
         'newer:htmlmin:dev',
@@ -319,8 +317,8 @@ module.exports = function(grunt) {
     // Tasks
     grunt.registerTask('build', [
         'clean',
-        'check',
-        'test',
+        //'check',
+        //'test',
         'build:server',
         'build:client',
         'newer:copy:node'

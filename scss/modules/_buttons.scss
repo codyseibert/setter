@@ -1,0 +1,114 @@
+
+
+//
+//Button Mixin
+//
+
+@mixin button($color) {
+  // $from: $color; 
+  // $to: darken($color, 8%); 
+  // @include background-image(linear-gradient($from 10%, $to 70%));
+  background-color: $color;
+  @include box-shadow(0 1px 0 rgba(255, 255, 255, .2) inset); 
+  border: 1px solid darken($color, 20%);
+  margin-bottom: rem-calc(12);
+  margin-right: rem-calc(6);  
+  &:hover {
+  background: darken($color, 4%);
+  }
+
+  &:active {
+  background: darken($color, 4%);
+  }
+
+  @content; 
+  
+}
+
+
+%radius--dropdowns {
+  @include border-radius(6px);
+}
+
+//
+//Button Group Mixins
+//
+
+@mixin button-group($color) {
+  @include button-group-container(); 
+  @include border-radius(8px);
+  border: 1px solid darken($color, 20%);
+  margin-bottom: rem-calc(12);
+  overflow: hidden; 
+  background-color: $color; 
+
+
+  [class*="btn--"] {
+    @include border-radius(0);
+    // @include box-shadow(0 1px 0 rgba(255, 255, 255, .2) inset); 
+    border: 0; 
+    margin-bottom: 0;  
+    margin-right: 0;
+    background-color: transparent;
+  }
+
+  & > li {
+    border-right: 1px solid darken($color, 20%);
+
+    &:hover {
+    background: darken($color, 4%);
+    }
+
+    &:active {
+    background: darken($color, 4%);
+    }
+
+    &:last-child {
+      border-right: 0; 
+    }
+  }
+
+  @content; 
+}
+
+@mixin button-group--even($numButtons) {
+ 
+  & > li { 
+    @include button-group-style($even: $numButtons);
+  }
+
+}
+
+
+%arrow {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    border-style: inset;
+    left: 50%;
+}
+
+%arrow--down {
+  &:after {
+    @extend %arrow; 
+    border-color: #fff transparent transparent;
+    border-top-style: solid;
+    border-top-color: #fff; 
+    border-width: rem-calc(6);
+    top: 48%;
+  }
+}
+
+
+%arrow--right {
+  &:after {
+    @extend %arrow; 
+    border-color: transparent transparent transparent #fff;
+    border-left-style: solid;
+    border-left-color: #fff; 
+    border-width: rem-calc(6);
+    top: 36%; 
+  }
+}

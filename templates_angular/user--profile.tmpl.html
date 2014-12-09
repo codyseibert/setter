@@ -1,0 +1,384 @@
+<script id="template_user_profile" type="text/x-jQuery-tmpl">
+<div class="row full-height">
+  <div class="header">
+      <div class="row--nested">
+      <div class="gridRow--50 pb3 ">
+        <div class="flag">
+          <div class="flag-image pr2">
+            <img src="images/userAvatar--cody.png" class="avatar avatar--bigger"/>
+          </div>
+          <div class="flag-body">
+            <h1 class="fwb mb1 display--inline">Cody Seibert</h1>
+            <h2 class="h5 mb1 txtc2 fwl">(
+              <a class="fwb " href="#">Username</a>)</h2>
+              <a class="txt--micro" href="#user/accountsettings">Account Settings</a>
+              <a class="txt--micro" href="#user/gymsearch">Gym Search</a>
+          </div>
+        </div>
+      </div>
+      <div class="gridRow--50" data-ui-component="climberGrades">
+        <div class="gridRow--100">
+          <div class="row--nested ">
+            <h2 class="h4 txtc2 fwl mb2">Avg Climber Grades</h2>
+            <div class="text-center display--inlineBlock  gridRow--50--always">
+              <span class="h4">Bouldering</span>
+              <h3 class="txt--mega fwb"><a href="">V8</a></h3>
+            </div>
+            <div class="text-center display--inlineBlock  gridRow--50--always">
+              <span class="h4">Rope</span> 
+              <h3 class="txt--mega fwb"><a href="">5.16</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <hr class="header-divider">
+</div>
+
+  <div class="gridRow--50 pb4" data-ui-component="climberRouteInformation">
+    <h2 class="fwl txtc2">Latest Routes Sent</h2>
+     <!--Meant to show latest 5 routes set in the gym--> 
+      <ul class="list--tableStyle">
+           <!--A Route-->
+          <li class="route route--alwaysPortable route--alwaysPortable" data-ui-component="wall-route">
+
+          <!--A Routes Main Info, always shows--> 
+            <div class="route-mainInfo">
+              <span class="route-color route-color--red ">
+              </span>
+              <span class="route-name ">
+                <a href="#">This is A route Name</a>
+              </span>
+              <span class="route-actions">                    
+                <input type="checkbox" class="route-checkbox">
+              </span>  
+
+            </div>
+            <!--End Main info--> 
+
+            <!--Secondary Content of a route, hidden on desktop, only shows on small-->                 
+            <dl class="accordion accordion--plain route-moreInfo" data-accordion>
+              <dd>
+                <span class="route-grade">
+                  V16
+                </span>
+              <span class="route-rating">
+                    <i class=" star"></i>
+                    <i class=" star"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+              </span>    
+              <span class="route-type">
+                <i class="icon--bouldering"></i>
+              </span>                         
+
+              <a href="#route1" class="route-moreInfo-link">+ More</a>
+
+                <div id="route1" class="content  clearfix">
+                  <ul class="list--dotted">
+                    <li >
+                    <span class="left">Set by</span>
+                    <span class="right">{Setter Name}</span>
+                    </li>
+                    <li >
+                    <span class="left">Sends</span>
+                    <span class="right">{Send Num}</span>
+                    </li>
+                    <li >
+                    <span class="left">Comments</span>
+                    <span class="right">{comments}</span>
+                    </li>
+                    <li >
+                    <span class="left">Set on</span>
+                    <span class="right">{Set Date}</span>
+                    </li>                        
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+
+ 
+
+          </li>
+          <!--A Route-->
+          <li class="route route--alwaysPortable route--alwaysPortable" data-ui-component="wall-route">
+
+          <!--A Routes Main Info, always shows--> 
+            <div class="route-mainInfo">
+              <span class="route-color route-color--purple ">
+              </span>
+              <span class="route-name ">
+                <a href="#">This is A route Name</a>
+              </span>
+              <span class="route-actions">
+                <input type="checkbox" class="route-checkbox ">
+
+              </span>  
+
+            </div>
+            <!--End Main info--> 
+
+            <!--Secondary Content of a route, hidden on desktop, only shows on small-->                 
+            <dl class="accordion accordion--plain route-moreInfo" data-accordion>
+              <dd>
+                <span class="route-grade">
+                  V16
+                </span>
+              <span class="route-rating">
+                    <i class=" star"></i>
+                    <i class=" star"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+              </span>    
+              <span class="route-type">
+                <i class="icon--bouldering"></i>
+              </span>                         
+
+                <a href="#route3" class="route-moreInfo-link">+ More</a>
+
+                <div id="route3" class="content  clearfix">
+                  <ul class="list--dotted">
+                    <li >
+                    <span class="left">Set by</span>
+                    <span class="right">{Setter Name}</span>
+                    </li>
+                    <li >
+                    <span class="left">Sends</span>
+                    <span class="right">{Send Num}</span>
+                    </li>
+                    <li >
+                    <span class="left">Comments</span>
+                    <span class="right">{comments}</span>
+                    </li>
+                    <li >
+                    <span class="left">Set on</span>
+                    <span class="right">{Set Date}</span>
+                    </li>                        
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+
+          
+          </li>
+          <li class="route route--alwaysPortable" data-ui-component="wall-route">
+
+          <!--A Routes Main Info, always shows--> 
+            <div class="route-mainInfo">
+              <span class="route-color route-color--red ">
+              </span>
+              <span class="route-name ">
+                <a href="#">This is A route Name</a>
+              </span>
+              <span class="route-actions">                    
+                <input type="checkbox" class="route-checkbox">
+              </span>  
+
+            </div>
+            <!--End Main info--> 
+
+            <!--Secondary Content of a route, hidden on desktop, only shows on small-->                 
+            <dl class="accordion accordion--plain route-moreInfo" data-accordion>
+              <dd>
+                <span class="route-grade">
+                  V16
+                </span>
+              <span class="route-rating">
+                    <i class=" star"></i>
+                    <i class=" star"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+              </span>    
+              <span class="route-type">
+                <i class="icon--bouldering"></i>
+              </span>                         
+
+              <a href="#route2" class="route-moreInfo-link">+ More</a>
+
+                <div id="route2" class="content  clearfix">
+                  <ul class="list--dotted">
+                    <li >
+                    <span class="left">Set by</span>
+                    <span class="right">{Setter Name}</span>
+                    </li>
+                    <li >
+                    <span class="left">Sends</span>
+                    <span class="right">{Send Num}</span>
+                    </li>
+                    <li >
+                    <span class="left">Comments</span>
+                    <span class="right">{comments}</span>
+                    </li>
+                    <li >
+                    <span class="left">Set on</span>
+                    <span class="right">{Set Date}</span>
+                    </li>                        
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+
+        
+
+          </li>
+          <!--A Route-->
+          <li class="route route--alwaysPortable" data-ui-component="wall-route">
+
+          <!--A Routes Main Info, always shows--> 
+            <div class="route-mainInfo">
+              <span class="route-color route-color--red ">
+              </span>
+              <span class="route-name ">
+                <a href="#">This is A route Name</a>
+              </span>
+              <span class="route-actions">
+                <input type="checkbox" class="route-checkbox ">
+
+              </span>  
+
+            </div>
+            <!--End Main info--> 
+
+            <!--Secondary Content of a route, hidden on desktop, only shows on small-->                 
+            <dl class="accordion accordion--plain route-moreInfo" data-accordion>
+              <dd>
+                <span class="route-grade">
+                  V16
+                </span>
+              <span class="route-rating">
+                    <i class=" star"></i>
+                    <i class=" star"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+                    <i class=" star--empty"></i>
+              </span>    
+              <span class="route-type">
+                <i class="icon--bouldering"></i>
+              </span>                         
+
+                <a href="#route4" class="route-moreInfo-link">+ More</a>
+
+                <div id="route4" class="content  clearfix">
+                  <ul class="list--dotted">
+                    <li >
+                    <span class="left">Set by</span>
+                    <span class="right">{Setter Name}</span>
+                    </li>
+                    <li >
+                    <span class="left">Sends</span>
+                    <span class="right">{Send Num}</span>
+                    </li>
+                    <li >
+                    <span class="left">Comments</span>
+                    <span class="right">{comments}</span>
+                    </li>
+                    <li >
+                    <span class="left">Set on</span>
+                    <span class="right">{Set Date}</span>
+                    </li>                        
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+
+             <!--Secondary Content of a route, shows on desktop, hides on small and is replaced by route-moreInfo -->
+            <div class="route-secondaryInfo">
+              <span class="route-grade ">
+                  V17
+              </span>
+              <span class="route-rating ">
+                  <i class=" star"></i>
+                  <i class=" star"></i>
+                  <i class=" star--empty"></i>
+                  <i class=" star--empty"></i>
+                  <i class=" star--empty"></i>
+              </span>
+              <span class="route-type ">B</span>
+              <span class="route-setter ">
+                <a href="#">Mark M.</a>
+              </span>
+              <span class="route-sends ">
+                  X <a href="#">10</a>
+              </span>
+              <span class="route-comments ">
+                <a href="#">5</a>
+              </span>
+              <span class="route-dateSet ">
+                {99/99/99}
+              </span>
+              <span class="route-actions ">
+                <input type="checkbox" class="route-checkbox"/>
+              </span>
+            </div>    
+          </li>
+
+      </ul>
+
+      <a href="#user/sentroutes" class="right">View All Sent Routes</a>
+  </div>
+
+  <div class="gridRow--50 pb4" data-ui-component="climberRouteStats">
+    <h2 class="fwl txtc2">Route Statistics</h2>
+    <div class="select--tetriary select--small align-vertically">
+      <select name="climbTypes" id="climbTypes">
+        <option value="bouldering">Bouldering</option>
+        <option value="topRope">Top Rope</option>
+        <option value="lead">Lead</option>
+      </select>
+    </div> 
+    <ul class="table row--nested">
+                <li class="table-title">Routes by Grade
+                    <a href="">1,000</a>
+                </li>
+                <li class="table-elem ">
+                    <div class="small-7 columns">
+                        <div id="totalGymCustomers" class="pieGraph--medium ">
+                        </div>
+                    </div>
+                    <ul data-pie-id="totalGymCustomers" class="pieGraph-legend small-5 columns">
+                        <li data-value="60">
+                            <div class="graph-legend-itemColor"></div>
+                            V1 (60)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V2 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V3 (20)
+                        </li>
+
+                        <li data-value="60">
+                            <div class="graph-legend-itemColor"></div>
+                            V4 (60)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V5 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V6 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V7 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V8 (20)
+                        </li>
+
+                    </ul> 
+                </li>
+            </ul>
+  </div>
+</div>
+
+
+
+</script>

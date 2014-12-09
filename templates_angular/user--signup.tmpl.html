@@ -1,0 +1,47 @@
+<script id="template_user_profile" type="text/x-jQuery-tmpl">
+
+
+    <!--Gym Sign Up  Template-->
+    <section  class="row" data-ui-component="gymSignUpForm" >
+        <section class="gridRow--100">
+            <div class="logInForm-container">
+                <form method="POST" id="signup-form" action="#">
+                    <img src="images/saddie.svg" alt="" class="expand-on-small" height="300px" width="300px" />
+                    <h1 class="text-center fwl mt3 txtc2">Sign Up For Setter</h1>
+                    <p class="text-center">
+                        
+                    </p>
+                    <div class="fieldWrapper">
+                        <label for="firstName" class="label--block">First Name</label>
+                        <input id="firstName" type="text" placeholder="What is your gym called?" autofocus="autofocus">
+                        <label for="lastName" class="label--block">Last Name</label>
+                        <input type="text" id="lastName">
+
+                        <label for="gender" class="label--block">Gender</label>
+                        <div class="select--small select select--secondary mb3">
+                        <select id="gender">
+                           <option value="male">male</option>
+                           <option value="female">female</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="fieldWrapper">
+                        <label class="label--block" for="gymEmail">Email</label>
+                        <input type="email" id="gymEmail" placeholder="What is your email?">
+                        <label for="accountPass" class="label--block">Account Password
+                        </label>
+                        <input type="password" placeholder="Must be 8 characters minimum" id="accountPass">
+                        <input type="password" placeholder="Re-enter password"/>
+                    </div>
+                   
+
+                        <!--Sign up button-->
+                        <button class="btn--primary btn--big btn--expanded mt3">SIGN UP</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!--End form view--> 
+    </section>
+</script>

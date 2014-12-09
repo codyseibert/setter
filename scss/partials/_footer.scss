@@ -1,0 +1,5 @@
+footer {
+  @extend %pt2; 
+  background-color: $primaryColor;
+  height: rem-calc(100);
+}

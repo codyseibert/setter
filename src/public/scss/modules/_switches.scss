@@ -1,0 +1,23 @@
+
+
+/* If you set this to false, base styles are left out */
+$base-style: false;
+
+/* This sets the speed at which the switch toggles */
+$transition-speed: .1s;
+
+/* This sets the ease of the switch transition */
+$transition-ease: ease-out;
+
+/* This controls the overall height of the switch */
+$height: rem-calc(45);
+
+/* This controls the background of the paddle */
+$paddle-bg: $grey--light;
+
+/* Set the background color for the switch when it's on */
+$active-color: $primaryColor;
+
+/* Set this to true for default radius or any number for complete control */
+$radius: false;
+

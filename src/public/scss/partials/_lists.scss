@@ -1,0 +1,145 @@
+.list--tableStyle { 
+  & > li {
+    @extend %clearfix;
+    padding-right: rem-calc(12);
+    padding-left: rem-calc(12); 
+    border-top: 1px solid $grey--medlight; 
+  }
+
+  & > li:nth-child(odd) {
+    background-color: $grey--light; 
+  }
+
+  & > li:last-child {
+    border-bottom: 1px solid $grey--medlight; 
+  }
+}
+
+.list--noStyles {
+  @extend %clearfix;
+
+  li {
+    @extend %mb2; 
+  }
+}
+
+
+.list-item--editView {
+  display: inline-block; 
+  visibility: hidden;
+}
+
+.list--inline {
+  & > li {
+    @extend %display--inline; 
+    margin-right: rem-calc(12); 
+  }
+}
+
+.list--dotted {
+  
+  li {
+    @extend %clearfix; 
+  }
+
+  & > li {
+    border-bottom: 1px dotted $grey--medlight; 
+    padding-bottom: rem-calc(8);
+    padding-top: rem-calc(8);
+  }
+  & > li:last-child {
+    border-bottom: 0; 
+  }
+}
+
+
+.list--stats {
+
+  .list--stats-title {
+    @extend %fwl; 
+    @extend %mb1; 
+    @extend %txtc2; 
+  }
+
+  .list--stats-topElem {
+    @extend %pb1;
+    @extend %pt2; 
+
+    a {
+      @extend %fwb; 
+      color: $grey--dark; 
+
+      &:hover {
+        color: $primaryColor; 
+      }
+    }
+
+    .title {
+      @extend %fwb; 
+    }
+
+  }
+
+  .list--stats-position {
+    @extend %txtc2; 
+    @extend %mr2; 
+  }
+  
+  .list--stats-elem {
+
+    a {
+      @extend %txtc2; 
+    }
+
+    &:hover {
+      a { 
+        color: $primaryColor;
+      }
+    }
+  }
+}
+
+.list--floatLastChild {
+  &:last-child {
+    float: left; 
+  }
+}
+
+
+.list--legend-position {
+  @extend %fwb; 
+  @extend %mr2;
+  color: $primaryColor; 
+}
+
+.topo-ZoneMarker {
+  @extend %text--micro;
+  @include border-radius(100%);
+  @include single-transition(all, .1s, ease-in-out);
+  background-color: $primaryColor; 
+  color: #fff; 
+  line-height: 20px; 
+    width: 20px;
+    height: 20px;
+    margin: 40px; /*for centering purposes*/
+  position: absolute; 
+
+  &:hover {
+    line-height: 24px; 
+    width: 24px;
+    height: 24px;
+    margin: 10px; /* inital margin - ((intial margin - width (or height))/2) */
+  }
+ 
+}
+
+
+// .list--inlineOnDesktop {
+//   @include breakpoint(teen-bear) {
+//     & > li {
+//       display: inline-block; 
+//       margin-right: rem-calc(12); 
+//     }
+//   } 
+// }
+

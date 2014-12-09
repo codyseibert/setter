@@ -1,0 +1,205 @@
+html {
+  height: 100%; 
+}
+
+body
+{
+  height: inherit;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+.off-canvas-wrap,
+.inner-wrap {
+  height: inherit; 
+  overflow: visible; 
+}
+
+
+.main-wrap {
+  @extend %transition--moving; 
+  background-color: #fff; 
+  height: inherit; 
+  margin-left: 0; 
+  padding: 0; 
+  width: auto; 
+
+  @include breakpoint(mama-bear) {
+    margin-left: $primaryNav-width;
+  }
+
+  &.is-open {
+    @include translate(240px, 0);
+  }
+}
+
+.main {
+  background-color: inherit; 
+}
+
+
+.main-section {
+  @extend %transition--moving;
+  @extend %prl2; 
+  background-color: inherit; 
+  margin-left: 0;
+  position: relative; 
+  top: 0; 
+
+  @include breakpoint(onlyMobile) {
+    padding-right: 0 !important; 
+    padding-left: 0 !important; 
+  }
+}
+
+
+
+
+//
+//Side Menu Object 
+//
+
+.tab-bar {
+  // $from: $primaryColor; 
+  // $to: darken($primaryColor, 8%); 
+  // @include background-image(linear-gradient($from 10%, $to 70%));
+  background-color: $primaryColor; 
+  @include box-shadow(0 -1px 0 rgba(255, 255, 255, .2) inset); 
+  border-bottom: 1px solid darken($primaryColor, 20%);
+
+  .tab-bar-link {
+    &:hover {
+      color: darken($tabbar-bg, 3%);
+    }
+  }
+}
+
+
+.setterLogo--nav {
+  height: rem-calc(175);
+  width: 100%;
+  background-color: $primaryColor; 
+  
+  img {
+    @extend %center; 
+    width: 65%;
+    height: rem-calc(175);
+  }
+}
+
+.nav-primary {
+  background-color: $grey--dark; 
+}
+
+.nav-primary,
+.nav-account {
+  @extend %left; 
+  width: $primaryNav-width;
+  position: fixed;
+  bottom: 0;
+  top: 0; 
+  right: auto;
+}
+
+.nav-account {
+  background-color: $grey--light; 
+  left: $primaryNav-width; 
+
+  li, label {
+    color: #fff; 
+    display: block;
+    width: 100%; 
+  }
+
+  a, 
+  label {
+    @extend %pl2;
+    @extend %ptb3; 
+  }
+
+  label {
+    background-color: $grey--medium;
+  }
+
+  li a { 
+    @extend %pl2; 
+    display: block; 
+    color: $grey--medium;
+    width: 100%; 
+
+    &:hover {
+      background-color: $grey--medlight;
+      color: $grey--dark; 
+      
+    } 
+  }
+
+  .copyright {
+    @extend %ptb1; 
+    color: $grey--dark; 
+    font-size: rem-calc(13);
+    position: absolute;
+    bottom: 0; 
+    text-align: center; 
+  }
+}
+
+
+
+.nav-avatar {
+  @include border-radius(100%);
+  height: rem-calc(36);
+  width: rem-calc(36);
+  background-color: white;  
+}
+
+
+
+//
+//Side Menu Styles 
+//
+
+.side-menu {
+
+  a {
+    margin-left: rem-calc(6);
+  }
+
+  a:before {
+    @extend %h2; 
+    padding: rem-calc(6);
+    margin-right: rem-calc(24);
+  }
+  a > img {
+    padding: rem-calc(6);
+    margin-right: rem-calc(12);
+    opacity: .7; 
+  }
+}
+
+
+//
+//Overrides Foundation Off Canvas Styles for Hovering Buttons
+//
+
+ul.off-canvas-list li a:hover {
+    color: rgba(255, 255, 255, 1);
+    & img {
+      opacity: 1; 
+    }
+    background-color: transparent; 
+}
+
+//
+//Off-Canvas
+//
+
+
+.move-right > .inner-wrap {
+    @include breakpoint(mama-bear) {
+    transform: translate3d(0, 0, 0) !important;
+  }
+}
+
+

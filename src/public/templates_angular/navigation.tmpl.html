@@ -1,0 +1,113 @@
+<div class="off-canvas-wrap " data-offcanvas>
+    <nav class="tab-bar show-on-small" data-topbar>
+        <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" >
+                <span></span>
+                <h1 class="display--inlineBlock">SETTER</h1>
+            </a>
+        </section>
+
+        <section class="text-right">
+            <a class="tab-bar-link align-vertically prl2 " data-action="open-account-dropDown">
+                <div class="nav-avatar mr1" >
+                    <!--Gym Logo Goes Here--> 
+                </div>     
+            </a>
+        </section>
+
+        <ul id="nav-avatar-dropdown" class="[ medium ] dropDown--account dropDown--linkList" data-ui-component="account-dropDown">
+            <li class="dropDown-separator">Gym Account</li>
+            <li><a href="">View Gym Profile</a></li>
+            <li><a href="#gyms/account/settings">Settings</a></li>
+            <li><a href="#logout" data-reveal-id="logOutWindow">Log Out</a></li>
+            <li><a href="#user/profile">Switch to [Name of Setter]</a></li>
+        </ul>
+    </nav>
+
+    <div class="inner-wrap ">
+
+        <!-- Off Canvas Menu -->
+        <aside class="left-off-canvas-menu side-menu"  role="navigation">
+            <ul class="off-canvas-list">
+
+                <li><a href="#gyms/1/dashboard">Dashboard</a></li>
+                <li>
+                    <a href="#gyms/1/manageWalls">
+                        <img src="fonts/icon--wrench.svg"/>
+                        Manage Zones
+                    </a>
+                </li>
+                <li><a href="#gyms/1/setters">Manage Setters</a></li>
+                <li><a href="#gyms/insights">Gym Insights</a></li>
+                <!--<li><a href="#gyms/topo">Edit Gym Topo</a></li>
+                <li><a href="#gyms/routeArchive">Route Archive</a></li>-->         
+            </ul>
+        </aside>
+
+        <!--Desktop Navigation-->
+        <ul class="nav-account nomargin hide-on-small" role="navigation">
+            <li><label>Gym Account</label></li>
+            <li><a href="#user/profile">Switch to [Name of Setter]</a></li>
+            <li><a href="">View Gym Profile</a></li>
+            <li><a href="#gyms/account/settings">Settings</a></li>
+            <li><a href="#logout" data-reveal-id="logOutWindow">Log Out</a></li>
+            <!--Log Out Window-->
+            <div id="logOutWindow" class="[ popUp popUp--small popUp--primary ]" data-reveal>
+              <h1 class="h3 popUp-title">Log Out Confirmation<span class="popUp-closeLink"></span></h1 >
+              <div class="gridRow--100">
+                <p >Are you sure you want to log out? <br>So sad to see you go :( </p>
+                
+                <button class="btn--primary btn--small">
+                    Log Out
+                </button>
+                <button class="btn--secondary btn--small" data-action="closePopUp">Cancel</button>
+               
+            </div>
+            </div>
+
+            <li class="copyright">© 2014 SETTER</li>
+        </ul>
+
+        <aside class="nav-primary side-menu hide-on-small" role="navigation">
+            <div class="setterLogo--nav  center mb4">
+                <img src="images/logo--setter.svg" alt="">
+            </div>
+            <ul class="off-canvas-list">
+
+                <li data-action="open-nav-account">
+                    <a class="media--fl">
+                        <div class="nav-avatar mr1" >
+                            <img src="images/gymLogo--aiguille.svg" alt="">
+                        </div>     
+                        <div>
+                            Aiguille Rock Climbing Center
+                        </div>
+                    </a> 
+                </li>
+
+                <li><a href="#gyms/1/dashboard">Dashboard</a></li>
+                <li>
+                    <a href="#gyms/1/manageWalls">
+                        <img src="fonts/icon--wrench.svg"/>
+                        Manage Zones
+                    </a>
+                </li>
+                <li><a href="#gyms/1/setters">Manage Setters</a></li>
+                <li><a href="#gyms/insights">Gym Insights</a></li>
+                <!--<li><a href="#gyms/topo">Edit Gym Topo</a></li>
+                <li><a href="#gyms/routeArchive">Route Archive</a></li>-->
+            </ul>
+        </aside>
+
+        <!-- Main section templates go here -->
+        <div class="main-wrap relative selfClear" data-ui-component="main-wrap">
+            <div class="main full-height relative">
+                <div class="main-section relative">
+                </div>
+            </div>
+        </div>
+
+        <!-- close the off-canvas menu -->
+        <a class="exit-off-canvas"></a>
+    </div>
+</div>    

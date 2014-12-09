@@ -1,0 +1,58 @@
+<script id="template_user_accountsettings" type="text/x-jQuery-tmpl">
+
+<div class="row full-height">
+  <div class="header">
+  <h1 class="fwb mb0">Cody Seibert</h1>
+  <h2 class="h1 fwl txtc2">Account Settings</h2>
+  
+  <hr class="header-divider">
+  </div>
+
+    <div class="gridRow--50 pb4"  data-ui-component="climberAccountSettings">
+      <h2 class="fwl txtc2">Climber Information</h2>
+      <form action="" method="POST" id="climberAccountSettings">
+        <div class="fieldWrapper">
+          <label for="climberName"> 
+          <span class="label--block fwb">Name</span> 
+          <input type="text" required pattern="[a-zA-Z]+" id="climberName">
+          </label> 
+          <label for="climberLastName">
+          <span class="label--block fwb">Last Name</span>
+          <input type="text" required pattern="[a-zA-Z]+" id="climberLastName">
+          </label>
+          <label for="climberEmail">
+          <span class="label--block fwb">Email</span>
+          <input type="email" required id="climberEmail" >
+          </label>
+          <div class="display--block">
+            <label for="climberGender" class="label--inlineBlock fwb mr2">Gender</label>
+            <select name="gender" id="climberGender">
+              <option value="male">male</option>
+              <option value="female">female</option>
+              <option value="trans">trans</option>
+            </select>
+          </div>
+          <button class="btn--tetriary btn--small right" type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="gridRow--50 pb4" data-ui-component="climberAccountSecurity">
+        <h2 class="fwl txtc2">Account Security</h2>
+        <form action="" method="POST" id="climberAccountPassword">
+            <div class="fieldWrapper">
+              <label for="password">
+              <span class="label--block fwb">Password</span>
+              <input type="password" required pattern="[a-zA-Z]+" id="climberPassword">
+              </label>
+              <label for="climberPasswordConfirm">
+              <span class="label--block fwb">Confirm Password</span>
+              <input type="password" required pattern="[a-zA-Z]+" data-equalto="climberPassword" id="climberPasswordConfirm">
+              </label>
+              <button class="btn--tetriary btn--small right" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</script>

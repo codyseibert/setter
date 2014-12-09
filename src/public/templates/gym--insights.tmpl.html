@@ -1,0 +1,280 @@
+<script id="template_gym_insights" type="text/x-jQuery-tmpl" >
+    <div class="row full-height" data-ui-component="settersManager">
+
+        <!--Page Header-->
+        <div class="header">
+            <div class="left">
+                <h1 class="fwb mb0 display--block">Gym Insights</h1>
+                <h1 class="fwl mb2 txtc2">Aiguille Rock Climbing Center</h1>
+            </div>
+            <hr class="header-divider">
+        </div>
+        <!--End Page Header-->
+
+        <div class="gridRow--100">
+            <ul class="list--inline ">
+                <li>
+                    <label for="toggleRating">Rating</label> 
+                    <input type="checkbox" id="toggleRating">
+                </li>
+                <li>
+                    <label for="toggleNumRoutes">Number of Routes</label>
+                    <input type="checkbox" id="toggleNumRoutes">
+                </li>
+            </ul>
+            <label for="wallTypes" class="align-vertically mb2">Show data for</label>
+            <div class="select--tetriary select--small align-vertically">
+            <select name="wallTypes" id="wallTypes">
+                <option value="all">All Types</option>
+                <option value="bouldering">Bouldering</option>
+                <option value="topRope">Top Rope</option>
+                <option value="lead">Lead</option>
+            </select>
+            </div>
+
+            <!--Line chart not working due to piza.js not loading on this page-->
+            <ul data-pie-id="gymHistoryGraph">
+                <li data-x="36" data-y="1"></li>
+                <li data-x="2" data-y="2"></li>
+                <li data-x="44" data-y="3"></li>
+                <li data-x="33" data-y="4"></li>
+                <li data-x="23" data-y="5"></li>
+                <li data-x="2" data-y="6"></li>
+            </ul>
+            <div id="gymHistoryGraph"></div>
+
+        </div>
+
+        <div class="gridRow--50">
+            <ul class="table table--list">
+                <li class="table-title">
+                    <div class="table--list-elem-title mr2 display--inlineBlock">
+                    Gym Rating
+                    </div>
+                    <div class="[ rating rating--medium ] display--inlineBlock ">
+                        <i class=" star"></i>
+                        <i class=" star"></i>
+                        <i class=" star--empty"></i>
+                        <i class=" star--empty"></i>
+                        <i class=" star--empty"></i>
+                    </div>
+                    <div class="display--inlineBlock ">
+                    <small class="txtc2 fwl">(All Time 4.5)</small>
+                    </div>
+
+                </li>
+                <li class="table-elem">
+                    <ol>
+                        <div class="table--list-elem-title display--inlineBlock">
+                        Bouldering  
+                        </div>
+                        <div class="[ rating rating--medium ] ml2 display--inlineBlock ">
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star--empty"></i>
+                        </div>
+                        <div class="display--inlineBlock ">
+                            <small class="txtc2 fwl">(All Time 3.5)</small>
+                        </div>                        
+                    </ol>
+                    <ol>
+                        <div class="table--list-elem-title display--inlineBlock">
+                        Best Wall
+                        </div>
+                        <div class="ml2 display--inlineBlock"> 
+                        <a href="#" target="blank">Wall Name</a>
+                        </div>
+                    </ol>
+                </li>
+                <li class="table-elem">
+                    <ol>
+                        <div class="table--list-elem-title display--inlineBlock">
+                        Top Rope  
+                        </div>
+                        <div class="[ rating rating--medium ] ml2 display--inlineBlock ">
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star--empty"></i>
+                        </div>
+                        <div class="display--inlineBlock ">
+                            <small class="txtc2 fwl">(All Time 3.5)</small>
+                        </div>
+                    </ol>
+                    <ol>
+                        <div class="table--list-elem-title display--inlineBlock">
+                        Best Wall
+                        </div>
+                        <div class="ml2 display--inlineBlock"> 
+                        <a href="#" target="blank">Wall Name</a>
+                        </div>
+                    </ol>
+                </li>
+                <li class="table-elem">
+                    <ol> 
+                        <div class="table--list-elem-title display--inlineBlock">
+                        Lead  
+                        </div>
+                        <div class="[ rating rating--medium ] ml2 display--inlineBlock ">
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star"></i>
+                            <i class=" star--empty"></i>
+                        </div>
+                        <div class="display--inlineBlock ">
+                            <small class="txtc2 fwl">(All Time 3.5)</small>
+                        </div>
+                    </ol>
+                    <ol>
+                        <div class="table--list-elem-title display--inlineBlock">
+                        Best Wall
+                        </div><div class="ml2 display--inlineBlock"> 
+                        <a href="#" target="blank">Wall Name</a>
+                        </div>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <!--Total Routes Table --> 
+        <div class="gridRow--50">
+            <ul class="table row--nested">
+                <li class="table-title">Total Routes
+                    <a href="">1,000</a>
+                </li>
+                <li class="dataTable-elem ">
+                    <div class="small-7 columns">
+                        <div id="totalGymRoutes" class="pieGraph--medium ">
+                        </div>
+                    </div>
+                    <ul data-pie-id="totalGymRoutes" class="pieGraph-legend small-5 columns">
+                        <li data-value="60">
+                            <div class="graph-legend-itemColor"></div>
+                            Bouldering (60)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            Top Rope (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            Lead (20)
+                        </li>
+                    </ul> 
+                </li>
+            </ul>
+        </div>
+
+                <!--Total Routes Table --> 
+        <div class="gridRow--50">
+            <ul class="table row--nested">
+                <li class="table-title">Routes by Grade
+                    <a href="">1,000</a>
+                </li>
+                <li class="table-elem ">
+                    <div class="small-7 columns">
+                        <div id="totalGymCustomers" class="pieGraph--medium ">
+                        </div>
+                    </div>
+                    <ul data-pie-id="totalGymCustomers" class="pieGraph-legend small-5 columns">
+                        <li data-value="60">
+                            <div class="graph-legend-itemColor"></div>
+                            V1 (60)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V2 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V3 (20)
+                        </li>
+
+                        <li data-value="60">
+                            <div class="graph-legend-itemColor"></div>
+                            V4 (60)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V5 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V6 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V7 (20)
+                        </li>
+                        <li data-value="20">
+                            <div class="graph-legend-itemColor"></div>
+                            V8 (20)
+                        </li>
+
+                    </ul> 
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="gridRow--100 mt4 mb2">
+            <ul class="table">
+                <li class="table-title">
+                    Active Climbers <a href="#" class="mr3">77</a>
+                    All Time Climbers <a href="#">77</a>
+                </li>
+                <div class="row--nested">
+                    <div class="gridRow--50">
+                    <li class="table-elem">
+                        <div class="small-7 columns">
+                            <div id="totalGymCustomers" class="pieGraph--medium ">
+                            </div>
+                        </div>
+                        <ul data-pie-id="totalGymCustomers" class="pieGraph-legend small-5 columns">
+                            <li data-value="60">
+                                <div class="graph-legend-itemColor"></div>
+                                Bouldering (60)
+                            </li>
+                            <li data-value="20">
+                                <div class="graph-legend-itemColor"></div>
+                                Top Rope (20)
+                            </li>
+                            <li data-value="20">
+                                <div class="graph-legend-itemColor"></div>
+                                Lead (20)
+                            </li>
+                        </ul> 
+                    </li>
+                    </div>
+                    <div class="gridRow--50">
+                    <li class="table-elem ">
+                        <div class="small-7 columns">
+                            <div id="totalGymCustomers" class="pieGraph--medium ">
+                            </div>
+                        </div>
+                        <ul data-pie-id="totalGymCustomers" class="pieGraph-legend small-5 columns">
+                            <li data-value="60">
+                                <div class="graph-legend-itemColor"></div>
+                                Bouldering (60)
+                            </li>
+                            <li data-value="20">
+                                <div class="graph-legend-itemColor"></div>
+                                Top Rope (20)
+                            </li>
+                            <li data-value="20">
+                                <div class="graph-legend-itemColor"></div>
+                                Lead (20)
+                            </li>
+                        </ul> 
+                    </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+</script> 

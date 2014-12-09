@@ -1,0 +1,129 @@
+<script id="template_gym_dashboard" type="text/x-jQuery-tmpl" >
+    <div class="row full-height" data-ui-component="settersManager">      
+        <!--Page Header-->
+        <div class="header">
+            <div class="left">
+                <h1 class="fwb mb0 display--block">Gym Dashboard</h1>
+                <h1 class="fwl mb2 txtc2">Aiguille Rock Climbing Center</h1>
+            </div>
+            <hr class="header-divider">
+        </div>
+        <!--End Page Header-->
+          
+        <section class="gridRow--50 mb3">
+            <div class="row--nested">
+                <div class="gridRow--100 clearfix">
+                    <h2 class="txtc2 fwl left">Current Routes</h2>
+                    <div class="select--tetriary select--small right">
+                    <select id="type_select">Sort By
+                        <option value="bouldering"><a href="">Bouldering</a></option>
+                        <option value="toprope"><a href="">Top Rope</a></option>
+                        <option value="lead"><a href="">Lead</a></option>
+                    </select>
+                    </div>
+                </div>
+                <div class="gridRow--100">    
+                    <ul class="table prl2">
+                        <li class="dataTable-item">
+                            <div id="currentGymRoutes" class="barGraph">
+                            </div>
+                        </li>
+
+                        <ul data-bar-id="currentGymRoutes" class="barGraph-legend gridRow--100">
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="gridRow--100">
+            <h2 class="fwl txtc2">Current Wall Performance</h2>
+            <div class="row--nested">
+
+                <!--Begin List 1-->
+                <div class="gridRow--oneThird">   
+                    <ul data-ui-component="bouldering_ratings" class="list--dotted list list--stats">
+                        <h3 class="list--stats-title">Bouldering</h3>
+                        <li class="list--stats-topElem">
+                            <span class="title">Best Wall</span> 
+                            <div class="right">
+                                <a href="#" class="display--block">Wall Name</a>
+                                <span class="[ rating rating--small ] right">
+                                <i class=" star"></i>
+                                <i class=" star"></i>
+                                <i class=" star--empty"></i>
+                                <i class=" star--empty"></i>
+                                <i class=" star--empty"></i>
+                            </div>
+                        </span> 
+                        </li>
+                    </ul>
+                </div>
+                <!--End List 1-->
+                <!--Begin List 2-->
+                <div class="gridRow--oneThird">  
+                    <ul data-ui-component="lead_ratings" class= "list--dotted list list--stats">
+                        <h3 class="list--stats-title">Top Rope</h3>
+                        <li class="list--stats-topElem">
+                            <span class="title">Best Wall</span> 
+                            <div class="right">
+                                <a href="#" class="display--block">Wall Name</a>
+                                <span class="[ rating rating--small ] right">
+                                <i class=" star"></i>
+                                <i class=" star"></i>
+                                <i class=" star--empty"></i>
+                                <i class=" star--empty"></i>
+                                <i class=" star--empty"></i>
+                            </div>
+                        </span> 
+                        </li>
+                    </ul>
+                </div>
+                <!--End List 2-->
+                <!--Begin List 3-->
+                <div class="gridRow--oneThird">  
+                    <ul data-ui-component="toprope_ratings" class= "list--dotted list list--stats">
+                        <h3 class="list--stats-title">Lead</h3>
+                        <li class="list--stats-topElem">
+                            <span class="title">Best Wall</span> 
+                            <div class="right">
+                                <a href="#" class="display--block">Wall Name</a>
+                                <span class="[ rating rating--small ] right">
+                                <i class=" star"></i>
+                                <i class=" star"></i>
+                                <i class=" star--empty"></i>
+                                <i class=" star--empty"></i>
+                                <i class=" star--empty"></i>
+                            </div>
+                        </span> 
+                        </li>
+                    </ul>
+                </div>
+                <!--End List 3-->
+            </div>
+        </section>
+    </div>
+</script>
+
+<script id="template_gym_dashboard_chart" type="text/x-jQuery-tmpl" >
+    <% _.each(action, function(gradeCount){ %>  
+        <li data-value=<%= gradeCount.count %>>
+            <div class="graph-legend-itemColor"></div>
+            <%= gradeCount.grade %>
+        </li>
+    <% }); %> 
+</script>
+
+<script id="template_gym_dashboard_wall_rating" type="text/x-jQuery-tmpl">
+    <span class="list--stats-position"><%= id %></span> 
+    <a href="#"><%= name %></a> 
+    <span class="[ rating rating--small ] right">
+        <% for (var i = 0; i < rating; i++){ %>
+            <i class=" star"></i>
+        <% } %>
+
+        <% for (var i = 0; i < 5 - rating; i++){ %>
+            <i class=" star--empty"></i>    
+        <% } %>
+    </span> 
+</script>

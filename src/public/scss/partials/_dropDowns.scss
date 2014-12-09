@@ -1,0 +1,129 @@
+
+//
+//Dropdowns 
+//
+
+//Gives all dropdowns a radius 
+[class*="dropDown--"], [class*="dropdown"] {
+  @extend %radius--dropdowns; 
+
+  .dropDown-separator {
+    @extend %text-center; 
+    @extend %ptb2;
+    @extend %h3; 
+    color: $grey--dark; 
+    background-color: $grey--medlight; 
+    &:hover {
+      background-color: $grey--medlight; 
+    }
+  }
+
+}
+
+//Dropdowns with only links 
+.dropDown--linkList {
+  li a {
+    @extend %ptb2; 
+  }
+  li:hover {
+    background-color:  $color--dropDownLinks;
+  }
+
+  li:first-child {
+    overflow: hidden; 
+    @include border-top-left-radius(8px);
+    @include border-top-right-radius(8px);
+  }
+
+  li:last-child {
+    overflow: hidden; 
+    // padding-bottom: rem-calc(12);
+    @include border-bottom-left-radius(8px);
+    @include border-bottom-right-radius(8px);
+  }
+}
+
+.dropDown--withForm {
+  @extend %ptrbl3;
+  @extend %pt3; 
+}
+
+
+//Styles the dropdown closing button if they have one
+.dropDown-closeLink {
+  @extend %h5; 
+
+  @include icon($icon--cancelCircle) {
+    margin-right: 0; 
+  }
+
+  color: $grey--medium; 
+  position: absolute;
+  right: rem-calc(12);
+  top: rem-calc(8);
+
+  &:hover {
+    color: $grey--dark; 
+  }
+
+}
+
+//
+//Top Nav Avatar DropDown *Exeperimental*
+//
+
+.dropDown--account {
+  @include dropdown-container(); 
+  @extend %mr2; 
+  padding: $f-dropdown-content-padding;
+  position: absolute;
+  top: rem-calc(54);
+  width: 96%; 
+  max-width: 600px; 
+  @include breakpoint(teen-bear) {
+    max-width: 300px;
+  }
+
+  li {
+    @include dropdown-style(); 
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 7px;
+    border-style: inset inset solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: transparent transparent #ccc;
+    position: absolute;
+    top: -14px;
+    right: 13px;
+    z-index: 98;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: inset inset solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: transparent transparent #fff;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 99;
+  }
+}
+

@@ -58,6 +58,23 @@
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the gyms tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
+[0m  UsersDao[0m
+[0m    #getUser[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the users table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[0m    #getUsers[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the users table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[2K[0G    [32m  ✓[0m[90m query contains no where clause [0m
+[0m    #createUser[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the users table [0m
+[0m    #updateUser[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the users table [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+[0m    #deleteUser[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the users tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
-[92m [0m[32m 33 passing[0m[90m (69ms)[0m
+
+[92m [0m[32m 43 passing[0m[90m (107ms)[0m
 

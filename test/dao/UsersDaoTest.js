@@ -1,9 +1,9 @@
 /*
-    Copyright (c) Cody Seibert and Guillermo Martinez
+Copyright (c) Cody Seibert and Guillermo Martinez
 
-    Do not copy, redistribute, sell, modify, etc, without
-    written legally bound permission from both Cody Seibert and
-    Guillermo Martinez.
+Do not copy, redistribute, sell, modify, etc, without
+written legally bound permission from both Cody Seibert and
+Guillermo Martinez.
 */
 
 
@@ -19,99 +19,99 @@ global.expect = chai.expect;
 var Messages = require(helper('./Messages'));
 
 // Unit under test
-var GymsDao = rewire(helper('dao/GymsDao'));
+var UsersDao = rewire(helper('dao/UsersDao'));
 
 
-describe('GymsDao', function () {
+describe('UsersDao', function () {
 
     var daoHelperSpy;
 
     beforeEach(function () {
         daoHelperSpy = sinon.spy();
 
-        GymsDao.__set__({
+        UsersDao.__set__({
             theDaoHelper: {
                 executeQuery: daoHelperSpy
             }
         });
     });
 
-    describe('#getGym', function () {
-        it('performs some type of SELECT query on the gyms table', function () {
-            GymsDao.getGym();
+    describe('#getUser', function () {
+        it('performs some type of SELECT query on the users table', function () {
+            UsersDao.getUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('SELECT') !== -1 &&
-                query.indexOf('FROM gyms') !== -1);
+            query.indexOf('FROM users') !== -1);
         });
 
         it('query contains no *', function () {
-            GymsDao.getGym();
+            UsersDao.getUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('*') === -1);
         });
     });
 
-    describe('#getGyms', function () {
-        it('performs some type of SELECT query on the gyms table', function () {
-            GymsDao.getGyms();
+    describe('#getUsers', function () {
+        it('performs some type of SELECT query on the users table', function () {
+            UsersDao.getUsers();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('SELECT') !== -1 &&
-                query.indexOf('FROM gyms') !== -1);
+            query.indexOf('FROM users') !== -1);
         });
 
         it('query contains no *', function () {
-            GymsDao.getGyms();
+            UsersDao.getUsers();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('*') === -1);
         });
 
         it('query contains no where clause', function () {
-            GymsDao.getGyms();
+            UsersDao.getUsers();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('WHERE') === -1);
         });
     });
 
-    describe('#createGym', function () {
-        it('performs some type of INSERT on the gyms table', function () {
-            GymsDao.createGym();
+    describe('#createUser', function () {
+        it('performs some type of INSERT on the users table', function () {
+            UsersDao.createUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('INSERT INTO gyms') !== -1);
+            assert(query.indexOf('INSERT INTO users') !== -1);
         });
     });
 
-    describe('#updateGym', function () {
-        it('performs some type of UPDATE on the gyms table', function () {
-            GymsDao.updateGym();
+    describe('#updateUser', function () {
+        it('performs some type of UPDATE on the users table', function () {
+            UsersDao.updateUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('UPDATE gyms') !== -1);
+            assert(query.indexOf('UPDATE users') !== -1);
         });
 
         it('query contains a where clause!', function () {
-            GymsDao.updateGym();
+            UsersDao.updateUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('WHERE id = ?') !== -1);
         });
     });
 
-    describe('#deleteGym', function () {
-        it('performs some type of DELETE from the gyms tables', function () {
-            GymsDao.deleteGym();
+    describe('#deleteUser', function () {
+        it('performs some type of DELETE from the users tables', function () {
+            UsersDao.deleteUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('DELETE FROM gyms') !== -1);
+            assert(query.indexOf('DELETE FROM users') !== -1);
         });
 
         it('query contains a where clause!', function () {
-            GymsDao.deleteGym();
+            UsersDao.deleteUser();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('WHERE id = ?') !== -1);

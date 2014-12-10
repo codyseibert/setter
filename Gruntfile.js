@@ -60,7 +60,8 @@ module.exports = function(grunt) {
         },
         env: {
             coverage: {
-                APP_DIR_FOR_CODE_COVERAGE: '/coverage/instrument/src/'
+                APP_DIR_FOR_CODE_COVERAGE: '/coverage/instrument/src/',
+                TESTING: true
             }
         },
         instrument: {
@@ -296,17 +297,17 @@ module.exports = function(grunt) {
         'instrument',
         'mochaTest',
         'storeCoverage',
-        'makeReport'//,
-        //'coverage'
+        'makeReport',
+        'coverage'
     ]);
 
     // Builds
     grunt.registerTask('build:server', [
-        //'check:server',
+        'check:server',
         'newer:copy:server'
     ]);
     grunt.registerTask('build:client', [
-        //'check:client',
+        'check:client',
         'newer:concat:client',
         'newer:uglify:client',
         'newer:htmlmin:dev',
@@ -317,8 +318,8 @@ module.exports = function(grunt) {
     // Tasks
     grunt.registerTask('build', [
         'clean',
-        //'check',
-        //'test',
+        'check',
+        'test',
         'build:server',
         'build:client',
         'newer:copy:node'

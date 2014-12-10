@@ -6,15 +6,15 @@
 *   Guillermo Martinez.
 */
 
-var app = require('./SETTER');
+var app = require('./app');
 
-var AccountsController = require('./controllers/Accounts');
+var GradesController = require('./controllers/GradesController');
 
 var RouteToControllerBinder = function () {
     'use strict';
 
-    // Example
-    //app.post('/api/accounts/login', AccountsController.login);
+    app.get('/api/grades/boulder', GradesController.getBoulderGrades);
+    app.get('/api/grades/rope', GradesController.getBoulderGrades);
 };
 
 module.exports = new RouteToControllerBinder();

@@ -1,4 +1,26 @@
 
+[0m[0m
+[0m  GradesController[0m
+[0m    #getBoulderGrades[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GradesDao getBoulderGrades method [0m
+[2K[0G    [32m  ✓[0m[90m sends the same data returned from the GradesDao.getRopeGrades [0m
+[0m    #getRopeGrades[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GradesDao getBoulderGrades method [0m
+[2K[0G    [32m  ✓[0m[90m sends the same data returned from the GradesDao.getBoulderGrades [0m
 
-[92m [0m[32m 0 passing[0m[90m (0ms)[0m
+[0m  DaoHelper[0m
+[0m    #executeQuery[0m
+[2K[0G    [32m  ✓[0m[90m invokes query on the DBConnection object [0m
+[2K[0G    [32m  ✓[0m[90m calls back with error on error [0m
+[2K[0G    [32m  ✓[0m[90m calls back with error on no results [0m
+[2K[0G    [32m  ✓[0m[90m invokes the callback on success with data [0m
+
+[0m  GradesDao[0m
+[0m    #getBoulderGrades[0m
+[2K[0G    [32m  ✓[0m[90m invokes daoHelper getBoulderGrade method [0m
+[0m    #getRopeGrades[0m
+[2K[0G    [32m  ✓[0m[90m invokes daoHelper getRopeGrade method [0m
+
+
+[92m [0m[32m 10 passing[0m[90m (38ms)[0m
 

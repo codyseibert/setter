@@ -11,6 +11,10 @@ var mysql = require('mysql');
 var DBConnection = function () {
     'use strict';
 
+    if (process.env.APP_DIR_FOR_CODE_COVERAGE) {
+        return undefined;
+    }
+
     var connection;
 
     connection = mysql.createConnection({

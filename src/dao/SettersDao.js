@@ -36,10 +36,10 @@ var SettersDao = function () {
         );
     };
 
-    this.createSetter = function (pFirstname, pLastname, pCallback) {
+    this.createSetter = function (pAccountId, pFirstname, pLastname, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO setters (firstname, lastname) VALUES (?, ?)',
-            [pFirstname, pLastname],
+            'INSERT INTO setters (account_id, firstname, lastname) VALUES (?, ?, ?)',
+            [pAccountId, pFirstname, pLastname],
             pCallback
         );
     };

@@ -42,6 +42,7 @@
     "easyimage": "^1.0.3",
     "bcrypt": "^0.8.0",
     "serve-favicon": "^2.1.7",
-    "morgan": "^1.5.0"
+    "morgan": "^1.5.0",
+    "express-jwt": "^0.5.1"
   }
 }

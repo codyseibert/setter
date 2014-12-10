@@ -26,10 +26,18 @@ var AccountsDAO = function () {
         $param pPassword the password of the account
         $param pCallback invoked on success or failure.
     */
-    this.addAccount = function (pEmail, pPassword, pCallback) {
-        theDaoHelper.createQuery(
-            'INSERT INTO accounts (email, password) VALUES (?, ?)',
-            [pEmail, pPassword],
+    this.addAccount = function (pEmail, pPassword, pTypeId, pCallback) {
+        theDaoHelper.executeQuery(
+            'INSERT INTO accounts (email, password, type_id) VALUES (?, ?, ?)',
+            [pEmail, pPassword, pTypeId],
+            pCallback
+        );
+    };
+
+    this.setToken = function (pAccountId, pToken, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE accounts SET token = ? WHERE id = ?',
+            [pToken, pAccountId],
             pCallback
         );
     };
@@ -41,9 +49,17 @@ var AccountsDAO = function () {
         $param pCallback invoked on success or failure.
     */
     this.getAccountId = function (pEmail, pPassword, pCallback) {
-        theDaoHelper.createQuery(
+        theDaoHelper.executeQuery(
             'SELECT id FROM accounts WHERE email = ? AND password = ?',
             [pEmail, pPassword],
+            pCallback
+        );
+    };
+
+    this.getAccountIdViaToken = function (pToken, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT id FROM accounts WHERE token = ?',
+            [pToken],
             pCallback
         );
     };
@@ -54,7 +70,7 @@ var AccountsDAO = function () {
         $param pCallback invoked on success or failure.
     */
     this.getAccountType = function (pAccountId, pCallback) {
-        theDaoHelper.createQuery(
+        theDaoHelper.executeQuery(
             'SELECT type_id FROM accounts WHERE id = ?',
             [pAccountId],
             pCallback

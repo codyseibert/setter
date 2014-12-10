@@ -9,6 +9,7 @@
 var app = require('./app');
 
 var RegistrationController = require('./controllers/RegistrationController');
+var LoginController = require('./controllers/LoginController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -16,6 +17,8 @@ var RouteToControllerBinder = function () {
     app.post('/api/register/user', RegistrationController.registerUser);
     app.post('/api/register/setter', RegistrationController.registerSetter);
     app.post('/api/register/gym', RegistrationController.registerGym);
+
+    app.post('/api/login', LoginController.login);
 
     /*
     app.get('/api/grades/boulder', GradesController.getBoulderGrades);

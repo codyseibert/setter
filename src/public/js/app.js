@@ -9,6 +9,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'LandingController',
                 templateUrl: 'templates/Landing.tpl'
             })
+
             .when('/register', {
                 controller: 'RegisterController',
                 templateUrl: 'templates/Register.tpl'
@@ -25,6 +26,12 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'RegisterSetterController',
                 templateUrl: 'templates/RegisterSetter.tpl'
             })
+
+            .when('/login', {
+                controller: 'LoginController',
+                templateUrl: 'templates/Login.tpl'
+            })
+
             .otherwise({
                 redirectTo: '/error'
             });

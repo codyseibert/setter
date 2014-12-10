@@ -57,10 +57,10 @@ var GymsDao = function () {
         $param pAddress the address to set this gym
         $param pCallback invoked on success or failure.
     */
-    this.createGym = function (pName, pAddress, pCallback) {
+    this.createGym = function (pAccountId, pName, pAddress, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO gyms (name, address) VALUES (?, ?)',
-            [pName, pAddress],
+            'INSERT INTO gyms (account_id, name, address) VALUES (?, ?, ?)',
+            [pAccountId, pName, pAddress],
             pCallback
         );
     };

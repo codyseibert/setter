@@ -10,7 +10,6 @@
 
 // REQUIRES
 
-
 /**
 *   Logic for all account requests
 *

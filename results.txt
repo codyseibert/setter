@@ -8,6 +8,26 @@
 [2K[0G    [32m  ✓[0m[90m invokes the GradesDao getBoulderGrades method [0m
 [2K[0G    [32m  ✓[0m[90m sends the same data returned from the GradesDao.getBoulderGrades [0m
 
+[0m  GymsController[0m
+[0m    #getGym[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao with expected gym id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #getGyms[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao getGyms method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createGym[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao createGym method with correct name parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao createGym method with correct address parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #updateGym[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected name [0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected address [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteGym[0m
+[2K[0G    [32m  ✓[0m[90m invokes the GymsDao deleteGym method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  DaoHelper[0m
 [0m    #executeQuery[0m
 [2K[0G    [32m  ✓[0m[90m invokes query on the DBConnection object [0m
@@ -17,10 +37,27 @@
 
 [0m  GradesDao[0m
 [0m    #getBoulderGrades[0m
-[2K[0G    [32m  ✓[0m[90m invokes daoHelper getBoulderGrade method [0m
+[2K[0G    [32m  ✓[0m[90m invokes daoHelper executeQuery method [0m
 [0m    #getRopeGrades[0m
-[2K[0G    [32m  ✓[0m[90m invokes daoHelper getRopeGrade method [0m
+[2K[0G    [32m  ✓[0m[90m invokes daoHelper executeQuery method [0m
+
+[0m  GymsDao[0m
+[0m    #getGym[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the gyms table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[0m    #getGyms[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the gyms table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[2K[0G    [32m  ✓[0m[90m query contains no where clause [0m
+[0m    #createGym[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the gyms table [0m
+[0m    #updateGym[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the gyms table [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+[0m    #deleteGym[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the gyms tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 10 passing[0m[90m (38ms)[0m
+[92m [0m[32m 33 passing[0m[90m (69ms)[0m
 

@@ -12,9 +12,8 @@ var GradesController = require('./controllers/GradesController');
 
 var RouteToControllerBinder = function () {
     'use strict';
-
     app.get('/api/grades/boulder', GradesController.getBoulderGrades);
-    app.get('/api/grades/rope', GradesController.getBoulderGrades);
+    app.get('/api/grades/rope', GradesController.getRopeGrades);
 };
 
 module.exports = new RouteToControllerBinder();

@@ -20,7 +20,7 @@ var DBConnection = function () {
     connection = mysql.createConnection({
         host: 'localhost',
         database: 'setter',
-        user: 'root',
+        user: 'setter',
         password: 'BigBlueDog'
     });
     connection.connect();

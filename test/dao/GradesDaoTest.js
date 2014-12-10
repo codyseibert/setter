@@ -33,7 +33,7 @@ describe('GradesDao', function () {
             daoHelperSpy = sinon.spy();
         });
 
-        it('invokes daoHelper getBoulderGrade method', function () {
+        it('invokes daoHelper executeQuery method', function () {
             GradesDao.__set__({
                 theDaoHelper: {
                     executeQuery: daoHelperSpy
@@ -54,7 +54,7 @@ describe('GradesDao', function () {
             daoHelperSpy = sinon.spy();
         });
 
-        it('invokes daoHelper getRopeGrade method', function () {
+        it('invokes daoHelper executeQuery method', function () {
             GradesDao.__set__({
                 theDaoHelper: {
                     executeQuery: daoHelperSpy

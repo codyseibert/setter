@@ -8,6 +8,6 @@
 *   written legally bound permission from both Cody Seibert and
 *   Guillermo Martinez.
 */
-require('./RouteToControllerBinder');
+require('./routes');
 
 require('./app').listen(5000);

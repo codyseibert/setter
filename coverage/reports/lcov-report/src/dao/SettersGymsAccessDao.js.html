@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/dao/UsersDao.js</title>
+    <title>Code coverage report for src/dao/SettersGymsAccessDao.js</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="../../prettify.css">
@@ -196,23 +196,23 @@
 </head>
 <body>
 <div class="header high">
-    <h1>Code coverage report for <span class="entity">src/dao/UsersDao.js</span></h1>
+    <h1>Code coverage report for <span class="entity">src/dao/SettersGymsAccessDao.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">100% <small>(15 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">100% <small>(6 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">100% <small>(15 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/dao/</a> &#187; UsersDao.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/dao/</a> &#187; SettersGymsAccessDao.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -259,28 +259,7 @@
 41
 42
 43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+44</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -294,24 +273,11 @@
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -320,14 +286,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -358,56 +316,35 @@ var theDB = require('../DBConnection');
 var theMessages = require('../Messages');
 var theDaoHelper = require('./DaoHelper');
 &nbsp;
-/**
-    UsersDao
-&nbsp;
-    Contains logic related to users.
-*/
-var UsersDao = function () {
+var CommentsDao = function () {
     'use strict';
 &nbsp;
-    this.getUser = function (pId, pCallback) {
+    this.getAccessList = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, firstname, lastname FROM users WHERE id = ?',
-            [pId],
+            'SELECT setter_id, gym_id FROM setters_gyms_access WHERE gym_id = ?',
+            [pGymId],
             pCallback
         );
     };
 &nbsp;
-    this.getUsers = function (pCallback) {
+    this.createAccess = function (pSetterId, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, firstname, lastname FROM users',
-            [],
+            'INSERT INTO setters_gyms_access (setter_id, gym_id) VALUES (?, ?)',
+            [pSetterId, pGymId],
             pCallback
         );
     };
 &nbsp;
-    this.createUser = function (pFirstname, pLastname, pCallback) {
+    this.deleteAccess = function (pSetterId, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO users (firstname, lastname) VALUES (?, ?)',
-            [pFirstname, pLastname],
-            pCallback
-        );
-    };
-&nbsp;
-    this.updateUser = function (pId, pFirstname, pLastname, pCallback) {
-        theDaoHelper.executeQuery(
-            'UPDATE users SET firstname = ? AND address = ? WHERE id = ?',
-            [pFirstname, pLastname, pId],
-            pCallback
-        );
-    };
-&nbsp;
-    this.deleteUser = function (pId, pCallback) {
-        theDaoHelper.executeQuery(
-            'DELETE FROM users WHERE id = ?',
-            [pId],
+            'DELETE FROM setters_gyms_access WHERE gym_id = ? AND setter_id = ?',
+            [pGymId, pSetterId],
             pCallback
         );
     };
 };
 &nbsp;
-module.exports = new UsersDao();
+module.exports = new CommentsDao();
 &nbsp;</pre></td></tr>
 </table></pre>
 

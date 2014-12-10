@@ -118,6 +118,19 @@
 [2K[0G    [32m  ✓[0m[90m invokes the SettersDao deleteSetter method with expected id [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
+[0m  SettersGymsAccessController[0m
+[0m    #getAccessList[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersGymsAccessDao getAccessList method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createAccess[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersGymsAccessDao createComment method with correct setter_id parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersGymsAccessDao createComment method with correct gymId parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteAccess[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersGymsAccessDao deleteAccess method with setterId [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersGymsAccessDao deleteAccess method with gymId [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  UsersController[0m
 [0m    #getUser[0m
 [2K[0G    [32m  ✓[0m[90m invokes the UsersDao with expected gym id [0m
@@ -238,6 +251,16 @@
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the sets tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
+[0m  SettersGymsAccessDao[0m
+[0m    #getAccessList[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the setters_gyms_access table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[0m    #createAccess[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the setters_gyms_access table [0m
+[0m    #deleteAccess[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the setters_gyms_access tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+
 [0m  SettersDao[0m
 [0m    #getSetter[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the setters table [0m
@@ -287,5 +310,5 @@
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 171 passing[0m[90m (466ms)[0m
+[92m [0m[32m 184 passing[0m[90m (509ms)[0m
 

@@ -2,14 +2,15 @@
 /*global angular: false */
 
 angular.module('SETTER')
-    .factory('AccountsService', ['$http', function ($http) {
+    .factory('GymsService', ['$http', function ($http) {
         'use strict';
 
         return {
-            login: function () {
+            registerGym: function (pRegistrationInfo) {
                 return $http({
                     method: "POST",
-                    url: "api/accounts/login"
+                    url: "api/register/gym",
+                    data: pRegistrationInfo
                 });
             }
         };

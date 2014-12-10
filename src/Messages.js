@@ -16,6 +16,12 @@ var Messages = function () {
 
     this.SUCCESS = 'success';
     this.ERROR = 'error';
+
+    this.error = function (pMessage) {
+        return {
+            error: pMessage
+        };
+    };
 };
 
 module.exports = new Messages();

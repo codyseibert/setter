@@ -36,10 +36,10 @@ var UsersDao = function () {
         );
     };
 
-    this.createUser = function (pFirstname, pLastname, pCallback) {
+    this.createUser = function (pAccountId, pFirstname, pLastname, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO users (firstname, lastname) VALUES (?, ?)',
-            [pFirstname, pLastname],
+            'INSERT INTO users (account_id, firstname, lastname) VALUES (?, ?, ?)',
+            [pAccountId, pFirstname, pLastname],
             pCallback
         );
     };

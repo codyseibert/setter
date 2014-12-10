@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/controllers/SettersController.js</title>
+    <title>Code coverage report for src/controllers/SetsController.js</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="../../prettify.css">
@@ -196,23 +196,23 @@
 </head>
 <body>
 <div class="header high">
-    <h1>Code coverage report for <span class="entity">src/controllers/SettersController.js</span></h1>
+    <h1>Code coverage report for <span class="entity">src/controllers/SetsController.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">100% <small>(30 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(19 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">100% <small>(6 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">100% <small>(30 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(19 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/controllers/</a> &#187; SettersController.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/controllers/</a> &#187; SetsController.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -261,26 +261,7 @@
 43
 44
 45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+46</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -309,29 +290,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-yes">3</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -357,57 +319,38 @@
 *   Guillermo Martinez.
 */
 &nbsp;
-var theSettersDao = require('../dao/SettersDao');
+var theSetsDao = require('../dao/SetsDao');
 var theControllerHelper = require('./ControllerHelper');
 &nbsp;
-var SettersController = function () {
+var SetsController = function () {
     'use strict';
 &nbsp;
-    this.getSetter = function (pReq, pRes) {
-        var id,
+    this.getSets = function (pReq, pRes) {
+        var wallId,
             callback;
-        id = pReq.params.id;
+        wallId = pReq.params.id;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theSettersDao.getSetter(id, callback);
+        theSetsDao.getSets(wallId, callback);
     };
 &nbsp;
-    this.getSetters = function (pReq, pRes) {
-        var callback = theControllerHelper.createDefaultCallback(pRes);
-        theSettersDao.getSetters(callback);
+    this.createSet = function (pReq, pRes) {
+        var wallId,
+            callback;
+        wallId = pReq.params.id;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSetsDao.createSet(wallId, callback);
     };
 &nbsp;
-    this.createSetter = function (pReq, pRes) {
-        var firstname,
-            lastname,
+    this.deleteSet = function (pReq, pRes) {
+        var setId,
             callback;
-        firstname = pReq.body.firstname;
-        lastname = pReq.body.lastname;
+        setId = pReq.params.id;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theSettersDao.createSetter(firstname, lastname, callback);
-    };
-&nbsp;
-    this.updateSetter = function (pReq, pRes) {
-        var id,
-            firstname,
-            lastname,
-            callback;
-        id = pReq.params.id;
-        firstname = pReq.body.firstname;
-        lastname = pReq.body.lastname;
-        callback = theControllerHelper.createDefaultCallback(pRes);
-        theSettersDao.updateSetter(id, firstname, lastname, callback);
-    };
-&nbsp;
-    this.deleteSetter = function (pReq, pRes) {
-        var id,
-            callback;
-        id = pReq.params.id;
-        callback = theControllerHelper.createDefaultCallback(pRes);
-        theSettersDao.deleteSetter(id, callback);
+        theSetsDao.deleteSet(setId, callback);
     };
 };
 &nbsp;
-module.exports = new SettersController();
+module.exports = new SetsController();
 &nbsp;</pre></td></tr>
 </table></pre>
 

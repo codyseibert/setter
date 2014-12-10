@@ -87,6 +87,17 @@
 [2K[0G    [32m  ✓[0m[90m invokes the SendsDao deleteSend method with routeId id [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
+[0m  SetsController[0m
+[0m    #getSets[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SetsDao getSets method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createSet[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SetsDao createSet method with correct wallId parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteSet[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SetsDao deleteSet method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  SettersController[0m
 [0m    #getSetter[0m
 [2K[0G    [32m  ✓[0m[90m invokes the SettersDao with expected gym id [0m
@@ -216,6 +227,17 @@
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the sends tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
+[0m  SetsDao[0m
+[0m    #getSets[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the sets table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[2K[0G    [32m  ✓[0m[90m query contains wall_id where clause [0m
+[0m    #createSet[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the sets table [0m
+[0m    #deleteSet[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the sets tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+
 [0m  SettersDao[0m
 [0m    #getSetter[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the setters table [0m
@@ -265,5 +287,5 @@
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 159 passing[0m[90m (454ms)[0m
+[92m [0m[32m 171 passing[0m[90m (466ms)[0m
 

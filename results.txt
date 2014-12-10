@@ -28,6 +28,46 @@
 [2K[0G    [32m  ✓[0m[90m invokes the GymsDao deleteGym method with expected id [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
+[0m  SettersController[0m
+[0m    #getSetter[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao with expected gym id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #getSetters[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao getSetters method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createSetter[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao createSetter method with correct name parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao createSetter method with correct address parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #updateSetter[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao updateSetter method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao updateSetter method with expected firstname [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao updateSetter method with expected lastname [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteSetter[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SettersDao deleteSetter method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
+[0m  UsersController[0m
+[0m    #getUser[0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao with expected gym id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #getUsers[0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao getUsers method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createUser[0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao createUser method with correct name parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao createUser method with correct address parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #updateUser[0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao updateUser method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao updateUser method with expected firstname [0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao updateUser method with expected lastname [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteUser[0m
+[2K[0G    [32m  ✓[0m[90m invokes the UsersDao deleteUser method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  DaoHelper[0m
 [0m    #executeQuery[0m
 [2K[0G    [32m  ✓[0m[90m invokes query on the DBConnection object [0m
@@ -58,6 +98,23 @@
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the gyms tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
+[0m  SettersDao[0m
+[0m    #getSetter[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the setters table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[0m    #getSetters[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the setters table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[2K[0G    [32m  ✓[0m[90m query contains no where clause [0m
+[0m    #createSetter[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the setters table [0m
+[0m    #updateSetter[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the setters table [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+[0m    #deleteSetter[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the setters tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+
 [0m  UsersDao[0m
 [0m    #getUser[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the users table [0m
@@ -76,5 +133,5 @@
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 43 passing[0m[90m (107ms)[0m
+[92m [0m[32m 79 passing[0m[90m (204ms)[0m
 

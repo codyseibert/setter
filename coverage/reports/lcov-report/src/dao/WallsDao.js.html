@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/dao/SettersDao.js</title>
+    <title>Code coverage report for src/dao/WallsDao.js</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="../../prettify.css">
@@ -196,23 +196,23 @@
 </head>
 <body>
 <div class="header high">
-    <h1>Code coverage report for <span class="entity">src/dao/SettersDao.js</span></h1>
+    <h1>Code coverage report for <span class="entity">src/dao/WallsDao.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">100% <small>(15 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(13 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">100% <small>(6 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(5 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">100% <small>(15 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(13 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/dao/</a> &#187; SettersDao.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/dao/</a> &#187; WallsDao.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -272,15 +272,7 @@
 54
 55
 56
-57
-58
-59
-60
-61
-62
-63
-64
-65</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+57</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -300,14 +292,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -359,55 +343,47 @@ var theMessages = require('../Messages');
 var theDaoHelper = require('./DaoHelper');
 &nbsp;
 /**
-SettersDao
+WallsDao
 &nbsp;
-Contains logic related to Setters.
+Contains logic related to Walls.
 */
-var SettersDao = function () {
+var WallsDao = function () {
     'use strict';
 &nbsp;
-    this.getSetter = function (pId, pCallback) {
+    this.getWalls = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, firstname, lastname FROM setters WHERE id = ?',
-            [pId],
+            'SELECT id FROM walls WHERE gym_id = ?',
+            [pGymId],
             pCallback
         );
     };
 &nbsp;
-    this.getSetters = function (pCallback) {
+    this.createWall = function (pName, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, firstname, lastname FROM setters',
-            [],
+            'INSERT INTO walls (name, gym_id) VALUES (?, ?)',
+            [pName, pGymId],
             pCallback
         );
     };
 &nbsp;
-    this.createSetter = function (pFirstname, pLastname, pCallback) {
+    this.updateWall = function (pId, pName, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO setters (firstname, lastname) VALUES (?, ?)',
-            [pFirstname, pLastname],
+            'UPDATE walls SET name = ? WHERE id = ?',
+            [pName, pId],
             pCallback
         );
     };
 &nbsp;
-    this.updateSetter = function (pId, pFirstname, pLastname, pCallback) {
+    this.deleteWall = function (pId, pCallback) {
         theDaoHelper.executeQuery(
-            'UPDATE setters SET firstname = ? AND address = ? WHERE id = ?',
-            [pFirstname, pLastname, pId],
-            pCallback
-        );
-    };
-&nbsp;
-    this.deleteSetter = function (pId, pCallback) {
-        theDaoHelper.executeQuery(
-            'DELETE FROM setters WHERE id = ?',
+            'DELETE FROM walls WHERE id = ?',
             [pId],
             pCallback
         );
     };
 };
 &nbsp;
-module.exports = new SettersDao();
+module.exports = new WallsDao();
 &nbsp;</pre></td></tr>
 </table></pre>
 

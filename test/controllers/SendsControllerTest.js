@@ -1,9 +1,9 @@
 /*
-Copyright (c) Cody Seibert and Guillermo Martinez
+    Copyright (c) Cody Seibert and Guillermo Martinez
 
-Do not copy, redistribute, sell, modify, etc, without
-written legally bound permission from both Cody Seibert and
-Guillermo Martinez.
+    Do not copy, redistribute, sell, modify, etc, without
+    written legally bound permission from both Cody Seibert and
+    Guillermo Martinez.
 */
 
 
@@ -14,7 +14,6 @@ var chai = require('chai');
 var sinon = require('sinon');
 var rewire = require('rewire');
 global.expect = chai.expect;
-
 
 
 // Unit under test
@@ -57,14 +56,14 @@ describe('SendsController', function () {
 
         it('sends expected data on success', function () {
             var expectedSendsInfo = [
-            {
-                name: 'Send 1 name',
-                address: 'Send 1 address'
-            },
-            {
-                name: 'Send 2 name',
-                address: 'Send 2 address'
-            }
+                {
+                    name: 'Send 1 name',
+                    address: 'Send 1 address'
+                },
+                {
+                    name: 'Send 2 name',
+                    address: 'Send 2 address'
+                }
             ];
 
             SendsController.__set__({

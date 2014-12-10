@@ -127,6 +127,22 @@
 [2K[0G    [32m  ✓[0m[90m invokes the UsersDao deleteUser method with expected id [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
+[0m  WallsController[0m
+[0m    #getWalls[0m
+[2K[0G    [32m  ✓[0m[90m invokes the WallsDao getWalls method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createWall[0m
+[2K[0G    [32m  ✓[0m[90m invokes the WallsDao createWall method with correct name parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the WallsDao createWall method with correct gym_id parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #updateWall[0m
+[2K[0G    [32m  ✓[0m[90m invokes the WallsDao updateWall method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m invokes the WallsDao updateWall method with expected name [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteWall[0m
+[2K[0G    [32m  ✓[0m[90m invokes the WallsDao deleteWall method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  CommentsDao[0m
 [0m    #getCommentsAboutRoute[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the comments table [0m
@@ -234,6 +250,20 @@
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the users tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
+[0m  WallsDao[0m
+[0m    #getWalls[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the walls table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[2K[0G    [32m  ✓[0m[90m query contains gym where clause [0m
+[0m    #createWall[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the Walls table [0m
+[0m    #updateWall[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the walls table [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+[0m    #deleteWall[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the walls tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
-[92m [0m[32m 141 passing[0m[90m (322ms)[0m
+
+[92m [0m[32m 159 passing[0m[90m (454ms)[0m
 

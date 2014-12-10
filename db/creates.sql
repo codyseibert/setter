@@ -77,22 +77,6 @@ CREATE TABLE users
 
 
 
-CREATE TABLE users_gyms_favorites
-(
-    user_id int NOT NULL,
-    gym_id int NOT NULL,
-
-    PRIMARY KEY (user_id, gym_id),
-
-    FOREIGN KEY (user_id)
-        REFERENCES accounts(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (gym_id)
-        REFERENCES accounts(id)
-        ON DELETE CASCADE
-) ENGINE=InnoDB;
-
 CREATE TABLE setters_gyms_access
 (
     setter_id int NOT NULL,
@@ -130,11 +114,11 @@ CREATE TABLE images
 CREATE TABLE walls
 (
     id int NOT NULL AUTO_INCREMENT,
-    account_id int NOT NULL,
+    gym_id int NOT NULL,
 
     PRIMARY KEY (id),
 
-    FOREIGN KEY (account_id)
+    FOREIGN KEY (gym_id)
         REFERENCES accounts(id)
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -143,7 +127,7 @@ CREATE TABLE sets
 (
     id int NOT NULL AUTO_INCREMENT,
     wall_id int NOT NULL,
-    image_id int NOT NULL,
+    image_id int DEFAULT NULL,
     date datetime NOT NULL,
 
     PRIMARY KEY (id),
@@ -177,7 +161,7 @@ CREATE TABLE colors
 (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
-    color varchar(255) NOT NULL,
+    value varchar(255) NOT NULL,
 
     PRIMARY KEY (id)
 ) ENGINE=InnoDB;

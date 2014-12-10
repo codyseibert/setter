@@ -1,5 +1,18 @@
 
 [0m[0m
+[0m  CommentsController[0m
+[0m    #getCommentsAboutRoute[0m
+[2K[0G    [32m  ✓[0m[90m invokes the CommentsDao getCommentsAboutRoute method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createComment[0m
+[2K[0G    [32m  ✓[0m[90m invokes the CommentsDao createComment method with correct userId parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the CommentsDao createComment method with correct routeId parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the CommentsDao createComment method with correct message parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteComment[0m
+[2K[0G    [32m  ✓[0m[90m invokes the CommentsDao deleteComment method with commentId id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  GradesController[0m
 [0m    #getBoulderGrades[0m
 [2K[0G    [32m  ✓[0m[90m invokes the GradesDao getBoulderGrades method [0m
@@ -26,6 +39,13 @@
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 [0m    #deleteGym[0m
 [2K[0G    [32m  ✓[0m[90m invokes the GymsDao deleteGym method with expected id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
+[0m  RatingsController[0m
+[0m    #updateRating[0m
+[2K[0G    [32m  ✓[0m[90m invokes the RatingsDao updateRating method with expected userId [0m
+[2K[0G    [32m  ✓[0m[90m invokes the RatingsDao updateRating method with expected routeId [0m
+[2K[0G    [32m  ✓[0m[90m invokes the RatingsDao updateRating method with expected value [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
 [0m  RoutesController[0m
@@ -94,6 +114,16 @@
 [2K[0G    [32m  ✓[0m[90m invokes the UsersDao deleteUser method with expected id [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
+[0m  CommentsDao[0m
+[0m    #getCommentsAboutRoute[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the comments table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[0m    #createComment[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the comments table [0m
+[0m    #deleteComment[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the comments tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+
 [0m  DaoHelper[0m
 [0m    #executeQuery[0m
 [2K[0G    [32m  ✓[0m[90m invokes query on the DBConnection object [0m
@@ -123,6 +153,11 @@
 [0m    #deleteGym[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the gyms tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+
+[0m  RatingsDao[0m
+[0m    #updateRating[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the ratings table [0m
+[2K[0G    [32m  ✓[0m[90m query contains ON DUPLICATE KEY UPDATE [0m
 
 [0m  RoutesDao[0m
 [0m    #getRoute[0m
@@ -176,5 +211,5 @@
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 108 passing[0m[90m (211ms)[0m
+[92m [0m[32m 127 passing[0m[90m (278ms)[0m
 

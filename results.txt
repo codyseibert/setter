@@ -74,6 +74,19 @@
 [2K[0G    [32m  ✓[0m[90m invokes the RoutesDao deleteRoute method with expected id [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
+[0m  SendsController[0m
+[0m    #getSendsForRoute[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SendsDao getSendsForRoute method [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #createSend[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SendsDao createSend method with correct userId parameter [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SendsDao createSend method with correct routeId parameter [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+[0m    #deleteSend[0m
+[2K[0G    [32m  ✓[0m[90m invokes the SendsDao deleteSend method with userId id [0m
+[2K[0G    [32m  ✓[0m[90m invokes the SendsDao deleteSend method with routeId id [0m
+[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
+
 [0m  SettersController[0m
 [0m    #getSetter[0m
 [2K[0G    [32m  ✓[0m[90m invokes the SettersDao with expected gym id [0m
@@ -176,6 +189,17 @@
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the routes tables [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
+[0m  SendsDao[0m
+[0m    #getSendsForRoute[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the sends table [0m
+[2K[0G    [32m  ✓[0m[90m query contains no * [0m
+[2K[0G    [32m  ✓[0m[90m query contains WHERE s.route_id = ? [0m
+[0m    #createSend[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the sends table [0m
+[0m    #deleteSend[0m
+[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the sends tables [0m
+[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
+
 [0m  SettersDao[0m
 [0m    #getSetter[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the setters table [0m
@@ -211,5 +235,5 @@
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 127 passing[0m[90m (278ms)[0m
+[92m [0m[32m 141 passing[0m[90m (322ms)[0m
 

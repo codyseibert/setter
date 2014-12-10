@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/Messages.js</title>
+    <title>Code coverage report for src/controllers/SendsController.js</title>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../../prettify.css">
 
     <style>
         body, html {
@@ -196,23 +196,23 @@
 </head>
 <body>
 <div class="header high">
-    <h1>Code coverage report for <span class="entity">src/Messages.js</span></h1>
+    <h1>Code coverage report for <span class="entity">src/controllers/SendsController.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(21 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(21 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">src/</a> &#187; Messages.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/controllers/</a> &#187; SendsController.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -237,7 +237,35 @@
 19
 20
 21
-22</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,14 +279,45 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*jslint nomen: true */
+/*jslint unparam: true*/
+&nbsp;
+/*jslint unparam: true, nomen: true*/
 &nbsp;
 /*
 *   Copyright (c) Cody Seibert and Guillermo Martinez
@@ -268,17 +327,42 @@
 *   Guillermo Martinez.
 */
 &nbsp;
-/**
-    Holds all the potential messages which could be returned to the client
-*/
-var Messages = function () {
+var theSendsDao = require('../dao/SendsDao');
+var theControllerHelper = require('./ControllerHelper');
+&nbsp;
+var SendsController = function () {
     'use strict';
 &nbsp;
-    this.SUCCESS = 'success';
-    this.ERROR = 'error';
+    this.getSendsForRoute = function (pReq, pRes) {
+        var routeId,
+            callback;
+        routeId = pReq.params.id;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSendsDao.getSendsForRoute(routeId, callback);
+    };
+&nbsp;
+    this.createSend = function (pReq, pRes) {
+        var userId,
+            routeId,
+            callback;
+        userId = pReq.user.id;
+        routeId = pReq.params.id;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSendsDao.createSend(userId, routeId, callback);
+    };
+&nbsp;
+    this.deleteSend = function (pReq, pRes) {
+        var userId,
+            routeId,
+            callback;
+        userId = pReq.user.id;
+        routeId = pReq.params.id;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSendsDao.deleteSend(userId, routeId, callback);
+    };
 };
 &nbsp;
-module.exports = new Messages();
+module.exports = new SendsController();
 &nbsp;</pre></td></tr>
 </table></pre>
 
@@ -287,7 +371,7 @@ module.exports = new Messages();
     <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 10 2014 01:49:20 GMT-0500 (EST)</div>
 </div>
 
-<script src="../prettify.js"></script>
+<script src="../../prettify.js"></script>
 
 <script src="https://yui-s.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
 <script>

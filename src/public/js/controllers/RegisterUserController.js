@@ -11,8 +11,8 @@ angular.module('SETTER')
         $scope.registerClicked = function () {
             UsersService.registerUser($scope.form)
                 .success(function (pData) {
-                    LoginService.setHeader(pData);
-                    $location.path('notes');
+                    LoginService.setHeader(pData.token);
+                    $scope.navigateToUserDashboard();
                 })
                 .error(function (pData) {
                     $scope.error = pData.error;

@@ -31,7 +31,16 @@ var LoginHelper = function () {
                 return;
             }
 
-            pRes.send(token);
+            theAccountsDao.getAccountType(pAccountId, function (pResults) {
+                if (pResults.error) {
+                    pRes.status(400);
+                    pRes.send(theMessages.ERROR);
+                    return;
+                }
+
+                pRes.send({token: token, type_id: pResults.type_id});
+            });
+
         });
     };
 };

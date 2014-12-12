@@ -2,7 +2,7 @@
 /*global angular: false */
 
 angular.module('SETTER')
-    .factory('LoginService', ['$http', function ($http) {
+    .factory('LoginService', ['$http', '$cookies', '$location', function ($http, $cookies, $location) {
         'use strict';
 
         return {
@@ -12,6 +12,21 @@ angular.module('SETTER')
                     url: "api/login",
                     data: pLoginInfo
                 });
+            },
+            setHeader: function (pToken) {
+                $cookies.token = pToken;
+                $http.defaults.headers.common.Authorization = 'Bearer ' + pToken;
+            },
+            validateLoggedIn: function () {
+                if (!$http.defaults.headers.common.Authorization) {
+                    $location.path('login');
+                    return false;
+                }
+                return true;
+            },
+            isLoggedIn: function () {
+                return $http.defaults.headers.common.Authorization !== undefined;
             }
         };
+
     }]);

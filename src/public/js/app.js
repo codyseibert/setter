@@ -11,15 +11,11 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 templateUrl: 'templates/Landing.tpl'
             })
             */
-            .when('/register', {
-                controller: 'RegisterController',
-                templateUrl: 'templates/Register.tpl'
-            })
-            .when('/register/gym', {
+            .when('/gym/register', {
                 controller: 'RegisterGymController',
                 templateUrl: 'templates/RegisterGym.tpl'
             })
-            .when('/register/user', {
+            .when('/user/register', {
                 controller: 'RegisterUserController',
                 templateUrl: 'templates/RegisterUser.tpl'
             })
@@ -27,13 +23,28 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'LoginController',
                 templateUrl: 'templates/Login.tpl'
             })
-
+            .when('/gym/dashboard', {
+                controller: 'GymDashboardController',
+                templateUrl: 'templates/GymDashboard.tpl'
+            })
+            .when('/user/dashboard', {
+                controller: 'UserDashboardController',
+                templateUrl: 'templates/UserDashboard.tpl'
+            })
             .otherwise({
                 redirectTo: '/login'
             });
 
     }])
-    .run([function () {
+    .run(['$rootScope', '$location', function ($rootScope, $location) {
         'use strict';
         angular.noop();
+
+        $rootScope.navigateToGymDashboard = function () {
+            $location.path('gym/dashboard');
+        };
+
+        $rootScope.navigateToUserDashboard = function () {
+            $location.path('user/dashboard');
+        };
     }]);

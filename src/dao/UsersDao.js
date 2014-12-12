@@ -24,6 +24,7 @@ var UsersDao = function () {
         theDaoHelper.executeQuery(
             'SELECT id, firstname, lastname FROM users WHERE id = ?',
             [pId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };
@@ -32,6 +33,7 @@ var UsersDao = function () {
         theDaoHelper.executeQuery(
             'SELECT id, firstname, lastname FROM users',
             [],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -40,6 +42,7 @@ var UsersDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO users (account_id, firstname, lastname) VALUES (?, ?, ?)',
             [pAccountId, pFirstname, pLastname],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -48,6 +51,7 @@ var UsersDao = function () {
         theDaoHelper.executeQuery(
             'UPDATE users SET firstname = ? AND address = ? WHERE id = ?',
             [pFirstname, pLastname, pId],
+            theDaoHelper.UPDATE,
             pCallback
         );
     };
@@ -56,6 +60,7 @@ var UsersDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM users WHERE id = ?',
             [pId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };

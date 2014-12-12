@@ -12,6 +12,8 @@
 var randomstring = require('just.randomstring');
 var theAccountsDao = require('../dao/AccountsDao');
 var theMessages = require('../Messages');
+var theLoginHelper = require('./LoginHelper');
+var theCrypt = require('../Crypt');
 
 /**
 *   Logic for all account requests
@@ -21,31 +23,31 @@ var theMessages = require('../Messages');
 */
 var LoginController = function () {
     'use strict';
+
     this.login = function (pReq, pRes) {
         var body,
             email,
-            password,
-            token;
+            password;
         body = pReq.body;
         email = body.email;
         password = body.password;
-        token = randomstring(20);
 
-        theAccountsDao.getAccountId(email, password, function (pResults) {
-            console.log(pResults);
-            if (pResults === theMessages.ERROR) {
+        theAccountsDao.getAccountId(email, function (pResults) {
+            if (pResults.error) {
+                pRes.status(400);
                 pRes.send(pResults);
                 return;
             }
-            var accountId = pResults[0].id;
-            theAccountsDao.setToken(accountId, token, function (pResults) {
-                if (pResults === theMessages.ERROR) {
-                    pRes.send(pResults);
-                    return;
-                }
 
-                pRes.send(token);
+            theCrypt.check(password, pResults.password, function (err, matches) {
+                if (matches) {
+                    theLoginHelper.generateAndSendToken(pResults.id, pRes);
+                } else {
+                    pRes.status(400);
+                    pRes.send(theMessages.error("Invalid Login!"));
+                }
             });
+
         });
     };
 };

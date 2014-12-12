@@ -26,10 +26,11 @@ var AccountsDAO = function () {
         $param pPassword the password of the account
         $param pCallback invoked on success or failure.
     */
-    this.addAccount = function (pEmail, pPassword, pTypeId, pCallback) {
+    this.createAccount = function (pEmail, pPassword, pTypeId, pCallback) {
         theDaoHelper.executeQuery(
             'INSERT INTO accounts (email, password, type_id) VALUES (?, ?, ?)',
             [pEmail, pPassword, pTypeId],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -38,6 +39,7 @@ var AccountsDAO = function () {
         theDaoHelper.executeQuery(
             'UPDATE accounts SET token = ? WHERE id = ?',
             [pToken, pAccountId],
+            theDaoHelper.UPDATE,
             pCallback
         );
     };
@@ -48,10 +50,11 @@ var AccountsDAO = function () {
         $param pPassword the password of the account
         $param pCallback invoked on success or failure.
     */
-    this.getAccountId = function (pEmail, pPassword, pCallback) {
+    this.getAccountId = function (pEmail, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id FROM accounts WHERE email = ? AND password = ?',
-            [pEmail, pPassword],
+            'SELECT id, password FROM accounts WHERE email = ?',
+            [pEmail],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };
@@ -60,6 +63,7 @@ var AccountsDAO = function () {
         theDaoHelper.executeQuery(
             'SELECT id FROM accounts WHERE token = ?',
             [pToken],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };
@@ -73,6 +77,7 @@ var AccountsDAO = function () {
         theDaoHelper.executeQuery(
             'SELECT type_id FROM accounts WHERE id = ?',
             [pAccountId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };

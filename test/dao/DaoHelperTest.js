@@ -42,7 +42,7 @@ describe('DaoHelper', function () {
                 }
             });
 
-            DaoHelper.executeQuery('', [], function() {});
+            DaoHelper.executeQuery('', [], DaoHelper.SINGLE, function() {});
 
             assert(querySpy.calledOnce);
         });
@@ -56,7 +56,7 @@ describe('DaoHelper', function () {
                 }
             });
 
-            DaoHelper.executeQuery('', [], callbackSpy);
+            DaoHelper.executeQuery('', [], DaoHelper.SINGLE, callbackSpy);
 
             var actualMessage = callbackSpy.getCall(0).args[0];
             var expectedMessage = Messages.ERROR;
@@ -72,11 +72,11 @@ describe('DaoHelper', function () {
                 }
             });
 
-            DaoHelper.executeQuery('', [], callbackSpy);
+            DaoHelper.executeQuery('', [], DaoHelper.SINGLE, callbackSpy);
 
             var actualMessage = callbackSpy.getCall(0).args[0];
-            var expectedMessage = Messages.ERROR;
-            assert.equal(actualMessage, expectedMessage);
+            var expectedMessage = Messages.error("No results returned on SINGLE query!");
+            assert.deepEqual(actualMessage, expectedMessage);
         });
 
         it('invokes the callback on success with data', function () {
@@ -89,7 +89,7 @@ describe('DaoHelper', function () {
                 }
             });
 
-            DaoHelper.executeQuery('', [], callbackSpy);
+            DaoHelper.executeQuery('', [], DaoHelper.MULTIPLE, callbackSpy);
 
             var actualData = callbackSpy.getCall(0).args[0];
             assert.equal(actualData, expectedData);

@@ -31,6 +31,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'SELECT id, name, address FROM gyms WHERE id = ?',
             [pId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };
@@ -45,6 +46,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'SELECT id, name, address FROM gyms',
             [],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -61,6 +63,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO gyms (account_id, name, address) VALUES (?, ?, ?)',
             [pAccountId, pName, pAddress],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -78,6 +81,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'UPDATE gyms SET name = ? AND address = ? WHERE id = ?',
             [pName, pAddress, pId],
+            theDaoHelper.UPDATE,
             pCallback
         );
     };
@@ -93,6 +97,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM gyms WHERE id = ?',
             [pId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };

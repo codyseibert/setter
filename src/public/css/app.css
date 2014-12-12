@@ -14,16 +14,16 @@ body {
     background-repeat: repeat;
     background-color: #61b2a7;
     color: #333f4f;
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 #header{
     height: 60px;
-    background-color: #222;
+    background-color: #FF9900;
     font-size: 30px;
     text-align: center;
-    border-bottom: 2px solid #53bf6b;
-    color: #53bf6b;
+    border-bottom: 2px solid #FFCC00;
+    color: #222;
 }
 
 #header .logo{
@@ -61,7 +61,7 @@ body {
 
 .title{
     font-size: 40px;
-    color: #53bf6b;
+    color: white;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -83,7 +83,7 @@ body {
 }
 
 .btn_green{
-    background-color: #53bf6b;
+    background-color: #FF9900;
     width: 300px;
     color: white;
     border-radius: 10px;
@@ -272,9 +272,8 @@ button{
     z-index: 10;
     height: 100px;
     margin-top: -6em;
-    background-color: #2aa3c1;
     line-height: 30px;
-    border-top: 2px solid #53bf6b;
-    background-color: #222;
-    color: #53bf6b;
+    border-top: 2px solid #FFCC00;
+    background-color: #FF9900;
+    color: #222;
 }

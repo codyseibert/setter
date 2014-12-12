@@ -15,21 +15,18 @@ var theAccountsDao = require('../dao/AccountsDao');
 var theUsersDao = require('../dao/UsersDao');
 var theSettersDao = require('../dao/SettersDao');
 var theGymsDao = require('../dao/GymsDao');
-
 var theValidator = require('validator');
-
+var theCrypt = require('../Crypt');
+var theLoginHelper = require('./LoginHelper');
 var Messages = require('../Messages');
-
 var theControllerHelper = require('./ControllerHelper');
 
 var UsersController = function () {
     'use strict';
 
     var USER_TYPE = 1,
-        SETTER_TYPE = 2,
-        GYM_TYPE = 3,
-        validateInputForAccount,
-        validateInputForUserAndSetter;
+        GYM_TYPE = 2,
+        validateInputForAccount;
 
     validateInputForAccount = function (pReq, pRes) {
         var body,
@@ -41,34 +38,14 @@ var UsersController = function () {
         password = body.password;
 
         if (!theValidator.isEmail(email)) {
+            pRes.status(400);
             pRes.send(Messages.error('Invalid Email Format'));
             return false;
         }
 
         if (!password || password.length < 6) {
+            pRes.status(400);
             pRes.send(Messages.error('Password too short!'));
-            return false;
-        }
-
-        return true;
-    };
-
-    validateInputForUserAndSetter = function (pReq, pRes) {
-        var body,
-            firstname,
-            lastname;
-
-        body = pReq.body;
-        firstname = body.firstname;
-        lastname = body.lastname;
-
-        if (!firstname || firstname === '') {
-            pRes.send(Messages.error('Please enter a first name!'));
-            return false;
-        }
-
-        if (!lastname || lastname === '') {
-            pRes.send(Messages.error('Please enter a last name!'));
             return false;
         }
 
@@ -93,43 +70,26 @@ var UsersController = function () {
             return;
         }
 
-        if (!validateInputForUserAndSetter(pReq, pRes)) {
-            return;
+        if (!firstname || firstname === '') {
+            pRes.status(400);
+            pRes.send(Messages.error('Please enter a first name!'));
+            return false;
         }
 
-        theAccountsDao.addAccount(email, password, USER_TYPE, function (results) {
-            var accountId = results.insertId;
-            callback = theControllerHelper.createDefaultCallback(pRes);
-            theUsersDao.createUser(accountId, firstname, lastname, callback);
-        });
-    };
-
-    this.registerSetter = function (pReq, pRes) {
-        var body,
-            email,
-            password,
-            firstname,
-            lastname,
-            callback;
-
-        body = pReq.body;
-        email = body.email;
-        password = body.password;
-        firstname = body.firstname;
-        lastname = body.lastname;
-
-        if (!validateInputForAccount(pReq, pRes)) {
-            return;
+        if (!lastname || lastname === '') {
+            pRes.status(400);
+            pRes.send(Messages.error('Please enter a last name!'));
+            return false;
         }
 
-        if (!validateInputForUserAndSetter(pReq, pRes)) {
-            return;
-        }
-
-        theAccountsDao.addAccount(email, password, SETTER_TYPE, function (results) {
-            var accountId = results.insertId;
-            callback = theControllerHelper.createDefaultCallback(pRes);
-            theSettersDao.createSetter(accountId, firstname, lastname, callback);
+        theCrypt.crypt(password, function (err, hash) {
+            theAccountsDao.createAccount(email, hash, USER_TYPE, function (pResults) {
+                var accountId = pResults.id;
+                callback = function (pData) {
+                    theLoginHelper.generateAndSendToken(accountId, pRes);
+                };
+                theUsersDao.createUser(accountId, firstname, lastname, callback);
+            });
         });
     };
 
@@ -152,19 +112,25 @@ var UsersController = function () {
         }
 
         if (!name || name === '') {
+            pRes.status(400);
             pRes.send(Messages.error('Please enter the name of your gym!'));
             return;
         }
 
         if (!address || address === '') {
+            pRes.status(400);
             pRes.send(Messages.error('Please enter the address of your gym!'));
             return;
         }
 
-        theAccountsDao.addAccount(email, password, GYM_TYPE, function (results) {
-            var accountId = results.insertId;
-            callback = theControllerHelper.createDefaultCallback(pRes);
-            theGymsDao.createGym(accountId, name, address, callback);
+        theCrypt.crypt(password, function (err, hash) {
+            theAccountsDao.createAccount(email, hash, GYM_TYPE, function (pResults) {
+                var accountId = pResults.id;
+                callback = function (pData) {
+                    theLoginHelper.generateAndSendToken(accountId, pRes);
+                };
+                theGymsDao.createGym(accountId, name, address, callback);
+            });
         });
     };
 };

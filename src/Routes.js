@@ -15,7 +15,6 @@ var RouteToControllerBinder = function () {
     'use strict';
 
     app.post('/api/register/user', RegistrationController.registerUser);
-    app.post('/api/register/setter', RegistrationController.registerSetter);
     app.post('/api/register/gym', RegistrationController.registerGym);
 
     app.post('/api/login', LoginController.login);

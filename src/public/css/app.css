@@ -1,3 +1,280 @@
-body{
+/* Background pattern from subtlepatterns.com */
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0px;
     padding: 0px;
+    background-image: url('../images/seamless_paper_texture.png');
+    background-repeat: repeat;
+    background-color: #61b2a7;
+    color: #333f4f;
+    font-family: 'Josefin Slab', serif;
+}
+
+#header{
+    height: 60px;
+    background-color: #222;
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 2px solid #53bf6b;
+    color: #53bf6b;
+}
+
+#header .logo{
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+#header .logo .left{
+    color: #53bf6b;
+}
+
+#header .logo:hover .left{
+    color: white;
+}
+
+#header .logo .right{
+    color: white;
+}
+
+#header .logo:hover .right{
+    color: #53bf6b;
+}
+
+.mb {
+    margin-bottom: 10px;
+}
+
+.error{
+    color: red;
+    font-size: 30px;
+}
+
+.title{
+    font-size: 40px;
+    color: #53bf6b;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.nav{
+    float: right;
+    position: relative;
+    top: 8px;
+    right: 10px;
+    font-size: 40px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover{
+    color: white;
+}
+
+.btn_green{
+    background-color: #53bf6b;
+    width: 300px;
+    color: white;
+    border-radius: 10px;
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    cursor: pointer;
+    display: inline-block;
+    height: 45px;
+}
+
+.btn_black{
+    background-color: #222;
+    width: 300px;
+    color: white;
+    border-radius: 10px;
+    font-size: 40px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+}
+
+.btn_black:hover{
+    background-color: #666;
+}
+
+.btn_green:hover{
+    background-color: #1A8E34;
+}
+
+.btn_green:hover{
+    background-color: #1A8E34;
+}
+
+.fs20{
+    font-size: 20px;
+}
+
+.fs30{
+    font-size: 30px;
+}
+
+.small{
+    width: 140px;
+    font-size: 26px;
+    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+input{
+    padding: 10px;
+    background-color: white;
+    width: 280px;
+    font-size: 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #53bf6b;
+}
+
+textarea{
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: white;
+    color: #53bf6b;
+    font-size: 20px;
+}
+
+button{
+    padding: 10px;
+    border-radius: 10px;
+    width: 100px;
+    cursor: pointer;
+    background-color: white;
+}
+
+#content{
+    text-align: center;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -100px
+}
+
+.light_white_bg{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.border_bottom{
+    border-bottom: 1px dashed #53bf6b;
+}
+
+.border_top{
+    border-top: 1px dashed #53bf6b;
+}
+
+.note_wrapper{
+    display: inline-block;
+    padding: 10px;
+}
+
+.filter{
+    position: relative;
+    right: -25px;
+}
+
+.filter_icon{
+    left: -25px;
+    position: relative;
+    font-size: 30px;
+    color: #AEEABB;
+}
+
+.tos{
+    text-align: left;
+    padding: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.h10{
+    height: 10px;
+}
+
+.h20{
+    height: 20px;
+}
+
+.h50{
+    height: 50px;
+}
+
+.p30{
+    padding-bottom: 30px;
+}
+
+.note{
+    position: relative;
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #222;
+    padding-right: 30px;
+    color: #222;
+}
+
+.note img{
+    max-width: 300px;
+}
+
+.note textarea{
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.note .delete{
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    cursor: pointer;
+}
+
+.note .delete:hover{
+    color: red;
+}
+
+.link{
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.link:hover{
+    color: #1A8E34;
+}
+
+.footer{
+    text-align: center;
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 100px;
+    margin-top: -6em;
+    background-color: #2aa3c1;
+    line-height: 30px;
+    border-top: 2px solid #53bf6b;
+    background-color: #222;
+    color: #53bf6b;
 }

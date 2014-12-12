@@ -1,13 +1,24 @@
 module.exports = function(grunt) {
-    require('load-grunt-tasks')(grunt, {pattern: ['grunt-*','karama']});
+    require('load-grunt-tasks')(grunt, {pattern: ['grunt-*']});
 
     grunt.loadNpmTasks('grunt-istanbul');
     grunt.loadNpmTasks('grunt-istanbul-coverage');
     grunt.loadNpmTasks('grunt-env');
+    grunt.loadNpmTasks('grunt-bower-install');
+    grunt.loadNpmTasks('grunt-preprocess');
+    grunt.loadNpmTasks('grunt-text-replace');
 
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
+
+        mkdir: {
+            bower_components: {
+                options: {
+                    create: ['src/public/bower_components']
+                }
+            }
+        },
 
         concat: {
             options: {
@@ -22,7 +33,9 @@ module.exports = function(grunt) {
         jshint: {
             server: [
                 'src/*.js',
-                'src/controllers/*.js'
+                'src/controllers/*.js',
+                'src/dao/*.js',
+                'src/middleware/*.js'
             ],
             client: [
                 'src/public/js/**/*.js'
@@ -39,6 +52,29 @@ module.exports = function(grunt) {
             }
         },
 
+        'bower-install-simple': {
+            options: {
+                cwd: 'src/public'
+            },
+            dev: {
+
+            }
+        },
+
+        bowerInstall: {
+            target: {
+                src: [
+                    'src/public/index.html'
+                ],
+                cwd: 'src/public',
+                dependencies: true,
+                exclude: [],
+                fileTypes: {},
+                ignorePath: '',
+                overrides: {}
+            }
+        },
+
         clean: {
             build: {
                 src: [
@@ -46,6 +82,7 @@ module.exports = function(grunt) {
                 ]
             }
         },
+
         coverage: {
             options: {
                 thresholds:{
@@ -62,13 +99,26 @@ module.exports = function(grunt) {
             coverage: {
                 APP_DIR_FOR_CODE_COVERAGE: '/coverage/instrument/src/',
                 TESTING: true
+            },
+            dev: {
+                NODE_ENV: 'DEVELOPMENT'
+            },
+            prod: {
+                NODE_ENV: 'PRODUCTION'
+            }
+        },
+        preprocess:{
+            prod: {
+                src: './src/public/index.html',
+                dest: './build/app/index.html'
             }
         },
         instrument: {
             files: [
                 'src/*.js',
                 'src/controllers/*.js',
-                'src/dao/*.js'
+                'src/dao/*.js',
+                'src/middleware/*.js'
             ],
             options: {
                 lazy: true,
@@ -101,58 +151,64 @@ module.exports = function(grunt) {
         },
 
 
-
+        processhtml: {
+            prod: {
+                files: {
+                    'build/app/public/index.html' : 'build/app/public/index.html'
+                }
+            }
+        },
 
 
         copy: {
             server: {
                 files: [
-                    {
-                        expand: true,
-                        flatten: false,
-                        cwd: 'src',
-                        src: [
-                            '*.js',
-                            'controllers/*.js',
-                            'dao/*.js',
-                            'auth/*.js'
-                        ],
-                        dest: 'build/app/',
-                        filter: 'isFile'
-                    },
+                {
+                    expand: true,
+                    flatten: false,
+                    cwd: 'src',
+                    src: [
+                        '*.js',
+                        'controllers/*.js',
+                        'dao/*.js',
+                        'middleware/*.js'
+                    ],
+                    dest: 'build/app/',
+                    filter: 'isFile'
+                },
                 ],
             },
 
             client: {
                 files: [
-                    {
-                        expand: true,
-                        flatten: false,
-                        cwd: 'src',
-                        src: [
-                            'public/font/**',
-                            'public/images/**',
-                            'public/templates/**',
-                            'public/css/fontello.css',
-                            'public/bower_components/**'
-                        ],
-                        dest: 'build/app',
-                        filter: 'isFile'
-                    },
+                {
+                    expand: true,
+                    flatten: false,
+                    cwd: 'src',
+                    src: [
+                        'public/font/**',
+                        'public/images/**',
+                        'public/templates/**',
+                        'public/css/fontello.css',
+                        'public/bower_components/**'
+                    ],
+                    dest: 'build/app',
+                    filter: 'isFile'
+                },
                 ],
             },
 
             node: {
                 files: [
-                    {
-                        expand: true,
-                        flatten: false,
-                        src: [
-                            'node_modules/**'
-                        ],
-                        dest: 'build/app/',
-                        filter: 'isFile'
-                    },
+                {
+                    expand: true,
+                    flatten: false,
+                    src: [
+                        'node_modules/**'
+                    ],
+                    dest: 'build/app/',
+                    filter: 'isFile'
+                },
                 ],
             },
         },
@@ -200,12 +256,39 @@ module.exports = function(grunt) {
             }
         },
 
-        jsdoc : {
-            dist : {
+        jsdoc: {
+            dist: {
                 src: ['src/*.js', 'test/*.js'],
                 options: {
                     destination: 'doc'
                 }
+            }
+        },
+
+        replace: {
+            index: {
+                src: 'build/app/public/index.html',
+                dest: 'build/app/public/index.html',
+                replacements: [{
+                    from: 'js/app.js',
+                    to: 'js/app.min.js'
+                }]
+            },
+            port: {
+                src: 'build/app/Server.js',
+                dest: 'build/app/Server.js',
+                replacements: [{
+                    from: '5000',
+                    to: '80'
+                }]
+            },
+            css: {
+                src: 'build/app/public/index.html',
+                dest: 'build/app/public/index.html',
+                replacements: [{
+                    from: 'css/app.css',
+                    to: 'css/app.min.css'
+                }]
             }
         },
 
@@ -238,7 +321,8 @@ module.exports = function(grunt) {
                 src: [
                     'src/*.js',
                     'src/controllers/*.js',
-                    'src/dao/*.js'
+                    'src/dao/*.js',
+                    'src/middleware/*.js'
                 ],
                 directives: {
                     node: true,
@@ -273,8 +357,6 @@ module.exports = function(grunt) {
         }
     });
 
-    // Define task(s).
-    // Check
     grunt.registerTask('check:css', [
         'newer:csslint:strict'
     ]);
@@ -298,7 +380,7 @@ module.exports = function(grunt) {
         'mochaTest',
         'storeCoverage',
         'makeReport',
-        'coverage'
+        //'coverage'
     ]);
 
     // Builds
@@ -318,18 +400,18 @@ module.exports = function(grunt) {
     // Tasks
     grunt.registerTask('build', [
         'clean',
+        'mkdir:bower_components',
         'check',
         'test',
+        'bowerInstall',
         'build:server',
         'build:client',
-        'newer:copy:node'
+        'bower-install-simple:dev',
+        'newer:copy:node',
+        'replace:index',
+        'replace:port',
+        'replace:css',
+        'processhtml:prod'
     ]);
 
-    //grunt.registerTask('test', ['karma']);
-    //grunt.registerTask('docs', ['jsdoc']);
-    //grunt.registerTask('clean', ['clean']);
-    grunt.registerTask('report', ['newer:complexity:generic']);
-
-    // Defualt Task
-    grunt.registerTask('default', ['check']);
 };

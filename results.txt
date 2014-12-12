@@ -180,11 +180,8 @@
 [0m  DaoHelper[0m
 [0m    #executeQuery[0m
 [2K[0G    [32m  ✓[0m[90m invokes query on the DBConnection object [0m
-true
 [2K[0G    [32m  ✓[0m[90m calls back with error on error [0m
-false
 [2K[0G    [32m  ✓[0m[90m calls back with error on no results [0m
-false
 [2K[0G    [32m  ✓[0m[90m invokes the callback on success with data [0m
 
 [0m  GradesDao[0m
@@ -313,5 +310,5 @@ false
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 184 passing[0m[90m (285ms)[0m
+[92m [0m[32m 184 passing[0m[90m (271ms)[0m
 

@@ -8,6 +8,6 @@
 *   written legally bound permission from both Cody Seibert and
 *   Guillermo Martinez.
 */
-require('./routes');
+require('./Routes');
 
-require('./app').listen(5000);
+require('./App').listen(5000);

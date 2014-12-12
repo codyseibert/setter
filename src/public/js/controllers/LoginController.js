@@ -13,5 +13,5 @@ angular.module('SETTER')
                 .success(function (pData, pStatus, pHeaders, pConfig) {
                     console.log(pData);
                 });
-        }
+        };
     }]);

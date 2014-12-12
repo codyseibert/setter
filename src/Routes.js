@@ -6,7 +6,7 @@
 *   Guillermo Martinez.
 */
 
-var app = require('./app');
+var app = require('./App');
 
 var RegistrationController = require('./controllers/RegistrationController');
 var LoginController = require('./controllers/LoginController');

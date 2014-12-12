@@ -47,7 +47,7 @@ var LoginController = function () {
                 pRes.send(token);
             });
         });
-    }
+    };
 };
 
 module.exports = new LoginController();

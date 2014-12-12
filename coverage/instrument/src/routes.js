@@ -1,9 +1,0 @@
-
-var __cov_PKXjE83wI2jOY5hqNiB8lA = (Function('return this'))();
-if (!__cov_PKXjE83wI2jOY5hqNiB8lA.__coverage__) { __cov_PKXjE83wI2jOY5hqNiB8lA.__coverage__ = {}; }
-__cov_PKXjE83wI2jOY5hqNiB8lA = __cov_PKXjE83wI2jOY5hqNiB8lA.__coverage__;
-if (!(__cov_PKXjE83wI2jOY5hqNiB8lA['src/routes.js'])) {
-   __cov_PKXjE83wI2jOY5hqNiB8lA['src/routes.js'] = {"path":"src/routes.js","s":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0},"b":{},"f":{"1":0},"fnMap":{"1":{"name":"(anonymous_1)","line":13,"loc":{"start":{"line":13,"column":30},"end":{"line":13,"column":42}}}},"statementMap":{"1":{"start":{"line":9,"column":0},"end":{"line":9,"column":27}},"2":{"start":{"line":11,"column":0},"end":{"line":11,"column":77}},"3":{"start":{"line":13,"column":0},"end":{"line":30,"column":2}},"4":{"start":{"line":16,"column":4},"end":{"line":16,"column":72}},"5":{"start":{"line":17,"column":4},"end":{"line":17,"column":76}},"6":{"start":{"line":18,"column":4},"end":{"line":18,"column":70}},"7":{"start":{"line":32,"column":0},"end":{"line":32,"column":47}}},"branchMap":{}};
-}
-__cov_PKXjE83wI2jOY5hqNiB8lA = __cov_PKXjE83wI2jOY5hqNiB8lA['src/routes.js'];
-__cov_PKXjE83wI2jOY5hqNiB8lA.s['1']++;var app=require('./app');__cov_PKXjE83wI2jOY5hqNiB8lA.s['2']++;var RegistrationController=require('./controllers/RegistrationController');__cov_PKXjE83wI2jOY5hqNiB8lA.s['3']++;var RouteToControllerBinder=function(){'use strict';__cov_PKXjE83wI2jOY5hqNiB8lA.f['1']++;__cov_PKXjE83wI2jOY5hqNiB8lA.s['4']++;app.post('/api/register/user',RegistrationController.registerUser);__cov_PKXjE83wI2jOY5hqNiB8lA.s['5']++;app.post('/api/register/setter',RegistrationController.registerSetter);__cov_PKXjE83wI2jOY5hqNiB8lA.s['6']++;app.post('/api/register/gym',RegistrationController.registerGym);};__cov_PKXjE83wI2jOY5hqNiB8lA.s['7']++;module.exports=new RouteToControllerBinder();

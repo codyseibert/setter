@@ -17,7 +17,7 @@ angular.module('SETTER')
             LoginService.login($scope.form)
                 .success(function (pData) {
                     LoginService.setHeader(pData.token);
-                    LoginService.setAccountType(pData.typeId);
+                    LoginService.setAccountType(pData.accountType);
                     LoginService.navigateToCorrectDashboard();
                 });
         };

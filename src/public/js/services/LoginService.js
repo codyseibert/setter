@@ -19,7 +19,7 @@ angular.module('SETTER')
             },
             setHeader: function (pToken) {
                 $http.defaults.headers.common.Authorization = 'Bearer ' + pToken;
-                $cookies.token = $http.defaults.headers.common.Authorization;
+                $cookies.token = pToken;
             },
             validateLoggedIn: function () {
                 if (!this.isLoggedIn()) {
@@ -32,17 +32,23 @@ angular.module('SETTER')
                 return $http.defaults.headers.common.Authorization !== undefined;
             },
             setHeaderFromCookie: function () {
-                $http.defaults.headers.common.Authorization = $cookies.token;
+                $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.token;
+            },
+            setTypeFromCookie: function () {
+                accountType = parseInt($cookies.accountType, 10);
             },
             hasTokenInCookie: function () {
                 return $cookies.token !== undefined;
             },
             logout: function () {
                 delete $cookies.token;
+                delete $cookies.accountType;
                 delete $http.defaults.headers.common.Authorization;
             },
             setAccountType: function (pAccountType) {
+                pAccountType = parseInt(pAccountType, 10);
                 accountType = pAccountType;
+                $cookies.accountType = pAccountType;
             },
             getAccountType: function () {
                 return accountType;

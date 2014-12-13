@@ -63,5 +63,6 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
 
         if (LoginService.hasTokenInCookie()) {
             LoginService.setHeaderFromCookie();
+            LoginService.setTypeFromCookie();
         }
     }]);

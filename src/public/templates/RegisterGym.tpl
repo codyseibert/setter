@@ -1,3 +1,8 @@
+<div class="btn_black"
+    ng-click="back()">
+    <i class="icon-left-big"> </i>Back
+</div>
+
 Register Gym<br>
 <input ng-model='form.email' placeholder="email" /><br>
 <input ng-model='form.password' placeholder="password" /><br>

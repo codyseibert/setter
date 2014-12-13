@@ -10,7 +10,6 @@ html, body{
 body {
     margin: 0px;
     padding: 0px;
-    background-image: url('../images/seamless_paper_texture.png');
     background-repeat: repeat;
     background-color: #61b2a7;
     color: #333f4f;
@@ -48,6 +47,32 @@ body {
 
 #header .logo:hover .right{
     color: #53bf6b;
+}
+
+.gym{
+    display: inline-block;
+    height: 100px;
+    width: 260px;
+    margin-bottom: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.gym:hover{
+    background-color: #eee;
+}
+
+.wall{
+    text-align: left;
+    width: 260px;
+    height: 10px;
+    padding: 20px;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+.wall:hover{
+    background-color: #eee;
 }
 
 .mb {

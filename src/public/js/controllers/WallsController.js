@@ -3,7 +3,7 @@
 /*global angular: false, btoa: false, console: false */
 
 angular.module('SETTER')
-    .controller('GymWallsController', [
+    .controller('WallsController', [
         '$scope',
         'WallsService',
         '$routeParams',
@@ -25,7 +25,7 @@ angular.module('SETTER')
             };
 
             $scope.addClicked = function () {
-                var wallName = $scope.form.name;
+                var wallName = $scope.form.wallName;
 
                 WallsService.createWall(wallName)
                     .success(function (pData) {
@@ -33,7 +33,7 @@ angular.module('SETTER')
                             name: wallName,
                             id: pData.id
                         });
-                        $scope.form.name = "";
+                        $scope.form.wallName = "";
                     });
             };
         }]);

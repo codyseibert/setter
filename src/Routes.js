@@ -11,6 +11,7 @@ var app = require('./App');
 var RegistrationController = require('./controllers/RegistrationController');
 var LoginController = require('./controllers/LoginController');
 var WallsController = require('./controllers/WallsController');
+var GymsController = require('./controllers/GymsController');
 var InjectAccountId = require('./middleware/InjectAccountId');
 
 var RouteToControllerBinder = function () {
@@ -27,6 +28,12 @@ var RouteToControllerBinder = function () {
 
     app.get('/api/gym/:gymId/walls',
         WallsController.getWallsInGym);
+
+    app.get('/api/gyms',
+        GymsController.getGyms);
+
+    app.get('/api/gyms/:gymId',
+        GymsController.getGym);
 
     app.post('/api/walls',
         InjectAccountId,

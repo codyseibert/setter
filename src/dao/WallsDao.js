@@ -22,17 +22,17 @@ var WallsDao = function () {
 
     this.getWallsInGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id FROM walls WHERE gym_id = ?',
+            'SELECT id, name FROM walls WHERE gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
 
-    this.createWall = function (pName, pGymId, pCallback) {
+    this.createWall = function (pWallName, pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'INSERT INTO walls (name, gym_id) VALUES (?, ?)',
-            [pName, pGymId],
+            [pWallName, pGymId],
             theDaoHelper.INSERT,
             pCallback
         );

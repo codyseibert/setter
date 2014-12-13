@@ -29,7 +29,7 @@ var GymsDao = function () {
     */
     this.getGym = function (pId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, name, address FROM gyms WHERE id = ?',
+            'SELECT account_id, name, address FROM gyms WHERE account_id = ?',
             [pId],
             theDaoHelper.SINGLE,
             pCallback
@@ -44,7 +44,7 @@ var GymsDao = function () {
     */
     this.getGyms = function (pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, name, address FROM gyms',
+            'SELECT account_id, name, address FROM gyms',
             [],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -79,7 +79,7 @@ var GymsDao = function () {
     */
     this.updateGym = function (pId, pName, pAddress, pCallback) {
         theDaoHelper.executeQuery(
-            'UPDATE gyms SET name = ? AND address = ? WHERE id = ?',
+            'UPDATE gyms SET name = ? AND address = ? WHERE account_id = ?',
             [pName, pAddress, pId],
             theDaoHelper.UPDATE,
             pCallback
@@ -95,7 +95,7 @@ var GymsDao = function () {
     */
     this.deleteGym = function (pId, pCallback) {
         theDaoHelper.executeQuery(
-            'DELETE FROM gyms WHERE id = ?',
+            'DELETE FROM gyms WHERE account_id = ?',
             [pId],
             theDaoHelper.DELETE,
             pCallback

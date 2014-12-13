@@ -115,6 +115,7 @@ CREATE TABLE images
 CREATE TABLE walls
 (
     id int NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
     gym_id int NOT NULL,
 
     PRIMARY KEY (id),

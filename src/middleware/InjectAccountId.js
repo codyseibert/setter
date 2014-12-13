@@ -1,11 +1,12 @@
 var theAccountsDao = require('../dao/AccountsDao');
-var Messages = require('../Messages');
+var theMessages = require('../Messages');
 
 var InjectAccountId = function (pReq, pRes, next) {
     'use strict';
 
     if (!pReq.headers.authorization) {
-        pRes.send('Bearer token not found in request!');
+        pRes.status(400);
+        pRes.send(theMessages.error('Bearer token not found in request!'));
         return;
     }
 
@@ -17,7 +18,8 @@ var InjectAccountId = function (pReq, pRes, next) {
     split = headers.split(' ');
 
     if (split.length <= 1) {
-        pRes.send('Bearer token has invalid format!');
+        pRes.status(400);
+        pRes.send(theMessages.error('Bearer token has invalid format!'));
         return;
     }
 
@@ -25,11 +27,16 @@ var InjectAccountId = function (pReq, pRes, next) {
 
     theAccountsDao.getAccountIdViaToken(token, function (pAccountId) {
         if (pAccountId.error) {
-            pReq.user = {
-                accountId: pAccountId.id
-            };
-            return next();
+            pRes.status(400);
+            pRes.send(theMessages.error('Invalid Bearer Token!'));
+            return;
         }
+
+        pReq.user = {
+            accountId: pAccountId.id
+        };
+
+        return next();
     });
 };
 

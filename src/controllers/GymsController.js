@@ -11,7 +11,7 @@
 *   Guillermo Martinez.
 */
 
-var theGymsDao = require('../dao/GradesDao');
+var theGymsDao = require('../dao/GymsDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var GymsController = function () {
@@ -20,7 +20,7 @@ var GymsController = function () {
     this.getGym = function (pReq, pRes) {
         var gymId,
             callback;
-        gymId = pReq.params.id;
+        gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getGym(gymId, callback);
     };
@@ -30,22 +30,12 @@ var GymsController = function () {
         theGymsDao.getGyms(callback);
     };
 
-    this.createGym = function (pReq, pRes) {
-        var name,
-            address,
-            callback;
-        name = pReq.body.name;
-        address = pReq.body.address;
-        callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.createGym(name, address, callback);
-    };
-
     this.updateGym = function (pReq, pRes) {
         var id,
             name,
             address,
             callback;
-        id = pReq.params.id;
+        id = pReq.user.accountId;
         name = pReq.body.name;
         address = pReq.body.address;
         callback = theControllerHelper.createDefaultCallback(pRes);

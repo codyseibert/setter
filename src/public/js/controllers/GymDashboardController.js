@@ -3,11 +3,13 @@
 /*global angular: false, btoa: false, console: false */
 
 angular.module('SETTER')
-    .controller('GymDashboardController', ['LoginService', function (LoginService) {
+    .controller('GymDashboardController', ['$scope', 'LoginService', function ($scope, LoginService) {
         'use strict';
 
         if (!LoginService.validateLoggedIn()) {
             return;
         }
+
+        $scope.gymId = LoginService.getAccountId();
 
     }]);

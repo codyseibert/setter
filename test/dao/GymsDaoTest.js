@@ -98,7 +98,7 @@ describe('GymsDao', function () {
             GymsDao.updateGym();
 
             var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE id = ?') !== -1);
+            assert(query.indexOf('WHERE account_id = ?') !== -1);
         });
     });
 
@@ -114,7 +114,7 @@ describe('GymsDao', function () {
             GymsDao.deleteGym();
 
             var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE id = ?') !== -1);
+            assert(query.indexOf('WHERE account_id = ?') !== -1);
         });
     });
 });

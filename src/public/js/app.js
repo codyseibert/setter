@@ -13,7 +13,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'LogoutController',
                 templateUrl: 'templates/Logout.tpl'
             })
-            .when('/gym/register', {
+            .when('/gyms/register', {
                 controller: 'RegisterGymController',
                 templateUrl: 'templates/RegisterGym.tpl'
             })
@@ -21,15 +21,23 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'RegisterUserController',
                 templateUrl: 'templates/RegisterUser.tpl'
             })
-            .when('/gym/dashboard', {
+            .when('/gyms/:gymId/dashboard', {
                 controller: 'GymDashboardController',
                 templateUrl: 'templates/GymDashboard.tpl'
             })
-            .when('/user/dashboard', {
+            .when('/user/:userId/dashboard', {
                 controller: 'UserDashboardController',
                 templateUrl: 'templates/UserDashboard.tpl'
             })
-            .when('/gym/:gymId/walls', {
+            .when('/gyms', {
+                controller: 'GymsController',
+                templateUrl: 'templates/Gyms.tpl'
+            })
+            .when('/gyms/:gymId', {
+                controller: 'GymController',
+                templateUrl: 'templates/Gym.tpl'
+            })
+            .when('/gyms/:gymId/walls', {
                 controller: 'WallsController',
                 templateUrl: 'templates/Walls.tpl'
             })
@@ -38,7 +46,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
             });
 
     }])
-    .run(['$rootScope', '$location', 'LoginService', function ($rootScope, $location, LoginService) {
+    .run(['$rootScope', '$location', 'LoginService', '$window', function ($rootScope, $location, LoginService, $window) {
         'use strict';
 
         $rootScope.navigateToLogin = function () {
@@ -49,20 +57,49 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
             $location.path('logout');
         };
 
-        $rootScope.navigateToGymDashboard = function () {
-            $location.path('gym/dashboard');
+        $rootScope.navigateToGymDashboard = function (pGymId) {
+            $location.path('gyms/' + pGymId + '/dashboard');
         };
 
-        $rootScope.navigateToUserDashboard = function () {
-            $location.path('user/dashboard');
+        $rootScope.navigateToUserDashboard = function (pUserId) {
+            $location.path('user/' + pUserId + '/dashboard');
+        };
+
+        $rootScope.navigateToWalls = function (pGymId) {
+            $location.path('gyms/' + pGymId + '/walls');
         };
 
         $rootScope.navigateToWall = function (pGymId, pWallId) {
-            $location.path('gym/' + pGymId + '/walls/' + pWallId);
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId);
+        };
+
+        $rootScope.navigateToGyms = function () {
+            $location.path('gyms');
+        };
+
+        $rootScope.navigateToGym = function (pGymId) {
+            $location.path('gyms/' + pGymId);
+        };
+
+        $rootScope.back = function () {
+            $window.history.back();
+        };
+
+        $rootScope.isGymAccount = function () {
+            return LoginService.isGymAccount();
+        };
+
+        $rootScope.isUserAccount = function () {
+            return LoginService.isUserAccount();
+        };
+
+        $rootScope.isLoggedIn = function () {
+            return LoginService.isLoggedIn();
         };
 
         if (LoginService.hasTokenInCookie()) {
             LoginService.setHeaderFromCookie();
             LoginService.setTypeFromCookie();
+            LoginService.setAccountIdFromCookie();
         }
     }]);

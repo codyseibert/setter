@@ -36,7 +36,7 @@ describe('GymsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: GYM_ID
+                    gymId: GYM_ID
                 }
             };
             res = {send: sendSpy};
@@ -135,86 +135,6 @@ describe('GymsController', function () {
 
 
 
-
-
-
-    describe('#createGym', function () {
-
-        var sendSpy,
-            methodUnderTestSpy,
-            req,
-            res,
-            GYM_NAME = 'some gym name',
-            GYM_ADDRESS = 'some gym address';
-
-        beforeEach(function () {
-            sendSpy = sinon.spy();
-            methodUnderTestSpy = sinon.spy();
-            req = {
-                body: {
-                    name: GYM_NAME,
-                    address: GYM_ADDRESS
-                }
-            };
-            res = {send: sendSpy};
-        });
-
-        it('invokes the GymsDao createGym method with correct name parameter', function () {
-            GymsController.__set__({
-                theGymsDao: {
-                    createGym: methodUnderTestSpy
-                }
-            });
-
-            GymsController.createGym(req, res);
-
-            var name = methodUnderTestSpy.getCall(0).args[0];
-            assert.equal(name, GYM_NAME);
-        });
-
-        it('invokes the GymsDao createGym method with correct address parameter', function () {
-            GymsController.__set__({
-                theGymsDao: {
-                    createGym: methodUnderTestSpy
-                }
-            });
-
-            GymsController.createGym(req, res);
-
-            var address = methodUnderTestSpy.getCall(0).args[1];
-            assert.equal(address, GYM_ADDRESS);
-        });
-
-        it('sends expected data on success', function () {
-            var expectedData = {something: 'else'};
-
-            GymsController.__set__({
-                theGymsDao: {
-                    createGym: function (pName, pAddress, pCallback) {
-                        pCallback(expectedData);
-                    }
-                }
-            });
-
-            GymsController.createGym(req, res);
-
-            var actualData = sendSpy.getCall(0).args[0];
-            assert.deepEqual(actualData, expectedData);
-        });
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
     describe('#updateGym', function () {
 
         var sendSpy,
@@ -229,8 +149,8 @@ describe('GymsController', function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
-                params: {
-                    id: GYM_ID
+                user: {
+                    accountId: GYM_ID
                 },
                 body: {
                     name: GYM_NAME,

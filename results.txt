@@ -28,10 +28,6 @@
 [0m    #getGyms[0m
 [2K[0G    [32m  ✓[0m[90m invokes the GymsDao getGyms method [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
-[0m    #createGym[0m
-[2K[0G    [32m  ✓[0m[90m invokes the GymsDao createGym method with correct name parameter [0m
-[2K[0G    [32m  ✓[0m[90m invokes the GymsDao createGym method with correct address parameter [0m
-[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 [0m    #updateGym[0m
 [2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected id [0m
 [2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected name [0m
@@ -310,5 +306,5 @@
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 184 passing[0m[90m (300ms)[0m
+[92m [0m[32m 181 passing[0m[90m (256ms)[0m
 

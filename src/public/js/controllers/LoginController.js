@@ -18,6 +18,7 @@ angular.module('SETTER')
                 .success(function (pData) {
                     LoginService.setHeader(pData.token);
                     LoginService.setAccountType(pData.accountType);
+                    LoginService.setAccountId(pData.accountId);
                     LoginService.navigateToCorrectDashboard();
                 });
         };

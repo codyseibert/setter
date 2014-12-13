@@ -7,7 +7,8 @@ angular.module('SETTER')
 
         var USER_TYPE = 1,
             GYM_TYPE = 2,
-            accountType = USER_TYPE;
+            accountType = USER_TYPE,
+            accountId = null;
 
         return {
             login: function (pLoginInfo) {
@@ -37,12 +38,16 @@ angular.module('SETTER')
             setTypeFromCookie: function () {
                 accountType = parseInt($cookies.accountType, 10);
             },
+            setAccountIdFromCookie: function () {
+                accountId = parseInt($cookies.accountId, 10);
+            },
             hasTokenInCookie: function () {
                 return $cookies.token !== undefined;
             },
             logout: function () {
                 delete $cookies.token;
                 delete $cookies.accountType;
+                delete $cookies.accountId;
                 delete $http.defaults.headers.common.Authorization;
             },
             setAccountType: function (pAccountType) {
@@ -50,14 +55,28 @@ angular.module('SETTER')
                 accountType = pAccountType;
                 $cookies.accountType = pAccountType;
             },
+            setAccountId: function (pAccountId) {
+                pAccountId = parseInt(pAccountId, 10);
+                accountId = pAccountId;
+                $cookies.accountId = pAccountId;
+            },
             getAccountType: function () {
                 return accountType;
             },
+            getAccountId: function () {
+                return accountId;
+            },
+            isGymAccount: function () {
+                return accountType === GYM_TYPE;
+            },
+            isUserAccount: function () {
+                return accountType === USER_TYPE;
+            },
             navigateToCorrectDashboard: function () {
                 if (accountType === USER_TYPE) {
-                    $rootScope.navigateToUserDashboard();
+                    $rootScope.navigateToUserDashboard(accountId);
                 } else if (accountType === GYM_TYPE) {
-                    $rootScope.navigateToGymDashboard();
+                    $rootScope.navigateToGymDashboard(accountId);
                 }
             }
         };

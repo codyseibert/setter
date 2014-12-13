@@ -38,7 +38,11 @@ var LoginHelper = function () {
                     return;
                 }
 
-                pRes.send({token: token, accountType: pResults.type_id});
+                pRes.send({
+                    token: token,
+                    accountType: pResults.type_id,
+                    accountId: pAccountId
+                });
             });
 
         });

@@ -17,40 +17,40 @@ var theControllerHelper = require('./ControllerHelper');
 var WallsController = function () {
     'use strict';
 
-    this.getWalls = function (pReq, pRes) {
+    this.getWallsInGym = function (pReq, pRes) {
         var gymId,
             callback;
-        gymId = pReq.params.id;
+        gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.getWalls(gymId, callback);
+        theWallsDao.getWallsInGym(gymId, callback);
     };
 
     this.createWall = function (pReq, pRes) {
-        var name,
+        var wallName,
             gymId,
             callback;
-        name = pReq.body.name;
-        gymId = pReq.params.id;
+        wallName = pReq.body.wallName;
+        gymId = pReq.user.accountId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.createWall(name, gymId, callback);
+        theWallsDao.createWall(wallName, gymId, callback);
     };
 
     this.updateWall = function (pReq, pRes) {
-        var name,
+        var wallName,
             wallId,
             callback;
-        name = pReq.body.name;
-        wallId = pReq.params.id;
+        wallName = pReq.body.wallName;
+        wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.updateWall(wallId, name, callback);
+        theWallsDao.updateWall(wallId, wallName, callback);
     };
 
     this.deleteWall = function (pReq, pRes) {
-        var id,
+        var wallId,
             callback;
-        id = pReq.params.id;
+        wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.deleteWall(id, callback);
+        theWallsDao.deleteWall(wallId, callback);
     };
 };
 

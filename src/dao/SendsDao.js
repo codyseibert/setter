@@ -39,6 +39,17 @@ var SendsDao = function () {
             pCallback
         );
     };
+
+    this.getBoulderRoutesSentByUser = function (pUserId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT r.id, r.name, g.name, c.name FROM sends s ' +
+                'INNER JOIN routes r ON r.id = s.route_id ' +
+                'INNER JOIN colors c ON r.color_id = c.id ' +
+                'INNER JOIN boulder_grades g ON r.grade_id = g.id WHERE s.user_id = ?',
+            [pUserId],
+            pCallback
+        );
+    };
 };
 
 module.exports = new SendsDao();

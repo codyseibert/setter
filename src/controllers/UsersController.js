@@ -12,6 +12,7 @@
 */
 
 var theUsersDao = require('../dao/UsersDao');
+var theRoutesDao = require('../dao/RoutesDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var UsersController = function () {
@@ -58,6 +59,13 @@ var UsersController = function () {
         id = pReq.params.id;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theUsersDao.deleteUser(id, callback);
+    };
+
+    this.getRoutesSent = function (pReq, pRes) {
+        var accountId = pReq.user.accountId,
+            callback;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theRoutesDao.getRoutesSentByUser(accountId, callback);
     };
 };
 

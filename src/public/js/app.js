@@ -5,12 +5,14 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
         'use strict';
 
         $routeProvider
-            /*
-            .when('/', {
-                controller: 'LandingController',
-                templateUrl: 'templates/Landing.tpl'
+            .when('/login', {
+                controller: 'LoginController',
+                templateUrl: 'templates/Login.tpl'
             })
-            */
+            .when('/logout', {
+                controller: 'LogoutController',
+                templateUrl: 'templates/Logout.tpl'
+            })
             .when('/gym/register', {
                 controller: 'RegisterGymController',
                 templateUrl: 'templates/RegisterGym.tpl'
@@ -18,10 +20,6 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
             .when('/user/register', {
                 controller: 'RegisterUserController',
                 templateUrl: 'templates/RegisterUser.tpl'
-            })
-            .when('/login', {
-                controller: 'LoginController',
-                templateUrl: 'templates/Login.tpl'
             })
             .when('/gym/dashboard', {
                 controller: 'GymDashboardController',
@@ -31,14 +29,25 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'UserDashboardController',
                 templateUrl: 'templates/UserDashboard.tpl'
             })
+            .when('/gym/:gymId/walls', {
+                controller: 'WallsController',
+                templateUrl: 'templates/Walls.tpl'
+            })
             .otherwise({
                 redirectTo: '/login'
             });
 
     }])
-    .run(['$rootScope', '$location', function ($rootScope, $location) {
+    .run(['$rootScope', '$location', 'LoginService', function ($rootScope, $location, LoginService) {
         'use strict';
-        angular.noop();
+
+        $rootScope.navigateToLogin = function () {
+            $location.path('login');
+        };
+
+        $rootScope.navigateToLogout = function () {
+            $location.path('logout');
+        };
 
         $rootScope.navigateToGymDashboard = function () {
             $location.path('gym/dashboard');
@@ -47,4 +56,12 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
         $rootScope.navigateToUserDashboard = function () {
             $location.path('user/dashboard');
         };
+
+        $rootScope.navigateToWall = function (pGymId, pWallId) {
+            $location.path('gym/' + pGymId + '/walls/' + pWallId);
+        };
+
+        if (LoginService.hasTokenInCookie()) {
+            LoginService.setHeaderFromCookie();
+        }
     }]);

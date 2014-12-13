@@ -28,6 +28,7 @@ var RoutesDao = function () {
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'WHERE r.id = ?',
             [pId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };
@@ -40,6 +41,7 @@ var RoutesDao = function () {
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'WHERE r.set_id = ?',
             [pSetId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -48,6 +50,7 @@ var RoutesDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO routes (set_id, name, setter_id, grade_id, color_id) VALUES (?, ?, ?, ?, ?)',
             [pSetId, pName, pSetterId, pGradeId, pColorId],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -56,6 +59,7 @@ var RoutesDao = function () {
         theDaoHelper.executeQuery(
             'UPDATE routes SET name = ? AND set_id = ? AND setter_id = ? AND grade_id = ? AND color_id = ? WHERE id = ?',
             [pName, pSetId, pSetterId, pGradeId, pColorId, pId],
+            theDaoHelper.UPDATE,
             pCallback
         );
     };
@@ -64,6 +68,7 @@ var RoutesDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM routes WHERE id = ?',
             [pId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };

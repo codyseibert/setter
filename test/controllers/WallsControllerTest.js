@@ -23,7 +23,7 @@ var WallsController = rewire(helper('controllers/WallsController'));
 
 describe('WallsController', function () {
 
-    describe('#getWalls', function () {
+    describe('#getWallsInGym', function () {
 
         var sendSpy,
             methodUnderTestSpy,
@@ -34,7 +34,9 @@ describe('WallsController', function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
-                params: id
+                params: {
+                    gymId: 2
+                }
             };
             res = {send: sendSpy};
         });
@@ -42,11 +44,11 @@ describe('WallsController', function () {
         it('invokes the WallsDao getWalls method', function () {
             WallsController.__set__({
                 theWallsDao: {
-                    getWalls: methodUnderTestSpy
+                    getWallsInGym: methodUnderTestSpy
                 }
             });
 
-            WallsController.getWalls(req, res);
+            WallsController.getWallsInGym(req, res);
 
             assert(methodUnderTestSpy.calledOnce);
         });
@@ -61,13 +63,13 @@ describe('WallsController', function () {
 
             WallsController.__set__({
                 theWallsDao: {
-                    getWalls: function (pGymId, pCallback) {
+                    getWallsInGym: function (pGymId, pCallback) {
                         pCallback(expectedWallsInfo);
                     }
                 }
             });
 
-            WallsController.getWalls(req, res);
+            WallsController.getWallsInGym(req, res);
 
             var actualInfo = sendSpy.getCall(0).args[0];
             assert.deepEqual(actualInfo, expectedWallsInfo);
@@ -92,11 +94,11 @@ describe('WallsController', function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
-                params: {
-                    id: GYM_ID
-                },
                 body: {
-                    name: NAME
+                    wallName: NAME
+                },
+                user: {
+                    accountId: GYM_ID
                 }
             };
             res = {send: sendSpy};
@@ -172,17 +174,17 @@ describe('WallsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: WALL_ID
+                    wallId: WALL_ID
                 },
                 body: {
-                    name: NAME
+                    wallName: NAME
                 }
             };
             res = {send: sendSpy};
         });
 
         it('invokes the WallsDao updateWall method with expected id', function () {
-            var id;
+            var wallId;
 
             WallsController.__set__({
                 theWallsDao: {
@@ -192,8 +194,8 @@ describe('WallsController', function () {
 
             WallsController.updateWall(req, res);
 
-            id = methodUnderTestSpy.getCall(0).args[0];
-            assert.equal(id, WALL_ID);
+            wallId = methodUnderTestSpy.getCall(0).args[0];
+            assert.equal(wallId, WALL_ID);
         });
 
         it('invokes the WallsDao updateWall method with expected name', function () {
@@ -253,14 +255,14 @@ describe('WallsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: WALL_ID
+                    wallId: WALL_ID
                 }
             };
             res = {send: sendSpy};
         });
 
         it('invokes the WallsDao deleteWall method with expected id', function () {
-            var id;
+            var wallId;
 
             WallsController.__set__({
                 theWallsDao: {
@@ -270,8 +272,8 @@ describe('WallsController', function () {
 
             WallsController.deleteWall(req, res);
 
-            id = methodUnderTestSpy.getCall(0).args[0];
-            assert.equal(id, WALL_ID);
+            wallId = methodUnderTestSpy.getCall(0).args[0];
+            assert.equal(wallId, WALL_ID);
         });
 
         it('sends expected data on success', function () {

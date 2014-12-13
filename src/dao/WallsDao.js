@@ -20,10 +20,11 @@ Contains logic related to Walls.
 var WallsDao = function () {
     'use strict';
 
-    this.getWalls = function (pGymId, pCallback) {
+    this.getWallsInGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT id FROM walls WHERE gym_id = ?',
             [pGymId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -32,6 +33,7 @@ var WallsDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO walls (name, gym_id) VALUES (?, ?)',
             [pName, pGymId],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -40,6 +42,7 @@ var WallsDao = function () {
         theDaoHelper.executeQuery(
             'UPDATE walls SET name = ? WHERE id = ?',
             [pName, pId],
+            theDaoHelper.UPDATE,
             pCallback
         );
     };
@@ -48,9 +51,11 @@ var WallsDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM walls WHERE id = ?',
             [pId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };
+
 };
 
 module.exports = new WallsDao();

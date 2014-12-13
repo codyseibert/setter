@@ -10,25 +10,35 @@ var app = require('./App');
 
 var RegistrationController = require('./controllers/RegistrationController');
 var LoginController = require('./controllers/LoginController');
+var WallsController = require('./controllers/WallsController');
+var InjectAccountId = require('./middleware/InjectAccountId');
 
 var RouteToControllerBinder = function () {
     'use strict';
 
-    app.post('/api/register/user', RegistrationController.registerUser);
-    app.post('/api/register/gym', RegistrationController.registerGym);
+    app.post('/api/register/user',
+        RegistrationController.registerUser);
 
-    app.post('/api/login', LoginController.login);
+    app.post('/api/register/gym',
+        RegistrationController.registerGym);
 
-    /*
-    app.get('/api/grades/boulder', GradesController.getBoulderGrades);
-    app.get('/api/grades/rope', GradesController.getRopeGrades);
+    app.post('/api/login',
+        LoginController.login);
 
-    app.get('/api/gyms', GymsController.getGyms);
-    app.get('/api/gyms/:id', GymsController.getGym);
-    app.post('/api/gyms/:id', GymsController.updateGym);
-    app.post('/api/gyms', GymsController.createGym);
-    app.delete('/api/gyms/:id', GymsController.deleteGym);
-    */
+    app.get('/api/gym/:gymId/walls',
+        WallsController.getWallsInGym);
+
+    app.post('/api/walls',
+        InjectAccountId,
+        WallsController.createWall);
+
+    app.post('/api/walls/:wallId',
+        InjectAccountId,
+        WallsController.updateWall);
+
+    app.delete('/api/walls/:wallId',
+        InjectAccountId,
+        WallsController.deleteWall);
 };
 
 module.exports = new RouteToControllerBinder();

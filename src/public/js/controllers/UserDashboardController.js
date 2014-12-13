@@ -3,7 +3,11 @@
 /*global angular: false, btoa: false, console: false */
 
 angular.module('SETTER')
-    .controller('UserDashboardController', [function () {
+    .controller('UserDashboardController', ['LoginService', function (LoginService) {
         'use strict';
-        angular.noop();
+
+        if (!LoginService.validateLoggedIn()) {
+            return;
+        }
+
     }]);

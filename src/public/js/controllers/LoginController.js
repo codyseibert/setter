@@ -6,8 +6,10 @@ angular.module('SETTER')
     .controller('LoginController', ['$scope', 'LoginService', '$location', function ($scope, LoginService, $location) {
         'use strict';
 
-        var USER_TYPE = 1,
-            GYM_TYPE = 2;
+        if (LoginService.isLoggedIn()) {
+            LoginService.navigateToCorrectDashboard();
+            return;
+        }
 
         $scope.form = {};
 
@@ -15,11 +17,8 @@ angular.module('SETTER')
             LoginService.login($scope.form)
                 .success(function (pData) {
                     LoginService.setHeader(pData.token);
-                    if (pData.type_id === USER_TYPE) {
-                        $scope.navigateToUserDashboard();
-                    } else if (pData.type_id === GYM_TYPE) {
-                        $scope.navigateToGymDashboard();
-                    }
+                    LoginService.setAccountType(pData.typeId);
+                    LoginService.navigateToCorrectDashboard();
                 });
         };
 

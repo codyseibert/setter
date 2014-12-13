@@ -36,9 +36,9 @@ describe('WallsDao', function () {
         });
     });
 
-    describe('#getWalls', function () {
+    describe('#getWallsInGym', function () {
         it('performs some type of SELECT query on the walls table', function () {
-            WallsDao.getWalls();
+            WallsDao.getWallsInGym();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('SELECT') !== -1 &&
@@ -46,14 +46,14 @@ describe('WallsDao', function () {
         });
 
         it('query contains no *', function () {
-            WallsDao.getWalls();
+            WallsDao.getWallsInGym();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('*') === -1);
         });
 
         it('query contains gym where clause', function () {
-            WallsDao.getWalls();
+            WallsDao.getWallsInGym();
 
             var query = daoHelperSpy.getCall(0).args[0];
             assert(query.indexOf('WHERE gym_id = ?') !== -1);

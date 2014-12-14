@@ -1,6 +1,6 @@
 /*jslint nomen: true */
 /*jslint unparam: true*/
-/*global angular: false, btoa: false, console: false, moment: false */
+/*global angular: false, btoa: false, console: false, moment: false, alert: false */
 
 angular.module('SETTER')
     .controller('CreateRouteController', [
@@ -41,11 +41,22 @@ angular.module('SETTER')
                         $scope.form.setter = $scope.setters[0];
                         $scope.form.note = "";
                         $scope.form.name = "";
+                        alert("route added!");
                     });
             };
 
             $scope.hasSetters = function () {
                 return $scope.setters.length > 0;
+            };
+
+            $scope.colorChanged = function () {
+                var i;
+                for (i = 0; i < $scope.colors.length; i += 1) {
+                    if ($scope.colors[i].id === parseInt($scope.form.color, 10)) {
+                        $scope.text_color = $scope.colors[i].value;
+                        break;
+                    }
+                }
             };
 
             GradesService.getBoulderGrades()
@@ -74,16 +85,6 @@ angular.module('SETTER')
                     $scope.form.color = pData[0].id;
                     $scope.colorChanged();
                 });
-
-            $scope.colorChanged = function () {
-                var i;
-                for (i = 0; i < $scope.colors.length; i += 1) {
-                    if ($scope.colors[i].id === parseInt($scope.form.color, 10)) {
-                        $scope.text_color = $scope.colors[i].value;
-                        break;
-                    }
-                }
-            };
 
             SettersService.getSettersAtGym($scope.gymId)
                 .success(function (pData) {

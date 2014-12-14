@@ -200,12 +200,13 @@ CREATE TABLE sends
 
 CREATE TABLE comments
 (
+    id int NOT NULL AUTO_INCREMENT,
     user_id int NOT NULL,
     route_id int NOT NULL,
-    comment varchar(255) NOT NULL,
+    message varchar(255) NOT NULL,
     date DATETIME NOT NULL,
 
-    PRIMARY KEY (user_id, route_id),
+    PRIMARY KEY (id),
 
     FOREIGN KEY (user_id)
         REFERENCES accounts(id)

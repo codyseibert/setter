@@ -22,11 +22,6 @@ var CommentsController = rewire(helper('controllers/CommentsController'));
 
 
 describe('CommentsController', function () {
-
-
-
-
-
     describe('#getCommentsAboutRoute', function () {
 
         var sendSpy,
@@ -40,7 +35,7 @@ describe('CommentsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: ROUTE_ID
+                    routeId: ROUTE_ID
                 }
             };
             res = {send: sendSpy};
@@ -85,11 +80,6 @@ describe('CommentsController', function () {
         });
     });
 
-
-
-
-
-
     describe('#createComment', function () {
 
         var sendSpy,
@@ -105,13 +95,13 @@ describe('CommentsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 user: {
-                    id: USER_ID
+                    accountId: USER_ID
                 },
                 body: {
                     message: MESSAGE
                 },
                 params: {
-                    id: ROUTE_ID
+                    routeId: ROUTE_ID
                 }
             };
             res = {send: sendSpy};
@@ -174,40 +164,24 @@ describe('CommentsController', function () {
         });
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     describe('#deleteComment', function () {
 
         var sendSpy,
             methodUnderTestSpy,
             req,
             res,
-            COMMENT_ID = 1;
+            COMMENT_ID = 1,
+            USER_ID = 2;
 
         beforeEach(function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
+                user: {
+                    accountId: USER_ID
+                },
                 params: {
-                    id: COMMENT_ID
+                    commentId: COMMENT_ID
                 }
             };
             res = {send: sendSpy};
@@ -224,7 +198,7 @@ describe('CommentsController', function () {
 
             CommentsController.deleteComment(req, res);
 
-            id = methodUnderTestSpy.getCall(0).args[0];
+            id = methodUnderTestSpy.getCall(0).args[1];
             assert.equal(id, COMMENT_ID);
         });
 
@@ -234,7 +208,7 @@ describe('CommentsController', function () {
 
             CommentsController.__set__({
                 theCommentsDao: {
-                    deleteComment: function (pId, pCallback) {
+                    deleteComment: function (pUserId, pCommentId, pCallback) {
                         pCallback(expectedData);
                     }
                 }

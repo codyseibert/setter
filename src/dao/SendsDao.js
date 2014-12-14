@@ -17,9 +17,19 @@ var SendsDao = function () {
 
     this.getSendsForRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.id, u.firstname, u.lastname, s.route_id FROM sends s ' +
-                'INNER JOIN users u ON u.id = s.user_id WHERE s.route_id = ?',
+            'SELECT u.account_id, u.firstname, u.lastname, s.route_id FROM sends s ' +
+                'INNER JOIN users u ON u.account_id = s.user_id WHERE s.route_id = ?',
             [pRouteId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+    this.hasSent = function (pUserId, pRouteId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT s.user_id FROM sends s WHERE s.user_id = ? AND s.route_id = ?',
+            [pUserId, pRouteId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };
@@ -28,6 +38,7 @@ var SendsDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO sends (user_id, route_id, date) VALUES (?, ?, NOW())',
             [pUserId, pRouteId],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -36,6 +47,7 @@ var SendsDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM sends WHERE user_id = ? AND route_id = ?',
             [pUserId, pRouteId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };

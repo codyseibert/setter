@@ -56,6 +56,45 @@ select{
     font-size: 20px;
 }
 
+.star{
+    cursor: pointer;
+    color: #333;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.star:hover{
+    color: #888;
+}
+
+.star.rated:hover{
+    color: white;
+}
+
+.star.rated{
+    color: orange;
+}
+
+.enabled{
+    color: orange;
+}
+
+.btn_small {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 90px;
+    height: 20px;
+    padding: 10px;
+    background-color: white;
+}
+
+.btn_small:hover{
+    background-color: #ddd;
+}
+
 .route{
     background-color: white;
     border-radius: 10px;

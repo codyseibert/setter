@@ -54,7 +54,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 templateUrl: 'templates/CreateRoute.tpl'
             })
             .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/:routeId', {
-                controller: 'RoutesController',
+                controller: 'RouteController',
                 templateUrl: 'templates/Route.tpl'
             })
             .when('/setters', {

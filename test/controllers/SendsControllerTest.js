@@ -21,8 +21,6 @@ var SendsController = rewire(helper('controllers/SendsController'));
 
 
 describe('SendsController', function () {
-
-
     describe('#getSendsForRoute', function () {
 
         var sendSpy,
@@ -36,7 +34,7 @@ describe('SendsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: ROUTE_ID
+                    routeId: ROUTE_ID
                 }
             };
             res = {send: sendSpy};
@@ -81,11 +79,6 @@ describe('SendsController', function () {
         });
     });
 
-
-
-
-
-
     describe('#createSend', function () {
 
         var sendSpy,
@@ -100,10 +93,10 @@ describe('SendsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 user: {
-                    id: USER_ID
+                    accountId: USER_ID
                 },
                 params: {
-                    id: ROUTE_ID
+                    routeId: ROUTE_ID
                 }
             };
             res = {send: sendSpy};
@@ -153,33 +146,13 @@ describe('SendsController', function () {
         });
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     describe('#deleteSend', function () {
 
         var sendSpy,
             methodUnderTestSpy,
             req,
             res,
-            SEND_ID = 1,
+            ROUTE_ID = 1,
             USER_ID = 2;
 
         beforeEach(function () {
@@ -187,10 +160,10 @@ describe('SendsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: SEND_ID
+                    routeId: ROUTE_ID
                 },
                 user: {
-                    id: USER_ID
+                    accountId: USER_ID
                 }
             };
             res = {send: sendSpy};
@@ -223,7 +196,7 @@ describe('SendsController', function () {
             SendsController.deleteSend(req, res);
 
             id = methodUnderTestSpy.getCall(0).args[1];
-            assert.equal(id, SEND_ID);
+            assert.equal(id, ROUTE_ID);
         });
 
         it('sends expected data on success', function () {

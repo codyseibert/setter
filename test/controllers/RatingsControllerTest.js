@@ -38,13 +38,13 @@ describe('RatingsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: ROUTE_ID
+                    routeId: ROUTE_ID
                 },
                 user: {
-                    id: USER_ID
+                    accountId: USER_ID
                 },
                 body: {
-                    value: VALUE
+                    rating: VALUE
                 }
             };
             res = {send: sendSpy};

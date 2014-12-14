@@ -18,6 +18,9 @@ var ColorsController = require('./controllers/ColorsController');
 var RoutesController = require('./controllers/RoutesController');
 var GradesController = require('./controllers/GradesController');
 var SettersController = require('./controllers/SettersController');
+var RatingController = require('./controllers/RatingsController');
+var CommentsController = require('./controllers/CommentsController');
+var SendsController = require('./controllers/SendsController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -87,6 +90,50 @@ var RouteToControllerBinder = function () {
 
     app.delete('/api/routes/:routeId',
         RoutesController.deleteRoute);
+
+    // COMMENTS
+    app.get('/api/routes/:routeId/comments',
+        CommentsController.getCommentsAboutRoute);
+
+    app.post('/api/routes/:routeId/comments',
+        InjectAccountId,
+        CommentsController.createComment);
+
+    app.post('/api/comments/:commentId',
+        InjectAccountId,
+        CommentsController.updateComment);
+
+    app.delete('/api/comments/:commentId',
+        InjectAccountId,
+        CommentsController.deleteComment);
+
+    // RATINGS
+    app.get('/api/routes/:routeId/rating',
+        RatingController.getRatingsForRoute);
+
+    app.post('/api/routes/:routeId/rating',
+        InjectAccountId,
+        RatingController.updateRating);
+
+    app.get('/api/routes/:routeId/hasRated',
+        InjectAccountId,
+        RatingController.hasRated);
+
+    // SENDS
+    app.get('/api/routes/:routeId/sends',
+        SendsController.getSendsForRoute);
+
+    app.get('/api/routes/:routeId/hasSent',
+        InjectAccountId,
+        SendsController.hasSent);
+
+    app.post('/api/routes/:routeId/sends',
+        InjectAccountId,
+        SendsController.createSend);
+
+    app.delete('/api/routes/:routeId/sends',
+        InjectAccountId,
+        SendsController.deleteSend);
 
     // GRADES
     app.get('/api/grades/boulder',

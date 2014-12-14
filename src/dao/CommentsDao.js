@@ -17,9 +17,10 @@ var CommentsDao = function () {
 
     this.getCommentsAboutRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT c.id, c.route_id, u.firstname, u.lastname, c.date FROM comments c ' +
-                'INNER JOIN users u ON u.id = c.user_id WHERE c.route_id = ? ORDER BY c.date DESC',
+            'SELECT c.id, c.message, u.account_id, u.firstname, u.lastname, c.date FROM comments c ' +
+                'INNER JOIN users u ON u.account_id = c.user_id WHERE c.route_id = ? ORDER BY c.date DESC',
             [pRouteId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -28,14 +29,25 @@ var CommentsDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO comments (user_id, route_id, message, date) VALUES (?, ?, ?, NOW())',
             [pUserId, pRouteId, pMessage],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
 
-    this.deleteComment = function (pId, pCallback) {
+    this.updateComment = function (pUserId, pCommentId, pMessage, pCallback) {
         theDaoHelper.executeQuery(
-            'DELETE FROM comments WHERE id = ?',
-            [pId],
+            'UPDATE comments SET message = ? WHERE id = ? AND user_id = ?',
+            [pMessage, pCommentId, pUserId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.deleteComment = function (pUserId, pCommentId, pCallback) {
+        theDaoHelper.executeQuery(
+            'DELETE FROM comments WHERE id = ? AND user_id = ?',
+            [pCommentId, pUserId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };

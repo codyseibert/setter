@@ -6,9 +6,11 @@ angular.module('SETTER')
     .controller('WallsController', [
         '$scope',
         'WallsService',
+        'GymsService',
         '$routeParams',
         function ($scope,
             WallsService,
+            GymsService,
             $routeParams) {
             'use strict';
 
@@ -18,6 +20,11 @@ angular.module('SETTER')
             WallsService.getWallsInGym($scope.gymId)
                 .success(function (pData) {
                     $scope.walls = pData;
+                });
+
+            GymsService.getGym($scope.gymId)
+                .success(function (pData) {
+                    $scope.gym = pData;
                 });
 
             $scope.hasWalls = function () {

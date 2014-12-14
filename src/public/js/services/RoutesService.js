@@ -12,6 +12,12 @@ angular.module('SETTER')
                     url: 'api/sets/' + pSetId + '/routes'
                 });
             },
+            getRoute: function (pRouteId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/routes/' + pRouteId
+                });
+            },
             createRoute: function (pSetId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
                 return $http({
                     method: 'POST',

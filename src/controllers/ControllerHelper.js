@@ -29,6 +29,15 @@ var DaoHelper = function () {
     */
     this.createDefaultCallback = function (pRes) {
         return function (pData) {
+            if (pData.error) {
+                pRes.status(400);
+            }
+            pRes.send(pData);
+        };
+    };
+
+    this.createNoStatusDefaultCallback = function (pRes) {
+        return function (pData) {
             pRes.send(pData);
         };
     };

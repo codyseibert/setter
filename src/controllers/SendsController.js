@@ -20,17 +20,27 @@ var SendsController = function () {
     this.getSendsForRoute = function (pReq, pRes) {
         var routeId,
             callback;
-        routeId = pReq.params.id;
+        routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSendsDao.getSendsForRoute(routeId, callback);
+    };
+
+    this.hasSent = function (pReq, pRes) {
+        var userId,
+            routeId,
+            callback;
+        routeId = pReq.params.routeId;
+        userId = pReq.user.accountId;
+        callback = theControllerHelper.createNoStatusDefaultCallback(pRes);
+        theSendsDao.hasSent(userId, routeId, callback);
     };
 
     this.createSend = function (pReq, pRes) {
         var userId,
             routeId,
             callback;
-        userId = pReq.user.id;
-        routeId = pReq.params.id;
+        userId = pReq.user.accountId;
+        routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSendsDao.createSend(userId, routeId, callback);
     };
@@ -39,8 +49,8 @@ var SendsController = function () {
         var userId,
             routeId,
             callback;
-        userId = pReq.user.id;
-        routeId = pReq.params.id;
+        userId = pReq.user.accountId;
+        routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSendsDao.deleteSend(userId, routeId, callback);
     };

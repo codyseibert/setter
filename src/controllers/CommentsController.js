@@ -20,7 +20,7 @@ var CommentsController = function () {
     this.getCommentsAboutRoute = function (pReq, pRes) {
         var routeId,
             callback;
-        routeId = pReq.params.id;
+        routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theCommentsDao.getCommentsAboutRoute(routeId, callback);
     };
@@ -30,19 +30,33 @@ var CommentsController = function () {
             routeId,
             message,
             callback;
-        userId = pReq.user.id;
-        routeId = pReq.params.id;
+        userId = pReq.user.accountId;
+        routeId = pReq.params.routeId;
         message = pReq.body.message;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theCommentsDao.createComment(userId, routeId, message, callback);
     };
 
-    this.deleteComment = function (pReq, pRes) {
-        var id,
+    this.updateComment = function (pReq, pRes) {
+        var commentId,
+            userId,
+            message,
             callback;
-        id = pReq.params.id;
+        commentId = pReq.params.commentId;
+        userId = pReq.user.accountId;
+        message = pReq.body.message;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theCommentsDao.deleteComment(id, callback);
+        theCommentsDao.updateComment(userId, commentId, message, callback);
+    };
+
+    this.deleteComment = function (pReq, pRes) {
+        var userId,
+            commentId,
+            callback;
+        userId = pReq.user.accountId;
+        commentId = pReq.params.commentId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theCommentsDao.deleteComment(userId, commentId, callback);
     };
 };
 

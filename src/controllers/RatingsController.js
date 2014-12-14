@@ -14,20 +14,38 @@
 var theRatingsDao = require('../dao/RatingsDao');
 var theControllerHelper = require('./ControllerHelper');
 
-var RoutesController = function () {
+var RatingsController = function () {
     'use strict';
+
+    this.getRatingsForRoute = function (pReq, pRes) {
+        var routeId,
+            callback;
+        routeId = pReq.params.routeId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theRatingsDao.getRatingForRoute(routeId, callback);
+    };
 
     this.updateRating = function (pReq, pRes) {
         var userId,
             routeId,
-            value,
+            rating,
             callback;
-        userId = pReq.user.id;
-        routeId = pReq.params.id;
-        value = pReq.body.value;
+        userId = pReq.user.accountId;
+        routeId = pReq.params.routeId;
+        rating = pReq.body.rating;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRatingsDao.updateRating(userId, routeId, value, callback);
+        theRatingsDao.updateRating(userId, routeId, rating, callback);
+    };
+
+    this.hasRated = function (pReq, pRes) {
+        var userId,
+            routeId,
+            callback;
+        userId = pReq.user.accountId;
+        routeId = pReq.params.routeId;
+        callback = theControllerHelper.createNoStatusDefaultCallback(pRes);
+        theRatingsDao.hasRated(userId, routeId, callback);
     };
 };
 
-module.exports = new RoutesController();
+module.exports = new RatingsController();

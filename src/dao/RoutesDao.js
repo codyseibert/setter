@@ -20,14 +20,15 @@ var theDaoHelper = require('./DaoHelper');
 var RoutesDao = function () {
     'use strict';
 
-    this.getRoute = function (pId, pCallback) {
+    this.getRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, r.name, r.grade_id, g.grade, r.color_id, c.value, s.firstname, s.lastname, r.date, r.note FROM routes r ' +
-                'INNER JOIN setters s ON r.setter_id = s.id ' +
-                'INNER JOIN grades g ON r.grade_id = g.id ' +
+            'SELECT r.id, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
+                'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
+                'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
+                'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
                 'WHERE r.id = ?',
-            [pId],
+            [pRouteId],
             theDaoHelper.SINGLE,
             pCallback
         );

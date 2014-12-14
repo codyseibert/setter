@@ -20,10 +20,29 @@ var theDaoHelper = require('./DaoHelper');
 var RatingsDao = function () {
     'use strict';
 
-    this.updateRating = function (pUserId, pRouteId, pValue, pCallback) {
+    this.getRatingForRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO ratings (user_id, route_id, value) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE value = ?',
-            [pUserId, pRouteId, pValue, pValue],
+            'SELECT AVG(rating) AS rating FROM ratings WHERE route_id = ?',
+            [pRouteId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
+    this.updateRating = function (pUserId, pRouteId, pRating, pCallback) {
+        theDaoHelper.executeQuery(
+            'INSERT INTO ratings (user_id, route_id, rating) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE rating = ?',
+            [pUserId, pRouteId, pRating, pRating],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.hasRated = function (pUserId, pRouteId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT rating FROM ratings WHERE user_id = ? AND route_id = ?',
+            [pUserId, pRouteId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };

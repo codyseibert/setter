@@ -121,6 +121,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
             $location.path('setters');
         };
 
+        $rootScope.navigateToRoute = function (pGymId, pWallId, pSetId, pRouteId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId);
+        };
+
         $rootScope.back = function () {
             $window.history.back();
         };

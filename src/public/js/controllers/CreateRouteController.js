@@ -29,14 +29,18 @@ angular.module('SETTER')
                 var name = $scope.form.name,
                     boulderGradeId = $scope.form.boulderGrade.id,
                     ropeGradeId = $scope.form.ropeGrade.id,
-                    colorId = $scope.form.color.id,
+                    colorId = $scope.form.color,
                     setterId = $scope.form.setter.id,
                     note = $scope.form.note;
 
                 RoutesService.createRoute($scope.setId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
-                        angular.noop();
-                        // TODO: tell the user the route was created, but don't redirect
+                        $scope.form.boulderGrade = $scope.boulderGrades[0];
+                        $scope.form.ropeGrade = $scope.ropeGrades[0];
+                        $scope.form.color = $scope.colors[0].id;
+                        $scope.form.setter = $scope.setters[0];
+                        $scope.form.note = "";
+                        $scope.form.name = "";
                     });
             };
 
@@ -67,8 +71,19 @@ angular.module('SETTER')
             ColorsService.getColors()
                 .success(function (pData) {
                     $scope.colors = pData;
-                    $scope.form.color = pData[0];
+                    $scope.form.color = pData[0].id;
+                    $scope.colorChanged();
                 });
+
+            $scope.colorChanged = function () {
+                var i;
+                for (i = 0; i < $scope.colors.length; i += 1) {
+                    if ($scope.colors[i].id === parseInt($scope.form.color, 10)) {
+                        $scope.text_color = $scope.colors[i].value;
+                        break;
+                    }
+                }
+            };
 
             SettersService.getSettersAtGym($scope.gymId)
                 .success(function (pData) {

@@ -1,3 +1,8 @@
+<div class="btn_black"
+    ng-click="back()">
+    <i class="icon-left-big"> </i>Back
+</div>
+
 <div class="title">{{wall.name}}</div>
 
 <div ng-repeat="set in sets">

@@ -56,6 +56,20 @@ select{
     font-size: 20px;
 }
 
+.route{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    width: 260px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.route:hover{
+    background-color: #ddd;
+}
+
 .setter{
     font-size: 20px;
     padding: 10px;

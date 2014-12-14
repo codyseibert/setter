@@ -148,6 +148,7 @@
 [0m  DaoHelper[0m
 [0m    #executeQuery[0m
 [2K[0G    [32m  ✓[0m[90m invokes query on the DBConnection object [0m
+true
 [2K[0G    [32m  ✓[0m[90m calls back with error on error [0m
 [2K[0G    [32m  ✓[0m[90m calls back with error on no results [0m
 [2K[0G    [32m  ✓[0m[90m invokes the callback on success with data [0m
@@ -189,13 +190,6 @@
 [2K[0G    [32m  ✓[0m[90m query contains no * [0m
 [2K[0G    [32m  ✓[0m[90m query contains where clause with set_id [0m
 [0m    #createRoute[0m
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
-undefined
 [2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the routes table [0m
 [0m    #updateRoute[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the routes table [0m
@@ -270,5 +264,5 @@ undefined
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 146 passing[0m[90m (236ms)[0m
+[92m [0m[32m 146 passing[0m[90m (214ms)[0m
 

@@ -35,9 +35,8 @@ var RoutesDao = function () {
 
     this.getRoutesInSet = function (pSetId, pCallback) {
         theDaoHelper.executeQuery(
-            //r.name, r.grade_id, bg.name, rg.name, r.color_id, c.value, a.id AS setter_id, a.firstname, a.lastname, r.date, r.note
-            'SELECT r.id FROM routes r ' +
-                'INNER JOIN accounts a ON r.setter_id = a.id ' +
+            'SELECT r.id, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
+                'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
@@ -49,14 +48,6 @@ var RoutesDao = function () {
     };
 
     this.createRoute = function (pSetId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote, pCallback) {
-        console.log(pSetId);
-        console.log(pName);
-        console.log(pSetterId);
-        console.log(pBoulderGradeId);
-        console.log(pRopeGradeId);
-        console.log(pColorId);
-        console.log(pNote);
-
         theDaoHelper.executeQuery(
             'INSERT INTO routes (set_id, name, setter_id, boulder_grade_id, rope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())',
             [pSetId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote],

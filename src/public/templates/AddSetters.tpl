@@ -1,3 +1,8 @@
+<div class="btn_black"
+    ng-click="back()">
+    <i class="icon-left-big"> </i>Back
+</div>
+
 <div class="title">Add Setters</div>
 
 <div ng-repeat="setter in setters" ng-hide="setter.hide">

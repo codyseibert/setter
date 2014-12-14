@@ -1,3 +1,8 @@
+<div class="btn_black"
+    ng-click="back()">
+    <i class="icon-left-big"> </i>Back
+</div>
+
 <div ng-hide="hasSetters()">
     This gym has not added any setters!
 
@@ -15,8 +20,14 @@
                 ng-options="grade.name for grade in ropeGrades"></select>
     <br>
     <select ng-model="form.color"
-                ng-options="color.name for color in colors"
-                ng-style="{color: color.value}"></select>
+                ng-style="{color: text_color}"
+                ng-change="colorChanged()">
+        <option value="{{color.id}}"
+                    ng-style="{color: color.value}"
+                    ng-repeat="color in colors">
+            {{color.name}}
+        </option>
+    </select>
     <br>
     <select ng-model="form.setter"
                 ng-options="setter.name for setter in setters"></select>

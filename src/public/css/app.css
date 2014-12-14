@@ -399,6 +399,11 @@ button{
 .graph{
     max-width: 260px;
     color: #000;
+    display: inline-block;
+}
+
+.grade{
+    display: inline-block;
 }
 
 .bar-legend{

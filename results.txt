@@ -106,18 +106,6 @@
 [0m    #getUsers[0m
 [2K[0G    [32m  ✓[0m[90m invokes the UsersDao getUsers method [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
-[0m    #createUser[0m
-[2K[0G    [32m  ✓[0m[90m invokes the UsersDao createUser method with correct name parameter [0m
-[2K[0G    [32m  ✓[0m[90m invokes the UsersDao createUser method with correct address parameter [0m
-[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
-[0m    #updateUser[0m
-[2K[0G    [32m  ✓[0m[90m invokes the UsersDao updateUser method with expected id [0m
-[2K[0G    [32m  ✓[0m[90m invokes the UsersDao updateUser method with expected firstname [0m
-[2K[0G    [32m  ✓[0m[90m invokes the UsersDao updateUser method with expected lastname [0m
-[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
-[0m    #deleteUser[0m
-[2K[0G    [32m  ✓[0m[90m invokes the UsersDao deleteUser method with expected id [0m
-[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
 [0m  WallsController[0m
 [0m    #getWallsInGym[0m
@@ -240,14 +228,6 @@ true
 [2K[0G    [32m  ✓[0m[90m performs some type of SELECT query on the users table [0m
 [2K[0G    [32m  ✓[0m[90m query contains no * [0m
 [2K[0G    [32m  ✓[0m[90m query contains no where clause [0m
-[0m    #createUser[0m
-[2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the users table [0m
-[0m    #updateUser[0m
-[2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the users table [0m
-[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
-[0m    #deleteUser[0m
-[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the users tables [0m
-[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 [0m  WallsDao[0m
 [0m    #getWallsInGym[0m
@@ -264,5 +244,5 @@ true
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 146 passing[0m[90m (321ms)[0m
+[92m [0m[32m 132 passing[0m[90m (533ms)[0m
 

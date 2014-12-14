@@ -21,6 +21,7 @@ var SettersController = require('./controllers/SettersController');
 var RatingController = require('./controllers/RatingsController');
 var CommentsController = require('./controllers/CommentsController');
 var SendsController = require('./controllers/SendsController');
+var UsersController = require('./controllers/UsersController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -156,6 +157,16 @@ var RouteToControllerBinder = function () {
     app.post('/api/setters/access',
         InjectAccountId,
         SettersController.createSetterGymAccess);
+
+    // USERS
+    app.get('/api/users/:userId/sends/boulder',
+        UsersController.getBoulderSends);
+
+    app.get('/api/users/:userId/sends/rope',
+        UsersController.getRopeSends);
+
+    app.get('/api/users/:userId',
+        UsersController.getUser);
 };
 
 module.exports = new RouteToControllerBinder();

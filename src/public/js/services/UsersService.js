@@ -12,6 +12,24 @@ angular.module('SETTER')
                     url: "api/register/user",
                     data: pRegistrationInfo
                 });
+            },
+            getUser: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId
+                });
+            },
+            getBoulderSends: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/sends/boulder"
+                });
+            },
+            getRopeSends: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/sends/rope"
+                });
             }
         };
     }]);

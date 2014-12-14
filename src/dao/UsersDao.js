@@ -20,10 +20,10 @@ var theDaoHelper = require('./DaoHelper');
 var UsersDao = function () {
     'use strict';
 
-    this.getUser = function (pId, pCallback) {
+    this.getUser = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, firstname, lastname FROM users WHERE id = ?',
-            [pId],
+            'SELECT account_id, firstname, lastname FROM users WHERE account_id = ?',
+            [pUserId],
             theDaoHelper.SINGLE,
             pCallback
         );
@@ -31,7 +31,7 @@ var UsersDao = function () {
 
     this.getUsers = function (pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, firstname, lastname FROM users',
+            'SELECT account_id, firstname, lastname FROM users',
             [],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -47,23 +47,28 @@ var UsersDao = function () {
         );
     };
 
-    this.updateUser = function (pId, pFirstname, pLastname, pCallback) {
+    this.getBoulderSends = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'UPDATE users SET firstname = ? AND address = ? WHERE id = ?',
-            [pFirstname, pLastname, pId],
-            theDaoHelper.UPDATE,
+            'SELECT bg.value, bg.name, s.date FROM sends s ' +
+                'INNER JOIN routes r ON s.route_id = r.id ' +
+                'INNER JOIN boulder_grades bg ON r.boulder_grade_id = bg.id WHERE s.user_id = ?',
+            [pUserId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
 
-    this.deleteUser = function (pId, pCallback) {
+    this.getRopeSends = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'DELETE FROM users WHERE id = ?',
-            [pId],
-            theDaoHelper.DELETE,
+            'SELECT rg.value, rg.name, s.date FROM sends s ' +
+                'INNER JOIN routes r ON s.route_id = r.id ' +
+                'INNER JOIN rope_grades rg ON r.rope_grade_id = rg.id WHERE s.user_id = ?',
+            [pUserId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
+
 };
 
 module.exports = new UsersDao();

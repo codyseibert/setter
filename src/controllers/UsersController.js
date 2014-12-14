@@ -19,11 +19,11 @@ var UsersController = function () {
     'use strict';
 
     this.getUser = function (pReq, pRes) {
-        var id,
+        var userId,
             callback;
-        id = pReq.params.id;
+        userId = pReq.params.userId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theUsersDao.getUser(id, callback);
+        theUsersDao.getUser(userId, callback);
     };
 
     this.getUsers = function (pReq, pRes) {
@@ -31,41 +31,20 @@ var UsersController = function () {
         theUsersDao.getUsers(callback);
     };
 
-    this.createUser = function (pReq, pRes) {
-        var firstname,
-            lastname,
+    this.getBoulderSends = function (pReq, pRes) {
+        var userId,
             callback;
-        firstname = pReq.body.firstname;
-        lastname = pReq.body.lastname;
+        userId = pReq.params.userId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theUsersDao.createUser(firstname, lastname, callback);
+        theUsersDao.getBoulderSends(userId, callback);
     };
 
-    this.updateUser = function (pReq, pRes) {
-        var id,
-            firstname,
-            lastname,
+    this.getRopeSends = function (pReq, pRes) {
+        var userId,
             callback;
-        id = pReq.params.id;
-        firstname = pReq.body.firstname;
-        lastname = pReq.body.lastname;
+        userId = pReq.params.userId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theUsersDao.updateUser(id, firstname, lastname, callback);
-    };
-
-    this.deleteUser = function (pReq, pRes) {
-        var id,
-            callback;
-        id = pReq.params.id;
-        callback = theControllerHelper.createDefaultCallback(pRes);
-        theUsersDao.deleteUser(id, callback);
-    };
-
-    this.getRoutesSent = function (pReq, pRes) {
-        var accountId = pReq.user.accountId,
-            callback;
-        callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.getRoutesSentByUser(accountId, callback);
+        theUsersDao.getRopeSends(userId, callback);
     };
 };
 

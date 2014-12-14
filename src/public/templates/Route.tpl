@@ -7,17 +7,16 @@
 
 {{route.boulder_grade || route.rope_grade}} {{route.firstname}} {{route.lastname}} {{route.value}} {{rating.rating}}
 
-
 <div>
     <div class="btn_small"
             ng-click="send()"
             ng-hide="hasSent">
-        <i class="icon-paper-plane-empty"> </i> Unsent
+        <i class="icon-paper-plane-empty"> </i> Send
     </div>
     <div class="btn_small enabled"
             ng-click="unsend()"
             ng-show="hasSent">
-        <i class="icon-paper-plane"> </i> Sent!
+        <i class="icon-paper-plane"> </i> Sent
     </div>
 </div>
 

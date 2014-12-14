@@ -395,3 +395,12 @@ button{
     background-color: #FF9900;
     color: #222;
 }
+
+.graph{
+    max-width: 260px;
+    color: #000;
+}
+
+.bar-legend{
+    list-style-type: none;
+}

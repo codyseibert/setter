@@ -118,6 +118,7 @@ CREATE TABLE boulder_grades
 (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
+    value int NOT NULL,
 
     PRIMARY KEY (id)
 ) ENGINE=InnoDB;
@@ -126,6 +127,7 @@ CREATE TABLE rope_grades
 (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
+    value int NOT NULL,
 
     PRIMARY KEY (id)
 ) ENGINE=InnoDB;
@@ -235,31 +237,31 @@ CREATE TABLE ratings
 ) ENGINE=InnoDB;
 
 
-INSERT INTO boulder_grades (name) VALUES ('V0');
-INSERT INTO boulder_grades (name) VALUES ('V1');
-INSERT INTO boulder_grades (name) VALUES ('V2');
-INSERT INTO boulder_grades (name) VALUES ('V3');
-INSERT INTO boulder_grades (name) VALUES ('V4');
-INSERT INTO boulder_grades (name) VALUES ('V5');
-INSERT INTO boulder_grades (name) VALUES ('V6');
-INSERT INTO boulder_grades (name) VALUES ('V7');
-INSERT INTO boulder_grades (name) VALUES ('V8');
-INSERT INTO boulder_grades (name) VALUES ('V9');
-INSERT INTO boulder_grades (name) VALUES ('V10');
-INSERT INTO boulder_grades (name) VALUES ('V11');
-INSERT INTO boulder_grades (name) VALUES ('V12');
-INSERT INTO boulder_grades (name) VALUES ('V13');
+INSERT INTO boulder_grades (name, value) VALUES ('V0', 0);
+INSERT INTO boulder_grades (name, value) VALUES ('V1', 1);
+INSERT INTO boulder_grades (name, value) VALUES ('V2', 2);
+INSERT INTO boulder_grades (name, value) VALUES ('V3', 3);
+INSERT INTO boulder_grades (name, value) VALUES ('V4', 4);
+INSERT INTO boulder_grades (name, value) VALUES ('V5', 5);
+INSERT INTO boulder_grades (name, value) VALUES ('V6', 6);
+INSERT INTO boulder_grades (name, value) VALUES ('V7', 7);
+INSERT INTO boulder_grades (name, value) VALUES ('V8', 8);
+INSERT INTO boulder_grades (name, value) VALUES ('V9', 9);
+INSERT INTO boulder_grades (name, value) VALUES ('V10', 10);
+INSERT INTO boulder_grades (name, value) VALUES ('V11', 11);
+INSERT INTO boulder_grades (name, value) VALUES ('V12', 12);
+INSERT INTO boulder_grades (name, value) VALUES ('V13', 13);
 
-INSERT INTO rope_grades (name) VALUES ('5.6');
-INSERT INTO rope_grades (name) VALUES ('5.7');
-INSERT INTO rope_grades (name) VALUES ('5.8');
-INSERT INTO rope_grades (name) VALUES ('5.9');
-INSERT INTO rope_grades (name) VALUES ('5.10');
-INSERT INTO rope_grades (name) VALUES ('5.11');
-INSERT INTO rope_grades (name) VALUES ('5.12');
-INSERT INTO rope_grades (name) VALUES ('5.13');
-INSERT INTO rope_grades (name) VALUES ('5.14');
-INSERT INTO rope_grades (name) VALUES ('5.15');
+INSERT INTO rope_grades (name, value) VALUES ('5.6', 6);
+INSERT INTO rope_grades (name, value) VALUES ('5.7', 7);
+INSERT INTO rope_grades (name, value) VALUES ('5.8', 8);
+INSERT INTO rope_grades (name, value) VALUES ('5.9', 9);
+INSERT INTO rope_grades (name, value) VALUES ('5.10', 10);
+INSERT INTO rope_grades (name, value) VALUES ('5.11', 11);
+INSERT INTO rope_grades (name, value) VALUES ('5.12', 12);
+INSERT INTO rope_grades (name, value) VALUES ('5.13', 13);
+INSERT INTO rope_grades (name, value) VALUES ('5.14', 14);
+INSERT INTO rope_grades (name, value) VALUES ('5.15', 15);
 
 INSERT INTO accounts_types (name) VALUES ('user');
 INSERT INTO accounts_types (name) VALUES ('gym');

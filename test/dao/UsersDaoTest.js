@@ -76,45 +76,4 @@ describe('UsersDao', function () {
             assert(query.indexOf('WHERE') === -1);
         });
     });
-
-    describe('#createUser', function () {
-        it('performs some type of INSERT on the users table', function () {
-            UsersDao.createUser();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('INSERT INTO users') !== -1);
-        });
-    });
-
-    describe('#updateUser', function () {
-        it('performs some type of UPDATE on the users table', function () {
-            UsersDao.updateUser();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('UPDATE users') !== -1);
-        });
-
-        it('query contains a where clause!', function () {
-            UsersDao.updateUser();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE id = ?') !== -1);
-        });
-    });
-
-    describe('#deleteUser', function () {
-        it('performs some type of DELETE from the users tables', function () {
-            UsersDao.deleteUser();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('DELETE FROM users') !== -1);
-        });
-
-        it('query contains a where clause!', function () {
-            UsersDao.deleteUser();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE id = ?') !== -1);
-        });
-    });
 });

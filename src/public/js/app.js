@@ -1,6 +1,6 @@
 /*global angular: false, btoa: false */
 
-angular.module('SETTER', ['ngRoute', 'ngCookies'])
+angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
     .config(['$routeProvider', function ($routeProvider) {
         'use strict';
 
@@ -60,6 +60,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
             .when('/setters', {
                 controller: 'AddSettersController',
                 templateUrl: 'templates/AddSetters.tpl'
+            })
+            .when('/users/:userId', {
+                controller: 'UserProfileController',
+                templateUrl: 'templates/UserProfile.tpl'
             })
             .otherwise({
                 redirectTo: '/login'
@@ -123,6 +127,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
 
         $rootScope.navigateToRoute = function (pGymId, pWallId, pSetId, pRouteId) {
             $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId);
+        };
+
+        $rootScope.navigateToUserProfile = function (pUserId) {
+            $location.path('users/' + pUserId);
         };
 
         $rootScope.back = function () {

@@ -17,18 +17,18 @@ var theControllerHelper = require('./ControllerHelper');
 var SetsController = function () {
     'use strict';
 
-    this.getSets = function (pReq, pRes) {
+    this.getSetsOnWall = function (pReq, pRes) {
         var wallId,
             callback;
-        wallId = pReq.params.id;
+        wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theSetsDao.getSets(wallId, callback);
+        theSetsDao.getSetsOnWall(wallId, callback);
     };
 
     this.createSet = function (pReq, pRes) {
         var wallId,
             callback;
-        wallId = pReq.params.id;
+        wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSetsDao.createSet(wallId, callback);
     };
@@ -36,7 +36,7 @@ var SetsController = function () {
     this.deleteSet = function (pReq, pRes) {
         var setId,
             callback;
-        setId = pReq.params.id;
+        setId = pReq.params.setId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSetsDao.deleteSet(setId, callback);
     };

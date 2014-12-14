@@ -29,6 +29,15 @@ var WallsDao = function () {
         );
     };
 
+    this.getWall = function (pWallId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT id, name FROM walls WHERE id = ?',
+            [pWallId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
     this.createWall = function (pWallName, pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'INSERT INTO walls (name, gym_id) VALUES (?, ?)',

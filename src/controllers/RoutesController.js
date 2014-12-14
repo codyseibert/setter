@@ -18,19 +18,19 @@ var RoutesController = function () {
     'use strict';
 
     this.getRoute = function (pReq, pRes) {
-        var id,
+        var routeId,
             callback;
-        id = pReq.params.id;
+        routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.getRoute(id, callback);
+        theRoutesDao.getRoute(routeId, callback);
     };
 
     this.getRoutesInSet = function (pReq, pRes) {
-        var id,
+        var setId,
             callback;
-        id = pReq.params.id;
+        setId = pReq.params.setId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.getRoutesInSet(id, callback);
+        theRoutesDao.getRoutesInSet(setId, callback);
     };
 
     this.createRoute = function (pReq, pRes) {
@@ -39,40 +39,42 @@ var RoutesController = function () {
             gradeId,
             setterId,
             colorId,
-            callback;
-        setId = pReq.body.set_id;
+            callback,
+            note;
+        setId = pReq.params.setId;
         name = pReq.body.name;
-        gradeId = pReq.body.grade_id;
-        setterId = pReq.body.setter_id;
-        colorId = pReq.body.color_id;
+        colorId = pReq.body.colorId;
+        gradeId = pReq.body.gradeId;
+        setterId = pReq.body.setterId;
+        note = pReq.body.note;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.createRoute(setId, name, setterId, gradeId, colorId, callback);
+        theRoutesDao.createRoute(setId, name, setterId, gradeId, colorId, note, callback);
     };
 
     this.updateRoute = function (pReq, pRes) {
-        var setId,
-            name,
+        var name,
             gradeId,
             setterId,
             colorId,
             callback,
-            routeId;
-        routeId = pReq.params.id;
-        setId = pReq.body.set_id;
+            routeId,
+            note;
+        routeId = pReq.params.routeId;
         name = pReq.body.name;
-        gradeId = pReq.body.grade_id;
-        setterId = pReq.body.setter_id;
-        colorId = pReq.body.color_id;
+        colorId = pReq.body.colorId;
+        gradeId = pReq.body.gradeId;
+        setterId = pReq.body.setterId;
+        note = pReq.body.note;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.updateRoute(routeId, setId, name, setterId, gradeId, colorId, callback);
+        theRoutesDao.updateRoute(routeId, name, setterId, gradeId, colorId, note, callback);
     };
 
     this.deleteRoute = function (pReq, pRes) {
-        var id,
+        var routeId,
             callback;
-        id = pReq.params.id;
+        routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.deleteRoute(id, callback);
+        theRoutesDao.deleteRoute(routeId, callback);
     };
 };
 

@@ -27,19 +27,6 @@ CREATE TABLE accounts
 ) ENGINE=InnoDB;
 CREATE UNIQUE INDEX account_index ON accounts (email, type_id);
 
-CREATE TABLE setters
-(
-    account_id int NOT NULL,
-    firstname varchar(255) NOT NULL,
-    lastname varchar(255) NOT NULL,
-
-    FOREIGN KEY (account_id)
-        REFERENCES accounts(id)
-        ON DELETE CASCADE,
-
-    UNIQUE (account_id)
-) ENGINE=InnoDB;
-
 CREATE TABLE gyms
 (
     account_id int NOT NULL,
@@ -71,13 +58,6 @@ CREATE TABLE users
     UNIQUE (account_id)
 ) ENGINE=InnoDB;
 
-
-
-
-
-
-
-
 CREATE TABLE setters_gyms_access
 (
     setter_id int NOT NULL,
@@ -93,15 +73,6 @@ CREATE TABLE setters_gyms_access
         REFERENCES accounts(id)
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
-
-
-
-
-
-
-
-
-
 
 CREATE TABLE images
 (
@@ -181,6 +152,8 @@ CREATE TABLE routes
     color_id int NOT NULL,
 
     setter_id int NOT NULL,
+
+    note varchar(255) NOT NULL DEFAULT '',
 
     date DATETIME NOT NULL,
 

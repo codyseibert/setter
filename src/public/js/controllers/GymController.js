@@ -5,11 +5,11 @@ angular.module('SETTER')
     .controller('GymController', ['$scope', 'GymsService', '$routeParams', function ($scope, GymsService, $routeParams) {
         'use strict';
 
-        var gymId = $routeParams.gymId;
+        $scope.gymId = $routeParams.gymId;
 
         $scope.gym = {};
 
-        GymsService.getGym(gymId)
+        GymsService.getGym($scope.gymId)
             .success(function (pData) {
                 $scope.gym = pData;
             });

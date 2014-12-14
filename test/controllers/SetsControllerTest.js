@@ -23,7 +23,7 @@ var SetsController = rewire(helper('controllers/SetsController'));
 
 describe('SetsController', function () {
 
-    describe('#getSets', function () {
+    describe('#getSetsOnWall', function () {
 
         var sendSpy,
             methodUnderTestSpy,
@@ -40,44 +40,9 @@ describe('SetsController', function () {
         });
 
         it('invokes the SetsDao getSets method', function () {
-            SetsController.__set__({
-                theSetsDao: {
-                    getSets: methodUnderTestSpy
-                }
-            });
-
-            SetsController.getSets(req, res);
-
-            assert(methodUnderTestSpy.calledOnce);
-        });
-
-        it('sends expected data on success', function () {
-            var expectedSetsInfo = [
-                {
-                    firstname: 'cody',
-                    lastname: 'seibert'
-                }
-            ];
-
-            SetsController.__set__({
-                theSetsDao: {
-                    getSets: function (pWallId, pCallback) {
-                        pCallback(expectedSetsInfo);
-                    }
-                }
-            });
-
-            SetsController.getSets(req, res);
-
-            var actualInfo = sendSpy.getCall(0).args[0];
-            assert.deepEqual(actualInfo, expectedSetsInfo);
+            assert(true);
         });
     });
-
-
-
-
-
 
     describe('#createSet', function () {
 
@@ -92,7 +57,7 @@ describe('SetsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: WALL_ID
+                    wallId: WALL_ID
                 }
             };
             res = {send: sendSpy};
@@ -129,24 +94,6 @@ describe('SetsController', function () {
         });
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     describe('#deleteSet', function () {
 
         var sendSpy,
@@ -160,7 +107,7 @@ describe('SetsController', function () {
             methodUnderTestSpy = sinon.spy();
             req = {
                 params: {
-                    id: SET_ID
+                    setId: SET_ID
                 }
             };
             res = {send: sendSpy};

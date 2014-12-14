@@ -6,3 +6,8 @@
 
 <div class="title">{{gym.name}}</div>
 <div>{{gym.address}}</div>
+
+<div class="btn_black"
+        ng-click="navigateToWalls(gymId)">
+    Walls
+</div>

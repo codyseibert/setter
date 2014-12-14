@@ -20,10 +20,11 @@ Contains logic related to Sets.
 var SetsDao = function () {
     'use strict';
 
-    this.getSets = function (pWallId, pCallback) {
+    this.getSetsOnWall = function (pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id FROM sets WHERE wall_id = ?',
+            'SELECT id, date FROM sets WHERE wall_id = ?',
             [pWallId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -32,6 +33,7 @@ var SetsDao = function () {
         theDaoHelper.executeQuery(
             'INSERT INTO sets (date, wall_id) VALUES (NOW(), ?)',
             [pWallId],
+            theDaoHelper.INSERT,
             pCallback
         );
     };
@@ -40,6 +42,7 @@ var SetsDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM sets WHERE id = ?',
             [pId],
+            theDaoHelper.DELETE,
             pCallback
         );
     };

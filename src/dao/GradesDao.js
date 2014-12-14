@@ -30,6 +30,7 @@ var GradesDao = function () {
         theDaoHelper.executeQuery(
             "SELECT id, name FROM boulder_grades",
             [],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };
@@ -44,6 +45,7 @@ var GradesDao = function () {
         theDaoHelper.executeQuery(
             "SELECT id, name FROM rope_grades",
             [],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };

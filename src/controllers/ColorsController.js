@@ -11,21 +11,16 @@
 *   Guillermo Martinez.
 */
 
-var theGradesDao = require('../dao/GradesDao');
+var theColorsDao = require('../dao/ColorsDao');
 var theControllerHelper = require('./ControllerHelper');
 
-var GradesController = function () {
+var ColorsController = function () {
     'use strict';
 
-    this.getBoulderGrades = function (pReq, pRes) {
+    this.getColors = function (pReq, pRes) {
         var callback = theControllerHelper.createDefaultCallback(pRes);
-        theGradesDao.getBoulderGrades(callback);
-    };
-
-    this.getRopeGrades = function (pReq, pRes) {
-        var callback = theControllerHelper.createDefaultCallback(pRes);
-        theGradesDao.getRopeGrades(callback);
+        theColorsDao.getColors(callback);
     };
 };
 
-module.exports = new GradesController();
+module.exports = new ColorsController();

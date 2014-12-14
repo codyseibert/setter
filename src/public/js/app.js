@@ -41,6 +41,22 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'WallsController',
                 templateUrl: 'templates/Walls.tpl'
             })
+            .when('/gyms/:gymId/walls/:wallId', {
+                controller: 'WallController',
+                templateUrl: 'templates/Wall.tpl'
+            })
+            .when('/gyms/:gymId/walls/:wallId/sets/:setId', {
+                controller: 'SetController',
+                templateUrl: 'templates/Set.tpl'
+            })
+            .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/create', {
+                controller: 'CreateRouteController',
+                templateUrl: 'templates/CreateRoute.tpl'
+            })
+            .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/:routeId', {
+                controller: 'RoutesController',
+                templateUrl: 'templates/Route.tpl'
+            })
             .otherwise({
                 redirectTo: '/login'
             });
@@ -71,6 +87,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
 
         $rootScope.navigateToWall = function (pGymId, pWallId) {
             $location.path('gyms/' + pGymId + '/walls/' + pWallId);
+        };
+
+        $rootScope.navigateToSet = function (pGymId, pWallId, pSetId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId);
         };
 
         $rootScope.navigateToGyms = function () {

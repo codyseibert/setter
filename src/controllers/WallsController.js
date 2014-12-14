@@ -25,6 +25,14 @@ var WallsController = function () {
         theWallsDao.getWallsInGym(gymId, callback);
     };
 
+    this.getWall = function (pReq, pRes) {
+        var wallId,
+            callback;
+        wallId = pReq.params.wallId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theWallsDao.getWall(wallId, callback);
+    };
+
     this.createWall = function (pReq, pRes) {
         var wallName,
             gymId,

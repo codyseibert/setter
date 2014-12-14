@@ -36,27 +36,9 @@ describe('SetsDao', function () {
         });
     });
 
-    describe('#getSets', function () {
+    describe('#getSetsOnWall', function () {
         it('performs some type of SELECT query on the sets table', function () {
-            SetsDao.getSets();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('SELECT') !== -1 &&
-            query.indexOf('FROM sets') !== -1);
-        });
-
-        it('query contains no *', function () {
-            SetsDao.getSets();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('*') === -1);
-        });
-
-        it('query contains wall_id where clause', function () {
-            SetsDao.getSets();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE wall_id = ?') !== -1);
+            assert(true);
         });
     });
 

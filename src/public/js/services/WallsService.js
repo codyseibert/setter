@@ -13,6 +13,13 @@ angular.module('SETTER')
                 });
             },
 
+            getWall: function (pWallId) {
+                return $http({
+                    method: "GET",
+                    url: 'api/walls/' + pWallId
+                });
+            },
+
             createWall: function (pWallName) {
                 return $http({
                     method: "POST",

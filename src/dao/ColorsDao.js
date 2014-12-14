@@ -12,19 +12,28 @@ var theDB = require('../DBConnection');
 var theMessages = require('../Messages');
 var theDaoHelper = require('./DaoHelper');
 
-var SettersDao = function () {
+/**
+AccountsDao
+
+Used for accessing any information related to the accounts.
+*/
+var ColorsDao = function () {
     'use strict';
 
-    this.getSettersAtGym = function (pGymId, pCallback) {
+    /**
+    Retreieves the boulder grades from the database.
+
+    $method getGrades
+    $param pCallback invoked on success or failure.
+    */
+    this.getColors = function (pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT a.id, a.firstname, a.lastname FROM setters_gyms_access sga ' +
-                'INNER JOIN accounts a ON a.id = sga.setter_id WHERE sga.gym_id = ?',
-            [pGymId],
+            "SELECT id, name, value FROM colors",
+            [],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
-
 };
 
-module.exports = new SettersDao();
+module.exports = new ColorsDao();

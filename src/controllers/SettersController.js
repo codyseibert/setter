@@ -24,6 +24,22 @@ var SettersController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSettersDao.getSettersAtGym(gymId, callback);
     };
+
+    this.getSetters = function (pReq, pRes) {
+        var callback;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSettersDao.getSetters(callback);
+    };
+
+    this.createSetterGymAccess = function (pReq, pRes) {
+        var callback,
+            gymId,
+            setterId;
+        gymId = pReq.user.accountId;
+        setterId = pReq.body.setterId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSettersDao.createSetterGymAccess(setterId, gymId, callback);
+    };
 };
 
 module.exports = new SettersController();

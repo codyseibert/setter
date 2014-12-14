@@ -13,7 +13,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'LogoutController',
                 templateUrl: 'templates/Logout.tpl'
             })
-            .when('/gyms/register', {
+            .when('/gym/register', {
                 controller: 'RegisterGymController',
                 templateUrl: 'templates/RegisterGym.tpl'
             })
@@ -57,6 +57,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
                 controller: 'RoutesController',
                 templateUrl: 'templates/Route.tpl'
             })
+            .when('/setters', {
+                controller: 'AddSettersController',
+                templateUrl: 'templates/AddSetters.tpl'
+            })
             .otherwise({
                 redirectTo: '/login'
             });
@@ -67,6 +71,14 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
 
         $rootScope.navigateToLogin = function () {
             $location.path('login');
+        };
+
+        $rootScope.navigateToRegisterUser = function () {
+            $location.path('user/register');
+        };
+
+        $rootScope.navigateToRegisterGym = function () {
+            $location.path('gym/register');
         };
 
         $rootScope.navigateToLogout = function () {
@@ -99,6 +111,14 @@ angular.module('SETTER', ['ngRoute', 'ngCookies'])
 
         $rootScope.navigateToGym = function (pGymId) {
             $location.path('gyms/' + pGymId);
+        };
+
+        $rootScope.navigateToCreateRoute = function (pGymId, pWallId, pSetId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/create');
+        };
+
+        $rootScope.navigateToAddSetters = function () {
+            $location.path('setters');
         };
 
         $rootScope.back = function () {

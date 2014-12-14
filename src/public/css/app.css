@@ -49,6 +49,32 @@ body {
     color: #53bf6b;
 }
 
+select{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.setter{
+    font-size: 20px;
+    padding: 10px;
+    width: 260px;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.add{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.add:hover{
+    color: white;
+}
+
 .gym{
     display: inline-block;
     height: 100px;

@@ -22,12 +22,4 @@ angular.module('SETTER')
                     LoginService.navigateToCorrectDashboard();
                 });
         };
-
-        $scope.navigateToRegisterUser = function () {
-            $location.path('user/register');
-        };
-
-        $scope.navigateToRegisterGym = function () {
-            $location.path('gym/register');
-        };
     }]);

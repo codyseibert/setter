@@ -25,6 +25,14 @@ var SetsController = function () {
         theSetsDao.getSetsOnWall(wallId, callback);
     };
 
+    this.getSet = function (pReq, pRes) {
+        var setId,
+            callback;
+        setId = pReq.params.setId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSetsDao.getSet(setId, callback);
+    };
+
     this.createSet = function (pReq, pRes) {
         var wallId,
             callback;

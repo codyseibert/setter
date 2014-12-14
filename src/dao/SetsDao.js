@@ -29,6 +29,15 @@ var SetsDao = function () {
         );
     };
 
+    this.getSet = function (pSetId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT id, date FROM sets WHERE id = ?',
+            [pSetId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
     this.createSet = function (pWallId, pCallback) {
         theDaoHelper.executeQuery(
             'INSERT INTO sets (date, wall_id) VALUES (NOW(), ?)',

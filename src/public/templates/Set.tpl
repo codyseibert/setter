@@ -1,4 +1,4 @@
-<div class="title">{{set.date}}</div>
+<div class="title">SET.tpl {{set.date}}</div>
 
 <div ng-repeat="route in routes">
     <div class="route"
@@ -8,7 +8,7 @@
 </div>
 
 <div ng-show="isGymAccount()">
-    <div class="btn_black" ng-click="addClicked()">
-        <i class="icon-plus-squared"> </i> Add Set
+    <div class="btn_black" ng-click="navigateToCreateRoute(gymId, wallId, setId)">
+        <i class="icon-plus-squared"> </i> Add Route
     </div>
 </div>

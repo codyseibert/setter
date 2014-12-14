@@ -57,6 +57,9 @@ var RouteToControllerBinder = function () {
         WallsController.updateWall);
 
     // SETS
+    app.get('/api/sets/:setId',
+        SetsController.getSet);
+
     app.get('/api/walls/:wallId/sets',
         InjectAccountId,
         SetsController.getSetsOnWall);
@@ -99,6 +102,13 @@ var RouteToControllerBinder = function () {
     // SETTERS
     app.get('/api/gym/:gymId/setters',
         SettersController.getSettersAtGym);
+
+    app.get('/api/setters',
+        SettersController.getSetters);
+
+    app.post('/api/setters/access',
+        InjectAccountId,
+        SettersController.createSetterGymAccess);
 };
 
 module.exports = new RouteToControllerBinder();

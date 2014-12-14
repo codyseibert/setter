@@ -12,7 +12,9 @@ angular.module('SETTER')
             GymsService.registerGym($scope.form)
                 .success(function (pData) {
                     LoginService.setHeader(pData.token);
-                    $scope.navigateToGymDashboard();
+                    LoginService.setAccountType(pData.accountType);
+                    LoginService.setAccountId(pData.accountId);
+                    $scope.navigateToGymDashboard(pData.accountId);
                 })
                 .error(function (pData) {
                     $scope.error = pData.error;

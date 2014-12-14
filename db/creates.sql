@@ -260,15 +260,11 @@ INSERT INTO rope_grades (name) VALUES ('5.13');
 INSERT INTO rope_grades (name) VALUES ('5.14');
 INSERT INTO rope_grades (name) VALUES ('5.15');
 
-INSERT INTO accounts_types (name) values ('user');
-INSERT INTO accounts_types (name) values ('setter');
-INSERT INTO accounts_types (name) values ('gym');
+INSERT INTO accounts_types (name) VALUES ('user');
+INSERT INTO accounts_types (name) VALUES ('gym');
 
-INSERT INTO accounts (email, password, type_id) VALUES ('user', '123456', 1);
-INSERT INTO users (account_id, firstname, lastname) VALUES (1, 'Cody', 'Seibert');
-
-INSERT INTO accounts (email, password, type_id) VALUES ('setter', '123456', 2);
-INSERT INTO setters (account_id, firstname, lastname) VALUES (2, 'Cody', 'Seibert');
-
-INSERT INTO accounts (email, password, type_id) VALUES ('gym', '123456', 3);
-INSERT INTO gyms (account_id, name, address) VALUES (3, 'Aiguille', '999 Barton Street');
+INSERT INTO colors (name, value) VALUES ('red', '#FF0000');
+INSERT INTO colors (name, value) VALUES ('green', '#00FF00');
+INSERT INTO colors (name, value) VALUES ('blue', '#0000FF');
+INSERT INTO colors (name, value) VALUES ('orange', '#FF00FF');
+INSERT INTO colors (name, value) VALUES ('purple', '#00FF00');

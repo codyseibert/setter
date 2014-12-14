@@ -22,6 +22,9 @@ angular.module('SETTER')
             $scope.wallId = $routeParams.wallId;
             $scope.setId = $routeParams.setId;
 
+            $scope.form = {};
+            $scope.setters = [];
+
             $scope.addClicked = function () {
                 var name = $scope.form.name,
                     boulderGradeId = $scope.form.boulderGrade.id,
@@ -37,27 +40,39 @@ angular.module('SETTER')
                     });
             };
 
+            $scope.hasSetters = function () {
+                return $scope.setters.length > 0;
+            };
+
             GradesService.getBoulderGrades()
                 .success(function (pData) {
-                    $scope.grades = pData;
-                    $scope.boulderGrade = pData[0];
+                    pData.unshift({
+                        id: -1,
+                        name: "V?"
+                    });
+                    $scope.boulderGrades = pData;
+                    $scope.form.boulderGrade = pData[0];
                 });
 
             GradesService.getRopeGrades()
                 .success(function (pData) {
-                    $scope.grades = pData;
-                    $scope.ropeGrade = pData[0];
+                    pData.unshift({
+                        id: -1,
+                        name: "5.?"
+                    });
+                    $scope.ropeGrades = pData;
+                    $scope.form.ropeGrade = pData[0];
                 });
 
             ColorsService.getColors()
                 .success(function (pData) {
                     $scope.colors = pData;
-                    $scope.color = pData[0];
+                    $scope.form.color = pData[0];
                 });
 
             SettersService.getSettersAtGym($scope.gymId)
                 .success(function (pData) {
                     $scope.setters = pData;
-                    $scope.setter = pData[0];
+                    $scope.form.setter = pData[0];
                 });
         }]);

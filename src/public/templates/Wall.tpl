@@ -2,7 +2,7 @@
 
 <div ng-repeat="set in sets">
     <div class="set"
-            ng-click="navigateToSet(set.id)">
+            ng-click="navigateToSet(gymId, wallId, set.id)">
         {{set.id}} {{set.date}}
     </div>
 </div>

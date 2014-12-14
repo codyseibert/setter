@@ -34,14 +34,4 @@ angular.module('SETTER')
             $scope.hasRoutes = function () {
                 return $scope.routes.length > 0;
             };
-
-            $scope.addClicked = function () {
-                SetsService.createRoute($scope.wallId)
-                    .success(function (pData) {
-                        $scope.sets.push({
-                            id: pData.id,
-                            date: moment()
-                        });
-                    });
-            };
         }]);

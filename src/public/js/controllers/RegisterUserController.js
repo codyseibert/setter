@@ -12,7 +12,9 @@ angular.module('SETTER')
             UsersService.registerUser($scope.form)
                 .success(function (pData) {
                     LoginService.setHeader(pData.token);
-                    $scope.navigateToUserDashboard();
+                    LoginService.setAccountType(pData.accountType);
+                    LoginService.setAccountId(pData.accountId);
+                    $scope.navigateToUserDashboard(pData.accountId);
                 })
                 .error(function (pData) {
                     $scope.error = pData.error;

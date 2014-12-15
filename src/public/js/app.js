@@ -69,7 +69,14 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
                 controller: 'SuggestionsController',
                 templateUrl: 'templates/Suggestions.tpl'
             })
-
+            .when('/contact', {
+                controller: 'ContactController',
+                templateUrl: 'templates/Contact.tpl'
+            })
+            .when('/tos', {
+                controller: 'TOSController',
+                templateUrl: 'templates/TOS.tpl'
+            })
             .otherwise({
                 redirectTo: '/login'
             });
@@ -101,7 +108,18 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
         };
 
         $rootScope.navigateToLogout = function () {
-            $location.path('logout');
+            var yes = confirm("Are you sure you want to log out?");
+            if (yes) {
+                $location.path('logout');
+            }
+        };
+
+        $rootScope.navigateToContact = function () {
+            $location.path('contact');
+        };
+
+        $rootScope.navigateToTOS = function () {
+            $location.path('tos');
         };
 
         $rootScope.navigateToGymDashboard = function (pGymId) {
@@ -162,6 +180,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
 
         $rootScope.isUserAccount = function () {
             return LoginService.isUserAccount();
+        };
+
+        $rootScope.getAccountId = function () {
+            return LoginService.getAccountId();
         };
 
         $rootScope.isLoggedIn = function () {

@@ -24,6 +24,9 @@
             </div>
 
             <div class="nav" ng-show="isLoggedIn()">
+                <i class="button icon-user"
+                    ng-click="navigateToUserProfile(getAccountId())"> </i>
+
                 <i class="button icon-home"
                     ng-show="getHomeGymId()"
                     ng-click="navigateToGym(getHomeGymId())"> </i>
@@ -84,6 +87,8 @@
             <script src="js/controllers/RouteController.js"></script>
             <script src="js/controllers/UserProfileController.js"></script>
             <script src="js/controllers/SuggestionsController.js"></script>
+            <script src="js/controllers/TOSController.js"></script>
+            <script src="js/controllers/ContactController.js"></script>
 
             <!-- Directives -->
 
@@ -102,6 +107,7 @@
             <script src="js/services/RatingsService.js"></script>
             <script src="js/services/CommentsService.js"></script>
             <script src="js/services/SuggestionsService.js"></script>
+            <script src="js/services/FeedbackService.js"></script>
             <script src="js/services/BarGraphHelperService.js"></script>
         <!-- /build -->
     </body>

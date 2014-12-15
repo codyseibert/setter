@@ -23,6 +23,7 @@ var CommentsController = require('./controllers/CommentsController');
 var SendsController = require('./controllers/SendsController');
 var UsersController = require('./controllers/UsersController');
 var SuggestionsController = require('./controllers/SuggestionsController');
+var FeedbackController = require('./controllers/FeedbackController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -192,6 +193,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         SuggestionsController.upvoteSuggestion);
 
+
+    // FEEDBACK
+    app.post('/api/feedback',
+        FeedbackController.createFeedback);
 };
 
 module.exports = new RouteToControllerBinder();

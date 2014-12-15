@@ -265,6 +265,15 @@ CREATE TABLE suggestions_upvotes
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+CREATE TABLE feedback
+(
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    message text NOT NULL,
+
+    PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
 INSERT INTO boulder_grades (name, value) VALUES ('V0', 0);
 INSERT INTO boulder_grades (name, value) VALUES ('V1', 1);
 INSERT INTO boulder_grades (name, value) VALUES ('V2', 2);

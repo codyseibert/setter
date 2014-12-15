@@ -396,16 +396,22 @@ button{
     color: #222;
 }
 
+.picture img{
+    border-radius: 10px;
+    width: 260px;
+}
+
 .graph{
-    max-width: 260px;
     color: #000;
     display: inline-block;
+    height: 400px;
+    width: 260px;
 }
 
 .grade{
     display: inline-block;
 }
 
-.bar-legend{
+.bar-legend, .line-legend{
     list-style-type: none;
 }

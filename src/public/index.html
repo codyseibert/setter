@@ -23,8 +23,11 @@
             </div>
 
             <div class="nav" ng-show="isLoggedIn()">
+                <i class="button icon-megaphone"
+                    ng-click="navigateToSuggestionsPage()"> </i>
+
                 <i class="button icon-logout"
-                ng-click="navigateToLogout()"> </i>
+                    ng-click="navigateToLogout()"> </i>
             </div>
         </div>
 
@@ -75,6 +78,7 @@
             <script src="js/controllers/AddSettersController.js"></script>
             <script src="js/controllers/RouteController.js"></script>
             <script src="js/controllers/UserProfileController.js"></script>
+            <script src="js/controllers/SuggestionsController.js"></script>
 
             <!-- Directives -->
 
@@ -92,6 +96,7 @@
             <script src="js/services/SendsService.js"></script>
             <script src="js/services/RatingsService.js"></script>
             <script src="js/services/CommentsService.js"></script>
+            <script src="js/services/SuggestionsService.js"></script>
         <!-- /build -->
     </body>
 </html>

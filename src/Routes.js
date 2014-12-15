@@ -22,6 +22,7 @@ var RatingController = require('./controllers/RatingsController');
 var CommentsController = require('./controllers/CommentsController');
 var SendsController = require('./controllers/SendsController');
 var UsersController = require('./controllers/UsersController');
+var SuggestionsController = require('./controllers/SuggestionsController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -167,6 +168,19 @@ var RouteToControllerBinder = function () {
 
     app.get('/api/users/:userId',
         UsersController.getUser);
+
+    // SUGGESTIONS
+    app.get('/api/suggestions',
+        SuggestionsController.getSuggestions);
+
+    app.post('/api/suggestions',
+        InjectAccountId,
+        SuggestionsController.createSuggestion);
+
+    app.post('/api/suggestions/:suggestionId/upvote',
+        InjectAccountId,
+        SuggestionsController.upvoteSuggestion);
+
 };
 
 module.exports = new RouteToControllerBinder();

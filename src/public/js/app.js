@@ -65,6 +65,11 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
                 controller: 'UserProfileController',
                 templateUrl: 'templates/UserProfile.tpl'
             })
+            .when('/suggestions', {
+                controller: 'SuggestionsController',
+                templateUrl: 'templates/Suggestions.tpl'
+            })
+
             .otherwise({
                 redirectTo: '/login'
             });
@@ -131,6 +136,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
 
         $rootScope.navigateToUserProfile = function (pUserId) {
             $location.path('users/' + pUserId);
+        };
+
+        $rootScope.navigateToSuggestionsPage = function () {
+            $location.path('suggestions');
         };
 
         $rootScope.back = function () {

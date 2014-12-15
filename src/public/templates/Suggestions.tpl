@@ -1,19 +1,22 @@
-<div class="title">Community Suggestions</div>
+<div class="title">Suggestions</div>
 
-<div class="suggestion"
-    ng-repeat="suggestion in suggestions">
-    <i class="icon-heart"
-        ng-style="{'font-size': Math.max(50, (18 + suggestion.upvotes * 2)) + 'px'}"
-        ng-click="upvote(suggestion)"> </i>
-    {{suggestion.suggestion}}
+<div ng-repeat="suggestion in suggestions">
+    <div class="suggestion">
+        <i class="icon-thumbs-up-alt heart"
+            ng-class="{disabled: suggestion.disabled}"
+            ng-style="{'font-size': getFontSize(suggestion) + 'px'}"
+            ng-click="upvote(suggestion)"> </i>
+        <br>
+        {{suggestion.suggestion}}
+    </div>
 </div>
 
 <div>
-    <textarea ng-model="form.suggestion" placeholder="Let's make SETTER together, post your suggestion!">
+    <textarea ng-model="form.suggestion" placeholder="your suggestion!">
     </textarea>
-
+    <br>
     <div class="btn_black"
-        ng-click="postSuggestion()">
+        ng-click="postClicked()">
         <i class="icon-plus-squared"> </i> Post
     </div>
 </div>

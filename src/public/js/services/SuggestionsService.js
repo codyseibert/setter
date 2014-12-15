@@ -12,10 +12,19 @@ angular.module('SETTER')
                     url: 'api/suggestions'
                 });
             },
-            upvoteSuggestion: function () {
+            createSuggestion: function (pSuggestion) {
                 return $http({
-                    method: 'GET',
-                    url: 'api/suggestions/:suggestionId/upvote'
+                    method: 'POST',
+                    url: 'api/suggestions',
+                    data: {
+                        suggestion: pSuggestion
+                    }
+                });
+            },
+            upvoteSuggestion: function (pSuggestionId) {
+                return $http({
+                    method: 'POST',
+                    url: 'api/suggestions/' + pSuggestionId + '/upvote'
                 });
             }
         };

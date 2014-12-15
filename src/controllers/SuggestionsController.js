@@ -18,8 +18,11 @@ var SuggestionsController = function () {
     'use strict';
 
     this.getSuggestions = function (pReq, pRes) {
-        var callback = theControllerHelper.createDefaultCallback(pRes);
-        theSuggestionsDao.getSuggestions(callback);
+        var accountId,
+            callback;
+        accountId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSuggestionsDao.getSuggestions(accountId, callback);
     };
 
     this.createSuggestion = function (pReq, pRes) {

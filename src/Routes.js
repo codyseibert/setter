@@ -171,6 +171,7 @@ var RouteToControllerBinder = function () {
 
     // SUGGESTIONS
     app.get('/api/suggestions',
+        InjectAccountId,
         SuggestionsController.getSuggestions);
 
     app.post('/api/suggestions',

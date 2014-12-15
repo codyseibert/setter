@@ -15,16 +15,19 @@ var theDaoHelper = require('./DaoHelper');
 var SuggestionsDao = function () {
     'use strict';
 
-    this.getSuggestions = function (pCallback) {
+    this.getSuggestions = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            "SELECT s.suggestion, (SELECT COUNT(*) FROM suggestions_upvotes su WHERE suggestion_id = s.id) AS upvotes FROM suggestions s",
-            [],
+            "SELECT s.id, s.suggestion, " +
+                "(SELECT COUNT(*) FROM suggestions_upvotes su WHERE su.account_id = ? AND su.suggestion_id = s.id) AS disabled, " +
+                "(SELECT COUNT(*) FROM suggestions_upvotes su WHERE suggestion_id = s.id) AS upvotes " +
+                "FROM suggestions s",
+            [pAccountId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
 
-    this.createSuggestions = function (pAccountId, pSuggestion, pCallback) {
+    this.createSuggestion = function (pAccountId, pSuggestion, pCallback) {
         theDaoHelper.executeQuery(
             "INSERT INTO suggestions (account_id, suggestion) VALUES (?, ?)",
             [pAccountId, pSuggestion],

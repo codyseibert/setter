@@ -415,3 +415,30 @@ button{
 .bar-legend, .line-legend{
     list-style-type: none;
 }
+
+.suggestion {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 260px;
+    display: inline-block;
+}
+
+.heart {
+    color: #333;
+    cursor: pointer;
+}
+
+.heart:hover{
+    color: #AAA;
+}
+
+.heart.disabled{
+    color: orange;
+    cursor: default;
+}
+
+.heart.disabled:hover{
+    color: orange;
+}

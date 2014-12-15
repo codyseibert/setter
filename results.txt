@@ -244,5 +244,5 @@ true
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 132 passing[0m[90m (262ms)[0m
+[92m [0m[32m 132 passing[0m[90m (187ms)[0m
 

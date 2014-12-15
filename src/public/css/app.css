@@ -10,19 +10,35 @@ html, body{
 body {
     margin: 0px;
     padding: 0px;
+    background-image: url('../images/shattered.png');
     background-repeat: repeat;
-    background-color: #61b2a7;
-    color: #333f4f;
     font-family: 'Raleway', sans-serif;
+    color: #000;
+    background-color: #E9FBFC;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Source Code Pro';
+    font-family: 'Cousine';
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Russo One', sans-serif;
 }
 
 #header{
     height: 60px;
-    background-color: #FF9900;
+    background-color: rgba(253, 184, 19, 0.5);
+    background-color: #aed850;
+    color: #54487f;
+    color: white;
     font-size: 30px;
     text-align: center;
-    border-bottom: 2px solid #FFCC00;
-    color: #222;
+    border-bottom: 1px solid #54487f;
+
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Source Code Pro';
+    font-family: 'Cousine';
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Russo One', sans-serif;
 }
 
 #header .logo{
@@ -33,20 +49,8 @@ body {
     cursor: pointer;
 }
 
-#header .logo .left{
-    color: #53bf6b;
-}
-
-#header .logo:hover .left{
-    color: white;
-}
-
-#header .logo .right{
-    color: white;
-}
-
-#header .logo:hover .right{
-    color: #53bf6b;
+#header .logo:hover{
+    color: #54487f;
 }
 
 select{
@@ -179,7 +183,6 @@ select{
 
 .title{
     font-size: 40px;
-    color: white;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -197,7 +200,7 @@ select{
 }
 
 .button:hover{
-    color: white;
+    color: #54487f;
 }
 
 .btn_green{
@@ -214,9 +217,14 @@ select{
 }
 
 .btn_black{
-    background-color: #222;
+    background-color: #453015;
+    background-color: #e78724;
+    background-color: #3ad5fe;
+    background-color: #fed850;
+    background-color: #aed850;
+    color: #54487f;
     width: 300px;
-    color: white;
+    border: 1px solid #333;
     border-radius: 10px;
     font-size: 40px;
     padding-top: 35px;
@@ -227,7 +235,7 @@ select{
 }
 
 .btn_black:hover{
-    background-color: #666;
+    background-color: #cef870;
 }
 
 .btn_green:hover{
@@ -264,6 +272,10 @@ input{
     color: #53bf6b;
 }
 
+textarea, input, select {
+    font-family: inherit;
+}
+
 textarea{
     width: 300px;
     height: 100px;
@@ -298,7 +310,7 @@ button{
 }
 
 .border_top{
-    border-top: 1px dashed #53bf6b;
+    border-top: 1px dashed #333;
 }
 
 .note_wrapper{
@@ -374,13 +386,14 @@ button{
 }
 
 .link{
-    color: white;
+    color: #54487f;
     display: inline-block;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .link:hover{
-    color: #1A8E34;
+    color: white;
 }
 
 .footer{
@@ -391,9 +404,9 @@ button{
     height: 100px;
     margin-top: -6em;
     line-height: 30px;
-    border-top: 2px solid #FFCC00;
-    background-color: #FF9900;
-    color: #222;
+    border-top: 1px solid #54487f;
+    background-color: #aed850;
+    color: #333;
 }
 
 .picture img{
@@ -422,23 +435,24 @@ button{
     border-radius: 10px;
     margin-bottom: 10px;
     max-width: 260px;
+    border: 1px solid #54487f;
     display: inline-block;
 }
 
 .heart {
-    color: #333;
+    color: #54487f;
     cursor: pointer;
 }
 
 .heart:hover{
-    color: #AAA;
+    color: #e78724;
 }
 
 .heart.disabled{
-    color: orange;
+    color: #aed850;
     cursor: default;
 }
 
 .heart.disabled:hover{
-    color: orange;
+    color: #aed850;
 }

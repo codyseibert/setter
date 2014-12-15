@@ -24,6 +24,18 @@ angular.module('SETTER')
                     method: 'GET',
                     url: 'api/gyms/' + pGymId
                 });
+            },
+            getCurrentBoulderRoutes: function (pGymId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/gyms/' + pGymId + '/routes/boulder'
+                });
+            },
+            getCurrentRopeRoutes: function (pGymId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/gyms/' + pGymId + '/routes/rope'
+                });
             }
         };
     }]);

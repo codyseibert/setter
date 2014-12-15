@@ -19,6 +19,7 @@ angular.module('SETTER')
                     LoginService.setHeader(pData.token);
                     LoginService.setAccountType(pData.accountType);
                     LoginService.setAccountId(pData.accountId);
+                    LoginService.setHomeGymId(pData.homeGymId);
                     LoginService.navigateToCorrectDashboard();
                 });
         };

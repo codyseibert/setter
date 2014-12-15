@@ -69,6 +69,15 @@ var UsersDao = function () {
         );
     };
 
+    this.setHomeGym = function (pUserId, pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE users SET gym_id = ? WHERE account_id = ?',
+            [pGymId, pUserId],
+            theDaoHelper.INSERT,
+            pCallback
+        );
+    };
+
 };
 
 module.exports = new UsersDao();

@@ -46,6 +46,16 @@ var UsersController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theUsersDao.getRopeSends(userId, callback);
     };
+
+    this.setHomeGym = function (pReq, pRes) {
+        var gymId,
+            userId,
+            callback;
+        gymId = pReq.body.gymId;
+        userId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theUsersDao.setHomeGym(userId, gymId, callback);
+    };
 };
 
 module.exports = new UsersController();

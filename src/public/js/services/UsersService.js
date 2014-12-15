@@ -30,6 +30,15 @@ angular.module('SETTER')
                     method: "GET",
                     url: "api/users/" + pUserId + "/sends/rope"
                 });
+            },
+            setHomeGym: function (pGymId) {
+                return $http({
+                    method: "POST",
+                    url: "api/users/homegym/set",
+                    data: {
+                        gymId: pGymId
+                    }
+                });
             }
         };
     }]);

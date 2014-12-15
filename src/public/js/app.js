@@ -78,6 +78,16 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
     .run(['$rootScope', '$location', 'LoginService', '$window', function ($rootScope, $location, LoginService, $window) {
         'use strict';
 
+        // Set the global chart colors used throughout the site
+        Chart.defaults.global.colours[0].fillColor = "rgba(174, 216, 80, 1)";
+        Chart.defaults.global.colours[0].strokeColor = "rgba(84, 72, 127, 0.5)";
+        Chart.defaults.global.colours[0].pointColor = "rgba(84, 72, 127, 0.5)";
+
+        $rootScope.chartOptions = {
+            scaleFontColor: "#000",
+            scaleFontSize: 20
+        };
+
         $rootScope.navigateToLogin = function () {
             $location.path('login');
         };
@@ -158,9 +168,14 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             return LoginService.isLoggedIn();
         };
 
+        $rootScope.getHomeGymId = function () {
+            return LoginService.getHomeGymId();
+        };
+
         if (LoginService.hasTokenInCookie()) {
             LoginService.setHeaderFromCookie();
             LoginService.setTypeFromCookie();
             LoginService.setAccountIdFromCookie();
+            LoginService.setHomeGymIdFromCookie();
         }
     }]);

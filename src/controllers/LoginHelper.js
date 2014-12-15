@@ -31,17 +31,19 @@ var LoginHelper = function () {
                 return;
             }
 
-            theAccountsDao.getAccountType(pAccountId, function (pResults) {
+            theAccountsDao.getAccountInfo(pAccountId, function (pResults) {
                 if (pResults.error) {
                     pRes.status(400);
                     pRes.send(theMessages.ERROR);
                     return;
                 }
 
+                console.log(pResults);
                 pRes.send({
                     token: token,
                     accountType: pResults.type_id,
-                    accountId: pAccountId
+                    accountId: pAccountId,
+                    homeGymId: pResults.gym_id
                 });
             });
 

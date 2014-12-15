@@ -8,6 +8,7 @@ angular.module('SETTER')
         var USER_TYPE = 1,
             GYM_TYPE = 2,
             accountType = USER_TYPE,
+            homeGymId = null,
             accountId = null;
 
         return {
@@ -41,6 +42,13 @@ angular.module('SETTER')
             setAccountIdFromCookie: function () {
                 accountId = parseInt($cookies.accountId, 10);
             },
+            setHomeGymIdFromCookie: function () {
+                homeGymId = $cookies.homeGymId;
+
+                if ($cookies.homeGymId) {
+                    homeGymId = parseInt($cookies.homeGymId, 10);
+                }
+            },
             hasTokenInCookie: function () {
                 return $cookies.token !== undefined;
             },
@@ -48,6 +56,7 @@ angular.module('SETTER')
                 delete $cookies.token;
                 delete $cookies.accountType;
                 delete $cookies.accountId;
+                delete $cookies.homeGymId;
                 delete $http.defaults.headers.common.Authorization;
             },
             setAccountType: function (pAccountType) {
@@ -59,6 +68,16 @@ angular.module('SETTER')
                 pAccountId = parseInt(pAccountId, 10);
                 accountId = pAccountId;
                 $cookies.accountId = pAccountId;
+            },
+            setHomeGymId: function (pHomeGymId) {
+                if (pHomeGymId) {
+                    pHomeGymId = parseInt(pHomeGymId, 10);
+                }
+                homeGymId = pHomeGymId;
+                $cookies.homeGymId = pHomeGymId;
+            },
+            getHomeGymId: function () {
+                return homeGymId;
             },
             getAccountType: function () {
                 return accountType;

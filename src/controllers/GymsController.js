@@ -30,24 +30,20 @@ var GymsController = function () {
         theGymsDao.getGyms(callback);
     };
 
-    this.updateGym = function (pReq, pRes) {
-        var id,
-            name,
-            address,
+    this.getCurrentBoulderRoutes = function (pReq, pRes) {
+        var gymId,
             callback;
-        id = pReq.user.accountId;
-        name = pReq.body.name;
-        address = pReq.body.address;
+        gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.updateGym(id, name, address, callback);
+        theGymsDao.getCurrentBoulderRoutes(gymId, callback);
     };
 
-    this.deleteGym = function (pReq, pRes) {
-        var id,
+    this.getCurrentRopeRoutes = function (pReq, pRes) {
+        var gymId,
             callback;
-        id = pReq.params.id;
+        gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.deleteGym(id, callback);
+        theGymsDao.getCurrentRopeRoutes(gymId, callback);
     };
 };
 

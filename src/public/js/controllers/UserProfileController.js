@@ -8,7 +8,13 @@ angular.module('SETTER')
         '$routeParams',
         'LoginService',
         'UsersService',
-        function ($scope, $routeParams, LoginService, UsersService) {
+        'BarGraphHelperService',
+        function (
+            $scope,
+            $routeParams,
+            LoginService,
+            UsersService,
+            BarGraphHelperService) {
             'use strict';
 
             var createBoulderSendsBarGraph,
@@ -20,103 +26,33 @@ angular.module('SETTER')
 
             $scope.userId = $routeParams.userId;
 
-            Chart.defaults.global.colours[0].fillColor = "rgba(255,153,0,1)";
+            Chart.defaults.global.colours[0].fillColor = "rgba(174, 216, 80, 1)";
+            Chart.defaults.global.colours[0].strokeColor = "rgba(84, 72, 127, 0.5)";
+            Chart.defaults.global.colours[0].pointColor = "rgba(84, 72, 127, 0.5)";
 
             $scope.options = {
                 scaleFontColor: "#000",
                 scaleFontSize: 20
             };
 
-            createBoulderSendsBarGraph = function (pData) {
-                var dataObject = {},
-                    i,
-                    send,
-                    name,
-                    key,
-                    entry,
-                    labels = [],
-                    dataArray = [],
-                    dataCopy = pData.slice(0),
-                    preData = [];
-
-                $scope.boulderSendsBarGraph = {};
-
-                for (i = 0; i < dataCopy.length; i += 1) {
-                    send = dataCopy[i];
-                    name = send.name;
-                    if (!dataObject[name]) {
-                        dataObject[name] = 0;
-                    }
-                    dataObject[name] += 1;
-                }
-
-                for (key in dataObject) {
-                    if (dataObject.hasOwnProperty(key)) {
-                        entry = dataObject[key];
-                        preData.push({
-                            label: key,
-                            data: entry
-                        });
-                    }
-                }
-
-                preData.sort(function (a, b) {
-                    return a.label.localeCompare(b.label);
-                });
-
-                for (i = 0; i < preData.length; i += 1) {
-                    labels.push(preData[i].label);
-                    dataArray.push(preData[i].data);
-                }
-                $scope.boulderSendsBarGraph.labels = labels;
-                $scope.boulderSendsBarGraph.data = [dataArray];
+            var createBoulderSendsBarGraph = function (pData) {
+                var data;
+                data = BarGraphHelperService.generateRouteCountGraphData(pData);
+                $scope.boulderSendsBarGraph = {
+                    labels: data.labels,
+                    data: data.data
+                };
             };
 
-
-            createRopeSendsBarGraph = function (pData) {
-                var dataObject = {},
-                    i,
-                    send,
-                    name,
-                    key,
-                    entry,
-                    labels = [],
-                    dataArray = [],
-                    dataCopy = pData.slice(0),
-                    preData = [];
-
-                $scope.ropeSendsBarGraph = {};
-
-                for (i = 0; i < dataCopy.length; i += 1) {
-                    send = dataCopy[i];
-                    name = send.name;
-                    if (!dataObject[name]) {
-                        dataObject[name] = 0;
-                    }
-                    dataObject[name] += 1;
-                }
-
-                for (key in dataObject) {
-                    if (dataObject.hasOwnProperty(key)) {
-                        entry = dataObject[key];
-                        preData.push({
-                            label: key,
-                            data: entry
-                        });
-                    }
-                }
-
-                preData.sort(function (a, b) {
-                    return a.label.localeCompare(b.label);
-                });
-
-                for (i = 0; i < preData.length; i += 1) {
-                    labels.push(preData[i].label);
-                    dataArray.push(preData[i].data);
-                }
-                $scope.ropeSendsBarGraph.labels = labels;
-                $scope.ropeSendsBarGraph.data = [dataArray];
+            var createRopeSendsBarGraph = function (pData) {
+                var data;
+                data = BarGraphHelperService.generateRouteCountGraphData(pData);
+                $scope.ropeSendsBarGraph = {
+                    labels: data.labels,
+                    data: data.data
+                };
             };
+
 
             createBoulderSendsLineGraph = function (pData) {
                 var i,
@@ -322,5 +258,4 @@ angular.module('SETTER')
                     createRopeSendsLineGraph(pData);
                     calculateRopeGrade(pData);
                 });
-
         }]);

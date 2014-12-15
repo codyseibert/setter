@@ -32,7 +32,7 @@
     <canvas class="chart-bar"
         data="boulderSendsBarGraph.data"
         labels="boulderSendsBarGraph.labels"
-        options="options"
+        options="chartOptions"
         legend="true"
         width="100%"
         height="100%">
@@ -45,7 +45,7 @@
     <canvas class="chart-bar"
         data="ropeSendsBarGraph.data"
         labels="ropeSendsBarGraph.labels"
-        options="options"
+        options="chartOptions"
         legend="true"
         width="100%"
         height="100%">

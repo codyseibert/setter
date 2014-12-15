@@ -45,6 +45,12 @@ var RouteToControllerBinder = function () {
     app.get('/api/gyms/:gymId',
         GymsController.getGym);
 
+    app.get('/api/gyms/:gymId/routes/boulder',
+        GymsController.getCurrentBoulderRoutes)
+
+    app.get('/api/gyms/:gymId/routes/rope',
+        GymsController.getCurrentRopeRoutes)
+
     // WALLS
     app.get('/api/gym/:gymId/walls',
         WallsController.getWallsInGym);
@@ -168,6 +174,10 @@ var RouteToControllerBinder = function () {
 
     app.get('/api/users/:userId',
         UsersController.getUser);
+
+    app.post('/api/users/homegym/set',
+        InjectAccountId,
+        UsersController.setHomeGym);
 
     // SUGGESTIONS
     app.get('/api/suggestions',

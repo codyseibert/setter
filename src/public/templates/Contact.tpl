@@ -1,10 +1,10 @@
-<div>
-    <div class="btn_blue back" ng-click="back()">
-        <i class="icon-left-big"> </i> Back
-    </div>
-</div>
-
 <div class="mb"></div>
+<div class="btn_black small"
+    ng-click="back()">
+    <i class="icon-left-big"> </i>Back
+</div>
+<div class="mb"></div>
+
 
 <div class="title">Contact Us</div>
 
@@ -17,10 +17,6 @@
 </div>
 
 <div ng-hide="thanks">
-    <div class="mb small">
-        Leave us a message!
-    </div>
-
     <input ng-model="form.name"
         placeholder="email or name"
         autocorrect="off"

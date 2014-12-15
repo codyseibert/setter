@@ -9,12 +9,14 @@ angular.module('SETTER')
         'CommentsService',
         'RatingsService',
         'SendsService',
+        'DateFormatService',
         function ($scope,
             $routeParams,
             RoutesService,
             CommentsService,
             RatingsService,
-            SendsService) {
+            SendsService,
+            DateFormatService) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;
@@ -44,7 +46,13 @@ angular.module('SETTER')
 
             CommentsService.getCommentsAboutRoute($scope.routeId)
                 .success(function (pData) {
+                    var i;
+
                     $scope.comments = pData;
+
+                    for (i = 0; i < pData.length; i += 1) {
+                        pData[i].date = DateFormatService.formatWithTime(pData[i].date);
+                    }
                 });
 
             loadRouteRating = function () {
@@ -83,7 +91,8 @@ angular.module('SETTER')
                     .success(function (pData) {
                         $scope.comments.push({
                             id: pData.id,
-                            message: $scope.form.message
+                            message: $scope.form.message,
+                            date: DateFormatService.formatWithTime(moment())
                         });
                         $scope.form.message = "";
                     });

@@ -8,10 +8,12 @@ angular.module('SETTER')
         'RoutesService',
         'SetsService',
         '$routeParams',
+        'DateFormatService',
         function ($scope,
             RoutesService,
             SetsService,
-            $routeParams) {
+            $routeParams,
+            DateFormatService) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;
@@ -24,6 +26,7 @@ angular.module('SETTER')
             SetsService.getSet($scope.setId)
                 .success(function (pData) {
                     $scope.set = pData;
+                    pData.date = DateFormatService.format(pData.date);
                 });
 
             RoutesService.getRoutesInSet($scope.setId)

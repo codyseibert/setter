@@ -1,11 +1,36 @@
-<div class="btn_black"
+<div class="mb"></div>
+<div class="btn_black small"
     ng-click="back()">
     <i class="icon-left-big"> </i>Back
 </div>
+<div class="mb"></div>
+<div class="mb"></div>
+<div class="mb"></div>
 
-<div class="title">{{route.route_name}}</div>
+<div class="route nohover">
+    <i class="icon-circle" ng-style="{color: route.value}"> </i>
+    {{route.route_name}}
+    {{route.boulder_grade || route.rope_grade}}
+    {{route.firstname}}
+    {{route.lastname}}
+</div>
+<div class="mb"></div>
+<div class="mb"></div>
+<div class="mb"></div>
 
-{{route.boulder_grade || route.rope_grade}} {{route.firstname}} {{route.lastname}} {{route.value}} {{rating.rating}}
+<div class="stars">
+    <div class="star"
+        ng-class="{rated: hasRated}"
+        ng-repeat="star in stars"
+        ng-click="rate(star)"
+        ng-mouseover="setHoverRating(star)"
+        ng-mouseleave="setHoverRating(-1)">
+        <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}"> </i>
+    </div>
+</div>
+<div class="mb"></div>
+<div class="mb"></div>
+<div class="mb"></div>
 
 <div>
     <div class="btn_small"
@@ -19,36 +44,39 @@
         <i class="icon-paper-plane"> </i> Sent
     </div>
 </div>
+<div class="mb"></div>
+<div class="mb"></div>
+<div class="mb"></div>
 
-<div class="stars">
-    <div class="star"
-            ng-class="{rated: hasRated}"
-            ng-repeat="star in stars"
-            ng-click="rate(star)"
-            ng-mouseover="setHoverRating(star)"
-            ng-mouseleave="setHoverRating(-1)">
-        <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}"> </i>
-    </div>
-</div>
-
+<div class="sub_title">Sends</div>
 <div ng-repeat="send in sends">
     <div class="send">
-        {{send.account_id}} {{send.firstname}} {{send.lastname}}
+        {{send.firstname}} {{send.lastname}}
     </div>
 </div>
+<div class="mb"></div>
+<div class="mb"></div>
+<div class="mb"></div>
 
+<div class="sub_title">Comments</div>
 <div ng-repeat="comment in comments">
     <div class="comment">
-        {{comment.id}} {{comment.account_id}} {{comment.firstname}} {{comment.lastname}} {{comment.message}} {{comment.date}}
+        {{comment.firstname}} {{comment.lastname}}
+        <br>
+        {{comment.message}}
+        <br>
+        {{comment.date}}
     </div>
 </div>
+<div class="mb"></div>
 
 <textarea ng-model="form.message"
             placeholder="comment">
 </textarea>
+<div class="mb"></div>
 
 <div>
     <div class="btn_black" ng-click="addComment()">
-        <i class="icon-plus-squared"> </i> Add Comment
+        <i class="icon-plus-squared"> </i> Comment
     </div>
 </div>

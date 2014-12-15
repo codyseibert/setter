@@ -1,4 +1,6 @@
-<div class="btn_black"
+<div class="mb"></div>
+
+<div class="btn_black small"
     ng-click="back()">
     <i class="icon-left-big"> </i>Back
 </div>
@@ -8,7 +10,7 @@
 <div ng-repeat="set in sets">
     <div class="set"
             ng-click="navigateToSet(gymId, wallId, set.id)">
-        {{set.id}} {{set.date}}
+        {{set.date}} <i class="icon-right-big"> </i>
     </div>
 </div>
 

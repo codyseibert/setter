@@ -122,6 +122,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             $location.path('tos');
         };
 
+        $rootScope.navigateToHome = function () {
+            $location.path('login');
+        }
+
         $rootScope.navigateToGymDashboard = function (pGymId) {
             $location.path('gyms/' + pGymId + '/dashboard');
         };

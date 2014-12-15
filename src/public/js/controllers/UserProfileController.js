@@ -70,9 +70,10 @@ angular.module('SETTER')
                     options: {
                         scaleFontColor: "#000",
                         scaleFontSize: 20,
+
                         scaleOverride: true,
-                        scaleSteps: 12,
-                        scaleStepWidth: 1,
+                        scaleSteps: 6,
+                        scaleStepWidth: 2,
                         scaleStartValue: 0,
                         scaleLabel: '<%= "V" + value %>'
                     }

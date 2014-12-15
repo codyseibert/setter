@@ -50,7 +50,19 @@ body {
 }
 
 #header .logo:hover{
-    color: #54487f;
+    color: #e78724;
+}
+
+#header .logo img{
+    width: 40px;
+    top: -5px;
+    position: relative;
+}
+
+#header .text{
+    display: inline-block;
+    position: relative;
+    top: -16px;
 }
 
 select{
@@ -64,9 +76,9 @@ select{
     cursor: pointer;
     color: #333;
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
 }
 
 .star:hover{
@@ -100,17 +112,29 @@ select{
 }
 
 .route{
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    display: inline-block;
+    text-align: left;
     width: 260px;
-    margin-bottom: 10px;
+    height: 10px;
+    padding: 20px;
+    background-color: white;
+    display: inline-block;
     cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    padding-bottom: 30px;
 }
 
 .route:hover{
     background-color: #ddd;
+}
+
+.route.nohover{
+    cursor: default;
+}
+.route.nohover:hover{
+    background-color: white;
 }
 
 .setter{
@@ -153,10 +177,32 @@ select{
     background-color: white;
     display: inline-block;
     cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    padding-bottom: 30px;
 }
 
 .set:hover{
     background-color: #ddd;
+}
+
+.sub_title{
+    font-size: 30px;
+}
+
+.comment{
+    text-align: left;
+    width: 260px;
+    padding: 20px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    padding-bottom: 30px;
 }
 
 .wall{
@@ -167,6 +213,11 @@ select{
     background-color: white;
     display: inline-block;
     cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    padding-bottom: 30px;
 }
 .wall:hover{
     background-color: #ddd;
@@ -174,6 +225,7 @@ select{
 
 .mb {
     margin-bottom: 10px;
+    min-height: 1px;
 }
 
 .error{
@@ -185,6 +237,7 @@ select{
     font-size: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
+    color: #e78724;
 }
 
 .nav{
@@ -197,10 +250,28 @@ select{
 
 .button {
     cursor: pointer;
+    color: #54487f;
+    color: #e78724;
+    color: white;
+    display: inline-block;
+    width: 40px;
+    position: absolute;
+}
+
+.r0 {
+    right: 10px;
+}
+
+.r1 {
+    right: 60px;
+}
+
+.r2 {
+    right: 110px;
 }
 
 .button:hover{
-    color: #54487f;
+    color: #e78724;
 }
 
 .btn_green{
@@ -219,16 +290,17 @@ select{
 .btn_black{
     background-color: #453015;
     background-color: #e78724;
+    background-color: #54487f;
     background-color: #3ad5fe;
     background-color: #fed850;
     background-color: #aed850;
-    color: #54487f;
+    color: #333;
     width: 300px;
     border: 1px solid #333;
     border-radius: 10px;
     font-size: 40px;
     padding-top: 35px;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     cursor: pointer;
     display: inline-block;
     height: 40px;
@@ -259,7 +331,7 @@ select{
     font-size: 26px;
     padding: 15px;
     padding-top: 20px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 input{
@@ -298,7 +370,7 @@ button{
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -100px
+    margin: 0 auto 150px
 }
 
 .light_white_bg{
@@ -386,14 +458,13 @@ button{
 }
 
 .link{
-    color: #54487f;
+    color: white;
     display: inline-block;
     cursor: pointer;
-    font-weight: bold;
 }
 
 .link:hover{
-    color: white;
+    color: #e78724;
 }
 
 .footer{
@@ -414,11 +485,29 @@ button{
     width: 260px;
 }
 
-.graph{
-    color: #000;
+.graph_wrapper{
+    padding: 10px;
     display: inline-block;
-    height: 400px;
-    width: 260px;
+}
+
+.bar-graph{
+    color: #000;
+    height: 280px;
+    width: 240px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+.line-graph{
+    color: #000;
+    height: 280px;
+    width: 240px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #333;
 }
 
 .grade{
@@ -434,7 +523,7 @@ button{
     background-color: white;
     border-radius: 10px;
     margin-bottom: 10px;
-    max-width: 260px;
+    width: 260px;
     border: 1px solid #54487f;
     display: inline-block;
 }

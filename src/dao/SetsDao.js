@@ -22,7 +22,7 @@ var SetsDao = function () {
 
     this.getSetsOnWall = function (pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, date FROM sets WHERE wall_id = ?',
+            'SELECT id, date FROM sets WHERE wall_id = ? ORDER BY date DESC',
             [pWallId],
             theDaoHelper.MULTIPLE,
             pCallback

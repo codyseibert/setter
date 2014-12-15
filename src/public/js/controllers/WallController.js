@@ -8,10 +8,12 @@ angular.module('SETTER')
         'WallsService',
         'SetsService',
         '$routeParams',
+        'DateFormatService',
         function ($scope,
             WallsService,
             SetsService,
-            $routeParams) {
+            $routeParams,
+            DateFormatService) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;
@@ -27,7 +29,13 @@ angular.module('SETTER')
 
             SetsService.getSetsOnWall($scope.wallId)
                 .success(function (pData) {
+                    var i;
+
                     $scope.sets = pData;
+
+                    for (i = 0; i < pData.length; i += 1) {
+                        pData[i].date = DateFormatService.format(pData[i].date);
+                    }
                 });
 
             $scope.hasSets = function () {
@@ -37,9 +45,9 @@ angular.module('SETTER')
             $scope.addClicked = function () {
                 SetsService.createSet($scope.wallId)
                     .success(function (pData) {
-                        $scope.sets.push({
+                        $scope.sets.unshift({
                             id: pData.id,
-                            date: moment()
+                            date: DateFormatService.format(moment())
                         });
                     });
             };

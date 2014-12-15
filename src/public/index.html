@@ -20,22 +20,28 @@
         <div id="header">
             <div class="logo"
                 ng-click="navigateToHome()">
-                SETTER
+                <img src="images/logo.png">
+                <div class="text">
+                    SETTER
+                </div>
             </div>
 
             <div class="nav" ng-show="isLoggedIn()">
-                <i class="button icon-user"
-                    ng-click="navigateToUserProfile(getAccountId())"> </i>
+                <div class="button r2"
+                        ng-click="navigateToUserProfile(getAccountId())">
+                    <i class="icon-user"> </i>
+                </div>
 
-                <i class="button icon-home"
-                    ng-show="getHomeGymId()"
-                    ng-click="navigateToGym(getHomeGymId())"> </i>
+                <div class="button r1"
+                        ng-click="navigateToGym(getHomeGymId())"
+                        ng-show="getHomeGymId()">
+                    <i class="icon-home"> </i>
+                </div>
 
-                <i class="button icon-megaphone"
-                    ng-click="navigateToSuggestionsPage()"> </i>
-
-                <i class="button icon-logout"
-                    ng-click="navigateToLogout()"> </i>
+                <div class="button r0"
+                        ng-click="navigateToSuggestionsPage()">
+                    <i class="icon-megaphone"> </i>
+                </div>
             </div>
         </div>
 
@@ -108,6 +114,7 @@
             <script src="js/services/CommentsService.js"></script>
             <script src="js/services/SuggestionsService.js"></script>
             <script src="js/services/FeedbackService.js"></script>
+            <script src="js/services/DateFormatService.js"></script>
             <script src="js/services/BarGraphHelperService.js"></script>
         <!-- /build -->
     </body>

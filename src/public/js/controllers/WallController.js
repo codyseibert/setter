@@ -1,6 +1,6 @@
 /*jslint nomen: true */
 /*jslint unparam: true*/
-/*global angular: false, btoa: false, console: false, moment: false */
+/*global angular: false, btoa: false, console: false, moment: false, confirm: false */
 
 angular.module('SETTER')
     .controller('WallController', [

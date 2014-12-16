@@ -169,7 +169,9 @@ true
 [0m    #createRoute[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of INSERT on the routes table [0m
 [0m    #updateRoute[0m
+undefined undefined undefined undefined undefined undefined undefined
 [2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the routes table [0m
+undefined undefined undefined undefined undefined undefined undefined
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 [0m    #deleteRoute[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the routes tables [0m
@@ -233,5 +235,5 @@ true
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 124 passing[0m[90m (168ms)[0m
+[92m [0m[32m 124 passing[0m[90m (230ms)[0m
 

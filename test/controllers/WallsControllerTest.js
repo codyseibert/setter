@@ -76,11 +76,6 @@ describe('WallsController', function () {
         });
     });
 
-
-
-
-
-
     describe('#createWall', function () {
 
         var sendSpy,
@@ -148,18 +143,6 @@ describe('WallsController', function () {
         });
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
     describe('#updateWall', function () {
 
         var sendSpy,
@@ -167,12 +150,16 @@ describe('WallsController', function () {
             req,
             res,
             NAME = 'cody',
-            WALL_ID = 2;
+            WALL_ID = 2,
+            ACCOUNT_ID = 4;
 
         beforeEach(function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
+                user: {
+                    accountId: ACCOUNT_ID
+                },
                 params: {
                     wallId: WALL_ID
                 },
@@ -194,7 +181,7 @@ describe('WallsController', function () {
 
             WallsController.updateWall(req, res);
 
-            wallId = methodUnderTestSpy.getCall(0).args[0];
+            wallId = methodUnderTestSpy.getCall(0).args[1];
             assert.equal(wallId, WALL_ID);
         });
 
@@ -209,7 +196,7 @@ describe('WallsController', function () {
 
             WallsController.updateWall(req, res);
 
-            name = methodUnderTestSpy.getCall(0).args[1];
+            name = methodUnderTestSpy.getCall(0).args[2];
             assert.equal(name, NAME);
         });
 
@@ -219,7 +206,7 @@ describe('WallsController', function () {
 
             WallsController.__set__({
                 theWallsDao: {
-                    updateWall: function (pId, pName, pCallback) {
+                    updateWall: function (pWallId, pAccountId, pName, pCallback) {
                         pCallback(expectedData);
                     }
                 }
@@ -232,28 +219,22 @@ describe('WallsController', function () {
         });
     });
 
-
-
-
-
-
-
-
-
-
-
     describe('#deleteWall', function () {
 
         var sendSpy,
             methodUnderTestSpy,
             req,
             res,
-            WALL_ID = 1;
+            WALL_ID = 1,
+            ACCOUNT_ID = 4;
 
         beforeEach(function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
+                user: {
+                    accountId: ACCOUNT_ID
+                },
                 params: {
                     wallId: WALL_ID
                 }
@@ -272,7 +253,7 @@ describe('WallsController', function () {
 
             WallsController.deleteWall(req, res);
 
-            wallId = methodUnderTestSpy.getCall(0).args[0];
+            wallId = methodUnderTestSpy.getCall(0).args[1];
             assert.equal(wallId, WALL_ID);
         });
 
@@ -282,7 +263,7 @@ describe('WallsController', function () {
 
             WallsController.__set__({
                 theWallsDao: {
-                    deleteWall: function (pId, pCallback) {
+                    deleteWall: function (pAccountId, pWallId, pCallback) {
                         pCallback(expectedData);
                     }
                 }

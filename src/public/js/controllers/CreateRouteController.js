@@ -1,6 +1,6 @@
 /*jslint nomen: true */
 /*jslint unparam: true*/
-/*global angular: false, btoa: false, console: false, moment: false, alert: false */
+/*global angular: false, btoa: false, console: false, moment: false, alert: false, confirm: false */
 
 angular.module('SETTER')
     .controller('CreateRouteController', [
@@ -123,7 +123,7 @@ angular.module('SETTER')
             findEntry = function (pLookingFor, pArray) {
                 var i,
                     entry;
-                for (i = 0; i < pArray.length; i += 1){
+                for (i = 0; i < pArray.length; i += 1) {
                     entry = pArray[i];
 
                     if (entry.id === pLookingFor) {
@@ -136,28 +136,22 @@ angular.module('SETTER')
             $q.all([getBoulderGradesPromise,
                 getRopeGradesPromise,
                 getColorsPromise,
-                getSettersPromise]).then(function () {
+                getSettersPromise])
+                .then(function () {
                     if (!$scope.routeId) {
                         return;
                     }
 
                     RoutesService.getRoute($scope.routeId)
                         .success(function (pData) {
-                            $scope.form.boulderGrade = findEntry(
-                                pData.boulder_grade_id, $scope.boulderGrades);
-
-                            $scope.form.ropeGrade = findEntry(
-                                pData.rope_grade_id, $scope.ropeGrades);
-
-                            $scope.form.color = findEntry(
-                                pData.color_id, $scope.colors).id;
-
-                            $scope.form.setter = findEntry(
-                                pData.setter_id, $scope.setters);
+                            $scope.form.boulderGrade = findEntry(pData.boulder_grade_id, $scope.boulderGrades);
+                            $scope.form.ropeGrade = findEntry(pData.rope_grade_id, $scope.ropeGrades);
+                            $scope.form.color = findEntry(pData.color_id, $scope.colors).id;
+                            $scope.form.setter = findEntry(pData.setter_id, $scope.setters);
 
                             $scope.form.note = pData.note;
                             $scope.form.name = pData.name;
                         });
-                })
+                });
 
         }]);

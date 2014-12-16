@@ -1,3 +1,10 @@
+<div class="mb"></div>
+
+<div class="btn_black small"
+        ng-click="back()">
+    <i class="icon-left-big"> </i>Back
+</div>
+
 <div class="title">{{user.firstname}} {{user.lastname}}</div>
 
 <div class="picture">

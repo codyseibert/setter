@@ -5,6 +5,7 @@
     <i class="icon-left-big"> </i>Back
 </div>
 
+<div class="title" ng-show="isGymAccount()">Your Dashboard</div>
 <div class="title">{{gym.name}}</div>
 
 <div class="btn_black small"
@@ -15,7 +16,7 @@
 <div class="mb"></div>
 
 <div class="btn_black small"
-    ng-hide="getHomeGymId()"
+    ng-hide="getHomeGymId() || isGymAccount()"
     ng-click="setHomeGym()">
 
     <div class="right">

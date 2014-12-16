@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, alert: false */
 
 angular.module('SETTER')
-    .controller('AddSettersController', ['$scope', 'SettersService', 'LoginService', function ($scope, SettersService, LoginService) {
+    .controller('SettersController', ['$scope', 'SettersService', 'LoginService', function ($scope, SettersService, LoginService) {
         'use strict';
 
         SettersService.getSettersAtGym(LoginService.getAccountId())

@@ -28,7 +28,8 @@
 
             <div class="nav" ng-show="isLoggedIn()">
                 <div class="button"
-                        ng-click="navigateToGyms()">
+                        ng-click="navigateToGyms()"
+                        ng-show="isUserAccount()">
                     <i class="icon-globe"> </i>
                 </div>
 
@@ -39,12 +40,26 @@
                 </div>
 
                 <div class="button"
-                    ng-click="navigateToUserProfile(getAccountId())">
+                        ng-click="navigateToSetters(getAccountId())"
+                        ng-show="isGymAccount()">
+                    <i class="icon-users"> </i>
+                </div>
+
+                <div class="button"
+                        ng-click="navigateToGym(getAccountId())"
+                        ng-show="isGymAccount()">
                     <i class="icon-user"> </i>
                 </div>
 
                 <div class="button"
-                        ng-click="navigateToSuggestionsPage()">
+                        ng-click="navigateToUser(getAccountId())"
+                        ng-show="isUserAccount()">
+                    <i class="icon-user"> </i>
+                </div>
+
+                <div class="button"
+                        ng-click="navigateToSuggestionsPage()"
+                        ng-show="isUserAccount()">
                     <i class="icon-megaphone"> </i>
                 </div>
 
@@ -91,15 +106,13 @@
             <script src="js/controllers/LogoutController.js"></script>
             <script src="js/controllers/RegisterGymController.js"></script>
             <script src="js/controllers/RegisterUserController.js"></script>
-            <script src="js/controllers/GymDashboardController.js"></script>
-            <script src="js/controllers/UserDashboardController.js"></script>
             <script src="js/controllers/GymsController.js"></script>
             <script src="js/controllers/GymController.js"></script>
             <script src="js/controllers/WallsController.js"></script>
             <script src="js/controllers/WallController.js"></script>
             <script src="js/controllers/SetController.js"></script>
             <script src="js/controllers/CreateRouteController.js"></script>
-            <script src="js/controllers/AddSettersController.js"></script>
+            <script src="js/controllers/SettersController.js"></script>
             <script src="js/controllers/RouteController.js"></script>
             <script src="js/controllers/UserProfileController.js"></script>
             <script src="js/controllers/SuggestionsController.js"></script>

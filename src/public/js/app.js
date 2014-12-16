@@ -21,14 +21,6 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
                 controller: 'RegisterUserController',
                 templateUrl: 'templates/RegisterUser.tpl'
             })
-            .when('/gyms/:gymId/dashboard', {
-                controller: 'GymDashboardController',
-                templateUrl: 'templates/GymDashboard.tpl'
-            })
-            .when('/user/:userId/dashboard', {
-                controller: 'UserDashboardController',
-                templateUrl: 'templates/UserDashboard.tpl'
-            })
             .when('/gyms', {
                 controller: 'GymsController',
                 templateUrl: 'templates/Gyms.tpl'
@@ -71,9 +63,9 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
                 controller: 'RouteController',
                 templateUrl: 'templates/Route.tpl'
             })
-            .when('/setters', {
-                controller: 'AddSettersController',
-                templateUrl: 'templates/AddSetters.tpl'
+            .when('/gyms/:gymId/setters', {
+                controller: 'SettersController',
+                templateUrl: 'templates/Setters.tpl'
             })
             .when('/users/:userId', {
                 controller: 'UserProfileController',
@@ -140,14 +132,6 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             $location.path('login');
         };
 
-        $rootScope.navigateToGymDashboard = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/dashboard');
-        };
-
-        $rootScope.navigateToUserDashboard = function (pUserId) {
-            $location.path('user/' + pUserId + '/dashboard');
-        };
-
         $rootScope.navigateToWalls = function (pGymId) {
             $location.path('gyms/' + pGymId + '/walls');
         };
@@ -172,8 +156,8 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/create');
         };
 
-        $rootScope.navigateToAddSetters = function () {
-            $location.path('setters');
+        $rootScope.navigateToSetters = function (pGymId) {
+            $location.path('gyms/' + pGymId + '/setters');
         };
 
         $rootScope.navigateToRoute = function (pGymId, pWallId, pSetId, pRouteId) {
@@ -184,12 +168,12 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId + '/edit');
         };
 
-        $rootScope.navigateToUserProfile = function (pUserId) {
+        $rootScope.navigateToUser = function (pUserId) {
             $location.path('users/' + pUserId);
         };
 
-        $rootScope.navigateToSetters = function () {
-            $location.path('setters');
+        $rootScope.navigateToSetters = function (pGymId) {
+            $location.path('gyms/' + pGymId + '/setters');
         };
 
         $rootScope.navigateToSuggestionsPage = function () {

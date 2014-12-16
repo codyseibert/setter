@@ -12,8 +12,11 @@ angular.module('SETTER')
             $scope,
             LoginService,
             GymsService,
-            BarGraphHelperService) {
+            BarGraphHelperService
+        ) {
             'use strict';
+            var createBoulderRoutesBarGraph,
+                createRopeRoutesBarGraph;
 
             if (!LoginService.validateLoggedIn()) {
                 return;
@@ -21,7 +24,7 @@ angular.module('SETTER')
 
             $scope.gymId = LoginService.getAccountId();
 
-            var createBoulderRoutesBarGraph = function (pData) {
+            createBoulderRoutesBarGraph = function (pData) {
                 var data;
                 data = BarGraphHelperService.generateRouteCountGraphData(pData);
                 $scope.boulderRoutesBarGraph = {
@@ -30,7 +33,7 @@ angular.module('SETTER')
                 };
             };
 
-            var createRopeRoutesBarGraph = function (pData) {
+            createRopeRoutesBarGraph = function (pData) {
                 var data;
                 data = BarGraphHelperService.generateRouteCountGraphData(pData);
                 $scope.ropeRoutesBarGraph = {

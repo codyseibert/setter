@@ -5,7 +5,27 @@
     <i class="icon-left-big"> </i>Back
 </div>
 
-<div class="title">{{wall.name}}</div>
+<div class="mb"></div>
+
+<div ng-show="isGymAccount()">
+    <div class="button orange"
+            ng-click="save()"
+            ng-show="isEditMode">
+        <i class="icon-floppy"> </i>
+    </div>
+    <div class="button orange"
+            ng-click="edit()"
+            ng-hide="isEditMode">
+        <i class="icon-pencil"> </i>
+    </div>
+    <div class="button orange"
+            ng-click="delete()">
+        <i class="icon-trash"> </i>
+    </div>
+</div>
+
+<div ng-hide="isEditMode" class="title">{{wall.name}}</div>
+<input ng-show="isEditMode" ng-model="form.name" class="edit"></input>
 
 <div ng-repeat="set in sets">
     <div class="set"

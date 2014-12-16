@@ -47,19 +47,19 @@ var WallsDao = function () {
         );
     };
 
-    this.updateWall = function (pId, pName, pCallback) {
+    this.updateWall = function (pAccountId, pWallId, pName, pCallback) {
         theDaoHelper.executeQuery(
-            'UPDATE walls SET name = ? WHERE id = ?',
-            [pName, pId],
+            'UPDATE walls SET name = ? WHERE id = ? AND gym_id = ?',
+            [pName, pWallId, pAccountId],
             theDaoHelper.UPDATE,
             pCallback
         );
     };
 
-    this.deleteWall = function (pId, pCallback) {
+    this.deleteWall = function (pAccountId, pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'DELETE FROM walls WHERE id = ?',
-            [pId],
+            'DELETE FROM walls WHERE id = ? AND gym_id = ?',
+            [pWallId, pAccountId],
             theDaoHelper.DELETE,
             pCallback
         );

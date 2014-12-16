@@ -28,14 +28,6 @@
 [0m    #getGyms[0m
 [2K[0G    [32m  ✓[0m[90m invokes the GymsDao getGyms method [0m
 [2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
-[0m    #updateGym[0m
-[2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected id [0m
-[2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected name [0m
-[2K[0G    [32m  ✓[0m[90m invokes the GymsDao updateGym method with expected address [0m
-[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
-[0m    #deleteGym[0m
-[2K[0G    [32m  ✓[0m[90m invokes the GymsDao deleteGym method with expected id [0m
-[2K[0G    [32m  ✓[0m[90m sends expected data on success [0m
 
 [0m  RatingsController[0m
 [0m    #updateRating[0m
@@ -160,9 +152,6 @@ true
 [0m    #updateGym[0m
 [2K[0G    [32m  ✓[0m[90m performs some type of UPDATE on the gyms table [0m
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
-[0m    #deleteGym[0m
-[2K[0G    [32m  ✓[0m[90m performs some type of DELETE from the gyms tables [0m
-[2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 [0m  RatingsDao[0m
 [0m    #updateRating[0m
@@ -244,5 +233,5 @@ true
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 132 passing[0m[90m (187ms)[0m
+[92m [0m[32m 124 passing[0m[90m (168ms)[0m
 

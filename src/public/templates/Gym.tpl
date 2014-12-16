@@ -12,10 +12,16 @@
     Walls<i class="icon-right-big"> </i>
 </div>
 
-<div class="btn_black"
+<div class="mb"></div>
+
+<div class="btn_black small"
     ng-hide="getHomeGymId()"
     ng-click="setHomeGym()">
-    Set as Home Gym
+
+    <div class="right">
+        Make Home Gym
+    </div>
+    <i class="icon-home"> </i>
 </div>
 
 <br>

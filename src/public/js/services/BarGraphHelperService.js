@@ -2,7 +2,7 @@
 /*global angular: false */
 
 angular.module('SETTER')
-    .factory('BarGraphHelperService', ['$http', function ($http) {
+    .factory('BarGraphHelperService', [function () {
         'use strict';
 
         return {

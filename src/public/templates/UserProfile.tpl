@@ -1,31 +1,30 @@
-<div class="button"
-    ng-click="navigateToLogout()">
-    <i class="icon-logout"> </i>
-</div>
-
 <div class="title">{{user.firstname}} {{user.lastname}}</div>
 
 <div class="picture">
     <img src="http://www.googlecover.com/images/hover_img.png">
 </div>
 
-<div class="grade">
-    <b>V Grade</b>
-    <div ng-show="showBoulderGrade">
-        {{boulderGrade}}
-    </div>
-    <div ng-hide="showBoulderGrade">
-        Not enough sends!
+<div class="grade_wrapper">
+    <div class="grade">
+        <b>V Grade</b>
+        <div ng-show="showBoulderGrade">
+            {{boulderGrade}}
+        </div>
+        <div ng-hide="showBoulderGrade">
+            Not enough sends!
+        </div>
     </div>
 </div>
 
-<div class="grade">
-    <b>YDS Grade</b>
-    <div ng-show="showRopeGrade">
-        {{ropeGrade}}
-    </div>
-    <div ng-hide="showRopeGrade">
-        Not enough sends!
+<div class="grade_wrapper">
+    <div class="grade">
+        <b>YDS Grade</b>
+        <div ng-show="showRopeGrade">
+            {{ropeGrade}}
+        </div>
+        <div ng-hide="showRopeGrade">
+            Not enough sends!
+        </div>
     </div>
 </div>
 
@@ -36,6 +35,7 @@
         Boulder Routes Sent
 
         <canvas class="chart-bar"
+            ng-show="boulderSendsBarGraph.hasData"
             data="boulderSendsBarGraph.data"
             labels="boulderSendsBarGraph.labels"
             options="chartOptions"
@@ -43,6 +43,10 @@
             width="100%"
             height="100%">
         </canvas>
+
+        <div ng-hide="boulderSendsBarGraph.hasData" style="padding-top: 100px;">
+            User has no sends!
+        </div>
     </div>
 </div>
 
@@ -51,6 +55,7 @@
         Rope Routes Sent
 
         <canvas class="chart-bar"
+            ng-show="ropeSendsBarGraph.hasData"
             data="ropeSendsBarGraph.data"
             labels="ropeSendsBarGraph.labels"
             options="chartOptions"
@@ -58,6 +63,10 @@
             width="100%"
             height="100%">
         </canvas>
+
+        <div ng-hide="ropeSendsBarGraph.hasData" style="padding-top: 100px;">
+            User has no sends!
+        </div>
     </div>
 </div>
 

@@ -17,7 +17,7 @@ var SettersDao = function () {
 
     this.getSettersAtGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.account_id as id, CONCAT(u.firstname, \' \', u.lastname) AS name FROM setters_gyms_access sga ' +
+            'SELECT u.account_id as id, CONCAT(u.firstname, \' \', u.lastname) AS name, u.firstname, u.lastname FROM setters_gyms_access sga ' +
                 'INNER JOIN users u ON u.account_id = sga.setter_id WHERE sga.gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,
@@ -25,10 +25,10 @@ var SettersDao = function () {
         );
     };
 
-    this.getSetters = function (pCallback) {
+    this.getUsers = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT account_id AS id, firstname, lastname FROM users',
-            [],
+            'SELECT account_id AS id, firstname, lastname FROM users WHERE account_id NOT IN (SELECT setter_id FROM setters_gyms_access WHERE gym_id = ?)',
+            [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
@@ -45,7 +45,7 @@ var SettersDao = function () {
 
     this.deleteSetterGymAccess = function (pSetterId, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'DELETE FROM setters_gym_access WHERE setter_id = ? AND gym_id = ?',
+            'DELETE FROM setters_gyms_access WHERE setter_id = ? AND gym_id = ?',
             [pSetterId, pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

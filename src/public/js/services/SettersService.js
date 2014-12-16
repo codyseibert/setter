@@ -11,7 +11,7 @@ angular.module('SETTER')
                     url: 'api/gym/' + pGymId + '/setters'
                 });
             },
-            getSetters: function () {
+            getUsers: function () {
                 return $http({
                     method: 'GET',
                     url: 'api/setters'
@@ -24,6 +24,12 @@ angular.module('SETTER')
                     data: {
                         setterId: pSetterId
                     }
+                });
+            },
+            removeSetterGymAccess: function (pSetterId) {
+                return $http({
+                    method: 'DELETE',
+                    url: 'api/setters/' + pSetterId + '/access'
                 });
             }
         };

@@ -44,21 +44,25 @@ var WallsController = function () {
     };
 
     this.updateWall = function (pReq, pRes) {
-        var wallName,
+        var gymId,
+            wallName,
             wallId,
             callback;
+        gymId = pReq.user.accountId;
         wallName = pReq.body.wallName;
         wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.updateWall(wallId, wallName, callback);
+        theWallsDao.updateWall(gymId, wallId, wallName, callback);
     };
 
     this.deleteWall = function (pReq, pRes) {
-        var wallId,
+        var gymId,
+            wallId,
             callback;
+        gymId = pReq.user.accountId;
         wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.deleteWall(wallId, callback);
+        theWallsDao.deleteWall(gymId, wallId, callback);
     };
 };
 

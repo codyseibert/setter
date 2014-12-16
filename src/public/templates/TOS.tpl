@@ -1,7 +1,6 @@
-<div>
-    <div class="btn_blue back" ng-click="back()">
-        <i class="icon-left-big"> </i> Back
-    </div>
+<div class="btn_black small"
+    ng-click="back()">
+    <i class="icon-left-big"> </i>Back
 </div>
 
 <div class="mb"></div>

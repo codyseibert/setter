@@ -47,10 +47,10 @@ var RouteToControllerBinder = function () {
         GymsController.getGym);
 
     app.get('/api/gyms/:gymId/routes/boulder',
-        GymsController.getCurrentBoulderRoutes)
+        GymsController.getCurrentBoulderRoutes);
 
     app.get('/api/gyms/:gymId/routes/rope',
-        GymsController.getCurrentRopeRoutes)
+        GymsController.getCurrentRopeRoutes);
 
     // WALLS
     app.get('/api/gym/:gymId/walls',
@@ -160,11 +160,16 @@ var RouteToControllerBinder = function () {
         SettersController.getSettersAtGym);
 
     app.get('/api/setters',
-        SettersController.getSetters);
+        InjectAccountId,
+        SettersController.getUsers);
 
     app.post('/api/setters/access',
         InjectAccountId,
         SettersController.createSetterGymAccess);
+
+    app.delete('/api/setters/:setterId/access',
+        InjectAccountId,
+        SettersController.deleteSetterGymAccess);
 
     // USERS
     app.get('/api/users/:userId/sends/boulder',

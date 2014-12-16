@@ -1,3 +1,4 @@
+<div class="title">You have logged out!
 You have been logged out successfully!
 <br>
 <div class="btn_black"

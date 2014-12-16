@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-/*global angular: false */
+/*global angular: false, moment: false */
 
 angular.module('SETTER')
     .factory('DateFormatService', [function () {

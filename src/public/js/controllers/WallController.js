@@ -22,6 +22,8 @@ angular.module('SETTER')
             $scope.sets = [];
             $scope.wall = {};
 
+            $scope.form = {};
+
             WallsService.getWall($scope.wallId)
                 .success(function (pData) {
                     $scope.wall = pData;
@@ -49,6 +51,31 @@ angular.module('SETTER')
                             id: pData.id,
                             date: DateFormatService.format(moment())
                         });
+                    });
+            };
+
+            $scope.edit = function () {
+                $scope.isEditMode = !$scope.isEditMode;
+                $scope.form.name = $scope.wall.name;
+            };
+
+            $scope.delete = function () {
+                var yes = confirm('Are you sure you want to delete "' + $scope.wall.name + '"?');
+                if (!yes) {
+                    return;
+                }
+
+                WallsService.deleteWall($scope.wallId)
+                    .success(function () {
+                        $scope.navigateToWalls($scope.gymId);
+                    });
+            };
+
+            $scope.save = function () {
+                WallsService.updateWall($scope.wallId, $scope.form.name)
+                    .success(function () {
+                        $scope.isEditMode = false;
+                        $scope.wall.name = $scope.form.name;
                     });
             };
         }]);

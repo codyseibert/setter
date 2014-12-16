@@ -34,7 +34,6 @@ describe('SetsController', function () {
             sendSpy = sinon.spy();
             methodUnderTestSpy = sinon.spy();
             req = {
-                params: id
             };
             res = {send: sendSpy};
         });

@@ -1,9 +1,9 @@
 
 <div class="title">LOGIN</div>
 
-<input ng-model="form.email" placeholder="email"/>
+<input ng-model="form.email" placeholder="email" type="email"/>
 <br>
-<input ng-model="form.password" placeholder="password"/>
+<input ng-model="form.password" placeholder="password" type="password"/>
 <br>
 <div class="btn_green"
         ng-click="login()">
@@ -14,12 +14,16 @@
 
 <div class="btn_black"
         ng-click="navigateToRegisterUser()">
-    <i class="icon-plus-squared"> </i>USER REGISTER
+    <div class="right">USER REGISTER</div>
+    <i class="icon-plus-squared"> </i>
 </div>
 
+<!--
 <div class="mb"></div>
 
 <div class="btn_black"
         ng-click="navigateToRegisterGym()">
-    <i class="icon-plus-squared"> </i>GYM REGISTER
+    <div class="right">GYM REGISTER</div>
+    <i class="icon-plus-squared"> </i>
 </div>
+-->

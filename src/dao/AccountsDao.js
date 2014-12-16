@@ -85,9 +85,9 @@ var AccountsDAO = function () {
     this.getAccountInfo = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id FROM accounts a ' +
-            'LEFT JOIN users u ON u.account_id = a.id ' +
-            'LEFT JOIN gyms g ON g.account_id = a.id ' +
-            'WHERE a.id = ?',
+                'LEFT JOIN users u ON u.account_id = a.id ' +
+                'LEFT JOIN gyms g ON g.account_id = a.id ' +
+                'WHERE a.id = ?',
             [pAccountId],
             theDaoHelper.SINGLE,
             pCallback

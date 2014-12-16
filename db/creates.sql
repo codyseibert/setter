@@ -239,7 +239,7 @@ CREATE TABLE ratings
 CREATE TABLE suggestions
 (
     id int NOT NULL AUTO_INCREMENT,
-    account_id NOT NULL,
+    account_id int NOT NULL,
     suggestion text NOT NULL,
 
     PRIMARY KEY (id),

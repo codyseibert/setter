@@ -33,20 +33,28 @@ body {
     text-align: center;
     border-bottom: 1px solid #54487f;
 
+    position: fixed;
+    width: 100%;
+    top: 0px;
+
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Source Code Pro';
     font-family: 'Cousine';
     font-family: 'Titillium Web', sans-serif;
     font-family: 'Exo 2', sans-serif;
     font-family: 'Russo One', sans-serif;
+
+    z-index: 100;
 }
 
 #header .logo{
     float: left;
     position: relative;
+    display: inline;
     top: 15px;
     left: 15px;
     cursor: pointer;
+    margin-right: -100px;
 }
 
 #header .logo:hover{
@@ -157,16 +165,30 @@ select{
 }
 
 .gym{
-    display: inline-block;
-    height: 100px;
+    text-align: left;
     width: 260px;
-    margin-bottom: 10px;
+    padding: 20px;
     background-color: white;
+    display: inline-block;
     cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    padding-bottom: 30px;
 }
 
 .gym:hover{
     background-color: #eee;
+}
+
+.gym .name {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.gym .address {
+    font-size: 14px;
 }
 
 .set{
@@ -190,6 +212,26 @@ select{
 
 .sub_title{
     font-size: 30px;
+}
+
+.right{
+    float: right;
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+    padding-right: 20px;
+    position: relative;
+    top: -22px;
+}
+
+.small .right{
+    width: 50px;
+    text-overflow: hidden;
+    display: inline-block;
+    float: right;
+    text-align: left;
+    font-size: 18px;
+    padding-top: 5px;
 }
 
 .comment{
@@ -237,7 +279,7 @@ select{
     font-size: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: #e78724;
+    color: #333;
 }
 
 .nav{
@@ -255,7 +297,34 @@ select{
     color: white;
     display: inline-block;
     width: 40px;
-    position: absolute;
+    font-size: 40px;
+}
+
+.orange{
+    color: #e78724;
+}
+
+.button.orange:hover{
+    color: #333;
+}
+
+.edit{
+    text-align: center;
+}
+
+.add_setter{
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    background-color: #aed850;
+    color: #333;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.add_setter:hover{
+    background-color: #cef870;
 }
 
 .r0 {
@@ -270,14 +339,20 @@ select{
     right: 110px;
 }
 
+.r3 {
+    right: 170px;
+}
+
 .button:hover{
     color: #e78724;
 }
 
 .btn_green{
-    background-color: #FF9900;
+    background-color: white;
     width: 300px;
     color: white;
+    border: 1px solid #333;
+    color: #333;
     border-radius: 10px;
     font-size: 40px;
     padding-top: 30px;
@@ -285,6 +360,10 @@ select{
     cursor: pointer;
     display: inline-block;
     height: 45px;
+}
+
+.btn_green:hover{
+    background-color: #ddd;
 }
 
 .btn_black{
@@ -310,13 +389,6 @@ select{
     background-color: #cef870;
 }
 
-.btn_green:hover{
-    background-color: #1A8E34;
-}
-
-.btn_green:hover{
-    background-color: #1A8E34;
-}
 
 .fs20{
     font-size: 20px;
@@ -346,6 +418,7 @@ input{
 
 textarea, input, select {
     font-family: inherit;
+    color: inherit;
 }
 
 textarea{
@@ -353,7 +426,6 @@ textarea{
     height: 100px;
     border-radius: 10px;
     background-color: white;
-    color: #53bf6b;
     font-size: 20px;
 }
 
@@ -370,7 +442,8 @@ button{
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto 150px
+    margin: 0 auto 150px;
+    margin-top: 80px;
 }
 
 .light_white_bg{
@@ -480,14 +553,21 @@ button{
     color: #333;
 }
 
+.beta {
+    position: relative;
+    font-size: 12px;
+}
+
 .picture img{
     border-radius: 10px;
     width: 260px;
+    border: 1px solid #333;
 }
 
 .graph_wrapper{
     padding: 10px;
     display: inline-block;
+    vertical-align: top;
 }
 
 .bar-graph{
@@ -510,8 +590,18 @@ button{
     border: 1px solid #333;
 }
 
+.grade_wrapper{
+    padding: 10px;
+    display: inline-block;
+}
+
 .grade{
     display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 120px;
 }
 
 .bar-legend, .line-legend{
@@ -544,4 +634,10 @@ button{
 
 .heart.disabled:hover{
     color: #aed850;
+}
+
+@media only screen and (max-width: 460px) {
+    #header .text {
+        display: none;
+    }
 }

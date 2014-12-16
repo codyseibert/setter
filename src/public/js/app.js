@@ -1,4 +1,4 @@
-/*global angular: false, btoa: false */
+/*global angular: false, btoa: false, Chart: false, confirm: false */
 
 angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
     .config(['$routeProvider', function ($routeProvider) {
@@ -51,7 +51,21 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             })
             .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/create', {
                 controller: 'CreateRouteController',
-                templateUrl: 'templates/CreateRoute.tpl'
+                templateUrl: 'templates/CreateRoute.tpl',
+                resolve: {
+                    isEditMode: function () {
+                        return false;
+                    }
+                }
+            })
+            .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/:routeId/edit', {
+                controller: 'CreateRouteController',
+                templateUrl: 'templates/CreateRoute.tpl',
+                resolve: {
+                    isEditMode: function () {
+                        return true;
+                    }
+                }
             })
             .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/:routeId', {
                 controller: 'RouteController',
@@ -124,7 +138,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
 
         $rootScope.navigateToHome = function () {
             $location.path('login');
-        }
+        };
 
         $rootScope.navigateToGymDashboard = function (pGymId) {
             $location.path('gyms/' + pGymId + '/dashboard');
@@ -166,8 +180,16 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
             $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId);
         };
 
+        $rootScope.navigateToEditRoute = function (pGymId, pWallId, pSetId, pRouteId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId + '/edit');
+        };
+
         $rootScope.navigateToUserProfile = function (pUserId) {
             $location.path('users/' + pUserId);
+        };
+
+        $rootScope.navigateToSetters = function () {
+            $location.path('setters');
         };
 
         $rootScope.navigateToSuggestionsPage = function () {

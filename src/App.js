@@ -23,7 +23,7 @@ var App = function () {
     app.use(cookieParser());
     app.use(logger('dev'));
     //app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
-    //app.use(multer({dest: __dirname + '/public/images/uploads'}));
+    app.use(multer({dest: __dirname + '/public/images/uploads'}));
     app.use(express.static(__dirname + '/public'));
     return app;
 };

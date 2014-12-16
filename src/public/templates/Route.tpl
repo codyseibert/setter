@@ -7,6 +7,18 @@
 <div class="mb"></div>
 <div class="mb"></div>
 
+<div ng-show="isGymAccount()">
+    <div class="button orange"
+            ng-click="edit()"
+            ng-hide="isEditMode">
+        <i class="icon-pencil"> </i>
+    </div>
+    <div class="button orange"
+            ng-click="delete()">
+        <i class="icon-trash"> </i>
+    </div>
+</div>
+
 <div class="route nohover">
     <i class="icon-circle" ng-style="{color: route.value}"> </i>
     {{route.route_name}}

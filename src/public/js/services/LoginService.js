@@ -58,6 +58,7 @@ angular.module('SETTER')
                 delete $cookies.accountId;
                 delete $cookies.homeGymId;
                 delete $http.defaults.headers.common.Authorization;
+                $location.path("login");
             },
             setAccountType: function (pAccountType) {
                 pAccountType = parseInt(pAccountType, 10);
@@ -93,7 +94,7 @@ angular.module('SETTER')
             },
             navigateToCorrectDashboard: function () {
                 if (accountType === USER_TYPE) {
-                    $rootScope.navigateToUserDashboard(accountId);
+                    $rootScope.navigateToUserProfile(accountId);
                 } else if (accountType === GYM_TYPE) {
                     $rootScope.navigateToGymDashboard(accountId);
                 }

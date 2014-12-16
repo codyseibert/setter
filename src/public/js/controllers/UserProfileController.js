@@ -14,7 +14,8 @@ angular.module('SETTER')
             $routeParams,
             LoginService,
             UsersService,
-            BarGraphHelperService) {
+            BarGraphHelperService
+        ) {
             'use strict';
 
             var createBoulderSendsBarGraph,
@@ -35,24 +36,25 @@ angular.module('SETTER')
                 scaleFontSize: 20
             };
 
-            var createBoulderSendsBarGraph = function (pData) {
+            createBoulderSendsBarGraph = function (pData) {
                 var data;
                 data = BarGraphHelperService.generateRouteCountGraphData(pData);
                 $scope.boulderSendsBarGraph = {
                     labels: data.labels,
-                    data: data.data
+                    data: data.data,
+                    hasData: data.data[0].length > 0
                 };
             };
 
-            var createRopeSendsBarGraph = function (pData) {
+            createRopeSendsBarGraph = function (pData) {
                 var data;
                 data = BarGraphHelperService.generateRouteCountGraphData(pData);
                 $scope.ropeSendsBarGraph = {
                     labels: data.labels,
-                    data: data.data
+                    data: data.data,
+                    hasData: data.data[0].length > 0
                 };
             };
-
 
             createBoulderSendsLineGraph = function (pData) {
                 var i,

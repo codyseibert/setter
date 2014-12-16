@@ -101,20 +101,4 @@ describe('GymsDao', function () {
             assert(query.indexOf('WHERE account_id = ?') !== -1);
         });
     });
-
-    describe('#deleteGym', function () {
-        it('performs some type of DELETE from the gyms tables', function () {
-            GymsDao.deleteGym();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('DELETE FROM gyms') !== -1);
-        });
-
-        it('query contains a where clause!', function () {
-            GymsDao.deleteGym();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE account_id = ?') !== -1);
-        });
-    });
 });

@@ -46,10 +46,7 @@ angular.module('SETTER')
 
             CommentsService.getCommentsAboutRoute($scope.routeId)
                 .success(function (pData) {
-                    var i;
-
                     $scope.comments = pData;
-
                     for (i = 0; i < pData.length; i += 1) {
                         pData[i].date = DateFormatService.formatWithTime(pData[i].date);
                     }
@@ -130,5 +127,21 @@ angular.module('SETTER')
                     return true;
                 }
                 return false;
+            };
+
+            $scope.edit = function () {
+                $scope.navigateToEditRoute($scope.gymId, $scope.wallId, $scope.setId, $scope.routeId);
+            };
+
+            $scope.delete = function () {
+                var yes = confirm("Are you sure you want to delete this route?");
+                if (!yes) {
+                    return;
+                }
+
+                RoutesService.deleteRoute($scope.routeId)
+                    .success(function (pData) {
+                        $scope.navigateToSet($scope.gymId, $scope.wallId, $scope.setId);
+                    });
             };
         }]);

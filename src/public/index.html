@@ -22,31 +22,36 @@
                 ng-click="navigateToHome()">
                 <img src="images/logo.png">
                 <div class="text">
-                    SETTER
+                    SETTER<span class="beta">BETA</span>
                 </div>
             </div>
 
             <div class="nav" ng-show="isLoggedIn()">
-                <div class="button r2"
-                        ng-click="navigateToUserProfile(getAccountId())">
-                    <i class="icon-user"> </i>
-                </div>
-
-                <div class="button r1"
+                <div class="button"
                         ng-click="navigateToGym(getHomeGymId())"
                         ng-show="getHomeGymId()">
                     <i class="icon-home"> </i>
                 </div>
 
-                <div class="button r0"
+                <div class="button"
+                    ng-click="navigateToUserProfile(getAccountId())">
+                    <i class="icon-user"> </i>
+                </div>
+
+                <div class="button"
                         ng-click="navigateToSuggestionsPage()">
                     <i class="icon-megaphone"> </i>
+                </div>
+
+                <div class="button"
+                    ng-click="navigateToLogout()">
+                    <i class="icon-logout"> </i>
                 </div>
             </div>
         </div>
 
         <div id="content">
-            <ng-view />
+            <ng-view autoscroll="true" />
         </div>
 
         <div class="footer">

@@ -63,21 +63,32 @@ var RoutesController = function () {
     };
 
     this.updateRoute = function (pReq, pRes) {
-        var name,
-            gradeId,
+        var routeId,
+            name,
+            boulderGradeId,
+            ropeGradeId,
             setterId,
             colorId,
             callback,
-            routeId,
             note;
         routeId = pReq.params.routeId;
-        name = pReq.body.name;
+        name = pReq.body.name || '';
         colorId = pReq.body.colorId;
-        gradeId = pReq.body.gradeId;
+        boulderGradeId = pReq.body.boulderGradeId;
+        ropeGradeId = pReq.body.ropeGradeId;
         setterId = pReq.body.setterId;
-        note = pReq.body.note;
+        note = pReq.body.note || '';
+
+        if (boulderGradeId === -1) {
+            boulderGradeId = null;
+        }
+
+        if (ropeGradeId === -1) {
+            ropeGradeId = null;
+        }
+
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.updateRoute(routeId, name, setterId, gradeId, colorId, note, callback);
+        theRoutesDao.updateRoute(routeId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
     };
 
     this.deleteRoute = function (pReq, pRes) {

@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false */
+/*global angular: false, btoa: false, console: false, alert: false */
 
 angular.module('SETTER')
     .controller('GymController', [
@@ -17,49 +17,54 @@ angular.module('SETTER')
             BarGraphHelperService,
             $rootScope,
             UsersService,
-            LoginService) {
+            LoginService
+        ) {
             'use strict';
 
-        $scope.gymId = $routeParams.gymId;
+            var createBoulderRoutesBarGraph,
+                createRopeRoutesBarGraph;
 
-        var createBoulderRoutesBarGraph = function (pData) {
-            var data;
-            data = BarGraphHelperService.generateRouteCountGraphData(pData);
-            $scope.boulderRoutesBarGraph = {
-                labels: data.labels,
-                data: data.data
+            $scope.gymId = $routeParams.gymId;
+
+            createBoulderRoutesBarGraph = function (pData) {
+                var data;
+                data = BarGraphHelperService.generateRouteCountGraphData(pData);
+                $scope.boulderRoutesBarGraph = {
+                    labels: data.labels,
+                    data: data.data
+                };
             };
-        };
 
-        var createRopeRoutesBarGraph = function (pData) {
-            var data;
-            data = BarGraphHelperService.generateRouteCountGraphData(pData);
-            $scope.ropeRoutesBarGraph = {
-                labels: data.labels,
-                data: data.data
+            createRopeRoutesBarGraph = function (pData) {
+                var data;
+                data = BarGraphHelperService.generateRouteCountGraphData(pData);
+                $scope.ropeRoutesBarGraph = {
+                    labels: data.labels,
+                    data: data.data
+                };
             };
-        };
 
-        GymsService.getGym($scope.gymId)
-            .success(function (pData) {
-                $scope.gym = pData;
-            });
-
-        GymsService.getCurrentBoulderRoutes($scope.gymId)
-            .success(function (pData) {
-                createBoulderRoutesBarGraph(pData);
-            });
-
-        GymsService.getCurrentRopeRoutes($scope.gymId)
-            .success(function (pData) {
-                createRopeRoutesBarGraph(pData);
-            });
-
-        $scope.setHomeGym = function () {
-            UsersService.setHomeGym($scope.gymId)
+            GymsService.getGym($scope.gymId)
                 .success(function (pData) {
-                    $rootScope.homeGymId = $scope.gymId;
-                    LoginService.setHomeGymId($scope.gymId);
+                    $scope.gym = pData;
                 });
-        };
-    }]);
+
+            GymsService.getCurrentBoulderRoutes($scope.gymId)
+                .success(function (pData) {
+                    createBoulderRoutesBarGraph(pData);
+                });
+
+            GymsService.getCurrentRopeRoutes($scope.gymId)
+                .success(function (pData) {
+                    createRopeRoutesBarGraph(pData);
+                });
+
+            $scope.setHomeGym = function () {
+                UsersService.setHomeGym($scope.gymId)
+                    .success(function () {
+                        $rootScope.homeGymId = $scope.gymId;
+                        LoginService.setHomeGymId($scope.gymId);
+                        alert($scope.gym.name + " now set as your home gym!");
+                    });
+            };
+        }]);

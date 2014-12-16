@@ -25,10 +25,12 @@ var SettersController = function () {
         theSettersDao.getSettersAtGym(gymId, callback);
     };
 
-    this.getSetters = function (pReq, pRes) {
-        var callback;
+    this.getUsers = function (pReq, pRes) {
+        var callback,
+            gymId;
+        gymId = pReq.user.accountId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theSettersDao.getSetters(callback);
+        theSettersDao.getUsers(gymId, callback);
     };
 
     this.createSetterGymAccess = function (pReq, pRes) {
@@ -39,6 +41,16 @@ var SettersController = function () {
         setterId = pReq.body.setterId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theSettersDao.createSetterGymAccess(setterId, gymId, callback);
+    };
+
+    this.deleteSetterGymAccess = function (pReq, pRes) {
+        var callback,
+            gymId,
+            setterId;
+        gymId = pReq.user.accountId;
+        setterId = pReq.params.setterId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theSettersDao.deleteSetterGymAccess(setterId, gymId, callback);
     };
 };
 

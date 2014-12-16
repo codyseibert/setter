@@ -23,6 +23,12 @@ angular.module('SETTER')
                     method: 'POST',
                     url: 'api/walls/' + pWallId + '/sets'
                 });
+            },
+            deleteSet: function (pSetId) {
+                return $http({
+                    method: 'DELETE',
+                    url: 'api/sets/' + pSetId
+                });
             }
         };
     }]);

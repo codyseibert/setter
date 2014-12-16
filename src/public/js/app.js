@@ -68,8 +68,8 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
                 templateUrl: 'templates/Setters.tpl'
             })
             .when('/users/:userId', {
-                controller: 'UserProfileController',
-                templateUrl: 'templates/UserProfile.tpl'
+                controller: 'UserController',
+                templateUrl: 'templates/User.tpl'
             })
             .when('/suggestions', {
                 controller: 'SuggestionsController',

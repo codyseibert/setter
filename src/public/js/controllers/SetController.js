@@ -37,4 +37,16 @@ angular.module('SETTER')
             $scope.hasRoutes = function () {
                 return $scope.routes.length > 0;
             };
+
+            $scope.delete = function () {
+                var yes = confirm("Are you sure you want to delete this set?");
+                if (!yes) {
+                    return;
+                }
+
+                SetsService.deleteSet($scope.setId)
+                    .success(function () {
+                        $scope.navigateToWall($scope.gymId, $scope.wallId);
+                    });
+            };
         }]);

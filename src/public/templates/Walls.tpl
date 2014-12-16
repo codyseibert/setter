@@ -1,8 +1,8 @@
 <div class="mb"></div>
 
 <div class="btn_black small"
-    ng-click="back()">
-    <i class="icon-left-big"> </i>Back
+    ng-click="navigateToGym(gymId)">
+    <i class="icon-left-big"> </i>Gym
 </div>
 
 <div class="title">

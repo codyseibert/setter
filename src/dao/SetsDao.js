@@ -47,10 +47,10 @@ var SetsDao = function () {
         );
     };
 
-    this.deleteSet = function (pId, pCallback) {
+    this.deleteSet = function (pSetId, pCallback) {
         theDaoHelper.executeQuery(
             'DELETE FROM sets WHERE id = ?',
-            [pId],
+            [pSetId],
             theDaoHelper.DELETE,
             pCallback
         );

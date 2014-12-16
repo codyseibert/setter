@@ -68,6 +68,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         WallsController.updateWall);
 
+    app.delete('/api/walls/:wallId',
+        InjectAccountId,
+        WallsController.deleteWall);
+
     // SETS
     app.get('/api/sets/:setId',
         SetsController.getSet);
@@ -80,9 +84,8 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         SetsController.createSet);
 
-    app.delete('/api/walls/:wallId',
-        InjectAccountId,
-        WallsController.deleteWall);
+    app.delete('/api/sets/:setId',
+        SetsController.deleteSet);
 
     // ROUTES
     app.get('/api/sets/:setId/routes',

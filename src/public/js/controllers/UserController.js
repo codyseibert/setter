@@ -3,7 +3,7 @@
 /*global angular: false, btoa: false, console: false, Chart: false, moment: false */
 
 angular.module('SETTER')
-    .controller('UserProfileController', [
+    .controller('UserController', [
         '$scope',
         '$routeParams',
         'LoginService',

@@ -28,6 +28,11 @@
 
             <div class="nav" ng-show="isLoggedIn()">
                 <div class="button"
+                        ng-click="navigateToGyms()">
+                    <i class="icon-globe"> </i>
+                </div>
+
+                <div class="button"
                         ng-click="navigateToGym(getHomeGymId())"
                         ng-show="getHomeGymId()">
                     <i class="icon-home"> </i>

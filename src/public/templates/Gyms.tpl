@@ -5,6 +5,8 @@
 
 <div class="mb"></div>
 
+<div class="title">Gyms</div>
+
 <div ng-repeat="gym in gyms">
     <div class="gym"
             ng-click="navigateToGym(gym.account_id)">

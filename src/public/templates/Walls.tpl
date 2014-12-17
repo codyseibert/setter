@@ -10,6 +10,8 @@
     <span ng-hide="isGymAccount()">Walls</span>
     </div>
 
+
+
 </section>
 
 <div class="row  small-collapse ">
@@ -24,48 +26,51 @@
         </ul>
     </div>
 
-    <dl class="accordion" data-accordion>
-      <dd>
-        <a href="#panel1">Accordion 1</a>
-        <div id="panel1" class="content active">
-          Panel 1 Content
-        </div>
-      </dd>
-      <dd>
-        <a href="#panel2">Accordion 2</a>
-        <div id="panel2" class="content">
-          Panel 2 Content
-        </div>
-      </dd>
-      <dd>
-        <a href="#panel3">Accordion 3</a>
-        <div id="panel3" class="content">
-          Panel 3 Content
-        </div>
-      </dd>
-    </dl>
-
-    <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">Has Dropdown</a>
-<ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-  <li><a href="#">This is a link</a></li>
-  <li><a href="#">This is another</a></li>
-  <li><a href="#">Yet another</a></li>
-</ul>
+  
+  
 
 </div>
 
-<div ng-show="isGymAccount()">
-    <div>
-        <input ng-model="form.wallName"
-                placeholder="Wall Name"
-                autocorrect="off"
-                autocapitalize="off">
-        </input>
-    </div>
+    <div ng-show="isGymAccount()">
+        <div>
+            <input ng-model="form.wallName"
+                    placeholder="Wall Name"
+                    autocorrect="off"
+                    autocapitalize="off">
+            </input>
+        </div>
 
-    <div class="mb"></div>
-        <div class="btn_black" ng-click="addClicked()">
-            <i class="icon-plus-squared"> </i> Add
+        <div class="mb"></div>
+            <div class="btn_black" ng-click="addClicked()">
+                <i class="icon-plus-squared"> </i> Add
         </div>
     </div>
+
+
+  <p>
+    <a dropdown-toggle="#dropdown-example-1">Click me for a dropdown, yo!</a>
+  </p>
+  <ul id="dropdown-example-1" class="f-dropdown">
+    <li ng-repeat="choice in items">
+      <a>{{choice}}</a>
+    </li>
+  </ul>
+
+  <a class="button dropdown" dropdown-toggle="#dropdown-example-2">Dropdowns can also have links!</a>
+  <ul id="dropdown-example-2" class="f-dropdown">
+    <li ng-repeat="(label, url) in linkItems">
+      <a href="{{url}}" target="_blank">{{label}}</a>
+    </li>
+  </ul>
+
+  <a class="button split">
+    Split Button
+    <span dropdown-toggle="#dropdown-example-3"></span>
+  </a>
+  <ul id="dropdown-example-3" class="f-dropdown">
+    <li ng-repeat="choice in items">
+      <a>{{choice}}</a>
+    </li>
+  </ul>
+
 </div>

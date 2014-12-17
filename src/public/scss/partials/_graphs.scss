@@ -1,0 +1,124 @@
+// Pie Chart Variables
+$pie-color: $primaryColor !default;
+
+@mixin darkened-children($num-children, $color) {
+  @for $i from 1 through $num-children {
+    $color: scale-color($color, $lightness: -5%);
+    & > *:nth-child(#{$num-children}n+#{$i}) .graph-legend-itemColor { // This causes looping to occur after there are $num-children child elements.
+      background-color: $color;
+    }
+  }
+}
+
+@mixin lightened-children($num-children, $color) {
+  @for $i from 1 through $num-children {
+    $color: scale-color($color, $lightness: 10%);
+    & > *:nth-child(#{$num-children}n+#{$i}) { // This causes looping to occur after there are $num-children child elements.
+      background-color: $color;
+    }
+  }
+}
+
+[data-pie-id], [data-bar-id], [data-line-id] {
+  @include darkened-children(7, $pie-color);
+}
+
+// Set the SVG to 100% width to smooth responsive resizing (optional)
+#pie, #donut, #bar {
+  max-height: rem-calc(300);
+  overflow: visible; 
+}
+
+#bar {
+  // height: 300px;
+}
+
+
+//
+//Pie Graph Styles 
+//
+
+.pieGraph--small {
+  svg {
+    max-height: rem-calc(110);
+  }
+}
+
+.pieGraph--medium {
+  svg {
+    max-height: rem-calc(230);
+  }
+}
+
+
+.pieGraph-legend {
+  font-size: rem-calc(12);
+  line-height: rem-calc(32); 
+  white-space: nowrap;
+
+  @include breakpoint(mama-bear) {
+    font-size: rem-calc(14);
+  }
+
+  .graph-legend-itemColor {
+    @include border-radius(1px);
+    @extend %display--inlineBlock;
+    @extend %align-vertically; 
+    height: rem-calc(18);
+    margin-left: rem-calc(3);
+    width: rem-calc(18);
+  }
+}
+
+
+.barGraph {
+  svg {
+  min-height: rem-calc(300);
+  max-height: rem-calc(350);
+  }
+}
+
+
+.barGraph-legend {
+  color: $grey--medium; 
+
+  li {
+    @extend %align-vertically; 
+    margin-right: rem-calc(24)
+  }
+
+  li > .graphItem-color {
+    display: none !important; 
+  }
+
+  .graph-legend-itemColor {
+    @include border-radius(1px);
+    @extend %display--inlineBlock;
+    @extend %align-vertically; 
+    height: rem-calc(14);
+    width: rem-calc(14);
+    margin-right: rem-calc(6);
+  }
+}
+
+
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+.tooltip {
+  margin-left: -5px;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+svg text {
+ fill: $grey--medium;
+}
+
+ul[data-pie-id] {
+  list-style: none;
+  padding: 10px;
+}

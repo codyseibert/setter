@@ -235,5 +235,5 @@ undefined undefined undefined undefined undefined undefined undefined
 [2K[0G    [32m  ✓[0m[90m query contains a where clause! [0m
 
 
-[92m [0m[32m 124 passing[0m[90m (230ms)[0m
+[92m [0m[32m 124 passing[0m[90m (67ms)[0m
 

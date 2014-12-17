@@ -4,6 +4,7 @@
   "description": "Gym Route Management Software!",
   "main": "js/app.js",
   "dependencies": {
+    "foundation": "zurb/bower-foundation",
     "angular": "~1.3.6",
     "angular-cookies": "~1.3.6",
     "angular-route": "~1.3.6",
@@ -13,3 +14,4 @@
   "devDependencies": {},
   "ignore": []
 }
+

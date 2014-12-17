@@ -1,0 +1,49 @@
+
+.table {
+  @extend %mt1;
+  @extend %mb1;
+  border: 1px solid $grey--medlight; 
+  display: block; 
+  width: 100%;
+  @include border-radius(em-calc(4));
+
+  [class*="table-title"] {
+    @extend %fwb; 
+    @extend %ptrbl2; 
+    background-color: $grey--light;
+    border-bottom: 1px solid $grey--medlight;    
+    @include border-top-left-radius(em-calc(4)); 
+    @include border-top-right-radius(em-calc(4)); 
+    
+  }
+
+  li {
+    @extend %clearfix;
+  }
+
+}
+
+.table--list {  
+  & > li {
+    @extend %ptrbl2; 
+    border-bottom: 1px solid $grey--medlight;  
+  }
+
+  & > li:nth-child(odd) {
+    background-color: $grey--light; 
+  }
+
+  & > li:last-child {
+    border: 0; 
+  }
+
+  .table--list-elem-title {
+    text-align: right; 
+    width: rem-calc(110);
+  }
+}
+
+
+
+
+

@@ -1,0 +1,170 @@
+
+[class*="comments"], [rel*="comments"] {
+  @include icon($icon--comments); 
+}
+
+
+[class*="star"] {
+  @include icon($icon--star) {
+    color: $color--rating; 
+  }
+}
+
+[class*="star--empty"] {
+  @include icon($icon--star--empty) {
+    color: $grey--medlight; 
+  }
+}
+
+[href*="dashboard"] {
+  @include icon($icon--dashboard);
+}
+
+[href*="topo"] {
+  @include icon($icon--topo);
+}
+
+[href*="insights"] {
+  @include icon($icon--insights);
+}
+
+[href*="logout"] {
+  @include icon($icon--logout);
+}
+
+[href*="settings"] {
+  @include icon($icon--settings);
+}
+
+[href*="setters"] {
+  @include icon($icon--group);
+}
+
+[href*="delete"], .icon--delete {
+  @include icon($icon--delete);
+}
+
+[href*="twitter.com"], [rel="twitter-link"] {
+  @include icon($icon--twitter);
+}
+
+[href*="facebook.com"], [rel="facebook-link"] {
+    @include icon($icon--facebook);
+}
+
+[rel*="website-link"] {
+    @include icon($icon--website);
+}
+
+[rel*="address"] {
+    @include icon($icon--location); 
+}
+
+[rel*="email"] {
+    @include icon($icon--mail);
+}
+
+[rel*="tel"] {
+  @include icon($icon--phone);
+}
+
+[rel="archive"], [href*="routeArchive"] {
+  @include icon($icon--folder);
+}
+
+
+.icon--search {
+  @include icon($icon--search);
+}
+
+.icon--arrowR {
+  @include icon($icon--arrowR) {
+    margin-left: .75rem; 
+  }
+}
+
+.icon--arrowL {
+  @include icon($icon--arrowL);
+}
+
+.icon--arrowD {
+  @include icon($icon--arrowD, after) {
+    margin-left: .75rem; 
+  }
+}
+
+.icon--arrowU {
+  @include icon($icon--arrowU) {
+    margin-left: .75rem; 
+  }
+}
+
+
+[src*="icon--wrench"] {
+  width: rem-calc(32);
+  height: rem-calc(32);
+}
+
+// .icon--wrench {
+
+// }
+
+
+//
+//Climbing Types Icons 
+// 
+
+
+.icon--bouldering,
+.icon--topRope,
+.icon--leadClimbing {
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  display: inline-block;  
+  height: rem-calc(30);
+  width: rem-calc(30);
+}
+
+.icon--bouldering {
+  background-image: url('../images/icon--bouldering.svg')
+}
+
+.icon--leadClimbing {
+  background-image:  url('../images/icon--leadClimbing.svg');
+}
+
+.icon--topRope {
+  background-image: url('../images/icon--topRope.svg');
+}
+
+
+//
+//Icon Types
+//
+
+.icon--label {
+  @extend %mt2; 
+  display: inline-block; 
+  margin-right: 0; 
+  &:before {
+    margin-right: 0; 
+  }
+}
+
+
+//
+//Icon Sizes 
+//
+
+.icon--medium {
+  @extend %icon--medium; 
+}
+
+.icon--big {
+  @extend %icon--big; 
+}
+
+.saddie {
+   background-image: url("images/saddie.svg");
+}

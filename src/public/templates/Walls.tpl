@@ -1,20 +1,40 @@
 <div class="mb"></div>
 
-<div class="btn_black small"
-    ng-click="back()">
-    <i class="icon-left-big"> </i>Back
-</div>
 
-<div class="title">
+<section class="header">
+
+    <button class="btn--small  btn--tetriary "   ng-click="back()"><span class="icon-left-big">Back</span>
+    </button>
+
+    <h1 ng-show="isGymAccount()">Manage Your Zones</h1>
+    <span ng-hide="isGymAccount()">Walls</span>
+
+</section>
+
+<!-- <div class="title">
     <span ng-show="isGymAccount()">Manage Your Walls</span>
     <span ng-hide="isGymAccount()">Walls</span>
-</div>
+</div> -->
 
-<div ng-repeat="wall in walls">
-    <div class="wall"
-        ng-click="navigateToWall(gymId, wall.id)">
-        {{wall.name}} <i class="icon-right-big"> </i>
+<div class="row  small-collapse ">
+    <div class="small-12  columns">
+        <ul class="list--tableStyle">
+            <li class="ptb2  fwb" ng-repeat="wall in walls">
+                <a class="wall"
+                    ng-click="navigateToWall(gymId, wall.id)">
+                    {{wall.name}} <i class="icon-right-big right"> </i>
+                </a>
+            </li>
+        </ul>
     </div>
+
+    <a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">Has Dropdown</a>
+<ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+
 </div>
 
 <div ng-show="isGymAccount()">
@@ -22,7 +42,8 @@
         <input ng-model="form.wallName"
                 placeholder="Wall Name"
                 autocorrect="off"
-                autocapitalize="off"></input>
+                autocapitalize="off">
+        </input>
     </div>
 
     <div class="mb"></div>

@@ -1,0 +1,287 @@
+
+// Dashboard Icon
+// Manage Walls (wrench)
+// Messages
+// Comments
+// Thrash Can 
+// Edit Gym Map 
+// Wirte Gym Alert Pencil 
+// Star (ratings)
+// Search Icon (magnifying glass)
+// loading icon
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot');
+  src: url('../fonts/fontello.eot') format('embedded-opentype'),
+       url('../fonts/fontello.woff') format('woff'),
+       url('../fonts/fontello.ttf') format('truetype'),
+       url('../fonts/fontello.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?24773503#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+// .icon-spin4:before { content: '\e800'; } /* '' */
+// .icon-comment-alt:before { content: '\e801'; } /* '' */
+// .icon-comment:before { content: '\e802'; } /* '' */
+// .icon-globe-alt:before { content: '\e803'; } /* '' */
+// .icon-chart-pie:before { content: '\e804'; } /* '' */
+// .icon-twitter:before { content: '\e805'; } /* '' */
+// .icon-location:before { content: '\e806'; } /* '' */
+// .icon-facebook:before { content: '\e807'; } /* '' */
+// .icon-trash:before { content: '\e808'; } /* '' */
+// .icon-gauge:before { content: '\e809'; } /* '' */
+// .icon-group:before { content: '\e80a'; } /* '' */
+// .icon-star-1:before { content: '\e80b'; } /* '' */
+// .icon-star-empty-1:before { content: '\e80c'; } /* '' */
+// .icon-mail:before { content: '\e80d'; } /* '' */
+// .icon-phone:before { content: '\e80e'; } /* '' */
+// .icon-cog-alt:before { content: '\e80f'; } /* '' */
+// .icon-check-empty:before { content: '\e810'; } /* '' */
+// .icon-check:before { content: '\e811'; } /* '' */
+// .icon-cog:before { content: '\e812'; } /* '' */
+// .icon-map:before { content: '\e813'; } /* '' */
+// .icon-off-1:before { content: '\e814'; } /* '' */
+// .icon-up-open:before { content: '\e815'; } /* '' */
+// .icon-right-open:before { content: '\e816'; } /* '' */
+// .icon-left-open:before { content: '\e817'; } /* '' */
+// .icon-down-open:before { content: '\e818'; } /* '' */
+// .icon-cancel-circled2:before { content: '\e819'; } /* '' */
+// .icon-folder-open:before { content: '\e81a'; } /* '' */
+// .icon-search:before { content: '\e81b'; } /* '' */
+
+//
+//Icons 
+//
+
+$icon--loading: '\e800';
+$icon--comments: '\e802'; 
+$icon--star: '\e80b'; 
+$icon--star--empty: '\e80c'; 
+$icon--folder: '\e81a';
+
+
+//
+//Gym Menu Icons 
+//
+
+$icon--topo: '\e813'; 
+$icon--dashboard: '\e809';
+$icon--insights: '\e804'; 
+$icon--group: '\e80a'; 
+
+//
+//General Menu Icons
+//
+
+$icon--logout: '\e814';
+$icon--settings: '\e80f';
+$icon--search: '\e81b'; 
+
+
+//
+//Social Media Icons, Internet
+//
+$icon--twitter: '\e805';
+$icon--facebook: '\e807';
+$icon--location: '\e806';
+$icon--website: '\e803';
+$icon--mail: '\e80d';
+
+$icon--phone: '\e80e'; 
+
+//
+//Arrows
+//
+
+$icon--arrowR: '\e816';
+$icon--arrowL: '\e817';
+$icon--arrowD: '\e818'; 
+$icon--arrowU: '\e815'; 
+
+//
+//Close, cancel, delete icons
+//
+
+$icon--cancelCircle: '\e819';
+$icon--delete: '\e808';
+
+
+//
+//Master Mixin for Icons
+//
+
+@mixin icon($icon, $position: before) {
+  @if $position == both {
+    $position: 'before, &:after';
+  }
+
+  &:#{$position} {
+    @if $icon {
+      content: $icon;
+      font-family: 'fontello';
+      font-style: normal;
+      font-weight: normal;
+      speak: none;
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      margin-right: rem-calc(12);
+      text-align: center;
+      font-variant: normal;
+      text-transform: none;
+    }
+
+    @content;
+
+  }
+}
+
+
+
+//
+//Icon Sizes 
+//
+
+%icon--small {
+  font-size: rem-calc(16);
+}
+
+%icon--medium {
+  font-size: rem-calc(20);
+}
+
+%icon--big {
+  font-size: rem-calc(26); 
+}
+
+
+
+
+//
+//   Animation for loading icons
+//
+
+%animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}

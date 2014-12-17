@@ -92,9 +92,9 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js'])
         'use strict';
 
         // Set the global chart colors used throughout the site
-        Chart.defaults.global.colours[0].fillColor = "rgba(174, 216, 80, 1)";
-        Chart.defaults.global.colours[0].strokeColor = "rgba(84, 72, 127, 0.5)";
-        Chart.defaults.global.colours[0].pointColor = "rgba(84, 72, 127, 0.5)";
+        Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
+        Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
+        Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
 
         $rootScope.chartOptions = {
             scaleFontColor: "#000",

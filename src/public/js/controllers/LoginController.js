@@ -7,7 +7,7 @@ angular.module('SETTER')
         'use strict';
 
         if (LoginService.isLoggedIn()) {
-            LoginService.navigateToCorrectDashboard();
+            LoginService.navigateToCorrectProfile();
             return;
         }
 
@@ -20,7 +20,7 @@ angular.module('SETTER')
                     LoginService.setAccountType(pData.accountType);
                     LoginService.setAccountId(pData.accountId);
                     LoginService.setHomeGymId(pData.homeGymId);
-                    LoginService.navigateToCorrectDashboard();
+                    LoginService.navigateToCorrectProfile();
                 });
         };
     }]);

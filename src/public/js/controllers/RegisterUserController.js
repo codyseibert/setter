@@ -15,7 +15,7 @@ angular.module('SETTER')
                     LoginService.setAccountType(pData.accountType);
                     LoginService.setAccountId(pData.accountId);
                     LoginService.setHomeGymId(null);
-                    $scope.navigateToUserDashboard(pData.accountId);
+                    $scope.navigateToUser(pData.accountId);
                 })
                 .error(function (pData) {
                     $scope.error = pData.error;

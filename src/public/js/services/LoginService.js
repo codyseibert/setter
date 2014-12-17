@@ -92,11 +92,11 @@ angular.module('SETTER')
             isUserAccount: function () {
                 return accountType === USER_TYPE;
             },
-            navigateToCorrectDashboard: function () {
+            navigateToCorrectProfile: function () {
                 if (accountType === USER_TYPE) {
-                    $rootScope.navigateToUserProfile(accountId);
+                    $rootScope.navigateToUser(accountId);
                 } else if (accountType === GYM_TYPE) {
-                    $rootScope.navigateToGymDashboard(accountId);
+                    $rootScope.navigateToGym(accountId);
                 }
             }
         };

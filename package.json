@@ -1,6 +1,6 @@
 {
     "name": "SETTER",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "scripts": {
         "start": "node ./build/app/Server.js"
     },
@@ -50,6 +50,7 @@
         "serve-favicon": "^2.1.7",
         "morgan": "^1.5.0",
         "express-jwt": "^0.5.1",
-        "grunt-text-replace": "^0.4.0"
+        "grunt-text-replace": "^0.4.0",
+        "change-case": "^2.1.5"
     }
 }

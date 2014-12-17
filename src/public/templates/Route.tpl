@@ -1,7 +1,7 @@
 <div class="mb"></div>
 <div class="btn_black small"
-    ng-click="back()">
-    <i class="icon-left-big"> </i>Back
+    ng-click="navigateToSet(gymId, wallId, setId)">
+    <i class="icon-left-big"> </i>Set
 </div>
 <div class="mb"></div>
 <div class="mb"></div>

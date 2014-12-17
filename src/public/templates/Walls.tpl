@@ -1,6 +1,11 @@
 <div class="mb"></div>
 
 
+<div class="btn_black small"
+    ng-click="navigateToGym(gymId)">
+    <i class="icon-left-big"> </i>Gym
+</div>
+
 <section class="header">
 
     <button class="btn--small  btn--tetriary "   ng-click="back()"><span class="icon-left-big">Back</span>

@@ -11,7 +11,7 @@
     <div class="btn_black"
             ng-click="navigateToSetters()"
             ng-hide="isEditMode">
-        <i class="icon-plus-squared"> </i> Add Setters
+        <i class="icon-plus-squared"> </i> Manage Setters
     </div>
 </div>
 

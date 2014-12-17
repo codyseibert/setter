@@ -1,8 +1,15 @@
 <div class="mb"></div>
 
 <div class="btn_black small"
-    ng-click="back()">
-    <i class="icon-left-big"> </i>Back
+    ng-click="navigateToWall(gymId, wallId)">
+    <i class="icon-left-big"> </i>Wall
+</div>
+
+<div ng-show="isGymAccount()">
+    <div class="button orange"
+            ng-click="delete()">
+        <i class="icon-trash"> </i>
+    </div>
 </div>
 
 <div class="title">{{set.date}}</div>
@@ -10,7 +17,7 @@
 <div ng-repeat="route in routes">
     <div class="route"
         ng-click="navigateToRoute(gymId, wallId, setId, route.id)">
-        <i class="icon-circle" 
+        <i class="icon-circle"
             ng-style="{color: route.value}"> </i>
         {{route.route_name}} {{route.firstname}} {{route.lastname}} {{route.boulder_grade || route.rope_grade}} <i class="icon-right-big"> </i>
     </div>

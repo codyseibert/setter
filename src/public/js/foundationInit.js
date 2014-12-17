@@ -4,16 +4,16 @@ $(document).foundation();
 
             var setupNavigation = function(){
 
-                //Account Login Dropdown Button Code 
+                //Account Login Dropdown Button Code
                 $('[data-action="open-account-dropDown"]').click(function(e){
                     var leftOffset = $(e.target).offset().left;
                     var $dropDown = $('[data-ui-component="account-dropDown"]');
 
-                    if (! $dropDown.hasClass('is-visible') 
-                        && ! $dropDown.hasClass('is-visibleOnMobile') 
+                    if (! $dropDown.hasClass('is-visible')
+                        && ! $dropDown.hasClass('is-visibleOnMobile')
                         && $dropDown.css("maxWidth") == "300px" ){
                         $dropDown.addClass('is-visible').css({left: leftOffset-260});
-                    }else if ($dropDown.css("maxWidth") == "600px" 
+                    }else if ($dropDown.css("maxWidth") == "600px"
                         && ! $dropDown.hasClass('is-visibleOnMobile')){
                         $dropDown.addClass('is-visibleOnMobile').css({ left: 10});
                     }else{
@@ -26,7 +26,6 @@ $(document).foundation();
                $("[data-action='open-nav-account']" || "[data-action='open-nav-account'] a").on('click',  function() {
                     var $mainSection = $('[data-ui-component="main-wrap"]');
                      if(!$mainSection.hasClass('is-open')) {
-                        console.log("adding class of toggle");
                         $mainSection.addClass('is-open');
                     } else {
                         $mainSection.removeClass('is-open');
@@ -39,8 +38,8 @@ $(document).foundation();
                     var $mainSection = $('[data-ui-component="main-wrap"]'),
                         $dropDown = $('[data-ui-component="account-dropDown"]');
 
-                    //Closes Account Settings dropDown when clicking child links and 
-                    //outside of dropDown 
+                    //Closes Account Settings dropDown when clicking child links and
+                    //outside of dropDown
                     if ($dropDown.hasClass('is-visible') || $dropDown.hasClass('is-visibleOnMobile') ) {
                         if($(event.target).is('a')) {
                             $dropDown.removeClass('is-visibleOnMobile').css({ left: -9999 });
@@ -55,17 +54,16 @@ $(document).foundation();
                     //Closes Account Nav When Cliking Outside or //links
                     if($mainSection.hasClass('is-open')) {
                         if($(event.target).parents('.nav-primary').length === 0 || $(event.target).is('a'))
-                         {  
+                         {
                             $mainSection.removeClass('is-open');
                         }
-                    }  
+                    }
                 });
 
- console.log("navigation is ready)");
             }
 
 $(document).ready(function() {
 
   setupNavigation();
 
-}); 
+});

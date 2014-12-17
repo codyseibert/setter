@@ -20,6 +20,7 @@ var theCrypt = require('../Crypt');
 var theLoginHelper = require('./LoginHelper');
 var Messages = require('../Messages');
 var theControllerHelper = require('./ControllerHelper');
+var ChangeCase = require('change-case');
 
 var UsersController = function () {
     'use strict';
@@ -81,6 +82,9 @@ var UsersController = function () {
             pRes.send(Messages.error('Please enter a last name!'));
             return false;
         }
+
+        firstname = ChangeCase.titleCase(firstname);
+        lastname = ChangeCase.titleCase(lastname);
 
         theCrypt.crypt(password, function (err, hash) {
             theAccountsDao.createAccount(email, hash, USER_TYPE, function (pResults) {

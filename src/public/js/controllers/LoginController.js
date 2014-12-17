@@ -7,7 +7,7 @@ angular.module('SETTER')
         'use strict';
 
         if (LoginService.isLoggedIn()) {
-            LoginService.navigateToCorrectDashboard();
+            LoginService.navigateToCorrectProfile();
             return;
         }
 

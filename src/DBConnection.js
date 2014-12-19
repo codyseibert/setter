@@ -18,9 +18,9 @@ var DBConnection = function () {
     var connection;
 
     connection = mysql.createConnection({
-        host: 'localhost',//'104.131.253.44',
+        host: '104.131.253.44',
         database: 'setter',
-        user: 'root',//'gmo',
+        user: 'gmo',
         password: 'itisag00ddayt0die9921'
     });
     connection.connect();

@@ -30,7 +30,6 @@ angular.module('SETTER')
 
             $scope.gymId = $routeParams.gymId;
             $scope.wallId = $routeParams.wallId;
-            $scope.setId = $routeParams.setId;
             $scope.routeId = $routeParams.routeId;
 
             $scope.isEditMode = isEditMode;
@@ -46,7 +45,7 @@ angular.module('SETTER')
                     setterId = $scope.form.setter.id,
                     note = $scope.form.note;
 
-                RoutesService.createRoute($scope.setId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
+                RoutesService.createRoute($scope.wallId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
                         $scope.form.boulderGrade = $scope.boulderGrades[0];
                         $scope.form.ropeGrade = $scope.ropeGrades[0];
@@ -69,7 +68,7 @@ angular.module('SETTER')
                 RoutesService.updateRoute($scope.routeId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
                         alert("Route saved!");
-                        $scope.navigateToSet($scope.gymId, $scope.wallId, $scope.setId);
+                        $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
             };
 

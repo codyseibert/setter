@@ -24,7 +24,16 @@ angular.module('SETTER')
             var createBoulderRoutesBarGraph,
                 createRopeRoutesBarGraph;
 
-            $scope.gymId = $routeParams.gymId;
+            $scope.gymId = parseInt($routeParams.gymId);
+
+            Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
+            Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
+            Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
+
+            $scope.chartOptions = {
+                scaleFontColor: "#000",
+                scaleFontSize: 20
+            };
 
             createBoulderRoutesBarGraph = function (pData) {
                 var data;
@@ -60,6 +69,11 @@ angular.module('SETTER')
                 });
 
             $scope.setHomeGym = function () {
+                var yes = confirm("Are you sure you want to make " + $scope.gym.name + " your new home gym?");
+                if (!yes) {
+                    return;
+                }
+
                 UsersService.setHomeGym($scope.gymId)
                     .success(function () {
                         $rootScope.homeGymId = $scope.gymId;

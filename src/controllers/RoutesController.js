@@ -25,16 +25,16 @@ var RoutesController = function () {
         theRoutesDao.getRoute(routeId, callback);
     };
 
-    this.getRoutesInSet = function (pReq, pRes) {
-        var setId,
+    this.getRoutesOnWall = function (pReq, pRes) {
+        var wallId,
             callback;
-        setId = pReq.params.setId;
+        wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.getRoutesInSet(setId, callback);
+        theRoutesDao.getRoutesOnWall(wallId, callback);
     };
 
     this.createRoute = function (pReq, pRes) {
-        var setId,
+        var wallId,
             name,
             boulderGradeId,
             ropeGradeId,
@@ -42,7 +42,7 @@ var RoutesController = function () {
             colorId,
             callback,
             note;
-        setId = pReq.params.setId;
+        wallId = pReq.params.wallId;
         name = pReq.body.name || '';
         colorId = pReq.body.colorId;
         boulderGradeId = pReq.body.boulderGradeId;
@@ -59,7 +59,7 @@ var RoutesController = function () {
         }
 
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.createRoute(setId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
+        theRoutesDao.createRoute(wallId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
     };
 
     this.updateRoute = function (pReq, pRes) {

@@ -6,10 +6,10 @@ angular.module('SETTER')
         'use strict';
 
         return {
-            getRoutesInSet: function (pSetId) {
+            getRoutesOnWall: function (pWallId) {
                 return $http({
                     method: 'GET',
-                    url: 'api/sets/' + pSetId + '/routes'
+                    url: 'api/walls/' + pWallId + '/routes'
                 });
             },
             getRoute: function (pRouteId) {
@@ -18,10 +18,10 @@ angular.module('SETTER')
                     url: 'api/routes/' + pRouteId
                 });
             },
-            createRoute: function (pSetId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
+            createRoute: function (pWallId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
                 return $http({
                     method: 'POST',
-                    url: 'api/sets/' + pSetId + '/routes',
+                    url: 'api/walls/' + pWallId + '/routes',
                     data: {
                         name: pName,
                         colorId: pColorId,

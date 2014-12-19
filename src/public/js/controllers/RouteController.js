@@ -21,7 +21,6 @@ angular.module('SETTER')
 
             $scope.gymId = $routeParams.gymId;
             $scope.wallId = $routeParams.wallId;
-            $scope.setId = $routeParams.setId;
             $scope.routeId = $routeParams.routeId;
 
             $scope.form = {};
@@ -130,7 +129,7 @@ angular.module('SETTER')
             };
 
             $scope.edit = function () {
-                $scope.navigateToEditRoute($scope.gymId, $scope.wallId, $scope.setId, $scope.routeId);
+                $scope.navigateToEditRoute($scope.gymId, $scope.wallId, $scope.routeId);
             };
 
             $scope.delete = function () {
@@ -141,7 +140,7 @@ angular.module('SETTER')
 
                 RoutesService.deleteRoute($scope.routeId)
                     .success(function (pData) {
-                        $scope.navigateToSet($scope.gymId, $scope.wallId, $scope.setId);
+                        $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
             };
         }]);

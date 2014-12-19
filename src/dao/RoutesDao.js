@@ -34,31 +34,30 @@ var RoutesDao = function () {
         );
     };
 
-    this.getRoutesInSet = function (pSetId, pCallback) {
+    this.getRoutesOnWall = function (pWallId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT r.id, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
-                'WHERE r.set_id = ?',
-            [pSetId],
+                'WHERE r.wall_id = ?',
+            [pWallId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
 
-    this.createRoute = function (pSetId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote, pCallback) {
+    this.createRoute = function (pWallId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO routes (set_id, name, setter_id, boulder_grade_id, rope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())',
-            [pSetId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote],
+            'INSERT INTO routes (wall_id, name, setter_id, boulder_grade_id, rope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())',
+            [pWallId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote],
             theDaoHelper.INSERT,
             pCallback
         );
     };
 
     this.updateRoute = function (pRouteId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote, pCallback) {
-        console.log(pRouteId, pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote);
         theDaoHelper.executeQuery(
             'UPDATE routes SET name = ?, setter_id = ?, boulder_grade_id = ?, rope_grade_id = ?, color_id = ?, note = ? WHERE id = ?',
             [pName, pSetterId, pBoulderGradeId, pRopeGradeId, pColorId, pNote, pRouteId],

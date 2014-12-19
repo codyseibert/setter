@@ -1,14 +1,11 @@
 
-<div class="btn_black small"
-    ng-hide="getHomeGymId() || isGymAccount()"
-    ng-click="setHomeGym()">
-
-    <div class="right">
+<div class="mb4  small-12  medium-4 columns"
+        ng-hide="getHomeGymId() === gymId || isGymAccount()">
+    <button class="btn--primary  btn--medium  icon-home btn--expanded" ng-click="setHomeGym()">
         Make Home Gym
-    </div>
-    <i class="icon-home"> </i>
-</div>
+    </button>
 
+</div>
 
 <section class="header">
 
@@ -34,7 +31,7 @@
     <div class="small-12 medium">
         <div class="graph  small-12 medium-6 columns">
             <h2 class="fwb">Current Boulder Routes</h2>
-        
+
             <canvas class="chart-bar"
                 data="boulderRoutesBarGraph.data"
                 labels="boulderRoutesBarGraph.labels"

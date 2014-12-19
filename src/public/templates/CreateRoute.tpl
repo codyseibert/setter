@@ -1,14 +1,23 @@
 <section class="header row small-collapse">
-    <div class="right mt1">
-        <button class="[ btn--secondary btn--medium right ] icon-left-big"
-            ng-click="navigateToSet(gymId, wallId, setId)" >
-            Cancel
+    <div class="left mt1">
+        <button ng-hide="isEditMode"
+            class="[ btn--secondary btn--medium right ] icon-left-big"
+            ng-click="navigateToWall(gymId, wallId)" >
+            Back
+        </button>
+        <button ng-show="isEditMode"
+            class="[ btn--secondary btn--medium right ] icon-left-big"
+            ng-click="navigateToRoute(gymId, wallId, routeId)" >
+            Back
         </button>
     </div>
 
     <div class="small-12 columns">
-        <h1 class="title">
+        <h1 ng-hide="isEditMode" class="title">
             Create Route
+        </h1>
+        <h1 ng-show="isEditMode" class="title">
+            Edit Route
         </h1>
     </div>
 </section>

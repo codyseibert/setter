@@ -37,11 +37,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation'])
                 controller: 'WallController',
                 templateUrl: 'templates/Wall.tpl'
             })
-            .when('/gyms/:gymId/walls/:wallId/sets/:setId', {
-                controller: 'SetController',
-                templateUrl: 'templates/Set.tpl'
-            })
-            .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/create', {
+            .when('/gyms/:gymId/walls/:wallId/routes/create', {
                 controller: 'CreateRouteController',
                 templateUrl: 'templates/CreateRoute.tpl',
                 resolve: {
@@ -50,7 +46,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation'])
                     }
                 }
             })
-            .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/:routeId/edit', {
+            .when('/gyms/:gymId/walls/:wallId/routes/:routeId/edit', {
                 controller: 'CreateRouteController',
                 templateUrl: 'templates/CreateRoute.tpl',
                 resolve: {
@@ -59,7 +55,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation'])
                     }
                 }
             })
-            .when('/gyms/:gymId/walls/:wallId/sets/:setId/routes/:routeId', {
+            .when('/gyms/:gymId/walls/:wallId/routes/:routeId', {
                 controller: 'RouteController',
                 templateUrl: 'templates/Route.tpl'
             })
@@ -140,10 +136,6 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation'])
             $location.path('gyms/' + pGymId + '/walls/' + pWallId);
         };
 
-        $rootScope.navigateToSet = function (pGymId, pWallId, pSetId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId);
-        };
-
         $rootScope.navigateToGyms = function () {
             $location.path('gyms');
         };
@@ -152,20 +144,20 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation'])
             $location.path('gyms/' + pGymId);
         };
 
-        $rootScope.navigateToCreateRoute = function (pGymId, pWallId, pSetId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/create');
+        $rootScope.navigateToCreateRoute = function (pGymId, pWallId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/create');
         };
 
         $rootScope.navigateToSetters = function (pGymId) {
             $location.path('gyms/' + pGymId + '/setters');
         };
 
-        $rootScope.navigateToRoute = function (pGymId, pWallId, pSetId, pRouteId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId);
+        $rootScope.navigateToRoute = function (pGymId, pWallId, pRouteId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId);
         };
 
-        $rootScope.navigateToEditRoute = function (pGymId, pWallId, pSetId, pRouteId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/sets/' + pSetId + '/routes/' + pRouteId + '/edit');
+        $rootScope.navigateToEditRoute = function (pGymId, pWallId, pRouteId) {
+            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId + '/edit');
         };
 
         $rootScope.navigateToUser = function (pUserId) {

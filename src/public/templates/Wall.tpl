@@ -1,6 +1,6 @@
 <section class="header row small-collapse">
 
-    <div class="right mt1">
+    <div class="left mt1">
         <button class="[ btn--secondary btn--medium right ] icon-left-big"
                     ng-click="navigateToWalls(gymId)" >
             <span ng-show="isGymAccount()">Manage</span> Zones
@@ -20,32 +20,34 @@
 
         <h1 ng-hide="isEditMode" class="title">
             {{wall.name}}
-            <a class="icon-pencil" ng-click="edit()" ng-hide="isEditMode"></a>
+            <a class="icon-pencil" ng-click="edit()" ng-hide="isUserAccount() || isEditMode"></a>
         </h1>
     </div>
 </section>
 
 <div ng-show="isGymAccount()" class="row" data-ui-component="routeActions">
-    <div class="small-12 columns  mb2">
+    <div class="small-12 columns mb2">
         <button class="btn--medium btn--primary icon-plus-squared btn--expanded"
-           ng-click="addClicked()">
-           Add Set
+            ng-click="navigateToCreateRoute(gymId, wallId)">
+            Add Route
         </button>
     </div>
 </div>
 
 <ul class="list--tableStyle">
-    <li ng-repeat="set in sets" class="list--tableStyle  ptb2">
-        <a ng-click="navigateToSet(gymId, wallId, set.id)">
-            {{set.date}} <i class="icon-right-big  right"> </i>
+    <li ng-repeat="route in routes" class="list--tableStyle  ptb2">
+        <a ng-click="navigateToRoute(gymId, wallId, route.id)">
+            <i class="icon-circle"
+            ng-style="{color: route.value}"> </i>
+            {{route.route_name}} {{route.boulder_grade || route.rope_grade}}<i class="icon-right-big"> </i>
         </a>
     </li>
 </ul>
 
 <section class="row">
     <div class="small-12 columns  text-center"
-            ng-show="isGymAccount()"
-            data-ui-component="routeSubActions">
+        ng-show="isGymAccount()"
+        data-ui-component="routeSubActions">
         <a class="icon-trash"
             ng-click="delete()">
             Delete Wall

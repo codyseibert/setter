@@ -13,7 +13,6 @@ var LoginController = require('./controllers/LoginController');
 var WallsController = require('./controllers/WallsController');
 var GymsController = require('./controllers/GymsController');
 var InjectAccountId = require('./middleware/InjectAccountId');
-var SetsController = require('./controllers/SetsController');
 var ColorsController = require('./controllers/ColorsController');
 var RoutesController = require('./controllers/RoutesController');
 var GradesController = require('./controllers/GradesController');
@@ -72,26 +71,11 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         WallsController.deleteWall);
 
-    // SETS
-    app.get('/api/sets/:setId',
-        SetsController.getSet);
-
-    app.get('/api/walls/:wallId/sets',
-        InjectAccountId,
-        SetsController.getSetsOnWall);
-
-    app.post('/api/walls/:wallId/sets',
-        InjectAccountId,
-        SetsController.createSet);
-
-    app.delete('/api/sets/:setId',
-        SetsController.deleteSet);
-
     // ROUTES
-    app.get('/api/sets/:setId/routes',
-        RoutesController.getRoutesInSet);
+    app.get('/api/walls/:wallId/routes',
+        RoutesController.getRoutesOnWall);
 
-    app.post('/api/sets/:setId/routes',
+    app.post('/api/walls/:wallId/routes',
         RoutesController.createRoute);
 
     app.get('/api/routes/:routeId',

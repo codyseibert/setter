@@ -96,24 +96,6 @@ CREATE TABLE walls
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE sets
-(
-    id int NOT NULL AUTO_INCREMENT,
-    wall_id int NOT NULL,
-    image_id int DEFAULT NULL,
-    date datetime NOT NULL,
-
-    PRIMARY KEY (id),
-
-    FOREIGN KEY (wall_id)
-        REFERENCES walls(id)
-        ON DELETE CASCADE,
-
-    FOREIGN KEY (image_id)
-        REFERENCES images(id)
-        ON DELETE CASCADE
-) ENGINE=InnoDB;
-
 CREATE TABLE boulder_grades
 (
     id int NOT NULL AUTO_INCREMENT,
@@ -144,7 +126,7 @@ CREATE TABLE colors
 CREATE TABLE routes
 (
     id int NOT NULL AUTO_INCREMENT,
-    set_id int NOT NULL,
+    wall_id int NOT NULL,
 
     name varchar(255) NOT NULL,
 
@@ -161,8 +143,8 @@ CREATE TABLE routes
 
     PRIMARY KEY (id),
 
-    FOREIGN KEY (set_id)
-        REFERENCES sets(id)
+    FOREIGN KEY (wall_id)
+        REFERENCES walls(id)
         ON DELETE CASCADE,
 
     FOREIGN KEY (boulder_grade_id)

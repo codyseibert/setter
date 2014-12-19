@@ -2,26 +2,29 @@
 /*jslint unparam: true*/
 /*global angular: false, btoa: false, console: false, moment: false, confirm: false */
 
+/*jslint nomen: true */
+/*jslint unparam: true*/
+/*global angular: false, btoa: false, console: false, moment: false, confirm: false */
+
 angular.module('SETTER')
     .controller('WallController', [
-        '$scope',
-        'WallsService',
-        'SetsService',
-        '$routeParams',
-        'DateFormatService',
-        function ($scope,
-            WallsService,
-            SetsService,
-            $routeParams,
-            DateFormatService) {
+    '$scope',
+    'RoutesService',
+    'WallsService',
+    '$routeParams',
+    'DateFormatService',
+    function ($scope,
+        RoutesService,
+        WallsService,
+        $routeParams,
+        DateFormatService) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;
             $scope.wallId = $routeParams.wallId;
 
-            $scope.sets = [];
             $scope.wall = {};
-
+            $scope.routes = [];
             $scope.form = {};
 
             WallsService.getWall($scope.wallId)
@@ -29,29 +32,13 @@ angular.module('SETTER')
                     $scope.wall = pData;
                 });
 
-            SetsService.getSetsOnWall($scope.wallId)
+            RoutesService.getRoutesOnWall($scope.wallId)
                 .success(function (pData) {
-                    var i;
-
-                    $scope.sets = pData;
-
-                    for (i = 0; i < pData.length; i += 1) {
-                        pData[i].date = DateFormatService.format(pData[i].date);
-                    }
+                    $scope.routes = pData;
                 });
 
-            $scope.hasSets = function () {
-                return $scope.sets.length > 0;
-            };
-
-            $scope.addClicked = function () {
-                SetsService.createSet($scope.wallId)
-                    .success(function (pData) {
-                        $scope.sets.unshift({
-                            id: pData.id,
-                            date: DateFormatService.format(moment())
-                        });
-                    });
+            $scope.hasRoutes = function () {
+                return $scope.routes.length > 0;
             };
 
             $scope.edit = function () {

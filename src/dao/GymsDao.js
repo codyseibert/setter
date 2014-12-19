@@ -20,10 +20,10 @@ var theDaoHelper = require('./DaoHelper');
 var GymsDao = function () {
     'use strict';
 
-    this.getGym = function (pId, pCallback) {
+    this.getGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT account_id, name, address FROM gyms WHERE account_id = ?',
-            [pId],
+            [pGymId],
             theDaoHelper.SINGLE,
             pCallback
         );
@@ -58,11 +58,8 @@ var GymsDao = function () {
 
     this.getCurrentBoulderRoutes = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT bg.name, bg.value FROM walls w  ' +
-                'LEFT JOIN (SELECT x.wall_id, s.id FROM  ' +
-                '(SELECT wall_id, MAX(date) AS maxdate FROM sets GROUP BY wall_id) AS x ' +
-                'INNER JOIN sets AS s ON s.wall_id = x.wall_id AND s.date = x.maxdate) AS t ON t.wall_id = w.id ' +
-                'INNER JOIN routes r ON r.set_id = t.id ' +
+            'SELECT bg.name, bg.value FROM routes r ' +
+                'INNER JOIN walls w ON w.id = r.wall_id ' +
                 'INNER JOIN boulder_grades bg ON r.boulder_grade_id = bg.id WHERE w.gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,
@@ -72,11 +69,8 @@ var GymsDao = function () {
 
     this.getCurrentRopeRoutes = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT rg.name, rg.value FROM walls w  ' +
-                'LEFT JOIN (SELECT x.wall_id, s.id FROM  ' +
-                '(SELECT wall_id, MAX(date) AS maxdate FROM sets GROUP BY wall_id) AS x ' +
-                'INNER JOIN sets AS s ON s.wall_id = x.wall_id AND s.date = x.maxdate) AS t ON t.wall_id = w.id ' +
-                'INNER JOIN routes r ON r.set_id = t.id ' +
+            'SELECT rg.name, rg.value FROM routes r ' +
+                'INNER JOIN walls w ON w.id = r.wall_id ' +
                 'INNER JOIN rope_grades rg ON r.rope_grade_id = rg.id WHERE w.gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,

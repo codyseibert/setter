@@ -1,11 +1,12 @@
-<div class="mb"></div>
-<div class="btn_black small"
-    ng-click="navigateToSet(gymId, wallId, setId)">
-    <i class="icon-left-big"> </i>Set
+
+<div class="left mt1">
+    <button class="[ btn--secondary btn--medium right ] icon-left-big"
+        ng-click="navigateToWall(gymId, wallId)" >
+        <span ng-show="isGymAccount()">Manage</span> Wall
+    </button>
 </div>
-<div class="mb"></div>
-<div class="mb"></div>
-<div class="mb"></div>
+
+<br>
 
 <div ng-show="isGymAccount()">
     <div class="button orange"

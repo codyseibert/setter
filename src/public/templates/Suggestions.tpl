@@ -1,28 +1,37 @@
+<section class="header row small-collapse">
 
-<div class="btn_black small"
-        ng-click="back()">
-    <i class="icon-left-big"> </i>Back
-</div>
+    <div class="right mt1">
+        <button class="[ btn--secondary btn--medium right ] icon-left-big"
+            ng-click="back()" >
+            Back
+        </button>
+    </div>
 
-<div class="title">Suggestions</div>
+    <div class="small-12 columns">
+        <div class="media--fl">
+            <textarea ng-model="form.suggestion"
+                        type="text"
+                        placeholder="your suggestion!"></textarea>
 
-<div ng-repeat="suggestion in suggestions">
-    <div class="suggestion">
-        <i class="icon-thumbs-up-alt heart"
+            <button class="btn--medium icon-plus-squared btn--primary "
+                        ng-click="postClicked()">
+                Post
+            </button>
+        </div>
+
+        <h1 class="title">
+            Suggestions
+        </h1>
+    </div>
+</section>
+
+<ul class="list--tableStyle">
+    <li ng-repeat="suggestion in suggestions" class="list--tableStyle  ptb2">
+        <i class="icon-thumbs-up-alt suggestion"
             ng-class="{disabled: suggestion.disabled}"
             ng-style="{'font-size': getFontSize(suggestion) + 'px'}"
             ng-click="upvote(suggestion)"> </i>
         <br>
         {{suggestion.suggestion}}
-    </div>
-</div>
-
-<div>
-    <textarea ng-model="form.suggestion" placeholder="your suggestion!">
-    </textarea>
-    <br>
-    <div class="btn_black"
-        ng-click="postClicked()">
-        <i class="icon-plus-squared"> </i> Post
-    </div>
-</div>
+    </li>
+</ul>

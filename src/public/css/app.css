@@ -9451,7 +9451,7 @@ ol {
 }
 
 /*------------------------------------*\
-    #Button Styles 
+    #Button Styles
 \*------------------------------------*/
 /* line 7, ../scss/partials/_buttons.scss */
 button,
@@ -9465,7 +9465,7 @@ input[type="submit"] {
 }
 
 /*------------------------------------*\
-    #Universal Button Classes 
+    #Universal Button Classes
 \*------------------------------------*/
 /* line 25, ../scss/partials/_buttons.scss */
 [class*="btn--"] {
@@ -9478,7 +9478,7 @@ input[type="submit"] {
 }
 
 /*------------------------------------*\
-    #Button Types 
+    #Button Types
 \*------------------------------------*/
 /* line 46, ../scss/partials/_buttons.scss */
 .btn--primary {
@@ -9724,7 +9724,7 @@ input[type="submit"] {
 }
 
 /*------------------------------------*\
-    #Special Button Types 
+    #Special Button Types
 \*------------------------------------*/
 /* line 124, ../scss/partials/_buttons.scss */
 .btn--split {
@@ -10696,7 +10696,7 @@ select {
 }
 
 /*------------------------------------*\
-    #Select Sizes 
+    #Select Sizes
 \*------------------------------------*/
 /* line 125, ../scss/partials/_forms.scss */
 .select--small {
@@ -11231,4 +11231,48 @@ ul[data-pie-id] {
 /* line 21, ../scss/partials/_accordions.scss */
 .accordion dd.active > a {
   background: transparent;
+}
+
+
+
+.suggestion {
+    display: inline-block;
+    color: #54487f;
+    cursor: pointer;
+}
+
+.suggestion:hover{
+    color: #e78724;
+}
+
+.suggestion.disabled{
+    color: #aed850;
+    cursor: default;
+}
+
+.suggestion.disabled:hover{
+    color: #aed850;
+}
+
+
+
+.star{
+    cursor: pointer;
+    color: #333;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+
+.star:hover{
+    color: #888;
+}
+
+.star.rated:hover{
+    color: white;
+}
+
+.star.rated{
+    color: orange;
 }

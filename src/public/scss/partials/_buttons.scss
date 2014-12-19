@@ -1,36 +1,36 @@
 
 /*------------------------------------*\
-    #Button Styles 
+    #Button Styles
 \*------------------------------------*/
 
 
-button, 
+button,
 button[type="submit"],
-html input[type="button"], 
-input[type="reset"], 
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
-  font-family: $primaryFont;  
-  outline: 0; 
+  font-family: $primaryFont;
+  outline: 0;
 }
 
 
 
 
 /*------------------------------------*\
-    #Universal Button Classes 
+    #Universal Button Classes
 \*------------------------------------*/
 
 
-[class*="btn--"] { 
+[class*="btn--"] {
   @include border-radius(8px);
   color: #fff;
-  position: relative; 
-  font-weight: $bold; 
+  position: relative;
+  font-weight: $bold;
 
 
   i:before {
-    @extend %mr0; 
+    @extend %mr0;
   }
 }
 
@@ -39,7 +39,7 @@ input[type="submit"] {
 
 
 /*------------------------------------*\
-    #Button Types 
+    #Button Types
 \*------------------------------------*/
 
 
@@ -49,18 +49,18 @@ input[type="submit"] {
 
 .btn--secondary {
   @include button($grey--medlight) {
-    &, 
+    &,
     &:hover {
-      color: $grey--medium; 
+      color: $grey--medium;
     }
-  } 
+  }
 }
 
 
 .btn--tetriary {
   @include button($grey--medium) {
     &:hover {
-      color: #fff; 
+      color: #fff;
     }
   }
 }
@@ -79,10 +79,10 @@ input[type="submit"] {
 .btnGroup--primary {
   @include button-group($primaryColor) {
     a {
-      color: #fff; 
+      color: #fff;
 
       &:hover {
-        color: #fff; 
+        color: #fff;
       }
     }
   }
@@ -92,7 +92,7 @@ input[type="submit"] {
 .btnGroup--secondary {
   @include button-group($grey--medlight) {
     [class*="btn--"] {
-      color: $grey--medium; 
+      color: $grey--medium;
     }
   }
 }
@@ -114,7 +114,7 @@ input[type="submit"] {
 
 
 /*------------------------------------*\
-    #Special Button Types 
+    #Special Button Types
 \*------------------------------------*/
 
 
@@ -122,11 +122,11 @@ input[type="submit"] {
 
 
 .btn--split {
-  padding-right: rem-calc(32) !important; 
-  
+  padding-right: rem-calc(32) !important;
+
   span {
-    @extend %arrow--down; 
-    border-left: 1px solid $grey--dark; 
+    @extend %arrow--down;
+    border-left: 1px solid $grey--dark;
     display: block;
     height: 100%;
     margin-right: rem-calc(12);
@@ -144,7 +144,7 @@ input[type="submit"] {
 
 
 .btn--expanded {
-  width: 100%; 
+  width: 100%;
 }
 
 
@@ -157,18 +157,18 @@ input[type="submit"] {
 
 
 .btn--tiny {
-  padding: rem-calc(6); 
+  padding: rem-calc(6);
   padding-right: rem-calc(8);
   padding-left: rem-calc(8);
   font-size: rem-calc(10);
 }
 
-.btn--small { 
-  padding: rem-calc(8); 
+.btn--small {
+  padding: rem-calc(8);
   padding-right: rem-calc(16);
   padding-left: rem-calc(16);
   font-size: rem-calc(12);
-  
+
   i:before {
     font-size: rem-calc(14);
   }
@@ -180,7 +180,7 @@ input[type="submit"] {
   padding-right: rem-calc(20);
   padding-left: rem-calc(20);
   font-size: rem-calc(14);
-  
+
   i:before {
     font-size: rem-calc(16);
   }
@@ -201,3 +201,51 @@ input[type="submit"] {
 }
 
 
+
+
+
+/*------------------------------------*\
+    #Custom Suggestions Thumbs Up
+\*------------------------------------*/
+.suggestion {
+    display: inline-block;
+    color: #54487f;
+    cursor: pointer;
+}
+
+.suggestion:hover{
+    color: #e78724;
+}
+
+.suggestion.disabled{
+    color: #aed850;
+    cursor: default;
+}
+
+.suggestion.disabled:hover{
+    color: #aed850;
+}
+
+/*------------------------------------*\
+    # Custom Stars
+\*------------------------------------*/
+.star{
+    cursor: pointer;
+    color: #333;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+
+.star:hover{
+    color: #888;
+}
+
+.star.rated:hover{
+    color: white;
+}
+
+.star.rated{
+    color: orange;
+}

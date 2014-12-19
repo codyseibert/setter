@@ -1,9 +1,18 @@
-<div class="btn_black small"
-    ng-click="back()">
-    <i class="icon-left-big"> </i>Back
-</div>
+<section class="header row small-collapse">
+    <div class="right mt1">
+        <button class="[ btn--secondary btn--medium right ] icon-left-big"
+            ng-click="navigateToSet(gymId, wallId, setId)" >
+            Cancel
+        </button>
+    </div>
 
-<div class="mb"></div>
+    <div class="small-12 columns">
+        <h1 class="title">
+            Create Route
+        </h1>
+    </div>
+</section>
+
 
 <div ng-hide="hasSetters()">
     This gym has no setters!
@@ -46,7 +55,6 @@
         </option>
     </select>
     <br>
-
 
     <div class="btn_black"
             ng-click="addClicked()"

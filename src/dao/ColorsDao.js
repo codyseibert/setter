@@ -21,10 +21,10 @@ var ColorsDao = function () {
     'use strict';
 
     /**
-    Retreieves the boulder grades from the database.
+        Retreieves the boulder grades from the database.
 
-    $method getGrades
-    $param pCallback invoked on success or failure.
+        $method getGrades
+        $param pCallback invoked on success or failure.
     */
     this.getColors = function (pCallback) {
         theDaoHelper.executeQuery(

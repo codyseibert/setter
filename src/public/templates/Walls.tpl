@@ -4,7 +4,7 @@
 
 
     <h1 ng-show="isGymAccount()">Manage Your Zones</h1>
-    <span ng-hide="isGymAccount()">Walls</span>
+        <span ng-hide="isGymAccount()">Walls</span>
     </div>
 </section>
 
@@ -16,14 +16,14 @@
   <div>
     <label for="searchTerm" class="icon--label icon--search inline"></label>
   </div>
-    <div> 
+    <div>
     <input name="" type="search" id="searchTerm" placeholder="Search by name, color, setter, route grades, etc.">
     </div>
-  </div>   
+  </div>
                 <!--End Search Box for routes-->
 
   <div class="media--fl">
-    <button type="submit" alt="Add New Zone" class="btn--primary btn--medium "   ng-click="addClicked()">Add Zone
+    <button type="submit" alt="Add New Zone" class="btn--primary icon-plus-squared btn--medium "   ng-click="addClicked()">Add Zone
     </button>
   <div>
     <input type="text" name="name" id="wallName" placeholder="New zone Name" ng-model="form.wallName"/>

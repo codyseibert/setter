@@ -65,32 +65,45 @@
                 <h3>Your Name Or gym</h3>
                 <div class="nav" ng-show="isLoggedIn()">
 
-
-                        <li class="button" bg-click"navigateToWalls()">
-
-                            <a class="icon">Manage Zones</a>
-                        </li>
-                        
-                        <li class="button" ng-click="navigateToGym(getHomeGymId())"
-                            ng-show="getHomeGymId()">
-                            <a href="#" class="icon-home">Home</a>
-                        </li>
-
                         <li class="button"
-                            ng-click="navigateToUserProfile(getAccountId())">
+                            ng-show="isUserAccount()"
+                            ng-click="navigateToUser(getAccountId())">
                             <a class="icon-user">Your Profile</a>
                         </li>
 
                         <li class="button"
-                                ng-click="navigateToSuggestionsPage()">
-                            <a class="icon-megaphone">Make Suggestion</a>
+                            ng-show="isGymAccount()"
+                            ng-click="navigateToGym(getAccountId())">
+                            <a class="icon-user">Your Profile</a>
+                        </li>
+
+                        <li class="button"
+                            ng-click="navigateToWalls(getAccountId())"
+                            ng-show="isGymAccount()">
+                            <a class="icon-th-list">Manage Zones</a>
+                        </li>
+
+                        <li class="button"
+                            ng-click="navigateToSetters(getAccountId())"
+                            ng-show="isGymAccount()">
+                            <a class="icon-users">Your Setters</a>
+                        </li>
+
+                        <li class="button"
+                            ng-click="navigateToGym(getHomeGymId())"
+                            ng-show="getHomeGymId()">
+                            <a class="icon-home">Your Home Gym</a>
+                        </li>
+
+                        <li class="button"
+                            ng-click="navigateToSuggestionsPage()">
+                            <a class="icon-megaphone">Make a Suggestion</a>
                         </li>
 
                         <li class="button"
                             ng-click="navigateToLogout()">
                             <a class="icon-logout">Logout</a>
                         </li>
-
                 </div>
             </ul>
         </aside>

@@ -10990,22 +10990,6 @@ input[type="radio"].radio--routeColor:checked + label {
   right: 0.75rem;
   top: 0.5rem;
 }
-/* line 160, ../scss/modules/_icons.scss */
-.dropDown-closeLink:before {
-  content: "";
-  font-family: 'fontello';
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: 0.75rem;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  margin-right: 0;
-}
 /* line 65, ../scss/partials/_dropDowns.scss */
 .dropDown-closeLink:hover {
   color: #333333;

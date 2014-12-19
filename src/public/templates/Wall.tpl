@@ -1,41 +1,60 @@
-<div class="mb"></div>
 
-<div class="btn_black small"
-    ng-click="navigateToWalls(gymId)">
-    <i class="icon-left-big"> </i>Walls
-</div>
-
-<div class="mb"></div>
-
-<div ng-show="isGymAccount()">
-    <div class="button orange"
-            ng-click="save()"
-            ng-show="isEditMode">
-        <i class="icon-floppy"> </i>
+<section class="header row small-collapse">
+    
+    <div class="right mt1">   
+        <button  class="[ btn--secondary btn--medium right ]  icon-left-big " ng-click="navigateToWalls(gymId)" >
+        All Zones
+        </button>
     </div>
-    <div class="button orange"
-            ng-click="edit()"
-            ng-hide="isEditMode">
-        <i class="icon-pencil"> </i>
-    </div>
-    <div class="button orange"
-            ng-click="delete()">
-        <i class="icon-trash"> </i>
-    </div>
-</div>
 
-<div ng-hide="isEditMode" class="title">{{wall.name}}</div>
-<input ng-show="isEditMode" ng-model="form.name" class="edit"></input>
-
-<div ng-repeat="set in sets">
-    <div class="set"
-            ng-click="navigateToSet(gymId, wallId, set.id)">
-        {{set.date}} <i class="icon-right-big"> </i>
+    <div class="small-12 columns">
+    <div class="media--fl" ng-show="isEditMode">
+        <input ng-model="form.name"type="text">
+            
+        </input>
+        <button class="btn--medium  btn--primary "
+            ng-click="save()">Save
+        </button>
     </div>
-</div>
+    <h1 ng-hide="isEditMode" class="title">{{wall.name}}
+     <a class="icon-pencil"
+                ng-click="edit()"
+                ng-hide="isEditMode">
+        </a>
+    </h1>
+               
+    <span ng-hide="isGymAccount()">Walls</span>
+    </div>
+</section>
 
-<div ng-show="isGymAccount()">
-    <div class="btn_black" ng-click="addClicked()">
-        <i class="icon-plus-squared"> </i> Add Set
+
+<div ng-show="isGymAccount()" class="row" data-ui-component="routeActions">
+    <div class="small-12 columns  mb2">
+            <button class="btn--medium  btn--primary  icon-pencil  btn--expanded"
+       ng-click="addClicked()">
+    Add Route
+    </button>
     </div>
 </div>
+
+
+
+<ul class="list--tableStyle">
+    <li ng-repeat="set in sets" class="list--tableStyle  ptb2">
+            <a ng-click="navigateToSet(gymId, wallId, set.id)">
+                {{set.date}} <i class="icon-right-big  right"> </i>
+        </a>
+    </li>
+</ul>
+
+<section class="row">
+    <div class="small-12 columns  text-center" ng-show="isGymAccount()" data-ui-component="routeSubActions">
+                <a class="icon-trash"
+                    ng-click="delete()">
+                Delete Wall
+            </a>
+
+    </div>
+</section>
+
+

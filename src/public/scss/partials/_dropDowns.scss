@@ -53,9 +53,9 @@
 .dropDown-closeLink {
   @extend %h5; 
 
-  @include icon($icon--cancelCircle) {
-    margin-right: 0; 
-  }
+  // @include icon($icon--cancelCircle) {
+  //   margin-right: 0; 
+  // }
 
   color: $grey--medium; 
   position: absolute;

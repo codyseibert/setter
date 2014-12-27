@@ -4,17 +4,17 @@
 }
 
 
-[class*="star"] {
-  @include icon($icon--star) {
-    color: $color--rating; 
-  }
-}
+// [class*="star"] {
+//   @include icon($icon--star) {
+//     color: $color--rating; 
+//   }
+// }
 
-[class*="star--empty"] {
-  @include icon($icon--star--empty) {
-    color: $grey--medlight; 
-  }
-}
+// [class*="star--empty"] {
+//   @include icon($icon--star--empty) {
+//     color: $grey--medlight; 
+//   }
+// }
 
 [href*="dashboard"] {
   @include icon($icon--dashboard);

@@ -1,49 +1,82 @@
 
-<div class="left mt1">
-    <button class="[ btn--secondary btn--medium right ] icon-left-big"
-        ng-click="navigateToWall(gymId, wallId)" >
-        <span ng-show="isGymAccount()">Manage</span> Wall
-    </button>
-</div>
 
-<br>
-
-<div ng-show="isGymAccount()">
-    <div class="button orange"
-            ng-click="edit()"
-            ng-hide="isEditMode">
-        <i class="icon-pencil"> </i>
+<section class="header row small-collapse">
+    
+    <div class="left">
+        <button class="[ btn--secondary  btn--medium right ] icon-left-big"
+            ng-click="navigateToWall(gymId, wallId)" >
+            <span ng-show="isGymAccount()">Manage</span> Wall
+        </button>
     </div>
-    <div class="button orange"
-            ng-click="delete()">
-        <i class="icon-trash"> </i>
-    </div>
-</div>
 
-<div class="route nohover">
-    <i class="icon-circle" ng-style="{color: route.value}"> </i>
-    {{route.route_name}}
-    {{route.boulder_grade || route.rope_grade}}
-    {{route.firstname}}
-    {{route.lastname}}
-</div>
-<div class="mb"></div>
-<div class="mb"></div>
-<div class="mb"></div>
+</section>
 
-<div class="stars">
-    <div class="star"
-        ng-class="{rated: hasRated}"
-        ng-repeat="star in stars"
-        ng-click="rate(star)"
-        ng-mouseover="setHoverRating(star)"
-        ng-mouseleave="setHoverRating(-1)">
-        <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}"> </i>
+
+<section class="row" ng-show="isGymAccount()" data-ui-component="route-actions">
+
+    <div class="small-12  columns"> 
+
+        <button class="[ btn--primary  btn--medium ] icon-pencil" ng-click="edit()" ng-hide="isEditMode">
+            Edit 
+        </button>
+
+        <button class="btn--tetriary btn--medium icon-trash" ng-click="delete()">
+            Delete Route
+        </button>
+
     </div>
-</div>
-<div class="mb"></div>
-<div class="mb"></div>
-<div class="mb"></div>
+
+</section>  
+
+
+<section class="row" data-ui-component="route-information">
+
+    <div class="small-12 columns">
+
+        <div class="route nohover ">
+            <div class="media--fl">
+                <div>
+                    Color/Grade
+                </div>
+
+                <div class="icon-circle  icon--big  right" ng-style="{color: route.value}"> 
+                     <h1 class="mb0 h4  display--inlineBlock">
+                    {{route.route_name}}
+                    
+                    {{route.boulder_grade || route.rope_grade}}
+                    </h1>
+                </div>
+            </div>
+            
+            <div class="media--fl">
+                <span>Avg. Rating</span>
+                <div class="[ rating  rating--big ]  display--inlineBlock"
+                ng-class="{rated: hasRated}"
+                ng-repeat="star in stars"
+                ng-click="rate(star)"
+                ng-mouseover="setHoverRating(star)"
+                ng-mouseleave="setHoverRating(-1)">
+                    <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="mb0  left"> </i>
+                
+                </div>
+            </div>
+            <div class="media--fl">
+                <span class="display--inlineBlock">Routesetter</span>
+
+                <h2 class="h4 display--inlineBlock right">
+                    {{route.firstname}}
+                    {{route.lastname}}
+                </h2>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
 
 <div>
     <div class="btn_small"

@@ -1,5 +1,5 @@
 <section class="header row small-collapse">
-    <div class="left mt1">
+    <div class="left">
         <button ng-hide="isEditMode"
             class="[ btn--secondary btn--medium right ] icon-left-big"
             ng-click="navigateToWall(gymId, wallId)" >

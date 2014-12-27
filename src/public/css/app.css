@@ -9801,6 +9801,60 @@ input[type="submit"] {
   font-size: 1.375rem;
 }
 
+/*------------------------------------*\
+    #Custom Suggestions Thumbs Up
+\*------------------------------------*/
+/* line 210, ../scss/partials/_buttons.scss */
+.suggestion {
+  display: inline-block;
+  color: #54487f;
+  cursor: pointer;
+}
+
+/* line 216, ../scss/partials/_buttons.scss */
+.suggestion:hover {
+  color: #e78724;
+}
+
+/* line 220, ../scss/partials/_buttons.scss */
+.suggestion.disabled {
+  color: #aed850;
+  cursor: default;
+}
+
+/* line 225, ../scss/partials/_buttons.scss */
+.suggestion.disabled:hover {
+  color: #aed850;
+}
+
+/*------------------------------------*\
+    # Custom Stars
+\*------------------------------------*/
+/* line 232, ../scss/partials/_buttons.scss */
+.star {
+  cursor: pointer;
+  color: #333;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+
+/* line 241, ../scss/partials/_buttons.scss */
+.star:hover {
+  color: #888;
+}
+
+/* line 245, ../scss/partials/_buttons.scss */
+.star.rated:hover {
+  color: white;
+}
+
+/* line 249, ../scss/partials/_buttons.scss */
+.star.rated {
+  color: orange;
+}
+
 /* line 1, ../scss/partials/_footer.scss */
 footer {
   background-color: #ed6d56;
@@ -9821,40 +9875,6 @@ footer {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-}
-
-/* line 160, ../scss/modules/_icons.scss */
-[class*="star"]:before {
-  content: "";
-  font-family: 'fontello';
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: 0.75rem;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  color: #f3db54;
-}
-
-/* line 160, ../scss/modules/_icons.scss */
-[class*="star--empty"]:before {
-  content: "";
-  font-family: 'fontello';
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: 0.75rem;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  color: #c3c3c3;
 }
 
 /* line 160, ../scss/modules/_icons.scss */
@@ -10696,7 +10716,7 @@ select {
 }
 
 /*------------------------------------*\
-    #Select Sizes
+    #Select Sizes 
 \*------------------------------------*/
 /* line 125, ../scss/partials/_forms.scss */
 .select--small {
@@ -11231,48 +11251,4 @@ ul[data-pie-id] {
 /* line 21, ../scss/partials/_accordions.scss */
 .accordion dd.active > a {
   background: transparent;
-}
-
-
-
-.suggestion {
-    display: inline-block;
-    color: #54487f;
-    cursor: pointer;
-}
-
-.suggestion:hover{
-    color: #e78724;
-}
-
-.suggestion.disabled{
-    color: #aed850;
-    cursor: default;
-}
-
-.suggestion.disabled:hover{
-    color: #aed850;
-}
-
-
-
-.star{
-    cursor: pointer;
-    color: #333;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-}
-
-.star:hover{
-    color: #888;
-}
-
-.star.rated:hover{
-    color: white;
-}
-
-.star.rated{
-    color: orange;
 }

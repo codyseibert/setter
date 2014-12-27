@@ -1,6 +1,6 @@
 <section class="header row small-collapse">
 
-    <div class="left mt1">
+    <div class="left">
         <button class="[ btn--secondary btn--medium right ] icon-left-big"
                     ng-click="navigateToWalls(gymId)" >
             <span ng-show="isGymAccount()">Manage</span> Zones

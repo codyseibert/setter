@@ -6336,7 +6336,7 @@ p aside {
 /* Default header styles */
 /* line 252, ../bower_components/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: "Raleway", Helvetica, Sans-Serif;
   font-weight: normal;
   font-style: normal;
   color: #222222;
@@ -10402,13 +10402,6 @@ ul.off-canvas-list li a:hover {
 /* line 188, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover img {
   opacity: 1;
-}
-
-@media (min-width: 940px) {
-  /* line 199, ../scss/partials/_navs.scss */
-  .move-right > .inner-wrap {
-    transform: translate3d(0, 0, 0) !important;
-  }
 }
 
 /* line 1, ../scss/partials/_popUps.scss */

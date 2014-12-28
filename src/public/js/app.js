@@ -1,6 +1,6 @@
 /*global angular: false, btoa: false, Chart: false, confirm: false */
 
-angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation'])
+angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', 'mm.foundation.offcanvas'])
     .config(['$routeProvider', function ($routeProvider) {
         'use strict';
 

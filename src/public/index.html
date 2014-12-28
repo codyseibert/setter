@@ -35,13 +35,6 @@
 
     <body ng-app="SETTER">
 
-<!--                 <div class="logo"
-                ng-click="navigateToHome()">
-                <img src="images/logo.png">
-                <div class="text">
-                    SETTER<span class="beta">BETA</span>
-                </div>
-            </div> -->
 
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
@@ -52,7 +45,6 @@
           </section>
 
           <section class="right tab-bar-section">
-         <!--  <h1 class="title  left">SETTER</h1> -->
           <img src="images/setter-logo.svg" height="40px" width="40px" alt="SETTER" class="text-right  mr2">
 
           </section>
@@ -109,68 +101,12 @@
         </aside>
 
         <section class="main-section">
-          <!-- content goes in here -->
-
-<!--
-        <div id="header">
-            <div class="logo"
-                ng-click="navigateToHome()">
-                <img src="images/logo.png">
-                <div class="text">
-                    SETTER<span class="beta">BETA</span>
-                </div>
-            </div>
-
-            <div class="nav" ng-show="isLoggedIn()">
-                <div class="button"
-                        ng-click="navigateToGyms()"
-                        ng-show="isUserAccount()">
-                    <i class="icon-globe"> </i>
-                </div>
-
-                <div class="button"
-                        ng-click="navigateToGym(getHomeGymId())"
-                        ng-show="getHomeGymId()">
-                    <i class="icon-home"> </i>
-                </div>
-
-                <div class="button"
-                        ng-click="navigateToSetters(getAccountId())"
-                        ng-show="isGymAccount()">
-                    <i class="icon-users"> </i>
-                </div>
-
-                <div class="button"
-                        ng-click="navigateToGym(getAccountId())"
-                        ng-show="isGymAccount()">
-                    <i class="icon-user"> </i>
-                </div>
-
-                <div class="button"
-                        ng-click="navigateToUser(getAccountId())"
-                        ng-show="isUserAccount()">
-                    <i class="icon-user"> </i>
-                </div>
-
-                <div class="button"
-                        ng-click="navigateToSuggestionsPage()"
-                        ng-show="isUserAccount()">
-                    <i class="icon-megaphone"> </i>
-                </div>
-
-                <div class="button"
-                    ng-click="navigateToLogout()">
-                    <i class="icon-logout"> </i>
-                </div>
-            </div>
-        </div> -->
 
         <div id="content">
             <ng-view autoscroll="true" />
         </div>
 
-        <footer class="footer  center  mt4">
-            <div class="row">
+        <footer class="footer  center  mt4  row  medium-collapsed">
                 <div class="small-12 columns">
                 <h7>Copyright © 2014<br> Cody Seibert & Guillermo Casanova</h7>
 
@@ -184,7 +120,6 @@
                     Terms of Service
                 </a>
                 </div>
-            </div>
         </footer>
 
         </section>

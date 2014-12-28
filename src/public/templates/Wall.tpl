@@ -35,12 +35,12 @@
 </div>
 
 <ul class="list--tableStyle">
-    <li ng-repeat="route in routes" class="list--tableStyle  ptb2">
-        <a ng-click="navigateToRoute(gymId, wallId, route.id)">
-            <i class="icon-circle"
-            ng-style="{color: route.value}"> </i>
-            {{route.route_name}} {{route.boulder_grade || route.rope_grade}}<i class="icon-right-big"> </i>
-        </a>
+    <li ng-repeat="route in routes" ng-click="navigateToRoute(gymId, wallId, route.id)" class="list--tableStyle  ptb2">
+        <i class="icon-circle"
+        ng-style="{color: route.value}"> </i>
+        {{route.route_name}} {{route.boulder_grade || route.rope_grade}}
+
+        <i class="icon-right-big  right"> </i>
     </li>
 </ul>
 
@@ -53,4 +53,6 @@
             Delete Wall
         </a>
     </div>
+
+    
 </section>

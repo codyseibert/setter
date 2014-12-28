@@ -196,10 +196,3 @@ ul.off-canvas-list li a:hover {
 //
 
 
-.move-right > .inner-wrap {
-    @include breakpoint(mama-bear) {
-    transform: translate3d(0, 0, 0) !important;
-  }
-}
-
-

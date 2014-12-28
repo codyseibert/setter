@@ -20,8 +20,8 @@
             Edit 
         </button>
 
-        <button class="btn--tetriary btn--medium icon-trash" ng-click="delete()">
-            Delete Route
+        <button class="btn--secondary btn--medium icon-trash" ng-click="delete()">
+            Delete
         </button>
 
     </div>
@@ -75,54 +75,47 @@
 </section>
 
 
+<section class="row" data-ui-component="route-userActions">
 
+    <div class="small-12 columns">
 
+    <h5 class="sub_title">Sends</h5>
 
-<div>
-    <div class="btn_small"
-            ng-click="send()"
-            ng-hide="hasSent">
-        <i class="icon-paper-plane-empty"> </i> Send
+    <div ng-repeat="send in sends">
+        <div class="send">
+            {{send.firstname}} {{send.lastname}}
+        </div>
     </div>
-    <div class="btn_small enabled"
-            ng-click="unsend()"
-            ng-show="hasSent">
-        <i class="icon-paper-plane"> </i> Sent
-    </div>
-</div>
-<div class="mb"></div>
-<div class="mb"></div>
-<div class="mb"></div>
 
-<div class="sub_title">Sends</div>
-<div ng-repeat="send in sends">
-    <div class="send">
-        {{send.firstname}} {{send.lastname}}
-    </div>
-</div>
-<div class="mb"></div>
-<div class="mb"></div>
-<div class="mb"></div>
+    <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
+    ng-click="send()"
+    ng-hide="hasSent"> Send
+    </button>
 
-<div class="sub_title">Comments</div>
-<div ng-repeat="comment in comments">
-    <div class="comment">
-        {{comment.firstname}} {{comment.lastname}}
-        <br>
-        {{comment.message}}
-        <br>
-        {{comment.date}}
-    </div>
-</div>
-<div class="mb"></div>
+    <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
+    ng-click="unsend()"
+    ng-show="hasSent">
+     Sent
+    </button>
 
-<textarea ng-model="form.message"
-            placeholder="comment">
-</textarea>
-<div class="mb"></div>
+    <h5 >Comments</h5>
 
-<div>
-    <div class="btn_black" ng-click="addComment()">
-        <i class="icon-plus-squared"> </i> Comment
+    <div ng-repeat="comment in comments">
+        <div class="comment">
+            {{comment.firstname}} {{comment.lastname}}
+            <br>
+            {{comment.message}}
+            <br>
+            {{comment.date}}
+        </div>
     </div>
-</div>
+
+    <textarea class="textarea--small" ng-model="form.message"
+                placeholder="comment">
+    </textarea>
+
+    <button class=" [ btn--primary  btn--medium btn--expanded ]  icon-plus-squared" ng-click="addComment()">Post Comment
+    </button>
+
+    </div>
+</section>

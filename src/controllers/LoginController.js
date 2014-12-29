@@ -41,7 +41,7 @@ var LoginController = function () {
 
             theCrypt.check(password, pResults.password, function (err, matches) {
                 if (matches) {
-                    theLoginHelper.generateAndSendToken(pResults.id, pRes);
+                    theLoginHelper.sendToken(pResults.id, pRes);
                 } else {
                     pRes.status(400);
                     pRes.send(theMessages.error("Invalid Login!"));

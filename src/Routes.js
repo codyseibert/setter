@@ -23,6 +23,7 @@ var SendsController = require('./controllers/SendsController');
 var UsersController = require('./controllers/UsersController');
 var SuggestionsController = require('./controllers/SuggestionsController');
 var FeedbackController = require('./controllers/FeedbackController');
+var ImagesController = require('./controllers/ImagesController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -168,6 +169,9 @@ var RouteToControllerBinder = function () {
     app.get('/api/users/:userId',
         UsersController.getUser);
 
+    app.get('/api/users/:userId/image',
+        UsersController.getUserImage);
+
     app.post('/api/users/homegym/set',
         InjectAccountId,
         UsersController.setHomeGym);
@@ -189,6 +193,11 @@ var RouteToControllerBinder = function () {
     // FEEDBACK
     app.post('/api/feedback',
         FeedbackController.createFeedback);
+
+    // IMAGES
+    app.post('/api/accounts/image',
+        InjectAccountId,
+        ImagesController.uploadAccountImage);
 };
 
 module.exports = new RouteToControllerBinder();

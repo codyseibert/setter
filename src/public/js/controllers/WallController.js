@@ -8,16 +8,18 @@
 
 angular.module('SETTER')
     .controller('WallController', [
-    '$scope',
-    'RoutesService',
-    'WallsService',
-    '$routeParams',
-    'DateFormatService',
-    function ($scope,
-        RoutesService,
-        WallsService,
-        $routeParams,
-        DateFormatService) {
+        '$scope',
+        'RoutesService',
+        'WallsService',
+        '$routeParams',
+        'DateFormatService',
+        function (
+            $scope,
+            RoutesService,
+            WallsService,
+            $routeParams,
+            DateFormatService
+        ) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;

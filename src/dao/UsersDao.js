@@ -29,6 +29,17 @@ var UsersDao = function () {
         );
     };
 
+    this.getUserImage = function (pUserId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT url FROM images i '
+            + 'INNER JOIN accounts a ON i.id = a.image_id '
+            + 'WHERE a.id = ?',
+            [pUserId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
     this.getUsers = function (pCallback) {
         theDaoHelper.executeQuery(
             'SELECT account_id, firstname, lastname FROM users',

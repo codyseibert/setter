@@ -21,6 +21,24 @@ var theMessages = require('../Messages');
 */
 var LoginHelper = function () {
     'use strict';
+
+    this.sendToken = function (pAccountId, pRes) {
+        theAccountsDao.getAccountInfoWithToken(pAccountId, function (pResults) {
+            if (pResults.error) {
+                pRes.status(400);
+                pRes.send(theMessages.ERROR);
+                return;
+            }
+
+            pRes.send({
+                token: pResults.token,
+                accountType: pResults.type_id,
+                accountId: pAccountId,
+                homeGymId: pResults.gym_id
+            });
+        });
+    };
+
     this.generateAndSendToken = function (pAccountId, pRes) {
         var token = randomstring(20);
 
@@ -38,7 +56,6 @@ var LoginHelper = function () {
                     return;
                 }
 
-                console.log(pResults);
                 pRes.send({
                     token: token,
                     accountType: pResults.type_id,

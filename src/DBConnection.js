@@ -18,10 +18,10 @@ var DBConnection = function () {
     var connection;
 
     connection = mysql.createConnection({
-        host: '104.131.253.44',
-        database: 'setter',
-        user: 'gmo',
-        password: 'itisag00ddayt0die9921'
+        host: process.env.SETTER_DB_HOST,
+        database: process.env.SETTER_DB_NAME,
+        user: process.env.SETTER_DB_USER,
+        password: process.env.SETTER_DB_PASS
     });
     connection.connect();
 

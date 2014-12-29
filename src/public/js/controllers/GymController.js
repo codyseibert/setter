@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false, alert: false */
+/*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false */
 
 angular.module('SETTER')
     .controller('GymController', [
@@ -24,7 +24,7 @@ angular.module('SETTER')
             var createBoulderRoutesBarGraph,
                 createRopeRoutesBarGraph;
 
-            $scope.gymId = parseInt($routeParams.gymId);
+            $scope.gymId = parseInt($routeParams.gymId, 10);
 
             Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
             Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";

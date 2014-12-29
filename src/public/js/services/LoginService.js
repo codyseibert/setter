@@ -92,6 +92,9 @@ angular.module('SETTER')
             isUserAccount: function () {
                 return accountType === USER_TYPE;
             },
+            getHeader: function () {
+                return $http.defaults.headers.common.Authorization;
+            },
             navigateToCorrectProfile: function () {
                 if (accountType === USER_TYPE) {
                     $rootScope.navigateToUser(accountId);

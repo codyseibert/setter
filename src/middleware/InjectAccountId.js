@@ -4,7 +4,7 @@ var theMessages = require('../Messages');
 var InjectAccountId = function (pReq, pRes, next) {
     'use strict';
 
-    if (!pReq.headers.authorization) {
+    if (!pReq.headers.authorization && !pReq.body.authorization) {
         pRes.status(400);
         pRes.send(theMessages.error('Bearer token not found in request!'));
         return;
@@ -14,7 +14,7 @@ var InjectAccountId = function (pReq, pRes, next) {
         split,
         token;
 
-    headers = pReq.headers.authorization;
+    headers = pReq.headers.authorization || pReq.body.authorization;
     split = headers.split(' ');
 
     if (split.length <= 1) {

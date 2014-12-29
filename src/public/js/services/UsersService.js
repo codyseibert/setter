@@ -19,6 +19,12 @@ angular.module('SETTER')
                     url: "api/users/" + pUserId
                 });
             },
+            getUserImage: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/image"
+                });
+            },
             getBoulderSends: function (pUserId) {
                 return $http({
                     method: "GET",

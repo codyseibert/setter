@@ -1,16 +1,26 @@
+<section class="header row small-collapse">
 
-<div class="mb4  small-12  medium-4 columns"
-        ng-hide="getHomeGymId() === gymId || isGymAccount()">
-    <button class="btn--primary  btn--medium  icon-home btn--expanded" ng-click="setHomeGym()">
-        Make Home Gym
-    </button>
+    <div class="left">
+        <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                    ng-show="isUserAccount()"
+                    ng-click="navigateToUser(getAccountId())" >
+        To Your Profile
+        </button>
+    </div>
 
-</div>
+    <section class="header">
+        <h1 class="title"
+                ng-show="isGymAccount()" >Your Dashboard</h1>
+        <h2 >{{gym.name}}</h2>
+    </section>
 
-<section class="header">
-
-    <h1 class="title"  ng-show="isGymAccount()" >Your Dashboard</h1>
-    <h2 >{{gym.name}}</h2>
+    <div class="mb4  small-12  medium-4 columns"
+            ng-hide="getHomeGymId() === gymId || isGymAccount()">
+        <button class="btn--primary  btn--medium  icon-home btn--expanded"
+                    ng-click="setHomeGym()">
+            Make Home Gym
+        </button>
+    </div>
 
 </section>
 

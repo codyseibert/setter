@@ -8,10 +8,12 @@ angular.module('SETTER')
         'WallsService',
         'GymsService',
         '$routeParams',
-        function ($scope,
+        function (
+            $scope,
             WallsService,
             GymsService,
-            $routeParams) {
+            $routeParams
+        ) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;
@@ -44,14 +46,14 @@ angular.module('SETTER')
                     });
             };
 
-                $scope.items = [
+            $scope.items = [
                 "The first choice!",
                 "And another choice for you.",
                 "but wait! A third!"
-              ];
+            ];
 
-              $scope.linkItems = {
+            $scope.linkItems = {
                 "Google": "http://google.com",
                 "AltaVista": "http://altavista.com"
-              };
+            };
         }]);

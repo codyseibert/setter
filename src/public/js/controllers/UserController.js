@@ -25,7 +25,7 @@ angular.module('SETTER')
                 calculateBoulderGrade,
                 calculateRopeGrade;
 
-            $scope.userId = $routeParams.userId;
+            $scope.userId = parseInt($routeParams.userId, 10);
 
             Chart.defaults.global.colours[0].fillColor = "rgba(174, 216, 80, 1)";
             Chart.defaults.global.colours[0].strokeColor = "rgba(84, 72, 127, 0.5)";
@@ -261,4 +261,28 @@ angular.module('SETTER')
                     createRopeSendsLineGraph(pData);
                     calculateRopeGrade(pData);
                 });
+
+            UsersService.getUserImage($scope.userId)
+                .success(function (pData) {
+                    $scope.image = pData;
+                });
+
+
+            $scope.uploadImage = function () {
+                angular.element("#image_file").trigger('click');
+            };
+
+            angular.element("#image_file").on('change', function () {
+                angular.element("#image_submit").trigger('click');
+                $scope.image = {
+                    url: 'images/loading.gif'
+                };
+                $scope.$apply();
+            });
+
+            $scope.complete = function (content) {
+                $scope.image = content;
+            };
+
+            $scope.authorization = LoginService.getHeader();
         }]);

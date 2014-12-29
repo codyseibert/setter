@@ -26,6 +26,14 @@ var UsersController = function () {
         theUsersDao.getUser(userId, callback);
     };
 
+    this.getUserImage = function (pReq, pRes) {
+        var userId,
+            callback;
+        userId = pReq.params.userId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theUsersDao.getUserImage(userId, callback);
+    };
+
     this.getUsers = function (pReq, pRes) {
         var callback = theControllerHelper.createDefaultCallback(pRes);
         theUsersDao.getUsers(callback);

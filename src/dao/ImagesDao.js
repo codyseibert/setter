@@ -8,19 +8,19 @@
 *   Guillermo Martinez.
 */
 
-var db = require('../DBConnection');
+var theDb = require('../DBConnection');
+var theDaoHelper = require('./DaoHelper');
 
 var ImagesDAO = function () {
     'use strict';
 
-    this.insertImage = function (url, callback) {
-        var query,
-            values;
-        query = "INSERT INTO images (url) VALUES (?)";
-        values = [url];
-        db.query(query, values, function (err, results) {
-            callback(err, results);
-        });
+    this.insertImage = function (pUrl, pCallback) {
+        theDaoHelper.executeQuery(
+            'INSERT INTO images (url) VALUES (?)',
+            [pUrl],
+            theDaoHelper.INSERT,
+            pCallback
+        );
     };
 
 };

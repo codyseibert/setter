@@ -12,20 +12,9 @@ var theDB = require('../DBConnection');
 var theMessages = require('../Messages');
 var theDaoHelper = require('./DaoHelper');
 
-/**
-    AccountsDao
-
-    Used for accessing any information related to the accounts.
-*/
 var AccountsDAO = function () {
     'use strict';
 
-    /**
-        $method addAccount
-        $param pEmail the email of the account
-        $param pPassword the password of the account
-        $param pCallback invoked on success or failure.
-    */
     this.createAccount = function (pEmail, pPassword, pTypeId, pCallback) {
         theDaoHelper.executeQuery(
             'INSERT INTO accounts (email, password, type_id) VALUES (?, ?, ?)',
@@ -44,12 +33,6 @@ var AccountsDAO = function () {
         );
     };
 
-    /**
-        $method getAccountId
-        $param pEmail the email of the account
-        $param pPassword the password of the account
-        $param pCallback invoked on success or failure.
-    */
     this.getAccountId = function (pEmail, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT id, password FROM accounts WHERE email = ?',
@@ -68,11 +51,6 @@ var AccountsDAO = function () {
         );
     };
 
-    /**
-        $method getAccountType
-        $param pAccountId the id of the account to check
-        $param pCallback invoked on success or failure.
-    */
     this.getAccountType = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT type_id FROM accounts WHERE id = ?',
@@ -90,6 +68,28 @@ var AccountsDAO = function () {
                 'WHERE a.id = ?',
             [pAccountId],
             theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
+    this.getAccountInfoWithToken = function (pAccountId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id, a.token FROM accounts a ' +
+            'LEFT JOIN users u ON u.account_id = a.id ' +
+            'LEFT JOIN gyms g ON g.account_id = a.id ' +
+            'WHERE a.id = ?',
+            [pAccountId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
+    this.updateImage = function (pImageId, pAccountId, pCallback) {
+        console.log("should be updating the image id in account", pImageId, pAccountId);
+        theDaoHelper.executeQuery(
+            'UPDATE accounts SET image_id = ? WHERE id = ?',
+            [pImageId, pAccountId],
+            theDaoHelper.UPDATE,
             pCallback
         );
     };

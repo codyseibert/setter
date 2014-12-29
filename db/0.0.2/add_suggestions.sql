@@ -7,8 +7,8 @@ CREATE TABLE suggestions
     PRIMARY KEY (id),
 
     FOREIGN KEY (account_id)
-        REFERENCES accounts(id)
-        ON DELETE CASCADE
+    REFERENCES accounts(id)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE suggestions_upvotes
@@ -19,10 +19,10 @@ CREATE TABLE suggestions_upvotes
     PRIMARY KEY (suggestion_id, account_id),
 
     FOREIGN KEY (suggestion_id)
-        REFERENCES suggestions(id)
-        ON DELETE CASCADE,
+    REFERENCES suggestions(id)
+    ON DELETE CASCADE,
 
     FOREIGN KEY (account_id)
-        REFERENCES accounts(id)
-        ON DELETE CASCADE
+    REFERENCES accounts(id)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB;

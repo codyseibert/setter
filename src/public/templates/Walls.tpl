@@ -1,7 +1,14 @@
 <section class="header row small-collapse">
+    <div class="left">
+        <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="navigateToGym(gymId)" >
+            To Gym
+        </button>
+    </div>
+
     <div class="small-12 columns">
         <h1 ng-show="isGymAccount()">Manage Your Zones</h1>
-        <span ng-hide="isGymAccount()">Walls</span>
+        <h1 ng-hide="isGymAccount()" class="title">Walls</h1>
     </div>
 </section>
 
@@ -40,12 +47,10 @@
 </section>
 
 <ul class="list--tableStyle"  data-ui-component="gymZoneList">
-    <li class="ptb2  fwb" ng-repeat="wall in walls">
-        <a class="wall"
-                ng-click="navigateToWall(gymId, wall.id)">
+    <li class="ptb2  fwb" ng-repeat="wall in walls"
+            ng-click="navigateToWall(gymId, wall.id)">
+        <a class="wall">
             {{wall.name}} <i class="icon-right-big right"> </i>
         </a>
     </li>
 </ul>
-
-

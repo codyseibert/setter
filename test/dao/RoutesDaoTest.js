@@ -53,30 +53,6 @@ describe('RoutesDao', function () {
         });
     });
 
-    describe('#getRoutesInSet', function () {
-        it('performs some type of SELECT query on the routes table', function () {
-            RoutesDao.getRoutesInSet();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('SELECT') !== -1 &&
-            query.indexOf('FROM routes') !== -1);
-        });
-
-        it('query contains no *', function () {
-            RoutesDao.getRoutesInSet();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('*') === -1);
-        });
-
-        it('query contains where clause with set_id', function () {
-            RoutesDao.getRoutesInSet();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE r.set_id = ?') !== -1);
-        });
-    });
-
     describe('#createRoute', function () {
         it('performs some type of INSERT on the routes table', function () {
             RoutesDao.createRoute();

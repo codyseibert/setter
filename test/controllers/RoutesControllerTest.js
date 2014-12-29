@@ -83,55 +83,6 @@ describe('RoutesController', function () {
         });
     });
 
-    describe('#getRoutesInSet', function () {
-
-        var sendSpy,
-            methodUnderTestSpy,
-            req,
-            res,
-            SET_ID = 1;
-
-        beforeEach(function () {
-            sendSpy = sinon.spy();
-            methodUnderTestSpy = sinon.spy();
-            req = {
-                params: {
-                    id: SET_ID
-                }
-            };
-            res = {send: sendSpy};
-        });
-
-        it('invokes the RoutesDao getRoutesInSet method', function () {
-            RoutesController.__set__({
-                theRoutesDao: {
-                    getRoutesInSet: methodUnderTestSpy
-                }
-            });
-
-            RoutesController.getRoutesInSet(req, res);
-
-            assert(methodUnderTestSpy.calledOnce);
-        });
-
-        it('sends expected data on success', function () {
-            var expectedRoutesInfo = ['a', 'b', 'c'];
-
-            RoutesController.__set__({
-                theRoutesDao: {
-                    getRoutesInSet: function (pId, pCallback) {
-                        pCallback(expectedRoutesInfo);
-                    }
-                }
-            });
-
-            RoutesController.getRoutesInSet(req, res);
-
-            var actualInfo = sendSpy.getCall(0).args[0];
-            assert.deepEqual(actualInfo, expectedRoutesInfo);
-        });
-    });
-
     describe('#createRoute', function () {
 
         var sendSpy,

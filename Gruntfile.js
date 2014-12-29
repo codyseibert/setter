@@ -369,7 +369,7 @@ module.exports = function(grunt) {
         'newer:jslint:server'
     ]);
     grunt.registerTask('check', [
-        'check:css',
+        //'check:css',
         'check:server',
         'check:client'
     ]);

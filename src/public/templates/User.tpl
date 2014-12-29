@@ -1,15 +1,37 @@
-<div class="mb"></div>
+<section class="header row small-collapse">
+    <div class="mb4  small-12  medium-4 columns"
+            ng-show="getHomeGymId()">
+        <button class="btn--primary  btn--medium  icon-home btn--expanded"
+                    ng-click="navigateToGym(getHomeGymId())">
+            View Home Gym
+        </button>
+    </div>
 
-<div class="btn_black small"
-        ng-click="back()">
-    <i class="icon-left-big"> </i>Back
+    <div class="small-12 columns">
+        <h1 class="title" ng-show="getAccountId() === userId">Your Profile</h1>
+        <h1 class="title" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
+    </div>
+</section>
+
+<div class="picture"
+        ng-click="getAccountId() === userId && uploadImage()">
+    <img ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}">
 </div>
 
-<div class="title">{{user.firstname}} {{user.lastname}}</div>
-
-<div class="picture">
-    <img src="http://www.googlecover.com/images/hover_img.png">
-</div>
+<form id="image_form"
+        style="display: none;"
+        enctype="multipart/form-data"
+        action="{{'/api/accounts/image'}}"
+        method="post"
+        ng-upload="complete(content)">
+    <input id="image_file"
+            type="file"
+            name="file" />
+    <input id="image_submit"
+            type="submit"></input>
+    <input name="authorization"
+            value="{{authorization}}"></input>
+</form>
 
 <div class="grade_wrapper">
     <div class="grade">

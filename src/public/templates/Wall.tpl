@@ -25,34 +25,36 @@
     </div>
 </section>
 
-<div ng-show="isGymAccount()" class="row" data-ui-component="routeActions">
-    <div class="small-12 columns mb2">
-        <button class="btn--medium btn--primary icon-plus-squared btn--expanded"
-            ng-click="navigateToCreateRoute(gymId, wallId)">
-            Add Route
-        </button>
-    </div>
-</div>
-
-<ul class="list--tableStyle  list--navElem">
-    <li ng-repeat="route in routes" ng-click="navigateToRoute(gymId, wallId, route.id)" class="list--tableStyle  ptb2">
-        <i class="icon-circle"
-        ng-style="{color: route.value}"> </i>
-        {{route.route_name}} {{route.boulder_grade || route.rope_grade}}
-
-        <i class="icon-right-big  right"> </i>
-    </li>
-</ul>
-
 <section class="row">
-    <div class="small-12 columns  text-center"
-        ng-show="isGymAccount()"
-        data-ui-component="routeSubActions">
-        <a class="icon-trash"
-            ng-click="delete()">
-            Delete Wall
-        </a>
-    </div>
+    <div class="small-12 columns">
+        <div ng-show="isGymAccount()" class="row" data-ui-component="routeActions">
+            <div class="small-12 columns mb2">
+                <button class="btn--medium btn--primary icon-plus-squared btn--expanded"
+                    ng-click="navigateToCreateRoute(gymId, wallId)">
+                    Add Route
+                </button>
+            </div>
+        </div>
 
-    
+        <ul class="list--tableStyle  list--navElem">
+            <li ng-repeat="route in routes" ng-click="navigateToRoute(gymId, wallId, route.id)" class="list--tableStyle  ptb2">
+                <i class="icon-circle"
+                ng-style="{color: route.value}"> </i>
+                {{route.route_name}} {{route.boulder_grade || route.rope_grade}}
+
+                <i class="icon-right-big  right"> </i>
+            </li>
+        </ul>
+
+        <section class="row">
+            <div class="small-12 columns  text-center"
+                ng-show="isGymAccount()"
+                data-ui-component="routeSubActions">
+                <a class="icon-trash"
+                    ng-click="delete()">
+                    Delete Wall
+                </a>
+            </div>
+        </section>
+    </div>
 </section>

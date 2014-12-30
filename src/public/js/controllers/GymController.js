@@ -26,10 +26,6 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
-            Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
-            Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
-            Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
-
             $scope.chartOptions = {
                 scaleFontColor: "#000",
                 scaleFontSize: 20

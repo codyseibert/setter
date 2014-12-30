@@ -22,86 +22,72 @@
 </div>
 
 <div class="medium-6 small-12 columns mb2">
-    <b>YDS Grade</b>
-    <div ng-show="showRopeGrade">
-        {{ropeGrade}}
-    </div>
-    <div ng-hide="showRopeGrade">
-        Not enough sends!
-    </div>
-</div>
-
-<div class="medium-6 small-12 columns mb2">
     <b>V Grade</b>
-    <div ng-show="showBoulderGrade">
-        {{boulderGrade}}
-    </div>
-    <div ng-hide="showBoulderGrade">
-        Not enough sends!
-    </div>
+    <br>
+    {{boulderGrade}}
 </div>
 
 <div class="medium-6 small-12 columns mb2">
-    Boulder Routes Sent
+    <b>YDS Grade</b>
+    <br>
+    {{ropeGrade}}
+</div>
 
-    <canvas class="chart-bar"
-        ng-show="boulderSendsBarGraph.hasData"
-        data="boulderSendsBarGraph.data"
-        labels="boulderSendsBarGraph.labels"
-        options="chartOptions"
-        legend="true"
-        width="100%"
-        height="100%">
-    </canvas>
+<section class="row">
+    <div class="medium-6 small-12 columns mb2">
+        Boulder Routes Sent
 
-    <div ng-hide="boulderSendsBarGraph.hasData" style="padding-top: 100px;">
-        User has no sends!
+        <canvas class="chart-bar"
+            ng-show="boulderSendsBarGraph.hasData"
+            data="boulderSendsBarGraph.data"
+            labels="boulderSendsBarGraph.labels"
+            options="chartOptions"
+            legend="true"
+            width="100%"
+            height="100%">
+        </canvas>
     </div>
-</div>
 
-<div class="medium-6 small-12 columns mb2">
-    Rope Routes Sent
+    <div class="medium-6 small-12 columns mb2">
+        Rope Routes Sent
 
-    <canvas class="chart-bar"
-        ng-show="ropeSendsBarGraph.hasData"
-        data="ropeSendsBarGraph.data"
-        labels="ropeSendsBarGraph.labels"
-        options="chartOptions"
-        legend="true"
-        width="100%"
-        height="100%">
-    </canvas>
-
-    <div ng-hide="ropeSendsBarGraph.hasData" style="padding-top: 100px;">
-        User has no sends!
+        <canvas class="chart-bar"
+            ng-show="ropeSendsBarGraph.hasData"
+            data="ropeSendsBarGraph.data"
+            labels="ropeSendsBarGraph.labels"
+            options="chartOptions"
+            legend="true"
+            width="100%"
+            height="100%">
+        </canvas>
     </div>
-</div>
+</section>
 
+<section class="row">
+    <div class="medium-6 small-12 columns mb2">
+        V Grade Progress
+        <canvas class="chart-line"
+            data="boulderSendsLineGraph.data"
+            labels="boulderSendsLineGraph.labels"
+            options="boulderSendsLineGraph.options"
+            legend="true"
+            width="100%"
+            height="100%">
+        </canvas>
+    </div>
 
-<div class="medium-6 small-12 columns mb2">
-    V Grade Progress
-    <canvas class="chart-line"
-        data="boulderSendsLineGraph.data"
-        labels="boulderSendsLineGraph.labels"
-        options="boulderSendsLineGraph.options"
-        legend="true"
-        width="100%"
-        height="100%">
-    </canvas>
-</div>
-
-<div class="medium-6 small-12 columns mb2">
-    YDS Grade Progress
-    <canvas class="chart-line"
-        data="ropeSendsLineGraph.data"
-        labels="ropeSendsLineGraph.labels"
-        options="ropeSendsLineGraph.options"
-        legend="true"
-        width="100%"
-        height="100%">
-    </canvas>
-</div>
-
+    <div class="medium-6 small-12 columns mb2">
+        YDS Grade Progress
+        <canvas class="chart-line"
+            data="ropeSendsLineGraph.data"
+            labels="ropeSendsLineGraph.labels"
+            options="ropeSendsLineGraph.options"
+            legend="true"
+            width="100%"
+            height="100%">
+        </canvas>
+    </div>
+</section>
 
 <!-- hidden -->
 <form id="image_form"

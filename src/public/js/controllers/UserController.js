@@ -27,10 +27,6 @@ angular.module('SETTER')
 
             $scope.userId = parseInt($routeParams.userId, 10);
 
-            Chart.defaults.global.colours[0].fillColor = "rgba(174, 216, 80, 1)";
-            Chart.defaults.global.colours[0].strokeColor = "rgba(84, 72, 127, 0.5)";
-            Chart.defaults.global.colours[0].pointColor = "rgba(84, 72, 127, 0.5)";
-
             $scope.options = {
                 scaleFontColor: "#000",
                 scaleFontSize: 20
@@ -110,17 +106,21 @@ angular.module('SETTER')
                 // average each bucket
                 for (i = 0; i < buckets.length; i += 1) {
                     bucket = buckets[i];
+                    bucket.sort(function (a, b) {
+                        return b.value - a.value;
+                    });
+                    var max = bucket.slice(0, 5);
+
                     sum = 0;
-                    for (j = 0; j < bucket.length; j += 1) {
-                        sum += bucket[j].value;
+                    for (j = 0; j < max.length; j += 1) {
+                        sum += max[j].value;
                     }
                     average = 0;
-                    if (bucket.length !== 0) {
-                        average = sum / bucket.length;
+                    if (max.length !== 0) {
+                        average = sum / max.length;
                     }
                     buckets[i] = average;
                 }
-
 
                 $scope.boulderSendsLineGraph.labels = months;
                 $scope.boulderSendsLineGraph.data = [buckets];
@@ -180,13 +180,18 @@ angular.module('SETTER')
                 // average each bucket
                 for (i = 0; i < buckets.length; i += 1) {
                     bucket = buckets[i];
+                    bucket.sort(function (a, b) {
+                        return b.value - a.value;
+                    });
+                    var max = bucket.slice(0, 5);
+
                     sum = 0;
-                    for (j = 0; j < bucket.length; j += 1) {
-                        sum += bucket[j].value;
+                    for (j = 0; j < max.length; j += 1) {
+                        sum += max[j].value;
                     }
                     average = 0;
-                    if (bucket.length !== 0) {
-                        average = sum / bucket.length;
+                    if (max.length !== 0) {
+                        average = sum / max.length;
                     }
                     buckets[i] = Math.max(5.08, 5  + average / 100.0);
                 }
@@ -200,23 +205,23 @@ angular.module('SETTER')
                     sum,
                     count,
                     i,
+                    max,
                     average;
 
                 dataCopy = pData.slice(0);
                 dataCopy.sort(function (a, b) {
-                    return a.value - b.value;
+                    return b.value - a.value;
                 });
 
+                max = dataCopy.slice(0, 10);
                 sum = 0;
                 count = 0;
-                for (i = 0; i < dataCopy.length && i < 10; i += 1) {
+                for (i = 0; i < max.length; i++) {
                     sum += dataCopy[i].value;
-                    count += 1;
                 }
 
-                average = sum / count;
+                average = sum / max.length;
                 $scope.boulderGrade = average;
-                $scope.showBoulderGrade = dataCopy.length >= 10;
             };
 
             calculateRopeGrade = function (pData) {
@@ -224,23 +229,23 @@ angular.module('SETTER')
                     sum,
                     count,
                     i,
+                    max,
                     average;
 
                 dataCopy = pData.slice(0);
                 dataCopy.sort(function (a, b) {
-                    return a.value - b.value;
+                    return b.value - a.value;
                 });
 
+                max = dataCopy.slice(0, 10);
                 sum = 0;
                 count = 0;
-                for (i = 0; i < dataCopy.length && i < 10; i += 1) {
+                for (i = 0; i < max.length; i++) {
                     sum += dataCopy[i].value;
-                    count += 1;
                 }
 
-                average = sum / count;
-                $scope.ropeGrade = average;
-                $scope.showRopeGrade = dataCopy.length >= 10;
+                average = sum / max.length;
+                $scope.ropeGrade = '5.' + (average + '').replace('.', '');
             };
 
             UsersService.getUser($scope.userId)

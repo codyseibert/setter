@@ -45,6 +45,14 @@ var GymsController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getCurrentRopeRoutes(gymId, callback);
     };
+
+    this.getHomeGymUsers = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getHomeGymUsers(gymId, callback);
+    };
 };
 
 module.exports = new GymsController();

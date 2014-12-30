@@ -77,6 +77,18 @@ var GymsDao = function () {
             pCallback
         );
     };
+
+    this.getHomeGymUsers = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT a.id, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM users u ' +
+                'INNER JOIN accounts a ON u.account_id = a.id ' +
+                'INNER JOIN images i ON a.image_id = i.id ' +
+                'WHERE u.gym_id = ?',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
 };
 
 module.exports = new GymsDao();

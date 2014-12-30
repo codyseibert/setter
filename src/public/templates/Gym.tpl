@@ -1,5 +1,4 @@
 <section class="header row small-collapse">
-
     <div class="left">
         <button class="[ btn--secondary btn--medium right ] icon-left-big"
                     ng-show="isUserAccount()"
@@ -21,23 +20,19 @@
             Make Home Gym
         </button>
     </div>
-
 </section>
 
 
 <div class="row">
-
     <div class="mb4  small-12  medium-4 columns">
         <button class="btn--primary  btn--medium  btn--expanded" ng-click="navigateToWalls(gymId)">
             View All Zones
         </button>
     </div>
-
 </div>
 
 
 <div class="row">
-
     <div class="small-12 medium">
         <div class="graph  small-12 medium-6 columns">
             <h2 class="fwb">Current Boulder Routes</h2>
@@ -65,5 +60,17 @@
             height="100%">
         </canvas>
     </div>
+</div>
 
+<div class="row">
+    <div class="small-12 medium">
+        <h2>Members</h2>
+        <div ng-repeat="user in users"
+                style="width: 150px; height: 150px; display: inline-block; width: 150px; cursor: pointer; text-align: center; font-size: 16px;"
+                ng-click="navigateToUser(user.id)">
+            <img ng-src="{{user.url !== '' && user.url || 'images/no_image.png'}}"
+                    style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
+            {{user.name}}
+        </div>
+    </div>
 </div>

@@ -15,9 +15,9 @@
 
 <div class="small-12 columns mb2">
     <div class="picture"
-            style="width: 200px; display: inline-block; cursor: pointer;"
+            style="height: 200px; width: 200px; display: inline-block; cursor: pointer;"
             ng-click="getAccountId() === userId && uploadImage()">
-        <img style="border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}">
+        <img style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56" ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}">
     </div>
 </div>
 

@@ -25,6 +25,12 @@ angular.module('SETTER')
                     url: 'api/gyms/' + pGymId
                 });
             },
+            getHomeGymUsers: function (pGymId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/gyms/' + pGymId + '/users'
+                });
+            },
             getCurrentBoulderRoutes: function (pGymId) {
                 return $http({
                     method: 'GET',

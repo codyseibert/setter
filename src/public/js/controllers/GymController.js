@@ -64,6 +64,11 @@ angular.module('SETTER')
                     createRopeRoutesBarGraph(pData);
                 });
 
+            GymsService.getHomeGymUsers($scope.gymId)
+                .success(function (pData) {
+                    $scope.users = pData;
+                });
+
             $scope.setHomeGym = function () {
                 var yes = confirm("Are you sure you want to make " + $scope.gym.name + " your new home gym?");
                 if (!yes) {

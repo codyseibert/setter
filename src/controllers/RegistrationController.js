@@ -32,11 +32,19 @@ var UsersController = function () {
     validateInputForAccount = function (pReq, pRes) {
         var body,
             email,
-            password;
+            password,
+            beta;
 
         body = pReq.body;
         email = body.email;
         password = body.password;
+        beta = body.beta;
+
+        if (beta !== 'aiguille') {
+            pRes.status(400);
+            pRes.send(Messages.error('Invalid Beta Key'));
+            return false;
+        }
 
         if (!theValidator.isEmail(email)) {
             pRes.status(400);

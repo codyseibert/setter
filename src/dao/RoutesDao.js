@@ -34,6 +34,21 @@ var RoutesDao = function () {
         );
     };
 
+    this.getRoutesInGym = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT r.id, r.setter_id, w.name AS wall_name, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, bg.id AS boulder_grade_id, rg.id AS rope_grade_id, c.name AS color, c.value AS value, CONCAT(u.firstname, \' \', u.lastname) AS setter, r.date, 0 AS rating, 0 AS sends FROM routes r ' +
+                'INNER JOIN users u ON r.setter_id = u.account_id ' +
+                'INNER JOIN colors c ON r.color_id = c.id ' +
+                'INNER JOIN walls w ON w.id = r.wall_id ' +
+                'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
+                'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
+                'WHERE w.gym_id = ?',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
     this.getRoutesOnWall = function (pWallId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT r.id, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +

@@ -76,6 +76,12 @@
                         </li>
 
                         <li class="button"
+                            ng-click="navigateToRouteManager(getAccountId())"
+                            ng-show="isGymAccount()">
+                            <a class="icon-th-list">Route Manager</a>
+                        </li>
+
+                        <li class="button"
                             ng-click="navigateToSetters(getAccountId())"
                             ng-show="isGymAccount()">
                             <a class="icon-users">Your Setters</a>
@@ -161,6 +167,7 @@
             <script src="js/controllers/SuggestionsController.js"></script>
             <script src="js/controllers/TOSController.js"></script>
             <script src="js/controllers/ContactController.js"></script>
+            <script src="js/controllers/RouteManagerController.js"></script>
 
             <!-- Directives -->
 

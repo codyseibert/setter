@@ -63,6 +63,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
                 controller: 'SettersController',
                 templateUrl: 'templates/Setters.tpl'
             })
+            .when('/gyms/:gymId/routes', {
+                controller: 'RouteManagerController',
+                templateUrl: 'templates/RouteManager.tpl'
+            })
             .when('/users/:userId', {
                 controller: 'UserController',
                 templateUrl: 'templates/User.tpl'
@@ -170,6 +174,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
 
         $rootScope.navigateToSuggestionsPage = function () {
             $location.path('suggestions');
+        };
+
+        $rootScope.navigateToRouteManager = function (pGymId) {
+            $location.path('gyms/' + pGymId + '/routes');
         };
 
         $rootScope.back = function () {

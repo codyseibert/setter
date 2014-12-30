@@ -16,6 +16,7 @@
 <input ng-model='form.password' placeholder="password" type="password" /><br>
 <input ng-model='form.firstname' placeholder="first name" style="text-transform: capitalize;"/><br>
 <input ng-model='form.lastname' placeholder="last name" style="text-transform: capitalize;"/><br>
+<input ng-model='form.beta' placeholder="beta key"/><br>
 <div class="btn_black"
         ng-click='registerClicked()'>
     <i class="icon-plus-squared"> </i>Register

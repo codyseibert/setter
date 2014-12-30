@@ -6,6 +6,12 @@ angular.module('SETTER')
         'use strict';
 
         return {
+            getRoutesInGym: function (pGymId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/gyms/' + pGymId + '/routes'
+                });
+            },
             getRoutesOnWall: function (pWallId) {
                 return $http({
                     method: 'GET',

@@ -76,6 +76,9 @@ var RouteToControllerBinder = function () {
     app.get('/api/walls/:wallId/routes',
         RoutesController.getRoutesOnWall);
 
+    app.get('/api/gyms/:gymId/routes',
+        RoutesController.getRoutesInGym);
+
     app.post('/api/walls/:wallId/routes',
         RoutesController.createRoute);
 

@@ -1,10 +1,11 @@
-<section class="header row small-collapse">
-
-    <div class="left">
-        <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                    ng-click="navigateToWalls(gymId)" >
-            <span ng-show="isGymAccount()">Manage</span> Zones
-        </button>
+<section class="row">
+    <div class="small-12 columns header">
+        <div class="left">
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                        ng-click="navigateToWalls(gymId)" >
+                <span ng-show="isGymAccount()">Manage</span> Zones
+            </button>
+        </div>
     </div>
 
     <div class="small-12 columns">

@@ -1,42 +1,41 @@
-<section class="header row small-collapse">
-    <div class="mb4  small-12  medium-4 columns"
+<section class="row">
+    <div class="small-12 columns header"
             ng-show="getHomeGymId()">
         <button class="btn--primary  btn--medium  icon-home btn--expanded"
                     ng-click="navigateToGym(getHomeGymId())">
-            View Home Gym
+            View Your Home Gym <i class="icon-right-big"> </i>
         </button>
     </div>
 
-    <div class="small-12 columns">
+    <div class="small-12 columns header">
         <h1 class="title" ng-show="getAccountId() === userId">Your Profile</h1>
         <h1 class="title" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
     </div>
 </section>
 
-<div class="small-12 columns mb2">
-    <div class="picture"
-            style="height: 200px; width: 200px; display: inline-block; cursor: pointer;"
-            ng-click="getAccountId() === userId && uploadImage()">
-        <img style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56" ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}">
+<section class="row">
+    <div class="small-12 columns mb4">
+        <div class="picture"
+                style="height: 200px; width: 200px; display: inline-block; cursor: pointer;"
+                ng-click="getAccountId() === userId && uploadImage()">
+            <img style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56" ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}">
+        </div>
     </div>
-</div>
 
-<div class="medium-6 small-12 columns mb2">
-    <b>V Grade</b>
-    <br>
-    {{boulderGrade}}
-</div>
+    <div class="medium-6 small-12 columns mb4">
+        <h2>V Grade</h2>
+        <h3>{{boulderGrade}}</h3>
+    </div>
 
-<div class="medium-6 small-12 columns mb2">
-    <b>YDS Grade</b>
-    <br>
-    {{ropeGrade}}
-</div>
+    <div class="medium-6 small-12 columns mb4">
+        <h2>YDS Grade</h2>
+        <h3>{{ropeGrade}}</h3>
+    </div>
+</section>
 
 <section class="row">
     <div class="medium-6 small-12 columns mb2">
-        Boulder Routes Sent
-
+        <h2>Boulder Routes Sent</h2>
         <canvas class="chart-bar"
             ng-show="boulderSendsBarGraph.hasData"
             data="boulderSendsBarGraph.data"
@@ -49,8 +48,7 @@
     </div>
 
     <div class="medium-6 small-12 columns mb2">
-        Rope Routes Sent
-
+        <h2>Rope Routes Sent</h2>
         <canvas class="chart-bar"
             ng-show="ropeSendsBarGraph.hasData"
             data="ropeSendsBarGraph.data"
@@ -65,7 +63,7 @@
 
 <section class="row">
     <div class="medium-6 small-12 columns mb2">
-        V Grade Progress
+        <h2>V Grade Progress</h2>
         <canvas class="chart-line"
             data="boulderSendsLineGraph.data"
             labels="boulderSendsLineGraph.labels"
@@ -77,7 +75,7 @@
     </div>
 
     <div class="medium-6 small-12 columns mb2">
-        YDS Grade Progress
+        <h2>YDS Grade Progress</h2>
         <canvas class="chart-line"
             data="ropeSendsLineGraph.data"
             labels="ropeSendsLineGraph.labels"

@@ -1,38 +1,36 @@
+<section class="row">
+    <div class="small-12 columns header">
+        <div class="left">
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="navigateToGym(getAccountId())" >
+                To Gym
+            </button>
+        </div>
+    </div>
 
-
-<section class="header row small-collapse">
-
-    <div class="small-12 columns">
-
+    <div class="small-12 columns header">
         <h1>Manage Setters</h1>
-
     </div>
-
 </section>
 
-<section class="row"  ng-repeat="setter in setters" ng-hide="setter.hide">
+<section class="row mb4">
     <div class="small-12 columns">
-        <div class="setter mb4">
-            <h2 class="mb0" >
-                {{setter.firstname}} {{setter.lastname}}
-            </h2>
-            <div class="add">
-                <i class="icon-minus-squared" ng-click="removeSetterClicked(setter)"> </i>
-            </div>
-        </div>
-    
-    
-        <h2 class="title">Add Setters</h2>
-            <div ng-repeat="user in users" ng-hide="user.hide">
-            <div class="setter">
-        {{user.firstname}} {{user.lastname}}
-                <div class="add">
-                <i class="icon-plus-squared" ng-click="addSetterClicked(user)"> </i>
-                </div>
-            </div>
+        <h2><b>Your Setters</b></h2>
+
+        <div ng-repeat="setter in setters" ng-hide="setter.hide">
+            <h2>{{setter.firstname}} {{setter.lastname}}
+            <i class="icon-minus-squared" ng-click="removeSetterClicked(setter)"> </i></h2>
         </div>
     </div>
 </section>
 
+<section class="row">
+    <div class="small-12 columns">
+        <h2><b>Users</b></h2>
 
-
+        <div ng-repeat="user in users" ng-hide="user.hide">
+            <h2>{{user.firstname}} {{user.lastname}}
+            <i class="icon-plus-squared" ng-click="addSetterClicked(user)"> </i></h2>
+        </div>
+    </div>
+</section>

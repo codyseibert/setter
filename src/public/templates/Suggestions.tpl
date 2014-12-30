@@ -1,9 +1,11 @@
-<section class="header row small-collapse">
-    <div class="left mt1">
-        <button class="[ btn--secondary btn--medium right ] icon-left-big"
-            ng-click="back()" >
-            Back
-        </button>
+<section class="row">
+    <div class="small-12 columns header">
+        <div class="left mt1">
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="back()" >
+                Back
+            </button>
+        </div>
     </div>
 
     <div class="small-12 columns">
@@ -15,12 +17,12 @@
     <div class="small-12 columns">
         <ul class="list--tableStyle">
             <li ng-repeat="suggestion in suggestions" class="list--tableStyle  ptb2">
+                {{suggestion.suggestion}}
+                <br>
                 <i class="icon-thumbs-up-alt suggestion"
                     ng-class="{disabled: suggestion.disabled}"
                     ng-style="{'font-size': getFontSize(suggestion) + 'px'}"
                     ng-click="upvote(suggestion)"> </i>{{suggestion.upvotes}}
-                <br>
-                {{suggestion.suggestion}}
             </li>
         </ul>
     </div>
@@ -28,16 +30,15 @@
 
 <section class="row">
     <div class="small-12 columns">
-        <div class="media--fl">
-            <textarea ng-model="form.suggestion"
-                        type="text"
-                        placeholder="your suggestion!">
-            </textarea>
+        <textarea
+            ng-model="form.suggestion"
+            type="text"
+            placeholder="your suggestion!">
+        </textarea>
 
-            <button class="btn--medium icon-plus-squared btn--primary "
-                        ng-click="postClicked()">
-                Post
-            </button>
-        </div>
+        <button class="btn--medium btn--primary icon-plus-squared btn--expanded"
+                ng-click="postClicked()">
+            Post Suggestion
+        </button>
     </div>
 </section>

@@ -60,7 +60,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'SELECT bg.name, bg.value FROM routes r ' +
                 'INNER JOIN walls w ON w.id = r.wall_id ' +
-                'INNER JOIN boulder_grades bg ON r.boulder_grade_id = bg.id WHERE w.gym_id = ?',
+                'INNER JOIN boulder_grades bg ON r.boulder_grade_id = bg.id WHERE w.gym_id = ? AND r.active = 1',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -71,7 +71,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'SELECT rg.name, rg.value FROM routes r ' +
                 'INNER JOIN walls w ON w.id = r.wall_id ' +
-                'INNER JOIN rope_grades rg ON r.rope_grade_id = rg.id WHERE w.gym_id = ?',
+                'INNER JOIN rope_grades rg ON r.rope_grade_id = rg.id WHERE w.gym_id = ? AND r.active = 1',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

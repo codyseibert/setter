@@ -143,4 +143,16 @@ angular.module('SETTER')
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
             };
+
+            $scope.strip = function () {
+                var yes = confirm("Are you sure you want to strip this route?");
+                if (!yes) {
+                    return;
+                }
+
+                RoutesService.stripRoute($scope.routeId)
+                    .success(function (pData) {
+                        $scope.navigateToWall($scope.gymId, $scope.wallId);
+                    });
+            }
         }]);

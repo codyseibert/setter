@@ -1,7 +1,7 @@
 
 
 <section class="header row small-collapse">
-    
+
     <div class="left">
         <button class="[ btn--secondary  btn--medium right ] icon-left-big"
             ng-click="navigateToWall(gymId, wallId)" >
@@ -14,10 +14,14 @@
 
 <section class="row" ng-show="isGymAccount()" data-ui-component="route-actions">
 
-    <div class="small-12  columns"> 
+    <div class="small-12  columns">
 
         <button class="[ btn--primary  btn--medium ] icon-pencil" ng-click="edit()" ng-hide="isEditMode">
-            Edit 
+            Edit
+        </button>
+
+        <button class="btn--secondary btn--medium icon-down-big" ng-click="strip()">
+            Strip
         </button>
 
         <button class="btn--secondary btn--medium icon-trash" ng-click="delete()">
@@ -26,7 +30,7 @@
 
     </div>
 
-</section>  
+</section>
 
 
 <section class="row" data-ui-component="route-information">
@@ -39,15 +43,15 @@
                     Color/Grade
                 </div>
 
-                <div class="icon-circle  icon--big  right" ng-style="{color: route.value}"> 
+                <div class="icon-circle  icon--big  right" ng-style="{color: route.value}">
                      <h1 class="mb0 h4  display--inlineBlock">
                     {{route.route_name}}
-                    
+
                     {{route.boulder_grade || route.rope_grade}}
                     </h1>
                 </div>
             </div>
-            
+
             <div class="media--fl">
                 <span>Avg. Rating</span>
                 <div class="[ rating  rating--big ]  display--inlineBlock"
@@ -57,7 +61,7 @@
                 ng-mouseover="setHoverRating(star)"
                 ng-mouseleave="setHoverRating(-1)">
                     <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="mb0  left"> </i>
-                
+
                 </div>
             </div>
             <div class="media--fl">

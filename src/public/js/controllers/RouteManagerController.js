@@ -45,6 +45,7 @@ angular.module('SETTER')
             addFilter('Rating', 'rating', 80);
             addFilter('Sends', 'sends', 80);
             addFilter('Date', 'date_value', 150);
+            addFilter('Active', 'active', 50);
 
             var getUniqueSet = function (pData, pKey, pExtra) {
                 var i,
@@ -103,7 +104,8 @@ angular.module('SETTER')
                     $scope.boulderGradeInputs = getUniqueSet(pData, 'boulder_grade', 'boulder_grade_id');
                     $scope.ropeGradeInputs = getUniqueSet(pData, 'rope_grade', 'rope_grade_id');
                     $scope.setterInputs = getUniqueSet(pData, 'setter');
-
+                    $scope.activeInputs = getUniqueSet(pData, 'active');
+                    
                     sortByValue($scope.zoneInputs);
                     sortByValue($scope.colorInputs);
                     sortByExtra($scope.boulderGradeInputs);
@@ -174,8 +176,19 @@ angular.module('SETTER')
                         name === 'Color' ||
                         name === 'V' ||
                         name === 'YDS' ||
-                        name === 'Setter';
+                        name === 'Setter' ||
+                        name === 'Active';
             };
+
+            $scope.getRouteStyle = function (pRoute) {
+                var bg = 'white';
+                if (!pRoute.active) {
+                    bg = '#DDD';
+                }
+                return {
+                    'background-color': bg
+                };
+            }
 
             $scope.showFilterPanel = function (pFilter) {
                 $scope.filters.map(function (pEntry) {

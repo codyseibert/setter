@@ -57,6 +57,12 @@ angular.module('SETTER')
                     method: 'DELETE',
                     url: 'api/routes/' + pRouteId
                 });
+            },
+            stripRoute: function (pRouteId) {
+                return $http({
+                    method: 'POST',
+                    url: 'api/routes/' + pRouteId + '/strip'
+                });
             }
         };
     }]);

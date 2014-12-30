@@ -106,6 +106,14 @@ var RoutesController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theRoutesDao.deleteRoute(routeId, callback);
     };
+
+    this.stripRoute = function (pReq, pRes) {
+        var routeId,
+            callback;
+        routeId = pReq.params.routeId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theRoutesDao.stripRoute(routeId, callback);
+    };
 };
 
 module.exports = new RoutesController();

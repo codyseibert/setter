@@ -70,6 +70,20 @@
                 </div>
             </div>
         </div>
+
+        <div ng-show="filter.key === 'active'">
+            <button ng-click="selectAll(activeInputs)">Select All</button>
+            <button ng-click="unselectAll(activeInputs)">Unselect All</button>
+            <br>
+            <div ng-repeat="input in activeInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
+                <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
+                        ng-style="getFilterStyle(input)"
+                        ng-click="filterClicked(input)">
+                    <span ng-show="input.value === 1">Active</span>
+                    <span ng-show="input.value === 0">Inactive</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div style="margin-bottom: 20px">
@@ -81,7 +95,7 @@
         </div>
     </div>
 
-    <div ng-repeat="route in routes" style="margin-bottom: 10px;" ng-show="route.show">
+    <div ng-repeat="route in routes" style="margin-bottom: 10px;" ng-style="getRouteStyle(route)" ng-show="route.show">
         <div style="width: 120px; display: inline-block">{{route.wall_name}}</div>
         <div style="width: 70px; display: inline-block"><i class="icon-circle" ng-style="{color: route.value}"> </i></div>
         <div style="width: 80px; display: inline-block">{{route.boulder_grade}}</div>
@@ -91,5 +105,6 @@
         <div style="width: 80px; display: inline-block">{{route.rating}}</div>
         <div style="width: 80px; display: inline-block">{{route.sends}}</div>
         <div style="width: 150px; display: inline-block">{{route.date_format}}</div>
+        <div style="width: 50px; display: inline-block"><i ng-show="!route.active" class="icon-down-big"> </i></div>
     </div>
 </div>

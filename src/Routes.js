@@ -91,6 +91,9 @@ var RouteToControllerBinder = function () {
     app.delete('/api/routes/:routeId',
         RoutesController.deleteRoute);
 
+    app.post('/api/routes/:routeId/strip',
+        RoutesController.stripRoute);
+
     // COMMENTS
     app.get('/api/routes/:routeId/comments',
         CommentsController.getCommentsAboutRoute);

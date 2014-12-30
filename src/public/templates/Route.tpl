@@ -33,93 +33,99 @@
 </section>
 
 
-<section class="row" data-ui-component="route-information">
+<section class="row" data-ui-component="route-information" style="margin-bottom: 60px;">
+    <div class="small-12 columns" align=center>
+        <div class="mb2" style="font-size: 20px;">
+            {{route.name}}
+        </div>
 
-    <div class="small-12 columns">
+        <div class="mb3" style="font-size: 20px;">
+            <i class="icon-circle icon--big" ng-style="{color: route.value}"> </i>
+            {{route.boulder_grade || route.rope_grade}}
+        </div>
 
-        <div class="route nohover ">
-            <div class="media--fl">
-                <div>
-                    Color/Grade
-                </div>
-
-                <div class="icon-circle  icon--big  right" ng-style="{color: route.value}">
-                     <h1 class="mb0 h4  display--inlineBlock">
-                    {{route.route_name}}
-
-                    {{route.boulder_grade || route.rope_grade}}
-                    </h1>
-                </div>
-            </div>
-
-            <div class="media--fl">
-                <span>Avg. Rating</span>
-                <div class="[ rating  rating--big ]  display--inlineBlock"
-                ng-class="{rated: hasRated}"
-                ng-repeat="star in stars"
-                ng-click="rate(star)"
-                ng-mouseover="setHoverRating(star)"
-                ng-mouseleave="setHoverRating(-1)">
-                    <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="mb0  left"> </i>
-
-                </div>
-            </div>
-            <div class="media--fl">
-                <span class="display--inlineBlock">Routesetter</span>
-
-                <h2 class="h4 display--inlineBlock right">
-                    {{route.firstname}}
-                    {{route.lastname}}
-                </h2>
+        <div class="mb2">
+            <div style="display: inline-block; font-size: 20px;"
+                    ng-class="{rated: hasRated}"
+                    ng-repeat="star in stars"
+                    ng-click="rate(star)"
+                    ng-mouseover="setHoverRating(star)"
+                    ng-mouseleave="setHoverRating(-1)">
+                <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="mb0  left"> </i>
             </div>
         </div>
 
-    </div>
+        <div style="padding-left: 5px; font-size: 20px;" class="mb3">
+            Set by <b>{{route.firstname}} {{route.lastname}}</b>
+        </div>
 
+        <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
+                    ng-click="send()"
+                    ng-hide="hasSent">
+            Send
+        </button>
+
+        <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
+                    ng-click="unsend()"
+                    ng-show="hasSent">
+            Sent
+        </button>
+    </div>
 </section>
 
-
-<section class="row" data-ui-component="route-userActions">
-
+<section class="row" align=center style="margin-bottom: 60px;">
     <div class="small-12 columns">
+        <h2>Sends</h2>
 
-    <h5 class="sub_title">Sends</h5>
-
-    <div ng-repeat="send in sends">
-        <div class="send">
-            {{send.firstname}} {{send.lastname}}
+        <div ng-repeat="send in sends"
+                style="width: 100px; text-align: center; display: inline-block;">
+            <div style="width: 60px; height: 60px; display: inline-block; cursor: pointer; text-align: center; font-size: 16px;"
+                    ng-click="navigateToUser(send.account_id)">
+                <img ng-src="{{send.url !== '' && send.url || 'images/no_image.png'}}"
+                    style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
+            </div>
+            <div>
+                {{send.name}}
+            </div>
         </div>
     </div>
+</section>
 
-    <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
-    ng-click="send()"
-    ng-hide="hasSent"> Send
-    </button>
+<section class="row" align=center>
+    <div class="small-12 columns">
+        <h2>Comments</h2>
 
-    <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
-    ng-click="unsend()"
-    ng-show="hasSent">
-     Sent
-    </button>
+        <div ng-repeat="comment in comments"
+                style="padding: 20px; margin-bottom: 20px; display: inline-block; vertical-align: top; max-height: 160px; width: 300px; text-align: left;">
 
-    <h5 >Comments</h5>
+            <div style="height: 60px;">
+                <div style="float: left;">
+                    <div style="width: 60px; height: 60px; margin-right: 20px; cursor: pointer; text-align: center; font-size: 16px;"
+                            ng-click="navigateToUser(comment.account_id)">
+                        <img ng-src="{{comment.url !== '' && comment.url || 'images/no_image.png'}}"
+                                style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
+                    </div>
+                </div>
 
-    <div ng-repeat="comment in comments">
-        <div class="comment">
-            {{comment.firstname}} {{comment.lastname}}
-            <br>
-            {{comment.message}}
-            <br>
-            {{comment.date}}
+                <b>{{comment.name}}</b>
+                <br>
+                <i>{{comment.date}}</i>
+            </div>
+
+            <div>
+                <div class="mb1">
+                </div>
+                {{comment.message}}
+            </div>
         </div>
-    </div>
 
-    <textarea class="textarea--small" ng-model="form.message"
-                placeholder="comment">
-    </textarea>
+        <textarea class="textarea--small"
+                    ng-model="form.message"
+                    placeholder="comment">
+        </textarea>
 
-    <button class=" [ btn--primary  btn--medium btn--expanded ]  icon-plus-squared" ng-click="addComment()">Post Comment
-    </button>
-
+        <button class=" [ btn--primary  btn--medium btn--expanded ]  icon-plus-squared"
+                    ng-click="addComment()">Post Comment
+        </button>
     </div>
 </section>

@@ -17,8 +17,11 @@ var SendsDao = function () {
 
     this.getSendsForRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.account_id, u.firstname, u.lastname, s.route_id FROM sends s ' +
-                'INNER JOIN users u ON u.account_id = s.user_id WHERE s.route_id = ?',
+            'SELECT u.account_id, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url, s.route_id FROM sends s ' +
+                'INNER JOIN users u ON u.account_id = s.user_id ' +
+                'INNER JOIN accounts a ON a.id = u.account_id ' +
+                'INNER JOIN images i ON a.image_id = i.id ' +
+                'WHERE s.route_id = ?',
             [pRouteId],
             theDaoHelper.MULTIPLE,
             pCallback

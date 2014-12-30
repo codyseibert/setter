@@ -47,7 +47,7 @@ angular.module('SETTER')
                 .success(function (pData) {
                     $scope.comments = pData;
                     for (i = 0; i < pData.length; i += 1) {
-                        pData[i].date = DateFormatService.formatWithTime(pData[i].date);
+                        pData[i].date = DateFormatService.format(pData[i].date);
                     }
                 });
 

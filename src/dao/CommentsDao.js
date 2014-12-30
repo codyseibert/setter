@@ -17,8 +17,11 @@ var CommentsDao = function () {
 
     this.getCommentsAboutRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT c.id, c.message, u.account_id, u.firstname, u.lastname, c.date FROM comments c ' +
-                'INNER JOIN users u ON u.account_id = c.user_id WHERE c.route_id = ? ORDER BY c.date DESC',
+            'SELECT c.id, i.url, c.message, u.account_id, CONCAT(u.firstname, \' \', u.lastname) AS name, c.date FROM comments c ' +
+                'INNER JOIN users u ON u.account_id = c.user_id ' +
+                'INNER JOIN accounts a ON a.id = u.account_id ' +
+                'INNER JOIN images i ON a.image_id = i.id ' +
+                'WHERE c.route_id = ? ORDER BY c.date DESC',
             [pRouteId],
             theDaoHelper.MULTIPLE,
             pCallback

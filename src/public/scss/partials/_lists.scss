@@ -1,3 +1,9 @@
+
+/*------------------------------------*\
+    #Lists
+\*------------------------------------*/
+
+
 .list--tableStyle { 
   & > li {
     @extend %clearfix;
@@ -13,6 +19,18 @@
   & > li:last-child {
     border-bottom: 1px solid $grey--medlight; 
   }
+}
+
+.list--navElem {
+  & > li {
+    cursor: pointer; 
+
+    &:hover,
+    &:focus {
+      background-color: #FAA58D; 
+    }
+  }
+
 }
 
 .list--noStyles {

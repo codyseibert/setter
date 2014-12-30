@@ -1,25 +1,30 @@
-<section class="header row small-collapse">
-    <div class="left">
+<section class="row small-collapse">
+
+    <div class="header">
+
         <button ng-hide="isEditMode"
-            class="[ btn--secondary btn--medium right ] icon-left-big"
+            class="[ btn--secondary btn--medium  ] icon-left-big"
             ng-click="navigateToWall(gymId, wallId)" >
             Back
         </button>
+
         <button ng-show="isEditMode"
-            class="[ btn--secondary btn--medium right ] icon-left-big"
+            class="[ btn--secondary btn--medium  ] icon-left-big"
             ng-click="navigateToRoute(gymId, wallId, routeId)" >
             Back
         </button>
-    </div>
 
-    <div class="small-12 columns">
         <h1 ng-hide="isEditMode" >
             Create Route
         </h1>
         <h1 ng-show="isEditMode" >
             Edit Route
         </h1>
+            <div class="header-divider">
+        
     </div>
+    </div>
+
 </section>
 
 
@@ -28,10 +33,6 @@
     <div class="small-12 columns">
 
         <div class="fieldwrapper">
-
-            <input type="text" ng-model="form.name"
-                placeholder="Route/Problem Name (if applicable)"/>
-        
 
             <div class="flag  mb1">
                 <h3 class="flag-image">Grade</h3>
@@ -66,7 +67,7 @@
             </div>
 
 
-            <div class="flag  mb1">
+            <div class="flag  mb2">
                 <h3 class="flag-image">Color</h3>
 
                <div class="flag-body">
@@ -84,6 +85,9 @@
                </div>
 
             </div>
+            <h3>Route Name</h3>
+            <input type="text" ng-model="form.name"
+                placeholder="Enter name if applicable"/>
 
             <input type="text"  ng-model="form.note"
             placeholder="note">
@@ -95,7 +99,7 @@
             </button>
 
             <div class="add_setter"
-                    ng-click="navigateToSetters()">
+                    ng-click="navigateToSetters()" ng-hide="isEditMode">
                 <i class="icon-plus-squared"> </i>
             </div>
 

@@ -1,10 +1,33 @@
-w
-li,
-ul,
-ol {
-  list-style: none; 
-  margin-left: 0 !important; 
+
+/*------------------------------------*\
+    #Generics 
+\*------------------------------------*/
+
+
+
+
+
+
+/*------------------------------------*\
+    #Display Types  
+\*------------------------------------*/
+
+.display--block {
+  display: block !important; 
 }
+
+.display--inlineBlock {
+  display: inline-block !important;
+}
+
+.display--inline {
+  display: inline !important; 
+}
+
+
+
+
+
 
 .align-vertically {
   display: inline-block !important;
@@ -24,14 +47,12 @@ ol {
 }
 
 
-//
-//Clearfix 
-//
 
-.clearfix {
-  overflow: auto; 
-  zoom: 1;
-}
+
+
+/*------------------------------------*\
+    #Clearfix 
+\*------------------------------------*/
 
 
 .cf { 
@@ -57,17 +78,7 @@ ol {
   display: block; 
 }
 
-.display--block {
-  display: block !important; 
-}
 
-.display--inlineBlock {
-  display: inline-block !important;
-}
-
-.display--inline {
-  display: inline !important; 
-}
 
 .center-on-small {
   @include breakpoint(mobile-bear) {

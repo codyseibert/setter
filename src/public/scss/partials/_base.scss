@@ -1,4 +1,17 @@
 
+/*------------------------------------*\
+    #Base
+\*------------------------------------*/
+
+
 @import "compass";
 @import "modules/all";
 
+
+
+li,
+ul,
+ol {
+  list-style: none; 
+  margin-left: 0 !important; 
+}

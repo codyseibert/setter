@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<ul class="list--tableStyle">
+<ul class="list--tableStyle  list--navElem">
     <li ng-repeat="route in routes" ng-click="navigateToRoute(gymId, wallId, route.id)" class="list--tableStyle  ptb2">
         <i class="icon-circle"
         ng-style="{color: route.value}"> </i>

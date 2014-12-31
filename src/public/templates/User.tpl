@@ -93,6 +93,22 @@
     </div>
 </section>
 
+
+<div class="row">
+    <div class="small-12 medium">
+        <h2>Latest Sends</h2>
+        <div ng-repeat="act in activity"
+                style="padding: 5px; display: inline-block;">
+            <div style="background-color: #eee; border-radius: 20px; cursor: pointer; padding: 20px; display: inline-block; height: 70px; width: 260px; overflow: hidden;"
+                ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
+                <i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{act.bg || act.rg}} on {{act.date}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <!-- hidden -->
 <form id="image_form"
     style="display: none;"

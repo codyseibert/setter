@@ -91,6 +91,22 @@ var UsersDao = function () {
         );
     };
 
+    this.getActivityStream = function (pUserId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT a.id, c.value, s.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, w.gym_id, r.wall_id, s.route_id FROM users u ' +
+                'INNER JOIN accounts a ON u.account_id = a.id ' +
+                'INNER JOIN sends s ON s.user_id = a.id ' +
+                'INNER JOIN routes r ON r.id = s.route_id ' +
+                'INNER JOIN walls w ON r.wall_id = w.id ' +
+                'INNER JOIN colors c ON c.id = r.color_id ' +
+                'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
+                'LEFT JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
+                'WHERE a.id = ? ORDER BY s.date DESC LIMIT 20',
+            [pUserId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
 };
 
 module.exports = new UsersDao();

@@ -6,7 +6,7 @@
                 ng-show="isUserAccount()">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                         ng-click="navigateToUser(getAccountId())" >
-                    <i class="icon-user"> </i> Your Profile
+                Your Profile
             </button>
         </div>
 

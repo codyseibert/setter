@@ -1,7 +1,14 @@
 <section class="row  small-collapse">
     <div class="header">
+        <div class="clearfix  display--block">
+            <button ng-hide="isGymAccount()"
+                    class="[ btn--secondary btn--medium left  ] icon-left-big  left "
+                    ng-click="back()" >
+                    Gym 
+            </button>
+        </div>
         <h1 ng-show="isGymAccount()" class="icon-th-list"> Manage Your Zones</h1>
-        <h1 ng-hide="isGymAccount()" class="icon-th-list"> Zones</h1>
+        <h1 ng-hide="isGymAccount()" class="icon-th-list"> Gym Zones</h1>
     </div>
 </section>
 

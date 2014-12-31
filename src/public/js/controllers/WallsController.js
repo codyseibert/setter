@@ -19,6 +19,10 @@ angular.module('SETTER')
             $scope.gymId = $routeParams.gymId;
             $scope.walls = [];
 
+            $scope.form = {
+                filter: ''
+            };
+
             WallsService.getWallsInGym($scope.gymId)
                 .success(function (pData) {
                     $scope.walls = pData;
@@ -44,6 +48,18 @@ angular.module('SETTER')
                         });
                         $scope.form.wallName = "";
                     });
+            };
+
+            $scope.applyFilter = function () {
+                var filter = $scope.form.filter.toUpperCase();
+                $scope.walls.map(function (pEntry) {
+                    if (pEntry.name.toUpperCase().indexOf(filter) !== -1) {
+                        pEntry.hide = false;
+                    } else {
+                        pEntry.hide = true;
+                    }
+                    return pEntry;
+                });
             };
 
             $scope.items = [

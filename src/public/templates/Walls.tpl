@@ -4,7 +4,7 @@
             <button ng-hide="isGymAccount()"
                     class="[ btn--secondary btn--medium left  ] icon-left-big  left "
                     ng-click="back()" >
-                    Gym 
+                    Gym
             </button>
         </div>
         <h1 ng-show="isGymAccount()" class="icon-th-list"> Manage Your Zones</h1>
@@ -15,7 +15,6 @@
 <section class="row">
     <div class="small-12 columns">
 
-        <!--
         <div class="media--fl">
             <div>
                 <label for="searchTerm" class="icon--label icon--search inline"></label>
@@ -25,10 +24,13 @@
                 <input name=""
                         type="search"
                         id="searchTerm"
-                        placeholder="Search by name, color, setter, route grades, etc.">
+                        ng-model="form.filter"
+                        ng-change="applyFilter()"
+                        placeholder="Search by Wall Name">
             </div>
         </div>
 
+        <!--
         <div class="display--inlineBlock">
             <div class="select--tetriary select--small align-vertically">
                 <select>
@@ -82,7 +84,8 @@
 
         <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList">
             <li class="ptb2  fwb" ng-repeat="wall in walls"
-                    ng-click="navigateToWall(gymId, wall.id)">
+                    ng-click="navigateToWall(gymId, wall.id)"
+                    ng-hide="wall.hide">
 
                     {{wall.name}}
                     <i class="icon-right-big right"> </i>

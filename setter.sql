@@ -44,7 +44,7 @@ CREATE TABLE `accounts` (
 
 LOCK TABLES `accounts` WRITE;
 /*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES (1,'cseibert113@gmail.com','$2a$10$S8viQ38.Ukwqn7C.hEgZdedDozA0Y2vXefChMJvC1CieVrUt8xhUC',1,'xzTeZ8ZKbwTdfnLfvgeY',2),(2,'routesetting@aiguille.com','$2a$10$yB2BtsqvdGcdTZYA3Odx2.cCmRYz2HM.6tBaQETvVCEeYbzOnhoDW',2,'zlzQvSBsyElkXA0k2lzz',NULL),(3,'mark@gmail.com','$2a$10$MPwKc0VMSTMTkcFAAacqhuwg1q.0xnK7Bb1ZT1JxDnIna0Ki80j32',1,'8J9tLdqM8NMFB3xmI82p',NULL),(4,'hi.guillermocasanova@gmail.com','$2a$10$wKCFVrzX9Xfrt46M7vtXeumrPbJv3ij28KBdHzbTHwIt9NUttqn/y',1,'SlEZIeLNB2KcgIhcBKYS',NULL),(5,'hi.guillermlcasanova@gmail.com','$2a$10$XoilvE2OWBcb9jWCpY36PuJ5iW9bI5rGtMd1OwfSj3juEy8VqmytK',1,'UeZe9fy0po7LL5ihsxDk',NULL),(6,'e_jimenez1012@hotmail.com','$2a$10$lNK78hDmS6OwutpMtonLLuC6FaiZ9lukakIX8S62f4AKunZIURM4q',1,'FugCeUFes2RUweT4MWmy',NULL),(7,'davisjstew@yahoo.com','$2a$10$owG3JqbYaEAOy3ASEZ1eIuqS4sxoGzMcNKqeqppjwABKEOjvdH18S',1,'KAm0LcWykSpNHwr8EFt9',NULL),(8,'jmwm88@yahoo.com','$2a$10$JKiLIlhtJaHJLAdoz0Ire.BoI32Cc9xk8ddHHLoUX4teukN1/7qSy',1,'uIXC6aXefMno9iwm8Cq4',NULL),(9,'blake.the.climber@gmail.com','$2a$10$mYnRn6Q8HeimC.WjnqkJweQ0DRrKRRm8eaHAxWASvEkz0E25uvwku',1,'Z1oU2Ulvc2NNPbRgUVA2',NULL),(10,'Moo5152@GMail.com','$2a$10$fbQ/GLdLyjzId4cKNW2pouz/1im8aqIvU4MYZJ0fOD8CXHjzO0tkm',1,'qOi4hk1rklkAnDYPOprZ',NULL);
+INSERT INTO `accounts` VALUES (1,'cseibert113@gmail.com','$2a$10$S8viQ38.Ukwqn7C.hEgZdedDozA0Y2vXefChMJvC1CieVrUt8xhUC',1,'xzTeZ8ZKbwTdfnLfvgeY',2),(2,'routesetting@aiguille.com','$2a$10$yB2BtsqvdGcdTZYA3Odx2.cCmRYz2HM.6tBaQETvVCEeYbzOnhoDW',2,'zlzQvSBsyElkXA0k2lzz',6),(3,'mark@gmail.com','$2a$10$MPwKc0VMSTMTkcFAAacqhuwg1q.0xnK7Bb1ZT1JxDnIna0Ki80j32',1,'8J9tLdqM8NMFB3xmI82p',NULL),(4,'hi.guillermocasanova@gmail.com','$2a$10$wKCFVrzX9Xfrt46M7vtXeumrPbJv3ij28KBdHzbTHwIt9NUttqn/y',1,'SlEZIeLNB2KcgIhcBKYS',NULL),(5,'hi.guillermlcasanova@gmail.com','$2a$10$XoilvE2OWBcb9jWCpY36PuJ5iW9bI5rGtMd1OwfSj3juEy8VqmytK',1,'UeZe9fy0po7LL5ihsxDk',NULL),(6,'e_jimenez1012@hotmail.com','$2a$10$lNK78hDmS6OwutpMtonLLuC6FaiZ9lukakIX8S62f4AKunZIURM4q',1,'FugCeUFes2RUweT4MWmy',NULL),(7,'davisjstew@yahoo.com','$2a$10$owG3JqbYaEAOy3ASEZ1eIuqS4sxoGzMcNKqeqppjwABKEOjvdH18S',1,'KAm0LcWykSpNHwr8EFt9',NULL),(8,'jmwm88@yahoo.com','$2a$10$JKiLIlhtJaHJLAdoz0Ire.BoI32Cc9xk8ddHHLoUX4teukN1/7qSy',1,'uIXC6aXefMno9iwm8Cq4',NULL),(9,'blake.the.climber@gmail.com','$2a$10$mYnRn6Q8HeimC.WjnqkJweQ0DRrKRRm8eaHAxWASvEkz0E25uvwku',1,'Z1oU2Ulvc2NNPbRgUVA2',NULL),(10,'Moo5152@GMail.com','$2a$10$fbQ/GLdLyjzId4cKNW2pouz/1im8aqIvU4MYZJ0fOD8CXHjzO0tkm',1,'qOi4hk1rklkAnDYPOprZ',NULL);
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,6 +70,59 @@ LOCK TABLES `accounts_types` WRITE;
 /*!40000 ALTER TABLE `accounts_types` DISABLE KEYS */;
 INSERT INTO `accounts_types` VALUES (1,'user'),(2,'gym');
 /*!40000 ALTER TABLE `accounts_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `alerts`
+--
+
+DROP TABLE IF EXISTS `alerts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `alerts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gym_id` int(11) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `gym_id` (`gym_id`),
+  CONSTRAINT `alerts_ibfk_1` FOREIGN KEY (`gym_id`) REFERENCES `gyms` (`account_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alerts`
+--
+
+LOCK TABLES `alerts` WRITE;
+/*!40000 ALTER TABLE `alerts` DISABLE KEYS */;
+INSERT INTO `alerts` VALUES (10,2,'New route on the wave!','2014-12-31 16:42:51'),(11,2,'The gym will be closed early today at 6pm','2014-12-31 16:51:15');
+/*!40000 ALTER TABLE `alerts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blogs`
+--
+
+DROP TABLE IF EXISTS `blogs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `blogs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `html` text NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blogs`
+--
+
+LOCK TABLES `blogs` WRITE;
+/*!40000 ALTER TABLE `blogs` DISABLE KEYS */;
+INSERT INTO `blogs` VALUES (1,'this is a test','2014-12-31 08:47:52'),(2,'<ul>\n<li>Testing</li>\n<li>B</li>\n<li>C</li>\n<li>D</li>\n</ul>','2014-12-31 08:48:58'),(3,'<ul>\n<li>Testing</li>\n<li>B</li>\n<li>C</li>\n<li>D</li>\n</ul>','2014-12-31 08:49:28'),(4,'test','2014-12-31 08:50:46'),(5,'asdf','2014-12-31 08:51:15'),(6,'<h1>New Year\'s Eve! - Sprint 1</h1>\n<p>\n<i>Sprint 1</i>, our first official sprint of our project, started Monday ends Friday.   Guillermo and I settled on doing 1 week sprints for our development process.  Our justifications behind that is that it forces us to get feedback from users and setters faster than if we choose a 2 or 3 week sprint.\n</p>\n<p>\nAt the end of each sprint, we will be doing a demo for Mark, our head route setter at Aiguille, a couple other setters, and maybe a member or two.  We want to make this perfect for the users, so obtaining as much user feedback is critical to the success of SETTER.\n</p>\n<p>\nAs far as progress, we have add a LOT in a short amount of time.  Here is a non exhaustive list of what we have added this sprint, followed by a list of features planned.\n</p>\n\n<h3>General Changes</h3>\n- Improved the style and color of the entire site <br>\n- Added a developers blog which we can easily type new posts into <br>\n- Style fixes here and there to improve UX <br>\n<br>\n\n<h3>Gym Related Changes</h3>\n- Gyms can upload a default gym logo <br>\n- Gym charts showing analytics about all the routes, boulder and rope, in a gym <br>\n- Route manager which gym accounts can use to browse ALL routes in their gym <br>\n- Searching through the list of gyms <br>\n- Setters can \'strip\' a route, which archives it <br>\n- Display all home gym users on the gym page <br>\n- Manage setters was fixed up a little bit to make it easier to add setters <br>\n<br>\n\n<h3>User Related Changes</h3>\n- The ability for users to upload a user profile image <br>\n- Charts displaying the total routes a user has sent <br>\n- Charts displaying grade progress (algorithm under development still) <br>\n- V and YDS grade on user profiles<br>\n- Users can comment on routes <br>\n- Users can send routes <br>\n- Users can rate routes <br>\n- Users who send a route are displayed on the route send list  <br>\n<br><br>\n\n<div class=\"right\">Cody Seibert, Dec 31st 2014</div>','2014-12-31 08:51:16');
+/*!40000 ALTER TABLE `blogs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -178,6 +231,38 @@ LOCK TABLES `feedback` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `gym_suggestions`
+--
+
+DROP TABLE IF EXISTS `gym_suggestions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gym_suggestions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gym_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `read` tinyint(1) NOT NULL DEFAULT '0',
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `gym_id` (`gym_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `gym_suggestions_ibfk_1` FOREIGN KEY (`gym_id`) REFERENCES `gyms` (`account_id`) ON DELETE CASCADE,
+  CONSTRAINT `gym_suggestions_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`account_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gym_suggestions`
+--
+
+LOCK TABLES `gym_suggestions` WRITE;
+/*!40000 ALTER TABLE `gym_suggestions` DISABLE KEYS */;
+INSERT INTO `gym_suggestions` VALUES (1,2,1,'this is a test',1,'2014-12-31 14:34:38'),(2,2,1,'This is a different suggestion',0,'2014-12-31 14:34:54'),(3,2,1,'Could you set a route or two that contain a good amount of pinches so I can do laps on it to train my pinch strength?',0,'2014-12-31 14:43:06');
+/*!40000 ALTER TABLE `gym_suggestions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `gyms`
 --
 
@@ -214,7 +299,7 @@ CREATE TABLE `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +308,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'images/uploads/bc755aceaf18747af5da381c5919de20.jpg'),(2,'images/uploads/c3dbd4f30e339ffd1b6b0c517b6bc58b.jpg');
+INSERT INTO `images` VALUES (1,'images/uploads/bc755aceaf18747af5da381c5919de20.jpg'),(2,'images/uploads/c3dbd4f30e339ffd1b6b0c517b6bc58b.jpg'),(3,'images/uploads/b18ae036922287cbece416045842c02a.jpg'),(4,'images/uploads/97ab7d3280dac229bb7d847b7a22b7bf.jpg'),(5,'images/uploads/61fdb79e088655e168157deb9b03d275.jpg'),(6,'images/uploads/5bb65352734a989f7ed0199fd01eeeff.jpg');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -346,7 +431,7 @@ CREATE TABLE `sends` (
 
 LOCK TABLES `sends` WRITE;
 /*!40000 ALTER TABLE `sends` DISABLE KEYS */;
-INSERT INTO `sends` VALUES (1,67,'2014-10-30 15:37:04'),(1,68,'2014-08-30 15:37:07'),(1,69,'2014-09-30 15:37:10'),(1,70,'2014-08-30 15:37:13'),(1,71,'2014-09-30 15:37:16'),(1,72,'2014-10-30 15:37:18'),(1,73,'2014-09-30 15:37:19'),(1,74,'2014-08-30 15:37:21'),(1,75,'2014-10-30 15:37:25'),(1,90,'2014-11-30 15:36:44'),(1,91,'2014-08-30 15:36:46'),(1,92,'2014-08-30 15:36:48'),(1,93,'2014-12-30 17:02:36'),(1,94,'2014-08-30 15:36:51'),(1,95,'2014-09-30 15:36:53'),(1,96,'2014-10-30 15:36:54'),(1,97,'2014-08-30 15:36:58'),(1,98,'2014-07-30 15:36:56'),(1,107,'2014-11-30 15:36:24'),(1,108,'2014-10-30 15:36:26'),(1,109,'2014-08-30 15:36:27'),(1,110,'2014-11-30 15:36:31'),(1,111,'2014-11-30 15:36:29'),(1,112,'2014-10-30 15:36:33'),(1,113,'2014-11-30 15:36:34'),(1,114,'2014-08-30 15:36:38'),(1,115,'2014-07-30 15:36:40'),(1,126,'2014-09-30 15:39:49'),(1,132,'2014-07-30 15:39:55'),(1,135,'2014-08-30 15:39:59'),(1,147,'2014-08-30 15:40:03'),(1,154,'2014-11-30 15:40:09'),(1,155,'2014-08-30 15:40:07'),(1,156,'2014-09-30 15:40:17'),(1,157,'2014-10-30 15:40:15'),(1,158,'2014-11-30 15:40:12'),(1,165,'2014-10-28 15:40:25'),(1,166,'2014-07-30 15:40:27'),(1,168,'2014-12-30 15:57:59'),(1,170,'2014-11-30 15:35:19'),(1,171,'2014-09-30 15:35:21'),(1,172,'2014-10-30 15:35:25'),(1,173,'2014-11-30 15:35:23'),(1,174,'2014-10-30 15:36:11'),(1,176,'2014-11-30 15:36:17'),(1,177,'2014-10-30 15:36:19'),(5,107,'2014-12-19 02:19:24'),(5,108,'2014-12-19 02:19:37'),(5,111,'2014-12-19 02:19:42'),(5,113,'2014-12-19 02:19:52'),(5,114,'2014-12-19 02:20:04');
+INSERT INTO `sends` VALUES (1,67,'2014-10-30 15:37:04'),(1,68,'2014-08-30 15:37:07'),(1,69,'2014-09-30 15:37:10'),(1,70,'2014-08-30 15:37:13'),(1,71,'2014-09-30 15:37:16'),(1,72,'2014-10-30 15:37:18'),(1,73,'2014-09-30 15:37:19'),(1,74,'2014-08-30 15:37:21'),(1,75,'2014-10-30 15:37:25'),(1,90,'2014-11-30 15:36:44'),(1,91,'2014-08-30 15:36:46'),(1,92,'2014-08-30 15:36:48'),(1,93,'2014-12-30 17:02:36'),(1,94,'2014-08-30 15:36:51'),(1,95,'2014-09-30 15:36:53'),(1,96,'2014-10-30 15:36:54'),(1,97,'2014-08-30 15:36:58'),(1,98,'2014-07-30 15:36:56'),(1,107,'2014-11-30 15:36:24'),(1,108,'2014-10-30 15:36:26'),(1,109,'2014-08-30 15:36:27'),(1,110,'2014-11-30 15:36:31'),(1,111,'2014-11-30 15:36:29'),(1,112,'2014-10-30 15:36:33'),(1,113,'2014-11-30 15:36:34'),(1,114,'2014-08-30 15:36:38'),(1,115,'2014-07-30 15:36:40'),(1,126,'2014-09-30 15:39:49'),(1,132,'2014-07-30 15:39:55'),(1,135,'2014-08-30 15:39:59'),(1,147,'2014-08-30 15:40:03'),(1,153,'2014-12-31 11:33:18'),(1,154,'2014-11-30 15:40:09'),(1,155,'2014-08-30 15:40:07'),(1,156,'2014-09-30 15:40:17'),(1,157,'2014-10-30 15:40:15'),(1,158,'2014-11-30 15:40:12'),(1,165,'2014-10-28 15:40:25'),(1,166,'2014-07-30 15:40:27'),(1,168,'2014-12-30 15:57:59'),(1,170,'2014-11-30 15:35:19'),(1,171,'2014-09-30 15:35:21'),(1,172,'2014-10-30 15:35:25'),(1,173,'2014-11-30 15:35:23'),(1,174,'2014-10-30 15:36:11'),(1,176,'2014-11-30 15:36:17'),(1,177,'2014-10-30 15:36:19'),(5,107,'2014-12-19 02:19:24'),(5,108,'2014-12-19 02:19:37'),(5,111,'2014-12-19 02:19:42'),(5,113,'2014-12-19 02:19:52'),(5,114,'2014-12-19 02:20:04');
 /*!40000 ALTER TABLE `sends` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -496,4 +581,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-30 20:25:06
+-- Dump completed on 2014-12-31 16:52:53

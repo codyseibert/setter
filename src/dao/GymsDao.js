@@ -31,9 +31,22 @@ var GymsDao = function () {
 
     this.getGyms = function (pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT account_id, name, address FROM gyms',
+            'SELECT i.url, g.account_id, g.name, g.address FROM gyms g ' +
+                'INNER JOIN accounts a ON a.id = g.account_id ' +
+                'LEFT JOIN images i ON i.id = a.image_id',
             [],
             theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+    this.getGymImage = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT i.url FROM accounts a ' +
+                'LEFT JOIN images i ON i.id = a.image_id ' +
+                'WHERE a.id = ?',
+            [pGymId],
+            theDaoHelper.SINGLE,
             pCallback
         );
     };

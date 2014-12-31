@@ -24,8 +24,14 @@
 <section class="row">
     <div class="small-12 columns header">
         <div ng-repeat="gym in gyms"
-                style="cursor: pointer; border-bottom: 1px dotted #888;"
+                style="cursor: pointer; margin-bottom: 30px;"
                 ng-show="gym.show">
+
+            <div style="height: 100px; width: 200px; display: inline-block; cursor: pointer; float: left; margin-right: 10px;">
+                <img style="height: 100%; width: 100%;"
+                    ng-src="{{gym.url !== '' && gym.url || 'images/no_gym_image.png'}}">
+            </div>
+
             <div class="gym"
                 ng-click="navigateToGym(gym.account_id)">
                 <h2>{{gym.name}}</h2>

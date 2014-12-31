@@ -19,6 +19,12 @@ angular.module('SETTER')
                     url: 'api/gyms'
                 });
             },
+            getGymImage: function (pGymId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/gyms/' + pGymId + '/image'
+                });
+            },
             getGym: function (pGymId) {
                 return $http({
                     method: 'GET',

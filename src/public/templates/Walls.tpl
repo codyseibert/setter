@@ -10,7 +10,7 @@
 
     <div class="small-12 columns">
         <h1 ng-show="isGymAccount()">Manage Your Zones</h1>
-        <h1 ng-hide="isGymAccount()" class="title">Walls</h1>
+        <h1 ng-hide="isGymAccount()" class="title">Zones</h1>
     </div>
 </section>
 

@@ -69,6 +69,11 @@ angular.module('SETTER')
                     $scope.users = pData;
                 });
 
+            GymsService.getGymImage($scope.gymId)
+                .success(function (pData) {
+                    $scope.image = pData;
+                });
+
             $scope.setHomeGym = function () {
                 var yes = confirm("Are you sure you want to make " + $scope.gym.name + " your new home gym?");
                 if (!yes) {
@@ -82,4 +87,22 @@ angular.module('SETTER')
                         alert($scope.gym.name + " now set as your home gym!");
                     });
             };
+
+            $scope.uploadImage = function () {
+                angular.element("#image_file").trigger('click');
+            };
+
+            angular.element("#image_file").on('change', function () {
+                angular.element("#image_submit").trigger('click');
+                $scope.image = {
+                    url: 'images/loading.gif'
+                };
+                $scope.$apply();
+            });
+
+            $scope.complete = function (content) {
+                $scope.image = content;
+            };
+
+            $scope.authorization = LoginService.getHeader();
         }]);

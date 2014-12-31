@@ -1,5 +1,5 @@
 <section class="row">
-    <div class="small-12 columns header">
+    <div class="small-12 columns header" ng-show="getAccountId() === gymId">
         <div class="left">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                 ng-click="back()" >
@@ -62,7 +62,7 @@
 
 <section class="row" ng-hide="getAccountId() === gymId">
     <div class="small-12 columns">
-        <input type="search"
+        <input type="text"
             placeholder="your suggestion to the gym"
             ng-model="form.message"></input>
         <button class="btn--primary  btn--medium  btn--expanded icon-paper-plane"

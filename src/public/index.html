@@ -89,6 +89,12 @@
                 </li>
 
                 <li
+                    ng-click="navigateToAlerts(getAccountId())"
+                    ng-show="isGymAccount()">
+                    <a class="icon-attention"> Alerts</a>
+                </li>
+
+                <li
                     ng-click="navigateToGym(getHomeGymId())"
                     ng-show="getHomeGymId()">
                     <a class="icon-home"> Your Home Gym</a>
@@ -188,6 +194,7 @@
             <script src="js/controllers/RouteManagerController.js"></script>
             <script src="js/controllers/BlogController.js"></script>
             <script src="js/controllers/GymSuggestionsController.js"></script>
+            <script src="js/controllers/AlertsController.js"></script>
 
             <!-- Directives -->
 
@@ -211,6 +218,7 @@
             <script src="js/services/BarGraphHelperService.js"></script>
             <script src="js/services/BlogService.js"></script>
             <script src="js/services/GymSuggestionsService.js"></script>
+            <script src="js/services/AlertsService.js"></script>
         <!-- /build -->
     </body>
 </html>

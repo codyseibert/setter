@@ -50,6 +50,14 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="small-12 medium mb4">
+        <h2 class="icon-attention">Gym Alerts</h2>
+        <div ng-repeat="alert in alerts">
+            <p>{{alert.message}}<br>{{alert.date}}</p>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="small-12 medium">

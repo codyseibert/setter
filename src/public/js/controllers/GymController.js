@@ -10,6 +10,8 @@ angular.module('SETTER')
         '$rootScope',
         'UsersService',
         'LoginService',
+        'AlertsService',
+        'DateFormatService',
         function (
             $scope,
             GymsService,
@@ -17,7 +19,9 @@ angular.module('SETTER')
             BarGraphHelperService,
             $rootScope,
             UsersService,
-            LoginService
+            LoginService,
+            AlertsService,
+            DateFormatService
         ) {
             'use strict';
 
@@ -77,6 +81,15 @@ angular.module('SETTER')
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {
                     $scope.activity = pData;
+                });
+
+            AlertsService.getAlertsForGym($scope.gymId)
+                .success(function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = DateFormatService.format(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.alerts = pData;
                 });
 
             $scope.setHomeGym = function () {

@@ -52,37 +52,43 @@
            <h3>Your Name Or gym</h3>
             <ul class="off-canvas-list" ng-show="isLoggedIn()">
 
-                <li 
+                <li
                     ng-show="isUserAccount()"
                     ng-click="navigateToUser(getAccountId())">
                     <a class="icon-user"> Your Profile</a>
                 </li>
 
-                <li 
+                <li
                     ng-show="isGymAccount()"
                     ng-click="navigateToGym(getAccountId())">
                     <a class="icon-home"> Your Dashboard</a>
                 </li>
 
-                <li 
+                <li
                     ng-click="navigateToWalls(getAccountId())"
                     ng-show="isGymAccount()">
                     <a> <img src="images/icon--wrench.svg" alt=""> Manage Zones</a>
                 </li>
 
-                <li 
+                <li
                     ng-click="navigateToRouteManager(getAccountId())"
                     ng-show="isGymAccount()">
                     <a class="icon-th-list"> Route Archive</a>
                 </li>
 
-                <li 
+                <li
                     ng-click="navigateToSetters(getAccountId())"
                     ng-show="isGymAccount()">
                     <a class="icon-users"> Manage Setters</a>
                 </li>
 
-                <li 
+                <li
+                    ng-click="navigateToGymSuggestions(getAccountId())"
+                    ng-show="isGymAccount()">
+                    <a class="icon-mail-alt"> Suggestions</a>
+                </li>
+
+                <li
                     ng-click="navigateToGym(getHomeGymId())"
                     ng-show="getHomeGymId()">
                     <a class="icon-home"> Your Home Gym</a>
@@ -90,7 +96,7 @@
 
                 <li style="min-height: 30px;"></li>
 
-                <li 
+                <li
                     ng-click="navigateToGyms()"
                     ng-show="isUserAccount()">
                     <a class="icon-globe"> Search Gyms</a>
@@ -98,19 +104,19 @@
 
                 <li style="min-height: 30px;"></li>
 
-                <li 
+                <li
                     ng-click="navigateToSuggestionsPage()">
-                    <a class="icon-megaphone"> Make a Suggestion</a>
+                    <a class="icon-megaphone"> Feedback</a>
                 </li>
 
-                <li 
+                <li
                     ng-click="navigateToBlog()">
-                    <a class="icon-rss"> Development Blog</a>
+                    <a class="icon-rss"> Blog</a>
                 </li>
 
                 <li style="min-height: 30px;"></li>
 
-                <li 
+                <li
                     ng-click="navigateToLogout()">
                     <a class="icon-logout"> Logout</a>
                 </li>
@@ -181,6 +187,7 @@
             <script src="js/controllers/ContactController.js"></script>
             <script src="js/controllers/RouteManagerController.js"></script>
             <script src="js/controllers/BlogController.js"></script>
+            <script src="js/controllers/GymSuggestionsController.js"></script>
 
             <!-- Directives -->
 
@@ -203,6 +210,7 @@
             <script src="js/services/DateFormatService.js"></script>
             <script src="js/services/BarGraphHelperService.js"></script>
             <script src="js/services/BlogService.js"></script>
+            <script src="js/services/GymSuggestionsService.js"></script>
         <!-- /build -->
     </body>
 </html>

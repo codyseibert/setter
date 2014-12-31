@@ -25,6 +25,7 @@ var SuggestionsController = require('./controllers/SuggestionsController');
 var FeedbackController = require('./controllers/FeedbackController');
 var ImagesController = require('./controllers/ImagesController');
 var BlogController = require('./controllers/BlogController');
+var GymSuggestionsController = require('./controllers/GymSuggestionsController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -61,6 +62,13 @@ var RouteToControllerBinder = function () {
 
     app.get('/api/gyms/:gymId/activity',
         GymsController.getActivityStream);
+
+    app.get('/api/gyms/:gymId/suggestions',
+        GymSuggestionsController.getSuggestionsForGym);
+
+    app.post('/api/gyms/:gymId/suggestions',
+        InjectAccountId,
+        GymSuggestionsController.createSuggestion);
 
     // WALLS
     app.get('/api/gym/:gymId/walls',
@@ -229,6 +237,11 @@ var RouteToControllerBinder = function () {
     app.post('/api/blog/:blogId',
         InjectAccountId,
         BlogController.updatePost);
+
+    // GYM SUGGESTIONS
+    app.post('/api/suggestions/:suggestionId/read',
+        InjectAccountId,
+        GymSuggestionsController.markAsRead);
 };
 
 module.exports = new RouteToControllerBinder();

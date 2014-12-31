@@ -29,6 +29,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
                 controller: 'GymsController',
                 templateUrl: 'templates/Gyms.tpl'
             })
+            .when('/gyms/:gymId/suggestions', {
+                controller: 'GymSuggestionsController',
+                templateUrl: 'templates/GymSuggestions.tpl'
+            })
             .when('/gyms/:gymId', {
                 controller: 'GymController',
                 templateUrl: 'templates/Gym.tpl'
@@ -186,6 +190,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
 
         $rootScope.navigateToBlog = function () {
             $location.path('blog');
+        };
+
+        $rootScope.navigateToGymSuggestions = function (pGymId) {
+            $location.path('gyms/' + pGymId + '/suggestions');
         };
 
         $rootScope.back = function () {

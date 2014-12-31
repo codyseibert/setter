@@ -9671,95 +9671,105 @@ a:hover {
   display: block;
 }
 
-/* line 96, ../scss/partials/_generics.scss */
+/*------------------------------------*\
+    #Clearfix 
+\*------------------------------------*/
+/* line 102, ../scss/partials/_generics.scss */
 .flag {
   display: table;
   width: 100%;
 }
 
-/* line 101, ../scss/partials/_generics.scss */
+/* line 107, ../scss/partials/_generics.scss */
 .flag-image,
 .flag-body {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 106, ../scss/partials/_generics.scss */
+/* line 112, ../scss/partials/_generics.scss */
 .flag--top .flag-image, .flag--top
 .flag-body {
   vertical-align: top;
 }
-/* line 110, ../scss/partials/_generics.scss */
+/* line 116, ../scss/partials/_generics.scss */
 .flag--bottom .flag-image, .flag--bottom
 .flag-body {
   vertical-align: bottom;
 }
 
-/* line 118, ../scss/partials/_generics.scss */
+/* line 121, ../scss/partials/_generics.scss */
+.flag-image {
+  padding-right: 1.5rem;
+}
+/* line 124, ../scss/partials/_generics.scss */
 .flag-image > img {
   display: block;
   max-width: none;
 }
-/* line 123, ../scss/partials/_generics.scss */
+/* line 129, ../scss/partials/_generics.scss */
 .flag--rev .flag-image {
   padding-left: 10px;
   padding-right: 0;
 }
 
-/* line 130, ../scss/partials/_generics.scss */
+/* line 136, ../scss/partials/_generics.scss */
 .flag-body {
   width: 100%;
 }
 
-/* line 135, ../scss/partials/_generics.scss */
+/* line 141, ../scss/partials/_generics.scss */
 .nowrap {
   white-space: nowrap;
 }
 
-/* line 139, ../scss/partials/_generics.scss */
+/* line 145, ../scss/partials/_generics.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 155, ../scss/partials/_generics.scss */
+/*------------------------------------*\
+    #Positions
+\*------------------------------------*/
+/* line 166, ../scss/partials/_generics.scss */
 .relative {
   position: relative;
 }
 
-/* line 159, ../scss/partials/_generics.scss */
+/* line 170, ../scss/partials/_generics.scss */
 .absolute {
   position: absolute;
 }
 
 @media (min-width: 940px) {
-  /* line 174, ../scss/partials/_generics.scss */
+  /* line 185, ../scss/partials/_generics.scss */
   .hide-on-large {
     display: none;
   }
 }
 
-/* line 180, ../scss/partials/_generics.scss */
+/* line 191, ../scss/partials/_generics.scss */
 .hide-on-small {
   display: none;
 }
 @media (min-width: 940px) {
-  /* line 180, ../scss/partials/_generics.scss */
+  /* line 191, ../scss/partials/_generics.scss */
   .hide-on-small {
     display: block;
   }
 }
 
-/* line 187, ../scss/partials/_generics.scss */
+/* line 198, ../scss/partials/_generics.scss */
 .show-on-small {
   display: block;
 }
 @media (min-width: 940px) {
-  /* line 187, ../scss/partials/_generics.scss */
+  /* line 198, ../scss/partials/_generics.scss */
   .show-on-small {
     display: none;
   }
 }
 
-/* line 199, ../scss/partials/_generics.scss */
+/* line 210, ../scss/partials/_generics.scss */
 .media--fr {
   overflow: auto;
   zoom: 1;
@@ -9773,7 +9783,7 @@ a:hover {
   overflow: auto;
 }
 
-/* line 203, ../scss/partials/_generics.scss */
+/* line 214, ../scss/partials/_generics.scss */
 .media--fl {
   overflow: auto;
   zoom: 1;
@@ -9787,7 +9797,7 @@ a:hover {
   overflow: auto;
 }
 
-/* line 214, ../scss/partials/_generics.scss */
+/* line 225, ../scss/partials/_generics.scss */
 .hr--vertical {
   width: 2px;
   height: 100%;
@@ -9796,12 +9806,12 @@ a:hover {
   background-color: pink;
 }
 
-/* line 222, ../scss/partials/_generics.scss */
+/* line 233, ../scss/partials/_generics.scss */
 .hr--light {
   border-color: #F2F2F2;
 }
 
-/* line 234, ../scss/partials/_generics.scss */
+/* line 245, ../scss/partials/_generics.scss */
 .mga {
   margin: auto;
 }

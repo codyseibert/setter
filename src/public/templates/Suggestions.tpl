@@ -9,7 +9,7 @@
     </div>
 
     <div class="small-12 columns">
-        <h1 class="icon-megaphone"> Suggestions</h1>
+        <h1 class="icon-megaphone"> Feedback</h1>
     </div>
 </section>
 
@@ -38,7 +38,7 @@
 
         <button class="btn--medium btn--primary icon-plus-squared btn--expanded"
                 ng-click="postClicked()">
-            Post Suggestion
+            Post Feedback
         </button>
     </div>
 </section>

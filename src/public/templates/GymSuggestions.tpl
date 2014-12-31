@@ -1,6 +1,16 @@
 <section class="row">
     <div class="small-12 columns header">
-        <h1 class="icon-mail-alt"> Suggestions</h1>
+        <div class="left">
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="back()" >
+                Back
+            </button>
+        </div>
+    </div>
+
+    <div class="small-12 columns header">
+        <h1 class="icon-mail-alt" ng-show="getAccountId() === gymId"> Your Members' Suggestions</h1>
+        <h1 class="icon-mail-alt" ng-show="getAccountId() !== gymId"> Post Suggestion</h1>
     </div>
 </section>
 

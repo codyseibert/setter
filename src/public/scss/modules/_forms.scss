@@ -24,6 +24,9 @@
 
   select {
     -webkit-appearance: none; 
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
     background-color: transparent; 
     border: 0; 
     color: #fff; 
@@ -31,13 +34,11 @@
     width: auto;     
   }
   
-  &:hover {
-    background: darken($color, 4%);
-  }
-
-  &:active {
-    background: darken($color, 4%);
-  }
+  // &:hover,
+  // &:active {
+  //   background: darken($color, 4%);
+  //   background: darken($color, 4%);
+  // }
 }
 
 

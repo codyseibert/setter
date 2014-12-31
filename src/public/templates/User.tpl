@@ -1,5 +1,5 @@
 <section class="row">
-    <div class="small-12 columns header"
+    <div class="header"
             ng-show="getHomeGymId()">
         <button class="btn--primary  btn--medium  icon-home btn--expanded"
                     ng-click="navigateToGym(getHomeGymId())">
@@ -8,28 +8,34 @@
     </div>
 
     <div class="small-12 columns header">
-        <h1 class="title icon-user" ng-show="getAccountId() === userId"> Your Profile</h1>
-        <h1 class="title icon-user" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
+
     </div>
 </section>
 
 <section class="row">
     <div class="small-12 columns mb4">
-        <div class="picture"
-                style="height: 200px; width: 200px; display: inline-block; cursor: pointer;"
-                ng-click="getAccountId() === userId && uploadImage()">
-            <img style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56" ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}">
-        </div>
+<div class="flag">
+    <div class="flag-image"
+            ng-click="getAccountId() === userId && uploadImage()">
+        <img ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}"  class="avatar--big">
     </div>
 
-    <div class="medium-6 small-12 columns mb4">
-        <h2>V Grade</h2>
-        <h3>{{boulderGrade}}</h3>
+    <div class="flag-body">  
+        <h1 class="title icon-user" ng-show="getAccountId() === userId"> Your Profile</h1>
+        <h1 class="mb0" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
     </div>
 
-    <div class="medium-6 small-12 columns mb4">
-        <h2>YDS Grade</h2>
-        <h3>{{ropeGrade}}</h3>
+</div>
+    </div>
+
+    <div class="small-6 columns mb4  text-center">
+        <h2 class="mb2">Bouldering</h2>
+        <h3 class="fwb h1">{{boulderGrade}}</h3>
+    </div>
+
+    <div class="small-6 columns mb4  text-center">
+        <h2 class="mb2">YDS</h2>
+        <h3 class="fwb h1">{{ropeGrade}}</h3>
     </div>
 </section>
 

@@ -89,9 +89,15 @@
 }
 
 
-//
+
+
+
+
+/*------------------------------------*\
+    #Clearfix 
+\*------------------------------------*/
 //Flag Object, like Media Object but with centered body vertically
-//
+
 
 .flag {
     display: table;
@@ -113,7 +119,7 @@
 }
 
 .flag-image {
-  // padding-right: 10px;
+  padding-right: rem-calc(24);
 
   > img {
     display: block;
@@ -148,9 +154,14 @@
 }
 
 
-//
-//Positions 
-//
+
+
+
+
+/*------------------------------------*\
+    #Positions
+\*------------------------------------*/
+
 
 .relative {
   position: relative; 

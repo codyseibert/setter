@@ -2,13 +2,6 @@
 
     <div class="small-12 columns header">
 
-        <div class="left" ng-show="isGymAccount()">
-            <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                ng-click="back()" >
-                Back
-            </button>
-        </div>
-
         <div class="left"
                 ng-show="isUserAccount()">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"

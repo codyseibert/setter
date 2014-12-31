@@ -24,6 +24,7 @@ var UsersController = require('./controllers/UsersController');
 var SuggestionsController = require('./controllers/SuggestionsController');
 var FeedbackController = require('./controllers/FeedbackController');
 var ImagesController = require('./controllers/ImagesController');
+var BlogController = require('./controllers/BlogController');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -210,6 +211,18 @@ var RouteToControllerBinder = function () {
     app.post('/api/accounts/image',
         InjectAccountId,
         ImagesController.uploadAccountImage);
+
+    // BLOG
+    app.get('/api/blog',
+        BlogController.getPosts);
+
+    app.post('/api/blog',
+        InjectAccountId,
+        BlogController.createPost);
+
+    app.post('/api/blog/:blogId',
+        InjectAccountId,
+        BlogController.updatePost);
 };
 
 module.exports = new RouteToControllerBinder();

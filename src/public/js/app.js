@@ -13,6 +13,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
                 controller: 'LogoutController',
                 templateUrl: 'templates/Logout.tpl'
             })
+            .when('/blog', {
+                controller: 'BlogController',
+                templateUrl: 'templates/Blog.tpl'
+            })
             .when('/gym/register', {
                 controller: 'RegisterGymController',
                 templateUrl: 'templates/RegisterGym.tpl'
@@ -178,6 +182,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
 
         $rootScope.navigateToRouteManager = function (pGymId) {
             $location.path('gyms/' + pGymId + '/routes');
+        };
+
+        $rootScope.navigateToBlog = function () {
+            $location.path('blog');
         };
 
         $rootScope.back = function () {

@@ -56,7 +56,7 @@ var RoutesDao = function () {
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
-                'WHERE r.wall_id = ? AND r.active = 1',
+                'WHERE r.wall_id = ? AND r.active = 1 ORDER BY bg.id ASC, rg.id ASC',
             [pWallId],
             theDaoHelper.MULTIPLE,
             pCallback

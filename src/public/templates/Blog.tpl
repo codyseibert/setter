@@ -1,9 +1,18 @@
 <section class="row">
+
     <div class="small-12 columns header">
-        <h1>
-            Development Blog
-        </h1>
+        <div class="left">
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="back()" >
+                Back
+            </button>
+        </div>
     </div>
+
+    <div class="small-12 columns">
+        <h1 class="icon-rss"> Development Blog</h1>
+    </div>
+
 </section>
 
 <section class="row mb4">

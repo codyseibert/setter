@@ -14,15 +14,17 @@
             Back
         </button>
 
-        <h1 ng-hide="isEditMode" >
-            Create Route
+        <h1 ng-hide="isEditMode" class="icon-pencil" >
+            Add Route
         </h1>
-        <h1 ng-show="isEditMode" >
+
+        <h1 ng-show="isEditMode" class="icon-pencil">
             Edit Route
         </h1>
-            <div class="header-divider">
-        
-    </div>
+
+        <div class="header-divider">
+
+        </div>
     </div>
 
 </section>
@@ -91,27 +93,22 @@
 
             <input type="text"  ng-model="form.note"
             placeholder="note">
-            
+
             <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
                     ng-click="saveClicked()"
                     ng-show="isEditMode">
                 Save Changes
             </button>
 
-            <div class="add_setter"
-                    ng-click="navigateToSetters()" ng-hide="isEditMode">
-                <i class="icon-plus-squared"> </i>
-            </div>
-
-            <div class="btn_black"
-                    ng-click="addClicked()"
-                    ng-hide="isEditMode">
-                <i class="icon-plus-squared"> </i> Add Route
-            </div>
+            <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
+                ng-click="addClicked()"
+                ng-hide="isEditMode">
+                Add Route
+            </button>
 
         </div>
     </div>
-    
+
 </section>
 
 <section class="row" ng-hide="hasSetters()">

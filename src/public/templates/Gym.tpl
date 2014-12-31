@@ -1,44 +1,54 @@
 <section class="row">
+
     <div class="small-12 columns header">
+
+        <div class="left" ng-show="isGymAccount()">
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="back()" >
+                Back
+            </button>
+        </div>
+
         <div class="left"
                 ng-show="isUserAccount()">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                         ng-click="navigateToUser(getAccountId())" >
-                    Your Profile
+                    <i class="icon-user"> </i> Your Profile
             </button>
         </div>
 
-        <div class="small-12 columns">
-            <div class="picture"
-                style="height: 100px; width: 200px; display: inline-block; cursor: pointer;"
-                ng-click="getAccountId() === gymId && uploadImage()">
-                <img style="height: 100%; width: 100%; border: 2px solid #ed6d56"
-                    ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
-            </div>
-        </div>
+    </div>
 
-        <section class="header">
-            <h1 class="title" ng-show="isGymAccount()" >
-                Your Dashboard
-            </h1>
-            <h2 >{{gym.name}}</h2>
-        </section>
 
-        <div class="mb4  small-12  medium-4 columns"
-                ng-hide="getHomeGymId() === gymId || isGymAccount()">
-            <button class="btn--primary  btn--medium  icon-home btn--expanded"
-                        ng-click="setHomeGym()">
-                Make Home Gym
-            </button>
+    <div class="small-12 columns">
+        <h1 ng-show="isGymAccount()" class="icon-home"> Your Dashboard</h1>
+        <h1 ng-show="isUserAccount()" class="icon-home"> {{gym.name}}</h1>
+    </div>
+
+
+    <div class="small-12 columns" ng-show="isGymAccount()">
+        <div class="picture mb4"
+            style="height: 100px; width: 300px; display: inline-block; cursor: pointer; border: 2px dotted black;"
+            ng-click="getAccountId() === gymId && uploadImage()">
+            <img style="height: 100%" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
         </div>
     </div>
+
+    <div class="mb4  small-12  medium-4 columns"
+            ng-hide="getHomeGymId() === gymId || isGymAccount()">
+        <button class="btn--primary  btn--medium  icon-home btn--expanded"
+                    ng-click="setHomeGym()">
+            Make Home Gym
+        </button>
+    </div>
+
 </section>
 
 
 <div class="row">
     <div class="mb4  small-12  medium-4 columns">
         <button class="btn--primary  btn--medium  btn--expanded" ng-click="navigateToWalls(gymId)">
-            View Gym's Zones <i class="icon-right-big"> </i>
+            <i class="icon-th-list"> </i> Gym's Zones <i class="icon-right-big"> </i>
         </button>
     </div>
 </div>

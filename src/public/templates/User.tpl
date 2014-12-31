@@ -8,8 +8,8 @@
     </div>
 
     <div class="small-12 columns header">
-        <h1 class="title" ng-show="getAccountId() === userId">Your Profile</h1>
-        <h1 class="title" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
+        <h1 class="title icon-user" ng-show="getAccountId() === userId"> Your Profile</h1>
+        <h1 class="title icon-user" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
     </div>
 </section>
 

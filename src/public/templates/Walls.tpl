@@ -3,14 +3,14 @@
         <div class="left">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                     ng-click="navigateToGym(gymId)" >
-                To Gym
+                <i class="icon-home"> </i> Gym
             </button>
         </div>
     </div>
 
     <div class="small-12 columns">
-        <h1 ng-show="isGymAccount()">Manage Your Zones</h1>
-        <h1 ng-hide="isGymAccount()" class="title">Zones</h1>
+        <h1 ng-show="isGymAccount()" class="icon-th-list"> Manage Your Zones</h1>
+        <h1 ng-hide="isGymAccount()" class="icon-th-list"> Zones</h1>
     </div>
 </section>
 

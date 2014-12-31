@@ -3,13 +3,13 @@
         <div class="left">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                 ng-click="navigateToGym(getAccountId())" >
-                To Gym
+                <i class="icon-home"> </i> Gym
             </button>
         </div>
     </div>
 
     <div class="small-12 columns header">
-        <h1>Manage Setters</h1>
+        <h1 class="icon-users"> Manage Setters</h1>
     </div>
 </section>
 

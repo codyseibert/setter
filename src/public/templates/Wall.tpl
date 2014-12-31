@@ -3,7 +3,7 @@
         <div class="left">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                         ng-click="navigateToWalls(gymId)" >
-                <span ng-show="isGymAccount()">Manage</span> Zones
+                <span ng-show="isGymAccount()" class="icon-th-list"> Manage</span> Zones
             </button>
         </div>
     </div>
@@ -20,7 +20,7 @@
         </div>
 
         <h1 ng-hide="isEditMode" class="title">
-            {{wall.name}}
+            <i class="icon-ellipsis-vert"> </i> {{wall.name}}
             <a class="icon-pencil" ng-click="edit()" ng-hide="isUserAccount() || isEditMode"></a>
         </h1>
     </div>

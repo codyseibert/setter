@@ -1,6 +1,6 @@
 <section class="row">
     <div class="small-12 columns header">
-        <div class="left mt1">
+        <div class="left">
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                 ng-click="back()" >
                 Back
@@ -9,7 +9,7 @@
     </div>
 
     <div class="small-12 columns">
-        <h1 class="title">Suggestions</h1>
+        <h1 class="icon-megaphone"> Suggestions</h1>
     </div>
 </section>
 

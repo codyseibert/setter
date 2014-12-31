@@ -3,7 +3,7 @@
         <div class="left">
             <button class="[ btn--secondary  btn--medium right ] icon-left-big"
                 ng-click="navigateToWall(gymId, wallId)" >
-                <span ng-show="isGymAccount()">Manage</span> Wall
+                <span ng-show="isGymAccount()" class="icon-ellipsis-vert"> Manage</span> Wall
             </button>
         </div>
     </div>

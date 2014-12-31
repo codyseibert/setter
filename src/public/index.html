@@ -56,53 +56,64 @@
                         <li class="button"
                             ng-show="isUserAccount()"
                             ng-click="navigateToUser(getAccountId())">
-                            <a class="icon-user">Your Profile</a>
+                            <a class="icon-user"> Your Profile</a>
                         </li>
 
                         <li class="button"
                             ng-show="isGymAccount()"
                             ng-click="navigateToGym(getAccountId())">
-                            <a class="icon-user">Your Profile</a>
+                            <a class="icon-home"> Your Dashboard</a>
                         </li>
 
                         <li class="button"
                             ng-click="navigateToWalls(getAccountId())"
                             ng-show="isGymAccount()">
-                            <a class="icon-th-list">Manage Zones</a>
+                            <a class="icon-th-list"> Manage Zones</a>
                         </li>
 
                         <li class="button"
                             ng-click="navigateToRouteManager(getAccountId())"
                             ng-show="isGymAccount()">
-                            <a class="icon-th-list">Route Manager</a>
+                            <a class="icon-th-large"> Route Manager</a>
                         </li>
 
                         <li class="button"
                             ng-click="navigateToSetters(getAccountId())"
                             ng-show="isGymAccount()">
-                            <a class="icon-users">Manage Setters</a>
-                        </li>
-
-                        <li class="button"
-                            ng-click="navigateToGyms()"
-                            ng-show="isUserAccount()">
-                            <a class="icon-globe">Search Gyms</a>
+                            <a class="icon-users"> Manage Setters</a>
                         </li>
 
                         <li class="button"
                             ng-click="navigateToGym(getHomeGymId())"
                             ng-show="getHomeGymId()">
-                            <a class="icon-home">Your Home Gym</a>
+                            <a class="icon-home"> Your Home Gym</a>
                         </li>
+
+                        <li style="min-height: 30px;"></li>
+
+                        <li class="button"
+                            ng-click="navigateToGyms()"
+                            ng-show="isUserAccount()">
+                            <a class="icon-globe"> Search Gyms</a>
+                        </li>
+
+                        <li style="min-height: 30px;"></li>
 
                         <li class="button"
                             ng-click="navigateToSuggestionsPage()">
-                            <a class="icon-megaphone">Make a Suggestion</a>
+                            <a class="icon-megaphone"> Make a Suggestion</a>
                         </li>
 
                         <li class="button"
+                            ng-click="navigateToBlog()">
+                            <a class="icon-rss"> Development Blog</a>
+                        </li>
+
+                        <li style="min-height: 30px;"></li>
+
+                        <li class="button"
                             ng-click="navigateToLogout()">
-                            <a class="icon-logout">Logout</a>
+                            <a class="icon-logout"> Logout</a>
                         </li>
                 </div>
             </ul>

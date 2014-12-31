@@ -68,7 +68,7 @@
     <div class="small-12 medium">
         <h2>Members</h2>
         <div ng-repeat="user in users"
-                style="width: 150px; height: 150px; display: inline-block; width: 150px; cursor: pointer; text-align: center; font-size: 16px;"
+                style="padding: 20px; vertical-align: top; width: 150px; height: 150px; display: inline-block; width: 150px; cursor: pointer; text-align: center; font-size: 16px;"
                 ng-click="navigateToUser(user.id)">
             <img ng-src="{{user.url !== '' && user.url || 'images/no_image.png'}}"
                     style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">

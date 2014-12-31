@@ -17,8 +17,11 @@ var SettersDao = function () {
 
     this.getSettersAtGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.account_id as id, CONCAT(u.firstname, \' \', u.lastname) AS name, u.firstname, u.lastname FROM setters_gyms_access sga ' +
-                'INNER JOIN users u ON u.account_id = sga.setter_id WHERE sga.gym_id = ?',
+            'SELECT i.url, u.account_id, CONCAT(u.firstname, \' \', u.lastname) AS name, u.firstname, u.lastname FROM setters_gyms_access sga ' +
+                'INNER JOIN users u ON u.account_id = sga.setter_id ' +
+                'INNER JOIN accounts a ON a.id = u.account_id ' +
+                'LEFT JOIN images i ON a.image_id = i.id ' +
+                'WHERE sga.gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -27,7 +30,10 @@ var SettersDao = function () {
 
     this.getUsers = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT account_id AS id, firstname, lastname FROM users WHERE account_id NOT IN (SELECT setter_id FROM setters_gyms_access WHERE gym_id = ?)',
+            'SELECT i.url, u.account_id, u.firstname, u.lastname FROM users u ' +
+                'INNER JOIN accounts a ON a.id = u.account_id ' +
+                'LEFT JOIN images i ON i.id = a.image_id ' +
+                'WHERE account_id NOT IN (SELECT setter_id FROM setters_gyms_access WHERE gym_id = ?)',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

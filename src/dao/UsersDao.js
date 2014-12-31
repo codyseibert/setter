@@ -32,7 +32,7 @@ var UsersDao = function () {
     this.getUserImage = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT url FROM images i '
-            + 'INNER JOIN accounts a ON i.id = a.image_id '
+            + 'LEFT JOIN accounts a ON i.id = a.image_id '
             + 'WHERE a.id = ?',
             [pUserId],
             theDaoHelper.SINGLE,
@@ -42,7 +42,9 @@ var UsersDao = function () {
 
     this.getUsers = function (pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT account_id, firstname, lastname FROM users',
+            'SELECT i.url, a.id, u.firstname, u.lastname FROM users u' +
+                'INNER JOIN accounts a ON a.id = u.account_id ' +
+                'LEFT JOIN images i ON a.image_id = i.id',
             [],
             theDaoHelper.MULTIPLE,
             pCallback

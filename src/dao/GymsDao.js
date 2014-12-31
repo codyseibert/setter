@@ -82,7 +82,7 @@ var GymsDao = function () {
         theDaoHelper.executeQuery(
             'SELECT a.id, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM users u ' +
                 'INNER JOIN accounts a ON u.account_id = a.id ' +
-                'INNER JOIN images i ON a.image_id = i.id ' +
+                'LEFT JOIN images i ON a.image_id = i.id ' +
                 'WHERE u.gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,

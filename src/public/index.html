@@ -84,6 +84,12 @@
                         </li>
 
                         <li class="button"
+                            ng-click="navigateToGyms()"
+                            ng-show="isGymAccount()">
+                            <a class="icon-globe">Search Gyms</a>
+                        </li>
+
+                        <li class="button"
                             ng-click="navigateToGym(getHomeGymId())"
                             ng-show="getHomeGymId()">
                             <a class="icon-home">Your Home Gym</a>

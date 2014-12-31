@@ -10,6 +10,12 @@
   background-color: $grey--medlight; 
 }
 
+
+.avatar--small {
+  height: rem-calc(50);
+  width: rem-calc(50);
+}
+
 .avatar--big {
   height: rem-calc(100);
   width: rem-calc(100);  

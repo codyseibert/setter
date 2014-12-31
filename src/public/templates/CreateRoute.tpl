@@ -1,36 +1,40 @@
 <section class="row small-collapse">
 
     <div class="header">
+        <div class="display--block cf">
+            <button ng-hide="isEditMode"
+                class="[ btn--secondary btn--medium left  ] icon-left-big  display--block "
+                ng-click="navigateToWall(gymId, wallId)" >
+                Back
+            </button>
 
-        <button ng-hide="isEditMode"
-            class="[ btn--secondary btn--medium  ] icon-left-big"
-            ng-click="navigateToWall(gymId, wallId)" >
-            Back
-        </button>
+            <button ng-show="isEditMode"
+                class="[ btn--secondary btn--medium left  ] icon-left-big  display--block"
+                ng-click="navigateToRoute(gymId, wallId, routeId)" >
+                Back
+            </button>
 
-        <button ng-show="isEditMode"
-            class="[ btn--secondary btn--medium  ] icon-left-big"
-            ng-click="navigateToRoute(gymId, wallId, routeId)" >
-            Back
-        </button>
+            <button class="[ btn--primary  btn--medium  ] right  "
+                        ng-click="saveClicked()"
+                        ng-show="isEditMode">
+                    Save Changes
+            </button>
+        </div>
 
         <h1 ng-hide="isEditMode" class="icon-pencil" >
             Add Route
         </h1>
 
-        <h1 ng-show="isEditMode" class="icon-pencil">
+        <h1 ng-show="isEditMode" class=" icon-pencil">
             Edit Route
         </h1>
 
-        <div class="header-divider">
-
-        </div>
     </div>
 
 </section>
 
 
-<section class="row" ng-show="hasSetters()">
+<section class="row" ng-show="hasSetters()" data-ui-component="route-editInformation">
 
     <div class="small-12 columns">
 
@@ -98,12 +102,6 @@
 
             <input type="text"  ng-model="form.note"
             placeholder="note">
-
-            <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
-                    ng-click="saveClicked()"
-                    ng-show="isEditMode">
-                Save Changes
-            </button>
 
             <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
                 ng-click="addClicked()"

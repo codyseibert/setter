@@ -64,6 +64,14 @@ var UsersController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theUsersDao.setHomeGym(userId, gymId, callback);
     };
+
+    this.getActivityStream = function (pReq, pRes) {
+        var userId,
+            callback;
+        userId = pReq.params.userId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theUsersDao.getActivityStream(userId, callback);
+    };
 };
 
 module.exports = new UsersController();

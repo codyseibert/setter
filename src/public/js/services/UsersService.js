@@ -45,6 +45,12 @@ angular.module('SETTER')
                         gymId: pGymId
                     }
                 });
-            }
+            },
+            getActivityStream: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/activity"
+                });
+            },
         };
     }]);

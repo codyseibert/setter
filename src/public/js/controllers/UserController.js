@@ -9,12 +9,14 @@ angular.module('SETTER')
         'LoginService',
         'UsersService',
         'BarGraphHelperService',
+        'DateFormatService',
         function (
             $scope,
             $routeParams,
             LoginService,
             UsersService,
-            BarGraphHelperService
+            BarGraphHelperService,
+            DateFormatService
         ) {
             'use strict';
 
@@ -272,6 +274,14 @@ angular.module('SETTER')
                     $scope.image = pData;
                 });
 
+            UsersService.getActivityStream($scope.userId)
+                .success(function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = DateFormatService.format(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.activity = pData;
+                });
 
             $scope.uploadImage = function () {
                 angular.element("#image_file").trigger('click');

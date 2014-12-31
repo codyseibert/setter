@@ -192,6 +192,9 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         UsersController.setHomeGym);
 
+    app.get('/api/users/:userId/activity',
+        UsersController.getActivityStream);
+
     // SUGGESTIONS
     app.get('/api/suggestions',
         InjectAccountId,

@@ -41,13 +41,17 @@
 
                <div class="flag-body">
 
-                  <select class="[ select--tetriary  select--medium ] right" ng-model="form.boulderGrade"
-                               ng-options="grade.name for grade in boulderGrades">
-                   </select>
-
-                   <select class="[ select--tetriary  select--medium ] right" ng-model="form.ropeGrade"
+                <label class="[ select--medium select--tetriary  ] right">
+                      <select name="grade" id="routeGrade" ng-model="form.boulderGrade"
+                         ng-options="grade.name for grade in boulderGrades">
+                    </select>
+                </label>
+                <label class="[ select--medium select--tetriary  ] right">
+                   <select name="ropeGrades" id="routeGrade" ng-model="form.ropeGrade"
                                ng-options="grade.name for grade in ropeGrades">
                    </select>
+                </label>
+
 
                </div>
 
@@ -59,11 +63,11 @@
                 <h3 class="flag-image">Setter</h3>
 
                <div class="flag-body">
-
-                    <select class="[ select--tetriary  select--medium ] right" ng-model="form.setter"
-                                ng-options="setter.name for setter in setters">
-                    </select>
-
+                    <label class="[ select--medium select--tetriary  ] right">
+                       <select name="ropeGrades" id="routeGrade" ng-model="form.setter"
+                                   ng-options="setter.name for setter in setters">
+                        </select>
+                    </label>
                </div>
 
             </div>
@@ -74,16 +78,17 @@
 
                <div class="flag-body">
 
-                    <select class="[ select--secondary  select--medium ] right" ng-model="form.color"
-                                ng-style="{color: text_color}"
+                    <label class="[ select--medium select--tetriary  ] right">
+                       <select name="ropeGrades" id="routeGrade" ng-model="form.color"
+                                   ng-style="{color: text_color}"
                                 ng-change="colorChanged()">
-                        <option value="{{color.id}}"
-                                    ng-style="{color: color.value}"
-                                    ng-repeat="color in colors">
-                            {{color.name}}
-                        </option>
-                    </select>
-
+                            <option value="{{color.id}}"
+                                        ng-style="{color: color.value}"
+                                        ng-repeat="color in colors">
+                                {{color.name}}
+                            </option>
+                        </select>
+                    </label>
                </div>
 
             </div>

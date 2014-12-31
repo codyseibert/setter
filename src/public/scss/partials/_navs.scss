@@ -18,8 +18,8 @@ body
 
 .off-canvas-wrap,
 .inner-wrap {
-  height: inherit; 
-  overflow: visible; 
+  // height: inherit; 
+  // overflow: visible; 
 }
 
 
@@ -179,7 +179,7 @@ body
   }
   a > img {
     padding: rem-calc(6);
-    margin-right: rem-calc(12);
+    margin-right: rem-calc(16);
     opacity: .7; 
   }
 }

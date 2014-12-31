@@ -29,7 +29,7 @@
     <div class="small-12 columns" ng-show="isGymAccount()">
         <div class="picture mb4"
             style="height: 100px; width: 300px; display: inline-block; cursor: pointer; border: 2px dotted black;"
-            ng-click="getAccountId() === gymId && uploadImage()">
+                ng-click="getAccountId() === gymId && uploadImage()">
             <img style="height: 100%" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
         </div>
     </div>
@@ -49,6 +49,10 @@
     <div class="mb4  small-12  medium-4 columns">
         <button class="btn--primary  btn--medium  btn--expanded" ng-click="navigateToWalls(gymId)">
             <i class="icon-th-list"> </i> Gym's Zones <i class="icon-right-big"> </i>
+        </button>
+
+        <button ng-show="isUserAccount()" class="btn--primary  btn--medium  btn--expanded" ng-click="navigateToGymSuggestions(gymId)">
+            <i class="icon-mail-alt"> </i> Post Suggestion <i class="icon-right-big"> </i>
         </button>
     </div>
 </div>

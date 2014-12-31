@@ -84,6 +84,12 @@
                         </li>
 
                         <li class="button"
+                            ng-click="navigateToGymSuggestions(getAccountId())"
+                            ng-show="isGymAccount()">
+                            <a class="icon-mail-alt"> Gym Suggestions</a>
+                        </li>
+
+                        <li class="button"
                             ng-click="navigateToGym(getHomeGymId())"
                             ng-show="getHomeGymId()">
                             <a class="icon-home"> Your Home Gym</a>
@@ -183,6 +189,7 @@
             <script src="js/controllers/ContactController.js"></script>
             <script src="js/controllers/RouteManagerController.js"></script>
             <script src="js/controllers/BlogController.js"></script>
+            <script src="js/controllers/GymSuggestionsController.js"></script>
 
             <!-- Directives -->
 
@@ -205,6 +212,7 @@
             <script src="js/services/DateFormatService.js"></script>
             <script src="js/services/BarGraphHelperService.js"></script>
             <script src="js/services/BlogService.js"></script>
+            <script src="js/services/GymSuggestionsService.js"></script>
         <!-- /build -->
     </body>
 </html>

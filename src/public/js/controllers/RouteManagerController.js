@@ -105,7 +105,7 @@ angular.module('SETTER')
                     $scope.ropeGradeInputs = getUniqueSet(pData, 'rope_grade', 'rope_grade_id');
                     $scope.setterInputs = getUniqueSet(pData, 'setter');
                     $scope.activeInputs = getUniqueSet(pData, 'active');
-                    
+
                     sortByValue($scope.zoneInputs);
                     sortByValue($scope.colorInputs);
                     sortByExtra($scope.boulderGradeInputs);

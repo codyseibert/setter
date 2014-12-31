@@ -59,6 +59,9 @@ var RouteToControllerBinder = function () {
     app.get('/api/gyms/:gymId/image',
         GymsController.getGymImage);
 
+    app.get('/api/gyms/:gymId/activity',
+        GymsController.getActivityStream);
+
     // WALLS
     app.get('/api/gym/:gymId/walls',
         WallsController.getWallsInGym);

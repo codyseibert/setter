@@ -74,6 +74,11 @@ angular.module('SETTER')
                     $scope.image = pData;
                 });
 
+            GymsService.getActivityStream($scope.gymId)
+                .success(function (pData) {
+                    $scope.activity = pData;
+                });
+
             $scope.setHomeGym = function () {
                 var yes = confirm("Are you sure you want to make " + $scope.gym.name + " your new home gym?");
                 if (!yes) {

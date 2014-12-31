@@ -48,6 +48,12 @@ angular.module('SETTER')
                     method: 'GET',
                     url: 'api/gyms/' + pGymId + '/routes/rope'
                 });
+            },
+            getActivityStream: function (pGymId) {
+                return $http({
+                    method: 'GET',
+                    url: 'api/gyms/' + pGymId + '/activity'
+                });
             }
         };
     }]);

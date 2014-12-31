@@ -61,6 +61,14 @@ var GymsController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getHomeGymUsers(gymId, callback);
     };
+
+    this.getActivityStream = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getActivityStream(gymId, callback);
+    };
 };
 
 module.exports = new GymsController();

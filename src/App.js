@@ -19,14 +19,20 @@ var logger = require('morgan');
 var App = function () {
     'use strict';
     var app = express();
-    var time = 86400000 * 2; // 2 Days Cache
+
     app.use(bodyParser.json());
     app.use(cookieParser());
-    app.use(logger('dev'));
-    //app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
     app.use(multer({dest: __dirname + '/public/images/uploads'}));
-    app.use(express.static(__dirname + '/public'));
-    //app.use(express.static(__dirname + '/public', {maxAge: time}));
+    //app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
+
+    if (process.env.SETTER_PRODUCTION) {
+        var days2 = 86400000 * 2;
+        app.use(express.static(__dirname + '/public', {maxAge: days2}));
+    } else {
+        app.use(express.static(__dirname + '/public'));
+        app.use(logger('dev'));
+    }
+
     return app;
 };
 

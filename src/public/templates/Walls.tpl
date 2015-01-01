@@ -3,7 +3,7 @@
         <div class="clearfix  display--block">
             <button ng-hide="isGymAccount()"
                     class="[ btn--secondary btn--medium left  ] icon-left-big  left "
-                    ng-click="back()" >
+                    ng-click="navigateToGym(gymId)" >
                     Gym
             </button>
         </div>

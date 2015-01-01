@@ -29,12 +29,14 @@ var LoginHelper = function () {
                 pRes.send(theMessages.ERROR);
                 return;
             }
-
+            
             pRes.send({
                 token: pResults.token,
                 accountType: pResults.type_id,
                 accountId: pAccountId,
-                homeGymId: pResults.gym_id
+                homeGymId: pResults.gym_id,
+                url: pResults.url,
+                fullname: pResults.fullname
             });
         });
     };

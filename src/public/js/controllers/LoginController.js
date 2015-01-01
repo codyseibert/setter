@@ -16,10 +16,13 @@ angular.module('SETTER')
         $scope.login = function () {
             LoginService.login($scope.form)
                 .success(function (pData) {
+                    console.log('data returned', pData);
                     LoginService.setHeader(pData.token);
                     LoginService.setAccountType(pData.accountType);
                     LoginService.setAccountId(pData.accountId);
                     LoginService.setHomeGymId(pData.homeGymId);
+                    LoginService.setImageUrl(pData.url);
+                    LoginService.setName(pData.fullname);
                     LoginService.navigateToCorrectProfile();
                 });
         };

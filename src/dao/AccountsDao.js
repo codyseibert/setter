@@ -62,9 +62,10 @@ var AccountsDAO = function () {
 
     this.getAccountInfo = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id FROM accounts a ' +
+            'SELECT i.url, u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id FROM accounts a ' +
                 'LEFT JOIN users u ON u.account_id = a.id ' +
                 'LEFT JOIN gyms g ON g.account_id = a.id ' +
+                'LEFT JOIN images i ON i.id = a.image_id ' +
                 'WHERE a.id = ?',
             [pAccountId],
             theDaoHelper.SINGLE,
@@ -74,10 +75,11 @@ var AccountsDAO = function () {
 
     this.getAccountInfoWithToken = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id, a.token FROM accounts a ' +
-            'LEFT JOIN users u ON u.account_id = a.id ' +
-            'LEFT JOIN gyms g ON g.account_id = a.id ' +
-            'WHERE a.id = ?',
+            'SELECT i.url, CONCAT(u.firstname, \' \', u.lastname) AS fullname, u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id, a.token FROM accounts a ' +
+                'LEFT JOIN users u ON u.account_id = a.id ' +
+                'LEFT JOIN gyms g ON g.account_id = a.id ' +
+                'LEFT JOIN images i ON i.id = a.image_id ' +
+                'WHERE a.id = ?',
             [pAccountId],
             theDaoHelper.SINGLE,
             pCallback
@@ -85,7 +87,6 @@ var AccountsDAO = function () {
     };
 
     this.updateImage = function (pImageId, pAccountId, pCallback) {
-        console.log("should be updating the image id in account", pImageId, pAccountId);
         theDaoHelper.executeQuery(
             'UPDATE accounts SET image_id = ? WHERE id = ?',
             [pImageId, pAccountId],

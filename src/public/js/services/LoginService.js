@@ -9,7 +9,9 @@ angular.module('SETTER')
             GYM_TYPE = 2,
             accountType = USER_TYPE,
             homeGymId = null,
-            accountId = null;
+            accountId = null,
+            url = null,
+            name = null;
 
         return {
             login: function (pLoginInfo) {
@@ -42,12 +44,18 @@ angular.module('SETTER')
             setAccountIdFromCookie: function () {
                 accountId = parseInt($cookies.accountId, 10);
             },
+            setImageUrlFromCookie: function () {
+                url = $cookies.url;
+            },
             setHomeGymIdFromCookie: function () {
                 homeGymId = $cookies.homeGymId;
 
                 if ($cookies.homeGymId) {
                     homeGymId = parseInt($cookies.homeGymId, 10);
                 }
+            },
+            setNameFromCookie: function () {
+                name = $cookies.name;
             },
             hasTokenInCookie: function () {
                 return $cookies.token !== undefined;
@@ -57,6 +65,8 @@ angular.module('SETTER')
                 delete $cookies.accountType;
                 delete $cookies.accountId;
                 delete $cookies.homeGymId;
+                delete $cookies.url;
+                delete $cookies.name;
                 delete $http.defaults.headers.common.Authorization;
                 $location.path("login");
             },
@@ -77,6 +87,14 @@ angular.module('SETTER')
                 homeGymId = pHomeGymId;
                 $cookies.homeGymId = pHomeGymId;
             },
+            setImageUrl: function (pUrl) {
+                url = pUrl;
+                $cookies.url = url;
+            },
+            setName: function (pName) {
+                name = pName;
+                $cookies.name = pName;
+            },
             getHomeGymId: function () {
                 return homeGymId;
             },
@@ -85,6 +103,12 @@ angular.module('SETTER')
             },
             getAccountId: function () {
                 return accountId;
+            },
+            getImageUrl: function () {
+                return url;
+            },
+            getName: function () {
+                return name;
             },
             isGymAccount: function () {
                 return accountType === GYM_TYPE;

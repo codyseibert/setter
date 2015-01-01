@@ -233,5 +233,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'mm.foundation', '
             LoginService.setTypeFromCookie();
             LoginService.setAccountIdFromCookie();
             LoginService.setHomeGymIdFromCookie();
+            LoginService.setImageUrlFromCookie();
+            LoginService.setNameFromCookie();
         }
     }]);

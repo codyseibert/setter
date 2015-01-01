@@ -10,13 +10,15 @@ angular.module('SETTER')
         'RatingsService',
         'SendsService',
         'DateFormatService',
+        'LoginService',
         function ($scope,
             $routeParams,
             RoutesService,
             CommentsService,
             RatingsService,
             SendsService,
-            DateFormatService) {
+            DateFormatService,
+            LoginService) {
             'use strict';
 
             $scope.gymId = $routeParams.gymId;
@@ -88,7 +90,9 @@ angular.module('SETTER')
                         $scope.comments.push({
                             id: pData.id,
                             message: $scope.form.message,
-                            date: DateFormatService.formatWithTime(moment())
+                            date: DateFormatService.formatWithTime(moment()),
+                            url: LoginService.getImageUrl(),
+                            name: LoginService.getName()
                         });
                         $scope.form.message = "";
                     });

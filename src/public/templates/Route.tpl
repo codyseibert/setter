@@ -6,7 +6,7 @@
             ng-click="navigateToWall(gymId, wallId)" >
             <span ng-show="isGymAccount()"> Manage</span> Wall
         </button>
-    
+
         <div  class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">
 
                 <button class="[ btn--primary  btn--medium ] icon-pencil" ng-click="edit()" ng-hide="isEditMode">
@@ -14,7 +14,7 @@
                 </button>
 
                 <button class="btn--secondary btn--medium icon-down-big " ng-click="strip()">
-                    Strip Route 
+                    Strip Route
                 </button>
         </div>
 
@@ -57,7 +57,7 @@
                </div>
 
             </div>
-            
+
              <div class="flag  mb3">
                 <h3 class="flag-image">
                 Setter
@@ -170,11 +170,11 @@
                 {{send.name}}
             </div>
 
-        </div>          
+        </div>
     </div>
- 
 
-    <div class="[ small-12 columns ]  [ text-center  mb3 ] ">
+
+    <div class="[ small-12 columns ]  [ text-center  mb3 ] " ng-show="getAccountId() === gymId">
         <a class=" icon-trash" ng-click="delete()">
             Delete Route Permanently
         </a>

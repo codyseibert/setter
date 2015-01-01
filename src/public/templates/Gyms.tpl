@@ -25,15 +25,15 @@
     <div class="small-12 columns header">
         <div ng-repeat="gym in gyms"
                 style="cursor: pointer; margin-bottom: 30px;"
-                ng-show="gym.show">
+                ng-show="gym.show"
+                ng-click="navigateToGym(gym.account_id)">
 
             <div style="height: 100px; width: 200px; display: inline-block; cursor: pointer; float: left; margin-right: 10px;">
                 <img style="height: 100%; width: 100%;"
                     ng-src="{{gym.url !== '' && gym.url || 'images/no_gym_image.png'}}">
             </div>
 
-            <div class="gym"
-                ng-click="navigateToGym(gym.account_id)">
+            <div class="gym">
                 <h2>{{gym.name}}</h2>
                 <h3>{{gym.address}}</h3>
             </div>

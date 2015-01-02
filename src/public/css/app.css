@@ -6227,6 +6227,9 @@ ol {
   position: relative;
   display: block; }
 
+.main-section {
+  min-height: 660px; }
+
 .route {
   text-align: justify; }
   @media (min-width: 940px) {
@@ -7034,7 +7037,6 @@ input[type="submit"] {
   color: orange; }
 
 footer {
-  margin-top: 6.25rem;
   background-color: #ed6d56;
   height: 6.25rem;
   clear: both;

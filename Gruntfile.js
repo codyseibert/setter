@@ -245,6 +245,7 @@ module.exports = function(grunt) {
             dist: {
                 options:{
                     compass: true,
+                    update: true,
                     loadPath: 'src/public/bower_components/foundation/scss'
                 },
                 files: {

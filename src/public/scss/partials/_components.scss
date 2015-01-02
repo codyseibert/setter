@@ -16,7 +16,7 @@
 
 [class*="avatar"] {
   @include border-radius(100%);
-  background-color: $grey--medlight; 
+  background-color: $grey--medlight;
 }
 
 
@@ -27,11 +27,11 @@
 
 .avatar--big {
   height: rem-calc(100);
-  width: rem-calc(100);  
+  width: rem-calc(100);
 }
 
 .avatar--bigger {
-  height: rem-calc(128); 
+  height: rem-calc(128);
   width: rem-calc(128);
 }
 
@@ -64,13 +64,13 @@
 
 .rating--medium {
   & > * {
-    @extend %icon--medium; 
+    @extend %icon--medium;
   }
 }
 
 .rating--big {
   & > * {
-    @extend %icon--big; 
+    @extend %icon--big;
   }
 }
 
@@ -86,90 +86,91 @@
 
 .section {
   position: relative;
-  display: block; 
+  display: block;
 }
 
 .main-section {
-  @extend %mb5; 
+  @extend %mb5;
+  min-height: 660px;
 }
 
 
 
 //
-//Route Object  
+//Route Object
 //
 
 // .route {
 //   [class*="route-"] {
-//     display: inline; 
+//     display: inline;
 //     margin-right: rem-calc(20);
 //   }
 // }
 
 .route {
   @extend %ptb2;
-  text-align: justify; 
+  text-align: justify;
   @include breakpoint(mama-bear) {
     font-size: rem-calc(14);
   }
-  
+
   .route-mainInfo {
     @include breakpoint(mama-bear) {
-      display: inline-block; 
-      float: left; 
-      width: 25%; 
+      display: inline-block;
+      float: left;
+      width: 25%;
     }
 
     .route-actions {
       @include breakpoint(mama-bear) {
-        display: none; 
+        display: none;
       }
     }
   }
 }
 
 //
-//Makes Route Always Have  Dropdown to secondary content 
+//Makes Route Always Have  Dropdown to secondary content
 //
 
 .route--alwaysPortable {
   .route-mainInfo {
     @include breakpoint(mama-bear) {
-      display: inline-block; 
-      float: left; 
-      width: 100%; 
+      display: inline-block;
+      float: left;
+      width: 100%;
     }
 
     .route-actions {
       @include breakpoint(mama-bear) {
-        display: inline-block; 
+        display: inline-block;
       }
     }
   }
 
   .route-secondaryInfo {
     @include breakpoint(mama-bear) {
-      display: none; 
+      display: none;
     }
   }
 }
 
 
 .route-mainInfo {
-  @extend %clearfix; 
-  
+  @extend %clearfix;
+
   //Styles for the elements inside the mainInfo
   & > span {
-    display: inline-block; 
+    display: inline-block;
     vertical-align: middle;
-    @extend %mr2; 
+    @extend %mr2;
     &:last-child {
       @extend %mr0;
-      float: right; 
+      float: right;
     }
-  
+
     @include breakpoint(mama-bear) {
-      margin-right: 6%; 
+      margin-right: 6%;
     }
   }
 }
@@ -178,76 +179,76 @@
 //Visible in Desktop Only
 //
 .route-secondaryInfo {
-  @extend %right; 
-  display: none; 
-  width: 75%; 
-  
+  @extend %right;
+  display: none;
+  width: 75%;
+
   & > span {
-    display: inline-block; 
+    display: inline-block;
     vertical-align: middle;
-    margin-right: 1%; 
+    margin-right: 1%;
     @include breakpoint(mama-bear) {
-      margin-right: 3%; 
+      margin-right: 3%;
 
       &:last-child {
-        margin-right: 0; 
+        margin-right: 0;
       }
-      
+
     }
   }
 
   @include breakpoint(mama-bear) {
-    display: inline-block; 
-    float: right; 
+    display: inline-block;
+    float: right;
   }
 
   .route-rating {
-    .star:before, 
+    .star:before,
     .star--empty:before {
-      @extend %mr0; 
-      @extend %icon--medium; 
+      @extend %mr0;
+      @extend %icon--medium;
     }
   }
 
   .route-actions {
-    @extend %right; 
+    @extend %right;
   }
 
 }
 
 
 .route-checkbox {
-  @extend %mr0; 
+  @extend %mr0;
 }
 
 
 
 //
-//Route Info On Mobile Only 
+//Route Info On Mobile Only
 //
 
 .route-moreInfo {
   padding-left: 0;
   padding-right: 0;
-  text-align: left; 
+  text-align: left;
 
-  .route-grade, 
+  .route-grade,
   .route-rating,
   .route-type {
     @extend %mr2;
-    @extend %align-vertically; 
+    @extend %align-vertically;
   }
 
   .route-rating {
-    .star:before, 
+    .star:before,
     .star--empty:before {
       @extend %mr0;
-      @extend %icon--medium; 
+      @extend %icon--medium;
     }
   }
-  
+
   .route-moreInfo-link {
-    @extend %right; 
+    @extend %right;
     margin-top: rem-calc(4);
   }
 }
@@ -262,7 +263,7 @@
   display: block;
   width: rem-calc(24);
   height: rem-calc(24);
-  border: 1px solid $grey--medlight; 
+  border: 1px solid $grey--medlight;
 }
 
 
@@ -273,38 +274,38 @@
     $code: nth($val, 2);
 
     .route-color--#{$colorName} {
-      background-color: $code; 
+      background-color: $code;
 
       &:hover {
-        background-color: $code !important; 
+        background-color: $code !important;
       }
     }
 }
 
 //
-//Topos 
+//Topos
 //
 
 .topo {
-  border: 4px solid $grey--medlight; 
+  border: 4px solid $grey--medlight;
   min-height: rem-calc(100);
   max-height: rem-calc(140);
-  width: 100%; 
-  overflow: hidden; 
-  display: table; 
+  width: 100%;
+  overflow: hidden;
+  display: table;
 
   img {
-    vertical-align: middle; 
-    height: auto; 
-    width: 100%; 
+    vertical-align: middle;
+    height: auto;
+    width: 100%;
   }
 }
 
 .zoneMarker {
-  fill: $primaryColor; 
+  fill: $primaryColor;
 
   &:hover {
-    fill: darken($primaryColor, 15%); 
+    fill: darken($primaryColor, 15%);
   }
 }
 
@@ -323,62 +324,62 @@
 
 
 .wall-mainInfo {
-    @extend %clearfix; 
+    @extend %clearfix;
 
   & > span {
-    display: inline-block; 
+    display: inline-block;
     vertical-align: middle;
-    @extend %mr2; 
+    @extend %mr2;
     &:last-child {
       @extend %mr0;
-      float: right; 
+      float: right;
     }
-  
+
     @include breakpoint(mama-bear) {
-      margin-right: 6%; 
+      margin-right: 6%;
     }
   }
 
   @include breakpoint(mama-bear) {
     display: inline-block;
-    float: left;  
-    width: 30%; 
+    float: left;
+    width: 30%;
   }
 
   .wall-actions {
     @include breakpoint(mama-bear) {
-      display: none; 
+      display: none;
     }
   }
 }
 
 
 //
-//Route Info On Mobile Only 
+//Route Info On Mobile Only
 //
 
 .wall-moreInfo {
   padding-left: 0;
   padding-right: 0;
-  text-align: left; 
+  text-align: left;
 
-  .wall-grade, 
+  .wall-grade,
   .wall-rating,
   .wall-totalRoutes {
     @extend %mr3;
-    @extend %align-vertically; 
+    @extend %align-vertically;
   }
 
   .wall-rating {
-    .star:before, 
+    .star:before,
     .star--empty:before {
       @extend %mr0;
-      @extend %icon--medium; 
+      @extend %icon--medium;
     }
   }
-  
+
   .wall-moreInfo-link {
-    @extend %right; 
+    @extend %right;
     margin-top: rem-calc(4);
   }
 }
@@ -390,51 +391,51 @@
 //
 
 .wall-secondaryInfo {
-  @extend %right; 
-  display: none; 
-  width: 70%; 
+  @extend %right;
+  display: none;
+  width: 70%;
 
   & > span {
-    display: inline-block; 
+    display: inline-block;
     vertical-align: middle;
-    margin-right: 1%; 
+    margin-right: 1%;
     @include breakpoint(mama-bear) {
-      margin-left: 7%; 
+      margin-left: 7%;
 
       &:last-child {
-        margin-right: 0; 
+        margin-right: 0;
       }
-      
+
     }
   }
 
   @include breakpoint(mama-bear) {
-  display: inline-block; 
-  float: right; 
+  display: inline-block;
+  float: right;
   }
 
   .wall-rating {
-    .star:before, 
+    .star:before,
     .star--empty:before {
-      @extend %mr0; 
-      @extend %icon--medium; 
+      @extend %mr0;
+      @extend %icon--medium;
     }
   }
 
   .wall-actions {
-    @extend %right; 
+    @extend %right;
   }
 
 }
 
 
 //
-//Gym Page Header Object 
+//Gym Page Header Object
 //
 
 .gymDashHeader-content {
   .title {
-    @extend %display--inline; 
+    @extend %display--inline;
     width: rem-calc(166);
   }
 }
@@ -442,17 +443,17 @@
 
 
 //
-//Setter Profile   
+//Setter Profile
 //
 
 .setter-profile-avatar {
   @include border-radius(100%);
-  overflow: hidden; 
-  height: 100px; 
-  width: 100px; 
-  
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+
   .avatar-image {
-    vertical-align: top; 
+    vertical-align: top;
 
   }
 }
@@ -463,15 +464,15 @@
 //
 
 .gymImageContainer {
-  border: 1px solid $grey--medlight; 
-  background-color: $grey--light; 
+  border: 1px solid $grey--medlight;
+  background-color: $grey--light;
   min-height: rem-calc(120);
   width: 100%;
 }
 
 
 //
-//Editable Information on Click Object 
+//Editable Information on Click Object
 //
 
 
@@ -480,30 +481,25 @@
 //
 
 .logInForm-container {
-  @extend %placement--center;  
+  @extend %placement--center;
   max-width: rem-calc(380);
-  display: block; 
+  display: block;
 }
 
 //
-//Header 
+//Header
 //
 
 .header {
-  @include grid-column(12, nest); 
-  @extend %mt3; 
-  @extend %mb2; 
-  @extend %clearfix; 
+  @include grid-column(12, nest);
+  @extend %mt3;
+  @extend %mb2;
+  @extend %clearfix;
 
   .header-divider {
-    @extend %mt2; 
-    @extend %display--block; 
-    @extend %left; 
-    width: 100%; 
+    @extend %mt2;
+    @extend %display--block;
+    @extend %left;
+    width: 100%;
   }
 }
-
-
-
-
-

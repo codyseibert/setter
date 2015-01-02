@@ -15,12 +15,6 @@ var theMessages = require('../Messages');
 var theLoginHelper = require('./LoginHelper');
 var theCrypt = require('../Crypt');
 
-/**
-*   Logic for all account requests
-*
-*   @Author Cody Seibert
-*   @Date 12/7/2014
-*/
 var LoginController = function () {
     'use strict';
 

@@ -10,3 +10,10 @@ COMMANDS
     curl -sL https://deb.nodesource.com/setup | sudo bash -
     sudo apt-get install nodejs
     sudo apt-get install imagemagick
+
+ENV VARIABLES
+    export SETTER_DB_HOST="localhost"
+    export SETTER_DB_NAME="setter"
+    export SETTER_DB_USER="root"
+    export SETTER_DB_PASS="itisag00ddayt0die9921"
+    export SETTER_PRODUCTION=true

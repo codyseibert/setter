@@ -241,6 +241,18 @@ module.exports = function(grunt) {
             }
         },
 
+        sass: {
+            dist: {
+                options:{
+                    compass: true,
+                    loadPath: 'src/public/bower_components/foundation/scss'
+                },
+                files: {
+                    'src/public/css/app.css': 'src/public/scss/app.scss'
+                }
+            }
+        },
+
         csslint: {
             strict: {
                 options: {

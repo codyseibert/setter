@@ -1,6 +1,6 @@
 
 /*------------------------------------*\
-    #Button Styles
+    #Buttons
 \*------------------------------------*/
 
 
@@ -13,7 +13,6 @@ input[type="submit"] {
   font-family: $primaryFont;
   outline: 0;
     padding: 0.4rem;
-  height: 3rem;
 }
 
 
@@ -55,6 +54,16 @@ input[type="submit"] {
     &:hover {
       color: $grey--medium;
     }
+  }
+
+  &.active {
+    @include button($grey--dark) {
+      &, 
+      &:hover {
+        color: $grey--medium; 
+      }
+    }
+    
   }
 }
 

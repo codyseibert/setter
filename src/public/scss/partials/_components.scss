@@ -1,9 +1,18 @@
 
 
+/*------------------------------------*\
+    #Components
+\*------------------------------------*/
 
-//
-//User Avatar/Profile Object 
-//
+
+
+
+
+
+/*------------------------------------*\
+    #Avatars
+\*------------------------------------*/
+
 
 [class*="avatar"] {
   @include border-radius(100%);
@@ -33,9 +42,13 @@
 }
 
 
-//
-//Rating Object 
-//
+
+
+
+/*------------------------------------*\
+    #Ratings
+\*------------------------------------*/
+
 
 .rating {
   i:before {
@@ -62,10 +75,22 @@
 }
 
 
-//Sections 
+
+
+
+
+/*------------------------------------*\
+    #Sections
+\*------------------------------------*/
+
+
 .section {
   position: relative;
   display: block; 
+}
+
+.main-section {
+  @extend %mb5; 
 }
 
 
@@ -83,7 +108,7 @@
 
 .route {
   @extend %ptb2;
-
+  text-align: justify; 
   @include breakpoint(mama-bear) {
     font-size: rem-calc(14);
   }

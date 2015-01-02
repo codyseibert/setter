@@ -149,15 +149,28 @@ angular.module('SETTER')
             $scope.getFilterStyle = function (pFilter) {
                 var border = '1px solid black';
                 var bg = '#Fd7d66';
+                var activeClass = '';
                 if (!pFilter.enabled) {
                     border = '1px dotted black';
                     bg = '#EEE';
+                    activeClass = 'active'; 
                 }
                 return {
                     'background-color': bg,
-                    'border': border
+                    'border': border, 
+                    class : activeClass
                 };
             };
+
+            // $scope.activateElem = function (pFilter) {
+            //     var activeClass = 'active'
+            //     if (!pFilter.enabled) {
+            //         activeClass= 'active'
+            //     }
+            //     return {
+            //        class : 'active'
+            //     };
+            // };
 
             $scope.getFilterIconStyle = function (pFilter) {
                 var color = '#Fd7d66';

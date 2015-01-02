@@ -23,6 +23,7 @@ $color--rating: #f3db54;
 
 //Salmon
 $primaryColor: #ed6d56;
+$primaryColor--light: lighten($primaryColor, 25% ); 
 
 //$primaryColor: #ff7f00;
 
@@ -33,9 +34,6 @@ $primaryColor: #ed6d56;
 //$primaryColor: #e36f41; 
 
 $burnt-sienna: #e96851; 
-
-
-$primaryColor--light: $grey--light; 
 
 $red: #D52D26; 
 

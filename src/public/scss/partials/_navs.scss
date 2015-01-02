@@ -4,7 +4,8 @@
 \*------------------------------------*/
 
 
-html {
+html, 
+body {
   height: 100%; 
 }
 
@@ -16,12 +17,9 @@ body
 }
 
 
-.off-canvas-wrap,
-.inner-wrap {
-  // height: inherit; 
-  // overflow: visible; 
+.off-canvas-wrap {
+  min-height: 100%; 
 }
-
 
 .main-wrap {
   @extend %transition--moving; 

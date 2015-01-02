@@ -14,8 +14,8 @@
 
 
     <div class="small-12 columns">
-        <h1 ng-show="isGymAccount()" class="icon-home"> Your Dashboard</h1>
-        <h1 ng-show="isUserAccount()" class="icon-home"> {{gym.name}}</h1>
+        <h1 ng-show="isGymAccount()" class="icon-home testQuery"> Your Dashboard</h1>
+        <h1 ng-show="isUserAccount()" class="icon-home testQuery"> {{gym.name}}</h1>
     </div>
 
 

@@ -27,7 +27,7 @@
 
     &:hover,
     &:focus {
-      background-color: #FAA58D; 
+      background-color: $primaryColor--light; 
     }
   }
 
@@ -73,13 +73,13 @@
 
 .list--stats {
 
-  .list--stats-title {
+  .list-title {
     @extend %fwl; 
     @extend %mb1; 
     @extend %txtc2; 
   }
 
-  .list--stats-topElem {
+  .list-primaryElem {
     @extend %pb1;
     @extend %pt2; 
 
@@ -98,12 +98,12 @@
 
   }
 
-  .list--stats-position {
+  .list-position {
     @extend %txtc2; 
     @extend %mr2; 
   }
   
-  .list--stats-elem {
+  .list-elem {
 
     a {
       @extend %txtc2; 
@@ -124,32 +124,32 @@
 }
 
 
-.list--legend-position {
-  @extend %fwb; 
-  @extend %mr2;
-  color: $primaryColor; 
-}
+// .list--legend-position {
+//   @extend %fwb; 
+//   @extend %mr2;
+//   color: $primaryColor; 
+// }
 
-.topo-ZoneMarker {
-  @extend %text--micro;
-  @include border-radius(100%);
-  @include single-transition(all, .1s, ease-in-out);
-  background-color: $primaryColor; 
-  color: #fff; 
-  line-height: 20px; 
-    width: 20px;
-    height: 20px;
-    margin: 40px; /*for centering purposes*/
-  position: absolute; 
+// .topo-ZoneMarker {
+//   @extend %text--micro;
+//   @include border-radius(100%);
+//   @include single-transition(all, .1s, ease-in-out);
+//   background-color: $primaryColor; 
+//   color: #fff; 
+//   line-height: 20px; 
+//     width: 20px;
+//     height: 20px;
+//     margin: 40px; /*for centering purposes*/
+//   position: absolute; 
 
-  &:hover {
-    line-height: 24px; 
-    width: 24px;
-    height: 24px;
-    margin: 10px; /* inital margin - ((intial margin - width (or height))/2) */
-  }
+//   &:hover {
+//     line-height: 24px; 
+//     width: 24px;
+//     height: 24px;
+//     margin: 10px; /* inital margin - ((intial margin - width (or height))/2) */
+//   }
  
-}
+// }
 
 
 // .list--inlineOnDesktop {

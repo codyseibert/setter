@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, confirm: false, moment: false */
 
 angular.module('SETTER')
-    .factory('BlogService', function ($http) {
+    .factory('BlogService', ['$http', function ($http) {
         'use strict';
 
         return {
@@ -31,4 +31,4 @@ angular.module('SETTER')
                 });
             }
         };
-    });
+    }]);

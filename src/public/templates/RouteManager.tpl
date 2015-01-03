@@ -104,8 +104,11 @@
             <div ng-style="{'width': filter.width}" ng-repeat="filter in filters" style="display: inline-block; vertical-align: top;">
                 {{filter.name}}
                 <br>
-                <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)"> </i>
-                <i ng-click="sort(filter)" ng-class="{'icon-minus': filter.sort === 0, 'icon-down-open': filter.sort === 1, 'icon-up-open': filter.sort === 2}"> </i>
+                <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)">F</i>
+                <i ng-click="sort(filter)" ng-class="{'icon-minus': filter.sort === 0, 'icon-down-open': filter.sort === 1, 'icon-up-open': filter.sort === 2}">
+                    <span ng-show="filter.sort === 1">V</span>
+                    <span ng-show="filter.sort === 2">^</span>
+                </i>
             </div>
         </div>
 

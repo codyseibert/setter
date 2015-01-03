@@ -80,7 +80,10 @@
         <span ng-show="!hasBoulderSends">
             <h3 class="text-center fwb  mb2">No bouldering sends, yet.</h3>
 
-            <h4 class="h6  text-center"  ng-show="!hasBoulderSends"> <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".</h4>
+            <h4 class="h6  text-center"
+                ng-show="getAccountId() === userId">
+                <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".
+            </h4>
         </span>
     </div>
 
@@ -101,7 +104,10 @@
         <span ng-show="!hasRopeSends">
             <h3 class="text-center fwb  mb2">No rope sends, yet.</h3>
 
-            <h4 class="h6  text-center"  ng-show="!hasRopeSends"> <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".</h4>
+            <h4 class="h6  text-center"
+                ng-show="getAccountId() === userId">
+                <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".
+            </h4>
         </span>
 
     </div>
@@ -126,7 +132,10 @@
         <span ng-show="!hasBoulderSends">
             <h3 class="text-center fwb  mb2">No bouldering sends, yet.</h3>
 
-            <h4 class="h6  text-center"  ng-show="!hasBoulderSends"> <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".</h4>
+            <h4 class="h6  text-center"
+                ng-show="getAccountId() === userId">
+                <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".
+            </h4>
         </span>
 
     </div>
@@ -148,7 +157,10 @@
         <span ng-show="!hasRopeSends">
             <h3 class="text-center fwb  mb2">No rope sends, yet.</h3>
 
-            <h4 class="h6  text-center"  ng-show="!hasRopeSends"> <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".</h4>
+            <h4 class="h6  text-center"
+                ng-show="getAccountId() === userId">
+                <br><a ng-click="navigateToGyms()">Set a home gym</a>, and track your progress by marking routes as "sent".
+            </h4>
         </span>
 
     </div>

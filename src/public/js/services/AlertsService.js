@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, confirm: false, moment: false */
 
 angular.module('SETTER')
-    .factory('AlertsService', function ($http) {
+    .factory('AlertsService', ['$http', function ($http) {
         'use strict';
 
         return {
@@ -28,4 +28,4 @@ angular.module('SETTER')
                 });
             }
         };
-    });
+    }]);

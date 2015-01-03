@@ -122,9 +122,10 @@ angular.module('SETTER')
                 });
 
             $scope.filterClicked = function (pFilter) {
+                var key;
                 pFilter.enabled = !pFilter.enabled;
                 $scope.routes.map(function (pEntry) {
-                    var key = pFilter.key;
+                    key = pFilter.key;
                     if (pEntry[key] === pFilter.value) {
                         pEntry.show = pFilter.enabled;
                     }
@@ -156,29 +157,16 @@ angular.module('SETTER')
 
             $scope.getFilterStyle = function (pFilter) {
                 var border = '1px solid black',
-                    bg = '#Fd7d66',
-                    activeClass = '';
+                    bg = '#Fd7d66';
                 if (!pFilter.enabled) {
                     border = '1px dotted black';
                     bg = '#EEE';
-                    activeClass = 'active';
                 }
                 return {
                     'background-color': bg,
-                    'border': border,
-                    class : activeClass
+                    'border': border
                 };
             };
-
-            // $scope.activateElem = function (pFilter) {
-            //     var activeClass = 'active'
-            //     if (!pFilter.enabled) {
-            //         activeClass= 'active'
-            //     }
-            //     return {
-            //        class : 'active'
-            //     };
-            // };
 
             $scope.getFilterIconStyle = function (pFilter) {
                 var color = '#Fd7d66';
@@ -228,13 +216,11 @@ angular.module('SETTER')
                     return pEntry;
                 });
 
-                var key = pFilter.key,
-                    temp;
-
                 pFilter.sort = (pFilter.sort + 1) % 3;
+                var key = pFilter.key;
                 $scope.routes.sort(function (a, b) {
                     if (pFilter.sort === 2) {
-                        temp = a;
+                        var temp = a;
                         a = b;
                         b = temp;
                     }

@@ -20,7 +20,7 @@
         <img ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}"  class="avatar--big">
     </div>
 
-    <div class="flag-body">  
+    <div class="flag-body">
         <h1 class="title icon-user" ng-show="getAccountId() === userId"> Your Profile</h1>
         <h1 class="mb0" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
     </div>
@@ -30,12 +30,14 @@
 
     <div class="small-6 columns mb4  text-center">
         <h2 class="mb2">Bouldering</h2>
-        <h3 class="fwb h1">{{boulderGrade}}</h3>
+        <h3 class="fwb h1" ng-show="hasBoulderSends">{{boulderGrade}}</h3>
+        <h3 class="fwb" ng-show="!hasBoulderSends">No Bouldering Sends!</h3>
     </div>
 
     <div class="small-6 columns mb4  text-center">
         <h2 class="mb2">YDS</h2>
-        <h3 class="fwb h1">{{ropeGrade}}</h3>
+        <h3 class="fwb h1" ng-show="hasRopeSends">{{ropeGrade}}</h3>
+        <h3 class="fwb" ng-show="!hasRopeSends">No Rope Sends!</h3>
     </div>
 </section>
 
@@ -43,7 +45,7 @@
     <div class="medium-6 small-12 columns mb2">
         <h2>Boulder Routes Sent</h2>
         <canvas class="chart-bar"
-            ng-show="boulderSendsBarGraph.hasData"
+            ng-show="hasBoulderSends"
             data="boulderSendsBarGraph.data"
             labels="boulderSendsBarGraph.labels"
             options="chartOptions"
@@ -51,12 +53,14 @@
             width="100%"
             height="100%">
         </canvas>
+
+        <h3 class="fwb" ng-show="!hasBoulderSends">No Bouldering Sends!</h3>
     </div>
 
     <div class="medium-6 small-12 columns mb2">
         <h2>Rope Routes Sent</h2>
         <canvas class="chart-bar"
-            ng-show="ropeSendsBarGraph.hasData"
+            ng-show="hasRopeSends"
             data="ropeSendsBarGraph.data"
             labels="ropeSendsBarGraph.labels"
             options="chartOptions"
@@ -64,6 +68,8 @@
             width="100%"
             height="100%">
         </canvas>
+
+        <h3 class="fwb" ng-show="!hasRopeSends">No Rope Sends!</h3>
     </div>
 </section>
 
@@ -71,6 +77,7 @@
     <div class="medium-6 small-12 columns mb2">
         <h2>V Grade Progress</h2>
         <canvas class="chart-line"
+            ng-show="hasBoulderSends"
             data="boulderSendsLineGraph.data"
             labels="boulderSendsLineGraph.labels"
             options="boulderSendsLineGraph.options"
@@ -78,11 +85,14 @@
             width="100%"
             height="100%">
         </canvas>
+
+        <h3 class="fwb" ng-show="!hasBoulderSends">No Bouldering Sends!</h3>
     </div>
 
     <div class="medium-6 small-12 columns mb2">
         <h2>YDS Grade Progress</h2>
         <canvas class="chart-line"
+            ng-show="hasRopeSends"
             data="ropeSendsLineGraph.data"
             labels="ropeSendsLineGraph.labels"
             options="ropeSendsLineGraph.options"
@@ -90,6 +100,8 @@
             width="100%"
             height="100%">
         </canvas>
+
+        <h3 class="fwb" ng-show="!hasRopeSends">No Rope Sends!</h3>
     </div>
 </section>
 

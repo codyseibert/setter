@@ -260,6 +260,8 @@ angular.module('SETTER')
                     createBoulderSendsBarGraph(pData);
                     createBoulderSendsLineGraph(pData);
                     calculateBoulderGrade(pData);
+
+                    $scope.hasBoulderSends = pData.length > 0;
                 });
 
             UsersService.getRopeSends($scope.userId)
@@ -267,6 +269,8 @@ angular.module('SETTER')
                     createRopeSendsBarGraph(pData);
                     createRopeSendsLineGraph(pData);
                     calculateRopeGrade(pData);
+
+                    $scope.hasRopeSends = pData.length > 0;
                 });
 
             UsersService.getUserImage($scope.userId)
@@ -281,6 +285,8 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.activity = pData;
+
+                    $scope.hasActivity = pData.length > 0;
                 });
 
             $scope.uploadImage = function () {

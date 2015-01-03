@@ -17,7 +17,7 @@
             <button class="[ btn--primary  btn--medium  ] right  "
                         ng-click="saveClicked()"
                         ng-show="isEditMode">
-                    Save Changes
+                Save Changes
             </button>
         </div>
 
@@ -84,8 +84,8 @@
 
                     <label class="[ select--medium select--tetriary  ] right">
                        <select name="ropeGrades" id="routeGrade" ng-model="form.color"
-                                   ng-style="{color: text_color}"
-                                ng-change="colorChanged()">
+                               ng-style="{color: text_color}"
+                               ng-change="colorChanged()">
                             <option value="{{color.id}}"
                                         ng-style="{color: color.value}"
                                         ng-repeat="color in colors">
@@ -101,7 +101,7 @@
                 placeholder="Enter name if applicable"/>
 
             <input type="text"  ng-model="form.note"
-            placeholder="note">
+                placeholder="note">
 
             <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
                 ng-click="addClicked()"

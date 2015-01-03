@@ -42,7 +42,7 @@ angular.module('SETTER')
                     boulderGradeId = $scope.form.boulderGrade.id,
                     ropeGradeId = $scope.form.ropeGrade.id,
                     colorId = $scope.form.color,
-                    setterId = $scope.form.setter.id,
+                    setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
                 RoutesService.createRoute($scope.wallId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
@@ -53,7 +53,7 @@ angular.module('SETTER')
                         $scope.form.setter = $scope.setters[0];
                         $scope.form.note = "";
                         $scope.form.name = "";
-                        alert("route added!");
+                        $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
             };
 
@@ -62,13 +62,12 @@ angular.module('SETTER')
                     boulderGradeId = $scope.form.boulderGrade.id,
                     ropeGradeId = $scope.form.ropeGrade.id,
                     colorId = $scope.form.color,
-                    setterId = $scope.form.setter.id,
+                    setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
                 RoutesService.updateRoute($scope.routeId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
-                        alert("Route saved!");
-                        $scope.navigateToWall($scope.gymId, $scope.wallId);
+                        $scope.navigateToRoute($scope.gymId, $scope.wallId, $scope.routeId);
                     });
             };
 
@@ -125,7 +124,7 @@ angular.module('SETTER')
                 for (i = 0; i < pArray.length; i += 1) {
                     entry = pArray[i];
 
-                    if (entry.id === pLookingFor) {
+                    if (entry.id === pLookingFor || entry.account_id === pLookingFor) {
                         return entry;
                     }
                 }
@@ -147,9 +146,9 @@ angular.module('SETTER')
                             $scope.form.ropeGrade = findEntry(pData.rope_grade_id, $scope.ropeGrades);
                             $scope.form.color = findEntry(pData.color_id, $scope.colors).id;
                             $scope.form.setter = findEntry(pData.setter_id, $scope.setters);
-
                             $scope.form.note = pData.note;
                             $scope.form.name = pData.name;
+                            $scope.colorChanged();
                         });
                 });
 

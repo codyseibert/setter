@@ -3,7 +3,7 @@
             ng-show="getHomeGymId()">
         <button class="btn--primary  btn--medium  icon-home btn--expanded"
                     ng-click="navigateToGym(getHomeGymId())">
-            Go to Home Gym 
+            Go to Home Gym
         </button>
     </div>
 
@@ -33,7 +33,7 @@
     <div class="small-6 columns mb4  text-center">
         <h2 class="mb2">Bouldering</h2>
         <h3 class="fwb h1" ng-show="hasBoulderSends">{{boulderGrade}}</h3>
-        <h4 class="h6" ng-show="!hasBoulderSends">No bouldering sends, yet</h4>
+        <h3 class="fwb" ng-show="!hasBoulderSends">No bouldering sends, yet</h3>
     </div>
 
     <div class="small-6 columns mb4  text-center">
@@ -51,7 +51,7 @@
             <ul class="list list--tableStyle">
                 <li  class="list-elem" ng-repeat="act in activity"
                         >
-                    <span 
+                    <span
                         ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
                         <i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{act.bg || act.rg}} on {{act.date}}
                     </span>
@@ -76,7 +76,7 @@
             width="100%"
             height="100%">
         </canvas>
-        
+
         <span ng-show="!hasBoulderSends">
             <h3 class="text-center fwb  mb2">No bouldering sends, yet.</h3>
 

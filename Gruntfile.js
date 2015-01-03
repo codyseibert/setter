@@ -187,6 +187,7 @@ module.exports = function(grunt) {
                     cwd: 'src',
                     src: [
                         'public/font/**',
+                        'public/fonts/**',
                         'public/images/**',
                         'public/templates/**',
                         'public/css/fontello.css',

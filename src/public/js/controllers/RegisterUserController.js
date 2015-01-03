@@ -19,6 +19,10 @@ angular.module('SETTER')
                 })
                 .error(function (pData) {
                     $scope.error = pData.error;
+
+                    if ($scope.error === 'default error') {
+                        $scope.error = 'Email address already in use';
+                    }
                 });
         };
     }]);

@@ -1,29 +1,29 @@
 $grey--dark: #333333;
-$grey--medium: #6c6c6c; 
+$grey--medium: #6c6c6c;
 $grey--medlight: rgba(195, 195, 195, 1);
 $grey--light:  #F2F2F2;
 
 //grey--dark: #595959;
 
-$blue--dark: #2b85af; 
-$blue--medium: #3ca9db; 
-$blue--light: #4bbcdb; 
+$blue--dark: #2b85af;
+$blue--medium: #3ca9db;
+$blue--light: #4bbcdb;
 
-//$warning: #f03b44; 
+//$warning: #f03b44;
 
-$warning: #f6db6c; 
-$yellow: #dbdb57; 
+$warning: #f6db6c;
+$yellow: #dbdb57;
 
 
-$color--link: $blue--dark; 
+$color--link: $blue--dark;
 $color--text: $grey--dark;
-$color--rating: #f3db54; 
+$color--rating: #f3db54;
 
 //$primaryColor: #f56046;
 
 //Salmon
 $primaryColor: #ed6d56;
-$primaryColor--light: lighten($primaryColor, 25% ); 
+$primaryColor--light: lighten($primaryColor, 25% );
 
 //$primaryColor: #ff7f00;
 
@@ -31,11 +31,11 @@ $primaryColor--light: lighten($primaryColor, 25% );
 //green #2 9dda6b
 
 //OrangeRed
-//$primaryColor: #e36f41; 
+//$primaryColor: #e36f41;
 
-$burnt-sienna: #e96851; 
+$burnt-sienna: #e96851;
 
-$red: #D52D26; 
+$red: #D52D26;
 
 
 
@@ -47,23 +47,21 @@ $color--dropDownLinks: $primaryColor--light;
 //Route Colors
 //
 
-$routeColors: 
+$routeColors:
 (brown, #5D4636),
-(lightbrown, #CAA16D), 
+(lightbrown, #CAA16D),
 (blue, #4d77cb),
 (lightBlue, #6491ed),
-(teal, rgba(32, 210, 248, 1)), 
-(pink, #c93d98), 
-(red, #c51038), 
+(teal, rgba(32, 210, 248, 1)),
+(pink, #c93d98),
+(red, #c51038),
 (green, #34b27d),
 (darkgreen, #6caa4f),
-(limeGreen, #88AE2C), 
-(yellow, #faf038), 
+(limeGreen, #88AE2C),
+(yellow, #faf038),
 (orange, #de923c),
 (purple, #7F5E93),
 (lightpurple, #9e80c7),
 (white, #f1f1f1),
 (grey, #97969c),
 (black, #1A1A1A);
-
-

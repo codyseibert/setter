@@ -3,11 +3,11 @@
 
 //Need For Input with an icon next to it
 
-//Need for input that appears normal, until clicked. 
+//Need for input that appears normal, until clicked.
 
 
-//Styling for form inputs showing validation while typing 
-//Get validation on appropriate inputs. 
+//Styling for form inputs showing validation while typing
+//Get validation on appropriate inputs.
 
 // input:invalid {
 //   outline: 2px solid red;
@@ -25,9 +25,9 @@
 //
 
 .fieldWrapper {
-  @extend %clearfix; 
+  @extend %clearfix;
   @extend %display--block;
-  position: relative;  
+  position: relative;
 }
 
 
@@ -39,13 +39,13 @@ label, label.inline {
 
 
 .label--block {
-  @extend %display--block; 
+  @extend %display--block;
   font-size: rem-calc(16);
   padding-bottom: rem-calc(12);
 }
 
 .label--inline {
-  @extend %display--inlineBlock; 
+  @extend %display--inlineBlock;
   margin: 0 0 1rem;
   padding: 0.5625rem 0;
 }
@@ -84,12 +84,12 @@ label, label.inline {
 
 
 select {
-  width: auto; 
-  outline: none; 
+  width: auto;
+  outline: none;
 }
 
 [class^="select--"] {
-  display: inline-block; 
+  display: inline-block;
 }
 
 
@@ -102,7 +102,7 @@ select {
 
 
 .select--tetriary {
-  @include select($grey--medium);
+  @include select($grey--medlight);
 }
 
 .select--primary {
@@ -118,7 +118,7 @@ select {
 
 
 /*------------------------------------*\
-    #Select Sizes 
+    #Select Sizes
 \*------------------------------------*/
 
 
@@ -127,7 +127,7 @@ select {
   padding-left: rem-calc(16);
 
   @include icon($icon--arrowD, after) {
-    font-size: rem-calc(14); 
+    font-size: rem-calc(14);
     margin-left: rem-calc(-20);
   }
 
@@ -136,13 +136,13 @@ select {
     padding-left: rem-calc(16);
     margin-right: rem-calc(-32);
     margin-left: rem-calc(-16);
-    height: 100%; 
+    height: 100%;
 
     //Fixes Chrome/webkit Bug with padding-right
-    @media screen and (-webkit-min-device-pixel-ratio:0) {  
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
       padding-right: rem-calc(60);
     }
-    
+
   }
   //Trying to get arrow to point up, not needed for now.
   // &:focus {
@@ -156,9 +156,9 @@ select {
   padding-left: rem-calc(20);
 
     @include icon($icon--arrowD, after) {
-    font-size: rem-calc(14); 
+    font-size: rem-calc(14);
     margin-left: rem-calc(-20);
-    right: rem-calc(2); 
+    right: rem-calc(2);
     top: rem-calc(7);
     position:absolute;
     pointer-events:none;
@@ -169,13 +169,13 @@ select {
     padding-left: rem-calc(16);
     margin-right: rem-calc(-16);
     margin-left: rem-calc(-4);
-    height: 100%; 
+    height: 100%;
 
     //Fixes Chrome/webkit Bug with padding-right
-    @media screen and (-webkit-min-device-pixel-ratio:0) {  
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
       padding-right: rem-calc(60);
     }
-    
+
   }
   //Trying to get arrow to point up, not needed for now.
   // &:focus {
@@ -216,7 +216,7 @@ textarea {
   font-size: 0.875rem;
   margin: 0 0 rem-calc(24);
   padding: 0.4rem;
-  outline: 0; 
+  outline: 0;
   height: 3rem;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -225,7 +225,7 @@ textarea {
   transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
 
   &:hover {
-    border: 2px solid $grey--medium; 
+    border: 2px solid $grey--medium;
   }
 }
 
@@ -243,9 +243,9 @@ input[type="tel"]:focus,
 input[type="time"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-  box-shadow: none; 
+  box-shadow: none;
   border-color: $primaryColor;
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 
@@ -256,7 +256,7 @@ textarea:focus {
 
 .img-overlay {
   @include border-radius(12px);
-  @extend %display--block; 
+  @extend %display--block;
 
   height: rem-calc(120);
   border: 1px solid  $grey--dark;
@@ -264,7 +264,7 @@ textarea:focus {
 }
 
 //
-//Search Input 
+//Search Input
 //
 
 input[type="search"] {
@@ -272,19 +272,19 @@ input[type="search"] {
 }
 
 
-// input[type="checkbox"] { 
+// input[type="checkbox"] {
 
 // }
 
 //
-//Add Route Form 
+//Add Route Form
 //
 
 
-//Color Choices 
+//Color Choices
 input[type="radio"].radio--routeColor {
-  display: none; 
-  
+  display: none;
+
   & + label {
     cursor: pointer;
     margin-right: 0;
@@ -295,8 +295,6 @@ input[type="radio"].radio--routeColor {
   }
 
   &:checked + label {
-    border: 2px solid $grey--dark; 
+    border: 2px solid $grey--dark;
   }
 }
-
-

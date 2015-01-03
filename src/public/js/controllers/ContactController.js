@@ -11,10 +11,14 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            $scope.createFeedback = function () {
+            $scope.send = function () {
+                console.log("sending!");
                 FeedbackService.createFeedback($scope.form.name, $scope.form.message)
                     .success(function () {
-                        angular.noop();
+                        $scope.thanks = true;
+                    })
+                    .error(function () {
+                        $scope.error = true;
                     });
             };
         }]);

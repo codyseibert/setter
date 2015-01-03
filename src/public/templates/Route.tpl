@@ -173,9 +173,9 @@
         </div>
     </div>
 
-
-    <div class="[ small-12 columns ]  [ text-center  mb3 ] " ng-show="getAccountId() === gymId">
-        <a class=" icon-trash" ng-click="delete()">
+    <div class="small-12 columns"
+            ng-show="getAccountId() === gymId">
+        <a class="icon-trash" ng-click="delete()">
             Delete Route Permanently
         </a>
     </div>

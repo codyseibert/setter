@@ -21,7 +21,7 @@ angular.module('SETTER')
             LoginService) {
             'use strict';
 
-            $scope.gymId = $routeParams.gymId;
+            $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = $routeParams.wallId;
             $scope.routeId = $routeParams.routeId;
 
@@ -137,7 +137,7 @@ angular.module('SETTER')
             };
 
             $scope.delete = function () {
-                var yes = confirm("Are you sure you want to delete this route?");
+                var yes = confirm("Are you sure you want to delete this route?  All sends associated with this route will be lost for users =(");
                 if (!yes) {
                     return;
                 }

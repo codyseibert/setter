@@ -75,7 +75,7 @@
 
             <div class="flag  mb3">
 
-                <h3 class="flag-image">Rating</h3>
+                <h3 class="flag-image">Avg. Rating</h3>
 
                <div class="flag-body  text-right">
                     <h4 class="mb0 h2 display--inlineBlock"
@@ -84,7 +84,7 @@
                             ng-click="!isGymAccount() && rate(star)"
                             ng-mouseover="setHoverRating(star)"
                             ng-mouseleave="setHoverRating(-1)">
-                        <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="mb0  left"> </i>
+                        <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
                     </h4>
                </div>
 
@@ -173,7 +173,7 @@
         </div>
     </div>
 
-    <div class="small-12 columns"
+    <div class="small-12 columns  text-center"
             ng-show="getAccountId() === gymId">
         <a class="icon-trash" ng-click="delete()">
             Delete Route Permanently

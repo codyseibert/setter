@@ -45,12 +45,12 @@
 
                <div class="flag-body">
 
-                <label class="[ select--medium select--tetriary  ] right">
+                <label class="[ select--medium select--secondary ] right">
                       <select name="grade" id="routeGrade" ng-model="form.boulderGrade"
                          ng-options="grade.name for grade in boulderGrades">
                     </select>
                 </label>
-                <label class="[ select--medium select--tetriary  ] right">
+                <label class="[ select--medium select--secondary ] right">
                    <select name="ropeGrades" id="routeGrade" ng-model="form.ropeGrade"
                                ng-options="grade.name for grade in ropeGrades">
                    </select>
@@ -67,7 +67,7 @@
                 <h3 class="flag-image">Setter</h3>
 
                <div class="flag-body">
-                    <label class="[ select--medium select--tetriary  ] right">
+                    <label class="[ select--medium select--secondary ] right">
                        <select name="ropeGrades" id="routeGrade" ng-model="form.setter"
                                    ng-options="setter.name for setter in setters">
                         </select>
@@ -82,7 +82,7 @@
 
                <div class="flag-body">
 
-                    <label class="[ select--medium select--tetriary  ] right">
+                    <label class="[ select--medium select--secondary ] right">
                        <select name="ropeGrades" id="routeGrade" ng-model="form.color"
                                ng-style="{color: text_color}"
                                ng-change="colorChanged()">

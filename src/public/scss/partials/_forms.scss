@@ -1,4 +1,4 @@
-
+fs.e
 
 
 //Need For Input with an icon next to it
@@ -102,7 +102,9 @@ select {
 
 
 .select--tetriary {
-  @include select($grey--medlight);
+  @include select($grey--dark) {
+    color: $grey--medlight; 
+  }
 }
 
 .select--primary {

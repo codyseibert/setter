@@ -61,7 +61,7 @@
         <div class="media--fl" ng-show="isGymAccount()">
             <button type="submit"
                         alt="Add New Zone"
-                        class="btn--primary icon-plus-squared btn--medium "
+                        class="btn--primary icon-plus btn--medium "
                         ng-click="addClicked()">
                 Add Zone
             </button>

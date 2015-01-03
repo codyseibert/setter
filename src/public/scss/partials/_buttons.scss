@@ -52,7 +52,7 @@ input[type="submit"] {
   @include button($grey--medlight) {
     &,
     &:hover {
-      color: $grey--medium;
+      color: $grey--dark; 
     }
   }
 

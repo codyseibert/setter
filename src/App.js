@@ -23,7 +23,7 @@ var App = function () {
     app.use(bodyParser.json());
     app.use(cookieParser());
     app.use(multer({dest: __dirname + '/public/images/uploads'}));
-    //app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
+    app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
     if (process.env.SETTER_PRODUCTION) {
         var days2 = 86400000 * 2;

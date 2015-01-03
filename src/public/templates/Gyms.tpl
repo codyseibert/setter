@@ -11,7 +11,11 @@
         <section class="header">
             <h1 class="title">Gyms</h1>
         </section>
+        <label for="searchTerm" name="gymName">
+            
 
+        </label>
+        
         <input name=""
                 type="search"
                 id="searchTerm"

@@ -9,7 +9,7 @@
     </div>
 
     <div class="small-12 columns header">
-        <h1 class="icon-mail-alt" ng-show="getAccountId() === gymId"> Your Members' Suggestions</h1>
+        <h1 class="icon-messaging" ng-show="getAccountId() === gymId"> Your Members' Suggestions</h1>
         <h1 class="icon-mail-alt" ng-show="getAccountId() !== gymId"> Post Suggestion</h1>
     </div>
 </section>
@@ -61,13 +61,17 @@
 </section>
 
 <section class="row" ng-hide="getAccountId() === gymId">
-    <div class="small-12 columns">
-        <input type="text"
-            placeholder="your suggestion to the gym"
-            ng-model="form.message"></input>
-        <button class="btn--primary  btn--medium  btn--expanded icon-paper-plane"
-            ng-click="postSuggestion()">
-            Post Suggestion
-        </button>
+    <div class="small-12   large-6  columns">
+
+        <div class="fieldwrapper">
+            <textarea class="textarea--small"  type="text"
+                placeholder="your suggestion to the gym"
+                ng-model="form.message"/>
+
+            <button class="btn--primary  btn--medium  btn--expanded icon-paper-plane"
+                ng-click="postSuggestion()">
+                Post Suggestion
+            </button>
+        </div>
     </div>
 </section>

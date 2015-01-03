@@ -30,7 +30,7 @@
     <div class="small-12 columns">
         <div ng-show="isGymAccount()" class="row" data-ui-component="routeActions">
             <div class="small-12 columns mb2">
-                <button class="btn--medium btn--primary icon-plus-squared btn--expanded"
+                <button class="btn--medium btn--primary icon-plus btn--expanded"
                     ng-click="navigateToCreateRoute(gymId, wallId)">
                     Add Route
                 </button>

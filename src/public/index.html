@@ -5,7 +5,6 @@
         <meta charset="utf-8" />
         <title>SETTER</title>
         <link rel="stylesheet" href="css/app.css" />
-        <link rel="stylesheet" type="text/css" href="css/fontello.css">
 
         <!--Google Web Font
         ================================================== -->
@@ -31,21 +30,23 @@
 
     <body ng-app="SETTER">
 
-
     <div class="off-canvas-wrap" data-offcanvas>
 
-        <nav class="tab-bar" data-tabbar>
+        <nav class="tab-bar" data-tabbar  >
+            
+            <section class="tab-bar-section text-center  fwb"  ng-hide="isLoggedIn()">SETTER</section>
 
-          <section class="left-small" ng-show="isLoggedIn()">
-            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-          </section>
+            <span  ng-show="isLoggedIn()">
+                <section class="left-small" ng-show="isLoggedIn()">
+                    <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+                </section>
 
-          <section class="right tab-bar-section">
-          <img src="images/setter-logo.svg" height="40px" width="40px" alt="SETTER" class="text-right  mr2">
-
-          </section>
-
+                <section class="right tab-bar-section">
+                    <img src="images/setter-logo.svg" height="40px" width="40px" alt="SETTER" class="text-right  mr2">
+                </section>
+            </span>
         </nav>
+
         <div class="inner-wrap">
         <!-- Off Canvas Menu -->
         <aside class="left-off-canvas-menu  side-menu">
@@ -55,13 +56,13 @@
                 <li
                     ng-show="isUserAccount()"
                     ng-click="navigateToUser(getAccountId())">
-                    <a class="icon-user"> Your Profile</a>
+                    <a class="icon-profile"> Your Profile</a>
                 </li>
 
                 <li
                     ng-show="isGymAccount()"
                     ng-click="navigateToGym(getAccountId())">
-                    <a class="icon-home"> Your Dashboard</a>
+                    <a class="icon-dashboard"> Your Dashboard</a>
                 </li>
 
                 <li
@@ -73,25 +74,25 @@
                 <li
                     ng-click="navigateToRouteManager(getAccountId())"
                     ng-show="isGymAccount()">
-                    <a class="icon-th-list"> Route Manager</a>
+                    <a class="icon-archive"> Route Archive</a>
                 </li>
 
                 <li
                     ng-click="navigateToSetters(getAccountId())"
                     ng-show="isGymAccount()">
-                    <a class="icon-users"> Manage Setters</a>
+                    <a class="icon-group"> Manage Setters</a>
                 </li>
 
                 <li
                     ng-click="navigateToGymSuggestions(getAccountId())"
                     ng-show="isGymAccount()">
-                    <a class="icon-mail-alt"> Suggestions</a>
+                    <a class="icon-messaging"> Suggestions</a>
                 </li>
 
                 <li
                     ng-click="navigateToAlerts(getAccountId())"
                     ng-show="isGymAccount()">
-                    <a class="icon-attention"> Alerts</a>
+                    <a class="icon-megaphone"> Announcements</a>
                 </li>
 
                 <li
@@ -105,19 +106,19 @@
                 <li
                     ng-click="navigateToGyms()"
                     ng-show="isUserAccount()">
-                    <a class="icon-globe"> Search Gyms</a>
+                    <a class="icon-search"> Search Gyms</a>
                 </li>
 
                 <li style="min-height: 30px;"></li>
 
                 <li
                     ng-click="navigateToSuggestionsPage()">
-                    <a class="icon-megaphone"> Feedback</a>
+                    <a class="icon-messaging-alt"> Give Feedback</a>
                 </li>
 
                 <li
                     ng-click="navigateToBlog()">
-                    <a class="icon-rss"> Blog</a>
+                    <a class="icon-blog"> SETTER Blog</a>
                 </li>
 
                 <li style="min-height: 30px;"></li>
@@ -181,51 +182,53 @@
 
         <!-- build:remove -->
             <!-- Controllers -->
-            <script src="js/controllers/LoginController.js"></script>
-            <script src="js/controllers/LandingController.js"></script>
-            <script src="js/controllers/LogoutController.js"></script>
-            <script src="js/controllers/RegisterGymController.js"></script>
-            <script src="js/controllers/RegisterUserController.js"></script>
-            <script src="js/controllers/GymsController.js"></script>
-            <script src="js/controllers/GymController.js"></script>
-            <script src="js/controllers/WallsController.js"></script>
-            <script src="js/controllers/WallController.js"></script>
-            <script src="js/controllers/CreateRouteController.js"></script>
-            <script src="js/controllers/SettersController.js"></script>
-            <script src="js/controllers/RouteController.js"></script>
-            <script src="js/controllers/UserController.js"></script>
-            <script src="js/controllers/SuggestionsController.js"></script>
-            <script src="js/controllers/TOSController.js"></script>
-            <script src="js/controllers/ContactController.js"></script>
-            <script src="js/controllers/RouteManagerController.js"></script>
-            <script src="js/controllers/BlogController.js"></script>
-            <script src="js/controllers/GymSuggestionsController.js"></script>
-            <script src="js/controllers/AlertsController.js"></script>
-
+            <script type="text/javascript" src="js/controllers/LoginController.js"></script>
+            <script type="text/javascript" src="js/controllers/LandingController.js"></script>
+            <script type="text/javascript" src="js/controllers/LogoutController.js"></script>
+            <script type="text/javascript" src="js/controllers/RegisterGymController.js"></script>
+            <script type="text/javascript" src="js/controllers/RegisterUserController.js"></script>
+            <script type="text/javascript" src="js/controllers/GymsController.js"></script>
+            <script type="text/javascript" src="js/controllers/GymController.js"></script>
+            <script type="text/javascript" src="js/controllers/WallsController.js"></script>
+            <script type="text/javascript" src="js/controllers/WallController.js"></script>
+            <script type="text/javascript" src="js/controllers/CreateRouteController.js"></script>
+            <script type="text/javascript" src="js/controllers/SettersController.js"></script>
+            <script type="text/javascript" src="js/controllers/RouteController.js"></script>
+            <script type="text/javascript" src="js/controllers/UserController.js"></script>
+            <script type="text/javascript" src="js/controllers/SuggestionsController.js"></script>
+            <script type="text/javascript" src="js/controllers/TOSController.js"></script>
+            <script type="text/javascript" src="js/controllers/ContactController.js"></script>
+            <script type="text/javascript" src="js/controllers/RouteManagerController.js"></script>
+            <script type="text/javascript" src="js/controllers/BlogController.js"></script>
+            <script type="text/javascript" src="js/controllers/GymSuggestionsController.js"></script>
+            <script type="text/javascript" src="js/controllers/AlertsController.js"></script>
+            
             <!-- Directives -->
 
             <!-- Services -->
-            <script src="js/services/AccountsService.js"></script>
-            <script src="js/services/GymsService.js"></script>
-            <script src="js/services/SettersService.js"></script>
-            <script src="js/services/UsersService.js"></script>
-            <script src="js/services/LoginService.js"></script>
-            <script src="js/services/WallsService.js"></script>
-            <script src="js/services/SetsService.js"></script>
-            <script src="js/services/RoutesService.js"></script>
-            <script src="js/services/GradesService.js"></script>
-            <script src="js/services/ColorsService.js"></script>
-            <script src="js/services/SendsService.js"></script>
-            <script src="js/services/RatingsService.js"></script>
-            <script src="js/services/CommentsService.js"></script>
-            <script src="js/services/SuggestionsService.js"></script>
-            <script src="js/services/FeedbackService.js"></script>
-            <script src="js/services/DateFormatService.js"></script>
-            <script src="js/services/BarGraphHelperService.js"></script>
-            <script src="js/services/BlogService.js"></script>
-            <script src="js/services/GymSuggestionsService.js"></script>
-            <script src="js/services/AlertsService.js"></script>
+            <script type="text/javascript" src="js/services/AccountsService.js"></script>
+            <script type="text/javascript" src="js/services/GymsService.js"></script>
+            <script type="text/javascript" src="js/services/SettersService.js"></script>
+            <script type="text/javascript" src="js/services/UsersService.js"></script>
+            <script type="text/javascript" src="js/services/LoginService.js"></script>
+            <script type="text/javascript" src="js/services/WallsService.js"></script>
+            <script type="text/javascript" src="js/services/SetsService.js"></script>
+            <script type="text/javascript" src="js/services/RoutesService.js"></script>
+            <script type="text/javascript" src="js/services/GradesService.js"></script>
+            <script type="text/javascript" src="js/services/ColorsService.js"></script>
+            <script type="text/javascript" src="js/services/SendsService.js"></script>
+            <script type="text/javascript" src="js/services/RatingsService.js"></script>
+            <script type="text/javascript" src="js/services/CommentsService.js"></script>
+            <script type="text/javascript" src="js/services/SuggestionsService.js"></script>
+            <script type="text/javascript" src="js/services/FeedbackService.js"></script>
+            <script type="text/javascript" src="js/services/DateFormatService.js"></script>
+            <script type="text/javascript" src="js/services/BarGraphHelperService.js"></script>
+            <script type="text/javascript" src="js/services/BlogService.js"></script>
+            <script type="text/javascript" src="js/services/GymSuggestionsService.js"></script>
+            <script type="text/javascript" src="js/services/AlertsService.js"></script>
         <!-- /build -->
+
+
 
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -236,5 +239,6 @@
             ga('create', 'UA-58169926-1', 'auto');
             ga('send', 'pageview');
         </script>
+        
     </body>
 </html>

@@ -4,49 +4,102 @@
 \*------------------------------------*/
 
 
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  // margin-left: .08em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+
+
 [class*="comments"], [rel*="comments"] {
   @include icon($icon--comments); 
 }
 
-
-// [class*="star"] {
-//   @include icon($icon--star) {
-//     color: $color--rating; 
-//   }
-// }
-
-// [class*="star--empty"] {
-//   @include icon($icon--star--empty) {
-//     color: $grey--medlight; 
-//   }
-// }
-
-[href*="dashboard"] {
-  @include icon($icon--dashboard);
+.icon-star {
+  @include icon($icon--star) {
+    color: $color--rating; 
+  }
 }
 
-[href*="topo"] {
-  @include icon($icon--topo);
+.rating {
+  cursor: pointer; 
 }
 
-[href*="insights"] {
+[class*="icon-star-empty"] {
+  @include icon($icon--star--empty) {
+    color: $grey--medlight; 
+  }
+}
+
+.icon-dashboard {
+  @include icon($icon--gauge);
+}
+
+.icon-profile {
+  @include icon($icon--person); 
+}
+
+.icon-home {
+  @include icon($icon--house); 
+}
+
+[href*="topo"],
+.icon-topo,
+.icon-map {
+  @include icon($icon--map);
+}
+
+[href*="insights"],
+.icon-insights {
   @include icon($icon--insights);
 }
 
-[href*="logout"] {
+[href*="logout"],
+.icon-logout {
   @include icon($icon--logout);
 }
 
-[href*="settings"] {
+[href*="settings"],
+.icon-settings {
   @include icon($icon--settings);
 }
 
-[href*="setters"] {
+[href*="setters"],
+.icon-group {
   @include icon($icon--group);
 }
 
-[href*="delete"], .icon--delete {
-  @include icon($icon--delete);
+.icon-alert {
+    @include icon($icon--warning); 
+}
+
+.icon-trash {
+  @include icon($icon--thrash);
 }
 
 [href*="twitter.com"], [rel="twitter-link"] {
@@ -65,7 +118,8 @@
     @include icon($icon--location); 
 }
 
-[rel*="email"] {
+[rel*="email"],
+.icon-envelope {
     @include icon($icon--mail);
 }
 
@@ -73,41 +127,69 @@
   @include icon($icon--phone);
 }
 
-[rel="archive"], [href*="routeArchive"] {
-  @include icon($icon--folder);
+[rel="archive"], [href*="routeArchive"],
+.icon-archive {
+  @include icon($icon--book);
 }
 
 
-.icon--search {
+.icon-search {
   @include icon($icon--search);
 }
 
-.icon--arrowR {
-  @include icon($icon--arrowR) {
-    margin-left: .75rem; 
-  }
+.icon-right-big {
+  @include icon($icon--arrowR) ;
 }
 
-.icon--arrowL {
+.icon-left-big {
   @include icon($icon--arrowL);
 }
 
-.icon--arrowD {
-  @include icon($icon--arrowD, after) {
-    margin-left: .75rem; 
-  }
+.icon-down-big {
+  @include icon($icon--arrowD);
+  
 }
 
-.icon--arrowU {
-  @include icon($icon--arrowU) {
-    margin-left: .75rem; 
-  }
+.icon-arrowU {
+  @include icon($icon--arrowU) ;
 }
 
+.icon-circle { 
+  @include icon($icon--circle); 
+}
+
+.icon-megaphone {
+  @include icon($icon--megaPhone); 
+}
+
+.icon-pencil {
+  @include icon($icon--pencil); 
+}
+
+
+.icon-blog { 
+  @include icon($icon--rss); 
+}
+
+.icon-plus {
+  @include icon($icon--plus); 
+}
+
+.icon-minus {
+  @include icon($icon--minus); 
+}
+
+.icon-thumbsUp {
+  @include icon($icon--thumbsUp); 
+}
 
 [src*="icon--wrench"] {
   width: rem-calc(36);
   height: rem-calc(36);
+}
+
+.icon-key {
+  @include icon($icon--key); 
 }
 
 // .icon--wrench {
@@ -144,6 +226,17 @@
 }
 
 
+//Communication 
+
+
+.icon-messaging {
+  @include icon($icon--speachBubble); 
+} 
+
+.icon-messaging-alt {
+   @include icon($icon--speachBubble-alt); 
+}
+
 //
 //Icon Types
 //
@@ -171,5 +264,16 @@
 }
 
 .saddie {
-   background-image: url("images/saddie.svg");
+   background-image: url("../images/setter-logo.svg");
+   background-repeat: no-repeat; 
+   background-position: center; 
+   background-size: contain; 
+   
+}
+
+.saddie--medium {
+  min-height: rem-calc(220); 
+  min-width: rem-calc(220); 
+  width: 100%; 
+
 }

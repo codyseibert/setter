@@ -17,6 +17,7 @@
 [class*="avatar"] {
   @include border-radius(100%);
   background-color: $grey--medlight;
+  cursor: pointer; 
 }
 
 

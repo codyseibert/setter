@@ -10,7 +10,7 @@
     </div>
 
     <div class="small-12 columns">
-        <h1 class="icon-th-large"> Route Manager</h1>
+        <h1 class="icon-th-large"> Route Archive</h1>
     </div>
 
 </section>

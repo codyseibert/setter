@@ -38,26 +38,41 @@
 </section>
 
 
-<div class="row">
-    <div class="mb4  small-12  medium-4 columns">
-        <button class="btn--primary  btn--medium  btn--expanded" ng-click="navigateToWalls(gymId)">
-            <i class="icon-th-list"> </i> Gym's Zones <i class="icon-right-big"> </i>
-        </button>
+<section class="row  small-collapse">
 
-        <button ng-show="isUserAccount()" class="btn--primary  btn--medium  btn--expanded" ng-click="navigateToGymSuggestions(gymId)">
-            <i class="icon-mail-alt"> </i> Post Suggestion <i class="icon-right-big"> </i>
-        </button>
-    </div>
-</div>
+    <div class="mb4  small-12  large-6  columns">
+        
+        <div class="medium-6 columns  ">
+            <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map" ng-click="navigateToWalls(gymId)">
+                View Gym's Zones 
+            </button>
+        </div>     
 
-<div class="row">
-    <div class="small-12 medium mb4">
-        <h2 class="icon-attention">Gym Alerts</h2>
-        <div ng-repeat="alert in alerts">
-            <p>{{alert.message}}<br>{{alert.date}}</p>
+        <div class="medium-6 columns">
+            <button ng-show="isUserAccount()" class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging " ng-click="navigateToGymSuggestions(gymId)">
+                Post Suggestion 
+            </button>   
         </div>
+
     </div>
-</div>
+
+</section>
+
+<section class="row">
+
+    <div class="small-12 columns mb4">
+        <h2 class="icon-attention">Gym Alerts</h2>
+
+        <ul class="list--noStyles  list">
+            <li ng-repeat="alert in alerts">
+                <p>{{alert.message}}
+                <span class="txt--micro  display--block">{{alert.date}}</span></p>
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 <div class="row">
     <div class="small-12 medium">

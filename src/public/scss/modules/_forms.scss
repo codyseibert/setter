@@ -39,4 +39,6 @@
   //   background: darken($color, 4%);
   //   background: darken($color, 4%);
   // }
+
+  @content; 
 }

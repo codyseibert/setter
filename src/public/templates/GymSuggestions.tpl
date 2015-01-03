@@ -20,7 +20,7 @@
 
         <div ng-show="!suggestion.read"
                 ng-repeat="suggestion in suggestions"
-                style="padding: 20px; display: inline-block; width: 240px; overflow: hidden;">
+                class="media--fl">
             <div style="margin-right: 10px; width: 50px; height: 50px; float: left; text-align: center; cursor: pointer;"
                 ng-click="navigateToUser(suggestion.user_id)">
             <img ng-src="{{suggestion.url !== '' && suggestion.url || 'images/no_image.png'}}"
@@ -28,7 +28,7 @@
             </div>
 
             <div>
-                {{suggestion.name}}<br>
+                <b>{{suggestion.name}}</b><br>
                 {{suggestion.date}}<br><br>
                 {{suggestion.message}}<br><br>
                 <button ng-click="read(suggestion)"
@@ -44,7 +44,7 @@
 
         <div ng-show="suggestion.read"
                 ng-repeat="suggestion in suggestions"
-                style="padding: 20px; display: inline-block; height: 70px; width: 240px; overflow: hidden;">
+                class="media--fl">
             <div style="margin-right: 10px; width: 50px; height: 50px; float: left; text-align: center; cursor: pointer;"
                 ng-click="navigateToUser(suggestion.user_id)">
             <img ng-src="{{suggestion.url !== '' && suggestion.url || 'images/no_image.png'}}"
@@ -52,9 +52,9 @@
             </div>
 
             <div>
-                {{suggestion.name}}<br>
-                {{suggestion.message}}<br>
-                {{suggestion.date}}
+                <b>{{suggestion.name}}</b><br>
+                {{suggestion.date}}<br><br>
+                {{suggestion.message}}<br><br>
             </div>
         </div>
     </div>

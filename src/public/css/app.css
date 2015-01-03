@@ -361,7 +361,7 @@ table {
     color: #e94a2d; }
 
 /*------------------------------------*\
-    #Display Types  
+    #Display Types
 \*------------------------------------*/
 .gymDashHeader-content .title, .list--inline > li {
   display: inline-block !important; }
@@ -405,7 +405,7 @@ table {
   margin-right: auto; }
 
 /*------------------------------------*\
-    #Positions  
+    #Positions
 \*------------------------------------*/
 footer, .select--tetriary, .select--primary, .select--secondary {
   position: relative; }
@@ -5652,7 +5652,7 @@ th.hide-for-touch {
     color: #e94a2d; }
 
 /*------------------------------------*\
-    #Display Types  
+    #Display Types
 \*------------------------------------*/
 .gymDashHeader-content .title, .list--inline > li {
   display: inline-block !important; }
@@ -5696,7 +5696,7 @@ th.hide-for-touch {
   margin-right: auto; }
 
 /*------------------------------------*\
-    #Positions  
+    #Positions
 \*------------------------------------*/
 footer, .select--tetriary, .select--primary, .select--secondary {
   position: relative; }
@@ -6674,7 +6674,7 @@ a {
   .media--fr > :first-child {
     float: right; }
   .media--fr > :last-child {
-    overflow: auto; }
+    overflow: hidden; }
 
 .media--fl {
   overflow: auto;
@@ -6682,7 +6682,7 @@ a {
   .media--fl > :first-child {
     float: left; }
   .media--fl > :last-child {
-    overflow: auto; }
+    overflow: hidden; }
 
 .hr--vertical {
   width: 2px;

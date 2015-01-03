@@ -7,8 +7,15 @@
 <section class="row">
     <div class="center  small-10  medium-6 large-4 ">
         <div class="fieldWrapper">
+
+            <div ng-show="error"
+                style="color: red; text-align: center; margin-top: 20px; margin-bottom: 20px;">
+                {{error}}!
+            </div>
+
             <input ng-model="form.email" placeholder="email" type="email"/>
             <input ng-model="form.password" placeholder="password" type="password"/>
+
             <button class="btn--secondary btn--medium btn--expanded  "
                     ng-click="login()">
                 LOGIN

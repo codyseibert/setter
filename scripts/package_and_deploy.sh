@@ -21,10 +21,10 @@ echo "copying the tar to the build directory"
 cp "$SETTER_TAR_NAME" "$LOCAL_SETTER_BUILD_DIR"
 
 echo "scp the .tar to the production server"
-scp "$LOCAL_SETTER_TAR_PATH" root@SETTER_PRE_PRODUCTION:/home/setter/builds
+scp "$LOCAL_SETTER_TAR_PATH" root@SETTER:/home/setter/builds
 
 echo "removing build artifact"
 rm "$SETTER_TAR_NAME"
 
 echo "running deploy script on production server"
-ssh root@SETTER_PRE_PRODUCTION 'bash -s' < "$DEPLOY_SCRIPT" "$SETTER_TAR_NAME"
+ssh root@SETTER 'bash -s' < "$DEPLOY_SCRIPT" "$SETTER_TAR_NAME"

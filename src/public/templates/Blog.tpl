@@ -15,7 +15,7 @@
 
 </section>
 
-<section class="row mb4">
+<section class="row mb4" ng-show="isAdmin()">
     <div class="small-12 columns">
         <textarea ng-model="new_html" placeholder="html">
         </textarea>

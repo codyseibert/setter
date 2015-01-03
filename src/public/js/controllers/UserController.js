@@ -229,6 +229,7 @@ angular.module('SETTER')
                 }
 
                 average = sum / max.length;
+                average = parseFloat(average).toFixed(2);
                 $scope.boulderGrade = average;
             };
 
@@ -251,6 +252,7 @@ angular.module('SETTER')
                 }
 
                 average = sum / max.length;
+                average = parseFloat(average).toFixed(2);
                 average = average.toString();
                 average = average.replace('.', '');
                 $scope.ropeGrade = '5.' + average;

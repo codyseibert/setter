@@ -102,12 +102,31 @@ angular.module('SETTER')
                 SendsService.createSend($scope.routeId)
                     .success(function () {
                         $scope.hasSent = true;
+
+                        $scope.sends.push({
+                            account_id: $scope.getAccountId(),
+                            name: LoginService.getName(),
+                            route_id: parseInt($scope.routeId, 10),
+                            url: LoginService.getImageUrl()
+                        });
                     });
             };
 
             $scope.unsend = function () {
                 SendsService.deleteSend($scope.routeId)
                     .success(function () {
+                        var i,
+                            accountId;
+
+                        accountId = $scope.getAccountId();
+
+                        for (i = 0; i < $scope.sends.length; i += 1) {
+                            if ($scope.sends[i].account_id === accountId) {
+                                $scope.sends.splice(i, 1);
+                                break;
+                            }
+                        }
+
                         $scope.hasSent = false;
                     });
             };

@@ -64,7 +64,9 @@ angular.module('SETTER')
                     sum,
                     average,
                     j,
-                    bucket;
+                    bucket,
+                    sort,
+                    max;
 
                 $scope.boulderSendsLineGraph = {
                     options: {
@@ -105,13 +107,15 @@ angular.module('SETTER')
                     buckets[month].push(send);
                 }
 
+                sort = function (a, b) {
+                    return b.value - a.value;
+                };
+
                 // average each bucket
                 for (i = 0; i < buckets.length; i += 1) {
                     bucket = buckets[i];
-                    bucket.sort(function (a, b) {
-                        return b.value - a.value;
-                    });
-                    var max = bucket.slice(0, 5);
+                    bucket.sort(sort);
+                    max = bucket.slice(0, 5);
 
                     sum = 0;
                     for (j = 0; j < max.length; j += 1) {
@@ -138,7 +142,9 @@ angular.module('SETTER')
                     j,
                     average,
                     months,
-                    month;
+                    month,
+                    sort,
+                    max;
 
                 $scope.ropeSendsLineGraph = {
                     options: {
@@ -179,13 +185,15 @@ angular.module('SETTER')
                     buckets[month].push(send);
                 }
 
+                sort = function (a, b) {
+                    return b.value - a.value;
+                };
+
                 // average each bucket
                 for (i = 0; i < buckets.length; i += 1) {
                     bucket = buckets[i];
-                    bucket.sort(function (a, b) {
-                        return b.value - a.value;
-                    });
-                    var max = bucket.slice(0, 5);
+                    bucket.sort(sort);
+                    max = bucket.slice(0, 5);
 
                     sum = 0;
                     for (j = 0; j < max.length; j += 1) {
@@ -205,7 +213,6 @@ angular.module('SETTER')
             calculateBoulderGrade = function (pData) {
                 var dataCopy,
                     sum,
-                    count,
                     i,
                     max,
                     average;
@@ -217,8 +224,7 @@ angular.module('SETTER')
 
                 max = dataCopy.slice(0, 10);
                 sum = 0;
-                count = 0;
-                for (i = 0; i < max.length; i++) {
+                for (i = 0; i < max.length; i += 1) {
                     sum += dataCopy[i].value;
                 }
 
@@ -229,7 +235,6 @@ angular.module('SETTER')
             calculateRopeGrade = function (pData) {
                 var dataCopy,
                     sum,
-                    count,
                     i,
                     max,
                     average;
@@ -241,13 +246,14 @@ angular.module('SETTER')
 
                 max = dataCopy.slice(0, 10);
                 sum = 0;
-                count = 0;
-                for (i = 0; i < max.length; i++) {
+                for (i = 0; i < max.length; i += 1) {
                     sum += dataCopy[i].value;
                 }
 
                 average = sum / max.length;
-                $scope.ropeGrade = '5.' + (average + '').replace('.', '');
+                average = average.toString();
+                average = average.replace('.', '');
+                $scope.ropeGrade = '5.' + average;
             };
 
             UsersService.getUser($scope.userId)

@@ -41,7 +41,7 @@ var AlertsDao = function () {
             theDaoHelper.DELETE,
             pCallback
         );
-    }
+    };
 };
 
 module.exports = new AlertsDao();

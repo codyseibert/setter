@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false */
+/*global angular: false, btoa: false, console: false, alert: false */
 
 angular.module('SETTER')
     .controller('GymSuggestionsController', [
@@ -31,14 +31,14 @@ angular.module('SETTER')
 
             $scope.read = function (pSuggestion) {
                 GymSuggestionsService.markAsRead(pSuggestion.id)
-                    .success(function (pData) {
+                    .success(function () {
                         pSuggestion.read = true;
                     });
             };
 
             $scope.postSuggestion = function () {
                 GymSuggestionsService.createSuggestion($scope.gymId, $scope.form.message)
-                    .success(function (pData) {
+                    .success(function () {
                         alert("Thank you for your suggestion!");
                         $scope.navigateToGym($scope.gymId);
                     });

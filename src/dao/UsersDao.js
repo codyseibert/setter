@@ -31,9 +31,9 @@ var UsersDao = function () {
 
     this.getUserImage = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT url FROM images i '
-            + 'LEFT JOIN accounts a ON i.id = a.image_id '
-            + 'WHERE a.id = ?',
+            'SELECT url FROM images i ' +
+                'LEFT JOIN accounts a ON i.id = a.image_id ' +
+                'WHERE a.id = ?',
             [pUserId],
             theDaoHelper.SINGLE,
             pCallback

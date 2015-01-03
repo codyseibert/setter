@@ -29,7 +29,6 @@ var LoginHelper = function () {
                 pRes.send(theMessages.ERROR);
                 return;
             }
-            
             pRes.send({
                 token: pResults.token,
                 accountType: pResults.type_id,

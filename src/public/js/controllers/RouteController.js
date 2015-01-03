@@ -115,8 +115,7 @@ angular.module('SETTER')
             $scope.unsend = function () {
                 SendsService.deleteSend($scope.routeId)
                     .success(function () {
-                        var i,
-                            accountId;
+                        var accountId;
 
                         accountId = $scope.getAccountId();
 
@@ -177,5 +176,5 @@ angular.module('SETTER')
                     .success(function (pData) {
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
-            }
+            };
         }]);

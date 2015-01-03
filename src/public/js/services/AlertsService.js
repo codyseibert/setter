@@ -1,3 +1,6 @@
+/*jslint nomen: true */
+/*global angular: false, btoa: false, console: false, confirm: false, moment: false */
+
 angular.module('SETTER')
     .factory('AlertsService', function ($http) {
         'use strict';

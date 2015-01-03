@@ -28,7 +28,13 @@ angular.module('SETTER')
             $scope.options = {};
 
             $scope.filters = [];
-            var addFilter = function (pName, pKey, pWidth) {
+
+            var addFilter,
+                getUniqueSet,
+                sortByValue,
+                sortByExtra;
+
+            addFilter = function (pName, pKey, pWidth) {
                 $scope.filters.push({
                     name: pName,
                     key: pKey,
@@ -47,19 +53,19 @@ angular.module('SETTER')
             addFilter('Date', 'date_value', 150);
             addFilter('Active', 'active', 50);
 
-            var getUniqueSet = function (pData, pKey, pExtra) {
+            getUniqueSet = function (pData, pKey, pExtra) {
                 var i,
-                    key,
                     value,
                     set,
-                    seen;
+                    seen,
+                    extra;
 
                 set = [];
                 seen = [];
-                for (i = 0; i < pData.length; i++) {
+                for (i = 0; i < pData.length; i += 1) {
                     value = pData[i][pKey];
                     if (seen.indexOf(value) === -1) {
-                        var extra = null;
+                        extra = null;
                         if (pExtra) {
                             extra = pData[i][pExtra];
                         }
@@ -76,21 +82,21 @@ angular.module('SETTER')
                 return set;
             };
 
-            var sortByValue = function (pArray) {
+            sortByValue = function (pArray) {
                 pArray.sort(function (a, b) {
                     return a.value.localeCompare(b.value);
-                })
+                });
             };
 
-            var sortByExtra = function (pArray) {
+            sortByExtra = function (pArray) {
                 pArray.sort(function (a, b) {
                     return a.extra - b.extra;
-                })
+                });
             };
 
             RoutesService.getRoutesInGym($scope.gymId)
                 .success(function (pData) {
-                    pData.map(function(pEntry) {
+                    pData.map(function (pEntry) {
                         pEntry.date_format = DateFormatService.format(pEntry.date);
                         pEntry.date_value = moment(pEntry.date).valueOf();
                         pEntry.rope_grade_id = pEntry.rope_grade_id || -1;
@@ -127,9 +133,10 @@ angular.module('SETTER')
             };
 
             $scope.selectAll = function (pFilters) {
-                var i;
-                for (i = 0; i < pFilters.length; i++) {
-                    var filter = pFilters[i];
+                var i,
+                    filter;
+                for (i = 0; i < pFilters.length; i += 1) {
+                    filter = pFilters[i];
                     if (!filter.enabled) {
                         $scope.filterClicked(filter);
                     }
@@ -137,9 +144,10 @@ angular.module('SETTER')
             };
 
             $scope.unselectAll = function (pFilters) {
-                var i;
-                for (i = 0; i < pFilters.length; i++) {
-                    var filter = pFilters[i];
+                var i,
+                    filter;
+                for (i = 0; i < pFilters.length; i += 1) {
+                    filter = pFilters[i];
                     if (filter.enabled) {
                         $scope.filterClicked(filter);
                     }
@@ -147,17 +155,17 @@ angular.module('SETTER')
             };
 
             $scope.getFilterStyle = function (pFilter) {
-                var border = '1px solid black';
-                var bg = '#Fd7d66';
-                var activeClass = '';
+                var border = '1px solid black',
+                    bg = '#Fd7d66',
+                    activeClass = '';
                 if (!pFilter.enabled) {
                     border = '1px dotted black';
                     bg = '#EEE';
-                    activeClass = 'active'; 
+                    activeClass = 'active';
                 }
                 return {
                     'background-color': bg,
-                    'border': border, 
+                    'border': border,
                     class : activeClass
                 };
             };
@@ -180,7 +188,7 @@ angular.module('SETTER')
                 return {
                     'color': color
                 };
-            }
+            };
 
             $scope.isFilterableColumn = function (pFilter) {
                 var name = pFilter.name;
@@ -201,7 +209,7 @@ angular.module('SETTER')
                 return {
                     'background-color': bg
                 };
-            }
+            };
 
             $scope.showFilterPanel = function (pFilter) {
                 $scope.filters.map(function (pEntry) {
@@ -220,20 +228,21 @@ angular.module('SETTER')
                     return pEntry;
                 });
 
+                var key = pFilter.key,
+                    temp;
+
                 pFilter.sort = (pFilter.sort + 1) % 3;
-                var key = pFilter.key;
                 $scope.routes.sort(function (a, b) {
                     if (pFilter.sort === 2) {
-                        var temp = a;
+                        temp = a;
                         a = b;
                         b = temp;
                     }
 
                     if (a[key].localeCompare) {
                         return a[key].localeCompare(b[key]);
-                    } else {
-                        return a[key] - b[key];
                     }
+                    return a[key] - b[key];
                 });
             };
 

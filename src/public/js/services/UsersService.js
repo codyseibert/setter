@@ -51,6 +51,6 @@ angular.module('SETTER')
                     method: "GET",
                     url: "api/users/" + pUserId + "/activity"
                 });
-            },
+            }
         };
     }]);

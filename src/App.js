@@ -18,7 +18,8 @@ var logger = require('morgan');
 
 var App = function () {
     'use strict';
-    var app = express();
+    var app = express(),
+        days2 = 86400000 * 2;
 
     app.use(bodyParser.json());
     app.use(cookieParser());
@@ -26,7 +27,6 @@ var App = function () {
     app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
     if (process.env.SETTER_PRODUCTION) {
-        var days2 = 86400000 * 2;
         app.use(express.static(__dirname + '/public', {maxAge: days2}));
     } else {
         app.use(express.static(__dirname + '/public'));

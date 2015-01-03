@@ -1,57 +1,57 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false */
+/*global angular: false, btoa: false, console: false, confirm: false, moment: false */
 
 angular.module('SETTER')
-.controller('AlertsController', [
-    '$scope',
-    '$routeParams',
-    'AlertsService',
-    'DateFormatService',
-    function (
-        $scope,
-        $routeParams,
-        AlertsService,
-        DateFormatService
-    ) {
-        'use strict';
+    .controller('AlertsController', [
+        '$scope',
+        '$routeParams',
+        'AlertsService',
+        'DateFormatService',
+        function (
+            $scope,
+            $routeParams,
+            AlertsService,
+            DateFormatService
+        ) {
+            'use strict';
 
-        $scope.gymId = parseInt($routeParams.gymId, 10);
-        $scope.form = {};
+            $scope.gymId = parseInt($routeParams.gymId, 10);
+            $scope.form = {};
 
-        AlertsService.getAlertsForGym($scope.gymId)
-            .success(function (pData) {
-                pData.map(function (pEntry) {
-                    pEntry.date = DateFormatService.format(pEntry.date);
-                    return pEntry;
-                });
-                $scope.alerts = pData;
-            });
-
-        $scope.delete = function (pAlert) {
-            var yes = confirm("Are you sure you want to delete this alert?");
-            if (!yes) {
-                return;
-            }
-
-            AlertsService.deleteAlert(pAlert.id)
+            AlertsService.getAlertsForGym($scope.gymId)
                 .success(function (pData) {
-                    $scope.alerts.splice($scope.alerts.indexOf(pAlert), 1);
+                    pData.map(function (pEntry) {
+                        pEntry.date = DateFormatService.format(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.alerts = pData;
                 });
-        };
 
-        $scope.postAlert = function () {
-            AlertsService.createAlert($scope.gymId, $scope.form.message)
-                .success(function (pData) {
-                    var alert = {
-                        id: pData.id,
-                        message: $scope.form.message,
-                        date: DateFormatService.format(moment())
-                    };
+            $scope.delete = function (pAlert) {
+                var yes = confirm("Are you sure you want to delete this alert?");
+                if (!yes) {
+                    return;
+                }
 
-                    $scope.alerts.unshift(alert);
+                AlertsService.deleteAlert(pAlert.id)
+                    .success(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(pAlert), 1);
+                    });
+            };
 
-                    $scope.form.message = '';
-                });
-        };
+            $scope.postAlert = function () {
+                AlertsService.createAlert($scope.gymId, $scope.form.message)
+                    .success(function (pData) {
+                        var alert = {
+                            id: pData.id,
+                            message: $scope.form.message,
+                            date: DateFormatService.format(moment())
+                        };
 
-    }]);
+                        $scope.alerts.unshift(alert);
+
+                        $scope.form.message = '';
+                    });
+            };
+
+        }]);

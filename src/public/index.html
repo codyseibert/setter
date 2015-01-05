@@ -32,7 +32,7 @@
 
     <div class="off-canvas-wrap" data-offcanvas>
 
-        <nav class="tab-bar" data-tabbar  >
+        <nav class="tab-bar" >
 
             <section class="tab-bar-section text-center  fwb"  ng-hide="isLoggedIn()">SETTER</section>
 
@@ -230,7 +230,18 @@
 
 
         <script type="text/javascript">
-            $(document).foundation();
+
+        $(document).foundation({
+             offcanvas : {
+                // Sets method in which offcanvas opens.
+                // [ move | overlap_single | overlap ]
+                open_method: 'move', 
+                // Should the menu close when a menu link is clicked?
+                // [ true | false ]
+                close_on_click : true
+            }
+        });
+
 
             window.addEventListener('load', function() {
                 FastClick.attach(document.body);

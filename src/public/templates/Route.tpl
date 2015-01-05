@@ -2,16 +2,11 @@
 
     <div class="header">
 
-        <button ng-show="lastPageWasZone()"
-            class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
-            ng-click="navigateToWall(gymId, wallId)" >
-            <span ng-show="isGymAccount()"> Manage</span> Zone
-        </button>
-
-        <button ng-show="!lastPageWasZone()"
-            class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
-            ng-click="back()" >
-            Back
+        <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+            ng-click="topNavigationClicked()" >
+            <span ng-show="pageWasBookmarked() || lastPageWasZone()"> Zone</span>
+            <span ng-show="lastPageWasUser()"> User</span>
+            <span ng-show="!pageWasBookmarked() && !lastPageWasUser() && !lastPageWasZone()"> Gym</span>
         </button>
 
         <div  class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">

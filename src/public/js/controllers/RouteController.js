@@ -184,4 +184,12 @@ angular.module('SETTER')
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
             };
+
+            $scope.topNavigationClicked = function () {
+                if ($scope.pageWasBookmarked() || $scope.lastPageWasZone()) {
+                    $scope.navigateToWall($scope.gymId, $scope.wallId)
+                } else {
+                    $scope.back();
+                }
+            }
         }]);

@@ -259,7 +259,15 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             paths.splice(0, 1);
         });
 
+        $rootScope.pageWasBookmarked = function () {
+            return $rootScope.lastPath === '/';
+        }
+
         $rootScope.lastPageWasZone = function () {
             return $rootScope.lastPath.indexOf('walls') !== -1;
+        }
+
+        $rootScope.lastPageWasUser = function () {
+            return $rootScope.lastPath.indexOf('users') !== -1;
         }
     }]);

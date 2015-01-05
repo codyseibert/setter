@@ -45,13 +45,11 @@
             <h2>Latest Sends</h2>
             <div class="row small-collapse">
             <ul class="list list--tableStyle">
-                <li  class="list-elem" ng-repeat="act in activity"
-                        >
+                <li  class="list-elem" ng-repeat="act in activity">
                     <span
                         ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
-                        <i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{act.bg || act.rg}} on {{act.date}}
+                        <i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{formatGrade(act.bg, act.rg)}} on {{act.date}}
                     </span>
-
                 </li>
             </ul>
         </div>

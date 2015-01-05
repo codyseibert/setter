@@ -41,17 +41,17 @@
 <section class="row  small-collapse">
 
     <div class="mb4  small-12  large-6  columns">
-        
+
         <div class="medium-6 columns  ">
             <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map" ng-click="navigateToWalls(gymId)">
-                View Gym's Zones 
+                View Gym's Zones
             </button>
-        </div>     
+        </div>
 
         <div class="medium-6 columns">
             <button ng-show="isUserAccount()" class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging " ng-click="navigateToGymSuggestions(gymId)">
-                Post Suggestion 
-            </button>   
+                Post Suggestion
+            </button>
         </div>
 
     </div>
@@ -90,7 +90,7 @@
 
 <div class="row">
     <div class="small-12 medium">
-        <h2>Latest Activity</h2>
+        <h2>Latest Sends</h2>
         <div ng-repeat="act in activity"
                 style="padding: 20px; display: inline-block; height: 70px; width: 240px; overflow: hidden;">
             <div style="margin-right: 10px; width: 50px; height: 50px; float: left; text-align: center; cursor: pointer;"
@@ -99,8 +99,8 @@
                     style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
             </div>
 
-            <div>
-                {{act.name}}<br>sent <i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{act.bg || act.rg}}
+            <div ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
+                {{act.name}}<br><i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{formatGrade(act.bg, act.rg)}}
             </div>
         </div>
     </div>

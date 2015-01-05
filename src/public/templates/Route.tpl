@@ -2,9 +2,16 @@
 
     <div class="header">
 
-        <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+        <button ng-show="lastPageWasZone()"
+            class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
             ng-click="navigateToWall(gymId, wallId)" >
             <span ng-show="isGymAccount()"> Manage</span> Zone
+        </button>
+
+        <button ng-show="!lastPageWasZone()"
+            class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+            ng-click="back()" >
+            Back
         </button>
 
         <div  class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">
@@ -52,7 +59,7 @@
                <div class="flag-body  text-right">
 
                 <h4 class="h2  mb0">
-                    {{route.boulder_grade || route.rope_grade}}
+                    {{formatGrade(route.boulder_grade, route.rope_grade)}}
                 </h4>
 
                </div>

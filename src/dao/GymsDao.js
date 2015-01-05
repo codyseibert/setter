@@ -105,7 +105,7 @@ var GymsDao = function () {
 
     this.getActivityStream = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT a.id, c.value, s.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM users u ' +
+            'SELECT a.id, c.value, r.id AS route_id, r.wall_id, s.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM users u ' +
                 'INNER JOIN accounts a ON u.account_id = a.id ' +
                 'LEFT JOIN images i ON a.image_id = i.id ' +
                 'INNER JOIN sends s ON s.user_id = a.id ' +

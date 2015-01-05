@@ -246,4 +246,20 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             LoginService.setImageUrlFromCookie();
             LoginService.setNameFromCookie();
         }
+
+        $rootScope.formatGrade = function (pBoulderGrade, pRopeGrade) {
+            return pBoulderGrade || pRopeGrade || 'Not Rated';
+        };
+
+        var paths = ['/'];
+
+        $rootScope.$on('$routeChangeSuccess', function() {
+            $rootScope.lastPath = paths[0];
+            paths.push($location.$$path);
+            paths.splice(0, 1);
+        });
+
+        $rootScope.lastPageWasZone = function () {
+            return $rootScope.lastPath.indexOf('walls') !== -1;
+        }
     }]);

@@ -36,7 +36,8 @@ angular.module('SETTER')
 
             $scope.chartOptions = {
                 scaleFontColor: "#000",
-                scaleFontSize: 20
+                scaleFontSize: 20,
+                animation: false
             };
 
             createBoulderRoutesBarGraph = function (pData) {

@@ -120,7 +120,8 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
 
         $rootScope.chartOptions = {
             scaleFontColor: "#000",
-            scaleFontSize: 20
+            scaleFontSize: 20,
+            animation: false
         };
 
         $rootScope.navigateToLogin = function () {

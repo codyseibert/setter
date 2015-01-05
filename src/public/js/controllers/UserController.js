@@ -35,7 +35,8 @@ angular.module('SETTER')
 
             $scope.options = {
                 scaleFontColor: "#000",
-                scaleFontSize: 20
+                scaleFontSize: 20,
+                animation: false
             };
 
             createBoulderSendsBarGraph = function (pData) {
@@ -81,7 +82,9 @@ angular.module('SETTER')
                         scaleSteps: 6,
                         scaleStepWidth: 2,
                         scaleStartValue: 0,
-                        scaleLabel: '<%= "V" + value %>'
+                        scaleLabel: '<%= "V" + value %>',
+
+                        animation: false
                     }
                 };
 

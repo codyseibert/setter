@@ -26,6 +26,7 @@ var ImagesController = require('./controllers/ImagesController');
 var BlogController = require('./controllers/BlogController');
 var GymSuggestionsController = require('./controllers/GymSuggestionsController');
 var AlertsController = require('./controllers/AlertsController');
+var GymAccountRequestsController = require('./controllers/GymAccountRequestsController');
 
 var InjectAccountId = require('./middleware/InjectAccountId');
 var ValidateGymAdmin = require('./middleware/ValidateGymAdmin');
@@ -289,6 +290,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ValidateGymAdmin,
         AlertsController.deleteAlert);
+
+    // GYM ACCOUNT REQUESTS
+    app.post('/api/requests',
+        GymAccountRequestsController.createGymAccountRequest);
 };
 
 module.exports = new RouteToControllerBinder();

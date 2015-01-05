@@ -6,28 +6,22 @@ angular.module('SETTER')
     .controller('RegisterGymController', [
         '$scope',
         '$location',
-        'GymsService',
+        'GymAccountRequestsService',
         'LoginService',
         function (
             $scope,
             $location,
-            GymsService,
+            GymAccountRequestsService,
             LoginService
         ) {
         'use strict';
 
         $scope.form = {};
 
-        $scope.registerClicked = function () {
-            GymsService.registerGym($scope.form)
+        $scope.save = function () {
+            GymAccountRequestsService.createGymAccountRequest(
+                $scope.form.email, $scope.form.name, $scope.form.address)
                 .success(function (pData) {
-                    LoginService.setHeader(pData.token);
-                    LoginService.setAccountType(pData.accountType);
-                    LoginService.setAccountId(pData.accountId);
-                    $scope.navigateToGymDashboard(pData.accountId);
-                })
-                .error(function (pData) {
-                    $scope.error = pData.error;
                 });
         };
     }]);

@@ -24,6 +24,15 @@ angular.module('SETTER')
                     url: 'api/routes/' + pRouteId
                 });
             },
+            // getRouteName: function(pName) {
+            //     return $http({
+            //         method: 'GET',
+            //         url: 'api/routes/' + pRouteId + '/name',
+            //         data:  {
+
+            //         }
+            //     });
+            // },
             createRoute: function (pWallId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
                 return $http({
                     method: 'POST',

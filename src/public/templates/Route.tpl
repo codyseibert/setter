@@ -125,7 +125,7 @@
             <div class="mb4">
                 
                     <h3 class="h4 fwb  mb2">Notes</h3>
-                    <p>All the notes you want about this route. The holds are off, the walls are off, everything is off!</p>
+                    <p><!-- {{route.routeNote}} --></p>
             </div>
 
 

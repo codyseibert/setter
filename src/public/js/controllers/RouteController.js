@@ -24,7 +24,7 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = $routeParams.wallId;
             $scope.routeId = $routeParams.routeId;
-
+            
             $scope.form = {};
             $scope.stars = [];
 

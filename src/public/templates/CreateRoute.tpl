@@ -13,12 +13,6 @@
                 ng-click="navigateToRoute(gymId, wallId, routeId)" >
                 Back
             </button>
-
-            <button class="[ btn--primary  btn--medium  ] right  "
-                        ng-click="saveClicked()"
-                        ng-show="isEditMode">
-                Save Changes
-            </button>
         </div>
 
         <h1 ng-hide="isEditMode" class="icon-pencil" >
@@ -107,6 +101,12 @@
                 ng-click="addClicked()"
                 ng-hide="isEditMode">
                 Add Route
+            </button>
+
+            <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
+                ng-click="saveClicked()"
+                ng-show="isEditMode">
+                Save Changes
             </button>
 
         </div>

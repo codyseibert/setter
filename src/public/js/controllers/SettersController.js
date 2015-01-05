@@ -4,10 +4,12 @@
 angular.module('SETTER')
     .controller('SettersController', [
         '$scope',
+        '$routeParams',
         'SettersService',
         'LoginService',
         function (
-            $scope, 
+            $scope,
+            $routeParams,
             SettersService,
             LoginService
         ) {
@@ -16,6 +18,8 @@ angular.module('SETTER')
         if (!LoginService.validateLoggedIn()) {
             return;
         }
+
+        $scope.gymId = $routeParams.gymId;
 
         SettersService.getSettersAtGym(LoginService.getAccountId())
             .success(function (pData) {
@@ -28,7 +32,7 @@ angular.module('SETTER')
             });
 
         $scope.addSetterClicked = function (pSetter) {
-            SettersService.createSetterGymAccess(pSetter.account_id)
+            SettersService.createSetterGymAccess($scope.gymId, pSetter.account_id)
                 .success(function () {
                     var index = $scope.users.indexOf(pSetter);
                     $scope.users.splice(index, 1);
@@ -38,7 +42,7 @@ angular.module('SETTER')
         };
 
         $scope.removeSetterClicked = function (pSetter) {
-            SettersService.removeSetterGymAccess(pSetter.account_id)
+            SettersService.removeSetterGymAccess($scope.gymId, pSetter.account_id)
                 .success(function () {
                     var index = $scope.setters.indexOf(pSetter);
                     $scope.setters.splice(index, 1);

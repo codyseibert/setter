@@ -12,7 +12,6 @@ var RegistrationController = require('./controllers/RegistrationController');
 var LoginController = require('./controllers/LoginController');
 var WallsController = require('./controllers/WallsController');
 var GymsController = require('./controllers/GymsController');
-var InjectAccountId = require('./middleware/InjectAccountId');
 var ColorsController = require('./controllers/ColorsController');
 var RoutesController = require('./controllers/RoutesController');
 var GradesController = require('./controllers/GradesController');
@@ -28,6 +27,9 @@ var BlogController = require('./controllers/BlogController');
 var GymSuggestionsController = require('./controllers/GymSuggestionsController');
 var AlertsController = require('./controllers/AlertsController');
 
+var InjectAccountId = require('./middleware/InjectAccountId');
+var ValidateGymAdmin = require('./middleware/ValidateGymAdmin');
+
 var RouteToControllerBinder = function () {
     'use strict';
 
@@ -35,36 +37,42 @@ var RouteToControllerBinder = function () {
     app.post('/api/register/user',
         RegistrationController.registerUser);
 
-    app.post('/api/register/gym',
-        RegistrationController.registerGym);
-
     // LOGIN
     app.post('/api/login',
         LoginController.login);
 
     // GYMS
     app.get('/api/gyms',
+        InjectAccountId,
         GymsController.getGyms);
 
     app.get('/api/gyms/:gymId',
+        InjectAccountId,
         GymsController.getGym);
 
     app.get('/api/gyms/:gymId/routes/boulder',
+        InjectAccountId,
         GymsController.getCurrentBoulderRoutes);
 
     app.get('/api/gyms/:gymId/routes/rope',
+        InjectAccountId,
         GymsController.getCurrentRopeRoutes);
 
     app.get('/api/gyms/:gymId/users',
+        InjectAccountId,
         GymsController.getHomeGymUsers);
 
     app.get('/api/gyms/:gymId/image',
+        InjectAccountId,
         GymsController.getGymImage);
 
     app.get('/api/gyms/:gymId/activity',
+        InjectAccountId,
         GymsController.getActivityStream);
 
     app.get('/api/gyms/:gymId/suggestions',
+        InjectAccountId,
+        ValidateGymAdmin,
         GymSuggestionsController.getSuggestionsForGym);
 
     app.post('/api/gyms/:gymId/suggestions',
@@ -72,71 +80,84 @@ var RouteToControllerBinder = function () {
         GymSuggestionsController.createSuggestion);
 
     app.get('/api/gyms/:gymId/alerts',
+        InjectAccountId,
         AlertsController.getAlertsForGym);
 
     app.post('/api/gyms/:gymId/alerts',
+        InjectAccountId,
+        ValidateGymAdmin,
         AlertsController.createAlert);
 
     // WALLS
-    app.get('/api/gym/:gymId/walls',
+    app.get('/api/gyms/:gymId/walls',
+        InjectAccountId,
         WallsController.getWallsInGym);
 
-    app.get('/api/walls/:wallId',
+    app.post('/api/gyms/:gymId/walls',
+        InjectAccountId,
+        ValidateGymAdmin,
+        WallsController.createWall);
+
+    app.get('/api/gyms/:gymId/walls/:wallId',
         InjectAccountId,
         WallsController.getWall);
 
-    app.post('/api/walls',
+    app.post('/api/gyms/:gymId/walls/:wallId',
         InjectAccountId,
-        WallsController.createWall);
-
-    app.post('/api/walls/:wallId',
-        InjectAccountId,
+        ValidateGymAdmin,
         WallsController.updateWall);
 
-    app.delete('/api/walls/:wallId',
+    app.delete('/api/gyms/:gymId/walls/:wallId',
         InjectAccountId,
+        ValidateGymAdmin,
         WallsController.deleteWall);
 
     // ROUTES
     app.get('/api/walls/:wallId/routes',
+        InjectAccountId,
         RoutesController.getRoutesOnWall);
 
     app.get('/api/gyms/:gymId/routes',
+        InjectAccountId,
+        ValidateGymAdmin,
         RoutesController.getRoutesInGym);
 
-    app.post('/api/walls/:wallId/routes',
+    app.post('/api/gyms/:gymId/walls/:wallId/routes',
+        InjectAccountId,
+        ValidateGymAdmin,
         RoutesController.createRoute);
 
     app.get('/api/routes/:routeId',
+        InjectAccountId,
         RoutesController.getRoute);
 
-    app.post('/api/routes/:routeId',
+    app.post('/api/gyms/:gymId/routes/:routeId',
+        InjectAccountId,
+        ValidateGymAdmin,
         RoutesController.updateRoute);
 
-    app.delete('/api/routes/:routeId',
+    app.delete('/api/gyms/:gymId/routes/:routeId',
+        InjectAccountId,
+        ValidateGymAdmin,
         RoutesController.deleteRoute);
 
-    app.post('/api/routes/:routeId/strip',
+    app.post('/api/gyms/:gymId/routes/:routeId/strip',
+        InjectAccountId,
+        ValidateGymAdmin,
         RoutesController.stripRoute);
 
     // COMMENTS
     app.get('/api/routes/:routeId/comments',
+        InjectAccountId,
         CommentsController.getCommentsAboutRoute);
 
     app.post('/api/routes/:routeId/comments',
         InjectAccountId,
         CommentsController.createComment);
 
-    app.post('/api/comments/:commentId',
-        InjectAccountId,
-        CommentsController.updateComment);
-
-    app.delete('/api/comments/:commentId',
-        InjectAccountId,
-        CommentsController.deleteComment);
-
     // RATINGS
     app.get('/api/routes/:routeId/rating',
+        InjectAccountId,
         RatingController.getRatingsForRoute);
 
     app.post('/api/routes/:routeId/rating',
@@ -149,6 +170,7 @@ var RouteToControllerBinder = function () {
 
     // SENDS
     app.get('/api/routes/:routeId/sends',
+        InjectAccountId,
         SendsController.getSendsForRoute);
 
     app.get('/api/routes/:routeId/hasSent',
@@ -165,42 +187,53 @@ var RouteToControllerBinder = function () {
 
     // GRADES
     app.get('/api/grades/boulder',
+        InjectAccountId,
         GradesController.getBoulderGrades);
 
     app.get('/api/grades/rope',
+        InjectAccountId,
         GradesController.getRopeGrades);
 
     // COLORS
     app.get('/api/colors',
+        InjectAccountId,
         ColorsController.getColors);
 
     // SETTERS
-    app.get('/api/gym/:gymId/setters',
+    app.get('/api/gyms/:gymId/setters',
+        InjectAccountId,
+        ValidateGymAdmin,
         SettersController.getSettersAtGym);
 
     app.get('/api/setters',
         InjectAccountId,
         SettersController.getUsers);
 
-    app.post('/api/setters/access',
+    app.post('/api/gyms/:gymId/setters/access',
         InjectAccountId,
+        ValidateGymAdmin,
         SettersController.createSetterGymAccess);
 
-    app.delete('/api/setters/:setterId/access',
+    app.delete('/api/gyms/:gymId/setters/:setterId/access',
         InjectAccountId,
+        ValidateGymAdmin,
         SettersController.deleteSetterGymAccess);
 
     // USERS
     app.get('/api/users/:userId/sends/boulder',
+        InjectAccountId,
         UsersController.getBoulderSends);
 
     app.get('/api/users/:userId/sends/rope',
+        InjectAccountId,
         UsersController.getRopeSends);
 
     app.get('/api/users/:userId',
+        InjectAccountId,
         UsersController.getUser);
 
     app.get('/api/users/:userId/image',
+        InjectAccountId,
         UsersController.getUserImage);
 
     app.post('/api/users/homegym/set',
@@ -208,6 +241,7 @@ var RouteToControllerBinder = function () {
         UsersController.setHomeGym);
 
     app.get('/api/users/:userId/activity',
+        InjectAccountId,
         UsersController.getActivityStream);
 
     // SUGGESTIONS
@@ -222,7 +256,6 @@ var RouteToControllerBinder = function () {
     app.post('/api/suggestions/:suggestionId/upvote',
         InjectAccountId,
         SuggestionsController.upvoteSuggestion);
-
 
     // FEEDBACK
     app.post('/api/feedback',
@@ -246,12 +279,15 @@ var RouteToControllerBinder = function () {
         BlogController.updatePost);
 
     // GYM SUGGESTIONS
-    app.post('/api/suggestions/:suggestionId/read',
+    app.post('/api/gyms/:gymId/suggestions/:suggestionId/read',
         InjectAccountId,
+        ValidateGymAdmin,
         GymSuggestionsController.markAsRead);
 
     // ALERTS
-    app.delete('/api/alerts/:alertId',
+    app.delete('/api/gyms/:gymId/alerts/:alertId',
+        InjectAccountId,
+        ValidateGymAdmin,
         AlertsController.deleteAlert);
 };
 

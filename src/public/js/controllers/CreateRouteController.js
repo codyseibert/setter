@@ -6,21 +6,22 @@ angular.module('SETTER')
     .controller('CreateRouteController', [
         '$scope',
         '$routeParams',
+        '$q',
         'GradesService',
         'RoutesService',
         'ColorsService',
         'SettersService',
         'isEditMode',
-        '$q',
         'LoginService',
-        function ($scope,
+        function (
+            $scope,
             $routeParams,
+            $q,
             GradesService,
             RoutesService,
             ColorsService,
             SettersService,
             isEditMode,
-            $q,
             LoginService
         ) {
             'use strict';
@@ -52,7 +53,7 @@ angular.module('SETTER')
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
-                RoutesService.createRoute($scope.wallId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
+                RoutesService.createRoute($scope.gymId, $scope.wallId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
                         $scope.form.boulderGrade = $scope.boulderGrades[0];
                         $scope.form.ropeGrade = $scope.ropeGrades[0];
@@ -72,7 +73,7 @@ angular.module('SETTER')
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
-                RoutesService.updateRoute($scope.routeId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
+                RoutesService.updateRoute($scope.gymId, $scope.routeId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
                         $scope.navigateToRoute($scope.gymId, $scope.wallId, $scope.routeId);
                     });

@@ -8,7 +8,7 @@ angular.module('SETTER')
             getSettersAtGym: function (pGymId) {
                 return $http({
                     method: 'GET',
-                    url: 'api/gym/' + pGymId + '/setters'
+                    url: 'api/gyms/' + pGymId + '/setters'
                 });
             },
             getUsers: function () {
@@ -17,19 +17,19 @@ angular.module('SETTER')
                     url: 'api/setters'
                 });
             },
-            createSetterGymAccess: function (pSetterId) {
+            createSetterGymAccess: function (pGymId, pSetterId) {
                 return $http({
                     method: 'POST',
-                    url: 'api/setters/access',
+                    url: 'api/gyms/' + pGymId + '/setters/access',
                     data: {
                         setterId: pSetterId
                     }
                 });
             },
-            removeSetterGymAccess: function (pSetterId) {
+            removeSetterGymAccess: function (pGymId, pSetterId) {
                 return $http({
                     method: 'DELETE',
-                    url: 'api/setters/' + pSetterId + '/access'
+                    url: 'api/gyms/' + pGymId + '/setters/' + pSetterId + '/access'
                 });
             }
         };

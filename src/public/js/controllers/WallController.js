@@ -35,7 +35,7 @@ angular.module('SETTER')
             $scope.routes = [];
             $scope.form = {};
 
-            WallsService.getWall($scope.wallId)
+            WallsService.getWall($scope.gymId, $scope.wallId)
                 .success(function (pData) {
                     $scope.wall = pData;
                 });
@@ -60,14 +60,14 @@ angular.module('SETTER')
                     return;
                 }
 
-                WallsService.deleteWall($scope.wallId)
+                WallsService.deleteWall($scope.gymId, $scope.wallId)
                     .success(function () {
                         $scope.navigateToWalls($scope.gymId);
                     });
             };
 
             $scope.save = function () {
-                WallsService.updateWall($scope.wallId, $scope.form.name)
+                WallsService.updateWall($scope.gymId, $scope.wallId, $scope.form.name)
                     .success(function () {
                         $scope.isEditMode = false;
                         $scope.wall.name = $scope.form.name;

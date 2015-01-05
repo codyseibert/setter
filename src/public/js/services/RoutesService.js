@@ -24,19 +24,10 @@ angular.module('SETTER')
                     url: 'api/routes/' + pRouteId
                 });
             },
-            // getRouteName: function(pName) {
-            //     return $http({
-            //         method: 'GET',
-            //         url: 'api/routes/' + pRouteId + '/name',
-            //         data:  {
-
-            //         }
-            //     });
-            // },
-            createRoute: function (pWallId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
+            createRoute: function (pGymId, pWallId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
                 return $http({
                     method: 'POST',
-                    url: 'api/walls/' + pWallId + '/routes',
+                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/routes',
                     data: {
                         name: pName,
                         colorId: pColorId,
@@ -47,10 +38,10 @@ angular.module('SETTER')
                     }
                 });
             },
-            updateRoute: function (pRouteId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
+            updateRoute: function (pGymId, pRouteId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
                 return $http({
                     method: 'POST',
-                    url: 'api/routes/' + pRouteId,
+                    url: 'api/gyms/' + pGymId + '/routes/' + pRouteId,
                     data: {
                         name: pName,
                         colorId: pColorId,
@@ -61,16 +52,16 @@ angular.module('SETTER')
                     }
                 });
             },
-            deleteRoute: function (pRouteId) {
+            deleteRoute: function (pGymId, pRouteId) {
                 return $http({
                     method: 'DELETE',
-                    url: 'api/routes/' + pRouteId
+                    url: 'api/gyms/' + pGymId + '/routes/' + pRouteId
                 });
             },
-            stripRoute: function (pRouteId) {
+            stripRoute: function (pGymId, pRouteId) {
                 return $http({
                     method: 'POST',
-                    url: 'api/routes/' + pRouteId + '/strip'
+                    url: 'api/gyms/' + pGymId + '/routes/' + pRouteId + '/strip'
                 });
             }
         };

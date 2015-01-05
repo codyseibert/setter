@@ -21,10 +21,10 @@ angular.module('SETTER')
                     }
                 });
             },
-            markAsRead: function (pSuggestionId) {
+            markAsRead: function (pGymId, pSuggestionId) {
                 return $http({
                     method: 'POST',
-                    url: 'api/suggestions/' + pSuggestionId + '/read'
+                    url: 'api/gyms/' + pGymId + '/suggestions/' + pSuggestionId + '/read'
                 });
             }
         };

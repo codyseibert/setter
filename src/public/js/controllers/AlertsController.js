@@ -39,7 +39,7 @@ angular.module('SETTER')
                     return;
                 }
 
-                AlertsService.deleteAlert(pAlert.id)
+                AlertsService.deleteAlert($scope.gymId, pAlert.id)
                     .success(function () {
                         $scope.alerts.splice($scope.alerts.indexOf(pAlert), 1);
                     });

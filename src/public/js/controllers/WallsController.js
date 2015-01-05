@@ -29,7 +29,7 @@ angular.module('SETTER')
                 filter: ''
             };
 
-            WallsService.getWallsInGym($scope.gymId)
+            WallsService.getWallsInGym($scope.gymId, $scope.gymId)
                 .success(function (pData) {
                     $scope.walls = pData;
                 });
@@ -46,7 +46,7 @@ angular.module('SETTER')
             $scope.addClicked = function () {
                 var wallName = $scope.form.wallName;
 
-                WallsService.createWall(wallName)
+                WallsService.createWall($scope.gymId, wallName)
                     .success(function (pData) {
                         $scope.walls.push({
                             name: wallName,

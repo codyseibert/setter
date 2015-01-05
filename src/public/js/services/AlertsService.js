@@ -21,10 +21,10 @@ angular.module('SETTER')
                     }
                 });
             },
-            deleteAlert: function (pAlertId) {
+            deleteAlert: function (pGymId, pAlertId) {
                 return $http({
                     method: 'DELETE',
-                    url: 'api/alerts/' + pAlertId
+                    url: 'api/gyms/' + pGymId + '/alerts/' + pAlertId
                 });
             }
         };

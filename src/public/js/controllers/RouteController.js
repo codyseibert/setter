@@ -94,8 +94,10 @@ angular.module('SETTER')
             $scope.addComment = function () {
                 CommentsService.createComment($scope.routeId, $scope.form.message)
                     .success(function (pData) {
+                        console.log(pData);
                         $scope.comments.push({
                             id: pData.id,
+                            account_id: $scope.getAccountId(),
                             message: $scope.form.message,
                             date: DateFormatService.formatWithTime(moment()),
                             url: LoginService.getImageUrl(),
@@ -167,7 +169,7 @@ angular.module('SETTER')
                     return;
                 }
 
-                RoutesService.deleteRoute($scope.routeId)
+                RoutesService.deleteRoute($scope.gymId, $scope.routeId)
                     .success(function (pData) {
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
@@ -179,7 +181,7 @@ angular.module('SETTER')
                     return;
                 }
 
-                RoutesService.stripRoute($scope.routeId)
+                RoutesService.stripRoute($scope.gymId, $scope.routeId)
                     .success(function (pData) {
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });

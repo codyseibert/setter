@@ -53,7 +53,7 @@
                 data-ui-component="routeSubActions">
                 <a class="icon-trash"
                     ng-click="delete()">
-                    Delete Wall
+                    Delete Zone
                 </a>
             </div>
         </section>

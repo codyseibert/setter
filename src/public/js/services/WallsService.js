@@ -9,41 +9,41 @@ angular.module('SETTER')
             getWallsInGym: function (pGymId) {
                 return $http({
                     method: "GET",
-                    url: 'api/gym/' + pGymId + '/walls'
+                    url: 'api/gyms/' + pGymId + '/walls'
                 });
             },
 
-            getWall: function (pWallId) {
+            getWall: function (pGymId, pWallId) {
                 return $http({
                     method: "GET",
-                    url: 'api/walls/' + pWallId
+                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId
                 });
             },
 
-            createWall: function (pWallName) {
+            createWall: function (pGymId, pWallName) {
                 return $http({
                     method: "POST",
-                    url: 'api/walls',
+                    url: 'api/gyms/' + pGymId + '/walls',
                     data: {
                         wallName: pWallName
                     }
                 });
             },
 
-            updateWall: function (pWallId, pWallName) {
+            updateWall: function (pGymId, pWallId, pWallName) {
                 return $http({
                     method: "POST",
-                    url: 'api/walls/' + pWallId,
+                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId,
                     data: {
                         wallName: pWallName
                     }
                 });
             },
 
-            deleteWall: function (pWallId) {
+            deleteWall: function (pGymId, pWallId) {
                 return $http({
                     method: "DELETE",
-                    url: 'api/walls/' + pWallId
+                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId
                 });
             }
         };

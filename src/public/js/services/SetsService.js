@@ -18,16 +18,16 @@ angular.module('SETTER')
                     url: 'api/sets/' + pSetId
                 });
             },
-            createSet: function (pWallId) {
+            createSet: function (pGymId, pWallId) {
                 return $http({
                     method: 'POST',
-                    url: 'api/walls/' + pWallId + '/sets'
+                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/sets'
                 });
             },
-            deleteSet: function (pSetId) {
+            deleteSet: function (pGymId, pSetId) {
                 return $http({
                     method: 'DELETE',
-                    url: 'api/sets/' + pSetId
+                    url: 'api/gyms/' + pGymId + '/sets/' + pSetId
                 });
             }
         };

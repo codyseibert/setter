@@ -36,7 +36,7 @@ angular.module('SETTER')
             }
 
             $scope.read = function (pSuggestion) {
-                GymSuggestionsService.markAsRead(pSuggestion.id)
+                GymSuggestionsService.markAsRead($scope.gymId, pSuggestion.id)
                     .success(function () {
                         pSuggestion.read = true;
                     });

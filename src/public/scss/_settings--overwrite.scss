@@ -120,7 +120,7 @@ $column-gutter: rem-calc(46);
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-$header-font-family: 'Raleway', Helvetica, Sans-Serif; 
+$header-font-family: "Open Sans", Helvetica, sans-serif; 
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -686,19 +686,19 @@ $tabbar-left-section-border: 0;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-$off-canvas-bg: $grey--dark; 
+$off-canvas-bg: $brown--light; 
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
-// $off-canvas-label-color: #999;
+$off-canvas-label-color: $brown--dark;
 // $off-canvas-label-text-transform: uppercase;
 // $off-canvas-label-font-weight: $font-weight-bold;
-$off-canvas-label-bg: black;
+$off-canvas-label-bg: transparent;
 $off-canvas-label-border-top: 0;
 // $off-canvas-label-border-bottom: none;
 // $off-canvas-label-margin:0;
 $off-canvas-link-padding: rem-calc(15, 20);
-// $off-canvas-link-color: rgba(#fff, 0.7);
+$off-canvas-link-color: $brown--dark;
 $off-canvas-link-border-bottom: 0;
 
 // Off Canvas Menu Icon Variables

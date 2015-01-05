@@ -50,7 +50,6 @@
         <div class="inner-wrap">
         <!-- Off Canvas Menu -->
         <aside class="left-off-canvas-menu  side-menu">
-           <h3>Your Name Or gym</h3>
             <ul class="off-canvas-list" ng-show="isLoggedIn()">
 
                 <li
@@ -77,7 +76,7 @@
                     <a class="icon-archive"> Route Archive</a>
                 </li>
 
-                <li
+                <li 
                     ng-click="navigateToSetters(getAccountId())"
                     ng-show="isGymAccount()">
                     <a class="icon-group"> Manage Setters</a>
@@ -89,13 +88,13 @@
                     <a class="icon-messaging"> Suggestions</a>
                 </li>
 
-                <li
+                <li  class="mb4"
                     ng-click="navigateToAlerts(getAccountId())"
                     ng-show="isGymAccount()">
                     <a class="icon-megaphone"> Announcements</a>
                 </li>
 
-                <li
+                <li 
                     ng-click="navigateToGym(getHomeGymId())"
                     ng-show="getHomeGymId()">
                     <a class="icon-home"> Your Home Gym</a>
@@ -103,7 +102,7 @@
 
                 
 
-                <li
+                <li class="mb3"
                     ng-click="navigateToGyms()"
                     ng-show="isUserAccount()">
                     <a class="icon-search"> Search Gyms</a>
@@ -116,10 +115,10 @@
                     <a class="icon-messaging-alt"> Give Feedback</a>
                 </li>
 
-                <li
+<!--                 <li
                     ng-click="navigateToBlog()">
                     <a class="icon-blog"> SETTER Blog</a>
-                </li>
+                </li> -->
 
                 
 
@@ -167,17 +166,23 @@
 
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.5/js/foundation.min.js"></script>
+
+            <script>
+                    $(document).foundation();
+            </script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/Chart.js/Chart.min.js"></script>
         <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
-        <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+   
         <script src="bower_components/ngUpload/ng-upload.js"></script>
         <script src="bower_components/fastclick/lib/fastclick.js"></script>
         <!-- endbower -->
                     <script type="text/javascript">
+
                 window.addEventListener('load', function() {
                   FastClick.attach(document.body);
                 }, false);

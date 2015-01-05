@@ -58,22 +58,6 @@
 
 </section>
 
-<section class="row">
-
-    <div class="small-12 columns mb4">
-        <h2 class="icon-attention">Gym Alerts</h2>
-
-        <ul class="list--noStyles  list">
-            <li ng-repeat="alert in alerts">
-                <p>{{alert.message}}
-                <span class="txt--micro  display--block">{{alert.date}}</span></p>
-            </li>
-        </ul>
-
-    </div>
-
-</section>
-
 <div class="row">
     <div class="small-12 medium">
         <div class="graph  small-12 medium-6 columns">
@@ -122,6 +106,22 @@
     </div>
 </div>
 
+
+<section class="row">
+
+    <div class="small-12 columns mb4">
+        <h2 class="icon-attention">Gym Announcements</h2>
+
+        <ul class="list--noStyles  list">
+            <li ng-repeat="alert in alerts">
+                <p>{{alert.message}}
+                <span class="txt--micro  display--block">{{alert.date}}</span></p>
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 <div class="row">
     <div class="small-12 medium">

@@ -6,10 +6,6 @@
             Go to Home Gym
         </button>
     </div>
-
-    <div class="small-12 columns header">
-
-    </div>
 </section>
 
 <section class="row">

@@ -4,7 +4,7 @@
 
         <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
             ng-click="navigateToWall(gymId, wallId)" >
-            <span ng-show="isGymAccount()"> Manage</span> Wall
+            <span ng-show="isGymAccount()"> Manage</span> Zone
         </button>
 
         <div  class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">
@@ -27,6 +27,22 @@
 <section class="row" data-ui-component="route-information">
 
     <div class="small-12 columns  mb4">
+
+            <div class="flag  mb3">
+
+                <h3 class="flag-image">
+                Name
+                </h3>
+
+               <div class="flag-body  text-right">
+
+                    <h4 class="h3  mb0  fwb">
+                       N/A
+                    </h4>
+
+               </div>
+
+            </div>
 
             <div class="flag  mb3">
                 <h3 class="flag-image">
@@ -60,6 +76,21 @@
 
              <div class="flag  mb3">
                 <h3 class="flag-image">
+                Zone
+                </h3>
+
+               <div class="flag-body  text-right">
+
+                <h4 class="h3  mb0  fwb">
+                   {{route.zoneName}}
+                </h4>
+
+               </div>
+
+            </div>
+
+            <div class="flag  mb3">
+                <h3 class="flag-image">
                 Setter
                 </h3>
 
@@ -75,7 +106,7 @@
 
             <div class="flag  mb3">
 
-                <h3 class="flag-image">Avg. Rating</h3>
+            <h3 class="flag-image">Avg. Rating</h3>
 
                <div class="flag-body  text-right">
                     <h4 class="mb0 h2 display--inlineBlock"
@@ -86,9 +117,17 @@
                             ng-mouseleave="setHoverRating(-1)">
                         <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
                     </h4>
-               </div>
+
+                </div>
 
             </div>
+
+            <div class="mb4">
+                
+                    <h3 class="h4 fwb  mb2">Notes</h3>
+                    <p>All the notes you want about this route. The holds are off, the walls are off, everything is off!</p>
+            </div>
+
 
         <div ng-hide="isGymAccount()">
             <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"

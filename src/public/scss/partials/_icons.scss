@@ -268,12 +268,17 @@
    background-repeat: no-repeat; 
    background-position: center; 
    background-size: contain; 
+  width: 100%; 
    
 }
 
 .saddie--medium {
   min-height: rem-calc(220); 
   min-width: rem-calc(220); 
-  width: 100%; 
 
+}
+
+.saddie--small {
+  min-width: rem-calc(100);
+  min-height: rem-calc(100); 
 }

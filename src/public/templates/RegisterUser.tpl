@@ -1,15 +1,23 @@
 
 <section class="row">
 
-    <div class="small-12 small-centered large-uncentered large-6 columns">
-        
-        <div class="saddie  saddie--medium  center  mt5">
+    <div class="small-12 columns  header">
 
+        <button class="btn--medium  btn--secondary icon-left-big"
+    ng-click="back()">Back  
+        </button>
+
+        <div class="[ small-3  columns small-centered ] [ show-for-small-only  ]  saddie  saddie--small  mt3">
+        
         </div>
 
     </div>
 
-    <div class=" small-12  large-6  columns mtb4">
+</section>
+
+<section class="row">
+
+    <div class=" small-12  large-6  columns mb4">
 
         <h1 class="icon-edit"> User Registration</h1>
 

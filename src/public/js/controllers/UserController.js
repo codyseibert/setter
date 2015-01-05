@@ -71,6 +71,7 @@ angular.module('SETTER')
                     j,
                     bucket,
                     sort,
+                    carry,
                     max;
 
                 $scope.boulderSendsLineGraph = {
@@ -135,6 +136,15 @@ angular.module('SETTER')
                     buckets[i] = average;
                 }
 
+                carry = buckets[0];
+                for (i = 0; i < buckets.length; i += 1) {
+                    if (buckets[i] === 0) {
+                        buckets[i] = carry;
+                    } else {
+                        carry = buckets[i];
+                    }
+                }
+
                 $scope.boulderSendsLineGraph.labels = months;
                 $scope.boulderSendsLineGraph.data = [buckets];
             };
@@ -151,6 +161,7 @@ angular.module('SETTER')
                     months,
                     month,
                     sort,
+                    carry,
                     max;
 
                 $scope.ropeSendsLineGraph = {
@@ -158,9 +169,9 @@ angular.module('SETTER')
                         scaleFontColor: "#000",
                         scaleFontSize: 20,
                         scaleOverride: true,
-                        scaleSteps: 6,
+                        scaleSteps: 8,
                         scaleStepWidth: 0.01,
-                        scaleStartValue: 5.08,
+                        scaleStartValue: 5.06,
                         scaleLabel: '<%=value.replace(".0", ".")%>'
                     }
                 };
@@ -210,7 +221,16 @@ angular.module('SETTER')
                     if (max.length !== 0) {
                         average = sum / max.length;
                     }
-                    buckets[i] = Math.max(5.08, 5  + average / 100.0);
+                    buckets[i] = Math.max(5.06, 5  + average / 100.0);
+                }
+
+                carry = buckets[0];
+                for (i = 0; i < buckets.length; i += 1) {
+                    if (buckets[i] === 5.06) {
+                        buckets[i] = carry;
+                    } else {
+                        carry = buckets[i];
+                    }
                 }
 
                 $scope.ropeSendsLineGraph.labels = months;
@@ -236,8 +256,8 @@ angular.module('SETTER')
                 }
 
                 average = sum / max.length;
-                average = parseFloat(average).toFixed(2);
-                $scope.boulderGrade = average;
+                average = parseFloat(average).toFixed(1);
+                $scope.boulderGrade = 'V' + average;
             };
 
             calculateRopeGrade = function (pData) {
@@ -259,7 +279,7 @@ angular.module('SETTER')
                 }
 
                 average = sum / max.length;
-                average = parseFloat(average).toFixed(2);
+                average = parseFloat(average).toFixed(1);
                 average = average.toString();
                 average = average.replace('.', '');
                 $scope.ropeGrade = '5.' + average;

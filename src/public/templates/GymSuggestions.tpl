@@ -62,10 +62,9 @@
 
 <section class="row" ng-hide="getAccountId() === gymId">
     <div class="small-12   large-6  columns">
-
         <div class="fieldwrapper">
             <textarea class="textarea--small"  type="text"
-                placeholder="your suggestion to the gym"
+                placeholder="write a suggestion to your gym here"
                 ng-model="form.message"/>
 
             <button class="btn--primary  btn--medium  btn--expanded icon-paper-plane"

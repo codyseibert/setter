@@ -229,6 +229,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
         };
 
         if (LoginService.hasTokenInCookie()) {
+            console.log("here");
             LoginService.setHeaderFromCookie();
             LoginService.setTypeFromCookie();
             LoginService.setAccountIdFromCookie();

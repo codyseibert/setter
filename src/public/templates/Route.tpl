@@ -37,7 +37,7 @@
                <div class="flag-body  text-right">
 
                     <h4 class="h3  mb0  fwb">
-                       N/A
+                       {{route.route_name || 'N/A'}}
                     </h4>
 
                </div>
@@ -82,7 +82,7 @@
                <div class="flag-body  text-right">
 
                 <h4 class="h3  mb0  fwb">
-                   {{route.zoneName}}
+                   {{route.wall_name}}
                 </h4>
 
                </div>
@@ -123,9 +123,8 @@
             </div>
 
             <div class="mb4">
-                
                     <h3 class="h4 fwb  mb2">Notes</h3>
-                    <p><!-- {{route.routeNote}} --></p>
+                    <p>{{route.note || 'N/A'}}</p>
             </div>
 
 

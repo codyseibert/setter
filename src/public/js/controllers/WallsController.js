@@ -5,16 +5,22 @@
 angular.module('SETTER')
     .controller('WallsController', [
         '$scope',
+        '$routeParams',
         'WallsService',
         'GymsService',
-        '$routeParams',
+        'LoginService',
         function (
             $scope,
+            $routeParams,
             WallsService,
             GymsService,
-            $routeParams
+            LoginService
         ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             $scope.gymId = $routeParams.gymId;
             $scope.walls = [];

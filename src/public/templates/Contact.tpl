@@ -14,6 +14,10 @@
     <div class="center  small-10  medium-6 large-4 ">
         <h1 class="icon-mail-alt"> Contact Us</h1>
 
+        <div class="mb4">
+            Send us an email at <a href="mailto:setterapp@gmail.com">setterapp@gmail.com</a> <br><br>or, <Br><Br>send us a message below!
+        </div>
+
         <div class="mb" ng-show="thanks && !error">
             <span class="yellow">Thank you</span> for your message!
         </div>

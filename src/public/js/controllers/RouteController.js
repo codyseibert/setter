@@ -3,7 +3,8 @@
 /*global angular: false, btoa: false, console: false, moment: false, confirm: false */
 
 angular.module('SETTER')
-    .controller('RouteController', ['$scope',
+    .controller('RouteController', [
+        '$scope',
         '$routeParams',
         'RoutesService',
         'CommentsService',
@@ -11,20 +12,26 @@ angular.module('SETTER')
         'SendsService',
         'DateFormatService',
         'LoginService',
-        function ($scope,
+        function (
+            $scope,
             $routeParams,
             RoutesService,
             CommentsService,
             RatingsService,
             SendsService,
             DateFormatService,
-            LoginService) {
+            LoginService
+        ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = $routeParams.wallId;
             $scope.routeId = $routeParams.routeId;
-            
+
             $scope.form = {};
             $scope.stars = [];
 

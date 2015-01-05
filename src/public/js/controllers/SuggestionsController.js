@@ -6,9 +6,17 @@ angular.module('SETTER')
     .controller('SuggestionsController', [
         '$scope',
         'SuggestionsService',
-        function ($scope,
-            SuggestionsService) {
+        'LoginService',
+        function (
+            $scope,
+            SuggestionsService,
+            LoginService
+        ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             var sortSuggestions,
                 MAX_THUMB_SIZE = 60,

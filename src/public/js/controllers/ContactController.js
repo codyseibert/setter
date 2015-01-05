@@ -5,9 +5,11 @@ angular.module('SETTER')
     .controller('ContactController', [
         '$scope',
         'FeedbackService',
+        'LoginService',
         function (
             $scope,
-            FeedbackService
+            FeedbackService,
+            LoginService
         ) {
             'use strict';
 

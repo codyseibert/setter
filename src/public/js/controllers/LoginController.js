@@ -3,7 +3,15 @@
 /*global angular: false, btoa: false, console: false */
 
 angular.module('SETTER')
-    .controller('LoginController', ['$scope', 'LoginService', '$location', function ($scope, LoginService, $location) {
+    .controller('LoginController', [
+        '$scope',
+        '$location',
+        'LoginService',
+        function (
+            $scope,
+            $location,
+            LoginService
+        ) {
         'use strict';
 
         if (LoginService.isLoggedIn()) {

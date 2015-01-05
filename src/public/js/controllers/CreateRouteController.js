@@ -12,6 +12,7 @@ angular.module('SETTER')
         'SettersService',
         'isEditMode',
         '$q',
+        'LoginService',
         function ($scope,
             $routeParams,
             GradesService,
@@ -19,8 +20,14 @@ angular.module('SETTER')
             ColorsService,
             SettersService,
             isEditMode,
-            $q) {
+            $q,
+            LoginService
+        ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             var getBoulderGradesPromise,
                 getRopeGradesPromise,

@@ -100,7 +100,17 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             });
 
     }])
-    .run(['$rootScope', '$location', 'LoginService', '$window', function ($rootScope, $location, LoginService, $window) {
+    .run([
+        '$rootScope',
+        '$location',
+        '$window',
+        'LoginService',
+        function (
+            $rootScope,
+            $location,
+            $window,
+            LoginService
+        ) {
         'use strict';
 
         // Set the global chart colors used throughout the site
@@ -229,7 +239,6 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
         };
 
         if (LoginService.hasTokenInCookie()) {
-            console.log("here");
             LoginService.setHeaderFromCookie();
             LoginService.setTypeFromCookie();
             LoginService.setAccountIdFromCookie();

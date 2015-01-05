@@ -3,7 +3,17 @@
 /*global angular: false, btoa: false, console: false */
 
 angular.module('SETTER')
-    .controller('RegisterUserController', ['$scope', 'UsersService', 'LoginService', '$location', function ($scope, UsersService, LoginService, $location) {
+    .controller('RegisterUserController', [
+        '$scope',
+        '$location',
+        'UsersService',
+        'LoginService',
+        function (
+            $scope,
+            $location,
+            UsersService,
+            LoginService
+        ) {
         'use strict';
 
         $scope.form = {};

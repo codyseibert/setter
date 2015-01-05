@@ -9,16 +9,22 @@
 angular.module('SETTER')
     .controller('RouteManagerController', [
         '$scope',
-        'RoutesService',
         '$routeParams',
+        'RoutesService',
         'DateFormatService',
+        'LoginService',
         function (
             $scope,
-            RoutesService,
             $routeParams,
-            DateFormatService
+            RoutesService,
+            DateFormatService,
+            LoginService
         ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             $scope.gymId = $routeParams.gymId;
 

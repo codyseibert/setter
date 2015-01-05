@@ -20,6 +20,10 @@ angular.module('SETTER')
         ) {
             'use strict';
 
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
+
             var createBoulderSendsBarGraph,
                 createRopeSendsBarGraph,
                 createBoulderSendsLineGraph,

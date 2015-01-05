@@ -9,18 +9,24 @@
 angular.module('SETTER')
     .controller('WallController', [
         '$scope',
+        '$routeParams',
         'RoutesService',
         'WallsService',
-        '$routeParams',
         'DateFormatService',
+        'LoginService',
         function (
             $scope,
+            $routeParams,
             RoutesService,
             WallsService,
-            $routeParams,
-            DateFormatService
+            DateFormatService,
+            LoginService
         ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             $scope.gymId = $routeParams.gymId;
             $scope.wallId = $routeParams.wallId;

@@ -7,14 +7,19 @@ angular.module('SETTER')
         '$sce',
         'BlogService',
         'DateFormatService',
+        'LoginService',
         function BlogController(
             $scope,
             $sce,
             BlogService,
-            DateFormatService
+            DateFormatService,
+            LoginService
         ) {
-
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             BlogService.getPosts()
                 .success(function (pData) {

@@ -4,26 +4,30 @@
 angular.module('SETTER')
     .controller('GymController', [
         '$scope',
-        'GymsService',
         '$routeParams',
-        'BarGraphHelperService',
         '$rootScope',
+        'GymsService',
+        'BarGraphHelperService',
         'UsersService',
         'LoginService',
         'AlertsService',
         'DateFormatService',
         function (
             $scope,
-            GymsService,
             $routeParams,
-            BarGraphHelperService,
             $rootScope,
+            GymsService,
+            BarGraphHelperService,
             UsersService,
             LoginService,
             AlertsService,
             DateFormatService
         ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             var createBoulderRoutesBarGraph,
                 createRopeRoutesBarGraph;

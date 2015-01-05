@@ -7,13 +7,19 @@ angular.module('SETTER')
         '$routeParams',
         'AlertsService',
         'DateFormatService',
+        'LoginService',
         function (
             $scope,
             $routeParams,
             AlertsService,
-            DateFormatService
+            DateFormatService,
+            LoginService
         ) {
             'use strict';
+
+            if (!LoginService.validateLoggedIn()) {
+                return;
+            }
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.form = {};

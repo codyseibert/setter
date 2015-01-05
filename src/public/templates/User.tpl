@@ -19,7 +19,7 @@
 
         <div class="flag-body">
             <h1 ng-show="getAccountId() === userId"> {{user.firstname}} {{user.lastname}}</h1>
-<!--             <h1 class="mb0" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1> -->
+            <h1 class="mb0" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
         </div>
 
     </div>

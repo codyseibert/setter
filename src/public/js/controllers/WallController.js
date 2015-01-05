@@ -42,6 +42,11 @@ angular.module('SETTER')
 
             RoutesService.getRoutesOnWall($scope.wallId)
                 .success(function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = moment(pEntry.date);
+                        return pEntry;
+                    });
+
                     $scope.routes = pData;
                 });
 
@@ -73,4 +78,8 @@ angular.module('SETTER')
                         $scope.wall.name = $scope.form.name;
                     });
             };
+
+            $scope.isNew = function (pRoute) {
+                return pRoute.date > moment().subtract(7, 'days');
+            }
         }]);

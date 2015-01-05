@@ -48,6 +48,7 @@ angular.module('SETTER')
 
             RoutesService.getRoute($scope.routeId)
                 .success(function (pData) {
+                    pData.date = DateFormatService.format(pData.date);
                     $scope.route = pData;
                 });
 

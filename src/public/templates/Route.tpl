@@ -124,6 +124,21 @@
 
             </div>
 
+            <div class="flag  mb3">
+                <h3 class="flag-image">
+                    Date
+                </h3>
+
+                <div class="flag-body  text-right">
+
+                    <h4 class="h3  mb0  fwb">
+                        {{route.date}}
+                    </h4>
+
+                </div>
+
+            </div>
+
             <div class="mb4">
                     <h3 class="h4 fwb  mb2">Notes</h3>
                     <p>{{route.note || 'N/A'}}</p>

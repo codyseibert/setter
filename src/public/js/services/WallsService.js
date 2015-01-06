@@ -5,18 +5,37 @@ angular.module('SETTER')
     .factory('WallsService', ['$http', function ($http) {
         'use strict';
 
+        var walls = {};
+        var wall = {};
+
         return {
-            getWallsInGym: function (pGymId) {
-                return $http({
+            getWallsInGym: function (pGymId, pCallback) {
+                if (walls[pGymId]) {
+                    pCallback(walls[pGymId]);
+                    return;
+                }
+
+                $http({
                     method: "GET",
                     url: 'api/gyms/' + pGymId + '/walls'
+                }).success(function (pData) {
+                    walls[pGymId] = pData;
+                    pCallback(walls[pGymId]);
                 });
             },
 
-            getWall: function (pGymId, pWallId) {
-                return $http({
+            getWall: function (pGymId, pWallId, pCallback) {
+                if (wall[pWallId]) {
+                    pCallback(wall[pWallId]);
+                    return;
+                }
+
+                $http({
                     method: "GET",
                     url: 'api/gyms/' + pGymId + '/walls/' + pWallId
+                }).success(function (pData) {
+                    wall[pWallId] = pData;
+                    pCallback(wall[pWallId]);
                 });
             },
 

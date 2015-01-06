@@ -35,20 +35,18 @@ angular.module('SETTER')
             $scope.routes = [];
             $scope.form = {};
 
-            WallsService.getWall($scope.gymId, $scope.wallId)
-                .success(function (pData) {
-                    $scope.wall = pData;
+            WallsService.getWall($scope.gymId, $scope.wallId, function (pData) {
+                $scope.wall = pData;
+            });
+
+            RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
+                pData.map(function (pEntry) {
+                    pEntry.date = moment(pEntry.date);
+                    return pEntry;
                 });
 
-            RoutesService.getRoutesOnWall($scope.wallId)
-                .success(function (pData) {
-                    pData.map(function (pEntry) {
-                        pEntry.date = moment(pEntry.date);
-                        return pEntry;
-                    });
-
-                    $scope.routes = pData;
-                });
+                $scope.routes = pData;
+            });
 
             $scope.hasRoutes = function () {
                 return $scope.routes.length > 0;

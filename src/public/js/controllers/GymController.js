@@ -58,30 +58,25 @@ angular.module('SETTER')
                 };
             };
 
-            GymsService.getGym($scope.gymId)
-                .success(function (pData) {
-                    $scope.gym = pData;
-                });
+            GymsService.getGym($scope.gymId, function (pData) {
+                $scope.gym = pData;
+            });
 
-            GymsService.getCurrentBoulderRoutes($scope.gymId)
-                .success(function (pData) {
-                    createBoulderRoutesBarGraph(pData);
-                });
+            GymsService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
+                createBoulderRoutesBarGraph(pData);
+            });
 
-            GymsService.getCurrentRopeRoutes($scope.gymId)
-                .success(function (pData) {
-                    createRopeRoutesBarGraph(pData);
-                });
+            GymsService.getCurrentRopeRoutes($scope.gymId, function (pData) {
+                createRopeRoutesBarGraph(pData);
+            });
 
-            GymsService.getHomeGymUsers($scope.gymId)
-                .success(function (pData) {
-                    $scope.users = pData;
-                });
+            GymsService.getHomeGymUsers($scope.gymId, function (pData) {
+                $scope.users = pData;
+            });
 
-            GymsService.getGymImage($scope.gymId)
-                .success(function (pData) {
-                    $scope.image = pData;
-                });
+            GymsService.getGymImage($scope.gymId, function (pData) {
+                $scope.image = pData;
+            });
 
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {

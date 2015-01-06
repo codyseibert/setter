@@ -22,15 +22,14 @@ angular.module('SETTER')
                 search: ''
             };
 
-            GymsService.getGyms()
-                .success(function (pData) {
-                    pData.map(function (pEntry) {
-                        pEntry.show = true;
-                        return pEntry;
-                    });
-
-                    $scope.gyms = pData;
+            GymsService.getGyms(function (pData) {
+                pData.map(function (pEntry) {
+                    pEntry.show = true;
+                    return pEntry;
                 });
+
+                $scope.gyms = pData;
+            });
 
             $scope.applySearch = function () {
                 var search = $scope.form.search;

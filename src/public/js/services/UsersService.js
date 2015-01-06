@@ -5,6 +5,9 @@ angular.module('SETTER')
     .factory('UsersService', ['$http', function ($http) {
         'use strict';
 
+        var user = {};
+        var image = {};
+
         return {
             registerUser: function (pRegistrationInfo) {
                 return $http({
@@ -13,16 +16,32 @@ angular.module('SETTER')
                     data: pRegistrationInfo
                 });
             },
-            getUser: function (pUserId) {
-                return $http({
-                    method: "GET",
+            getUser: function (pUserId, pCallback) {
+                if (user[pUserId]) {
+                    pCallback(user[pUserId]);
+                    return;
+                }
+
+                $http({
+                    method: 'GET',
                     url: "api/users/" + pUserId
+                }).success(function (pData) {
+                    user[pUserId] = pData;
+                    pCallback(user[pUserId]);
                 });
             },
-            getUserImage: function (pUserId) {
-                return $http({
-                    method: "GET",
+            getUserImage: function (pUserId, pCallback) {
+                if (image[pUserId]) {
+                    pCallback(image[pUserId]);
+                    return;
+                }
+
+                $http({
+                    method: 'GET',
                     url: "api/users/" + pUserId + "/image"
+                }).success(function (pData) {
+                    image[pUserId] = pData;
+                    pCallback(image[pUserId]);
                 });
             },
             getBoulderSends: function (pUserId) {

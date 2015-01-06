@@ -5,6 +5,8 @@ angular.module('SETTER')
     .factory('RoutesService', ['$http', function ($http) {
         'use strict';
 
+        var routes = {};
+
         return {
             getRoutesInGym: function (pGymId) {
                 return $http({
@@ -12,11 +14,19 @@ angular.module('SETTER')
                     url: 'api/gyms/' + pGymId + '/routes'
                 });
             },
-            getRoutesOnWall: function (pWallId) {
-                return $http({
+            getRoutesOnWall: function (pWallId, pCallback) {
+                if (routes[pWallId]) {
+                    pCallback(routes[pWallId]);
+                    return;
+                }
+
+                $http({
                     method: 'GET',
                     url: 'api/walls/' + pWallId + '/routes'
-                });
+                }).success(function (pData) {
+                    routes[pWallId] = pData;
+                    pCallback(routes[pWallId]);
+                })
             },
             getRoute: function (pRouteId) {
                 return $http({

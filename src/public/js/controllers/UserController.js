@@ -31,6 +31,10 @@ angular.module('SETTER')
                 calculateBoulderGrade,
                 calculateRopeGrade;
 
+            $scope.hasRopeSends = true;
+            $scope.hasBoulderSends = true;
+            $scope.ropeGrade = 'Calculating';
+            $scope.boulderGrade = 'Calculating';
             $scope.userId = parseInt($routeParams.userId, 10);
 
             $scope.options = {
@@ -285,10 +289,9 @@ angular.module('SETTER')
                 $scope.ropeGrade = '5.' + average;
             };
 
-            UsersService.getUser($scope.userId)
-                .success(function (pData) {
-                    $scope.user = pData;
-                });
+            UsersService.getUser($scope.userId, function (pData) {
+                $scope.user = pData;
+            });
 
             UsersService.getBoulderSends($scope.userId)
                 .success(function (pData) {
@@ -308,10 +311,9 @@ angular.module('SETTER')
                     $scope.hasRopeSends = pData.length > 0;
                 });
 
-            UsersService.getUserImage($scope.userId)
-                .success(function (pData) {
-                    $scope.image = pData;
-                });
+            UsersService.getUserImage($scope.userId, function (pData) {
+                $scope.image = pData;
+            });
 
             UsersService.getActivityStream($scope.userId)
                 .success(function (pData) {

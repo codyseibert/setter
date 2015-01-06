@@ -3,6 +3,9 @@
 <html lang="en" data-framework="angularjs">
     <head>
         <meta charset="utf-8" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+
         <title>SETTER</title>
         <link rel="stylesheet" href="css/app.css" />
 
@@ -44,8 +47,8 @@
 
             <section class="tab-bar-section text-center  fwb"  ng-hide="isLoggedIn()">SETTER</section>
 
-            <span ng-show="isLoggedIn()">
-                <section class="left-small" ng-show="isLoggedIn()">
+            <span ng-show="isLoggedIn()" class="ng-hide">
+                <section class="left-small">
                     <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
                 </section>
 
@@ -184,7 +187,7 @@
                     <a class="icon-megaphone"> Announcements</a>
                 </li>
 
-                
+
 
                 <li
                     ng-click="navigateToGym(getHomeGymId())"
@@ -200,7 +203,7 @@
                     <a class="icon-search"> Search Gyms</a>
                 </li>
 
-                
+
 
                 <li
                     ng-click="navigateToSuggestionsPage()">

@@ -7,13 +7,11 @@ angular.module('SETTER')
         '$scope',
         '$routeParams',
         'WallsService',
-        'GymsService',
         'LoginService',
         function (
             $scope,
             $routeParams,
             WallsService,
-            GymsService,
             LoginService
         ) {
             'use strict';
@@ -29,15 +27,9 @@ angular.module('SETTER')
                 filter: ''
             };
 
-            WallsService.getWallsInGym($scope.gymId, $scope.gymId)
-                .success(function (pData) {
-                    $scope.walls = pData;
-                });
-
-            GymsService.getGym($scope.gymId)
-                .success(function (pData) {
-                    $scope.gym = pData;
-                });
+            WallsService.getWallsInGym($scope.gymId, function (pData) {
+                $scope.walls = pData;
+            });
 
             $scope.hasWalls = function () {
                 return $scope.walls.length > 0;

@@ -95,7 +95,6 @@ angular.module('SETTER')
             $scope.addComment = function () {
                 CommentsService.createComment($scope.routeId, $scope.form.message)
                     .success(function (pData) {
-                        console.log(pData);
                         $scope.comments.push({
                             id: pData.id,
                             account_id: $scope.getAccountId(),

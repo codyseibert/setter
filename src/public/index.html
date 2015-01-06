@@ -29,15 +29,15 @@
 
 
     <body ng-app="SETTER">
-       
+
 
             <nav class="top-bar visible-for-large-up  text-right" data-topbar role="navigation">
-    
+
                 <img class="mr4"  src="images/setter-logo.svg" alt="" width="40">
 
-            </nav> 
+            </nav>
 
-        
+
     <div class="off-canvas-wrap" data-offcanvas>
 
         <nav class="tab-bar hide-on-large" >
@@ -137,8 +137,8 @@
                 </li>
             </ul>
         </aside>
-        
-    
+
+
           <aside class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only" ng-show="isLoggedIn()">
             <ul class="pt5 " ng-show="isLoggedIn()">
 
@@ -192,7 +192,7 @@
                     <a class="icon-home"> Your Home Gym</a>
                 </li>
 
-                
+
 
                 <li class="mb3"
                     ng-click="navigateToGyms()"
@@ -230,7 +230,7 @@
             </div>
         </div>
 
-<!-- 
+<!--
         <section class="main-section">
 
             <div id="content">
@@ -329,21 +329,17 @@
             <script type="text/javascript" src="js/services/GymAccountRequestsService.js"></script>
         <!-- /build -->
 
-
-
         <script type="text/javascript">
-
-        $(document).foundation({
-             offcanvas : {
-                // Sets method in which offcanvas opens.
-                // [ move | overlap_single | overlap ]
-                open_method: 'move',
-                // Should the menu close when a menu link is clicked?
-                // [ true | false ]
-                close_on_click : true
-            }
-        });
-
+            $(document).foundation({
+                 offcanvas : {
+                    // Sets method in which offcanvas opens.
+                    // [ move | overlap_single | overlap ]
+                    open_method: 'move',
+                    // Should the menu close when a menu link is clicked?
+                    // [ true | false ]
+                    close_on_click : true
+                }
+            });
 
             window.addEventListener('load', function() {
                 FastClick.attach(document.body);

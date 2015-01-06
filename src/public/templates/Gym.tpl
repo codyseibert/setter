@@ -18,19 +18,19 @@
             <div class="flag-image"
                     ng-click="getAccountId() === gymId && uploadImage()">
                 <img class="avatar avatar--small" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
-            </div> 
+            </div>
 
             <h1  class="testQuery flag-body"> Your Dashboard
             </h1>
         </div>
 
-        
+
 
         <div class="flag"  ng-show="isUserAccount()">
             <div class="flag-image"
                     ng-click="getAccountId() === gymId && uploadImage()">
                 <img class="avatar avatar--big" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
-            </div> 
+            </div>
 
             <h1 class="testQuery flag-body  mb2"> {{gym.name}}</h1>
         </div>
@@ -73,7 +73,7 @@
 </section>
 
 
-<div class="row  small-collapse  large-uncollapse  medium-uncollapse"> 
+<div class="row  small-collapse  large-uncollapse  medium-uncollapse">
     <div class="small-12  large-12 columns">
         <div class="graph  small-12 medium-6 columns">
             <h2 class="fwb">Current Boulder Routes</h2>
@@ -87,7 +87,7 @@
                 height="100%">
             </canvas>
         </div>
-    
+
 
         <div class="graph  small-12 medium-6 columns">
             <h2 class="fwb">Current Rope Routes</h2>
@@ -108,18 +108,19 @@
     <div class="small-12 columns mb4">
         <h2>Latest Sends</h2>
 
-            <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="act in activity" 
-                ng-click="navigateToUser(user.id)">
+            <div class="small-6 medium-3 large-3 columns   pb4"
+                ng-repeat="act in activity">
 
             <div class="flag">
 
-
             <div class="flag-image">
-                <img class="avatar avatar--small  center mb1" ng-src="{{act.url !== '' && act.url || 'images/no_image.png'}}">
+                <img class="avatar avatar--small  center mb1"
+                    ng-click="navigateToUser(act.id)"
+                    ng-src="{{act.url !== '' && act.url || 'images/no_image.png'}}">
             </div>
 
              <div class="flag-body" ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
-                    
+
                 <a>{{act.name}}<br><i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{formatGrade(act.bg, act.rg)}}</a>
              </div>
 
@@ -152,7 +153,7 @@
     <div class="small-12  mb5  columns">
         <h2>Active Members</h2>
 
-        <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="user in users" 
+        <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="user in users"
                 ng-click="navigateToUser(user.id)">
 
                 <div class="flag">

@@ -12,7 +12,6 @@ angular.module('SETTER')
             'use strict';
 
             $scope.send = function () {
-                console.log("sending!");
                 FeedbackService.createFeedback($scope.form.name, $scope.form.message)
                     .success(function () {
                         $scope.thanks = true;

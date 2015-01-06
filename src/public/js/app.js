@@ -271,4 +271,18 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             $rootScope.lastPageWasUser = function () {
                 return $rootScope.lastPath.indexOf('users') !== -1;
             };
+
+            var gymsReg = /gyms\/([0-9]+)$/;
+            $rootScope.lastPageWasGym = function () {
+                console.log($rootScope.lastPath.match(gymsReg) !== null);
+                return $rootScope.lastPath.match(gymsReg) !== null;
+            };
+
+            $rootScope.lastPageWasRoute = function () {
+                return $rootScope.lastPath.indexOf('routes') !== -1;
+            };
+
+            $rootScope.lastPageWasSetters = function () {
+                return $rootScope.lastPath.indexOf('setters') !== -1;
+            };
         }]);

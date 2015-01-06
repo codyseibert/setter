@@ -101,7 +101,9 @@
         </div>
 
         <div style="margin-bottom: 20px">
-            <div ng-style="{'width': filter.width}" ng-repeat="filter in filters" style="display: inline-block; vertical-align: top;">
+            <div ng-style="{'width': filter.width}"
+                ng-repeat="filter in filters"
+                style="display: inline-block; vertical-align: top;">
                 {{filter.name}}
                 <br>
                 <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)">F</i>

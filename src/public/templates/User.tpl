@@ -1,4 +1,13 @@
 <section class="row">
+
+    <div class="header">
+        <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+                ng-show="lastPageWasGym() || lastPageWasRoute()"
+                ng-click="back()" >
+            <span> Back</span>
+        </button>
+    </div>
+
     <div class="header"
             ng-show="getHomeGymId()">
         <button class="btn--primary  btn--medium  icon-home btn--expanded"

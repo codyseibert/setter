@@ -25,7 +25,6 @@ var AlertsDao = function () {
     };
 
     this.createAlert = function (pGymId, pMessage, pCallback) {
-        console.log("ALERTS", pGymId, pMessage);
         theDaoHelper.executeQuery(
             "INSERT INTO alerts (gym_id, message, date) VALUES (?, ?, NOW())",
             [pGymId, pMessage],

@@ -150,7 +150,6 @@ angular.module('SETTER')
 
                     RoutesService.getRoute($scope.routeId)
                         .success(function (pData) {
-                            console.log(pData);
                             $scope.form.boulderGrade = findEntry(pData.boulder_grade_id, $scope.boulderGrades);
                             $scope.form.ropeGrade = findEntry(pData.rope_grade_id, $scope.ropeGrades);
                             $scope.form.color = findEntry(pData.color_id, $scope.colors).id;

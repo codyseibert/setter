@@ -1,4 +1,4 @@
-SETTER_VERSION="0.1.0"
+SETTER_VERSION="0.1.1"
 LOCAL_SETTER_DIR="/home/setter2/setter"
 LOCAL_SETTER_APP_DIR="$LOCAL_SETTER_DIR/build/app"
 LOCAL_SETTER_BUILD_DIR="/home/setter_builds"
@@ -21,10 +21,10 @@ echo "copying the tar to the build directory"
 cp "$SETTER_TAR_NAME" "$LOCAL_SETTER_BUILD_DIR"
 
 echo "scp the .tar to the production server"
-scp "$LOCAL_SETTER_TAR_PATH" root@SETTER:/home/setter/builds
+scp "$LOCAL_SETTER_TAR_PATH" root@SETTER_PRE_PROD:/home/setter/builds
 
 echo "removing build artifact"
 rm "$SETTER_TAR_NAME"
 
 echo "running deploy script on production server"
-ssh root@SETTER 'bash -s' < "$DEPLOY_SCRIPT" "$SETTER_TAR_NAME"
+ssh root@SETTER_PRE_PROD 'bash -s' < "$DEPLOY_SCRIPT" "$SETTER_TAR_NAME"

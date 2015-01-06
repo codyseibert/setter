@@ -111,164 +111,164 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             $window,
             LoginService
         ) {
-        'use strict';
+            'use strict';
 
-        // Set the global chart colors used throughout the site
-        Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
-        Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
-        Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
+            // Set the global chart colors used throughout the site
+            Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
+            Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
+            Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
 
-        $rootScope.chartOptions = {
-            scaleFontColor: "#000",
-            scaleFontSize: 20,
-            animation: false
-        };
+            $rootScope.chartOptions = {
+                scaleFontColor: "#000",
+                scaleFontSize: 20,
+                animation: false
+            };
 
-        $rootScope.navigateToLogin = function () {
-            $location.path('login');
-        };
+            $rootScope.navigateToLogin = function () {
+                $location.path('login');
+            };
 
-        $rootScope.navigateToRegisterUser = function () {
-            $location.path('user/register');
-        };
+            $rootScope.navigateToRegisterUser = function () {
+                $location.path('user/register');
+            };
 
-        $rootScope.navigateToRegisterGym = function () {
-            $location.path('gym/register');
-        };
+            $rootScope.navigateToRegisterGym = function () {
+                $location.path('gym/register');
+            };
 
-        $rootScope.navigateToLogout = function () {
-            var yes = confirm("Are you sure you want to log out?");
-            if (yes) {
-                $location.path('logout');
+            $rootScope.navigateToLogout = function () {
+                var yes = confirm("Are you sure you want to log out?");
+                if (yes) {
+                    $location.path('logout');
+                }
+            };
+
+            $rootScope.navigateToContact = function () {
+                $location.path('contact');
+            };
+
+            $rootScope.navigateToTOS = function () {
+                $location.path('tos');
+            };
+
+            $rootScope.navigateToHome = function () {
+                $location.path('login');
+            };
+
+            $rootScope.navigateToWalls = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/walls');
+            };
+
+            $rootScope.navigateToWall = function (pGymId, pWallId) {
+                $location.path('gyms/' + pGymId + '/walls/' + pWallId);
+            };
+
+            $rootScope.navigateToGyms = function () {
+                $location.path('gyms');
+            };
+
+            $rootScope.navigateToGym = function (pGymId) {
+                $location.path('gyms/' + pGymId);
+            };
+
+            $rootScope.navigateToCreateRoute = function (pGymId, pWallId) {
+                $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/create');
+            };
+
+            $rootScope.navigateToSetters = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/setters');
+            };
+
+            $rootScope.navigateToRoute = function (pGymId, pWallId, pRouteId) {
+                $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId);
+            };
+
+            $rootScope.navigateToEditRoute = function (pGymId, pWallId, pRouteId) {
+                $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId + '/edit');
+            };
+
+            $rootScope.navigateToUser = function (pUserId) {
+                $location.path('users/' + pUserId);
+            };
+
+            $rootScope.navigateToSetters = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/setters');
+            };
+
+            $rootScope.navigateToSuggestionsPage = function () {
+                $location.path('suggestions');
+            };
+
+            $rootScope.navigateToRouteManager = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/routes');
+            };
+
+            $rootScope.navigateToBlog = function () {
+                $location.path('blog');
+            };
+
+            $rootScope.navigateToGymSuggestions = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/suggestions');
+            };
+
+            $rootScope.navigateToAlerts = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/alerts');
+            };
+
+            $rootScope.back = function () {
+                $window.history.back();
+            };
+
+            $rootScope.isGymAccount = function () {
+                return LoginService.isGymAccount();
+            };
+
+            $rootScope.isUserAccount = function () {
+                return LoginService.isUserAccount();
+            };
+
+            $rootScope.getAccountId = function () {
+                return LoginService.getAccountId();
+            };
+
+            $rootScope.isLoggedIn = function () {
+                return LoginService.isLoggedIn();
+            };
+
+            $rootScope.getHomeGymId = function () {
+                return LoginService.getHomeGymId();
+            };
+
+            if (LoginService.hasTokenInCookie()) {
+                LoginService.setHeaderFromCookie();
+                LoginService.setTypeFromCookie();
+                LoginService.setAccountIdFromCookie();
+                LoginService.setHomeGymIdFromCookie();
+                LoginService.setImageUrlFromCookie();
+                LoginService.setNameFromCookie();
             }
-        };
 
-        $rootScope.navigateToContact = function () {
-            $location.path('contact');
-        };
+            $rootScope.formatGrade = function (pBoulderGrade, pRopeGrade) {
+                return pBoulderGrade || pRopeGrade || 'Not Rated';
+            };
 
-        $rootScope.navigateToTOS = function () {
-            $location.path('tos');
-        };
+            var paths = ['/'];
 
-        $rootScope.navigateToHome = function () {
-            $location.path('login');
-        };
+            $rootScope.$on('$routeChangeSuccess', function () {
+                $rootScope.lastPath = paths[0];
+                paths.push($location.$$path);
+                paths.splice(0, 1);
+            });
 
-        $rootScope.navigateToWalls = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/walls');
-        };
+            $rootScope.pageWasBookmarked = function () {
+                return $rootScope.lastPath === '/';
+            };
 
-        $rootScope.navigateToWall = function (pGymId, pWallId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId);
-        };
+            $rootScope.lastPageWasZone = function () {
+                return $rootScope.lastPath.indexOf('walls') !== -1;
+            };
 
-        $rootScope.navigateToGyms = function () {
-            $location.path('gyms');
-        };
-
-        $rootScope.navigateToGym = function (pGymId) {
-            $location.path('gyms/' + pGymId);
-        };
-
-        $rootScope.navigateToCreateRoute = function (pGymId, pWallId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/create');
-        };
-
-        $rootScope.navigateToSetters = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/setters');
-        };
-
-        $rootScope.navigateToRoute = function (pGymId, pWallId, pRouteId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId);
-        };
-
-        $rootScope.navigateToEditRoute = function (pGymId, pWallId, pRouteId) {
-            $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId + '/edit');
-        };
-
-        $rootScope.navigateToUser = function (pUserId) {
-            $location.path('users/' + pUserId);
-        };
-
-        $rootScope.navigateToSetters = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/setters');
-        };
-
-        $rootScope.navigateToSuggestionsPage = function () {
-            $location.path('suggestions');
-        };
-
-        $rootScope.navigateToRouteManager = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/routes');
-        };
-
-        $rootScope.navigateToBlog = function () {
-            $location.path('blog');
-        };
-
-        $rootScope.navigateToGymSuggestions = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/suggestions');
-        };
-
-        $rootScope.navigateToAlerts = function (pGymId) {
-            $location.path('gyms/' + pGymId + '/alerts');
-        };
-
-        $rootScope.back = function () {
-            $window.history.back();
-        };
-
-        $rootScope.isGymAccount = function () {
-            return LoginService.isGymAccount();
-        };
-
-        $rootScope.isUserAccount = function () {
-            return LoginService.isUserAccount();
-        };
-
-        $rootScope.getAccountId = function () {
-            return LoginService.getAccountId();
-        };
-
-        $rootScope.isLoggedIn = function () {
-            return LoginService.isLoggedIn();
-        };
-
-        $rootScope.getHomeGymId = function () {
-            return LoginService.getHomeGymId();
-        };
-
-        if (LoginService.hasTokenInCookie()) {
-            LoginService.setHeaderFromCookie();
-            LoginService.setTypeFromCookie();
-            LoginService.setAccountIdFromCookie();
-            LoginService.setHomeGymIdFromCookie();
-            LoginService.setImageUrlFromCookie();
-            LoginService.setNameFromCookie();
-        }
-
-        $rootScope.formatGrade = function (pBoulderGrade, pRopeGrade) {
-            return pBoulderGrade || pRopeGrade || 'Not Rated';
-        };
-
-        var paths = ['/'];
-
-        $rootScope.$on('$routeChangeSuccess', function() {
-            $rootScope.lastPath = paths[0];
-            paths.push($location.$$path);
-            paths.splice(0, 1);
-        });
-
-        $rootScope.pageWasBookmarked = function () {
-            return $rootScope.lastPath === '/';
-        }
-
-        $rootScope.lastPageWasZone = function () {
-            return $rootScope.lastPath.indexOf('walls') !== -1;
-        }
-
-        $rootScope.lastPageWasUser = function () {
-            return $rootScope.lastPath.indexOf('users') !== -1;
-        }
-    }]);
+            $rootScope.lastPageWasUser = function () {
+                return $rootScope.lastPath.indexOf('users') !== -1;
+            };
+        }]);

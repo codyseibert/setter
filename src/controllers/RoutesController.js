@@ -69,7 +69,9 @@ var RoutesController = function () {
 
         callback = theControllerHelper.createDefaultCallback(pRes);
         theRoutesDao.createRoute(wallId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
-        theWallsDao.updateLastUpdate(wallId, function () {});
+        theWallsDao.updateLastUpdate(wallId, function () {
+            return undefined;
+        });
     };
 
     this.updateRoute = function (pReq, pRes) {

@@ -3,13 +3,8 @@
 
 angular.module('SETTER')
     .controller('LandingController', [
-        '$scope',
-        'LoginService',
         function (
-            $scope,
-            LoginService
         ) {
             'use strict';
             angular.noop();
-            $scope.test = 'a';
         }]);

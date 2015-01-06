@@ -81,5 +81,5 @@ angular.module('SETTER')
 
             $scope.isNew = function (pRoute) {
                 return pRoute.date > moment().subtract(7, 'days');
-            }
+            };
         }]);

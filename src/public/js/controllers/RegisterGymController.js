@@ -14,14 +14,14 @@ angular.module('SETTER')
             GymAccountRequestsService,
             LoginService
         ) {
-        'use strict';
+            'use strict';
 
-        $scope.form = {};
+            $scope.form = {};
 
-        $scope.save = function () {
-            GymAccountRequestsService.createGymAccountRequest(
-                $scope.form.email, $scope.form.name, $scope.form.address)
-                .success(function (pData) {
-                });
-        };
-    }]);
+            $scope.save = function () {
+                GymAccountRequestsService.createGymAccountRequest($scope.form.email, $scope.form.name, $scope.form.address)
+                    .success(function (pData) {
+                        return undefined;
+                    });
+            };
+        }]);

@@ -190,9 +190,9 @@ angular.module('SETTER')
 
             $scope.topNavigationClicked = function () {
                 if ($scope.pageWasBookmarked() || $scope.lastPageWasZone()) {
-                    $scope.navigateToWall($scope.gymId, $scope.wallId)
+                    $scope.navigateToWall($scope.gymId, $scope.wallId);
                 } else {
                     $scope.back();
                 }
-            }
+            };
         }]);

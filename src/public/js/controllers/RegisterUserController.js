@@ -14,25 +14,28 @@ angular.module('SETTER')
             UsersService,
             LoginService
         ) {
-        'use strict';
+            'use strict';
 
-        $scope.form = {};
+            $scope.form = {};
 
-        $scope.registerClicked = function () {
-            UsersService.registerUser($scope.form)
-                .success(function (pData) {
-                    LoginService.setHeader(pData.token);
-                    LoginService.setAccountType(pData.accountType);
-                    LoginService.setAccountId(pData.accountId);
-                    LoginService.setHomeGymId(null);
-                    $scope.navigateToUser(pData.accountId);
-                })
-                .error(function (pData) {
-                    $scope.error = pData.error;
+            $scope.registerClicked = function () {
+                UsersService.registerUser($scope.form)
+                    .success(function (pData) {
+                        console.log(pData);
+                        LoginService.setHeader(pData.token);
+                        LoginService.setAccountType(pData.accountType);
+                        LoginService.setAccountId(pData.accountId);
+                        LoginService.setHomeGymId(null);
+                        LoginService.setImageUrl(null);
+                        LoginService.setName($scope.form.firstname + ' ' + $scope.form.lastname);
+                        $scope.navigateToUser(pData.accountId);
+                    })
+                    .error(function (pData) {
+                        $scope.error = pData.error;
 
-                    if ($scope.error === 'default error') {
-                        $scope.error = 'Email address already in use';
-                    }
-                });
-        };
-    }]);
+                        if ($scope.error === 'default error') {
+                            $scope.error = 'Email address already in use';
+                        }
+                    });
+            };
+        }]);

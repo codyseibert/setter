@@ -12,6 +12,6 @@ angular.module('SETTER')
             $location,
             LoginService
         ) {
-        'use strict';
-        LoginService.logout();
-    }]);
+            'use strict';
+            LoginService.logout();
+        }]);

@@ -1,6 +1,6 @@
 /*jslint nomen: true */
 /*jslint unparam: true*/
-/*global angular: false, btoa: false, console: false */
+/*global angular: false, btoa: false, console: false, moment: false */
 
 angular.module('SETTER')
     .controller('WallsController', [
@@ -69,9 +69,8 @@ angular.module('SETTER')
             };
 
             $scope.isNew = function (pWall) {
-                console.log(pWall);
                 return moment(pWall.last_update) > moment().subtract(7, 'days');
-            }
+            };
 
             $scope.items = [
                 "The first choice!",

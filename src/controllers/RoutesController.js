@@ -12,6 +12,7 @@
 */
 
 var theRoutesDao = require('../dao/RoutesDao');
+var theWallsDao = require('../dao/WallsDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var RoutesController = function () {
@@ -68,6 +69,7 @@ var RoutesController = function () {
 
         callback = theControllerHelper.createDefaultCallback(pRes);
         theRoutesDao.createRoute(wallId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
+        theWallsDao.updateLastUpdate(wallId, function () {});
     };
 
     this.updateRoute = function (pReq, pRes) {

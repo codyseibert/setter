@@ -68,6 +68,11 @@ angular.module('SETTER')
                 });
             };
 
+            $scope.isNew = function (pWall) {
+                console.log(pWall);
+                return moment(pWall.last_update) > moment().subtract(7, 'days');
+            }
+
             $scope.items = [
                 "The first choice!",
                 "And another choice for you.",

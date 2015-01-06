@@ -22,7 +22,7 @@ var WallsDao = function () {
 
     this.getWallsInGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, name FROM walls WHERE gym_id = ?',
+            'SELECT id, name, last_update FROM walls WHERE gym_id = ?',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -51,6 +51,15 @@ var WallsDao = function () {
         theDaoHelper.executeQuery(
             'UPDATE walls SET name = ? WHERE id = ? AND gym_id = ?',
             [pName, pWallId, pAccountId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.updateLastUpdate = function (pWallId, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE walls SET last_update = NOW() WHERE id = ?',
+            [pWallId],
             theDaoHelper.UPDATE,
             pCallback
         );

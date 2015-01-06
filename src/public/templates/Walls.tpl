@@ -88,6 +88,7 @@
                     ng-hide="wall.hide">
 
                     {{wall.name}}
+                    <span ng-show="isNew(wall)">* New</span>
                     <i class="icon-right-big right"> </i>
                 </a>
             </li>

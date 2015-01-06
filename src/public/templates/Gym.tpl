@@ -108,7 +108,7 @@
     <div class="small-12 columns mb4">
         <h2>Latest Sends</h2>
 
-            <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="act in activity" 
+            <div class="small-6 medium-3 large-3 columns   pb4"  style="min-height: 137px" ng-repeat="act in activity" 
                 ng-click="navigateToUser(user.id)">
 
             <div class="flag">

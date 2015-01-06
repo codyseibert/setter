@@ -214,7 +214,7 @@
 
     <div class="small-12 columns  mb4">
 
-        <div class="flag" ng-repeat="send in sends">
+        <div class="flag  mb2" ng-repeat="send in sends">
 
             <div class=" flag-image" ng-click="navigateToUser(send.account_id)">
                 <img ng-src="{{send.url !== '' && send.url || 'images/no_image.png'}}"
@@ -228,7 +228,7 @@
         </div>
     </div>
 
-    <div class="small-12 columns  text-center"
+    <div class="small-12 columns mb4  text-center"
             ng-show="getAccountId() === gymId">
         <a class="icon-trash" ng-click="delete()">
             Delete Route Permanently

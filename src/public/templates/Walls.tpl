@@ -90,8 +90,12 @@
                     {{wall.name}}
                    <span class="label  success  border-radius" ng-show="isNew(wall)"> NEW</span>
                     <i class="icon-right-big right"> </i>
-                </a>
+               
+
             </li>
+
         </ul>
+
     </div>
+
 </section>

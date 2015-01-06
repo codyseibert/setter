@@ -165,8 +165,8 @@ angular.module('SETTER')
                 var border = '1px solid black',
                     bg = '#Fd7d66';
                 if (!pFilter.enabled) {
-                    border = '1px dotted black';
-                    bg = '#EEE';
+                    border = '1px solid black';
+                    bg = '#BCBCBC';
                 }
                 return {
                     'background-color': bg,

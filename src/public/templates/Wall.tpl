@@ -48,12 +48,12 @@
         </ul>
 
         <section class="row">
-            <div class="small-12 columns  text-center"
+            <div class="small-12 columns  text-center mb4"
                 ng-show="isGymAccount()"
                 data-ui-component="routeSubActions">
                 <a class="icon-trash"
                     ng-click="delete()">
-                    Delete Zone
+                    Delete Zone Permanently
                 </a>
             </div>
         </section>

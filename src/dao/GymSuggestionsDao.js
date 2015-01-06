@@ -38,7 +38,6 @@ var GymSuggestionsDao = function () {
     };
 
     this.markAsRead = function (pSuggestionId, pCallback) {
-        console.log(pSuggestionId);
         theDaoHelper.executeQuery(
             'UPDATE gym_suggestions SET `read` = 1 WHERE id = ?',
             [pSuggestionId],

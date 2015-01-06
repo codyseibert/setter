@@ -1,4 +1,4 @@
-<section class="row  small-collapse">
+<section class="row  small-collapse  large-uncollapse">
     <div class="header">
         <div class="clearfix  display--block">
             <button ng-hide="isGymAccount()"
@@ -7,7 +7,7 @@
                     Gym
             </button>
         </div>
-        <h1 ng-show="isGymAccount()" class="icon-th-list"> Manage Your Zones</h1>
+        <h1 ng-show="isGymAccount()" class="icon-th-list"> <img src="images/icon--wrench.svg" alt="">  Manage Your Zones</h1>
         <h1 ng-hide="isGymAccount()" class="icon-th-list"> Gym Zones</h1>
     </div>
 </section>
@@ -78,7 +78,7 @@
 </section>
 
 
-<section class="row  small-collapse">
+<section class="row  small-collapse  large-uncollapse">
 
     <div class="small-12 columns">
 
@@ -88,7 +88,7 @@
                     ng-hide="wall.hide">
 
                     {{wall.name}}
-                    <span ng-show="isNew(wall)">* New</span>
+                   <span class="label  success  border-radius" ng-show="isNew(wall)"> NEW</span>
                     <i class="icon-right-big right"> </i>
                 </a>
             </li>

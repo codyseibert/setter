@@ -1,15 +1,15 @@
-<div class="row  pt4">
+<section class="row  pt4">
 
-    <div class="section small-12">
-        <h1 class="title  fwb  mb1  text-center">LOGIN</h1>
+    <div class="columns small-12 medium-9 ">
+        <h1 class="title  fwb  mb1  text-center">SETTER LOGIN</h1>
     </div>
 
-</div>
+</section>
 
 
 <section class="row">
 
-    <div class="center  small-10  medium-6 large-4 ">
+    <div class="columns small-12 medium-9">
 
         <div class="fieldWrapper  mb4">
 

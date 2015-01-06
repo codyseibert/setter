@@ -13,18 +13,32 @@
     </div>
 
 
-    <div class="small-12 columns">
-        <h1 ng-show="isGymAccount()" class="icon-home testQuery"> Your Dashboard</h1>
-        <h1 ng-show="isUserAccount()" class="icon-home testQuery"> {{gym.name}}</h1>
+    <div class="small-12 columns  mb4">
+        <div class="flag" ng-show="isGymAccount()">
+            <div class="flag-image"
+                    ng-click="getAccountId() === gymId && uploadImage()">
+                <img class="avatar avatar--small" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+            </div> 
+
+            <h1  class="testQuery flag-body"> Your Dashboard
+            </h1>
+        </div>
+
+        
+
+        <div class="flag"  ng-show="isUserAccount()">
+            <div class="flag-image"
+                    ng-click="getAccountId() === gymId && uploadImage()">
+                <img class="avatar avatar--big" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+            </div> 
+
+            <h1 class="testQuery flag-body  mb2"> {{gym.name}}</h1>
+        </div>
     </div>
 
 
     <div class="small-12 columns" ng-show="isGymAccount()">
-        <div class="picture mb4"
-            style="height: 100px; width: 300px; display: inline-block; cursor: pointer; border: 2px dotted black;"
-                ng-click="getAccountId() === gymId && uploadImage()">
-            <img style="height: 100%" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
-        </div>
+
     </div>
 
     <div class="mb4  small-12  medium-4 columns"
@@ -38,7 +52,7 @@
 </section>
 
 
-<section class="row  small-collapse">
+<section class="row  small-collapse  large-uncollapse  medium-uncollapse">
 
     <div class="mb4  small-12  large-6  columns">
 
@@ -58,8 +72,9 @@
 
 </section>
 
-<div class="row">
-    <div class="small-12 medium">
+
+<div class="row  small-collapse  large-uncollapse  medium-uncollapse"> 
+    <div class="small-12  large-12 columns">
         <div class="graph  small-12 medium-6 columns">
             <h2 class="fwb">Current Boulder Routes</h2>
 
@@ -72,45 +87,55 @@
                 height="100%">
             </canvas>
         </div>
-    </div>
+    
 
-    <div class="graph  small-12 medium-6 columns">
-        <h2 class="fwb">Current Rope Routes</h2>
+        <div class="graph  small-12 medium-6 columns">
+            <h2 class="fwb">Current Rope Routes</h2>
 
-        <canvas class="chart-bar"
-            data="ropeRoutesBarGraph.data"
-            labels="ropeRoutesBarGraph.labels"
-            options="chartOptions"
-            legend="true"
-            width="100%"
-            height="100%">
-        </canvas>
-    </div>
-</div>
-
-<div class="row">
-    <div class="small-12 medium">
-        <h2>Latest Sends</h2>
-        <div ng-repeat="act in activity"
-                style="padding: 20px; display: inline-block; height: 70px; width: 240px; overflow: hidden;">
-            <div style="margin-right: 10px; width: 50px; height: 50px; float: left; text-align: center; cursor: pointer;"
-                ng-click="navigateToUser(act.id)">
-                <img ng-src="{{act.url !== '' && act.url || 'images/no_image.png'}}"
-                    style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
-            </div>
-
-            <div ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
-                {{act.name}}<br><i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{formatGrade(act.bg, act.rg)}}
-            </div>
+            <canvas class="chart-bar"
+                data="ropeRoutesBarGraph.data"
+                labels="ropeRoutesBarGraph.labels"
+                options="chartOptions"
+                legend="true"
+                width="100%"
+                height="100%">
+            </canvas>
         </div>
     </div>
 </div>
 
+<div class="row  small-collapse  large-uncollapse  medium-uncollapse">
+    <div class="small-12 columns mb4">
+        <h2>Latest Sends</h2>
 
-<section class="row">
+            <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="act in activity" 
+                ng-click="navigateToUser(user.id)">
+
+            <div class="flag">
+
+
+            <div class="flag-image">
+                <img class="avatar avatar--small  center mb1" ng-src="{{act.url !== '' && act.url || 'images/no_image.png'}}">
+            </div>
+
+             <div class="flag-body" ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
+                    
+                <a>{{act.name}}<br><i class="icon-circle icon--big" ng-style="{color: act.value}"> </i> {{formatGrade(act.bg, act.rg)}}</a>
+             </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<section class="row  small-collapse  large-uncollapse  medium-uncollapse">
 
     <div class="small-12 columns mb4">
-        <h2 class="icon-attention">Gym Announcements</h2>
+        <h2>Gym Announcements</h2>
 
         <ul class="list--noStyles  list">
             <li ng-repeat="alert in alerts">
@@ -123,15 +148,26 @@
 
 </section>
 
-<div class="row">
-    <div class="small-12 medium">
-        <h2>Members</h2>
-        <div ng-repeat="user in users"
-                style="padding: 20px; vertical-align: top; width: 150px; height: 150px; display: inline-block; cursor: pointer; text-align: center; font-size: 16px;"
+<div class="row small-collapse  large-uncollapse  medium-uncollapse">
+    <div class="small-12  mb5  columns">
+        <h2>Active Members</h2>
+
+        <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="user in users" 
                 ng-click="navigateToUser(user.id)">
-            <img ng-src="{{user.url !== '' && user.url || 'images/no_image.png'}}"
-                    style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
-            {{user.name}}
+
+                <div class="flag">
+
+
+            <div class="flag-image">
+                <img class="avatar avatar--small  center mb1" ng-src="{{user.url !== '' && user.url || 'images/no_image.png'}}">
+            </div>
+
+         <div class="flag-body">
+                <a class="h5  display--block  center">
+                             {{user.name}}</a>
+         </div>
+                            </div>
+
         </div>
     </div>
 </div>

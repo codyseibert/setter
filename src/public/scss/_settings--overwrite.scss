@@ -690,7 +690,7 @@ $off-canvas-bg: $brown--light;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
-$off-canvas-label-color: $brown--dark;
+$off-canvas-label-color: #696360;
 // $off-canvas-label-text-transform: uppercase;
 // $off-canvas-label-font-weight: $font-weight-bold;
 $off-canvas-label-bg: transparent;
@@ -952,7 +952,7 @@ $include-html-orbit-classes: false;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-// $side-nav-link-color: $primary-color;
+$side-nav-link-color: $off-canvas-link-color;
 // $side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%);
 // $side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%);
 // $side-nav-font-size: rem-calc(14);
@@ -1178,11 +1178,11 @@ $include-html-orbit-classes: false;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color:$primaryColor;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: rem-calc(50);
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar

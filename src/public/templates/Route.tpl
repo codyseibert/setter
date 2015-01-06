@@ -6,7 +6,7 @@
             ng-click="topNavigationClicked()" >
             <span ng-show="pageWasBookmarked() || lastPageWasZone()"> Zone</span>
             <span ng-show="lastPageWasUser()"> User</span>
-            <span ng-show="!pageWasBookmarked() && !lastPageWasUser() && !lastPageWasZone()"> Gym</span>
+            <span ng-show="!pageWasBookmarked() && !lastPageWasUser() && !lastPageWasZone()"> Back</span>
         </button>
 
         <div  class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">

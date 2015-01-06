@@ -63,12 +63,14 @@ body
 //
 //Side Menu Object
 //
-
-.tab-bar {
+.sticky {z-index: 10;}
+.tab-bar,
+.top-bar {
   // $from: $primaryColor;
   // $to: darken($primaryColor, 8%);
   // @include background-image(linear-gradient($from 10%, $to 70%));
-  background-color: $primaryColor;
+  background-color: $primaryColor;  
+  z-index: 10; 
   
   @include box-shadow(0 -1px 0 rgba(255, 255, 255, .2) inset);
   border-bottom: 1px solid darken($primaryColor, 20%);
@@ -77,6 +79,8 @@ body
     &:hover {
       color: darken($tabbar-bg, 3%);
     }
+
+
   }
 }
 
@@ -94,7 +98,7 @@ body
 }
 
 .nav-primary {
-  background-color: $grey--dark;
+  background-color: red;
 }
 
 .nav-primary,
@@ -105,6 +109,14 @@ body
   bottom: 0;
   top: 0;
   right: auto;
+  z-index: 4; 
+}
+
+.top-bar {
+  
+  position: fixed; 
+  top: 0; 
+
 }
 
 .nav-account {
@@ -166,7 +178,7 @@ body
 //
 
 .side-menu {
-
+  
   a {
     margin-left: rem-calc(6);
   }
@@ -179,8 +191,10 @@ body
   a > img {
     padding: rem-calc(6);
     margin-right: rem-calc(16);
-    opacity: .7;
+    opacity: .8;
   }
+
+  background-color: $off-canvas-bg;
 }
 
 
@@ -188,11 +202,13 @@ body
 //Overrides Foundation Off Canvas Styles for Hovering Buttons
 //
 
-ul.off-canvas-list li a:hover {
+ul.off-canvas-list li a:hover,
+.nav-primary ul li a:hover {
     & img {
       opacity: 1;
     }
-    background-color: transparent;
+
+    background-color: #fff; 
 }
 
 //

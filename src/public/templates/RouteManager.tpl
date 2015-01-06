@@ -2,7 +2,7 @@
 
     <div class="small-12 columns header">
         <div class="left" ng-show="isGymAccount()">
-            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+            <button class="[ btn--secondary btn--small  right ] icon-left-big"
                 ng-click="back()" >
                 Back
             </button>
@@ -18,14 +18,14 @@
 <section class="row">
     <div style="text-align: center;">
         <div ng-show="isFilterPanelVisible" style="margin-bottom: 20px;">
-            {{filter.name}} Filter
+            <span class="fwb">Filter by:</span> {{filter.name}}
 
             <div ng-show="filter.key === 'wall_name'">
-                <button ng-click="selectAll(zoneInputs)">Select All</button>
-                <button ng-click="unselectAll(zoneInputs)">Unselect All</button>
+                <button class="btn btn--secondary btn--medium" ng-click="selectAll(zoneInputs)">Select All</button>
+                <button class="btn btn--secondary btn--medium" ng-click="unselectAll(zoneInputs)">Unselect All</button>
                 <br>
-                <div ng-repeat="input in zoneInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
+                <div class="btn btn--small   mb1" ng-repeat="input in zoneInputs" style="padding: 2px; display: inline-block; vertical-align: top; cursor: pointer;">
+                    <div style="display: inline-block; width: 100px;  border-radius: 10px; border: 1px solid black;"
                             ng-style="getFilterStyle(input)"
                             ng-click="filterClicked(input)">
                         {{input.value}}
@@ -34,11 +34,11 @@
             </div>
 
             <div ng-show="filter.key === 'color'">
-                <button ng-click="selectAll(colorInputs)">Select All</button>
-                <button ng-click="unselectAll(colorInputs)">Unselect All</button>
+                <button class="btn btn--secondary btn--medium" ng-click="selectAll(colorInputs)">Select All</button>
+                <button class="btn btn--secondary btn--medium" ng-click="unselectAll(colorInputs)">Unselect All</button>
                 <br>
                 <div ng-repeat="input in colorInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
+                    <div class="btn btn--small   mb1" style="display: inline-block; width: 100px; padding: 2px; border-radius: 10px; border: 1px solid black;"
                             ng-style="getFilterStyle(input)"
                             ng-click="filterClicked(input)">
                         <i class="icon-circle" ng-style="{color: input.extra}"> </i> {{input.value}}
@@ -47,11 +47,11 @@
             </div>
 
             <div ng-show="filter.key === 'boulder_grade_id'">
-                <button ng-click="selectAll(boulderGradeInputs)">Select All</button>
-                <button ng-click="unselectAll(boulderGradeInputs)">Unselect All</button>
+                <button class="btn btn--secondary btn--medium" ng-click="selectAll(boulderGradeInputs)">Select All</button>
+                <button class="btn btn--secondary btn--medium" ng-click="unselectAll(boulderGradeInputs)">Unselect All</button>
                 <br>
-                <div ng-repeat="input in boulderGradeInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
+                <div class="btn btn--small   mb1" ng-repeat="input in boulderGradeInputs" style="padding: 2px; display: inline-block; vertical-align: top; cursor: pointer;">
+                    <div style="display: inline-block; width: 100px; padding: 2px; height 30px; border-radius: 10px; border: 1px solid black;"
                             ng-style="getFilterStyle(input)"
                             ng-click="filterClicked(input)">
                         {{input.value || 'unrated'}}
@@ -60,11 +60,11 @@
             </div>
 
             <div ng-show="filter.key === 'rope_grade_id'">
-                <button ng-click="selectAll(ropeGradeInputs)">Select All</button>
-                <button ng-click="unselectAll(ropeGradeInputs)">Unselect All</button>
+                 <button class="btn btn--secondary btn--medium" ng-click="selectAll(ropeGradeInputs)">Select All</button>
+                 <button class="btn btn--secondary btn--medium" ng-click="unselectAll(ropeGradeInputs)">Unselect All</button>
                 <br>
-                <div ng-repeat="input in ropeGradeInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
+                <div class="btn btn--small   mb1" ng-repeat="input in ropeGradeInputs" style="padding: 2px; display: inline-block; vertical-align: top; cursor: pointer;">
+                    <div style="display: inline-block; width: 100px; padding: 10px; border-radius: 10px; border: 1px solid black;"
                             ng-style="getFilterStyle(input)"
                             ng-click="filterClicked(input)">
                         {{input.value || 'unrated'}}
@@ -73,11 +73,11 @@
             </div>
 
             <div ng-show="filter.key === 'setter'">
-                <button ng-click="selectAll(setterInputs)">Select All</button>
-                <button ng-click="unselectAll(setterInputs)">Unselect All</button>
+                 <button class="btn btn--secondary btn--medium" ng-click="selectAll(setterInputs)">Select All</button>
+                 <button class="btn btn--secondary btn--medium" ng-click="unselectAll(setterInputs)">Unselect All</button>
                 <br>
-                <div ng-repeat="input in setterInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
+                <div class="btn btn--small   mb1" ng-repeat="input in setterInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
+                    <div style="display: inline-block; width: 100px; padding: 10px;  border-radius: 10px; border: 1px solid black;"
                             ng-style="getFilterStyle(input)"
                             ng-click="filterClicked(input)">
                         {{input.value}}
@@ -86,8 +86,8 @@
             </div>
 
             <div ng-show="filter.key === 'active'">
-                <button ng-click="selectAll(activeInputs)">Select All</button>
-                <button ng-click="unselectAll(activeInputs)">Unselect All</button>
+                 <button class="btn btn--secondary btn--medium" ng-click="selectAll(activeInputs)">Select All</button>
+                 <button class="btn btn--secondary btn--medium" ng-click="unselectAll(activeInputs)">Unselect All</button>
                 <br>
                 <div ng-repeat="input in activeInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
                     <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"

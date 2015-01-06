@@ -42,7 +42,7 @@
                 <i class="icon-circle"
                 ng-style="{color: route.value}"> </i>
                 {{route.route_name}} {{route.boulder_grade || route.rope_grade || 'Not Rated'}}
-                <span ng-show="isNew(route)">* New</span>
+                <span class="label  success  border-radius"ng-show="isNew(route)">NEW</span>
                 <i class="icon-right-big  right"> </i>
             </li>
         </ul>

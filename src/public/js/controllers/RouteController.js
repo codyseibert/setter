@@ -41,7 +41,7 @@ angular.module('SETTER')
             (function createStars() {
                 for (i = 0; i < 5; i += 1) {
                     $scope.stars.push({
-                        rating: i + 1
+                        rating: i + 0.5
                     });
                 }
             }());
@@ -64,7 +64,7 @@ angular.module('SETTER')
             loadRouteRating = function () {
                 RatingsService.getRatingForRoute($scope.routeId)
                     .success(function (pData) {
-                        $scope.rating = parseInt(pData.rating + 0.5, 10);
+                        $scope.rating = pData.rating;
                     });
             };
             loadRouteRating();

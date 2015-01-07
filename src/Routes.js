@@ -107,6 +107,11 @@ var RouteToControllerBinder = function () {
         ValidateGymAdmin,
         WallsController.updateWall);
 
+    app.post('/api/gyms/:gymId/walls/:wallId/image',
+        InjectAccountId,
+        ValidateGymAdmin,
+        ImagesController.uploadWallImage);
+
     app.delete('/api/gyms/:gymId/walls/:wallId',
         InjectAccountId,
         ValidateGymAdmin,

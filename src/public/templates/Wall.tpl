@@ -9,6 +9,14 @@
     </div>
 
     <div class="small-12 columns">
+
+        <div ng-show="shouldShowWallImage()">
+            <div ng-click="getAccountId() === gymId && uploadImage()">
+                <img style="height: 100px; overflow: hidden; cursor: pointer;"
+                        ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+            </div>
+        </div>
+
         <div class="media--fl" ng-show="isEditMode">
 
             <input ng-model="form.name" type="text">
@@ -42,7 +50,7 @@
                 <i class="icon-circle"
                 ng-style="{color: route.value}"> </i>
                 {{route.route_name}} {{route.boulder_grade || route.rope_grade || 'Not Rated'}}
-                <span class="label  success  border-radius"ng-show="isNew(route)">NEW</span>
+                <span class="label  success  border-radius" ng-show="isNew(route)">NEW</span>
                 <i class="icon-right-big  right"> </i>
             </li>
         </ul>
@@ -59,3 +67,20 @@
         </section>
     </div>
 </section>
+
+
+<!-- hidden -->
+<form id="image_form"
+        style="display: none;"
+        enctype="multipart/form-data"
+        action="{{'/api/gyms/' + gymId + '/walls/' + wallId + '/image'}}"
+        method="post"
+        ng-upload="complete(content)">
+    <input id="image_file"
+        type="file"
+        name="file" />
+    <input id="image_submit"
+        type="submit"></input>
+    <input name="authorization"
+        value="{{authorization}}"></input>
+</form>

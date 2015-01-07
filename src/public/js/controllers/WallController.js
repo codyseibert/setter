@@ -28,15 +28,19 @@ angular.module('SETTER')
                 return;
             }
 
-            $scope.gymId = $routeParams.gymId;
-            $scope.wallId = $routeParams.wallId;
+            $scope.gymId = parseInt($routeParams.gymId, 10);
+            $scope.wallId = parseInt($routeParams.wallId, 10);
 
             $scope.wall = {};
             $scope.routes = [];
             $scope.form = {};
+            $scope.image = null;
 
             WallsService.getWall($scope.gymId, $scope.wallId, function (pData) {
                 $scope.wall = pData;
+                $scope.image = {
+                    url: pData.url
+                };
             });
 
             RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
@@ -77,7 +81,31 @@ angular.module('SETTER')
                     });
             };
 
+            $scope.shouldShowWallImage = function () {
+                return ($scope.image && $scope.image.url && $scope.isUserAccount()) ||
+                    $scope.getAccountId() === $scope.gymId
+            };
+
             $scope.isNew = function (pRoute) {
                 return pRoute.date > moment().subtract(7, 'days');
             };
+
+            $scope.uploadImage = function () {
+                angular.element("#image_file").trigger('click');
+            };
+
+            angular.element("#image_file").on('change', function () {
+                angular.element("#image_submit").trigger('click');
+                $scope.image = {
+                    url: 'images/loading.gif'
+                };
+                $scope.$apply();
+            });
+
+            $scope.complete = function (content) {
+                $scope.image = content;
+                WallsService.setWallDirty($scope.wallId);
+            };
+
+            $scope.authorization = LoginService.getHeader();
         }]);

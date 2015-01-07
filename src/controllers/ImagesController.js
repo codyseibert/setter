@@ -11,6 +11,7 @@
 */
 
 var theAccountsDao = require('../dao/AccountsDao');
+var theWallsDao = require('../dao/WallsDao');
 var theImagesDao = require('../dao/ImagesDao');
 var easyimage = require('easyimage');
 
@@ -20,7 +21,7 @@ var easyimage = require('easyimage');
 var ImagesController = function () {
     'use strict';
 
-    this.uploadAccountImage = function (req, res) {
+    var handleImage = function(req, res, pCallback) {
         var MAX_WIDTH = 400,
             accountId,
             image,
@@ -34,8 +35,8 @@ var ImagesController = function () {
         accountId = req.user.accountId;
 
         if (!req.files ||
-                !req.files.file ||
-                !req.files.file.name) {
+            !req.files.file ||
+            !req.files.file.name) {
             res.send("error");
             return;
         }
@@ -66,15 +67,33 @@ var ImagesController = function () {
                                 id: pResults.id,
                                 url: 'images/uploads/' + image.name.replace('.jpg', '_scaled.jpg')
                             };
-
-                            theAccountsDao.updateImage(ret.id, accountId, function (pResults) {
-                                res.send(ret);
-                            });
+                            pCallback(ret);
                         });
                     });
                 }
             });
     };
+
+    this.uploadAccountImage = function (pReq, pRes) {
+        var accountId = pReq.user.accountId;
+
+        handleImage(pReq, pRes, function (pRet) {
+            theAccountsDao.updateImage(pRet.id, accountId, function (pResults) {
+                pRes.send(pRet);
+            });
+        })
+    };
+
+    this.uploadWallImage = function (pReq, pRes) {
+        var accountId = pReq.user.accountId,
+            wallId = pReq.params.wallId;
+
+        handleImage(pReq, pRes, function (pRet) {
+            theWallsDao.updateImage(pRet.id, wallId, function (pResults) {
+                pRes.send(pRet);
+            });
+        })
+    }
 };
 
 module.exports = new ImagesController();

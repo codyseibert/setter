@@ -31,7 +31,8 @@ var WallsDao = function () {
 
     this.getWall = function (pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, name FROM walls WHERE id = ?',
+            'SELECT w.id, w.name, i.url FROM walls w ' +
+                'LEFT JOIN images i ON i.id = w.image_id WHERE w.id = ?',
             [pWallId],
             theDaoHelper.SINGLE,
             pCallback
@@ -51,6 +52,15 @@ var WallsDao = function () {
         theDaoHelper.executeQuery(
             'UPDATE walls SET name = ? WHERE id = ? AND gym_id = ?',
             [pName, pWallId, pAccountId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.updateImage = function (pImageId, pWallId, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE walls SET image_id = ? WHERE id = ?',
+            [pImageId, pWallId],
             theDaoHelper.UPDATE,
             pCallback
         );

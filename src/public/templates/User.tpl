@@ -174,7 +174,6 @@
 
 
 
-
 <!-- hidden -->
 <form id="image_form"
     style="display: none;"

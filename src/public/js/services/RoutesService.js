@@ -9,10 +9,10 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            var gymRoutes = {};
-            var routes = {};
-            var currentBoulderRoutes = {};
-            var currentRopeRoutes = {};
+            var gymRoutes = {},
+                routes = {},
+                currentBoulderRoutes = {},
+                currentRopeRoutes = {};
 
             return {
 
@@ -38,7 +38,7 @@ angular.module('SETTER')
                     }).success(function (pData) {
                         gymRoutes[pGymId] = pData;
                         pCallback(gymRoutes[pGymId]);
-                    })
+                    });
                 },
                 getRoutesOnWall: function (pWallId, pCallback) {
                     if (routes[pWallId]) {
@@ -52,7 +52,7 @@ angular.module('SETTER')
                     }).success(function (pData) {
                         routes[pWallId] = pData;
                         pCallback(routes[pWallId]);
-                    })
+                    });
                 },
                 getRoute: function (pRouteId) {
                     return $http({

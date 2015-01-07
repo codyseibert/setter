@@ -1,4 +1,4 @@
-/*global angular: false, btoa: false, Chart: false, confirm: false */
+/*global angular: false, btoa: false, Chart: false, confirm: false, FastClick: false */
 
 angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAnimate'])
     .config(['$routeProvider', function ($routeProvider) {
@@ -121,7 +121,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAni
         ) {
             'use strict';
 
-            FastClick.attach(document.body)
+            FastClick.attach(document.body);
 
             // Set the global chart colors used throughout the site
             Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
@@ -263,7 +263,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAni
             };
 
             var paths = ['/'],
-                gymsReg = /gyms\/([0-9]+)$/;
+                gymsReg = /gyms\/([0-9]+)$/,
+                gymId,
+                nothing,
+                userId;
 
             $rootScope.$on('$routeChangeSuccess', function () {
                 $rootScope.lastPath = paths[0];
@@ -296,10 +299,12 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAni
             };
 
             if (LoginService.isLoggedIn()) {
-                var gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
-                var nothing = function () {
+                gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
+                nothing = function () {
                     return undefined;
                 };
+                userId = null;
+
                 GymsService.getGyms(nothing);
                 GymsService.getGym(gymId, nothing);
                 GymsService.getGymImage(gymId, nothing);
@@ -309,12 +314,12 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAni
                 WallsService.getWallsInGym(gymId, nothing);
 
                 if ($rootScope.isUserAccount()) {
-                    var userId = LoginService.getAccountId();
-                    var nothing = function () {
+                    userId = LoginService.getAccountId();
+                    nothing = function () {
                         return undefined;
                     };
                     UsersService.getUser(userId, nothing);
                     UsersService.getUserImage(userId, nothing);
                 }
-            };
+            }
         }]);

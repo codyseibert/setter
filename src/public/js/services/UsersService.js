@@ -5,8 +5,8 @@ angular.module('SETTER')
     .factory('UsersService', ['$http', function ($http) {
         'use strict';
 
-        var user = {};
-        var image = {};
+        var user = {},
+            image = {};
 
         return {
             setImageAsDirty: function (pUserId) {

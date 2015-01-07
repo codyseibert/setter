@@ -352,10 +352,10 @@ table {
     #Alert Colors
 \*------------------------------------*/
 /*------------------------------------*\
-    #Brand Colors 
+    #Brand Colors
 \*------------------------------------*/
 /*------------------------------------*\
-    #Route Colors 
+    #Route Colors
 \*------------------------------------*/
 .popUp {
   -moz-border-radius: 16px;
@@ -4900,6 +4900,7 @@ blockquote p {
 .inner-wrap {
   position: relative;
   width: 100%;
+  min-height: 900px;
   -webkit-transition: -webkit-transform 100ms ease-in;
   -moz-transition: -moz-transform 100ms ease-in;
   -ms-transition: -ms-transform 100ms ease-in;
@@ -5649,10 +5650,10 @@ th.hide-for-touch {
     #Alert Colors
 \*------------------------------------*/
 /*------------------------------------*\
-    #Brand Colors 
+    #Brand Colors
 \*------------------------------------*/
 /*------------------------------------*\
-    #Route Colors 
+    #Route Colors
 \*------------------------------------*/
 .popUp {
   -moz-border-radius: 16px;
@@ -6576,10 +6577,10 @@ a {
   width: 6.875rem; }
 
 /*------------------------------------*\
-    #Generics 
+    #Generics
 \*------------------------------------*/
 /*------------------------------------*\
-    #Display Types  
+    #Display Types
 \*------------------------------------*/
 .display--block {
   display: block !important; }
@@ -6603,7 +6604,7 @@ a {
   display: table; }
 
 /*------------------------------------*\
-    #Clearfix 
+    #Clearfix
 \*------------------------------------*/
 .cf {
   overflow: hidden;
@@ -6621,7 +6622,7 @@ a {
   display: block; }
 
 /*------------------------------------*\
-    #Flag Object 
+    #Flag Object
 \*------------------------------------*/
 .flag {
   display: table;

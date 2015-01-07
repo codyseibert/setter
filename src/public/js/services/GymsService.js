@@ -9,10 +9,10 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            var gym = {};
-            var image = {};
-            var homeGymUsers = {};
-            var gyms = null;
+            var gym = {},
+                image = {},
+                homeGymUsers = {},
+                gyms = null;
 
             return {
                 registerGym: function (pRegistrationInfo) {

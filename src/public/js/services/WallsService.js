@@ -9,8 +9,8 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            var walls = {};
-            var wall = {};
+            var walls = {},
+                wall = {};
 
             return {
                 setWallsDirty: function (pGymId) {

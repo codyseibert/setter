@@ -1,4 +1,4 @@
-SETTER_VERSION="0.1.1"
+SETTER_VERSION="0.1.2"
 LOCAL_SETTER_DIR="/home/setter2/setter"
 LOCAL_SETTER_APP_DIR="$LOCAL_SETTER_DIR/build/app"
 LOCAL_SETTER_BUILD_DIR="/home/setter_builds"

@@ -293,24 +293,26 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
                 return $rootScope.lastPath.indexOf('setters') !== -1;
             };
 
-            var gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
-            var nothing = function () {
-                return undefined;
-            };
-            GymsService.getGyms(nothing);
-            GymsService.getGym(gymId, nothing);
-            GymsService.getGymImage(gymId, nothing);
-            GymsService.getHomeGymUsers(gymId, nothing);
-            RoutesService.getCurrentBoulderRoutes(gymId, nothing);
-            RoutesService.getCurrentRopeRoutes(gymId, nothing);
-            WallsService.getWallsInGym(gymId, nothing);
-
-            if ($rootScope.isUserAccount()) {
-                var userId = LoginService.getAccountId();
+            if (LoginService.isLoggedIn()) {
+                var gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
                 var nothing = function () {
                     return undefined;
                 };
-                UsersService.getUser(userId, nothing);
-                UsersService.getUserImage(userId, nothing);
+                GymsService.getGyms(nothing);
+                GymsService.getGym(gymId, nothing);
+                GymsService.getGymImage(gymId, nothing);
+                GymsService.getHomeGymUsers(gymId, nothing);
+                RoutesService.getCurrentBoulderRoutes(gymId, nothing);
+                RoutesService.getCurrentRopeRoutes(gymId, nothing);
+                WallsService.getWallsInGym(gymId, nothing);
+
+                if ($rootScope.isUserAccount()) {
+                    var userId = LoginService.getAccountId();
+                    var nothing = function () {
+                        return undefined;
+                    };
+                    UsersService.getUser(userId, nothing);
+                    UsersService.getUserImage(userId, nothing);
+                }
             };
         }]);

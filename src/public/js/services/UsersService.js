@@ -9,6 +9,10 @@ angular.module('SETTER')
         var image = {};
 
         return {
+            setImageAsDirty: function (pUserId) {
+                delete image[pUserId];
+            },
+
             registerUser: function (pRegistrationInfo) {
                 return $http({
                     method: "POST",

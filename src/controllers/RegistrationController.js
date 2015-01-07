@@ -67,6 +67,7 @@ var UsersController = function () {
             password,
             firstname,
             lastname,
+            gymId,
             callback;
 
         body = pReq.body;
@@ -74,6 +75,7 @@ var UsersController = function () {
         password = body.password;
         firstname = body.firstname;
         lastname = body.lastname;
+        gymId = pReq.body.gym_id;
 
         if (!validateInputForAccount(pReq, pRes)) {
             return;
@@ -100,7 +102,7 @@ var UsersController = function () {
                 callback = function (pData) {
                     theLoginHelper.generateAndSendToken(accountId, pRes);
                 };
-                theUsersDao.createUser(accountId, firstname, lastname, callback);
+                theUsersDao.createUser(accountId, firstname, lastname, gymId, callback);
             });
         });
     };

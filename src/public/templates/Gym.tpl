@@ -29,7 +29,7 @@
         <div class="flag"  ng-show="isUserAccount()">
             <div class="flag-image"
                     ng-click="getAccountId() === gymId && uploadImage()">
-                <img class="avatar avatar--big" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                <img class="avatar avatar--big--nowidth" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
             </div>
 
             <h1 class="testQuery flag-body  mb2"> {{gym.name}}</h1>
@@ -108,7 +108,7 @@
     <div class="small-12 columns mb4">
         <h2>Latest Sends</h2>
 
-            <div class="small-6 medium-3 large-3 columns   pb4"  style="min-height: 137px" ng-repeat="act in activity" 
+            <div class="small-6 medium-3 large-3 columns   pb4"  style="min-height: 137px" ng-repeat="act in activity"
                >
             <div class="flag">
 

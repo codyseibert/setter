@@ -44,7 +44,6 @@ var RouteToControllerBinder = function () {
 
     // GYMS
     app.get('/api/gyms',
-        InjectAccountId,
         GymsController.getGyms);
 
     app.get('/api/gyms/:gymId',

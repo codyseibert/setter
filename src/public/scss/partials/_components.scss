@@ -17,9 +17,12 @@
 [class*="avatar"] {
   @include border-radius(100%);
   background-color: $grey--medlight;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
+.avatar--big--nowidth {
+    height: rem-calc(100);
+}
 
 .avatar--small {
   height: rem-calc(50);
@@ -35,7 +38,6 @@
   height: rem-calc(128);
   width: rem-calc(128);
 }
-
 
 .avatar--jumbo {
   min-height: rem-calc(140);

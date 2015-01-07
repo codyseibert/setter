@@ -31,8 +31,8 @@ var UsersDao = function () {
 
     this.getUserImage = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT url FROM images i ' +
-                'LEFT JOIN accounts a ON i.id = a.image_id ' +
+            'SELECT a.image_id, i.url FROM accounts a ' +
+                'LEFT JOIN images i ON i.id = a.image_id ' +
                 'WHERE a.id = ?',
             [pUserId],
             theDaoHelper.SINGLE,
@@ -51,10 +51,10 @@ var UsersDao = function () {
         );
     };
 
-    this.createUser = function (pAccountId, pFirstname, pLastname, pCallback) {
+    this.createUser = function (pAccountId, pFirstname, pLastname, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO users (account_id, firstname, lastname) VALUES (?, ?, ?)',
-            [pAccountId, pFirstname, pLastname],
+            'INSERT INTO users (account_id, firstname, lastname, gym_id) VALUES (?, ?, ?, ?)',
+            [pAccountId, pFirstname, pLastname, pGymId],
             theDaoHelper.INSERT,
             pCallback
         );

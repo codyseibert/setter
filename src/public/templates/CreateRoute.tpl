@@ -36,9 +36,7 @@
 
             <div class="flag  mb1">
                 <h3 class="flag-image">Grade</h3>
-
                <div class="flag-body">
-
                 <label class="[ select--medium select--secondary ] right">
                       <select name="grade" id="routeGrade" ng-model="form.boulderGrade"
                          ng-options="grade.name for grade in boulderGrades">
@@ -49,10 +47,7 @@
                                ng-options="grade.name for grade in ropeGrades">
                    </select>
                 </label>
-
-
                </div>
-
             </div>
 
 

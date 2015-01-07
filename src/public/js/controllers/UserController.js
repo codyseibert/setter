@@ -341,6 +341,7 @@ angular.module('SETTER')
             $scope.complete = function (content) {
                 $scope.image = content;
                 LoginService.setImageUrl(content.url);
+                UsersService.setImageAsDirty(LoginService.getAccountId());
             };
 
             $scope.authorization = LoginService.getHeader();

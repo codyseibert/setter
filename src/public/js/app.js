@@ -1,6 +1,6 @@
 /*global angular: false, btoa: false, Chart: false, confirm: false */
 
-angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
+angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAnimate'])
     .config(['$routeProvider', function ($routeProvider) {
         'use strict';
 
@@ -120,6 +120,8 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             LoginService
         ) {
             'use strict';
+
+            FastClick.attach(document.body)
 
             // Set the global chart colors used throughout the site
             Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";

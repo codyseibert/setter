@@ -21,33 +21,39 @@ angular.module('SETTER')
 
             $scope.gymId = $routeParams.gymId;
 
+            var createStars = function () {
+                var stars = [],
+                    i;
+                for (i = 0; i < 5; i += 1) {
+                    stars.push({
+                        rating: i + 1
+                    });
+                }
+                return stars;
+            };
+
             SettersService.getSettersAtGym(LoginService.getAccountId())
                 .success(function (pData) {
+                    pData.map(function(pEntry) {
+                        pEntry.stars = createStars();
+                        return pEntry;
+                    });
                     $scope.setters = pData;
                 });
-
-            SettersService.getUsers()
-                .success(function (pData) {
-                    $scope.users = pData;
-                });
-
-            $scope.addSetterClicked = function (pSetter) {
-                SettersService.createSetterGymAccess($scope.gymId, pSetter.account_id)
-                    .success(function () {
-                        var index = $scope.users.indexOf(pSetter);
-                        $scope.users.splice(index, 1);
-                        $scope.setters.push(pSetter);
-                        alert(pSetter.firstname + " " + pSetter.lastname + " added to your gym's setter list");
-                    });
-            };
 
             $scope.removeSetterClicked = function (pSetter) {
                 SettersService.removeSetterGymAccess($scope.gymId, pSetter.account_id)
                     .success(function () {
                         var index = $scope.setters.indexOf(pSetter);
                         $scope.setters.splice(index, 1);
-                        $scope.users.push(pSetter);
                         alert(pSetter.firstname + " " + pSetter.lastname + " removed to your gym's setter list");
                     });
+            };
+
+            $scope.isFilled = function (pStar, pSetter) {
+                if (pStar.rating <= pSetter.rating) {
+                    return true;
+                }
+                return false;
             };
         }]);

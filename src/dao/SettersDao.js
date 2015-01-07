@@ -17,7 +17,11 @@ var SettersDao = function () {
 
     this.getSettersAtGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT i.url, u.account_id, CONCAT(u.firstname, \' \', u.lastname) AS name, u.firstname, u.lastname FROM setters_gyms_access sga ' +
+            'SELECT i.url, u.account_id, CONCAT(u.firstname, \' \', u.lastname) AS name, u.firstname, u.lastname, ' +
+                '(SELECT COUNT(*) FROM routes r WHERE r.setter_id = u.account_id AND r.boulder_grade_id IS NOT NULL) AS num_boulder_routes, ' +
+                '(SELECT COUNT(*) FROM routes r WHERE r.setter_id = u.account_id AND r.rope_grade_id IS NOT NULL) AS num_rope_routes, ' +
+                '(SELECT ROUND(AVG(ra.rating), 1) FROM ratings ra INNER JOIN routes r ON r.id = ra.route_id WHERE r.setter_id = u.account_id) AS rating ' +
+                'FROM setters_gyms_access sga ' +
                 'INNER JOIN users u ON u.account_id = sga.setter_id ' +
                 'INNER JOIN accounts a ON a.id = u.account_id ' +
                 'LEFT JOIN images i ON a.image_id = i.id ' +

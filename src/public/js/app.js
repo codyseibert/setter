@@ -75,6 +75,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAni
                 controller: 'SettersController',
                 templateUrl: 'templates/Setters.tpl'
             })
+            .when('/gyms/:gymId/setters/add', {
+                controller: 'AddSetterController',
+                templateUrl: 'templates/AddSetter.tpl'
+            })
             .when('/gyms/:gymId/routes', {
                 controller: 'RouteManagerController',
                 templateUrl: 'templates/RouteManager.tpl'
@@ -223,6 +227,10 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAni
 
             $rootScope.navigateToAlerts = function (pGymId) {
                 $location.path('gyms/' + pGymId + '/alerts');
+            };
+
+            $rootScope.navigateToAddSetter = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/setters/add');
             };
 
             $rootScope.back = function () {

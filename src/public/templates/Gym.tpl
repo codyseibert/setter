@@ -17,7 +17,7 @@
         <div class="flag" ng-show="isGymAccount()">
             <div class="flag-image"
                     ng-click="getAccountId() === gymId && uploadImage()">
-                <img class="avatar avatar--small" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                <img class="avatar avatar--big--nowidth" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
             </div>
 
             <h1  class="testQuery flag-body"> Your Dashboard

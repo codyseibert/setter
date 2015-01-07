@@ -100,32 +100,32 @@ angular.module('SETTER')
                 });
             };
 
-            RoutesService.getRoutesInGym($scope.gymId)
-                .success(function (pData) {
-                    pData.map(function (pEntry) {
-                        pEntry.date_format = DateFormatService.format(pEntry.date);
-                        pEntry.date_value = moment(pEntry.date).valueOf();
-                        pEntry.rope_grade_id = pEntry.rope_grade_id || -1;
-                        pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
-                        pEntry.show = true;
-                        return pEntry;
-                    });
-
-                    $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
-                    $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
-                    $scope.boulderGradeInputs = getUniqueSet(pData, 'boulder_grade', 'boulder_grade_id');
-                    $scope.ropeGradeInputs = getUniqueSet(pData, 'rope_grade', 'rope_grade_id');
-                    $scope.setterInputs = getUniqueSet(pData, 'setter');
-                    $scope.activeInputs = getUniqueSet(pData, 'active');
-
-                    sortByValue($scope.zoneInputs);
-                    sortByValue($scope.colorInputs);
-                    sortByExtra($scope.boulderGradeInputs);
-                    sortByExtra($scope.ropeGradeInputs);
-                    sortByValue($scope.setterInputs);
-
-                    $scope.routes = pData;
+            RoutesService.getRoutesInGym($scope.gymId, function (pData) {
+                console.log(pData);
+                pData.map(function (pEntry) {
+                    pEntry.date_format = DateFormatService.format(pEntry.date);
+                    pEntry.date_value = moment(pEntry.date).valueOf();
+                    pEntry.rope_grade_id = pEntry.rope_grade_id || -1;
+                    pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
+                    pEntry.show = true;
+                    return pEntry;
                 });
+
+                $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
+                $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
+                $scope.boulderGradeInputs = getUniqueSet(pData, 'boulder_grade', 'boulder_grade_id');
+                $scope.ropeGradeInputs = getUniqueSet(pData, 'rope_grade', 'rope_grade_id');
+                $scope.setterInputs = getUniqueSet(pData, 'setter');
+                $scope.activeInputs = getUniqueSet(pData, 'active');
+
+                sortByValue($scope.zoneInputs);
+                sortByValue($scope.colorInputs);
+                sortByExtra($scope.boulderGradeInputs);
+                sortByExtra($scope.ropeGradeInputs);
+                sortByValue($scope.setterInputs);
+
+                $scope.routes = pData;
+            });
 
             $scope.filterClicked = function (pFilter) {
                 var key;

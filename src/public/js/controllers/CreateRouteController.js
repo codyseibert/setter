@@ -73,7 +73,7 @@ angular.module('SETTER')
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
-                RoutesService.updateRoute($scope.gymId, $scope.routeId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
+                RoutesService.updateRoute($scope.gymId, $scope.wallId, $scope.routeId, name, colorId, boulderGradeId, ropeGradeId, setterId, note)
                     .success(function (pData) {
                         $scope.navigateToRoute($scope.gymId, $scope.wallId, $scope.routeId);
                     });

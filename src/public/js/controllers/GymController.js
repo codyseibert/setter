@@ -7,6 +7,7 @@ angular.module('SETTER')
         '$routeParams',
         '$rootScope',
         'GymsService',
+        'RoutesService',
         'BarGraphHelperService',
         'UsersService',
         'LoginService',
@@ -17,6 +18,7 @@ angular.module('SETTER')
             $routeParams,
             $rootScope,
             GymsService,
+            RoutesService,
             BarGraphHelperService,
             UsersService,
             LoginService,
@@ -62,11 +64,11 @@ angular.module('SETTER')
                 $scope.gym = pData;
             });
 
-            GymsService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
+            RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
                 createBoulderRoutesBarGraph(pData);
             });
 
-            GymsService.getCurrentRopeRoutes($scope.gymId, function (pData) {
+            RoutesService.getCurrentRopeRoutes($scope.gymId, function (pData) {
                 createRopeRoutesBarGraph(pData);
             });
 

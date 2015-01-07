@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div ng-repeat="route in routes" style="margin-bottom: 10px;" ng-style="getRouteStyle(route)" ng-show="route.show">
+        <div ng-repeat="route in routes" style="cursor: pointer; margin-bottom: 10px;" ng-style="getRouteStyle(route)" ng-show="route.show" ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
             <div style="width: 120px; display: inline-block">{{route.wall_name}}</div>
             <div style="width: 70px; display: inline-block"><i class="icon-circle" ng-style="{color: route.value}"> </i></div>
             <div style="width: 80px; display: inline-block">{{route.boulder_grade}}</div>

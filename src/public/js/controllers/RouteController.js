@@ -169,7 +169,7 @@ angular.module('SETTER')
                     return;
                 }
 
-                RoutesService.deleteRoute($scope.gymId, $scope.routeId)
+                RoutesService.deleteRoute($scope.gymId, $scope.wallId, $scope.routeId)
                     .success(function (pData) {
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });
@@ -181,7 +181,7 @@ angular.module('SETTER')
                     return;
                 }
 
-                RoutesService.stripRoute($scope.gymId, $scope.routeId)
+                RoutesService.stripRoute($scope.gymId, $scope.wallId, $scope.routeId)
                     .success(function (pData) {
                         $scope.navigateToWall($scope.gymId, $scope.wallId);
                     });

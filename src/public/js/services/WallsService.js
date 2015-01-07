@@ -2,68 +2,87 @@
 /*global angular: false */
 
 angular.module('SETTER')
-    .factory('WallsService', ['$http', function ($http) {
-        'use strict';
+    .factory('WallsService', [
+        '$http',
+        function (
+            $http
+        ) {
+            'use strict';
 
-        var walls = {};
-        var wall = {};
+            var walls = {};
+            var wall = {};
 
-        return {
-            getWallsInGym: function (pGymId, pCallback) {
-                if (walls[pGymId]) {
-                    pCallback(walls[pGymId]);
-                    return;
-                }
+            return {
+                setWallsDirty: function (pGymId) {
+                    delete walls[pGymId];
+                },
 
-                $http({
-                    method: "GET",
-                    url: 'api/gyms/' + pGymId + '/walls'
-                }).success(function (pData) {
-                    walls[pGymId] = pData;
-                    pCallback(walls[pGymId]);
-                });
-            },
+                setWallDirty: function (pWallId) {
+                    delete wall[pWallId];
+                },
 
-            getWall: function (pGymId, pWallId, pCallback) {
-                if (wall[pWallId]) {
-                    pCallback(wall[pWallId]);
-                    return;
-                }
-
-                $http({
-                    method: "GET",
-                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId
-                }).success(function (pData) {
-                    wall[pWallId] = pData;
-                    pCallback(wall[pWallId]);
-                });
-            },
-
-            createWall: function (pGymId, pWallName) {
-                return $http({
-                    method: "POST",
-                    url: 'api/gyms/' + pGymId + '/walls',
-                    data: {
-                        wallName: pWallName
+                getWallsInGym: function (pGymId, pCallback) {
+                    if (walls[pGymId]) {
+                        pCallback(walls[pGymId]);
+                        return;
                     }
-                });
-            },
 
-            updateWall: function (pGymId, pWallId, pWallName) {
-                return $http({
-                    method: "POST",
-                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId,
-                    data: {
-                        wallName: pWallName
+                    $http({
+                        method: "GET",
+                        url: 'api/gyms/' + pGymId + '/walls'
+                    }).success(function (pData) {
+                        walls[pGymId] = pData;
+                        pCallback(walls[pGymId]);
+                    });
+                },
+
+                getWall: function (pGymId, pWallId, pCallback) {
+                    if (wall[pWallId]) {
+                        pCallback(wall[pWallId]);
+                        return;
                     }
-                });
-            },
 
-            deleteWall: function (pGymId, pWallId) {
-                return $http({
-                    method: "DELETE",
-                    url: 'api/gyms/' + pGymId + '/walls/' + pWallId
-                });
-            }
-        };
-    }]);
+                    $http({
+                        method: "GET",
+                        url: 'api/gyms/' + pGymId + '/walls/' + pWallId
+                    }).success(function (pData) {
+                        wall[pWallId] = pData;
+                        pCallback(wall[pWallId]);
+                    });
+                },
+
+                createWall: function (pGymId, pWallName) {
+                    this.setWallsDirty(pGymId);
+
+                    return $http({
+                        method: "POST",
+                        url: 'api/gyms/' + pGymId + '/walls',
+                        data: {
+                            wallName: pWallName
+                        }
+                    });
+                },
+
+                updateWall: function (pGymId, pWallId, pWallName) {
+                    this.setWallDirty(pWallId);
+                    this.setWallsDirty(pGymId);
+
+                    return $http({
+                        method: "POST",
+                        url: 'api/gyms/' + pGymId + '/walls/' + pWallId,
+                        data: {
+                            wallName: pWallName
+                        }
+                    });
+                },
+
+                deleteWall: function (pGymId, pWallId) {
+                    this.setWallsDirty(pGymId);
+
+                    return $http({
+                        method: "DELETE",
+                        url: 'api/gyms/' + pGymId + '/walls/' + pWallId
+                    });
+                }
+            };
+        }]);

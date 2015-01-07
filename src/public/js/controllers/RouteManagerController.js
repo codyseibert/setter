@@ -101,7 +101,6 @@ angular.module('SETTER')
             };
 
             RoutesService.getRoutesInGym($scope.gymId, function (pData) {
-                console.log(pData);
                 pData.map(function (pEntry) {
                     pEntry.date_format = DateFormatService.format(pEntry.date);
                     pEntry.date_value = moment(pEntry.date).valueOf();

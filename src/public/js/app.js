@@ -107,6 +107,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
         'UsersService',
         'GymsService',
         'WallsService',
+        'RoutesService',
         'LoginService',
         function (
             $rootScope,
@@ -115,6 +116,7 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
             UsersService,
             GymsService,
             WallsService,
+            RoutesService,
             LoginService
         ) {
             'use strict';
@@ -291,20 +293,17 @@ angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload'])
                 return $rootScope.lastPath.indexOf('setters') !== -1;
             };
 
-            if (LoginService.getHomeGymId()) {
-                var gymId = LoginService.getHomeGymId();
-                var nothing = function () {
-                    return undefined;
-                };
-                GymsService.getGyms(nothing);
-                GymsService.getGym(gymId, nothing);
-                GymsService.getGymImage(gymId, nothing);
-                GymsService.getHomeGymUsers(gymId, nothing);
-                GymsService.getCurrentBoulderRoutes(gymId, nothing);
-                GymsService.getCurrentRopeRoutes(gymId, nothing);
-
-                WallsService.getWallsInGym(gymId, nothing);
+            var gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
+            var nothing = function () {
+                return undefined;
             };
+            GymsService.getGyms(nothing);
+            GymsService.getGym(gymId, nothing);
+            GymsService.getGymImage(gymId, nothing);
+            GymsService.getHomeGymUsers(gymId, nothing);
+            RoutesService.getCurrentBoulderRoutes(gymId, nothing);
+            RoutesService.getCurrentRopeRoutes(gymId, nothing);
+            WallsService.getWallsInGym(gymId, nothing);
 
             if ($rootScope.isUserAccount()) {
                 var userId = LoginService.getAccountId();

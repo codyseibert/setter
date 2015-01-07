@@ -4900,7 +4900,6 @@ blockquote p {
 .inner-wrap {
   position: relative;
   width: 100%;
-  min-height: 900px;
   -webkit-transition: -webkit-transform 100ms ease-in;
   -moz-transition: -moz-transform 100ms ease-in;
   -ms-transition: -ms-transform 100ms ease-in;
@@ -6577,10 +6576,10 @@ a {
   width: 6.875rem; }
 
 /*------------------------------------*\
-    #Generics
+    #Generics 
 \*------------------------------------*/
 /*------------------------------------*\
-    #Display Types
+    #Display Types  
 \*------------------------------------*/
 .display--block {
   display: block !important; }
@@ -6604,7 +6603,7 @@ a {
   display: table; }
 
 /*------------------------------------*\
-    #Clearfix
+    #Clearfix 
 \*------------------------------------*/
 .cf {
   overflow: hidden;
@@ -6622,7 +6621,7 @@ a {
   display: block; }
 
 /*------------------------------------*\
-    #Flag Object
+    #Flag Object 
 \*------------------------------------*/
 .flag {
   display: table;
@@ -7112,7 +7111,37 @@ footer {
   text-align: center;
   font-variant: normal;
   text-transform: none;
+  color: #6c6c6c; }
+
+.rated .icon-star:before {
+  content: "";
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.75rem;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
   color: #f3db54; }
+
+.icon-star.hovered:before {
+  content: "";
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.75rem;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  color: #f3fb54; }
 
 .rating {
   cursor: pointer; }

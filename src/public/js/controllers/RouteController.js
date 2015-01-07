@@ -108,6 +108,9 @@ angular.module('SETTER')
             };
 
             $scope.send = function () {
+
+                angular.element("#rate-modal").foundation('reveal', 'open');
+
                 SendsService.createSend($scope.routeId)
                     .success(function () {
                         $scope.hasSent = true;
@@ -148,12 +151,21 @@ angular.module('SETTER')
                     .success(function () {
                         $scope.hasRated = true;
                         loadRouteRating();
+
+                        angular.element("#rate-modal").foundation('reveal', 'close');
                     });
             };
 
             $scope.isFilled = function (pStar) {
                 if (pStar.rating <= $scope.hoverRating ||
                         pStar.rating <= $scope.rating) {
+                    return true;
+                }
+                return false;
+            };
+
+            $scope.isHovered = function (pStar) {
+                if (pStar.rating <= $scope.hoverRating) {
                     return true;
                 }
                 return false;

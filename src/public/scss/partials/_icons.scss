@@ -15,44 +15,56 @@
   width: 1em;
   text-align: center;
   /* opacity: .8; */
-  
+
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-     
+
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
- 
+
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
   // margin-left: .08em;
- 
+
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
- 
+
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
- 
+
 
 
 [class*="comments"], [rel*="comments"] {
-  @include icon($icon--comments); 
+  @include icon($icon--comments);
 }
 
 .icon-star {
-  @include icon($icon--star) {
-    color: $color--rating; 
-  }
+    @include icon($icon--star) {
+        color: $grey--medium;
+    }
+}
+
+.rated .icon-star {
+    @include icon($icon--star) {
+        color: $color--rating;
+    }
+}
+
+.icon-star.hovered {
+    @include icon($icon--star) {
+        color: $color--rating--hovered;
+    }
 }
 
 .rating {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 [class*="icon-star-empty"] {
   @include icon($icon--star--empty) {
-    color: $grey--medlight; 
+    color: $grey--medlight;
   }
 }
 
@@ -61,11 +73,11 @@
 }
 
 .icon-profile {
-  @include icon($icon--person); 
+  @include icon($icon--person);
 }
 
 .icon-home {
-  @include icon($icon--house); 
+  @include icon($icon--house);
 }
 
 [href*="topo"],
@@ -95,7 +107,7 @@
 }
 
 .icon-alert {
-    @include icon($icon--warning); 
+    @include icon($icon--warning);
 }
 
 .icon-trash {
@@ -115,7 +127,7 @@
 }
 
 [rel*="address"] {
-    @include icon($icon--location); 
+    @include icon($icon--location);
 }
 
 [rel*="email"],
@@ -147,40 +159,40 @@
 
 .icon-down-big {
   @include icon($icon--arrowD);
-  
+
 }
 
 .icon-arrowU {
   @include icon($icon--arrowU) ;
 }
 
-.icon-circle { 
-  @include icon($icon--circle); 
+.icon-circle {
+  @include icon($icon--circle);
 }
 
 .icon-megaphone {
-  @include icon($icon--megaPhone); 
+  @include icon($icon--megaPhone);
 }
 
 .icon-pencil {
-  @include icon($icon--pencil); 
+  @include icon($icon--pencil);
 }
 
 
-.icon-blog { 
-  @include icon($icon--rss); 
+.icon-blog {
+  @include icon($icon--rss);
 }
 
 .icon-plus {
-  @include icon($icon--plus); 
+  @include icon($icon--plus);
 }
 
 .icon-minus {
-  @include icon($icon--minus); 
+  @include icon($icon--minus);
 }
 
 .icon-thumbsUp {
-  @include icon($icon--thumbsUp); 
+  @include icon($icon--thumbsUp);
 }
 
 [src*="icon--wrench"] {
@@ -189,7 +201,7 @@
 }
 
 .icon-key {
-  @include icon($icon--key); 
+  @include icon($icon--key);
 }
 
 // .icon--wrench {
@@ -198,17 +210,17 @@
 
 
 //
-//Climbing Types Icons 
-// 
+//Climbing Types Icons
+//
 
 
 .icon--bouldering,
 .icon--topRope,
 .icon--leadClimbing {
   background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  display: inline-block;  
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
   height: rem-calc(30);
   width: rem-calc(30);
 }
@@ -226,15 +238,15 @@
 }
 
 
-//Communication 
+//Communication
 
 
 .icon-messaging {
-  @include icon($icon--speachBubble); 
-} 
+  @include icon($icon--speachBubble);
+}
 
 .icon-messaging-alt {
-   @include icon($icon--speachBubble-alt); 
+   @include icon($icon--speachBubble-alt);
 }
 
 //
@@ -242,43 +254,41 @@
 //
 
 .icon--label {
-  @extend %mt2; 
-  display: inline-block; 
-  margin-right: 0; 
+  @extend %mt2;
+  display: inline-block;
+  margin-right: 0;
   &:before {
-    margin-right: 0; 
+    margin-right: 0;
   }
 }
 
 
 //
-//Icon Sizes 
+//Icon Sizes
 //
 
 .icon--medium {
-  @extend %icon--medium; 
+  @extend %icon--medium;
 }
 
 .icon--big {
-  @extend %icon--big; 
+  @extend %icon--big;
 }
 
 .saddie {
    background-image: url("../images/setter-logo.svg");
-   background-repeat: no-repeat; 
-   background-position: center; 
-   background-size: contain; 
-  width: 100%; 
-   
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+   width: 100%;
 }
 
 .saddie--medium {
-  min-height: rem-calc(220); 
-  min-width: rem-calc(220); 
-
+  min-height: rem-calc(220);
+  min-width: rem-calc(220);
 }
 
 .saddie--small {
   min-width: rem-calc(100);
-  min-height: rem-calc(100); 
+  min-height: rem-calc(100);
 }

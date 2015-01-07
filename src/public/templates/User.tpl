@@ -2,7 +2,7 @@
 
     <div class="header">
         <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
-                ng-show="lastPageWasGym() || lastPageWasRoute()"
+                ng-show="lastPageWasGym() || lastPageWasRoute() || lastPageWasSetters()"
                 ng-click="back()" >
             <span> Back</span>
         </button>

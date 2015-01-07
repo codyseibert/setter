@@ -110,16 +110,15 @@
 
             <h3 class="flag-image">Avg. Rating</h3>
 
-               <div class="flag-body  text-right">
+               <div class="flag-body  text-right"
+                    ng-mouseleave="setHoverRating(-1)">
                     <h4 class="mb0 h2 display--inlineBlock"
                             ng-class="{rated: hasRated}"
                             ng-repeat="star in stars"
                             ng-click="!isGymAccount() && rate(star)"
-                            ng-mouseover="setHoverRating(star)"
-                            ng-mouseleave="setHoverRating(-1)">
-                        <i ng-class="{'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
+                            ng-mouseover="setHoverRating(star)">
+                        <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
                     </h4>
-
                 </div>
 
             </div>
@@ -236,3 +235,20 @@
     </div>
 
 </section>
+
+
+<div id="rate-modal" class="reveal-modal" data-reveal>
+    <h2>Rate this route!</h2>
+    <p class="lead">Help out your gym by rating this routes!</p>
+    <div class="display: inline-block; text-align: center;"
+            ng-mouseleave="setHoverRating(-1)">
+        <h4 class="mb0 h2 display--inlineBlock"
+            ng-class="{rated: hasRated}"
+            ng-repeat="star in stars"
+            ng-mouseover="setHoverRating(star)"
+            ng-click="!isGymAccount() && rate(star)">
+            <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
+        </h4>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+</div>

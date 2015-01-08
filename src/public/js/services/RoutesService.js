@@ -16,6 +16,13 @@ angular.module('SETTER')
 
             return {
 
+                clearCache: function () {
+                    gymRoutes = {};
+                    routes = {};
+                    currentBoulderRoutes = {};
+                    currentRopeRoutes = {};
+                },
+
                 setGymRoutesDirty: function (pGymId) {
                     delete gymRoutes[pGymId];
                 },
@@ -141,6 +148,12 @@ angular.module('SETTER')
                     return $http({
                         method: 'POST',
                         url: 'api/gyms/' + pGymId + '/routes/' + pRouteId + '/strip'
+                    });
+                },
+                setRouteAsViewed: function (pRouteId) {
+                    return $http({
+                        method: 'DELETE',
+                        url: 'api/routes/' + pRouteId + '/setAsViewed'
                     });
                 }
             };

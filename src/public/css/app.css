@@ -801,6 +801,21 @@ h6,
   }
 }
 */
+.icon--new {
+  display: inline-block;
+  text-align: center;
+  width: 60px;
+  height: 26px;
+  border-radius: 5px;
+  left: 5px;
+  padding-top: 8px;
+  top: -2px; }
+
+.icon--top--right {
+  position: absolute;
+  width: 100px;
+  top: -15px; }
+
 .rating--small > * {
   font-size: rem-calc(16); }
 
@@ -6098,6 +6113,21 @@ h6,
   }
 }
 */
+.icon--new {
+  display: inline-block;
+  text-align: center;
+  width: 60px;
+  height: 26px;
+  border-radius: 5px;
+  left: 5px;
+  padding-top: 8px;
+  top: -2px; }
+
+.icon--top--right {
+  position: absolute;
+  width: 100px;
+  top: -15px; }
+
 .rating--small > * {
   font-size: 1rem; }
 

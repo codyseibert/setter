@@ -88,9 +88,9 @@
                     ng-hide="wall.hide">
 
                     {{wall.name}}
-                   <span class="label  success  border-radius" ng-show="isNew(wall)"> NEW</span>
+                   <span class="icon--new label success  border-radius" ng-show="isUserAccount() && wall.new_count">{{wall.new_count}} NEW</span>
                     <i class="icon-right-big right"> </i>
-               
+
 
             </li>
 

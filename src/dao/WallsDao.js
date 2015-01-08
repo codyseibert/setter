@@ -20,10 +20,10 @@ Contains logic related to Walls.
 var WallsDao = function () {
     'use strict';
 
-    this.getWallsInGym = function (pGymId, pCallback) {
+    this.getWallsInGym = function (pGymId, pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT id, name, last_update FROM walls WHERE gym_id = ?',
-            [pGymId],
+            'SELECT w.id, w.name, w.last_update, (SELECT COUNT(*) FROM route_new_to_user rntu WHERE rntu.wall_id = w.id AND rntu.user_id = ?) AS new_count FROM walls w WHERE w.gym_id = ?',
+            [pAccountId, pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
         );

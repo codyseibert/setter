@@ -9,6 +9,7 @@
 angular.module('SETTER')
     .controller('WallController', [
         '$scope',
+        '$interval',
         '$routeParams',
         'RoutesService',
         'WallsService',
@@ -16,6 +17,7 @@ angular.module('SETTER')
         'LoginService',
         function (
             $scope,
+            $interval,
             $routeParams,
             RoutesService,
             WallsService,

@@ -13,6 +13,7 @@
 
 var theRoutesDao = require('../dao/RoutesDao');
 var theWallsDao = require('../dao/WallsDao');
+var theRouteNewToUserDao = require('../dao/RouteNewToUserDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var RoutesController = function () {
@@ -36,14 +37,17 @@ var RoutesController = function () {
 
     this.getRoutesOnWall = function (pReq, pRes) {
         var wallId,
+            accountId,
             callback;
+        accountId = pReq.user.accountId;
         wallId = pReq.params.wallId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.getRoutesOnWall(wallId, callback);
+        theRoutesDao.getRoutesOnWall(accountId, wallId, callback);
     };
 
     this.createRoute = function (pReq, pRes) {
-        var wallId,
+        var gymId,
+            wallId,
             name,
             boulderGradeId,
             ropeGradeId,
@@ -51,6 +55,7 @@ var RoutesController = function () {
             colorId,
             callback,
             note;
+        gymId = pReq.params.gymId;
         wallId = pReq.params.wallId;
         name = pReq.body.name || '';
         colorId = pReq.body.colorId;
@@ -68,7 +73,12 @@ var RoutesController = function () {
         }
 
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.createRoute(wallId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
+        theRoutesDao.createRoute(wallId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, function (pRoute) {
+            theRouteNewToUserDao.createNewRouteToUserAlertsForGym(gymId, wallId, pRoute.id, function (pData) {
+                callback(pRoute);
+            });
+        });
+
         theWallsDao.updateLastUpdate(wallId, function () {
             return undefined;
         });
@@ -117,6 +127,16 @@ var RoutesController = function () {
         routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theRoutesDao.stripRoute(routeId, callback);
+    };
+
+    this.deleteNewRouteToUserAlert = function (pReq, pRes) {
+        var routeId,
+            accountId,
+            callback;
+        routeId = pReq.params.routeId;
+        accountId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theRouteNewToUserDao.deleteNewRouteToUserAlert(routeId, accountId, callback);
     };
 };
 

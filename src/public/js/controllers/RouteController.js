@@ -11,6 +11,7 @@ angular.module('SETTER')
         'RatingsService',
         'SendsService',
         'DateFormatService',
+        'WallsService',
         'LoginService',
         function (
             $scope,
@@ -20,6 +21,7 @@ angular.module('SETTER')
             RatingsService,
             SendsService,
             DateFormatService,
+            WallsService,
             LoginService
         ) {
             'use strict';
@@ -46,12 +48,17 @@ angular.module('SETTER')
                 }
             }());
 
+            RoutesService.setRouteAsViewed($scope.routeId)
+                .success(function (pData) {
+                    WallsService.setWallsDirty($scope.gymId);
+                    RoutesService.setRoutesDirty($scope.gymId, $scope.wallId);
+                });
+
             RoutesService.getRoute($scope.routeId)
                 .success(function (pData) {
                     pData.date = DateFormatService.format(pData.date);
                     $scope.route = pData;
                 });
-
 
             CommentsService.getCommentsAboutRoute($scope.routeId)
                 .success(function (pData) {

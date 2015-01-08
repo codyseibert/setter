@@ -11,8 +11,9 @@
     <div class="small-12 columns">
 
         <div ng-show="shouldShowWallImage()">
-            <div ng-click="getAccountId() === gymId && uploadImage()">
+            <div>
                 <img style="height: 100px; overflow: hidden; cursor: pointer;"
+                        ng-click="getAccountId() === gymId && uploadImage()"
                         ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
             </div>
         </div>
@@ -48,9 +49,9 @@
         <ul class="list--tableStyle  list--navElem">
             <li ng-repeat="route in routes" ng-click="navigateToRoute(gymId, wallId, route.id)" class="list--tableStyle  ptb2">
                 <i class="icon-circle"
-                ng-style="{color: route.value}"> </i>
+                    ng-style="{color: route.value}"> </i>
                 {{route.route_name}} {{route.boulder_grade || route.rope_grade || 'Not Rated'}}
-                <span class="label  success  border-radius" ng-show="isNew(route)">NEW</span>
+                <span class="icon--new label  success  border-radius" ng-show="isUserAccount() && route.isNew">New</span>
                 <i class="icon-right-big  right"> </i>
             </li>
         </ul>
@@ -63,11 +64,14 @@
                     ng-click="delete()">
                     Delete Zone Permanently
                 </a>
+
+                <div ng-repeat="object in objects" st-check>
+                    {{object.name}}
+                </div>
             </div>
         </section>
     </div>
 </section>
-
 
 <!-- hidden -->
 <form id="image_form"

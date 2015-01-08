@@ -69,6 +69,16 @@ var GymsController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getActivityStream(gymId, callback);
     };
+
+    this.getNumberOfNewRoutes = function (pReq, pRes) {
+        var gymId,
+            accountId,
+            callback;
+        gymId = pReq.params.gymId;
+        accountId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getNumberOfNewRoutes(gymId, accountId, callback);
+    };
 };
 
 module.exports = new GymsController();

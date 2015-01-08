@@ -58,8 +58,9 @@
 
         <div class="medium-6 columns  ">
             <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map" ng-click="navigateToWalls(gymId)">
-                View Gym's Zones
+                View Zones
             </button>
+            <span class="icon--top--right icon--new label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
         </div>
 
         <div class="medium-6 columns">

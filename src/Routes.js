@@ -58,6 +58,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GymsController.getCurrentRopeRoutes);
 
+    app.get('/api/gyms/:gymId/routes/new',
+        InjectAccountId,
+        GymsController.getNumberOfNewRoutes);
+
     app.get('/api/gyms/:gymId/users',
         InjectAccountId,
         GymsController.getHomeGymUsers);
@@ -131,6 +135,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ValidateGymAdmin,
         RoutesController.createRoute);
+
+    app.delete('/api/routes/:routeId/setAsViewed',
+        InjectAccountId,
+        RoutesController.deleteNewRouteToUserAlert);
 
     app.get('/api/routes/:routeId',
         InjectAccountId,

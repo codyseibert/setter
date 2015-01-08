@@ -19,10 +19,12 @@ var WallsController = function () {
 
     this.getWallsInGym = function (pReq, pRes) {
         var gymId,
+            accountId,
             callback;
         gymId = pReq.params.gymId;
+        accountId = pReq.user.accountId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.getWallsInGym(gymId, callback);
+        theWallsDao.getWallsInGym(gymId, accountId, callback);
     };
 
     this.getWall = function (pReq, pRes) {

@@ -52,15 +52,15 @@ var RoutesDao = function () {
         );
     };
 
-    this.getRoutesOnWall = function (pWallId, pCallback) {
+    this.getRoutesOnWall = function (pUserId, pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
+            'SELECT r.id, (SELECT rntu.id FROM route_new_to_user rntu WHERE rntu.route_id = r.id AND rntu.user_id = ?) AS isNew, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
                 'WHERE r.wall_id = ? AND r.active = 1 ORDER BY bg.id ASC, rg.id ASC',
-            [pWallId],
+            [pUserId, pWallId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
@@ -101,6 +101,7 @@ var RoutesDao = function () {
             pCallback
         );
     };
+
 };
 
 module.exports = new RoutesDao();

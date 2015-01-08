@@ -119,6 +119,15 @@ var GymsDao = function () {
             pCallback
         );
     };
+
+    this.getNumberOfNewRoutes = function (pGymId, pAccountId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT COUNT(*) AS count FROM route_new_to_user rntu WHERE rntu.gym_id = ? AND rntu.user_id = ?',
+            [pGymId, pAccountId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
 };
 
 module.exports = new GymsDao();

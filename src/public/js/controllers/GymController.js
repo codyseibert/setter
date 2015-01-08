@@ -80,6 +80,11 @@ angular.module('SETTER')
                 $scope.image = pData;
             });
 
+            GymsService.getNumberOfNewRoutes($scope.gymId)
+                .success(function (pData){
+                    $scope.newRoutes = pData;
+                });
+
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {
                     $scope.activity = pData;

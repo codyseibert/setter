@@ -15,6 +15,12 @@ angular.module('SETTER')
                 gyms = null;
 
             return {
+                clearCache: function () {
+                    gym = {};
+                    image = {};
+                    homeGymUsers = {};
+                    gyms = null;
+                },
                 registerGym: function (pRegistrationInfo) {
                     return $http({
                         method: 'POST',
@@ -82,6 +88,12 @@ angular.module('SETTER')
                     return $http({
                         method: 'GET',
                         url: 'api/gyms/' + pGymId + '/activity'
+                    });
+                },
+                getNumberOfNewRoutes: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/new'
                     });
                 }
             };

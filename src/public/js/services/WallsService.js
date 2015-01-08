@@ -10,9 +10,13 @@ angular.module('SETTER')
             'use strict';
 
             var walls = {},
-                wall = {};
+            wall = {};
 
             return {
+                clearCache: function () {
+                    walls = {};
+                    wall = {};
+                },
                 setWallsDirty: function (pGymId) {
                     delete walls[pGymId];
                 },

@@ -6,6 +6,7 @@ angular.module('SETTER')
         '$scope',
         '$routeParams',
         '$rootScope',
+        '$timeout',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -17,6 +18,7 @@ angular.module('SETTER')
             $scope,
             $routeParams,
             $rootScope,
+            $timeout,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -43,21 +45,15 @@ angular.module('SETTER')
             };
 
             createBoulderRoutesBarGraph = function (pData) {
-                var data;
-                data = BarGraphHelperService.generateRouteCountGraphData(pData);
-                $scope.boulderRoutesBarGraph = {
-                    labels: data.labels,
-                    data: data.data
-                };
+                var data = BarGraphHelperService
+                    .generateRouteCountGraphData(pData);
+                $scope.boulderRoutesBarGraph = data;
             };
 
             createRopeRoutesBarGraph = function (pData) {
-                var data;
-                data = BarGraphHelperService.generateRouteCountGraphData(pData);
-                $scope.ropeRoutesBarGraph = {
-                    labels: data.labels,
-                    data: data.data
-                };
+                var data = BarGraphHelperService
+                    .generateRouteCountGraphData(pData);
+                $scope.ropeRoutesBarGraph = data;
             };
 
             GymsService.getGym($scope.gymId, function (pData) {
@@ -130,4 +126,16 @@ angular.module('SETTER')
             };
 
             $scope.authorization = LoginService.getHeader();
+
+            $scope.showCharts = function () {
+                angular.element('#charts').css('left', '0px');
+                angular.element('#charts').css('position', 'relative');
+            };
+
+            $scope.hideCharts = function () {
+                angular.element('#charts').css('left', '9999px');
+                angular.element('#charts').css('position', 'absolute');
+            };
+
+            $scope.hideCharts();
         }]);

@@ -30,18 +30,9 @@
         <style>[ng-cloak] { display: none; }</style>
     </head>
 
-
     <body ng-app="SETTER">
 
-
-            <nav class="top-bar visible-for-large-up  text-right" data-topbar role="navigation">
-
-                <img class="mr4"  src="images/setter-logo.svg" alt="" width="40">
-
-            </nav>
-
-
-    <div class="off-canvas-wrap" data-offcanvas>
+    <div class="off-canvas-wrap">
 
         <nav class="tab-bar hide-on-large" >
 
@@ -62,6 +53,7 @@
         <div class="inner-wrap">
         <!-- Off Canvas Menu -->
         <aside class="left-off-canvas-menu  side-menu  hide-on-large">
+
             <ul class="pt3  off-canvas-list" ng-show="isLoggedIn()">
 
                 <li
@@ -137,7 +129,13 @@
         </aside>
 
 
-          <aside class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only" ng-show="isLoggedIn()">
+        <aside style="padding-top: 0px;" class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only" ng-show="isLoggedIn()">
+
+            <div style="padding-top: 12px; height: 130px; text-align: center; background-color: #ed6d56">
+                <img src="images/setter-logo.svg" style="width: 70px;"><br>
+                <span style="font-size: 30px;">SETTER</span>
+            </div>
+
             <ul class="pt5 " ng-show="isLoggedIn()">
 
                 <li
@@ -246,73 +244,74 @@
         </div>
     </footer>
 
-        <!-- bower:js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/moment/moment.js"></script>
-        <script src="bower_components/Chart.js/Chart.min.js"></script>
-        <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
-        <script src="bower_components/ngUpload/ng-upload.js"></script>
-        <script src="bower_components/fastclick/lib/fastclick.js"></script>
-        <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
-        <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
-        <script src="bower_components/foundation/js/foundation.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
-        <!-- endbower -->
+    <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/ngUpload/ng-upload.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="bower_components/foundation/js/foundation.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+    <!-- endbower -->
 
-        <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 
-        <!-- build:remove -->
-            <!-- Controllers -->
-            <script type="text/javascript" src="js/controllers/LoginController.js"></script>
-            <script type="text/javascript" src="js/controllers/LandingController.js"></script>
-            <script type="text/javascript" src="js/controllers/LogoutController.js"></script>
-            <script type="text/javascript" src="js/controllers/RegisterGymController.js"></script>
-            <script type="text/javascript" src="js/controllers/RegisterUserController.js"></script>
-            <script type="text/javascript" src="js/controllers/GymsController.js"></script>
-            <script type="text/javascript" src="js/controllers/GymController.js"></script>
-            <script type="text/javascript" src="js/controllers/WallsController.js"></script>
-            <script type="text/javascript" src="js/controllers/WallController.js"></script>
-            <script type="text/javascript" src="js/controllers/CreateRouteController.js"></script>
-            <script type="text/javascript" src="js/controllers/SettersController.js"></script>
-            <script type="text/javascript" src="js/controllers/RouteController.js"></script>
-            <script type="text/javascript" src="js/controllers/UserController.js"></script>
-            <script type="text/javascript" src="js/controllers/SuggestionsController.js"></script>
-            <script type="text/javascript" src="js/controllers/TOSController.js"></script>
-            <script type="text/javascript" src="js/controllers/ContactController.js"></script>
-            <script type="text/javascript" src="js/controllers/RouteManagerController.js"></script>
-            <script type="text/javascript" src="js/controllers/BlogController.js"></script>
-            <script type="text/javascript" src="js/controllers/GymSuggestionsController.js"></script>
-            <script type="text/javascript" src="js/controllers/AlertsController.js"></script>
-            <script type="text/javascript" src="js/controllers/AddSetterController.js"></script>
+    <!-- build:remove -->
+        <!-- Controllers -->
+        <script type="text/javascript" src="js/controllers/LoginController.js"></script>
+        <script type="text/javascript" src="js/controllers/LandingController.js"></script>
+        <script type="text/javascript" src="js/controllers/LogoutController.js"></script>
+        <script type="text/javascript" src="js/controllers/RegisterGymController.js"></script>
+        <script type="text/javascript" src="js/controllers/RegisterUserController.js"></script>
+        <script type="text/javascript" src="js/controllers/GymsController.js"></script>
+        <script type="text/javascript" src="js/controllers/GymController.js"></script>
+        <script type="text/javascript" src="js/controllers/WallsController.js"></script>
+        <script type="text/javascript" src="js/controllers/WallController.js"></script>
+        <script type="text/javascript" src="js/controllers/CreateRouteController.js"></script>
+        <script type="text/javascript" src="js/controllers/SettersController.js"></script>
+        <script type="text/javascript" src="js/controllers/RouteController.js"></script>
+        <script type="text/javascript" src="js/controllers/UserController.js"></script>
+        <script type="text/javascript" src="js/controllers/SuggestionsController.js"></script>
+        <script type="text/javascript" src="js/controllers/TOSController.js"></script>
+        <script type="text/javascript" src="js/controllers/ContactController.js"></script>
+        <script type="text/javascript" src="js/controllers/RouteManagerController.js"></script>
+        <script type="text/javascript" src="js/controllers/BlogController.js"></script>
+        <script type="text/javascript" src="js/controllers/GymSuggestionsController.js"></script>
+        <script type="text/javascript" src="js/controllers/AlertsController.js"></script>
+        <script type="text/javascript" src="js/controllers/AddSetterController.js"></script>
 
-            <!-- Directives -->
+        <!-- Directives -->
 
-            <!-- Services -->
-            <script type="text/javascript" src="js/services/AccountsService.js"></script>
-            <script type="text/javascript" src="js/services/GymsService.js"></script>
-            <script type="text/javascript" src="js/services/SettersService.js"></script>
-            <script type="text/javascript" src="js/services/UsersService.js"></script>
-            <script type="text/javascript" src="js/services/LoginService.js"></script>
-            <script type="text/javascript" src="js/services/WallsService.js"></script>
-            <script type="text/javascript" src="js/services/RoutesService.js"></script>
-            <script type="text/javascript" src="js/services/GradesService.js"></script>
-            <script type="text/javascript" src="js/services/ColorsService.js"></script>
-            <script type="text/javascript" src="js/services/SendsService.js"></script>
-            <script type="text/javascript" src="js/services/RatingsService.js"></script>
-            <script type="text/javascript" src="js/services/CommentsService.js"></script>
-            <script type="text/javascript" src="js/services/SuggestionsService.js"></script>
-            <script type="text/javascript" src="js/services/FeedbackService.js"></script>
-            <script type="text/javascript" src="js/services/DateFormatService.js"></script>
-            <script type="text/javascript" src="js/services/BarGraphHelperService.js"></script>
-            <script type="text/javascript" src="js/services/BlogService.js"></script>
-            <script type="text/javascript" src="js/services/GymSuggestionsService.js"></script>
-            <script type="text/javascript" src="js/services/AlertsService.js"></script>
-            <script type="text/javascript" src="js/services/GymAccountRequestsService.js"></script>
-        <!-- /build -->
+        <!-- Services -->
+        <script type="text/javascript" src="js/services/AccountsService.js"></script>
+        <script type="text/javascript" src="js/services/GymsService.js"></script>
+        <script type="text/javascript" src="js/services/SettersService.js"></script>
+        <script type="text/javascript" src="js/services/UsersService.js"></script>
+        <script type="text/javascript" src="js/services/LoginService.js"></script>
+        <script type="text/javascript" src="js/services/WallsService.js"></script>
+        <script type="text/javascript" src="js/services/RoutesService.js"></script>
+        <script type="text/javascript" src="js/services/GradesService.js"></script>
+        <script type="text/javascript" src="js/services/ColorsService.js"></script>
+        <script type="text/javascript" src="js/services/SendsService.js"></script>
+        <script type="text/javascript" src="js/services/RatingsService.js"></script>
+        <script type="text/javascript" src="js/services/CommentsService.js"></script>
+        <script type="text/javascript" src="js/services/SuggestionsService.js"></script>
+        <script type="text/javascript" src="js/services/FeedbackService.js"></script>
+        <script type="text/javascript" src="js/services/DateFormatService.js"></script>
+        <script type="text/javascript" src="js/services/BarGraphHelperService.js"></script>
+        <script type="text/javascript" src="js/services/BlogService.js"></script>
+        <script type="text/javascript" src="js/services/GymSuggestionsService.js"></script>
+        <script type="text/javascript" src="js/services/AlertsService.js"></script>
+        <script type="text/javascript" src="js/services/GymAccountRequestsService.js"></script>
+    <!-- /build -->
 
         <script type="text/javascript">
             $(document).foundation({

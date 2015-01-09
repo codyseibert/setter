@@ -1,7 +1,19 @@
 /*global angular: false, btoa: false, Chart: false, confirm: false, FastClick: false */
 
-angular.module('SETTER', ['ngRoute', 'ngCookies', 'chart.js', 'ngUpload', 'ngAnimate'])
-    .config(['$routeProvider', function ($routeProvider) {
+angular.module('SETTER', [
+    'ngRoute',
+    'ngCookies',
+    'chart.js',
+    'ngUpload',
+    'ngAnimate',
+    'mm.foundation',
+    'mm.foundation.tabs',
+    'mm.foundation.offcanvas'])
+    .config([
+        '$routeProvider',
+        function (
+            $routeProvider
+        ) {
         'use strict';
 
         $routeProvider

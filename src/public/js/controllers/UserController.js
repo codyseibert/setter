@@ -143,7 +143,7 @@ angular.module('SETTER')
                 carry = buckets[0];
                 for (i = 0; i < buckets.length; i += 1) {
                     if (buckets[i] === 0) {
-                        buckets[i] = carry;
+                        buckets[i] = null;// carry;
                     } else {
                         carry = buckets[i];
                     }
@@ -231,7 +231,7 @@ angular.module('SETTER')
                 carry = buckets[0];
                 for (i = 0; i < buckets.length; i += 1) {
                     if (buckets[i] === 5.06) {
-                        buckets[i] = carry;
+                        buckets[i] = null;//carry;
                     } else {
                         carry = buckets[i];
                     }
@@ -260,7 +260,7 @@ angular.module('SETTER')
                 }
 
                 average = sum / max.length;
-                average = parseFloat(average).toFixed(1);
+                average = parseFloat(average).toFixed(0);
                 $scope.boulderGrade = 'V' + average;
             };
 
@@ -283,7 +283,7 @@ angular.module('SETTER')
                 }
 
                 average = sum / max.length;
-                average = parseFloat(average).toFixed(1);
+                average = parseFloat(average).toFixed(0);
                 average = average.toString();
                 average = average.replace('.', '');
                 $scope.ropeGrade = '5.' + average;
@@ -345,4 +345,16 @@ angular.module('SETTER')
             };
 
             $scope.authorization = LoginService.getHeader();
+
+            $scope.showCharts = function () {
+                angular.element('#charts').css('left', '0px');
+                angular.element('#charts').css('position', 'relative');
+            };
+
+            $scope.hideCharts = function () {
+                angular.element('#charts').css('left', '9999px');
+                angular.element('#charts').css('position', 'absolute');
+            };
+
+            $scope.hideCharts();
         }]);

@@ -1,41 +1,36 @@
-<div style="background-color: #DBFFD8; background-image: url(../images/halftone.png); border-bottom: 1px solid #DDD;">
-<section class="row">
+<div class="st--header">
+    <section class="row">
+        <div class="small-12 columns  mb4 header">
+            <div class="flag" ng-show="isGymAccount()">
+                <div class="flag-image"
+                        ng-click="getAccountId() === gymId && uploadImage()">
+                    <img class="avatar" style="width: 200px; border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                </div>
 
-    <div class="small-12 columns  mb4 header">
-        <div class="flag" ng-show="isGymAccount()">
-            <div class="flag-image"
-                    ng-click="getAccountId() === gymId && uploadImage()">
-                <img class="avatar" style="width: 200px; border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                <h1 class="testQuery flag-body">
+                    Your Dashboard
+                </h1>
             </div>
 
-            <h1  class="testQuery flag-body"> Your Dashboard
-            </h1>
-        </div>
+            <div class="flag"  ng-show="isUserAccount()">
+                <div class="flag-image"
+                        ng-click="getAccountId() === gymId && uploadImage()">
+                    <img class="avatar" style="width: 200px; border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                </div>
 
-
-
-        <div class="flag"  ng-show="isUserAccount()">
-            <div class="flag-image"
-                    ng-click="getAccountId() === gymId && uploadImage()">
-                <img class="avatar" style="width: 200px; border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                <h1 class="testQuery flag-body  mb2">
+                    {{gym.name}}
+                </h1>
             </div>
-
-            <h1 class="testQuery flag-body  mb2"> {{gym.name}}</h1>
         </div>
-    </div>
 
-
-    <div class="small-12 columns" ng-show="isGymAccount()">
-
-    </div>
-
-    <div class="mb2  small-12  medium-4 columns"
-            ng-hide="getHomeGymId() === gymId || isGymAccount()">
-        <button class="btn--primary  btn--medium  icon-home btn--expanded"
-                    ng-click="setHomeGym()">
-            Make Home Gym
-        </button>
-    </div>
+        <div class="mb2  small-12  medium-4 columns"
+                ng-hide="getHomeGymId() === gymId || isGymAccount()">
+            <button class="btn--primary  btn--medium  icon-home btn--expanded"
+                        ng-click="setHomeGym()">
+                Make Home Gym
+            </button>
+        </div>
 </section>
 
 <section class="row  small-collapse  large-uncollapse  medium-uncollapse">
@@ -57,10 +52,10 @@
 </div>
 
 <div class="row">
-    <div class="small-12 columns">
+    <div class="small-12">
         <tabset>
             <tab select="hideCharts()">
-                <tab-heading><i class="icon-archive"> </i> Activity</tab-heading>
+                <tab-heading><i class="icon-archive"> </i> <span class="hide-for-small">Activity</span></tab-heading>
                 <content>
                     <section class="row">
                         <div class="small-12 columns">
@@ -88,7 +83,7 @@
 
 
             <tab select="hideCharts()">
-                <tab-heading><i class="icon-megaphone"> </i> News</tab-heading>
+                <tab-heading><i class="icon-megaphone"> </i><span class="hide-for-small">News</span></tab-heading>
                 <content>
                     <section class="row">
                         <div class="small-12 columns">
@@ -108,16 +103,16 @@
 
 
             <tab select="showCharts()">
-                <tab-heading><i class="icon-dashboard"> </i> Stats</tab-heading>
+                <tab-heading><i class="icon-dashboard"> </i><span class="hide-for-small">Stats</span></tab-heading>
             </tab>
 
 
             <tab select="hideCharts()">
-                <tab-heading><i class="icon-group"> </i> Members</tab-heading>
+                <tab-heading><i class="icon-group"> </i><span class="hide-for-small">Climbers</span></tab-heading>
                 <content>
                     <section class="row">
                         <div class="small-12 columns">
-                            <h2>Active Members</h2>
+                            <h2>Gym's Climbers</h2>
                             <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="user in users"
                                 ng-click="navigateToUser(user.id)">
                             <div class="flag">
@@ -140,8 +135,8 @@
 
 
 
-<section class="row" id="charts" style="position: absolute; top: -44px;">
-    <div class="graph  small-12 medium-6 columns">
+<section class="row" id="charts" style="position: absolute; top: -44px; left: -9999px">
+    <div class="small-12 medium-6 columns">
         <h2>Current Boulder Routes</h2>
 
         <canvas
@@ -155,7 +150,7 @@
         </canvas>
     </div>
 
-    <div class="graph  small-12 medium-6 columns">
+    <div class="small-12 medium-6 columns">
         <h2>Current Rope Routes</h2>
 
         <canvas

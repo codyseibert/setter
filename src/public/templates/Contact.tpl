@@ -1,18 +1,23 @@
-<section class="row">
-    <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
-        <div class="left">
-            <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                ng-click="back()" >
-                Back
-            </button>
+<div class="st--header mb2">
+    <section class="row">
+        <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
+            <div class="left">
+                <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                    ng-click="back()" >
+                    Back
+                </button>
+            </div>
         </div>
-    </div>
-</section>
+
+        <div class="small-12 columns">
+            <h1 class="icon-mail-alt"> Contact Us</h1>
+        </div>
+    </section>
+</div>
 
 
 <section class="row">
-    <div class="center  small-10  medium-6 large-4 ">
-        <h1 class="icon-mail-alt"> Contact Us</h1>
+    <div class="small-12 columns" style="font-size: 20px;">
 
         <div class="mb4">
             Send us an email at <a href="mailto:setterapp@gmail.com">setterapp@gmail.com</a> <br><br>or, <Br><Br>send us a message below!

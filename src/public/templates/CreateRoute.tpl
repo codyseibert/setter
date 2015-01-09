@@ -1,31 +1,30 @@
-<section class="row small-collapse">
+<div class="st--header mb2">
+    <section class="row small-collapse">
+        <div class="header">
+            <div class="display--block cf">
+                <button ng-hide="isEditMode"
+                    class="[ btn--secondary btn--medium left  ] icon-left-big  display--block "
+                    ng-click="navigateToWall(gymId, wallId)" >
+                    Back
+                </button>
 
-    <div class="header">
-        <div class="display--block cf">
-            <button ng-hide="isEditMode"
-                class="[ btn--secondary btn--medium left  ] icon-left-big  display--block "
-                ng-click="navigateToWall(gymId, wallId)" >
-                Back
-            </button>
+                <button ng-show="isEditMode"
+                    class="[ btn--secondary btn--medium left  ] icon-left-big  display--block"
+                    ng-click="navigateToRoute(gymId, wallId, routeId)" >
+                    Back
+                </button>
+            </div>
 
-            <button ng-show="isEditMode"
-                class="[ btn--secondary btn--medium left  ] icon-left-big  display--block"
-                ng-click="navigateToRoute(gymId, wallId, routeId)" >
-                Back
-            </button>
+            <h1 ng-hide="isEditMode" class="icon-pencil" >
+                Add Route
+            </h1>
+
+            <h1 ng-show="isEditMode" class=" icon-pencil">
+                Edit Route
+            </h1>
         </div>
-
-        <h1 ng-hide="isEditMode" class="icon-pencil" >
-            Add Route
-        </h1>
-
-        <h1 ng-show="isEditMode" class=" icon-pencil">
-            Edit Route
-        </h1>
-
-    </div>
-
-</section>
+    </section>
+</div>
 
 
 <section class="row" ng-show="hasSetters()" data-ui-component="route-editInformation">

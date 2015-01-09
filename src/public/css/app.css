@@ -738,6 +738,10 @@ footer, .select--tetriary, .select--primary, .select--secondary {
   border-width: rem-calc(6);
   top: 48%; }
 
+.tab-heading a {
+  text-align: center;
+  padding: 15px; }
+
 .table [class*="table-title"], .list--stats .list-primaryElem a, .list--stats .list-primaryElem .title, .popUp .popUp-title {
   font-weight: 700; }
 
@@ -6050,6 +6054,10 @@ footer, .select--tetriary, .select--primary, .select--secondary {
   border-width: 0.375rem;
   top: 48%; }
 
+.tab-heading a {
+  text-align: center;
+  padding: 15px; }
+
 .table [class*="table-title"], .list--stats .list-primaryElem a, .list--stats .list-primaryElem .title, .popUp .popUp-title {
   font-weight: 700; }
 
@@ -6272,6 +6280,10 @@ ol {
 .section {
   position: relative;
   display: block; }
+
+.st--header {
+  background-image: url("../images/halftone.png");
+  border-bottom: 1px solid #DDD; }
 
 .route {
   text-align: justify; }

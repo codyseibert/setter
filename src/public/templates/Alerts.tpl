@@ -1,8 +1,10 @@
-<section class="row">
-    <div class="small-12 columns header">
-        <h1 class="icon-megaphone"> Announcements</h1>
-    </div>
-</section>
+<div class="st--header mb2">
+    <section class="row">
+        <div class="small-12 columns header">
+            <h1 class="icon-megaphone"> Announcements</h1>
+        </div>
+    </section>
+</div>
 
 <section class="row">
     <div class="small-12 large-6 columns  mb4">
@@ -12,7 +14,7 @@
                 ng-model="form.message"/>
             <button class="btn--primary  btn--medium  btn--expanded icon-plus"
                 ng-click="postAlert()">
-            Post Announcement 
+            Post Announcement
         </button>
 
     </div>

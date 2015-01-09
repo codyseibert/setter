@@ -1,16 +1,14 @@
-<section class="row small-collapse">
+<div class="st--header mb2">
+    <section class="row small-collapse">
+        <div class="header">
+            <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+                ng-click="topNavigationClicked()" >
+                <span ng-show="pageWasBookmarked() || lastPageWasZone()"> Zone</span>
+                <span ng-show="lastPageWasUser()"> User</span>
+                <span ng-show="!pageWasBookmarked() && !lastPageWasUser() && !lastPageWasZone()"> Back</span>
+            </button>
 
-    <div class="header">
-
-        <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
-            ng-click="topNavigationClicked()" >
-            <span ng-show="pageWasBookmarked() || lastPageWasZone()"> Zone</span>
-            <span ng-show="lastPageWasUser()"> User</span>
-            <span ng-show="!pageWasBookmarked() && !lastPageWasUser() && !lastPageWasZone()"> Back</span>
-        </button>
-
-        <div  class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">
-
+            <div class="display--block" ng-show="isGymAccount()" data-ui-component="route-actions">
                 <button class="[ btn--primary  btn--medium ] icon-pencil" ng-click="edit()" ng-hide="isEditMode">
                     Edit Route
                 </button>
@@ -18,13 +16,11 @@
                 <button class="btn--secondary btn--medium icon-down-big " ng-click="strip()">
                     Strip Route
                 </button>
+            </div>
+            <h1>Route Information</h1>
         </div>
-
-        <h1>Route Information</h1>
-
-    </div>
-
-</section>
+    </section>
+</div>
 
 <section class="row" data-ui-component="route-information">
 

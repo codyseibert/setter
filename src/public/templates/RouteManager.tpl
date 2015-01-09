@@ -1,19 +1,19 @@
-<section class="row">
-
-    <div class="small-12 columns header">
-        <div class="left" ng-show="isGymAccount()">
-            <button class="[ btn--secondary btn--small  right ] icon-left-big"
-                ng-click="back()" >
-                Back
-            </button>
+<div class="st--header mb2">
+    <section class="row">
+        <div class="small-12 columns header">
+            <div class="left" ng-show="isGymAccount()">
+                <button class="[ btn--secondary btn--small  right ] icon-left-big"
+                    ng-click="back()" >
+                    Back
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="small-12 columns">
-        <h1 class="icon-th-large"> Route Archive</h1>
-    </div>
-
-</section>
+        <div class="small-12 columns">
+            <h1 class="icon-th-large"> Route Archive</h1>
+        </div>
+    </section>
+</div>
 
 <section class="row">
     <div style="text-align: center;">

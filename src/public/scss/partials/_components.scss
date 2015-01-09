@@ -96,7 +96,10 @@
   @extend %mb5;
 }
 
-
+.st--header {
+    background-image: url('../images/halftone.png');
+    border-bottom: 1px solid #DDD;
+}
 
 //
 //Route Object

@@ -1,18 +1,22 @@
-<section class="row">
-    <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
-        <div class="left">
-            <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                ng-click="back()" >
-                Back
-            </button>
+<div class="st--header mb2">
+    <section class="row">
+        <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
+            <div class="left">
+                <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                    ng-click="back()" >
+                    Back
+                </button>
+            </div>
         </div>
-    </div>
-</section>
+
+        <div class="small-12 columns">
+            <h1>Terms of Service</h1>
+        </div>
+    </section>
+</div>
 
 <section class="row">
-    <div class="center  small-10  medium-6 large-4 ">
-        <h1> Terms of Service</h1>
-
+    <div class="small-12 columns">
         <p class="tos">
             1. YOUR AGREEMENT WITH THE COMPANY
             <br><br>

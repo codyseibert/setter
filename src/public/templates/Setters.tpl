@@ -1,17 +1,15 @@
-<section class="row">
+<div class="st--header mb2">
+    <section class="row">
+        <div class="small-12 columns header">
+            <h1 class="icon-group"> Manage Setters</h1>
 
-    <div class="small-12 columns header">
-
-        <h1 class="icon-group"> Manage Setters</h1>
-
-        <button class="[ btn--primary  btn--medium ] icon-pencil"
-                ng-click="navigateToAddSetter(gymId)">
-            Add Setter
-        </button>
-
-    </div>
-
-</section>
+            <button class="[ btn--primary  btn--medium ] icon-pencil"
+                    ng-click="navigateToAddSetter(gymId)">
+                Add Setter
+            </button>
+        </div>
+    </section>
+</div>
 
 <section class="row mb4">
 

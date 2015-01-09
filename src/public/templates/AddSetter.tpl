@@ -1,35 +1,43 @@
-<section class="row small-collapse">
-    <div class="header">
-        <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
-                ng-click="back()" >
-            Back
-        </button>
-    </div>
-</section>
+<div class="st--header mb2">
+    <section class="row small-collapse">
+        <div class="header">
+            <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+                    ng-click="back()" >
+                Back
+            </button>
+        </div>
+    </section>
 
-<section class="row">
-    <div class="small-12 columns header">
-        <h1 class="icon-group"> Add Setters</h1>
-    </div>
-</section>
+    <section class="row">
+        <div class="small-12 columns">
+            <h1 class="icon-group"> Add Setters</h1>
+        </div>
+    </section>
 
-<section class="row mb4">
-    <div class="small-12 columns">
+    <section class="row">
+        <div class="small-12 columns">
+            <div class="media--fl">
+                <div>
+                    <label for="searchTerm" class="icon--label icon--search inline"></label>
+                </div>
 
-        <div class="media--fl">
-            <div>
-                <label for="searchTerm" class="icon--label icon--search inline"></label>
-            </div>
-
-            <div>
-                <input name=""
+                <div>
+                    <input name=""
                     type="search"
                     id="searchTerm"
                     ng-model="form.filter"
                     ng-change="applyFilter()"
                     placeholder="filter by setter name">
+                </div>
             </div>
         </div>
+    </section>
+</div>
+
+<section class="row mb4">
+    <div class="small-12 columns">
+
+
 
         <h2 class="fwb">Users</h2>
 

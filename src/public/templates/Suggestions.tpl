@@ -1,23 +1,23 @@
+<div class="st--header mb2">
+    <section class="row">
 
+        <div class="small-12 columns header">
 
-<section class="row">
+            <div class="left">
+                <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                    ng-click="back()" >
+                    Back
+                </button>
+            </div>
 
-    <div class="small-12 columns header">
-
-        <div class="left">
-            <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                ng-click="back()" >
-                Back
-            </button>
         </div>
 
-    </div>
+        <div class="small-12 columns">
+            <h1 class="icon-messaging-alt"> Feedback</h1>
+        </div>
 
-    <div class="small-12 columns">
-        <h1 class="icon-megaphone"> Feedback</h1>
-    </div>
-    
-</section>
+    </section>
+</div>
 
 
 <section class="row">

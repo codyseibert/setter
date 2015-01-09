@@ -1,29 +1,29 @@
-<section class="row">
-    <div class="small-12 columns header">
-        <div class="left">
-            <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                    ng-show="isUserAccount()"
-                    ng-click="navigateToUser(getAccountId())" >
-                Your Profile
-            </button>
+<div class="st--header mb2">
+    <section class="row">
+        <div class="small-12 columns header">
+            <div class="left">
+                <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                        ng-show="isUserAccount()"
+                        ng-click="navigateToUser(getAccountId())" >
+                    Your Profile
+                </button>
+            </div>
         </div>
 
-        <section class="header">
-            <h1 class="title">Gyms</h1>
-        </section>
-        <label for="searchTerm" name="gymName">
-            
+        <div class="small-12 columns">
+            <h1 class="title icon-search">Gyms</h1>
 
-        </label>
-        
-        <input name=""
-                type="search"
-                id="searchTerm"
-                placeholder="Search"
-                ng-model="form.search"
-                ng-change="applySearch()" />
-    </div>
-</section>
+            <label for="searchTerm" name="gymName"></label>
+
+            <input name=""
+                    type="search"
+                    id="searchTerm"
+                    placeholder="Search"
+                    ng-model="form.search"
+                    ng-change="applySearch()" />
+        </div>
+    </section>
+</div>
 
 <section class="row">
     <div class="small-12 columns header">

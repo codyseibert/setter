@@ -62,20 +62,7 @@ var AccountsDAO = function () {
 
     this.getAccountInfo = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT i.url, u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id FROM accounts a ' +
-                'LEFT JOIN users u ON u.account_id = a.id ' +
-                'LEFT JOIN gyms g ON g.account_id = a.id ' +
-                'LEFT JOIN images i ON i.id = a.image_id ' +
-                'WHERE a.id = ?',
-            [pAccountId],
-            theDaoHelper.SINGLE,
-            pCallback
-        );
-    };
-
-    this.getAccountInfoWithToken = function (pAccountId, pCallback) {
-        theDaoHelper.executeQuery(
-            'SELECT i.url, CONCAT(u.firstname, \' \', u.lastname) AS fullname, u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id, a.token FROM accounts a ' +
+            'SELECT i.url, CONCAT(u.firstname, \' \', u.lastname) AS fullname, a.email, u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id, a.token FROM accounts a ' +
                 'LEFT JOIN users u ON u.account_id = a.id ' +
                 'LEFT JOIN gyms g ON g.account_id = a.id ' +
                 'LEFT JOIN images i ON i.id = a.image_id ' +

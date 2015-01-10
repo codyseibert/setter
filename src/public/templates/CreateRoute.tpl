@@ -15,8 +15,9 @@
                 </button>
             </div>
 
-            <h1 ng-hide="isEditMode" class="icon-pencil" >
-                Add Route
+            <h1 ng-hide="isEditMode">
+                <img src="images/icon--drill--black.svg" alt="" class="mr2">
+                Set Route
             </h1>
 
             <h1 ng-show="isEditMode" class=" icon-pencil">

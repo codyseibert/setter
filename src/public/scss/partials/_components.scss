@@ -54,6 +54,8 @@
 
 
 .rating {
+  @extend %display--inlineBlock; 
+  
   i:before {
     margin-right: 0;
   }

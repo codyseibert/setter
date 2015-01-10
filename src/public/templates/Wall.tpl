@@ -35,7 +35,7 @@
             </h1>
         </div>
 
-        <div class="small-12 columns">
+        <div class="small-12 columns  hide-on-small">
             <div ng-show="isGymAccount()" class="row" data-ui-component="routeActions">
                 <div class="small-12 columns mb2">
                     <button class="btn--medium btn--primary icon-plus btn--expanded"
@@ -45,6 +45,13 @@
                 </div>
             </div>
         </div>
+
+        <button ng-show="isGymAccount()" class="btn--primary btn--fixedAction  hide-on-large"  ng-click="navigateToCreateRoute(gymId, wallId)">
+
+            <img src="images/icon--drill.svg" alt="" class="icon">
+
+        </button>
+
     </section>
 </div>
 

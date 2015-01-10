@@ -59,9 +59,6 @@
         </div>
 
         <div class="small-6  medium-6 columns">
-
-            <span class="icon--topRight round label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
-
             <button ng-show="isUserAccount()" class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging " ng-click="navigateToGymSuggestions(gymId)">
                 Post Suggestion
             </button>

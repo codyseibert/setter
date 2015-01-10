@@ -16,115 +16,105 @@
 </div>
 
 <section class="row">
-    <div style="text-align: center;">
-        <div ng-show="isFilterPanelVisible" style="margin-bottom: 20px;">
-            <span class="fwb">Filter by:</span> {{filter.name}}
-
-            <div ng-show="filter.key === 'wall_name'">
-                <button class="btn btn--secondary btn--medium" ng-click="selectAll(zoneInputs)">Select All</button>
-                <button class="btn btn--secondary btn--medium" ng-click="unselectAll(zoneInputs)">Unselect All</button>
-                <br>
-                <div class="btn btn--small   mb1" ng-repeat="input in zoneInputs" style="padding: 2px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px;  border-radius: 10px; border: 1px solid black;"
-                            ng-style="getFilterStyle(input)"
-                            ng-click="filterClicked(input)">
-                        {{input.value}}
-                    </div>
-                </div>
-            </div>
-
-            <div ng-show="filter.key === 'color'">
-                <button class="btn btn--secondary btn--medium" ng-click="selectAll(colorInputs)">Select All</button>
-                <button class="btn btn--secondary btn--medium" ng-click="unselectAll(colorInputs)">Unselect All</button>
-                <br>
-                <div ng-repeat="input in colorInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div class="btn btn--small   mb1" style="display: inline-block; width: 100px; padding: 2px; border-radius: 10px; border: 1px solid black;"
-                            ng-style="getFilterStyle(input)"
-                            ng-click="filterClicked(input)">
-                        <i class="icon-circle" ng-style="{color: input.extra}"> </i> {{input.value}}
-                    </div>
-                </div>
-            </div>
-
-            <div ng-show="filter.key === 'boulder_grade_id'">
-                <button class="btn btn--secondary btn--medium" ng-click="selectAll(boulderGradeInputs)">Select All</button>
-                <button class="btn btn--secondary btn--medium" ng-click="unselectAll(boulderGradeInputs)">Unselect All</button>
-                <br>
-                <div class="btn btn--small   mb1" ng-repeat="input in boulderGradeInputs" style="padding: 2px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 2px; height 30px; border-radius: 10px; border: 1px solid black;"
-                            ng-style="getFilterStyle(input)"
-                            ng-click="filterClicked(input)">
-                        {{input.value || 'unrated'}}
-                    </div>
-                </div>
-            </div>
-
-            <div ng-show="filter.key === 'rope_grade_id'">
-                 <button class="btn btn--secondary btn--medium" ng-click="selectAll(ropeGradeInputs)">Select All</button>
-                 <button class="btn btn--secondary btn--medium" ng-click="unselectAll(ropeGradeInputs)">Unselect All</button>
-                <br>
-                <div class="btn btn--small   mb1" ng-repeat="input in ropeGradeInputs" style="padding: 2px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; border-radius: 10px; border: 1px solid black;"
-                            ng-style="getFilterStyle(input)"
-                            ng-click="filterClicked(input)">
-                        {{input.value || 'unrated'}}
-                    </div>
-                </div>
-            </div>
-
-            <div ng-show="filter.key === 'setter'">
-                 <button class="btn btn--secondary btn--medium" ng-click="selectAll(setterInputs)">Select All</button>
-                 <button class="btn btn--secondary btn--medium" ng-click="unselectAll(setterInputs)">Unselect All</button>
-                <br>
-                <div class="btn btn--small   mb1" ng-repeat="input in setterInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px;  border-radius: 10px; border: 1px solid black;"
-                            ng-style="getFilterStyle(input)"
-                            ng-click="filterClicked(input)">
-                        {{input.value}}
-                    </div>
-                </div>
-            </div>
-
-            <div ng-show="filter.key === 'active'">
-                 <button class="btn btn--secondary btn--medium" ng-click="selectAll(activeInputs)">Select All</button>
-                 <button class="btn btn--secondary btn--medium" ng-click="unselectAll(activeInputs)">Unselect All</button>
-                <br>
-                <div ng-repeat="input in activeInputs" style="padding: 10px; display: inline-block; vertical-align: top; cursor: pointer;">
-                    <div style="display: inline-block; width: 100px; padding: 10px; height 30px; border-radius: 10px; border: 1px solid black;"
-                            ng-style="getFilterStyle(input)"
-                            ng-click="filterClicked(input)">
-                        <span ng-show="input.value === 1">Active</span>
-                        <span ng-show="input.value === 0">Inactive</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-bottom: 20px">
-            <div ng-style="{'width': filter.width}"
-                ng-repeat="filter in filters"
-                style="display: inline-block; vertical-align: top;">
-                {{filter.name}}
-                <br>
-                <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)">F</i>
-                <i ng-click="sort(filter)" ng-class="{'icon-minus': filter.sort === 0, 'icon-down-open': filter.sort === 1, 'icon-up-open': filter.sort === 2}">
-                    <span ng-show="filter.sort === 1">V</span>
-                    <span ng-show="filter.sort === 2">^</span>
-                </i>
-            </div>
-        </div>
-
-        <div ng-repeat="route in routes" style="cursor: pointer; margin-bottom: 10px;" ng-style="getRouteStyle(route)" ng-show="route.show" ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
-            <div style="width: 120px; display: inline-block">{{route.wall_name}}</div>
-            <div style="width: 70px; display: inline-block"><i class="icon-circle" ng-style="{color: route.value}"> </i></div>
-            <div style="width: 80px; display: inline-block">{{route.boulder_grade}}</div>
-            <div style="width: 80px; display: inline-block">{{route.rope_grade}}</div>
-            <div style="width: 100px; display: inline-block">{{route.route_name}}</div>
-            <div style="width: 100px; display: inline-block">{{route.setter}}</div>
-            <div style="width: 80px; display: inline-block">{{route.rating}}</div>
-            <div style="width: 80px; display: inline-block">{{route.sends}}</div>
-            <div style="width: 150px; display: inline-block">{{route.date_format}}</div>
-            <div style="width: 50px; display: inline-block"><i ng-show="!route.active" class="icon-down-big"> </i></div>
-        </div>
+    <div class="small-12 columns">
+        <label class="fwb">Type</label>
+        <select ng-model="form.view"
+                class="[ select--medium select--secondary ]"
+                ng-options="view.value for view in views"
+                ng-change="refreshView()"></select>
     </div>
+</section>
+
+<section class="row">
+    <div class="small-6 columns">
+        <!-- Zone filter dropdown -->
+        <label class="fwb">Zone</label>
+        <select ng-model="form.zoneFilter"
+                class="[ select--medium select--secondary ]"
+                ng-options="zone.value for zone in zoneInputs"
+                ng-change="refreshFilters()"></select>
+    </div>
+
+    <div class="small-6 columns">
+        <!-- Color filter dropdown -->
+        <label class="fwb">Color</label>
+        <select ng-model="form.colorFilter"
+                class="[ select--medium select--secondary ]"
+                ng-options="color.value for color in colorInputs"
+                ng-style="{color: input.extra}"
+                ng-change="refreshFilters()"></select>
+    </div>
+
+    <div class="small-6 columns">
+        <!-- V Grade filter dropdown -->
+        <label class="fwb">Grade</label>
+        <select ng-model="form.boulderGradeFilter"
+                class="[ select--medium select--secondary ]"
+                ng-show="form.view.value === BOULDERING_VIEW"
+                ng-options="grade.value for grade in boulderGradeInputs"
+                ng-change="refreshFilters()"></select>
+
+        <!-- YDS Grade filter dropdown -->
+        <select ng-model="form.ropeGradeFilter"
+                class="[ select--medium select--secondary ]"
+                ng-show="form.view.value === ROPE_VIEW"
+                ng-options="grade.value for grade in ropeGradeInputs"
+                ng-change="refreshFilters()"></select>
+    </div>
+
+    <div class="small-6 columns">
+        <!-- Setter Grade filter dropdown -->
+        <label class="fwb">Setter</label>
+        <select ng-model="form.setterFilter"
+                class="[ select--medium select--secondary ]"
+                ng-options="setter.value for setter in setterInputs"
+                ng-change="refreshFilters()"></select>
+    </div>
+</section>
+
+<section class="row">
+    <div ng-style="{'width': filter.width}"
+            ng-repeat="filter in filters"
+            ng-hide="(form.view.value === ROPE_VIEW && filter.name === 'V') || (form.view.value === BOULDERING_VIEW && filter.name === 'YDS')"
+            class="columns {{filter.class}}"
+            style="display: inline-block; vertical-align: top;">
+        {{filter.name}}
+        <br>
+        <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)">F</i>
+        <i ng-click="sortIconClicked(filter)" ng-class="{'icon-minus': filter.sort === 0, 'icon-down-open': filter.sort === 1, 'icon-up-open': filter.sort === 2}">
+            <span ng-show="filter.sort === 1">V</span>
+            <span ng-show="filter.sort === 2">^</span>
+        </i>
+    </div>
+
+    <div class="small-1 columns"> </div>
+</section>
+
+<section ng-repeat="route in routes"
+         class="row list--tableStyle  list--navElem"
+         ng-show="route.show"
+         ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
+
+    <div class="small-1 columns">{{route.wall_name}}</div>
+    <div class="small-1 columns"><i class="icon-circle" ng-style="{color: route.value}"> </i></div>
+    <div class="small-1 columns"
+         ng-show="form.view.value === BOULDERING_VIEW">
+        {{route.boulder_grade || '-'}}
+    </div>
+    <div class="small-1 columns"
+         ng-show="form.view.value === ROPE_VIEW">
+        {{route.rope_grade || '-'}}
+    </div>
+    <div class="small-1 columns">{{route.route_name || '-'}}</div>
+    <div class="small-2 columns">{{route.setter}}</div>
+    <div class="small-2 columns">
+        <span style="font-size: 8px;" class="rated display--inlineBlock"
+            ng-repeat="star in stars">
+            <i ng-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}"
+            class="rating  mb0  right"> </i>
+        </span>
+    </div>
+    <div class="small-1 columns">{{route.sends}}</div>
+    <div class="small-2 columns">{{route.date_format}}</div>
+    <div class="small-1 columns"><i ng-show="!route.active" class="icon-down-big"> </i></div>
 </section>

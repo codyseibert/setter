@@ -32,32 +32,56 @@ angular.module('SETTER')
             $scope.filter = null;
             $scope.isFilterPanelVisible = true;
             $scope.options = {};
-
             $scope.filters = [];
+            $scope.form = {};
+
+            $scope.stars = [];
+
+            var i;
+            (function createStars() {
+                for (i = 0; i < 5; i += 1) {
+                    $scope.stars.push({
+                        rating: i + 0.5
+                    });
+                }
+            }());
 
             var addFilter,
                 getUniqueSet,
                 sortByValue,
-                sortByExtra;
+                sortByExtra,
+                BOULDERING_VIEW = 'Bouldering',
+                ROPE_VIEW = 'ROPE';
 
-            addFilter = function (pName, pKey, pWidth) {
+            $scope.BOULDERING_VIEW = 'Bouldering';
+            $scope.ROPE_VIEW = 'Rope';
+            $scope.views = [
+                {
+                    value: $scope.BOULDERING_VIEW
+                },
+                {
+                    value: $scope.ROPE_VIEW
+                }
+            ];
+            $scope.form.view = $scope.views[0];
+
+            addFilter = function (pName, pKey, pClass) {
                 $scope.filters.push({
                     name: pName,
                     key: pKey,
-                    sort: 0,
-                    width: pWidth
+                    class: pClass,
+                    sort: 0
                 });
             };
-            addFilter('Zone', 'wall_name', 120);
-            addFilter('Color', 'color', 70);
-            addFilter('V', 'boulder_grade_id', 80);
-            addFilter('YDS', 'rope_grade_id', 80);
-            addFilter('Name', 'route_name', 100);
-            addFilter('Setter', 'setter', 100);
-            addFilter('Rating', 'rating', 80);
-            addFilter('Sends', 'sends', 80);
-            addFilter('Date', 'date_value', 150);
-            addFilter('Active', 'active', 50);
+            addFilter('Zone', 'wall_name', 'small-1');
+            addFilter('Color', 'color', 'small-1');
+            addFilter('V', 'boulder_grade_id', 'small-1');
+            addFilter('YDS', 'rope_grade_id', 'small-1');
+            addFilter('Name', 'route_name', 'small-1');
+            addFilter('Setter', 'setter', 'small-2');
+            addFilter('Rating', 'rating', 'small-2');
+            addFilter('Sends', 'sends', 'small-1');
+            addFilter('Date', 'date_value', 'small-2');
 
             getUniqueSet = function (pData, pKey, pExtra) {
                 var i,
@@ -70,6 +94,11 @@ angular.module('SETTER')
                 seen = [];
                 for (i = 0; i < pData.length; i += 1) {
                     value = pData[i][pKey];
+
+                    if (value === null) {
+                        continue;
+                    }
+
                     if (seen.indexOf(value) === -1) {
                         extra = null;
                         if (pExtra) {
@@ -77,7 +106,6 @@ angular.module('SETTER')
                         }
 
                         set.push({
-                            enabled: true,
                             value: value,
                             key: pKey,
                             extra: extra
@@ -106,6 +134,11 @@ angular.module('SETTER')
                     pEntry.date_value = moment(pEntry.date).valueOf();
                     pEntry.rope_grade_id = pEntry.rope_grade_id || -1;
                     pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
+                    if (!pEntry.rating) {
+                        pEntry.rating = -1;
+                    } else {
+                        pEntry.rating = parseInt(pEntry.rating, 10);
+                    }
                     pEntry.show = true;
                     return pEntry;
                 });
@@ -115,105 +148,47 @@ angular.module('SETTER')
                 $scope.boulderGradeInputs = getUniqueSet(pData, 'boulder_grade', 'boulder_grade_id');
                 $scope.ropeGradeInputs = getUniqueSet(pData, 'rope_grade', 'rope_grade_id');
                 $scope.setterInputs = getUniqueSet(pData, 'setter');
-                $scope.activeInputs = getUniqueSet(pData, 'active');
 
+                // Zone Option - prepend 'any zone'
                 sortByValue($scope.zoneInputs);
+                var clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
+                clone.value = "Any"
+                $scope.zoneInputs.unshift(clone);
+
+                // Color Option - prepend 'any color'
                 sortByValue($scope.colorInputs);
+                var clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
+                clone.value = "Any"
+                $scope.colorInputs.unshift(clone);
+
+                // Boulder Grade Option - prepend 'any grade'
                 sortByExtra($scope.boulderGradeInputs);
+                var clone = JSON.parse(JSON.stringify($scope.boulderGradeInputs[0]));
+                clone.value = "Any"
+                $scope.boulderGradeInputs.unshift(clone);
+
+                // Rope Grade Option - prepend 'any garde'
                 sortByExtra($scope.ropeGradeInputs);
+                var clone = JSON.parse(JSON.stringify($scope.ropeGradeInputs[0]));
+                clone.value = "Any"
+                $scope.ropeGradeInputs.unshift(clone);
+
+                // Setter Option - prepend 'any setter'
                 sortByValue($scope.setterInputs);
+                var clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
+                clone.value = "Any"
+                $scope.setterInputs.unshift(clone);
+
+                $scope.form.zoneFilter = $scope.zoneInputs[0];
+                $scope.form.colorFilter = $scope.colorInputs[0];
+                $scope.form.boulderGradeFilter = $scope.boulderGradeInputs[0];
+                $scope.form.ropeGradeFilter = $scope.ropeGradeInputs[0];
+                $scope.form.setterFilter = $scope.setterInputs[0];
 
                 $scope.routes = pData;
             });
 
-            $scope.filterClicked = function (pFilter) {
-                var key;
-                pFilter.enabled = !pFilter.enabled;
-                $scope.routes.map(function (pEntry) {
-                    key = pFilter.key;
-                    if (pEntry[key] === pFilter.value) {
-                        pEntry.show = pFilter.enabled;
-                    }
-                    return pEntry;
-                });
-            };
-
-            $scope.selectAll = function (pFilters) {
-                var i,
-                    filter;
-                for (i = 0; i < pFilters.length; i += 1) {
-                    filter = pFilters[i];
-                    if (!filter.enabled) {
-                        $scope.filterClicked(filter);
-                    }
-                }
-            };
-
-            $scope.unselectAll = function (pFilters) {
-                var i,
-                    filter;
-                for (i = 0; i < pFilters.length; i += 1) {
-                    filter = pFilters[i];
-                    if (filter.enabled) {
-                        $scope.filterClicked(filter);
-                    }
-                }
-            };
-
-            $scope.getFilterStyle = function (pFilter) {
-                var border = '1px solid black',
-                    bg = '#Fd7d66';
-                if (!pFilter.enabled) {
-                    border = '1px solid black';
-                    bg = '#BCBCBC';
-                }
-                return {
-                    'background-color': bg,
-                    'border': border
-                };
-            };
-
-            $scope.getFilterIconStyle = function (pFilter) {
-                var color = '#Fd7d66';
-                if (!pFilter.enabled) {
-                    color = '#000';
-                }
-                return {
-                    'color': color
-                };
-            };
-
-            $scope.isFilterableColumn = function (pFilter) {
-                var name = pFilter.name;
-
-                return name === 'Zone' ||
-                        name === 'Color' ||
-                        name === 'V' ||
-                        name === 'YDS' ||
-                        name === 'Setter' ||
-                        name === 'Active';
-            };
-
-            $scope.getRouteStyle = function (pRoute) {
-                var bg = 'white';
-                if (!pRoute.active) {
-                    bg = '#DDD';
-                }
-                return {
-                    'background-color': bg
-                };
-            };
-
-            $scope.showFilterPanel = function (pFilter) {
-                $scope.filters.map(function (pEntry) {
-                    pEntry.enabled = false;
-                    return pEntry;
-                });
-                pFilter.enabled = true;
-                $scope.filter = pFilter;
-            };
-
-            $scope.sort = function (pFilter) {
+            $scope.sortIconClicked = function (pFilter) {
                 $scope.filters.map(function (pEntry) {
                     if (pEntry !== pFilter) {
                         pEntry.sort = 0;
@@ -237,5 +212,54 @@ angular.module('SETTER')
                 });
             };
 
-            $scope.showFilterPanel($scope.filters[0]);
+            function refreshFilter (pFilter) {
+                var i,
+                    length,
+                    key,
+                    entry;
+
+                if (pFilter.value.indexOf('Any') !== -1 ) {
+                    return;
+                }
+
+                for (i = 0, length = $scope.routes.length; i < length; i += 1) {
+                    key = pFilter.key;
+                    entry = $scope.routes[i];
+                    if (entry[key] !== pFilter.value) {
+                        entry.show = false;
+                    }
+                }
+            };
+
+            function showAllRoutes() {
+                var i,
+                    length;
+                for (i = 0, length = $scope.routes.length; i < length; i += 1) {
+                    $scope.routes[i].show = true;
+                }
+            };
+
+            $scope.refreshFilters = function () {
+                showAllRoutes();
+                refreshFilter($scope.form.zoneFilter);
+                refreshFilter($scope.form.colorFilter);
+                if ($scope.form.view.value === $scope.BOULDERING_VIEW) {
+                    refreshFilter($scope.form.boulderGradeFilter);
+                }
+                if ($scope.form.view.value === $scope.ROPE_VIEW) {
+                    refreshFilter($scope.form.ropeGradeFilter);
+                };
+                refreshFilter($scope.form.setterFilter);
+            };
+
+            $scope.refreshView = function () {
+                $scope.refreshFilters();
+            };
+
+            $scope.isFilled = function (pStar, pRating) {
+                if (pStar.rating <= pRating) {
+                    return true;
+                }
+                return false;
+            };
         }]);

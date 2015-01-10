@@ -109,13 +109,13 @@
                <div class="flag-body  text-right"
                     ng-mouseleave="setHoverRating(-1)">
                     <h4 class="mb0 h2 display--inlineBlock"
-                            ng-czlass="{rated: hasRated}"
+                            ng-class="{rated: hasRated}"
                             ng-repeat="star in stars"
                             ng-click="hasSent && !isGymAccount() && rate(star)"
                             ng-mouseover="hasSent && setHoverRating(star)">
                         <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
                     </h4>
-                    ({{ratingCount || 'N/A'}})
+                    ({{ratingCount || '0'}})
                 </div>
 
             </div>

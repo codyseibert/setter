@@ -6,10 +6,12 @@ angular.module('SETTER')
     .controller('LoginController', [
         '$scope',
         '$location',
+        '$cookies',
         'LoginService',
         function (
             $scope,
             $location,
+            $cookies,
             LoginService
         ) {
             'use strict';
@@ -20,10 +22,14 @@ angular.module('SETTER')
             }
 
             $scope.form = {};
+            $scope.form.email = $cookies.email || '';
 
             $scope.login = function () {
+
                 LoginService.login($scope.form)
                     .success(function (pData) {
+                        $cookies.email = $scope.form.email;
+
                         LoginService.setHeader(pData.token);
                         LoginService.setAccountType(pData.accountType);
                         LoginService.setAccountId(pData.accountId);
@@ -35,5 +41,12 @@ angular.module('SETTER')
                     .error(function () {
                         $scope.error = 'Invalid Login!';
                     });
+            };
+
+            $scope.down = function (pEvent) {
+                var code = pEvent.keyCode || pEvent.which;
+                if (code == 13) {
+                    $scope.login();
+                }
             };
         }]);

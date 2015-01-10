@@ -22,7 +22,7 @@ var RatingsDao = function () {
 
     this.getRatingForRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT AVG(rating) AS rating FROM ratings WHERE route_id = ?',
+            'SELECT AVG(rating) AS rating, COUNT(rating) AS count FROM ratings WHERE route_id = ?',
             [pRouteId],
             theDaoHelper.SINGLE,
             pCallback

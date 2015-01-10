@@ -23,7 +23,7 @@ var LoginHelper = function () {
     'use strict';
 
     this.sendToken = function (pAccountId, pRes) {
-        theAccountsDao.getAccountInfoWithToken(pAccountId, function (pResults) {
+        theAccountsDao.getAccountInfo(pAccountId, function (pResults) {
             if (pResults.error) {
                 pRes.status(400);
                 pRes.send(theMessages.ERROR);
@@ -31,6 +31,7 @@ var LoginHelper = function () {
             }
             pRes.send({
                 token: pResults.token,
+                email: pResults.email,
                 accountType: pResults.type_id,
                 accountId: pAccountId,
                 homeGymId: pResults.gym_id,
@@ -42,6 +43,7 @@ var LoginHelper = function () {
 
     this.generateAndSendToken = function (pAccountId, pRes) {
         var token = randomstring(20);
+        var that = this;
 
         theAccountsDao.setToken(pAccountId, token, function (pResults) {
             if (pResults.error) {
@@ -50,21 +52,7 @@ var LoginHelper = function () {
                 return;
             }
 
-            theAccountsDao.getAccountInfo(pAccountId, function (pResults) {
-                if (pResults.error) {
-                    pRes.status(400);
-                    pRes.send(theMessages.ERROR);
-                    return;
-                }
-
-                pRes.send({
-                    token: token,
-                    accountType: pResults.type_id,
-                    accountId: pAccountId,
-                    homeGymId: pResults.gym_id
-                });
-            });
-
+            that.sendToken(pAccountId, pRes);
         });
     };
 };

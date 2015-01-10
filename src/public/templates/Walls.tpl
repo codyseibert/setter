@@ -1,4 +1,4 @@
-<div class="st--header mb4">
+<div class="st--header pb4">
     <section class="row  small-collapse  large-uncollapse">
         <div class="header">
             <div class="clearfix  display--block">
@@ -18,7 +18,7 @@
 
             <div class="media--fl">
                 <div>
-                    <label for="searchTerm" class="icon--label icon--search inline"></label>
+                    <label for="searchTerm" class="icon--label icon-search inline"></label>
                 </div>
 
                 <div>
@@ -62,7 +62,7 @@
                     ng-hide="wall.hide">
 
                     {{wall.name}}
-                   <span class="icon--new label success  border-radius" ng-show="isUserAccount() && wall.new_count">{{wall.new_count}} NEW</span>
+                   <span class="round  label success " ng-show="isUserAccount() && wall.new_count">{{wall.new_count}}</span>
                     <i class="icon-right-big right"> </i>
 
 

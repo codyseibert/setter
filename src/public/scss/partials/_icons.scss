@@ -80,6 +80,16 @@
   @include icon($icon--house);
 }
 
+.icon-globe {
+  @include icon($icon--globe); 
+}
+
+
+.icon-stats {
+  @include icon($icon--chart--graph);
+}
+
+
 [href*="topo"],
 .icon-topo,
 .icon-map {
@@ -171,7 +181,7 @@
 }
 
 .icon-megaphone {
-  @include icon($icon--megaPhone);
+  @include icon($icon--megaphone);
 }
 
 .icon-pencil {

@@ -3,6 +3,11 @@
 //Theming
 //
 
+
+%circle {
+  @include border-radius(100%); 
+}
+
 %radius--boxes {
   @include border-radius(16px);
 }

@@ -1,24 +1,24 @@
 <div class="st--header">
     <section class="row">
         <div class="small-12 columns  mb4 header">
-            <div class="flag" ng-show="isGymAccount()">
-                <div class="flag-image"
+            <div class="text-center"  ng-show="isGymAccount()">
+                <div class="small-12 columns "
                         ng-click="getAccountId() === gymId && uploadImage()">
-                    <img class="avatar" style="width: 200px; border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                    <img class="avatar avatar--big  mb2"  ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
                 </div>
 
-                <h1 class="testQuery flag-body">
+                <h1 class="h2  testQuery">
                     Your Dashboard
                 </h1>
             </div>
 
-            <div class="flag"  ng-show="isUserAccount()">
-                <div class="flag-image"
+            <div class="text-center"  ng-show="isUserAccount()">
+                <div  class="small-12 columns "
                         ng-click="getAccountId() === gymId && uploadImage()">
-                    <img class="avatar" style="width: 200px; border-radius: 10px;" ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                    <img class="avatar avatar--big  mb2"  ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
                 </div>
 
-                <h1 class="testQuery flag-body  mb2">
+                <h1 class="h2  testQuery mb1">
                     {{gym.name}}
                 </h1>
             </div>
@@ -34,31 +34,54 @@
 </section>
 
 <section class="row  small-collapse  large-uncollapse  medium-uncollapse">
-    <div class="mb4  small-12  large-6  columns">
-        <div class="medium-6 columns  ">
+
+    <div class="mb2  small-12  large-8  large-centered  columns">
+        
+        <div class="small-6  medium-6 columns  ">
             <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map" ng-click="navigateToWalls(gymId)">
                 View Zones
             </button>
-            <span class="icon--top--right icon--new label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
+            <span class="icon--topRight round label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
         </div>
 
-        <div class="medium-6 columns">
+        <div class="small-6  medium-6 columns">
             <button ng-show="isUserAccount()" class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging " ng-click="navigateToGymSuggestions(gymId)">
                 Post Suggestion
             </button>
         </div>
+
     </div>
 </section>
 </div>
 
 <div class="row">
-    <div class="small-12">
+    <div class="small-12 columns">
+
         <tabset>
-            <tab select="hideCharts()">
-                <tab-heading><i class="icon-archive"> </i> <span class="hide-for-small">Activity</span></tab-heading>
+
+            <tab select="hideCharts()" >
+
+                <tab-heading><i class="icon-globe"> </i> <span class="hide-for-small">Activity</span></tab-heading>
+
                 <content>
+
                     <section class="row">
+
+
                         <div class="small-12 columns">
+                            <h2>Gym Announcements</h2>
+
+                            <ul class="list--noStyles  list">
+                                <li ng-repeat="alert in alerts">
+                                    <p>{{alert.message}}
+                                        <span class="txt--micro  display--block">{{alert.date}}</span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="small-12 columns">
+
                             <h2>Latest Sends</h2>
 
                             <div class="small-6 medium-3 large-3 columns pb4" ng-repeat="act in activity">
@@ -81,29 +104,8 @@
                 </content>
             </tab>
 
-
-            <tab select="hideCharts()">
-                <tab-heading><i class="icon-megaphone"> </i><span class="hide-for-small">News</span></tab-heading>
-                <content>
-                    <section class="row">
-                        <div class="small-12 columns">
-                            <h2>Gym Announcements</h2>
-
-                            <ul class="list--noStyles  list">
-                                <li ng-repeat="alert in alerts">
-                                    <p>{{alert.message}}
-                                        <span class="txt--micro  display--block">{{alert.date}}</span>
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-                </content>
-            </tab>
-
-
             <tab select="showCharts()">
-                <tab-heading><i class="icon-dashboard"> </i><span class="hide-for-small">Stats</span></tab-heading>
+                <tab-heading><i class="icon-stats"> </i><span class="hide-for-small">Stats</span></tab-heading>
             </tab>
 
 

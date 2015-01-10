@@ -300,3 +300,11 @@ input[type="radio"].radio--routeColor {
     border: 2px solid $grey--dark;
   }
 }
+//**check bug on this not working**//
+.label---counter {
+  @extend %circle; 
+  min-height: 18px;
+min-width: 18px;
+border: 1px solid yellow; 
+
+}

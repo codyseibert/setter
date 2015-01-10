@@ -8,7 +8,9 @@ angular.module('SETTER', [
     'ngAnimate',
     'mm.foundation',
     'mm.foundation.tabs',
-    'mm.foundation.offcanvas'])
+    'mm.foundation.offcanvas',
+    'pasvaz.bindonce',
+    'angularSpinner'])
     .config([
         '$routeProvider',
         function (

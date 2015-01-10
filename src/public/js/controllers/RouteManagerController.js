@@ -37,6 +37,12 @@ angular.module('SETTER')
 
             $scope.stars = [];
 
+            $scope.finishedRendering = false;
+
+            $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+                $scope.finishedRendering = true;
+            });
+
             var i;
             (function createStars() {
                 for (i = 0; i < 5; i += 1) {

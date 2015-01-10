@@ -5,7 +5,7 @@
 
 
 %circle {
-  @include border-radius(100%); 
+  @include border-radius(100% !important) ; 
 }
 
 %radius--boxes {
@@ -14,7 +14,7 @@
 
 
 %dropshadow {
-  @include single-box-shadow(rgba(0, 0, 0, .2), 0, 0, 2px);
+  @include box-shadow(0 0 3px rgba(0, 0, 0, .3) !important);
 }
 
 %link--normal {
@@ -118,6 +118,10 @@
   position: absolute;
 }
 
+
+%fixed {
+  position: fixed; 
+}
 
 
 //

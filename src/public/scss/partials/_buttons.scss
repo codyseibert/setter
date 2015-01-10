@@ -25,9 +25,7 @@ input[type="submit"] {
 [class*="btn--"] {
   @include border-radius(8px);
   color: #fff;
-  position: relative;
   font-weight: $bold;
-
 
   i:before {
     @extend %mr0;
@@ -146,6 +144,29 @@ input[type="submit"] {
     width: rem-calc(16);
   }
 }
+
+
+
+.btn--fixedAction {
+    @extend %circle; 
+    @extend %fixed; 
+    @extend %dropshadow; 
+    border: 2px solid #fff; 
+    width: rem-calc(58);
+    height: rem-calc(58); 
+    z-index: 999; 
+    bottom: 0; 
+    right: rem-calc(5); 
+
+    .icon {
+      width: rem-calc(35);
+      height: rem-calc(35); 
+    }
+
+}
+
+
+
 
 
 /*------------------------------------*\

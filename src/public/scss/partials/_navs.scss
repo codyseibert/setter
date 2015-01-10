@@ -23,7 +23,6 @@ body
 
 .main-wrap {
   @extend %transition--moving;
-  background-color: #fff;
   height: inherit;
   margin-left: 0;
   padding: 0;
@@ -69,9 +68,9 @@ body
   // $from: $primaryColor;
   // $to: darken($primaryColor, 8%);
   // @include background-image(linear-gradient($from 10%, $to 70%));
-  background-color: $primaryColor;  
-  z-index: 10; 
-  
+  background-color: $primaryColor;
+  z-index: 10;
+
   @include box-shadow(0 -1px 0 rgba(255, 255, 255, .2) inset);
   border-bottom: 1px solid darken($primaryColor, 20%);
 
@@ -99,6 +98,7 @@ body
 
 .nav-primary {
   background-color: red;
+  border-right: 2px solid #ccc;
 }
 
 .nav-primary,
@@ -109,13 +109,13 @@ body
   bottom: 0;
   top: 0;
   right: auto;
-  z-index: 4; 
+  z-index: 4;
 }
 
 .top-bar {
-  
-  position: fixed; 
-  top: 0; 
+
+  position: fixed;
+  top: 0;
 
 }
 
@@ -178,7 +178,7 @@ body
 //
 
 .side-menu {
-  
+
   a {
     margin-left: rem-calc(6);
   }
@@ -208,7 +208,7 @@ ul.off-canvas-list li a:hover,
       opacity: 1;
     }
 
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 //

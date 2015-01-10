@@ -6282,7 +6282,7 @@ ol {
   display: block; }
 
 .st--header {
-  background-image: url("../images/halftone.png");
+  background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid #DDD; }
 
 .route {
@@ -7719,7 +7719,6 @@ body {
   min-height: 100%; }
 
 .main-wrap {
-  background-color: #fff;
   height: inherit;
   margin-left: 0;
   padding: 0;
@@ -7770,7 +7769,8 @@ body {
     height: 10.9375rem; }
 
 .nav-primary {
-  background-color: red; }
+  background-color: red;
+  border-right: 2px solid #ccc; }
 
 .nav-primary,
 .nav-account {

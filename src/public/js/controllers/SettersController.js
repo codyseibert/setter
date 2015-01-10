@@ -34,7 +34,7 @@ angular.module('SETTER')
 
             SettersService.getSettersAtGym(LoginService.getAccountId())
                 .success(function (pData) {
-                    pData.map(function(pEntry) {
+                    pData.map(function (pEntry) {
                         pEntry.stars = createStars();
                         return pEntry;
                     });

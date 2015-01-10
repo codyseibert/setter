@@ -45,7 +45,7 @@ angular.module('SETTER')
 
             $scope.down = function (pEvent) {
                 var code = pEvent.keyCode || pEvent.which;
-                if (code == 13) {
+                if (code === 13) {
                     $scope.login();
                 }
             };

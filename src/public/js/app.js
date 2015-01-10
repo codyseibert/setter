@@ -16,108 +16,107 @@ angular.module('SETTER', [
         function (
             $routeProvider
         ) {
-        'use strict';
+            'use strict';
 
-        $routeProvider
-            .when('/login', {
-                controller: 'LoginController',
-                templateUrl: 'templates/Login.tpl'
-            })
-            .when('/logout', {
-                controller: 'LogoutController',
-                templateUrl: 'templates/Logout.tpl'
-            })
-            .when('/blog', {
-                controller: 'BlogController',
-                templateUrl: 'templates/Blog.tpl'
-            })
-            .when('/gym/register', {
-                controller: 'RegisterGymController',
-                templateUrl: 'templates/RegisterGym.tpl'
-            })
-            .when('/user/register', {
-                controller: 'RegisterUserController',
-                templateUrl: 'templates/RegisterUser.tpl'
-            })
-            .when('/gyms', {
-                controller: 'GymsController',
-                templateUrl: 'templates/Gyms.tpl'
-            })
-            .when('/gyms/:gymId/suggestions', {
-                controller: 'GymSuggestionsController',
-                templateUrl: 'templates/GymSuggestions.tpl'
-            })
-            .when('/gyms/:gymId', {
-                controller: 'GymController',
-                templateUrl: 'templates/Gym.tpl'
-            })
-            .when('/gyms/:gymId/alerts', {
-                controller: 'AlertsController',
-                templateUrl: 'templates/Alerts.tpl'
-            })
-            .when('/gyms/:gymId/walls', {
-                controller: 'WallsController',
-                templateUrl: 'templates/Walls.tpl'
-            })
-            .when('/gyms/:gymId/walls/:wallId', {
-                controller: 'WallController',
-                templateUrl: 'templates/Wall.tpl'
-            })
-            .when('/gyms/:gymId/walls/:wallId/routes/create', {
-                controller: 'CreateRouteController',
-                templateUrl: 'templates/CreateRoute.tpl',
-                resolve: {
-                    isEditMode: function () {
-                        return false;
+            $routeProvider
+                .when('/login', {
+                    controller: 'LoginController',
+                    templateUrl: 'templates/Login.tpl'
+                })
+                .when('/logout', {
+                    controller: 'LogoutController',
+                    templateUrl: 'templates/Logout.tpl'
+                })
+                .when('/blog', {
+                    controller: 'BlogController',
+                    templateUrl: 'templates/Blog.tpl'
+                })
+                .when('/gym/register', {
+                    controller: 'RegisterGymController',
+                    templateUrl: 'templates/RegisterGym.tpl'
+                })
+                .when('/user/register', {
+                    controller: 'RegisterUserController',
+                    templateUrl: 'templates/RegisterUser.tpl'
+                })
+                .when('/gyms', {
+                    controller: 'GymsController',
+                    templateUrl: 'templates/Gyms.tpl'
+                })
+                .when('/gyms/:gymId/suggestions', {
+                    controller: 'GymSuggestionsController',
+                    templateUrl: 'templates/GymSuggestions.tpl'
+                })
+                .when('/gyms/:gymId', {
+                    controller: 'GymController',
+                    templateUrl: 'templates/Gym.tpl'
+                })
+                .when('/gyms/:gymId/alerts', {
+                    controller: 'AlertsController',
+                    templateUrl: 'templates/Alerts.tpl'
+                })
+                .when('/gyms/:gymId/walls', {
+                    controller: 'WallsController',
+                    templateUrl: 'templates/Walls.tpl'
+                })
+                .when('/gyms/:gymId/walls/:wallId', {
+                    controller: 'WallController',
+                    templateUrl: 'templates/Wall.tpl'
+                })
+                .when('/gyms/:gymId/walls/:wallId/routes/create', {
+                    controller: 'CreateRouteController',
+                    templateUrl: 'templates/CreateRoute.tpl',
+                    resolve: {
+                        isEditMode: function () {
+                            return false;
+                        }
                     }
-                }
-            })
-            .when('/gyms/:gymId/walls/:wallId/routes/:routeId/edit', {
-                controller: 'CreateRouteController',
-                templateUrl: 'templates/CreateRoute.tpl',
-                resolve: {
-                    isEditMode: function () {
-                        return true;
+                })
+                .when('/gyms/:gymId/walls/:wallId/routes/:routeId/edit', {
+                    controller: 'CreateRouteController',
+                    templateUrl: 'templates/CreateRoute.tpl',
+                    resolve: {
+                        isEditMode: function () {
+                            return true;
+                        }
                     }
-                }
-            })
-            .when('/gyms/:gymId/walls/:wallId/routes/:routeId', {
-                controller: 'RouteController',
-                templateUrl: 'templates/Route.tpl'
-            })
-            .when('/gyms/:gymId/setters', {
-                controller: 'SettersController',
-                templateUrl: 'templates/Setters.tpl'
-            })
-            .when('/gyms/:gymId/setters/add', {
-                controller: 'AddSetterController',
-                templateUrl: 'templates/AddSetter.tpl'
-            })
-            .when('/gyms/:gymId/routes', {
-                controller: 'RouteManagerController',
-                templateUrl: 'templates/RouteManager.tpl'
-            })
-            .when('/users/:userId', {
-                controller: 'UserController',
-                templateUrl: 'templates/User.tpl'
-            })
-            .when('/suggestions', {
-                controller: 'SuggestionsController',
-                templateUrl: 'templates/Suggestions.tpl'
-            })
-            .when('/contact', {
-                controller: 'ContactController',
-                templateUrl: 'templates/Contact.tpl'
-            })
-            .when('/tos', {
-                controller: 'TOSController',
-                templateUrl: 'templates/TOS.tpl'
-            })
-            .otherwise({
-                redirectTo: '/login'
-            });
-
-    }])
+                })
+                .when('/gyms/:gymId/walls/:wallId/routes/:routeId', {
+                    controller: 'RouteController',
+                    templateUrl: 'templates/Route.tpl'
+                })
+                .when('/gyms/:gymId/setters', {
+                    controller: 'SettersController',
+                    templateUrl: 'templates/Setters.tpl'
+                })
+                .when('/gyms/:gymId/setters/add', {
+                    controller: 'AddSetterController',
+                    templateUrl: 'templates/AddSetter.tpl'
+                })
+                .when('/gyms/:gymId/routes', {
+                    controller: 'RouteManagerController',
+                    templateUrl: 'templates/RouteManager.tpl'
+                })
+                .when('/users/:userId', {
+                    controller: 'UserController',
+                    templateUrl: 'templates/User.tpl'
+                })
+                .when('/suggestions', {
+                    controller: 'SuggestionsController',
+                    templateUrl: 'templates/Suggestions.tpl'
+                })
+                .when('/contact', {
+                    controller: 'ContactController',
+                    templateUrl: 'templates/Contact.tpl'
+                })
+                .when('/tos', {
+                    controller: 'TOSController',
+                    templateUrl: 'templates/TOS.tpl'
+                })
+                .otherwise({
+                    redirectTo: '/login'
+                });
+        }])
     .run([
         '$rootScope',
         '$location',

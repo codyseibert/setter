@@ -42,8 +42,8 @@ var LoginHelper = function () {
     };
 
     this.generateAndSendToken = function (pAccountId, pRes) {
-        var token = randomstring(20);
-        var that = this;
+        var token = randomstring(20),
+            that = this;
 
         theAccountsDao.setToken(pAccountId, token, function (pResults) {
             if (pResults.error) {

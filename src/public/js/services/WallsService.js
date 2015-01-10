@@ -10,7 +10,7 @@ angular.module('SETTER')
             'use strict';
 
             var walls = {},
-            wall = {};
+                wall = {};
 
             return {
                 clearCache: function () {

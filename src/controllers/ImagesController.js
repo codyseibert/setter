@@ -21,9 +21,8 @@ var easyimage = require('easyimage');
 var ImagesController = function () {
     'use strict';
 
-    var handleImage = function(req, res, pCallback) {
+    var handleImage = function (req, res, pCallback) {
         var MAX_WIDTH = 400,
-            accountId,
             image,
             width,
             height,
@@ -32,11 +31,10 @@ var ImagesController = function () {
             ratio,
             base;
 
-        accountId = req.user.accountId;
 
         if (!req.files ||
-            !req.files.file ||
-            !req.files.file.name) {
+                !req.files.file ||
+                !req.files.file.name) {
             res.send("error");
             return;
         }
@@ -81,19 +79,18 @@ var ImagesController = function () {
             theAccountsDao.updateImage(pRet.id, accountId, function (pResults) {
                 pRes.send(pRet);
             });
-        })
+        });
     };
 
     this.uploadWallImage = function (pReq, pRes) {
-        var accountId = pReq.user.accountId,
-            wallId = pReq.params.wallId;
+        var wallId = pReq.params.wallId;
 
         handleImage(pReq, pRes, function (pRet) {
             theWallsDao.updateImage(pRet.id, wallId, function (pResults) {
                 pRes.send(pRet);
             });
-        })
-    }
+        });
+    };
 };
 
 module.exports = new ImagesController();

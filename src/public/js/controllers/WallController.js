@@ -85,7 +85,7 @@ angular.module('SETTER')
 
             $scope.shouldShowWallImage = function () {
                 return ($scope.image && $scope.image.url && $scope.isUserAccount()) ||
-                    $scope.getAccountId() === $scope.gymId
+                    $scope.getAccountId() === $scope.gymId;
             };
 
             $scope.isNew = function (pRoute) {

@@ -75,7 +75,7 @@ angular.module('SETTER')
                     j,
                     bucket,
                     sort,
-                    carry,
+                    //carry,
                     max;
 
                 $scope.boulderSendsLineGraph = {
@@ -140,13 +140,13 @@ angular.module('SETTER')
                     buckets[i] = average;
                 }
 
-                carry = buckets[0];
+                //carry = buckets[0];
                 for (i = 0; i < buckets.length; i += 1) {
                     if (buckets[i] === 0) {
                         buckets[i] = null;// carry;
-                    } else {
-                        carry = buckets[i];
-                    }
+                    } //else {
+                        //carry = buckets[i];
+                    //}
                 }
 
                 $scope.boulderSendsLineGraph.labels = months;
@@ -165,7 +165,7 @@ angular.module('SETTER')
                     months,
                     month,
                     sort,
-                    carry,
+                    //carry,
                     max;
 
                 $scope.ropeSendsLineGraph = {
@@ -228,13 +228,13 @@ angular.module('SETTER')
                     buckets[i] = Math.max(5.06, 5  + average / 100.0);
                 }
 
-                carry = buckets[0];
+                //carry = buckets[0];
                 for (i = 0; i < buckets.length; i += 1) {
                     if (buckets[i] === 5.06) {
                         buckets[i] = null;//carry;
-                    } else {
-                        carry = buckets[i];
-                    }
+                    } ///else {
+                    //    carry = buckets[i];
+                    //}
                 }
 
                 $scope.ropeSendsLineGraph.labels = months;

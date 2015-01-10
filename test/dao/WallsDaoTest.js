@@ -45,18 +45,11 @@ describe('WallsDao', function () {
             query.indexOf('FROM walls') !== -1);
         });
 
-        it('query contains no *', function () {
-            WallsDao.getWallsInGym();
-
-            var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('*') === -1);
-        });
-
         it('query contains gym where clause', function () {
             WallsDao.getWallsInGym();
 
             var query = daoHelperSpy.getCall(0).args[0];
-            assert(query.indexOf('WHERE gym_id = ?') !== -1);
+            assert(query.indexOf('WHERE w.gym_id = ?') !== -1);
         });
     });
 

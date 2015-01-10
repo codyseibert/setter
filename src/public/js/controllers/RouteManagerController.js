@@ -39,11 +39,16 @@ angular.module('SETTER')
 
             $scope.finishedRendering = false;
 
-            $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+            $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
                 $scope.finishedRendering = true;
             });
 
-            var i;
+            var i,
+                addFilter,
+                getUniqueSet,
+                sortByValue,
+                sortByExtra;
+
             (function createStars() {
                 for (i = 0; i < 5; i += 1) {
                     $scope.stars.push({
@@ -51,13 +56,6 @@ angular.module('SETTER')
                     });
                 }
             }());
-
-            var addFilter,
-                getUniqueSet,
-                sortByValue,
-                sortByExtra,
-                BOULDERING_VIEW = 'Bouldering',
-                ROPE_VIEW = 'ROPE';
 
             $scope.BOULDERING_VIEW = 'Bouldering';
             $scope.ROPE_VIEW = 'Rope';
@@ -90,8 +88,7 @@ angular.module('SETTER')
             addFilter('Date', 'date_value', 'small-2');
 
             getUniqueSet = function (pData, pKey, pExtra) {
-                var i,
-                    value,
+                var value,
                     set,
                     seen,
                     extra;
@@ -101,22 +98,20 @@ angular.module('SETTER')
                 for (i = 0; i < pData.length; i += 1) {
                     value = pData[i][pKey];
 
-                    if (value === null) {
-                        continue;
-                    }
+                    if (value !== null) {
+                        if (seen.indexOf(value) === -1) {
+                            extra = null;
+                            if (pExtra) {
+                                extra = pData[i][pExtra];
+                            }
 
-                    if (seen.indexOf(value) === -1) {
-                        extra = null;
-                        if (pExtra) {
-                            extra = pData[i][pExtra];
+                            set.push({
+                                value: value,
+                                key: pKey,
+                                extra: extra
+                            });
+                            seen.push(value);
                         }
-
-                        set.push({
-                            value: value,
-                            key: pKey,
-                            extra: extra
-                        });
-                        seen.push(value);
                     }
                 }
                 return set;
@@ -135,6 +130,8 @@ angular.module('SETTER')
             };
 
             RoutesService.getRoutesInGym($scope.gymId, function (pData) {
+                var clone;
+
                 pData.map(function (pEntry) {
                     pEntry.date_format = DateFormatService.format(pEntry.date);
                     pEntry.date_value = moment(pEntry.date).valueOf();
@@ -157,32 +154,32 @@ angular.module('SETTER')
 
                 // Zone Option - prepend 'any zone'
                 sortByValue($scope.zoneInputs);
-                var clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
-                clone.value = "Any"
+                clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
+                clone.value = "Any";
                 $scope.zoneInputs.unshift(clone);
 
                 // Color Option - prepend 'any color'
                 sortByValue($scope.colorInputs);
-                var clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
-                clone.value = "Any"
+                clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
+                clone.value = "Any";
                 $scope.colorInputs.unshift(clone);
 
                 // Boulder Grade Option - prepend 'any grade'
                 sortByExtra($scope.boulderGradeInputs);
-                var clone = JSON.parse(JSON.stringify($scope.boulderGradeInputs[0]));
-                clone.value = "Any"
+                clone = JSON.parse(JSON.stringify($scope.boulderGradeInputs[0]));
+                clone.value = "Any";
                 $scope.boulderGradeInputs.unshift(clone);
 
                 // Rope Grade Option - prepend 'any garde'
                 sortByExtra($scope.ropeGradeInputs);
-                var clone = JSON.parse(JSON.stringify($scope.ropeGradeInputs[0]));
-                clone.value = "Any"
+                clone = JSON.parse(JSON.stringify($scope.ropeGradeInputs[0]));
+                clone.value = "Any";
                 $scope.ropeGradeInputs.unshift(clone);
 
                 // Setter Option - prepend 'any setter'
                 sortByValue($scope.setterInputs);
-                var clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
-                clone.value = "Any"
+                clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
+                clone.value = "Any";
                 $scope.setterInputs.unshift(clone);
 
                 $scope.form.zoneFilter = $scope.zoneInputs[0];
@@ -218,13 +215,12 @@ angular.module('SETTER')
                 });
             };
 
-            function refreshFilter (pFilter) {
-                var i,
-                    length,
+            function refreshFilter(pFilter) {
+                var length,
                     key,
                     entry;
 
-                if (pFilter.value.indexOf('Any') !== -1 ) {
+                if (pFilter.value.indexOf('Any') !== -1) {
                     return;
                 }
 
@@ -235,26 +231,28 @@ angular.module('SETTER')
                         entry.show = false;
                     }
                 }
-            };
+            }
 
             function showAllRoutes() {
-                var i,
-                    length;
+                var length;
                 for (i = 0, length = $scope.routes.length; i < length; i += 1) {
                     $scope.routes[i].show = true;
                 }
-            };
+            }
 
             $scope.refreshFilters = function () {
                 showAllRoutes();
                 refreshFilter($scope.form.zoneFilter);
                 refreshFilter($scope.form.colorFilter);
+
                 if ($scope.form.view.value === $scope.BOULDERING_VIEW) {
                     refreshFilter($scope.form.boulderGradeFilter);
                 }
+
                 if ($scope.form.view.value === $scope.ROPE_VIEW) {
                     refreshFilter($scope.form.ropeGradeFilter);
-                };
+                }
+
                 refreshFilter($scope.form.setterFilter);
             };
 

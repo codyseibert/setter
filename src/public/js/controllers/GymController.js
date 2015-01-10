@@ -6,7 +6,6 @@ angular.module('SETTER')
         '$scope',
         '$routeParams',
         '$rootScope',
-        '$timeout',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -18,7 +17,6 @@ angular.module('SETTER')
             $scope,
             $routeParams,
             $rootScope,
-            $timeout,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -77,7 +75,7 @@ angular.module('SETTER')
             });
 
             GymsService.getNumberOfNewRoutes($scope.gymId)
-                .success(function (pData){
+                .success(function (pData) {
                     $scope.newRoutes = pData;
                 });
 

@@ -40,7 +40,7 @@ var RouteNewToUserDao = function () {
         };
 
         theGymsDao.getHomeGymUsers(pGymId, createNewRouteToUserAlerts);
-    }
+    };
 
     /**
     *   When a user actually views the route on the route.tpl
@@ -52,7 +52,7 @@ var RouteNewToUserDao = function () {
             theDaoHelper.DELETE,
             pCallback
         );
-    }
+    };
 };
 
 module.exports = new RouteNewToUserDao();

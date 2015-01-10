@@ -23,59 +23,6 @@ var WallsController = rewire(helper('controllers/WallsController'));
 
 describe('WallsController', function () {
 
-    describe('#getWallsInGym', function () {
-
-        var sendSpy,
-            methodUnderTestSpy,
-            req,
-            res;
-
-        beforeEach(function () {
-            sendSpy = sinon.spy();
-            methodUnderTestSpy = sinon.spy();
-            req = {
-                params: {
-                    gymId: 2
-                }
-            };
-            res = {send: sendSpy};
-        });
-
-        it('invokes the WallsDao getWalls method', function () {
-            WallsController.__set__({
-                theWallsDao: {
-                    getWallsInGym: methodUnderTestSpy
-                }
-            });
-
-            WallsController.getWallsInGym(req, res);
-
-            assert(methodUnderTestSpy.calledOnce);
-        });
-
-        it('sends expected data on success', function () {
-            var expectedWallsInfo = [
-                {
-                    firstname: 'cody',
-                    lastname: 'seibert'
-                }
-            ];
-
-            WallsController.__set__({
-                theWallsDao: {
-                    getWallsInGym: function (pGymId, pCallback) {
-                        pCallback(expectedWallsInfo);
-                    }
-                }
-            });
-
-            WallsController.getWallsInGym(req, res);
-
-            var actualInfo = sendSpy.getCall(0).args[0];
-            assert.deepEqual(actualInfo, expectedWallsInfo);
-        });
-    });
-
     describe('#createWall', function () {
 
         var sendSpy,

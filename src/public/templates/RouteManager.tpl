@@ -87,10 +87,11 @@
             {{filter.name}}
             <br>
             <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)">F</i>
-            <i ng-click="sortIconClicked(filter)" ng-class="{'icon-minus': filter.sort === 0, 'icon-down-open': filter.sort === 1, 'icon-up-open': filter.sort === 2}">
+            <a><i ng-click="sortIconClicked(filter)">
+                <span ng-show="filter.sort === 0">-</span>
                 <span ng-show="filter.sort === 1">V</span>
                 <span ng-show="filter.sort === 2">^</span>
-            </i>
+            </i></a>
         </div>
 
         <div class="small-1 columns"> </div>

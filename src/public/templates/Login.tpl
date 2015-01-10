@@ -20,13 +20,13 @@
 
             <input ng-model="form.email" placeholder="email" type="email"/>
 
-            <input ng-model="form.password" placeholder="password" type="password"/>
+            <input ng-model="form.password" ng-keydown="down($event)" placeholder="password" type="password"/>
 
             <button class="btn--secondary btn--medium btn--expanded   "
                     ng-click="login()">
                 LOGIN
             </button>
-            
+
         </div>
 
         <div class="fieldWrapper mb4  text-center">
@@ -38,7 +38,7 @@
                 Register Here
             </button>
         </div>
-        
+
         <div class="text-center">
             <a for="" class="text-center  fwb "  ng-click="navigateToRegisterGym()">Climbing Gym? <br>Request an account here</a>
         </div>

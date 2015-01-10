@@ -42,4 +42,11 @@ angular.module('SETTER')
                         $scope.error = 'Invalid Login!';
                     });
             };
+
+            $scope.down = function (pEvent) {
+                var code = pEvent.keyCode || pEvent.which;
+                if (code == 13) {
+                    $scope.login();
+                }
+            };
         }]);

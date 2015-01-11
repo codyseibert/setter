@@ -1,7 +1,10 @@
 <div ng-controller="RopeRoutesGraphController">
-    <button ng-click="export()"
-            ng-show="getAccountId() === gymId">Export</button>
-    <h2>Current Rope Routes</h2>
+
+    <a class="right" ng-click="export()"
+            ng-show="getAccountId() === gymId">Export Graph</a>
+
+    <h2 class="fwl clearfix">Current Rope Routes</h2>
+
     <canvas
         id="ropeGraph"
         class="chart-bar"

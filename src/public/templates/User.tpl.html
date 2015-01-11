@@ -1,38 +1,45 @@
 <div class="st--header">
+
     <section class="row">
+
         <div class="header">
-            <button class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
+
+            <button class="[ btn--secondary  btn--medium ] mb3 icon-left-big display--block"
                     ng-show="lastPageWasGym() || lastPageWasRoute() || lastPageWasSetters()"
                     ng-click="back()" >
-                <span> Back</span>
+               Back
             </button>
-        </div>
-    </section>
 
-    <section class="row">
-        <div class="small-12 columns mb2">
 
-            <div class="flag">
+            <div class="flag  mb2">
+
                 <div class="flag-image"
                         ng-click="getAccountId() === userId && uploadImage()">
                     <img ng-src="{{image.url !== '' && image.url || 'images/no_image.png'}}"  class="avatar--big">
                 </div>
 
                 <div class="flag-body">
-                    <h1 ng-show="getAccountId() === userId"> {{user.firstname}} {{user.lastname}}</h1>
-                    <h1 class="mb0" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
+                    <h1 class="mb0  fwb" ng-show="getAccountId() === userId"> {{user.firstname}} {{user.lastname}}</h1>
+                    <h1 class="mb0  fwb" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
+                    <h2 class="h4">INSERT GYM NAME HERE</h2>
                 </div>
+
             </div>
+
         </div>
 
-        <div class="header"
+        <div 
             ng-show="getAccountId() === userId && getHomeGymId()">
+
             <button class="right  btn--primary  btn--small  icon-home"
                 ng-click="navigateToGym(getHomeGymId())">
                 View Climber's Home Gym
             </button>
+
         </div>
+
     </section>
+
 </div>
 
 
@@ -42,7 +49,7 @@
     <div class="small-12 columns">
         <tabset>
             <tab select="hideCharts()">
-                <tab-heading><i class="icon-archive"> </i> Activity</tab-heading>
+                <tab-heading><i class="icon-globe"> </i> Activity</tab-heading>
                 <content>
                     <div class="row">
                         <div class="small-12  columns  mb4">
@@ -63,7 +70,7 @@
             </tab>
 
             <tab select="showCharts()">
-                <tab-heading><i class="icon-dashboard"> </i> Stats</tab-heading>
+                <tab-heading><i class="icon-stats"> </i> Statistics</tab-heading>
                 <content>
                     <section class="row">
                         <div class="small-6 columns mb4  text-center">

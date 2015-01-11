@@ -1,4 +1,5 @@
 
+//Extends from modules/all.scss 
 /*------------------------------------*\
     #Typography
 \*------------------------------------*/
@@ -8,7 +9,6 @@ html,
 body {
   color: $color--text; 
   font-size: rem-calc(14);
-  font-family: $primaryFont; 
   @include breakpoint(teen-bear) {
     font-size: rem-calc(16);
   }
@@ -41,7 +41,6 @@ h3,
 h4, 
 h5,
 h6 {
-    font-family: $primaryFont; 
     color: $color--text; 
 }
 

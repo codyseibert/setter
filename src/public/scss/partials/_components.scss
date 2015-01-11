@@ -24,6 +24,11 @@
     height: rem-calc(100);
 }
 
+.avatar--tiny {
+  height: rem-calc(30);
+  width: rem-calc(30);
+}
+
 .avatar--small {
   height: rem-calc(50);
   width: rem-calc(50);

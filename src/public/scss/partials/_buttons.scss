@@ -10,7 +10,7 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
-  font-family: $primaryFont;
+  font-family: $body-font-family;
   outline: 0;
 }
 

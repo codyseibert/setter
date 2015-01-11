@@ -1,20 +1,35 @@
-<div class="st--header mb2">
-    <section class="row">
-        <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
-            <div class="left">
-                <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                    ng-click="back()" >
-                    Back
-                </button>
-            </div>
+
+<section class="row">
+
+    <div class="header" ng-hide="getAccountId() === gymId">
+
+        <div class="left">
+
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                ng-click="back()" >
+                Back
+            </button>
+
         </div>
 
-        <div class="small-12 columns header">
-            <h1 class="icon-messaging" ng-show="getAccountId() === gymId"> Your Members' Suggestions</h1>
-            <h1 class="icon-mail-alt" ng-show="getAccountId() !== gymId"> Post Suggestion</h1>
-        </div>
-    </section>
-</div>
+        <hr class="header-divider hide-for-small-only">
+
+    </div>
+
+    <div class="header">
+
+        <h1 class="icon-messaging" ng-show="getAccountId() === gymId">
+            Climber Suggestions
+        </h1>
+
+        <h1 class="icon-mail-alt" ng-show="getAccountId() !== gymId"> Post Suggestion</h1>
+        
+        <hr class="header-divider">
+    </div>
+
+</section>
+
+
 
 <section class="row" ng-show="getAccountId() === gymId">
     <div class="medium-6 small-12 columns">

@@ -1,5 +1,9 @@
 <div ng-controller="RopeRoutesGraphController">
+    <button ng-click="export()"
+            ng-show="getAccountId() === gymId">Export</button>
+    <h2>Current Rope Routes</h2>
     <canvas
+        id="ropeGraph"
         class="chart-bar"
         data="graph.data"
         labels="graph.labels"

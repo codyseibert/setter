@@ -26,4 +26,18 @@ angular.module('SETTER')
             RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
                 $scope.graph = BarGraphHelperService.generateRouteCountGraphData(pData);
             });
+
+            $scope.export = function () {
+                var canvas,
+                    image,
+                    doc;
+
+                canvas = $('#boulderGraph').get(0);
+                image = new Image();
+                image.src = canvas.toDataURL("image/png");
+                doc = new jsPDF();
+                doc.text(20, 20, 'Current Bouldering Routes');
+                doc.addImage(image, 15, 40, 180, 160);
+                doc.save();
+            };
         }]);

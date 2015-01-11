@@ -26,4 +26,18 @@ angular.module('SETTER')
             RoutesService.getCurrentRopeRoutes($scope.gymId, function (pData) {
                 $scope.graph = BarGraphHelperService.generateRouteCountGraphData(pData);
             });
+
+            $scope.export = function () {
+                var canvas,
+                    image,
+                    doc;
+
+                canvas = $('#ropeGraph').get(0);
+                image = new Image();
+                image.src = canvas.toDataURL("image/png");
+                doc = new jsPDF();
+                doc.text(20, 20, 'Current Rope Routes');
+                doc.addImage(image, 15, 40, 180, 160);
+                doc.save();
+            };
         }]);

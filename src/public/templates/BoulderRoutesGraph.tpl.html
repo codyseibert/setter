@@ -1,5 +1,9 @@
 <div ng-controller="BoulderRoutesGraphController">
+    <button ng-click="export()"
+            ng-show="getAccountId() === gymId">Export</button>
+    <h2>Current Boulder Routes</h2>
     <canvas
+        id="boulderGraph"
         class="chart-bar"
         data="graph.data"
         labels="graph.labels"

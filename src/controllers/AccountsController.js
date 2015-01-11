@@ -8,17 +8,41 @@
 *   Guillermo Martinez.
 */
 
-// REQUIRES
+var theCrypt = require('../Crypt');
+var theAccountsDao = require('../dao/AccountsDao');
+var randomstring = require('just.randomstring');
+var theMailer = require('../Mailer');
 
-/**
-*   Logic for all account requests
-*
-*   @Author Cody Seibert
-*   @Date 12/7/2014
-*/
 var AccountsController = function () {
     'use strict';
-    console.log('here');
+
+    this.mailNewPassword = function (pReq, pRes) {
+        var accountId,
+            newPassword;
+
+        accountId = pReq.user.accountId;
+        newPassword = randomstring();
+        theCrypt.crypt(newPassword, function (pErr, pHash) {
+            theAccountsDao.updatePassword(accountId, pHash, function (pErr, pResults) {
+                theMailer.mailResetPassword(pReq.body.email, newPassword);
+                pRes.send(pResults);
+            });
+        });
+    };
+
+    this.changePassword = function (pReq, pRes) {
+        var accountId,
+            newPassword;
+
+        accountId = pReq.user.accountId;
+        newPassword = pReq.body.password;
+
+        theCrypt.crypt(newPassword, function (pErr, pHash) {
+            theAccountsDao.updatePassword(accountId, pHash, function (pErr, pResults) {
+                pRes.send(pResults);
+            });
+        });
+    };
 };
 
 module.exports = new AccountsController();

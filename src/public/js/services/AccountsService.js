@@ -11,6 +11,22 @@ angular.module('SETTER')
                     method: "POST",
                     url: "api/accounts/login"
                 });
+            },
+
+            resetPassword: function (pEmail) {
+                return $http({
+                    method: "POST",
+                    url: "api/password/reset",
+                    data: {email: pEmail}
+                });
+            },
+
+            changePassword: function (pPassword) {
+                return $http({
+                    method: "POST",
+                    url: "api/password/change",
+                    data: {password: pPassword}
+                });
             }
         };
     }]);

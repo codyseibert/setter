@@ -31,6 +31,14 @@ angular.module('SETTER', [
                     controller: 'BlogController',
                     templateUrl: 'templates/Blog.tpl.html'
                 })
+                .when('/settings', {
+                    controller: 'AccountSettingsController',
+                    templateUrl: 'templates/AccountSettings.tpl.html'
+                })
+                .when('/password/reset', {
+                    controller: 'PasswordResetController',
+                    templateUrl: 'templates/PasswordReset.tpl.html'
+                })
                 .when('/gym/register', {
                     controller: 'RegisterGymController',
                     templateUrl: 'templates/RegisterGym.tpl.html'
@@ -155,6 +163,10 @@ angular.module('SETTER', [
                 $location.path('login');
             };
 
+            $rootScope.navigateToPasswordReset = function () {
+                $location.path('password/reset');
+            };
+
             $rootScope.navigateToRegisterUser = function () {
                 $location.path('user/register');
             };
@@ -180,6 +192,10 @@ angular.module('SETTER', [
 
             $rootScope.navigateToHome = function () {
                 $location.path('login');
+            };
+
+            $rootScope.navigateToAccountSettings = function () {
+                $location.path('settings');
             };
 
             $rootScope.navigateToWalls = function (pGymId) {

@@ -11,6 +11,7 @@ var app = require('./App');
 var RegistrationController = require('./controllers/RegistrationController');
 var LoginController = require('./controllers/LoginController');
 var WallsController = require('./controllers/WallsController');
+var AccountsController = require('./controllers/AccountsController');
 var GymsController = require('./controllers/GymsController');
 var ColorsController = require('./controllers/ColorsController');
 var RoutesController = require('./controllers/RoutesController');
@@ -29,6 +30,7 @@ var AlertsController = require('./controllers/AlertsController');
 var GymAccountRequestsController = require('./controllers/GymAccountRequestsController');
 
 var InjectAccountId = require('./middleware/InjectAccountId');
+var InjectAccountIdUsingEmail = require('./middleware/InjectAccountIdUsingEmail');
 var ValidateGymAdmin = require('./middleware/ValidateGymAdmin');
 
 var RouteToControllerBinder = function () {
@@ -41,6 +43,16 @@ var RouteToControllerBinder = function () {
     // LOGIN
     app.post('/api/login',
         LoginController.login);
+
+    // LOST PASSWORD
+    app.post('/api/password/reset',
+        InjectAccountIdUsingEmail,
+        AccountsController.mailNewPassword);
+
+    // CHANGE PASSWORD
+    app.post('/api/password/change',
+        InjectAccountId,
+        AccountsController.changePassword);
 
     // GYMS
     app.get('/api/gyms',

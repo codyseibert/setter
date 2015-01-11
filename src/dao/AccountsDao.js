@@ -42,10 +42,28 @@ var AccountsDAO = function () {
         );
     };
 
+    this.updatePassword = function (pAccountId, pPassword, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE accounts SET password = ? WHERE id = ?',
+            [pPassword, pAccountId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    }
+
     this.getAccountIdViaToken = function (pToken, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT id FROM accounts WHERE token = ?',
             [pToken],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
+    this.getAccountIdUsingEmail = function (pEmail, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT id FROM accounts WHERE email = ?',
+            [pEmail],
             theDaoHelper.SINGLE,
             pCallback
         );

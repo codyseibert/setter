@@ -22,7 +22,8 @@ var UsersDao = function () {
 
     this.getUser = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT account_id, firstname, lastname FROM users WHERE account_id = ?',
+            'SELECT u.account_id, u.firstname, u.lastname, g.account_id AS gym_id, g.name AS gym_name FROM users u ' +
+                'LEFT JOIN gyms g ON g.account_id = u.gym_id WHERE u.account_id = ?',
             [pUserId],
             theDaoHelper.SINGLE,
             pCallback

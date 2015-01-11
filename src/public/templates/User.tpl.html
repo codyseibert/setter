@@ -25,11 +25,10 @@
             </div>
         </div>
 
-        <div class="header"
-            ng-show="getAccountId() === userId && getHomeGymId()">
+        <div class="header">
             <button class="right  btn--primary  btn--small  icon-home"
-                ng-click="navigateToGym(getHomeGymId())">
-                View Climber's Home Gym
+                    ng-click="navigateToGym(user.gym_id)">
+                {{user.gym_name}}
             </button>
         </div>
     </section>

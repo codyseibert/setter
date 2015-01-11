@@ -1,6 +1,5 @@
 build/
 node_modules/
-src/public/bower_components/
 src/public/.sass-cache
 coverage/
 results.txt

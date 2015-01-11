@@ -34,223 +34,81 @@
 
     <div class="off-canvas-wrap">
 
+        <!-- Top Nav Bar -->
         <nav class="tab-bar hide-on-large" >
+            <section class="tab-bar-section text-center fwb ng-hide"
+                     ng-hide="isLoggedIn()">SETTER</section>
 
-            <section class="tab-bar-section text-center  fwb"  ng-hide="isLoggedIn()" class="ng-hide">SETTER</section>
-
-            <span ng-show="isLoggedIn()" class="ng-hide">
+            <span ng-show="isLoggedIn()"
+                  class="ng-hide">
                 <section class="left-small">
                     <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
                 </section>
 
                 <section class="right tab-bar-section">
-                    <img src="images/setter-logo.svg" height="40px" width="40px" alt="SETTER" class="text-right  mr2">
+                    <img src="images/setter-logo.svg"
+                         height="40px"
+                         width="40px"
+                         alt="SETTER"
+                         class="text-right  mr2">
                 </section>
             </span>
         </nav>
 
 
         <div class="inner-wrap">
-        <!-- Off Canvas Menu -->
-        <aside class="left-off-canvas-menu  side-menu  hide-on-large">
+            <!-- Full Screen Menu -->
+            <aside class="left-off-canvas-menu  side-menu  hide-on-large">
 
-            <ul class="pt3  off-canvas-list" ng-show="isLoggedIn()">
+                <ul class="pt3  off-canvas-list"
+                    ng-show="isLoggedIn()"
+                    ng-include
+                    src=" ' templates/Navigation.tpl.html ' ">
+                </ul>
 
-                <li
-                    ng-show="isUserAccount()"
-                    ng-click="navigateToUser(getAccountId())">
-                    <a class="icon-profile"> Your Profile</a>
-                </li>
+                <div style="margin-top: 100px; text-align: center;">
+                    © 2015<br>Guillermo Casanova<br>&<br>Cody Seibert
+                </div>
+            </aside>
 
-                <li
-                    ng-show="isGymAccount()"
-                    ng-click="navigateToGym(getAccountId())">
-                    <a class="icon-dashboard"> Your Dashboard</a>
-                </li>
+            <!-- Mobile Menu -->
+            <aside style="padding-top: 0px;"
+                   class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only"
+                   ng-show="isLoggedIn()">
 
-                <li
-                    ng-click="navigateToWalls(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a> <img src="images/icon--wrench.svg" alt=""> Manage Zones</a>
-                </li>
+                <div style="padding-top: 12px; text-align: center;">
+                    <img src="images/setter-logo.svg" style="width: 70px;"><br>
+                    <span style="font-size: 30px;">SETTER</span>
+                </div>
 
-                <li
-                    ng-click="navigateToRouteManager(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-archive"> Route Archive</a>
-                </li>
+                <ul class="pt5 "
+                    ng-show="isLoggedIn()"
+                    ng-include
+                    src=" ' templates/Navigation.tpl.html ' ">
+                </ul>
 
-                <li
-                    ng-click="navigateToSetters(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-group"> Manage Setters</a>
-                </li>
+                <div style="margin-top: 100px; text-align: center;">
+                    © 2015<br>Guillermo Casanova<br>&<br>Cody Seibert
+                </div>
+            </aside>
 
-                <li
-                    ng-click="navigateToGymSuggestions(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-messaging"> Suggestions</a>
-                </li>
-
-                <li  class="mb4"
-                    ng-click="navigateToAlerts(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-megaphone"> Announcements</a>
-                </li>
-
-                <li
-                    ng-click="navigateToGym(getHomeGymId())"
-                    ng-show="getHomeGymId()">
-                    <a class="icon-home"> Your Home Gym</a>
-                </li>
-
-
-
-                <li class="mb3"
-                    ng-click="navigateToGyms()"
-                    ng-show="isUserAccount()">
-                    <a class="icon-search"> Search Gyms</a>
-                </li>
-
-
-
-                <li
-                    ng-click="navigateToSuggestionsPage()">
-                    <a class="icon-messaging-alt"> Give Feedback</a>
-                </li>
-
-
-
-                <li
-                    ng-click="navigateToLogout()">
-                    <a class="icon-logout"> Logout</a>
-                </li>
-            </ul>
-
-            <div style="margin-top: 100px; text-align: center;">
-                © 2015<br>Guillermo Casanova<br>&<br>Cody Seibert
-            </div>
-        </aside>
-
-
-        <aside style="padding-top: 0px;" class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only" ng-show="isLoggedIn()">
-
-            <div style="padding-top: 12px; text-align: center;">
-                <img src="images/setter-logo.svg" style="width: 70px;"><br>
-                <span style="font-size: 30px;">SETTER</span>
-            </div>
-
-            <ul class="pt5 " ng-show="isLoggedIn()">
-
-                <li
-                    ng-show="isUserAccount()"
-                    ng-click="navigateToUser(getAccountId())">
-                    <a class="icon-profile"> Your Profile</a>
-                </li>
-
-                <li
-                    ng-show="isGymAccount()"
-                    ng-click="navigateToGym(getAccountId())">
-                    <a class="icon-dashboard"> Your Dashboard</a>
-                </li>
-
-                <li
-                    ng-click="navigateToWalls(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a> <img src="images/icon--wrench.svg" alt=""> Manage Zones</a>
-                </li>
-
-                <li
-                    ng-click="navigateToRouteManager(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-archive"> Route Archive</a>
-                </li>
-
-                <li
-                    ng-click="navigateToSetters(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-group"> Manage Setters</a>
-                </li>
-
-                <li
-                    ng-click="navigateToGymSuggestions(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-messaging"> Suggestions</a>
-                </li>
-
-                <li  class="mb4"
-                    ng-click="navigateToAlerts(getAccountId())"
-                    ng-show="isGymAccount()">
-                    <a class="icon-megaphone"> Announcements</a>
-                </li>
-
-
-
-                <li
-                    ng-click="navigateToGym(getHomeGymId())"
-                    ng-show="getHomeGymId()">
-                    <a class="icon-home"> Your Home Gym</a>
-                </li>
-
-
-
-                <li class="mb3"
-                    ng-click="navigateToGyms()"
-                    ng-show="isUserAccount()">
-                    <a class="icon-search"> Search Gyms</a>
-                </li>
-
-
-
-                <li
-                    ng-click="navigateToSuggestionsPage()">
-                    <a class="icon-messaging-alt"> Give Feedback</a>
-                </li>
-
-
-
-                <li
-                    ng-click="navigateToLogout()">
-                    <a class="icon-logout"> Logout</a>
-                </li>
-            </ul>
-
-            <div style="margin-top: 100px; text-align: center;">
-                © 2015<br>Guillermo Casanova<br>&<br>Cody Seibert
-            </div>
-        </aside>
-
-        <div class="main-wrap relative selfClear" data-ui-component="main-wrap">
-            <div class="main full-height relative">
-                <div id="content">
-                    <div style="min-height: 900px;" ng-view autoscroll="true" class="mainview-animation"></div>
+            <!-- The Main Content -->
+            <div class="main-wrap relative selfClear"
+                 data-ui-component="main-wrap">
+                <div class="main full-height relative">
+                    <div id="content">
+                        <div style="min-height: 900px;"
+                             ng-view autoscroll="true"
+                             class="mainview-animation"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-      <!-- close the off-canvas menu -->
-      <a class="exit-off-canvas"></a>
+          <!-- close the off-canvas menu -->
+          <a class="exit-off-canvas"></a>
 
       </div>
     </div>
-<!--
-    <footer class="footer [ small-collapsed ]  text-center" >
-        <div class="display--block">
-            <a ng-click="navigateToContact()"
-                class="link">
-                Contact
-            </a>
-            |
-            <a ng-click="navigateToTOS()"
-                class="link">
-                Terms of Service
-            </a>
-        </div>
-        <div class="display--block  txt--micro">
-
-        ©2015 Cody Seibert  & Guillermo Casanova
-        </div>
-    </footer> -->
 
     <!-- bower:js -->
     <script src="bower_components/modernizr/modernizr.js"></script>

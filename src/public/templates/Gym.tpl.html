@@ -39,10 +39,19 @@
                     Post Suggestion
                 </button>
 
-            </div>
+        </div>
+        <div class="small-6  medium-6 columns  ">
+
+            <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
+                    ng-click="navigateToWalls(gymId)"
+                    ng-show="getAccountId() !== gymId">
+                View Zones
+            </button>
+        </div>
 
 
     </section>
+
 
     <section class="row">
 
@@ -254,6 +263,14 @@
 
     <div class="small-12 medium-6 columns">
         <ng-include src=" 'templates/RopeRoutesGraph.tpl.html '"></ng-include>
+    </div>
+
+    <div class="small-12 columns">
+        <ng-include src=" 'templates/BoulderDistribution.tpl.html '"></ng-include>
+    </div>
+
+    <div class="small-12 columns">
+        <ng-include src=" 'templates/RopeDistribution.tpl.html '"></ng-include>
     </div>
 </section>
 

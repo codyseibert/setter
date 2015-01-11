@@ -54,6 +54,22 @@ var GymsController = function () {
         theGymsDao.getCurrentRopeRoutes(gymId, callback);
     };
 
+    this.getRopeRouteDistribution = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getRopeRouteDistribution(gymId, callback);
+    };
+
+    this.getBoulderRouteDistribution = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getBoulderRouteDistribution(gymId, callback);
+    };
+
     this.getHomeGymUsers = function (pReq, pRes) {
         var gymId,
             callback;

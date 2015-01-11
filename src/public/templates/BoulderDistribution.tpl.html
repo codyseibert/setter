@@ -1,0 +1,21 @@
+<div ng-controller="BoulderDistributionController">
+    <button ng-click="export()"
+            ng-show="getAccountId() === gymId">Export</button>
+
+    <div id="boulderDistribution">
+        <h2>Bouldering Distribution</h2>
+        <table>
+            <thead>
+                <th>Zone</th>
+                <th ng-repeat="grade in boulderGrades">{{grade.name}}</th>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="(zone, counts) in boulderZones">
+                    <td>{{zone}}</td>
+                    <td ng-repeat="count in counts">{{count}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

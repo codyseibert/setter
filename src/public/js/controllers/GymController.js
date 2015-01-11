@@ -12,6 +12,7 @@ angular.module('SETTER')
         'UsersService',
         'LoginService',
         'AlertsService',
+        'GradesService',
         'DateFormatService',
         function (
             $scope,
@@ -23,6 +24,7 @@ angular.module('SETTER')
             UsersService,
             LoginService,
             AlertsService,
+            GradesService,
             DateFormatService
         ) {
             'use strict';

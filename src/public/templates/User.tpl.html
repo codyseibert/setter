@@ -21,20 +21,10 @@
                 <div class="flag-body">
                     <h1 class="mb0  fwb" ng-show="getAccountId() === userId"> {{user.firstname}} {{user.lastname}}</h1>
                     <h1 class="mb0  fwb" ng-hide="getAccountId() === userId">{{user.firstname}} {{user.lastname}}</h1>
-                    <h2 class="h4">INSERT GYM NAME HERE</h2>
+                    <h2 class="h4  icon-home " ng-click="navigateToGym(user.gym_id)">{{user.gym_name}}</h2>
                 </div>
 
             </div>
-
-        </div>
-
-        <div 
-            ng-show="getAccountId() === userId && getHomeGymId()">
-
-            <button class="right  btn--primary  btn--small  icon-home"
-                ng-click="navigateToGym(getHomeGymId())">
-                View Climber's Home Gym
-            </button>
 
         </div>
 

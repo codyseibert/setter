@@ -57,7 +57,7 @@
   @extend %display--inlineBlock; 
   
   i:before {
-    margin-right: 0;
+    margin-right: rem-calc(3);
   }
 }
 

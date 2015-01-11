@@ -58,9 +58,9 @@
     }
 }
 
-.rating {
-  cursor: pointer;
-}
+// .rating {
+//   cursor: pointer;
+// }
 
 [class*="icon-star-empty"] {
   @include icon($icon--star--empty) {
@@ -172,9 +172,18 @@
 
 }
 
-.icon-arrowU {
-  @include icon($icon--arrowU) ;
+.icon-up-big {
+   @include icon($icon--arrowU);
 }
+
+.icon-pyramidDown {
+  @include icon($icon--pyramidDown);
+}
+
+.icon-pyramidUp {
+  @include icon($icon--pyramidUp); 
+}
+ 
 
 .icon-circle {
   @include icon($icon--circle);

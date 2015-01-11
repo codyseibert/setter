@@ -48,6 +48,7 @@ label, label.inline {
   @extend %display--inlineBlock;
   margin: 0 0 1rem;
   padding: 0.5625rem 0;
+  vertical-align: top; 
 }
 
 
@@ -108,7 +109,14 @@ select {
 }
 
 .select--primary {
- @include select($primaryColor);
+ @include select($primaryColor) {
+
+    color: #fff; 
+
+    select {
+      color: #fff; 
+    }
+  }
 }
 
 .select--secondary {
@@ -136,7 +144,7 @@ select {
   select {
     padding-right: rem-calc(38);
     padding-left: rem-calc(16);
-    margin-right: rem-calc(-32);
+    margin-right: rem-calc(-20);
     margin-left: rem-calc(-16);
     height: 100%;
 
@@ -169,8 +177,8 @@ select {
   select {
     padding-right: rem-calc(38);
     padding-left: rem-calc(16);
-    margin-right: rem-calc(-16);
-    margin-left: rem-calc(-4);
+    margin-right: rem-calc(-8);
+    margin-left: rem-calc(-16);
     height: 100%;
 
     //Fixes Chrome/webkit Bug with padding-right

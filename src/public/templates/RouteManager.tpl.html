@@ -1,151 +1,226 @@
-<div class="st--header mb2">
+
+<div class="mb2">
+
     <section class="row">
-        <div class="small-12 columns header">
-            <div class="left" ng-show="isGymAccount()">
-                <button class="[ btn--secondary btn--small  right ] icon-left-big"
-                    ng-click="back()" >
-                    Back
-                </button>
-            </div>
+
+        <div class="header">
+
+            <h1 class="icon-archive"> 
+            Route Archive
+            </h1>
+
         </div>
 
-        <div class="small-12 columns">
-            <h1 class="icon-th-large"> Route Archive</h1>
-        </div>
     </section>
+
 </div>
 
+
 <div ng-hide="finishedRendering"
-    style="width: 200px; height: 200px;"
+    style="width: 150px; height: 150px;"
     us-spinner>
 </div>
 
+
 <div ng-show="finishedRendering">
+
     <section class="row">
+
         <div class="small-12 columns">
-            <label class="fwb">Type</label>
-            <select ng-model="form.view"
-                    class="[ select--medium select--secondary ]"
-                    ng-options="view.value for view in views"
-                    ng-change="refreshView()"></select>
+
+            <label class="fwb [ inline label--inline ] ">Show Type</label>
+            
+            <div class="[ select--small select--primary ] display--inlineBlock">
+
+                <select ng-model="form.view"
+                        ng-options="view.value for view in views"
+                        ng-change="refreshView()">
+                </select>
+
+            </div>
+
         </div>
+
     </section>
 
     <section class="row">
-        <div class="small-6 columns">
-            <!-- Zone filter dropdown -->
-            <label class="fwb">Zone</label>
-            <select ng-model="form.zoneFilter"
-                    class="[ select--medium select--secondary ]"
-                    ng-options="zone.value for zone in zoneInputs"
-                    ng-change="refreshFilters()"></select>
+        
+        <div class="small-12  columns">
+
+            <div class="fieldwrapper  panel [ small-12  columns ] ">  
+            
+                <div class="row">
+
+                    <div class="small-12 columns">
+
+                        <h2 class="fwl mb4 display--block ">
+                            Filter Routes By
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="row small-collapse  medium-uncollapse">
+                    <!-- Filters -->
+                    <div class="small-12 columns mb2">
+
+                        <div class="small-12  medium-6 large-5 columns">
+                            <!-- Setter Grade filter dropdown -->
+                            <label class="fwb [ label--inline inline ]">Setter</label>
+
+                            <div class="select--small select--secondary">
+                                <select ng-model="form.setterFilter"
+                                    class="[ select--medium select--secondary ]"
+                                    ng-options="setter.value for setter in setterInputs"
+                                    ng-change="refreshFilters()">
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="small-12  medium-6 large-4 end columns">
+                            <!-- Color filter dropdown -->
+                            <label class="fwb [ label--inline  inline ] ">Route Color</label>
+
+                            <div class="select--small select--secondary">
+
+                                <select ng-model="form.colorFilter"
+                                    ng-options="color.value for color in colorInputs"
+                                    ng-style="{color: input.extra}"
+                                    ng-change="refreshFilters()">
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="small-12 columns">
+
+                        <div class="small-12  medium-6 large-5 columns">
+                            <!-- V Grade filter dropdown -->
+                            <label class="fwb [ label--inline  inline ] ">Grade</label>
+
+                            <div class="select--small select--secondary">
+
+                                <select ng-model="form.boulderGradeFilter"
+                                        ng-show="form.view.value === BOULDERING_VIEW"
+                                        ng-options="grade.value for grade in boulderGradeInputs"
+                                        ng-change="refreshFilters()">
+                                </select>
+
+                            </div>
+                            <!-- YDS Grade filter dropdown -->
+                            <select ng-model="form.ropeGradeFilter"
+                                    class="[ select--medium select--secondary ]"
+                                    ng-show="form.view.value === ROPE_VIEW"
+                                    ng-options="grade.value for grade in ropeGradeInputs"
+                                    ng-change="refreshFilters()"></select>
+                        </div>
+
+                        <div class="small-12  medium-6 large-5 end  columns">
+                            <!-- Zone filter dropdown -->
+                            <label class="fwb [ label--inline inline ] ">Zone</label>
+
+                            <div class="select--small  select--secondary">
+
+                                <select ng-model="form.zoneFilter"
+                                        ng-options="zone.value for zone in zoneInputs"
+                                        ng-change="refreshFilters()">
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="small-6 columns">
-            <!-- Color filter dropdown -->
-            <label class="fwb">Color</label>
-            <select ng-model="form.colorFilter"
-                    class="[ select--medium select--secondary ]"
-                    ng-options="color.value for color in colorInputs"
-                    ng-style="{color: input.extra}"
-                    ng-change="refreshFilters()"></select>
-        </div>
-
-        <div class="small-6 columns">
-            <!-- V Grade filter dropdown -->
-            <label class="fwb">Grade</label>
-            <select ng-model="form.boulderGradeFilter"
-                    class="[ select--medium select--secondary ]"
-                    ng-show="form.view.value === BOULDERING_VIEW"
-                    ng-options="grade.value for grade in boulderGradeInputs"
-                    ng-change="refreshFilters()"></select>
-
-            <!-- YDS Grade filter dropdown -->
-            <select ng-model="form.ropeGradeFilter"
-                    class="[ select--medium select--secondary ]"
-                    ng-show="form.view.value === ROPE_VIEW"
-                    ng-options="grade.value for grade in ropeGradeInputs"
-                    ng-change="refreshFilters()"></select>
-        </div>
-
-        <div class="small-6 columns">
-            <!-- Setter Grade filter dropdown -->
-            <label class="fwb">Setter</label>
-            <select ng-model="form.setterFilter"
-                    class="[ select--medium select--secondary ]"
-                    ng-options="setter.value for setter in setterInputs"
-                    ng-change="refreshFilters()"></select>
-        </div>
     </section>
 
     <section class="row">
-        <div ng-style="{'width': filter.width}"
-                ng-repeat="filter in filters"
-                ng-hide="(form.view.value === ROPE_VIEW && filter.name === 'V') || (form.view.value === BOULDERING_VIEW && filter.name === 'YDS')"
-                class="columns {{filter.class}}"
-                style="display: inline-block; vertical-align: top;">
-            {{filter.name}}
-            <br>
-            <i ng-show="isFilterableColumn(filter)" ng-click="showFilterPanel(filter)" class="icon-glass" ng-style="getFilterIconStyle(filter)">F</i>
-            <a><i ng-click="sortIconClicked(filter)">
-                <span ng-show="filter.sort === 0">-</span>
-                <span ng-show="filter.sort === 1">V</span>
-                <span ng-show="filter.sort === 2">^</span>
-            </i></a>
-        </div>
 
-        <div class="small-1 columns"> </div>
+        <div class="small-12 columns">
+
+            <table class="small-12 columns">
+
+                <thead>
+                    <th ng-repeat="filter in filters"
+                            ng-hide="(form.view.value === ROPE_VIEW && filter.name === 'V') || (form.view.value === BOULDERING_VIEW && filter.name === 'YDS')"  ng-click="sortIconClicked(filter)">
+                        <a>
+                        {{filter.name}}
+                        <i >
+                            <span ng-show="filter.sort === 0"></span>
+                            <span class="icon-pyramidDown" ng-show="filter.sort === 1"></span>
+                            <span class="icon-pyramidUp" ng-show="filter.sort === 2"></span>
+                        </i>
+                        </a>
+                    </th>
+
+                </thead>
+
+                <tbody>
+            
+                    <tr bindonce ng-repeat="route in routes"
+                         class="list--tableStyle  list--navElem"
+                         ng-show="route.show"
+                         on-finish-render
+                         ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
+            
+                    <td  bo-text="route.wall_name || '-'"></td>
+            
+                    <td>
+                        <i class="icon-circle" bo-style="{color: route.value}"> </i></td>
+            
+                    <td 
+                         ng-show="form.view.value === BOULDERING_VIEW"
+                            bo-text="route.boulder_grade || '-'"></td>
+            
+                    <td  ng-show="form.view.value === ROPE_VIEW"
+                         bo-text="route.rope_grade || '-'">
+                    </td>
+            
+                    <!--
+                    <td class="small-1 columns"
+                        bo-text="route.route_name || '-'"></td>
+                    -->
+            
+                    <td bo-text="route.setter || '-'"></td>
+            
+                    <td class="rating rating--small">
+                        <!--
+                        <span bo-show="route.rating !== -1" bo-text="route.rating"></span>
+                        <span bo-show="route.rating === -1">-</span>
+                        -->
+
+                        <i bindonce 
+                            ng-repeat="star in stars" bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}"> 
+                        </i>
+                    
+                    </td>
+            
+                    <td bo-text="route.sends"></td>
+            
+                    <td bo-text="route.date_format">
+                    </td>
+            
+    <!--                 <td>
+                        <i bo-show="!route.active" class="icon-down-big"> </i>
+                    </td> -->
+                    
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
     </section>
 
-    <section bindonce ng-repeat="route in routes"
-             class="row list--tableStyle  list--navElem"
-             ng-show="route.show"
-             on-finish-render
-             ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
-
-        <div class="small-2 columns"
-             bo-text="route.wall_name || '-'"></div>
-
-        <div class="small-1 columns">
-            <i class="icon-circle" bo-style="{color: route.value}"> </i></div>
-
-        <div class="small-1 columns"
-             ng-show="form.view.value === BOULDERING_VIEW"
-                bo-text="route.boulder_grade || '-'"></div>
-
-        <div class="small-1 columns"
-             ng-show="form.view.value === ROPE_VIEW"
-             bo-text="route.rope_grade || '-'"></div>
-
-        <!--
-        <div class="small-1 columns"
-            bo-text="route.route_name || '-'"></div>
-        -->
-
-        <div class="small-2 columns"
-            bo-text="route.setter || '-'"></div>
-
-        <div class="small-2 columns">
-            <!--
-            <span bo-show="route.rating !== -1" bo-text="route.rating"></span>
-            <span bo-show="route.rating === -1">-</span>
-            -->
-            <span bindonce
-                style="font-size: 8px;"
-                class="rated display--inlineBlock"
-                ng-repeat="star in stars">
-                <i bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}"
-                class="rating  mb0  right"> </i>
-            </span>
-        </div>
-
-        <div class="small-1 columns"
-            bo-text="route.sends"></div>
-
-        <div class="small-2 columns"
-            bo-text="route.date_format"></div>
-
-        <div class="small-1 columns">
-            <i bo-show="!route.active" class="icon-down-big"> </i></div>
-    </section>
 </div>

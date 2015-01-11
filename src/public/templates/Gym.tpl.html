@@ -50,7 +50,15 @@
         </div>
 
         <div class="small-6  medium-6 columns  ">
-            <button class="[ btn--tetriary  btn--medium  btn--expanded ]  icon-map" ng-click="navigateToWalls(gymId)">
+            <button class="[ btn--tetriary  btn--medium  btn--expanded ]  icon-map"
+                    ng-click="navigateToWalls(gymId)"
+                    ng-show="getAccountId() === gymId">
+                View Zones
+            </button>
+
+            <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
+                    ng-click="navigateToWalls(gymId)"
+                    ng-show="getAccountId() !== gymId">
                 View Zones
             </button>
 

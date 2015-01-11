@@ -21,51 +21,51 @@ angular.module('SETTER', [
             $routeProvider
                 .when('/login', {
                     controller: 'LoginController',
-                    templateUrl: 'templates/Login.tpl'
+                    templateUrl: 'templates/Login.tpl.html'
                 })
                 .when('/logout', {
                     controller: 'LogoutController',
-                    templateUrl: 'templates/Logout.tpl'
+                    templateUrl: 'templates/Logout.tpl.html'
                 })
                 .when('/blog', {
                     controller: 'BlogController',
-                    templateUrl: 'templates/Blog.tpl'
+                    templateUrl: 'templates/Blog.tpl.html'
                 })
                 .when('/gym/register', {
                     controller: 'RegisterGymController',
-                    templateUrl: 'templates/RegisterGym.tpl'
+                    templateUrl: 'templates/RegisterGym.tpl.html'
                 })
                 .when('/user/register', {
                     controller: 'RegisterUserController',
-                    templateUrl: 'templates/RegisterUser.tpl'
+                    templateUrl: 'templates/RegisterUser.tpl.html'
                 })
                 .when('/gyms', {
                     controller: 'GymsController',
-                    templateUrl: 'templates/Gyms.tpl'
+                    templateUrl: 'templates/Gyms.tpl.html'
                 })
                 .when('/gyms/:gymId/suggestions', {
                     controller: 'GymSuggestionsController',
-                    templateUrl: 'templates/GymSuggestions.tpl'
+                    templateUrl: 'templates/GymSuggestions.tpl.html'
                 })
                 .when('/gyms/:gymId', {
                     controller: 'GymController',
-                    templateUrl: 'templates/Gym.tpl'
+                    templateUrl: 'templates/Gym.tpl.html'
                 })
                 .when('/gyms/:gymId/alerts', {
                     controller: 'AlertsController',
-                    templateUrl: 'templates/Alerts.tpl'
+                    templateUrl: 'templates/Alerts.tpl.html'
                 })
                 .when('/gyms/:gymId/walls', {
                     controller: 'WallsController',
-                    templateUrl: 'templates/Walls.tpl'
+                    templateUrl: 'templates/Walls.tpl.html'
                 })
                 .when('/gyms/:gymId/walls/:wallId', {
                     controller: 'WallController',
-                    templateUrl: 'templates/Wall.tpl'
+                    templateUrl: 'templates/Wall.tpl.html'
                 })
                 .when('/gyms/:gymId/walls/:wallId/routes/create', {
                     controller: 'CreateRouteController',
-                    templateUrl: 'templates/CreateRoute.tpl',
+                    templateUrl: 'templates/CreateRoute.tpl.html',
                     resolve: {
                         isEditMode: function () {
                             return false;
@@ -74,7 +74,7 @@ angular.module('SETTER', [
                 })
                 .when('/gyms/:gymId/walls/:wallId/routes/:routeId/edit', {
                     controller: 'CreateRouteController',
-                    templateUrl: 'templates/CreateRoute.tpl',
+                    templateUrl: 'templates/CreateRoute.tpl.html',
                     resolve: {
                         isEditMode: function () {
                             return true;
@@ -83,35 +83,35 @@ angular.module('SETTER', [
                 })
                 .when('/gyms/:gymId/walls/:wallId/routes/:routeId', {
                     controller: 'RouteController',
-                    templateUrl: 'templates/Route.tpl'
+                    templateUrl: 'templates/Route.tpl.html'
                 })
                 .when('/gyms/:gymId/setters', {
                     controller: 'SettersController',
-                    templateUrl: 'templates/Setters.tpl'
+                    templateUrl: 'templates/Setters.tpl.html'
                 })
                 .when('/gyms/:gymId/setters/add', {
                     controller: 'AddSetterController',
-                    templateUrl: 'templates/AddSetter.tpl'
+                    templateUrl: 'templates/AddSetter.tpl.html'
                 })
                 .when('/gyms/:gymId/routes', {
                     controller: 'RouteManagerController',
-                    templateUrl: 'templates/RouteManager.tpl'
+                    templateUrl: 'templates/RouteManager.tpl.html'
                 })
                 .when('/users/:userId', {
                     controller: 'UserController',
-                    templateUrl: 'templates/User.tpl'
+                    templateUrl: 'templates/User.tpl.html'
                 })
                 .when('/suggestions', {
                     controller: 'SuggestionsController',
-                    templateUrl: 'templates/Suggestions.tpl'
+                    templateUrl: 'templates/Suggestions.tpl.html'
                 })
                 .when('/contact', {
                     controller: 'ContactController',
-                    templateUrl: 'templates/Contact.tpl'
+                    templateUrl: 'templates/Contact.tpl.html'
                 })
                 .when('/tos', {
                     controller: 'TOSController',
-                    templateUrl: 'templates/TOS.tpl'
+                    templateUrl: 'templates/TOS.tpl.html'
                 })
                 .otherwise({
                     redirectTo: '/login'

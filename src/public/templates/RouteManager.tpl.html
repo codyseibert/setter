@@ -103,7 +103,7 @@
              on-finish-render
              ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
 
-        <div class="small-1 columns"
+        <div class="small-2 columns"
              bo-text="route.wall_name || '-'"></div>
 
         <div class="small-1 columns">
@@ -117,8 +117,10 @@
              ng-show="form.view.value === ROPE_VIEW"
              bo-text="route.rope_grade || '-'"></div>
 
+        <!--
         <div class="small-1 columns"
             bo-text="route.route_name || '-'"></div>
+        -->
 
         <div class="small-2 columns"
             bo-text="route.setter || '-'"></div>

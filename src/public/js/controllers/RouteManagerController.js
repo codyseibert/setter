@@ -77,11 +77,10 @@ angular.module('SETTER')
                     sort: 0
                 });
             };
-            addFilter('Zone', 'wall_name', 'small-1');
+            addFilter('Zone', 'wall_name', 'small-2');
             addFilter('Color', 'color', 'small-1');
             addFilter('V', 'boulder_grade_id', 'small-1');
             addFilter('YDS', 'rope_grade_id', 'small-1');
-            addFilter('Name', 'route_name', 'small-1');
             addFilter('Setter', 'setter', 'small-2');
             addFilter('Rating', 'rating', 'small-2');
             addFilter('Sends', 'sends', 'small-1');

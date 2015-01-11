@@ -37,8 +37,8 @@ var SettersDao = function () {
             'SELECT i.url, u.account_id, u.firstname, u.lastname FROM users u ' +
                 'INNER JOIN accounts a ON a.id = u.account_id ' +
                 'LEFT JOIN images i ON i.id = a.image_id ' +
-                'WHERE account_id NOT IN (SELECT setter_id FROM setters_gyms_access WHERE gym_id = ?)',
-            [pGymId],
+                'WHERE account_id NOT IN (SELECT setter_id FROM setters_gyms_access WHERE gym_id = ?) AND u.gym_id = ?',
+            [pGymId, pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
         );

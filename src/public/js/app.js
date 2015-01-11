@@ -206,6 +206,10 @@ angular.module('SETTER', [
                 $location.path('gyms/' + pGymId + '/setters');
             };
 
+            $rootScope.navigateToAddSetters = function (pGymId) {
+                $location.path('gyms/' + pGymId + '/setters/add');
+            };
+
             $rootScope.navigateToRoute = function (pGymId, pWallId, pRouteId) {
                 $location.path('gyms/' + pGymId + '/walls/' + pWallId + '/routes/' + pRouteId);
             };

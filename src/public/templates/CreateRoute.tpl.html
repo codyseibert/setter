@@ -110,11 +110,17 @@
 </section>
 
 <section class="row" ng-hide="hasSetters()">
-    This gym has no setters!
     <div class="small-12 columns">
-        <button class="btn--primary btn--medium btn--expanded  icon-plus-squared" ng-click="navigateToSetters()"
+        <h2>This gym has no setters!</h2>
+
+        <p>
+            Have your gym's setters create user accounts so that you may start adding them!
+        </p>
+
+        <button class="btn--primary btn--medium btn--expanded  icon-plus-squared"
+            ng-click="navigateToAddSetters(gymId)"
             ng-hide="isEditMode">
-        Manage Setters
+            <i class="icon-plus"> </i> Add Setters
         </button>
     </div>
 </section>

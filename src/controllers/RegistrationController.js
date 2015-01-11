@@ -40,7 +40,7 @@ var UsersController = function () {
         password = body.password;
         beta = body.beta;
 
-        if (beta !== 'aiguille') {
+        if (beta !== 'aiguille' && beta !== 'highpoint') {
             pRes.status(400);
             pRes.send(Messages.error('Invalid Beta Key'));
             return false;

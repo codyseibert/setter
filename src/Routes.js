@@ -62,6 +62,14 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GymsController.getGym);
 
+    app.get('/api/gyms/:gymId/routes/boulder/distribution',
+        InjectAccountId,
+        GymsController.getBoulderRouteDistribution);
+
+    app.get('/api/gyms/:gymId/routes/rope/distribution',
+        InjectAccountId,
+        GymsController.getRopeRouteDistribution);
+
     app.get('/api/gyms/:gymId/routes/boulder',
         InjectAccountId,
         GymsController.getCurrentBoulderRoutes);
@@ -103,6 +111,7 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ValidateGymAdmin,
         AlertsController.createAlert);
+
 
     // WALLS
     app.get('/api/gyms/:gymId/walls',

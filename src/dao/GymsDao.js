@@ -91,6 +91,30 @@ var GymsDao = function () {
         );
     };
 
+    this.getBoulderRouteDistribution = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT w.name AS zone, bg.name AS grade, COUNT(*) AS count FROM routes r ' +
+                'INNER JOIN walls w ON r.wall_id = w.id ' +
+                'INNER JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
+                'WHERE w.gym_id = ? GROUP BY w.name, r.boulder_grade_id',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+    this.getRopeRouteDistribution = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT w.name AS zone, rg.name AS grade, COUNT(*) AS count FROM routes r ' +
+            'INNER JOIN walls w ON r.wall_id = w.id ' +
+            'INNER JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
+            'WHERE w.gym_id = ? GROUP BY w.name, r.rope_grade_id',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
     this.getHomeGymUsers = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT a.id, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM users u ' +

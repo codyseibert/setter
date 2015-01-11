@@ -11,6 +11,8 @@ angular.module('SETTER')
 
             var gymRoutes = {},
                 routes = {},
+                boulderRouteDistribution = {},
+                ropeRouteDistribution = {},
                 currentBoulderRoutes = {},
                 currentRopeRoutes = {};
 
@@ -95,6 +97,36 @@ angular.module('SETTER')
                     }).success(function (pData) {
                         currentRopeRoutes[pGymId] = pData;
                         pCallback(currentRopeRoutes[pGymId]);
+                    });
+                },
+
+                getBoulderRouteDistribution: function (pGymId, pCallback) {
+                    if (boulderRouteDistribution[pGymId]) {
+                        pCallback(boulderRouteDistribution[pGymId]);
+                        return;
+                    }
+
+                    $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/boulder/distribution'
+                    }).success(function (pData) {
+                        boulderRouteDistribution[pGymId] = pData;
+                        pCallback(boulderRouteDistribution[pGymId]);
+                    });
+                },
+
+                getRopeRouteDistribution: function (pGymId, pCallback) {
+                    if (ropeRouteDistribution[pGymId]) {
+                        pCallback(ropeRouteDistribution[pGymId]);
+                        return;
+                    }
+
+                    $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/rope/distribution'
+                    }).success(function (pData) {
+                        ropeRouteDistribution[pGymId] = pData;
+                        pCallback(ropeRouteDistribution[pGymId]);
                     });
                 },
 

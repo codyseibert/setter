@@ -1,0 +1,21 @@
+<div ng-controller="RopeDistributionController">
+    <button ng-click="export()"
+            ng-show="getAccountId() === gymId">Export</button>
+
+    <div id="ropeDistribution">    
+        <h2>Rope Distribution</h2>
+        <table>
+            <thead>
+                <th>Zone</th>
+                <th ng-repeat="grade in ropeGrades">{{grade.name}}</th>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="zone in ropeZoneKeys">
+                    <td>{{zone}}</td>
+                    <td ng-repeat="count in ropeZones[zone]">{{count}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

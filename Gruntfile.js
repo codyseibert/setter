@@ -201,15 +201,16 @@ module.exports = function(grunt) {
 
             node: {
                 files: [
-                {
-                    expand: true,
-                    flatten: false,
-                    src: [
-                        'node_modules/**'
-                    ],
-                    dest: 'build/app/',
-                    filter: 'isFile'
-                },
+                    {
+                        expand: true,
+                        flatten: false,
+                        cwd: '.',
+                        src: [
+                            'package.json'
+                        ],
+                        dest: 'build/app',
+                        filter: 'isFile'
+                    },
                 ],
             },
         },

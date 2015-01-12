@@ -111,19 +111,34 @@
                 ng-repeat="route in routes"
                 ng-click="navigateToRoute(gymId, wallId, route.id)">
 
+                <!-- I - Color -->
                 <i class="icon-circle"
                    ng-style="{color: route.value}"> </i>
+
+                <!-- T - Color -->
                 {{route.route_name}} {{route.boulder_grade || route.rope_grade || 'Not Rated'}}
+
+                <!-- I - New -->
                 <span class="icon--new label  success  border-radius"
                       ng-show="isUserAccount() && route.isNew">
                     New
                 </span>
+
+                <!-- I - Right Icon -->
                 <i class="icon-right-big  right"> </i>
+
+                <!-- T - Send Count -->
+                <span class="right"
+                      style="margin-right: 40px;">
+                    {{route.send_count}} Sends
+                </span>
+
+                <!-- T - Send -->
                 <span class="right"
                       style="margin-right: 40px;"
                       ng-show="route.send">
-                      Sent
-                 </span>
+                      You've Sent
+                </span>
             </li>
         </ul>
 

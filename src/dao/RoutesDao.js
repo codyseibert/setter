@@ -54,14 +54,13 @@ var RoutesDao = function () {
 
     this.getRoutesOnWall = function (pUserId, pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, s.date AS send, (SELECT rntu.id FROM route_new_to_user rntu WHERE rntu.route_id = r.id AND rntu.user_id = ?) AS isNew, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
+            'SELECT r.id, (SELECT true FROM sends s WHERE s.route_id = r.id AND s.user_id = ?) AS send, (SELECT COUNT(*) FROM sends s WHERE s.route_id = r.id) AS send_count, (SELECT rntu.id FROM route_new_to_user rntu WHERE rntu.route_id = r.id AND rntu.user_id = ?) AS isNew, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.rope_grade_id = rg.id ' +
-                'LEFT JOIN sends s ON s.route_id = r.id ' +
                 'WHERE r.wall_id = ? AND r.active = 1 ORDER BY bg.id ASC, rg.id ASC',
-            [pUserId, pWallId],
+            [pUserId, pUserId, pWallId],
             theDaoHelper.MULTIPLE,
             pCallback
         );

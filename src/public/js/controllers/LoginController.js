@@ -36,7 +36,7 @@ angular.module('SETTER')
                         LoginService.setHomeGymId(pData.homeGymId);
                         LoginService.setImageUrl(pData.url);
                         LoginService.setName(pData.fullname);
-                        LoginService.navigateToCorrectProfile();
+                        LoginService.navigateToCorrectHomePage();
                     })
                     .error(function () {
                         $scope.error = 'Invalid Login!';

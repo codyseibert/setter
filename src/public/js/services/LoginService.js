@@ -140,9 +140,9 @@ angular.module('SETTER')
                 getHeader: function () {
                     return $http.defaults.headers.common.Authorization;
                 },
-                navigateToCorrectProfile: function () {
+                navigateToCorrectHomePage: function () {
                     if (accountType === USER_TYPE) {
-                        $rootScope.navigateToUser(accountId);
+                        $rootScope.navigateToGym(this.getHomeGymId());
                     } else if (accountType === GYM_TYPE) {
                         $rootScope.navigateToGym(accountId);
                     }

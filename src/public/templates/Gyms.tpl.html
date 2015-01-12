@@ -13,14 +13,15 @@
         <div class="small-12 columns">
             <h1 class="title icon-search">Gyms</h1>
 
-            <label for="searchTerm" name="gymName"></label>
+            <label for="searchTerm"
+                   name="gymName"></label>
 
             <input name=""
-                    type="search"
-                    id="searchTerm"
-                    placeholder="Search"
-                    ng-model="form.search"
-                    ng-change="applySearch()" />
+                   type="search"
+                   id="searchTerm"
+                   placeholder="Search"
+                   ng-model="form.search"
+                   ng-change="applySearch()" />
         </div>
     </section>
 </div>
@@ -34,7 +35,7 @@
 
             <div style="height: 100px; width: 200px; display: inline-block; cursor: pointer; float: left; margin-right: 10px;">
                 <img style="height: 100%; width: 100%;"
-                    ng-src="{{gym.url !== '' && gym.url || 'images/no_gym_image.png'}}">
+                    ng-src="{{getGymImageSrc(gym)}}">
             </div>
 
             <div class="gym">

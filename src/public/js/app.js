@@ -339,6 +339,14 @@ angular.module('SETTER', [
                 return $rootScope.lastPath.indexOf('setters') !== -1;
             };
 
+            $rootScope.getGymImageSrc = function (pData) {
+                return (pData.url !== '' && pData.url) || 'images/no_gym_image.png';
+            };
+
+            $rootScope.getUserImageSrc = function (pData) {
+                return (pData.url !== '' && pData.url) || 'images/no_image.png';
+            };
+
             if (LoginService.isLoggedIn()) {
                 gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
                 nothing = function () {

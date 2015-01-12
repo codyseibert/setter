@@ -9,7 +9,8 @@
 
                 <div  class="small-12 columns "
                         ng-click="getAccountId() === gymId && uploadImage()">
-                    <img class="avatar avatar--big  mb2"  ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                    <img class="avatar avatar--big  mb2"
+                         ng-src="{{getGymImageSrc(image)}}">
                 </div>
 
                 <h1 class="h2 testQuery mb1">
@@ -32,9 +33,9 @@
 
       <div class="small-6  medium-6 columns">
 
-                <button 
-                class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging " 
-                ng-click="navigateToGymSuggestions(gymId)" 
+                <button
+                class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
+                ng-click="navigateToGymSuggestions(gymId)"
                 ng-show="isUserAccount()" >
                     Post Suggestion
                 </button>
@@ -68,10 +69,11 @@
                             <div class="flag-image"
                                     ng-click="getAccountId() === gymId && uploadImage()">
                                     <div class="avatar avatar--big">
-                                        <img class=""  ng-src="{{image.url !== '' && image.url || 'images/no_gym_image.png'}}">
+                                        <img class=""
+                                             ng-src="{{getGymImageSrc(image)}}">
 
                                     </div>
-                                
+
                             </div>
 
                             <div class="flag-body text-left">
@@ -82,7 +84,7 @@
 
                                 <h2 class=" display--block  h4  fwl ">{{gym.name}}
                                 </h2>
-                                
+
                             </div>
 
                         </div>
@@ -90,13 +92,13 @@
                     </div>
 
                 </div>
-                
+
                 <div class="row large-collapse">
 
                     <div class="small-12 columns medium-6  mb3" ng-show="isGymAccount()">
 
                         <div class="small-12 medium-12 large-6 columns">
-                            
+
                             <button class="[ btn--tetriary  btn--medium  btn--expanded ] right  icon-map" ng-click="navigateToWalls(gymId)">
                                 View Zones
                             </button>
@@ -104,9 +106,9 @@
                             <span class="icon--topRight round label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
 
                         </div>
-                        
+
                         <div class="small-12 medium-12 large-6 columns">
-                            
+
                             <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil" ng-click="navigateToWalls(gymId)" ng-show="isGymAccount()">
                                 Set Route
                             </button>
@@ -114,7 +116,7 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -126,7 +128,7 @@
 </div>
 
 
-<!--Begin Tabs--> 
+<!--Begin Tabs-->
 <div class="row">
 
     <div class="small-12 columns">
@@ -158,26 +160,33 @@
 
                             <h2 class="fwl">Latest Climber Sends</h2>
 
-                            <div class="row" >  
+                            <div class="row" >
 
                                 <ul  class="list--tableStyle ">
 
-                                   <li class="flag small-6 medium-3 large-3 columns ptb2"  ng-repeat="act in activity" data-equalizer-watch>
+                                   <li class="flag small-6 medium-3 large-3 columns ptb2"
+                                       ng-repeat="act in activity"
+                                       data-equalizer-watch>
 
                                         <div >
 
                                             <div class="flag-image">
                                                 <img class="avatar avatar--tiny"
-                                                ng-click="navigateToUser(act.id)"
-                                                ng-src="{{act.url !== '' && act.url || 'images/no_image.png'}}">
+                                                     ng-click="navigateToUser(act.id)"
+                                                     ng-src="{{getUserImageSrc(act)}}">
                                             </div>
 
-                                            <div class="flag-body h6" ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
+                                            <div class="flag-body h6"
+                                                 ng-click="navigateToUser(act.id)">
 
                                                 <a>
-                                                    <div class="title mr2 display--inlineBlock">  {{act.name}}</div>
-                                                    <i class="icon-circle icon--medium" 
-                                                    ng-style="{color: act.value}"> 
+                                                    <div class="title mr2 display--inlineBlock">
+                                                        {{act.name}}
+                                                    </div>
+
+                                                    <i class="icon-circle icon--medium"
+                                                       ng-style="{color: act.value}"
+                                                       ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
                                                     </i> {{formatGrade(act.bg, act.rg)}}
                                                 </a>
 
@@ -185,10 +194,10 @@
 
                                         </div>
 
-                                    </li>                
+                                    </li>
 
                                 </ul>
- 
+
                             </div>
 
                         </div>
@@ -223,13 +232,15 @@
 
                             <h2 class="fwl">Gym's Climbers</h2>
 
-                            <div class="small-6 medium-3 large-3 columns   pb4" ng-repeat="user in users"
-                                ng-click="navigateToUser(user.id)">
+                            <div class="small-6 medium-3 large-3 columns   pb4"
+                                 ng-repeat="user in users"
+                                 ng-click="navigateToUser(user.id)">
 
                             <div class="flag">
 
                                 <div class="flag-image">
-                                    <img class="avatar avatar--small  center mb1" ng-src="{{user.url !== '' && user.url || 'images/no_image.png'}}">
+                                    <img class="avatar avatar--small  center mb1"
+                                         ng-src="{{getUserImageSrc(user)}}">
                                 </div>
 
                                 <div class="flag-body">
@@ -256,7 +267,9 @@
 
 
 
-<section class="row" id="charts" style="position: absolute; top: -44px; left: -9999px">
+<section class="row"
+         id="charts"
+         style="position: absolute; top: -44px; left: -9999px">
     <div class="small-12 medium-6 columns">
         <ng-include src=" 'templates/BoulderRoutesGraph.tpl.html '"></ng-include>
     </div>

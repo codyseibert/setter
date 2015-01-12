@@ -87,6 +87,15 @@ angular.module('SETTER')
                         method: "DELETE",
                         url: 'api/gyms/' + pGymId + '/walls/' + pWallId
                     });
+                },
+
+                stripZone: function (pGymId, pWallId) {
+                    this.setWallDirty(pWallId);
+
+                    return $http({
+                        method: "POST",
+                        url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/strip'
+                    });
                 }
             };
         }]);

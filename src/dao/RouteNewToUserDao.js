@@ -20,7 +20,6 @@ var RouteNewToUserDao = function () {
     *   When a gym sets a new route
     */
     this.createNewRouteToUserAlertsForGym = function (pGymId, pWallId, pRouteId, pCallback) {
-
         var createNewRouteToUserAlerts = function (pHomeGymUsers) {
             var values = [],
                 user,
@@ -49,6 +48,18 @@ var RouteNewToUserDao = function () {
         theDaoHelper.executeQuery(
             'DELETE FROM route_new_to_user WHERE route_id = ? AND user_id = ?',
             [pRouteId, pAccountId],
+            theDaoHelper.DELETE,
+            pCallback
+        );
+    };
+
+    /**
+        Used when a zone is stripped by removing all 'new' alerts for zone.
+    */
+    this.deleteAllNewRouteToUserAlertForZone = function (pZoneId, pCallback) {
+        theDaoHelper.executeQuery(
+            'DELETE FROM route_new_to_user WHERE wall_id = ?',
+            [pZoneId],
             theDaoHelper.DELETE,
             pCallback
         );

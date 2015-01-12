@@ -1,21 +1,22 @@
 /*jslint nomen: true */
 
 /*
-Copyright (c) Cody Seibert and Guillermo Martinez
+    Copyright (c) Cody Seibert and Guillermo Martinez
 
-Do not copy, redistribute, sell, modify, etc, without
-written legally bound permission from both Cody Seibert and
-Guillermo Martinez.
+    Do not copy, redistribute, sell, modify, etc, without
+    written legally bound permission from both Cody Seibert and
+    Guillermo Martinez.
 */
 
+var theRouteNewToUserDao = require('../dao/RouteNewToUserDao');
 var theDB = require('../DBConnection');
 var theMessages = require('../Messages');
 var theDaoHelper = require('./DaoHelper');
 
 /**
-WallsDao
+    WallsDao
 
-Contains logic related to Walls.
+    Contains logic related to Walls.
 */
 var WallsDao = function () {
     'use strict';
@@ -84,6 +85,14 @@ var WallsDao = function () {
         );
     };
 
+    /**
+        Strips the zone of all routes.  This will delete all UserAlerts for
+        that zone if they exist.
+    */
+    this.stripZone = function (pZoneId, pCallback) {
+        theRouteNewToUserDao
+            .deleteAllNewRouteToUserAlertForZone(pZoneId, pCallback);
+    };
 };
 
 module.exports = new WallsDao();

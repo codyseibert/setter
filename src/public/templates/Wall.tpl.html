@@ -1,7 +1,12 @@
+<!-- T - Wall Template -->
 <div class="st--header mb4">
     <section class="row">
+
+
+        <!-- S - Back Button -->
         <div class="small-12 columns header">
             <div class="left">
+                <!-- [] Back to Manage Zones -->
                 <button class="[ btn--secondary btn--medium right ] icon-left-big"
                         ng-click="navigateToWalls(gymId)" >
                     <span ng-show="isGymAccount()">
@@ -12,12 +17,14 @@
             </div>
         </div>
 
+
+        <!-- S - Zone Image & Zone Title -->
         <div class="small-12 columns">
             <div ng-show="shouldShowWallImage()">
                 <div>
                     <img style="height: 100px; overflow: hidden; cursor: pointer;"
                          ng-click="getAccountId() === gymId && uploadImage()"
-                         ng-src="{{getGymImageSrc(image)}}">
+                         ng-src="{{getGymImageSrc(wall)}}">
                 </div>
             </div>
 
@@ -28,6 +35,7 @@
                        type="text">
                 </input>
 
+                <!-- [] Save Route -->
                 <button class="btn--medium  btn--primary "
                         ng-click="save()">
                     Save
@@ -38,6 +46,7 @@
                 ng-hide="isEditMode">
                 {{wall.name}}
 
+                <!-- [] Edit Route -->
                 <a class="icon-pencil"
                    ng-click="edit()"
                    ng-hide="isUserAccount() || isEditMode">
@@ -45,12 +54,15 @@
             </h1>
         </div>
 
+
+        <!-- S - Add Route - for Medium-Up -->
         <div class="small-12 columns  hide-on-small">
             <div class="row"
                  ng-show="isGymAccount()"
                  data-ui-component="routeActions">
                 <div class="small-12 columns mb2">
-                    <button class="btn--medium btn--primary icon-plus btn--expanded"
+                    <!-- [] Add Route -->
+                    <button class="icon-plus btn--medium btn--primary btn--expanded"
                             ng-click="navigateToCreateRoute(gymId, wallId)">
                         Add Route
                     </button>
@@ -58,22 +70,44 @@
             </div>
         </div>
 
+        <!-- S - Strip Zone -->
+        <div class="small-12 columns">
+            <div class="row"
+                 ng-show="isGymAccount()"
+                 data-ui-component="routeActions">
+                <div class="small-12 columns mb2">
+                    <!-- [] - Strip Zone -->
+                    <button class="icon-down-big btn--medium btn--secondary btn--expanded"
+                            ng-click="stripZone(gymId, wallId)">
+                        Strip Zone
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- [] - Drill Icon Button -->
         <button ng-show="isGymAccount()"
                 class="btn--primary btn--fixedAction  hide-on-large"
                 ng-click="navigateToCreateRoute(gymId, wallId)">
 
+            <!-- I - Drill -->
             <img src="images/icon--drill.svg"
                  alt=""
                  class="icon">
-
         </button>
-
     </section>
 </div>
 
+
+<!-- Routes & Delete Button -->
 <section class="row  small-collapse">
     <div class="small-12 columns">
+
+
+        <!-- Routes in Zone -->
         <ul class="list--tableStyle  list--navElem">
+
+            <!-- [] Route -->
             <li class="list--tableStyle  ptb2"
                 ng-repeat="route in routes"
                 ng-click="navigateToRoute(gymId, wallId, route.id)">
@@ -89,20 +123,24 @@
             </li>
         </ul>
 
+
+        <!-- Delete Zone -->
         <section class="row">
             <div class="small-12 columns  text-center mb4"
                  ng-show="isGymAccount()"
                  data-ui-component="routeSubActions">
+                 <!-- [] - Delete Zone -->
                 <a class="icon-trash"
                    ng-click="delete()">
-                    Delete Zone Permanently
+                Delete Zone Permanently
                 </a>
             </div>
         </section>
     </div>
 </section>
 
-<!-- hidden -->
+
+<!-- Hidden Form used by Image Upload -->
 <form id="image_form"
         style="display: none;"
         enctype="multipart/form-data"

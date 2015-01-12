@@ -66,6 +66,14 @@ var WallsController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theWallsDao.deleteWall(gymId, wallId, callback);
     };
+
+    this.stripZone = function (pReq, pRes) {
+        var wallId,
+            callback;
+        wallId = pReq.params.wallId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theWallsDao.stripZone(wallId, callback);
+    };
 };
 
 module.exports = new WallsController();

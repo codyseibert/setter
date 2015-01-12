@@ -340,7 +340,10 @@ angular.module('SETTER', [
             };
 
             $rootScope.getGymImageSrc = function (pData) {
-                return (pData.url !== '' && pData.url) || 'images/no_gym_image.png';
+                if (!pData.url || pData.url === '') {
+                    return 'images/no_gym_image.png';
+                }
+                return pData.url;
             };
 
             $rootScope.getUserImageSrc = function (pData) {

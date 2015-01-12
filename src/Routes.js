@@ -142,6 +142,11 @@ var RouteToControllerBinder = function () {
         ValidateGymAdmin,
         WallsController.deleteWall);
 
+    app.post('/api/gyms/:gymId/walls/:wallId/strip',
+        InjectAccountId,
+        ValidateGymAdmin,
+        WallsController.stripZone);
+
     // ROUTES
     app.get('/api/walls/:wallId/routes',
         InjectAccountId,

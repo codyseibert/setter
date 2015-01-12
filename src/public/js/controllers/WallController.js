@@ -2,10 +2,13 @@
 /*jslint unparam: true*/
 /*global angular: false, btoa: false, console: false, moment: false, confirm: false */
 
-/*jslint nomen: true */
-/*jslint unparam: true*/
-/*global angular: false, btoa: false, console: false, moment: false, confirm: false */
+/*
+    Controller:
+        WallController
 
+    Template:
+        Wall.tpl.html
+*/
 angular.module('SETTER')
     .controller('WallController', [
         '$scope',
@@ -30,6 +33,10 @@ angular.module('SETTER')
                 return;
             }
 
+
+            /*
+                Init
+            */
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = parseInt($routeParams.wallId, 10);
 
@@ -38,11 +45,12 @@ angular.module('SETTER')
             $scope.form = {};
             $scope.image = null;
 
+
+            /*
+                REST Calls
+            */
             WallsService.getWall($scope.gymId, $scope.wallId, function (pData) {
                 $scope.wall = pData;
-                $scope.image = {
-                    url: pData.url
-                };
             });
 
             RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
@@ -54,10 +62,10 @@ angular.module('SETTER')
                 $scope.routes = pData;
             });
 
-            $scope.hasRoutes = function () {
-                return $scope.routes.length > 0;
-            };
 
+            /*
+                Button Callbacks
+            */
             $scope.edit = function () {
                 $scope.isEditMode = !$scope.isEditMode;
                 $scope.form.name = $scope.wall.name;
@@ -83,6 +91,26 @@ angular.module('SETTER')
                     });
             };
 
+            $scope.stripZone = function (pGymId, pWallId) {
+                var yes = confirm('Are you sure you want to strip this entire zone?');
+                if (!yes) {
+                    return;
+                }
+
+                WallsService.stripZone($scope.gymId, $scope.wallId)
+                    .success(function () {
+                        $scope.routes.splice(0, $scope.routes.length)
+                    });
+            };
+
+
+            /*
+                Hide / Show Logic Logic
+            */
+            $scope.hasRoutes = function () {
+                return $scope.routes.length > 0;
+            };
+
             $scope.shouldShowWallImage = function () {
                 return ($scope.image && $scope.image.url && $scope.isUserAccount()) ||
                     $scope.getAccountId() === $scope.gymId;
@@ -92,6 +120,11 @@ angular.module('SETTER')
                 return pRoute.date > moment().subtract(7, 'days');
             };
 
+
+
+            /*
+                Upload Image Logic
+            */
             $scope.uploadImage = function () {
                 angular.element("#image_file").trigger('click');
             };

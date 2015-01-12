@@ -63,15 +63,4 @@ angular.module('SETTER')
             $scope.isNew = function (pWall) {
                 return moment(pWall.last_update) > moment().subtract(7, 'days');
             };
-
-            $scope.items = [
-                "The first choice!",
-                "And another choice for you.",
-                "but wait! A third!"
-            ];
-
-            $scope.linkItems = {
-                "Google": "http://google.com",
-                "AltaVista": "http://altavista.com"
-            };
         }]);

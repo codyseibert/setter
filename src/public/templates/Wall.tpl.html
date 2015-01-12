@@ -99,10 +99,9 @@
 </div>
 
 
-<!-- Routes & Delete Button -->
+<!-- Routes List & Delete Button -->
 <section class="row  small-collapse">
     <div class="small-12 columns">
-
 
         <!-- Routes in Zone -->
         <ul class="list--tableStyle  list--navElem">
@@ -120,6 +119,11 @@
                     New
                 </span>
                 <i class="icon-right-big  right"> </i>
+                <span class="right"
+                      style="margin-right: 40px;"
+                      ng-show="route.send">
+                      Sent
+                 </span>
             </li>
         </ul>
 

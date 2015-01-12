@@ -58,6 +58,8 @@ angular.module('SETTER')
                     pEntry.date = moment(pEntry.date);
                     return pEntry;
                 });
+                console.log(pData);
+
 
                 $scope.routes = pData;
             });

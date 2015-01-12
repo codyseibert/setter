@@ -163,6 +163,10 @@ angular.module('SETTER', [
                 $location.path('login');
             };
 
+            $rootScope.navigateToSettings = function () {
+                $location.path('settings');
+            };
+
             $rootScope.navigateToPasswordReset = function () {
                 $location.path('password/reset');
             };

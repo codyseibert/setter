@@ -1,63 +1,63 @@
-<li
-    ng-show="isUserAccount()"
+<!-- User Specific -->
+<li ng-show="isUserAccount()"
     ng-click="navigateToUser(getAccountId())">
     <a class="icon-profile"> Your Profile</a>
 </li>
 
-<li
-    ng-show="isGymAccount()"
+<li ng-show="isUserAccount()"
+    ng-click="navigateToGyms()">
+    <a class="icon-search"> Search Gyms</a>
+</li>
+
+<li ng-show="isUserAccount()"
+    ng-click="navigateToGym(getHomeGymId())">
+    <a class="icon-home"> Your Home Gym</a>
+</li>
+
+<li ng-show="isUserAccount()"
+    ng-click="navigateToSettings()">
+    <a class="icon-home"> Settings</a>
+</li>
+
+
+<!-- Gym Specific -->
+<li ng-show="isGymAccount()"
     ng-click="navigateToGym(getAccountId())">
     <a class="icon-dashboard"> Dashboard</a>
 </li>
 
-<li
-    ng-click="navigateToWalls(getAccountId())"
-    ng-show="isGymAccount()">
+<li ng-show="isGymAccount()"
+    ng-click="navigateToWalls(getAccountId())">
     <a> <img src="images/icon--wrench.svg" alt=""> Manage Zones</a>
 </li>
 
-<li
-    ng-click="navigateToRouteManager(getAccountId())"
-    ng-show="isGymAccount()">
+<li ng-show="isGymAccount()"
+    ng-click="navigateToRouteManager(getAccountId())">
     <a class="icon-archive"> Route Archive</a>
 </li>
 
-<li
-    ng-click="navigateToSetters(getAccountId())"
-    ng-show="isGymAccount()">
+<li ng-show="isGymAccount()"
+    ng-click="navigateToSetters(getAccountId())">
     <a class="icon-group"> Manage Setters</a>
 </li>
 
-<li
-    ng-click="navigateToGymSuggestions(getAccountId())"
-    ng-show="isGymAccount()">
+<li ng-show="isGymAccount()"
+    ng-click="navigateToGymSuggestions(getAccountId())">
     <a class="icon-messaging"> Suggestions</a>
 </li>
 
-<li  class="mb4"
-    ng-click="navigateToAlerts(getAccountId())"
-    ng-show="isGymAccount()">
+<li ng-show="isGymAccount()"
+    ng-click="navigateToAlerts(getAccountId())">
     <a class="icon-megaphone"> Announcements</a>
 </li>
 
-<li
-    ng-click="navigateToGym(getHomeGymId())"
-    ng-show="getHomeGymId()">
-    <a class="icon-home"> Your Home Gym</a>
-</li>
+<li class="mb4"></li>
 
-<li class="mb3"
-    ng-click="navigateToGyms()"
-    ng-show="isUserAccount()">
-    <a class="icon-search"> Search Gyms</a>
-</li>
-
-<li
-    ng-click="navigateToSuggestionsPage()">
+<!-- Always Show -->
+<li ng-click="navigateToSuggestionsPage()">
     <a class="icon-messaging-alt"> Give Feedback</a>
 </li>
 
-<li
-    ng-click="navigateToLogout()">
+<li ng-click="navigateToLogout()">
     <a class="icon-logout"> Logout</a>
 </li>

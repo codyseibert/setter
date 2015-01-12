@@ -1,21 +1,50 @@
-{{error}}
-
-<div>
-    <input ng-model="form.password"
-    type="password"
-    placeholder="new password"
-    autocorrect="off"
-    autocapitalize="off"></input>
+<!-- H - Header -->
+<div class="st--header mb2">
+    <section class="row small-collapse">
+        <div class="header">
+            <h1>
+                Settings
+            </h1>
+        </div>
+    </section>
 </div>
 
-<div>
-    <input ng-model="form.repeat"
-    type="password"
-    placeholder="repeat password"
-    autocorrect="off"
-    autocapitalize="off"></input>
-</div>
+<!-- S - New Password -->
+<section class="row small-collapse">
+    <div class="small-4 small-centered columns">
+        <div>
+            <!-- I - Password -->
+            <input ng-model="form.password"
+                   type="password"
+                   placeholder="new password"
+                   autocorrect="off"
+                   autocapitalize="off"></input>
+        </div>
+    </div>
+</section>
 
-<button ng-click="changePassword()">
-    Change
-</button>
+<!-- S - Repeat Password -->
+<section class="row small-collapse">
+    <div class="small-4 small-centered columns">
+        <div>
+            <!-- I - Repeat Password -->
+            <input ng-model="form.repeat"
+                   type="password"
+                   placeholder="repeat password"
+                   autocorrect="off"
+                   autocapitalize="off"></input>
+        </div>
+    </div>
+</section>
+
+<!-- S - Change Password -->
+<section class="row small-collapse">
+    <div class="small-4 small-centered columns">
+
+        <!-- [] - Change Password -->
+        <button class="[ btn--secondary  btn--medium  btn--expanded ] center"
+                ng-click="changePassword()">
+            Change Password
+        </button>
+    </div>
+</section>

@@ -70,6 +70,39 @@ var GymsController = function () {
         theGymsDao.getBoulderRouteDistribution(gymId, callback);
     };
 
+    this.getTopRatedBoulder = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getTopRatedBoulder(gymId, callback);
+    };
+
+    this.getTopRatedRope = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getTopRatedRope(gymId, callback);
+    };
+
+    this.getNewestBoulder = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getNewestBoulder(gymId, callback);
+    };
+
+
+    this.getNewestRope = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getNewestRope(gymId, callback);
+    };
+
     this.getHomeGymUsers = function (pReq, pRes) {
         var gymId,
             callback;

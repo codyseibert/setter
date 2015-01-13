@@ -95,6 +95,30 @@ angular.module('SETTER')
                         method: 'GET',
                         url: 'api/gyms/' + pGymId + '/routes/new'
                     });
+                },
+                getTopRatedBoulder: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/boulder/top'
+                    });
+                },
+                getTopRatedRope: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/rope/top'
+                    });
+                },
+                getNewestBoulder: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/boulder/new'
+                    });
+                },
+                getNewestRope: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/rope/new'
+                    });
                 }
             };
         }]);

@@ -1,14 +1,14 @@
 
+<!-- Header -->
 <div class="st--header">
 
     <section class="row" ng-show="isUserAccount()">
 
-        <div class="small-12 columns  mb4 header">
+        <div class="small-12 columns mb4 header">
 
             <div class="text-center"  >
-
-                <div  class="small-12 columns "
-                        ng-click="getAccountId() === gymId && uploadImage()">
+                <div class="small-12 columns "
+                     ng-click="getAccountId() === gymId && uploadImage()">
                     <img class="avatar avatar--big  mb2"
                          ng-src="{{getGymImageSrc(image)}}">
                 </div>
@@ -122,48 +122,104 @@
 </div>
 
 
-<!--Begin Tabs-->
+<!-- Tabs-->
 <div class="row">
 
     <div class="small-12 columns">
 
         <tabset>
 
+            <!-- Activity Tab -->
             <tab select="hideCharts()" >
 
-                <tab-heading><i class="icon-globe"> </i> <span class="hide-for-small">Activity</span></tab-heading>
+                <!-- Tab Heading -->
+                <tab-heading>
+                    <i class="icon-globe"> </i>
+                    <span class="hide-for-small">
+                        Activity
+                    </span>
+                </tab-heading>
 
                 <content>
 
                     <section class="row">
 
-
-                        <div class="small-12 medium-6  columns">
-                            <h2 class="fwl">Gym Announcements</h2>
+                        <!-- Gym Announcements Content -->
+                        <div class="small-12 medium-12 columns">
+                            <h2 class="fwl">
+                                Gym Announcements
+                            </h2>
 
                             <ul class="list--noStyles  list">
+
+                                <!-- Render the Alerts-->
                                 <li ng-repeat="alert in alerts">
-                                    <p>{{alert.message}}
-                                        <span class="txt--micro  display--block">{{alert.date}}</span>
+                                    <p>
+                                        {{alert.message}}
+                                        <span class="txt--micro  display--block">
+                                            {{alert.date}}
+                                        </span>
                                     </p>
                                 </li>
                             </ul>
                         </div>
 
+                        <!-- Newest Boulder Problems -->
                         <div class="small-12 medium-6 columns">
+                            <h2 class="fwl">
+                                Newest Boulder Problems
+                            </h2>
 
-                            <h2 class="fwl">Latest Climber Sends</h2>
+                            <ng-include
+                                src=" 'templates/gym/NewestBoulder.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Newest Rope Routes -->
+                        <div class="small-12 medium-6 columns">
+                            <h2 class="fwl">
+                                Newest Rope Routes
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/NewestRope.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Best Rated Rope Problems -->
+                        <div class="small-12 medium-6 columns">
+                            <h2 class="fwl">
+                                Best Rated Rope Routes
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/TopRatedRope.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Best Rated Boulder Problems -->
+                        <div class="small-12 medium-6 columns">
+                            <h2 class="fwl">
+                                Best Rated Boulder Problems
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/TopRatedBoulder.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Latest Climber Sends -->
+                        <div class="medium-6 small-12 columns">
+                            <h2 class="fwl">
+                                Latest Climber Sends
+                            </h2>
 
                             <div class="row" >
-
-                                <ul  class="list--tableStyle ">
-
+                                <ul class="list--tableStyle ">
                                    <li class="flag small-6 medium-3 large-3 columns ptb2"
                                        ng-repeat="act in activity"
                                        data-equalizer-watch>
-
                                         <div >
-
                                             <div class="flag-image">
                                                 <img class="avatar avatar--tiny"
                                                      ng-click="navigateToUser(act.id)"
@@ -172,7 +228,6 @@
 
                                             <div class="flag-body h6"
                                                  ng-click="navigateToUser(act.id)">
-
                                                 <a>
                                                     <div class="title mr2 display--inlineBlock">
                                                         {{act.name}}
@@ -183,23 +238,15 @@
                                                        ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
                                                     </i> {{formatGrade(act.bg, act.rg)}}
                                                 </a>
-
                                             </div>
-
                                         </div>
-
                                     </li>
-
                                 </ul>
-
                             </div>
 
                         </div>
-
                     </section>
-
                 </content>
-
             </tab>
 
 
@@ -265,19 +312,19 @@
          id="charts"
          style="position: absolute; top: -44px; left: -9999px">
     <div class="small-12 medium-6 columns">
-        <ng-include src=" 'templates/BoulderRoutesGraph.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '"></ng-include>
     </div>
 
     <div class="small-12 medium-6 columns">
-        <ng-include src=" 'templates/RopeRoutesGraph.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/RopeRoutesGraph.tpl.html '"></ng-include>
     </div>
 
     <div class="small-12 columns">
-        <ng-include src=" 'templates/BoulderDistribution.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
     </div>
 
     <div class="small-12 columns">
-        <ng-include src=" 'templates/RopeDistribution.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/RopeDistribution.tpl.html '"></ng-include>
     </div>
 </section>
 

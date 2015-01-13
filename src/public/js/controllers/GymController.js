@@ -60,6 +60,16 @@ angular.module('SETTER')
                 $scope.gym = pData;
             });
 
+            GymsService.getNewestBoulder($scope.gymId)
+                .success(function (pData) {
+                    $scope.newestBoulder = pData;
+                });
+
+            GymsService.getNewestRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.newestRope = pData;
+                });
+
             RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
                 createBoulderRoutesBarGraph(pData);
             });
@@ -71,6 +81,16 @@ angular.module('SETTER')
             GymsService.getHomeGymUsers($scope.gymId, function (pData) {
                 $scope.users = pData;
             });
+
+            GymsService.getTopRatedRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.topRatedRope = pData;
+                });
+
+            GymsService.getTopRatedBoulder($scope.gymId)
+                .success(function (pData) {
+                    $scope.topRatedBoulder = pData;
+                });
 
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = pData;

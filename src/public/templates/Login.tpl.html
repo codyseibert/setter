@@ -1,7 +1,8 @@
-<section class="row  pt4">
+<section class="row pt2 ">
 
-    <div class="columns small-12 medium-9 ">
-        <h1 class="title  fwb  mb1  text-center">SETTER LOGIN</h1>
+    <div class="columns small-12 text-center">
+        <img src="images/setter-logo.svg" alt="Setter" class="hide-for-small saddie--medium [ center  mb2 ] ">
+        <h1 class="h2">Setter Login</h1>
     </div>
 
 </section>
@@ -9,19 +10,24 @@
 
 <section class="row">
 
-    <div class="columns small-12 medium-9">
+    <div class="columns small-12 medium-4 medium-centered">
 
         <div class="fieldWrapper  mb4">
 
             <div ng-show="error"
-                style="color: red; text-align: center; margin-top: 20px; margin-bottom: 20px;">
-                {{error}}!
+                style="">
+                {{error}}
+                <div class="text-right mb3">
+    <a class="txt--micro  mb3"
+        ng-click="navigateToPasswordReset()">Forgot Password?
+    </a>
+</div>
             </div>
 
             <input ng-model="form.email" placeholder="email" type="email"/>
 
-            <input ng-model="form.password" ng-keydown="down($event)" placeholder="password" type="password"/>
-
+            <input ng-model="form.password" ng-keydown="down($event)" placeholder="password" type="password" class="mb0"/>
+                
             <button class="btn--secondary btn--medium btn--expanded   "
                     ng-click="login()">
                 LOGIN
@@ -41,13 +47,8 @@
 
         <div class="text-center">
             <a for=""
-                class="text-center  fwb "
-                ng-click="navigateToRegisterGym()">Climbing Gym? <br>Request an account here</a>
-        </div>
-
-        <div class="text-center">
-            <a for=""
-                class="text-center  fwb "
-                ng-click="navigateToPasswordReset()">Forgot Password?</a>
+                class="text-center "
+                ng-click="navigateToRegisterGym()">Climbing Gym? <br>Request an account here
+            </a>
         </div>
 </section>

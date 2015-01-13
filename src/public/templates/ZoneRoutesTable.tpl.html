@@ -1,70 +1,36 @@
-<table class="small-12 columns">
-    <thead class="ng-hide">
-        <th>Color</th>
-        <th>Rating</th>
-        <th>Name</th>
-        <th>Grade</th>
-        <th></th>
-        <th>Sent</th>
-        <th>Sends</th>
-        <th></th>
-    </thead>
-    <tbody>
-        <tr bindonce
-            ng-repeat="route in routes"
-            class="list--tableStyle  list--navElem"
-            ng-click="navigateToRoute(gymId, wallId, route.id)">
+<ul class="list--tableStyle  list--navElem">
+    <li class="list--tableStyle  ptb2"
+        ng-repeat="route in routes"
+        ng-click="navigateToRoute(gymId, wallId, route.id)">
+        <i class="icon-circle"
+           ng-style="{color: route.value}"> </i>
 
-            <!-- Color -->
-            <td>
-                <i class="icon-circle"
-                   ng-style="{color: route.value}"> </i>
-            </td>
+        <!-- Name -->
+        {{route.route_name}}
 
-            <!-- Name -->
-            <td bo-text="route.name"></td>
+        <!-- Grade -->
+        {{route.boulder_grade || route.rope_grade || UNRATED_STRING}}
 
-            <!-- Grade -->
-            <td bo-text="route.boulder_grade || route.rope_grade || UNRATED_STRING"></td>
+        <!-- Icon -->
+        <i class="icon-right-big  right"> </i>
 
-            <!-- New Label -->
-            <td>
-                <span class="icon--new label  success  border-radius"
-                      ng-show="isUserAccount() && route.isNew">
-                    New
-                </span>
-            </td>
+        <!-- Sent -->
+        <span style="margin-right: 20px;"
+              ng-show="route.send">
+            <span class="show-for-medium-up">You've</span> Sent
+        </span>
 
-            <!-- You've Sent -->
-            <td>
-                <span class="right"
-                      style="margin-right: 20px;"
-                      ng-show="route.send">
-                    <span class="show-for-medium-up">You've</span> Sent
-                </span>
-            </td>
-
-            <!-- Rating from Template -->
-            <td>
-                <ng-include class="right"
-                    style="margin-right: 10px;"
+        <!-- Stars -->
+        <ng-include style="margin-right: 10px;"
                     ng-controller="StarRatingController"
                     src=" 'templates/StarRating.tpl.html' ">
-                </ng-include>
-            </td>
+        </ng-include>
 
-            <!-- Sends -->
-            <td>
-                <span class="right"
-                      style="margin-right: 20px;">
-                    {{route.send_count}} Send<span bindonce bo-show="{{route.send_count > 1}}">s</span>
-                </span>
-            </td>
+        <!-- Sends -->
+        {{route.send_count}} Send<span bindonce bo-show="{{route.send_count > 1}}">s</span>
 
-            <!-- Right Icon -->
-            <td class="ng-hide">
-                <i class="icon-right-big  right"> </i>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <!-- New -->
+        <span class="icon--new label  success  border-radius"
+               ng-show="isUserAccount() && route.isNew">New</span>
+    </li>
+</ul>

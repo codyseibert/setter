@@ -46,27 +46,17 @@ input[type="submit"] {
 }
 
 .btn--secondary {
-  @include button($grey--medlight) {
+  @include button($grey--medium) {
     &,
     &:hover {
       color: $grey--dark; 
     }
   }
-
-  &.active {
-    @include button($grey--dark) {
-      &, 
-      &:hover {
-        color: $grey--medium; 
-      }
-    }
-    
-  }
 }
 
 
 .btn--tetriary {
-  @include button($grey--medium) {
+  @include button($brown--dark) {
     &:hover {
       color: #fff;
     }
@@ -98,7 +88,7 @@ input[type="submit"] {
 
 
 .btnGroup--secondary {
-  @include button-group($grey--medlight) {
+  @include button-group($grey--medium) {
     [class*="btn--"] {
       color: $grey--medium;
     }

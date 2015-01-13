@@ -60,6 +60,16 @@ angular.module('SETTER')
                 $scope.gym = pData;
             });
 
+            GymsService.getNewestBoulder($scope.gymId)
+                .success(function (pData) {
+                    $scope.newestBoulder = pData;
+                });
+
+            GymsService.getNewestRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.newestRope = pData;
+                });
+
             RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
                 createBoulderRoutesBarGraph(pData);
             });

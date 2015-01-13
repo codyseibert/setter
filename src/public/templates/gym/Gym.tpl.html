@@ -164,25 +164,47 @@
                             </ul>
                         </div>
 
-                        <!-- Top Rated Rope Problems -->
+                        <!-- Newest Boulder Problems -->
+                        <div class="small-12 medium-6 columns">
+                            <h2 class="fwl">
+                                Newest Boulder Problems
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/NewestBoulder.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Newest Rope Routes -->
+                        <div class="small-12 medium-6 columns">
+                            <h2 class="fwl">
+                                Newest Rope Routes
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/NewestRope.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Best Rated Rope Problems -->
                         <div class="small-12 medium-6 columns">
                             <h2 class="fwl">
                                 Best Rated Rope Routes
                             </h2>
 
                             <ng-include
-                                src=" 'templates/TopRatedRope.tpl.html' ">
+                                src=" 'templates/gym/TopRatedRope.tpl.html' ">
                             </ng-include>
                         </div>
 
-                        <!-- Top Rated Boulder Problems -->
+                        <!-- Best Rated Boulder Problems -->
                         <div class="small-12 medium-6 columns">
                             <h2 class="fwl">
                                 Best Rated Boulder Problems
                             </h2>
 
                             <ng-include
-                                src=" 'templates/TopRatedBoulder.tpl.html' ">
+                                src=" 'templates/gym/TopRatedBoulder.tpl.html' ">
                             </ng-include>
                         </div>
 
@@ -290,19 +312,19 @@
          id="charts"
          style="position: absolute; top: -44px; left: -9999px">
     <div class="small-12 medium-6 columns">
-        <ng-include src=" 'templates/BoulderRoutesGraph.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '"></ng-include>
     </div>
 
     <div class="small-12 medium-6 columns">
-        <ng-include src=" 'templates/RopeRoutesGraph.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/RopeRoutesGraph.tpl.html '"></ng-include>
     </div>
 
     <div class="small-12 columns">
-        <ng-include src=" 'templates/BoulderDistribution.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
     </div>
 
     <div class="small-12 columns">
-        <ng-include src=" 'templates/RopeDistribution.tpl.html '"></ng-include>
+        <ng-include src=" 'templates/gym/RopeDistribution.tpl.html '"></ng-include>
     </div>
 </section>
 

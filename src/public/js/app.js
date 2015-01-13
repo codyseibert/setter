@@ -57,7 +57,7 @@ angular.module('SETTER', [
                 })
                 .when('/gyms/:gymId', {
                     controller: 'GymController',
-                    templateUrl: 'templates/Gym.tpl.html'
+                    templateUrl: 'templates/gym/Gym.tpl.html'
                 })
                 .when('/gyms/:gymId/alerts', {
                     controller: 'AlertsController',

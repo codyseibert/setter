@@ -72,6 +72,16 @@ angular.module('SETTER')
                 $scope.users = pData;
             });
 
+            GymsService.getTopRatedRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.topRatedRope = pData;
+                });
+
+            GymsService.getTopRatedBoulder($scope.gymId)
+                .success(function (pData) {
+                    $scope.topRatedBoulder = pData;
+                });
+
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = pData;
             });

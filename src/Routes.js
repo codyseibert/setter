@@ -66,6 +66,14 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GymsController.getBoulderRouteDistribution);
 
+    app.get('/api/gyms/:gymId/routes/boulder/top',
+        InjectAccountId,
+        GymsController.getTopRatedBoulder);
+
+    app.get('/api/gyms/:gymId/routes/rope/top',
+        InjectAccountId,
+        GymsController.getTopRatedRope);
+
     app.get('/api/gyms/:gymId/routes/rope/distribution',
         InjectAccountId,
         GymsController.getRopeRouteDistribution);

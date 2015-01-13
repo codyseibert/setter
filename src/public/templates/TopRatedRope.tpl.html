@@ -1,0 +1,42 @@
+<table class="small-12 columns">
+    <thead class="ng-hide">
+        <th>Color</th>
+        <th>Grade</th>
+        <th>Rating</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+        <tr bindonce
+            ng-repeat="route in topRatedRope"
+            class="list--tableStyle  list--navElem"
+            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
+
+            <!-- Color -->
+            <td>
+                <i class="icon-circle"
+                ng-style="{color: route.value}"> </i>
+            </td>
+
+            <!-- Grade -->
+            <td bo-text="route.rope_grade || UNRATED_STRING"></td>
+
+            <!-- Rating -->
+            <td>
+                <ng-include class="right"
+                            style="margin-right: 10px;"
+                            ng-controller="StarRatingController"
+                            src=" 'templates/StarRating.tpl.html' ">
+                </ng-include>
+            </td>
+
+            <!-- New Label -->
+            <td>
+                <span class="icon--new label  success  border-radius"
+                ng-show="isUserAccount() && route.isNew">
+                New
+            </span>
+        </td>
+        </tr>
+    </tbody>
+</table>

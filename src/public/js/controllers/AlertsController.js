@@ -5,12 +5,14 @@ angular.module('SETTER')
     .controller('AlertsController', [
         '$scope',
         '$routeParams',
+        '$window',
         'AlertsService',
         'DateFormatService',
         'LoginService',
         function (
             $scope,
             $routeParams,
+            $window,
             AlertsService,
             DateFormatService,
             LoginService
@@ -34,7 +36,7 @@ angular.module('SETTER')
                 });
 
             $scope.delete = function (pAlert) {
-                var yes = confirm("Are you sure you want to delete this alert?");
+                var yes = $window.confirm("Are you sure you want to delete this alert?");
                 if (!yes) {
                     return;
                 }

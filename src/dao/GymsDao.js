@@ -170,9 +170,9 @@ var GymsDao = function () {
     this.getRopeRouteDistribution = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT w.name AS zone, rg.name AS grade, COUNT(*) AS count FROM routes r ' +
-            'INNER JOIN walls w ON r.wall_id = w.id ' +
-            'INNER JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
-            'WHERE w.gym_id = ? GROUP BY w.name, r.rope_grade_id',
+                'INNER JOIN walls w ON r.wall_id = w.id ' +
+                'INNER JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
+                'WHERE w.gym_id = ? GROUP BY w.name, r.rope_grade_id',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

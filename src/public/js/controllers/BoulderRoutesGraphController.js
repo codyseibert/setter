@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false */
+/*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false, jsPDF: false, $: false */
 
 angular.module('SETTER')
     .controller('BoulderRoutesGraphController', [
@@ -30,12 +30,13 @@ angular.module('SETTER')
             $scope.export = function () {
                 var canvas,
                     image,
-                    doc;
+                    doc,
+                    JsPDF = jsPDF;
 
                 canvas = $('#boulderGraph').get(0);
                 image = new Image();
                 image.src = canvas.toDataURL("image/png");
-                doc = new jsPDF();
+                doc = new JsPDF();
                 doc.text(20, 20, 'Current Bouldering Routes');
                 doc.addImage(image, 15, 40, 180, 160);
                 doc.save();

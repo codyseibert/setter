@@ -3,9 +3,9 @@
 angular.module('SETTER', [
     'ngRoute',
     'ngCookies',
-    'chart.js',
-    'ngUpload',
     'ngAnimate',
+    'ngUpload',
+    'chart.js',
     'mm.foundation',
     'mm.foundation.tabs',
     'mm.foundation.offcanvas',

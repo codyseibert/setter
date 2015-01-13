@@ -20,7 +20,7 @@ angular.module('SETTER')
             $scope.resetPassword = function () {
                 var email = $scope.form.email;
                 AccountsService.resetPassword(email)
-                    .success(function (pData) {
+                    .success(function () {
                         $scope.success = true;
                         $scope.email = "";
                     });

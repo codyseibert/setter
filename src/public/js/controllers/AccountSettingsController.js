@@ -21,7 +21,7 @@ angular.module('SETTER')
                 }
 
                 AccountsService.changePassword($scope.form.password)
-                    .success(function (pData) {
+                    .success(function () {
                         $scope.form.password = "";
                         $scope.form.repeat = "";
                     });

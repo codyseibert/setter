@@ -49,7 +49,7 @@ var AccountsDAO = function () {
             theDaoHelper.UPDATE,
             pCallback
         );
-    }
+    };
 
     this.getAccountIdViaToken = function (pToken, pCallback) {
         theDaoHelper.executeQuery(

@@ -98,7 +98,7 @@ angular.module('SETTER')
 
                 WallsService.stripZone($scope.gymId, $scope.wallId)
                     .success(function () {
-                        $scope.routes.splice(0, $scope.routes.length)
+                        $scope.routes.splice(0, $scope.routes.length);
                     });
             };
 

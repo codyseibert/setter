@@ -1,0 +1,352 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'karma-requirejs',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink /usr/bin/node
+5 warn package.json SETTER@0.1.4 No description
+6 warn package.json SETTER@0.1.4 No repository field.
+7 warn package.json SETTER@0.1.4 No README data
+8 warn package.json karma-chrome-launcher@0.1.7 No README data
+9 warn package.json karma-mocha@0.1.10 No README data
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'karma-requirejs', null ]
+12 verbose cache add name=undefined spec="karma-requirejs" args=["karma-requirejs",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'karma-requirejs',
+13 verbose parsed url   path: 'karma-requirejs',
+13 verbose parsed url   href: 'karma-requirejs' }
+14 silly lockFile 9d3dc47c-karma-requirejs karma-requirejs
+15 verbose lock karma-requirejs /home/cseibert/.npm/9d3dc47c-karma-requirejs.lock
+16 silly lockFile 9d3dc47c-karma-requirejs karma-requirejs
+17 silly lockFile 9d3dc47c-karma-requirejs karma-requirejs
+18 verbose addNamed [ 'karma-requirejs', '' ]
+19 verbose addNamed [ null, '*' ]
+20 silly lockFile e4e32c7c-karma-requirejs karma-requirejs@
+21 verbose lock karma-requirejs@ /home/cseibert/.npm/e4e32c7c-karma-requirejs.lock
+22 silly addNameRange { name: 'karma-requirejs', range: '*', hasData: false }
+23 verbose request where is /karma-requirejs
+24 verbose request registry https://registry.npmjs.org/
+25 verbose request id 99f9fcc6196aafe6
+26 verbose url raw /karma-requirejs
+27 verbose url resolving [ 'https://registry.npmjs.org/', './karma-requirejs' ]
+28 verbose url resolved https://registry.npmjs.org/karma-requirejs
+29 verbose request where is https://registry.npmjs.org/karma-requirejs
+30 info trying registry request attempt 1 at 11:50:22
+31 http GET https://registry.npmjs.org/karma-requirejs
+32 http 200 https://registry.npmjs.org/karma-requirejs
+33 silly registry.get cb [ 200,
+33 silly registry.get   { date: 'Tue, 13 Jan 2015 16:50:22 GMT',
+33 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+33 silly registry.get     etag: '"EBKXLN6SYJ4QAEVSF4BDRCFY6"',
+33 silly registry.get     'content-type': 'application/json',
+33 silly registry.get     'cache-control': 'max-age=60',
+33 silly registry.get     'content-length': '10431',
+33 silly registry.get     'accept-ranges': 'bytes',
+33 silly registry.get     via: '1.1 varnish',
+33 silly registry.get     age: '1',
+33 silly registry.get     'x-served-by': 'cache-jfk1030-JFK',
+33 silly registry.get     'x-cache': 'HIT',
+33 silly registry.get     'x-cache-hits': '1',
+33 silly registry.get     'x-timer': 'S1421167822.159832,VS0,VE0',
+33 silly registry.get     vary: 'Accept',
+33 silly registry.get     'keep-alive': 'timeout=10, max=50',
+33 silly registry.get     connection: 'Keep-Alive' } ]
+34 silly addNameRange number 2 { name: 'karma-requirejs', range: '*', hasData: true }
+35 silly addNameRange versions [ 'karma-requirejs',
+35 silly addNameRange   [ '0.0.1', '0.0.2', '0.0.3', '0.1.0', '0.2.0', '0.2.1', '0.2.2' ] ]
+36 verbose addNamed [ 'karma-requirejs', '0.2.2' ]
+37 verbose addNamed [ '0.2.2', '0.2.2' ]
+38 silly lockFile 15265a5e-karma-requirejs-0-2-2 karma-requirejs@0.2.2
+39 verbose lock karma-requirejs@0.2.2 /home/cseibert/.npm/15265a5e-karma-requirejs-0-2-2.lock
+40 silly lockFile 3dd625b0-uirejs-karma-requirejs-0-2-2-tgz https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz
+41 verbose lock https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz /home/cseibert/.npm/3dd625b0-uirejs-karma-requirejs-0-2-2-tgz.lock
+42 verbose addRemoteTarball [ 'https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz',
+42 verbose addRemoteTarball   'e497ca0868e2e09a9b8e3f646745c31a935fe8b6' ]
+43 info retry fetch attempt 1 at 11:50:22
+44 verbose fetch to= /tmp/npm-4783-fte-DPyD/registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz
+45 http GET https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz
+46 http 200 https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz
+47 silly lockFile 3dd625b0-uirejs-karma-requirejs-0-2-2-tgz https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz
+48 silly lockFile 3dd625b0-uirejs-karma-requirejs-0-2-2-tgz https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz
+49 silly lockFile 15265a5e-karma-requirejs-0-2-2 karma-requirejs@0.2.2
+50 silly lockFile 15265a5e-karma-requirejs-0-2-2 karma-requirejs@0.2.2
+51 silly lockFile e4e32c7c-karma-requirejs karma-requirejs@
+52 silly lockFile e4e32c7c-karma-requirejs karma-requirejs@
+53 silly resolved [ { name: 'karma-requirejs',
+53 silly resolved     version: '0.2.2',
+53 silly resolved     description: 'A Karma plugin. Adapter for RequireJS framework.',
+53 silly resolved     main: 'lib/index.js',
+53 silly resolved     scripts: { test: 'grunt test' },
+53 silly resolved     repository:
+53 silly resolved      { type: 'git',
+53 silly resolved        url: 'git://github.com/karma-runner/karma-requirejs.git' },
+53 silly resolved     keywords: [ 'karma-plugin', 'karma-adapter', 'requirejs' ],
+53 silly resolved     author: { name: 'Vojta Jina', email: 'vojta.jina@gmail.com' },
+53 silly resolved     dependencies: {},
+53 silly resolved     devDependencies:
+53 silly resolved      { grunt: '~0.4.1',
+53 silly resolved        'grunt-contrib-jshint': '~0.6',
+53 silly resolved        'grunt-karma': '~0.3',
+53 silly resolved        'grunt-bump': '~0.0.7',
+53 silly resolved        'grunt-npm': '~0.0.2',
+53 silly resolved        'grunt-auto-release': '~0.0.2' },
+53 silly resolved     peerDependencies: { karma: '>=0.9', requirejs: '~2.1' },
+53 silly resolved     license: 'MIT',
+53 silly resolved     contributors: [ [Object], [Object], [Object], [Object], [Object] ],
+53 silly resolved     bugs: { url: 'https://github.com/karma-runner/karma-requirejs/issues' },
+53 silly resolved     homepage: 'https://github.com/karma-runner/karma-requirejs',
+53 silly resolved     _id: 'karma-requirejs@0.2.2',
+53 silly resolved     dist:
+53 silly resolved      { shasum: 'e497ca0868e2e09a9b8e3f646745c31a935fe8b6',
+53 silly resolved        tarball: 'http://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz' },
+53 silly resolved     _from: 'karma-requirejs@',
+53 silly resolved     _npmVersion: '1.4.4',
+53 silly resolved     _npmUser: { name: 'vojtajina', email: 'vojta.jina@gmail.com' },
+53 silly resolved     maintainers: [ [Object] ],
+53 silly resolved     directories: {},
+53 silly resolved     _shasum: 'e497ca0868e2e09a9b8e3f646745c31a935fe8b6',
+53 silly resolved     _resolved: 'https://registry.npmjs.org/karma-requirejs/-/karma-requirejs-0.2.2.tgz' } ]
+54 info install karma-requirejs@0.2.2 into /home/setter2/setter
+55 info installOne karma-requirejs@0.2.2
+56 verbose node_modules/karma-requirejs unbuild
+57 verbose tar unpack /home/cseibert/.npm/karma-requirejs/0.2.2/package.tgz
+58 silly lockFile 408f7373-ter-node-modules-karma-requirejs tar:///home/setter2/setter/node_modules/karma-requirejs
+59 verbose lock tar:///home/setter2/setter/node_modules/karma-requirejs /home/cseibert/.npm/408f7373-ter-node-modules-karma-requirejs.lock
+60 silly lockFile 465a648d-arma-requirejs-0-2-2-package-tgz tar:///home/cseibert/.npm/karma-requirejs/0.2.2/package.tgz
+61 verbose lock tar:///home/cseibert/.npm/karma-requirejs/0.2.2/package.tgz /home/cseibert/.npm/465a648d-arma-requirejs-0-2-2-package-tgz.lock
+62 silly gunzTarPerm modes [ '775', '664' ]
+63 silly gunzTarPerm extractEntry package.json
+64 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+65 silly gunzTarPerm extractEntry README.md
+66 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+67 silly gunzTarPerm extractEntry LICENSE
+68 silly gunzTarPerm modified mode [ 'LICENSE', 420, 436 ]
+69 silly gunzTarPerm extractEntry lib/adapter.js
+70 silly gunzTarPerm modified mode [ 'lib/adapter.js', 420, 436 ]
+71 silly gunzTarPerm extractEntry lib/index.js
+72 silly gunzTarPerm modified mode [ 'lib/index.js', 420, 436 ]
+73 silly lockFile 408f7373-ter-node-modules-karma-requirejs tar:///home/setter2/setter/node_modules/karma-requirejs
+74 silly lockFile 408f7373-ter-node-modules-karma-requirejs tar:///home/setter2/setter/node_modules/karma-requirejs
+75 silly lockFile 465a648d-arma-requirejs-0-2-2-package-tgz tar:///home/cseibert/.npm/karma-requirejs/0.2.2/package.tgz
+76 silly lockFile 465a648d-arma-requirejs-0-2-2-package-tgz tar:///home/cseibert/.npm/karma-requirejs/0.2.2/package.tgz
+77 info preinstall karma-requirejs@0.2.2
+78 verbose readDependencies using package.json deps
+79 verbose readDependencies using package.json deps
+80 silly resolved []
+81 verbose about to build /home/setter2/setter/node_modules/karma-requirejs
+82 info build /home/setter2/setter/node_modules/karma-requirejs
+83 verbose linkStuff [ false, false, false, '/home/setter2/setter/node_modules' ]
+84 info linkStuff karma-requirejs@0.2.2
+85 verbose linkBins karma-requirejs@0.2.2
+86 verbose linkMans karma-requirejs@0.2.2
+87 verbose rebuildBundles karma-requirejs@0.2.2
+88 info install karma-requirejs@0.2.2
+89 info postinstall karma-requirejs@0.2.2
+90 verbose readDependencies using package.json deps
+91 verbose cache add [ 'requirejs@~2.1', null ]
+92 verbose cache add name=undefined spec="requirejs@~2.1" args=["requirejs@~2.1",null]
+93 verbose parsed url { protocol: null,
+93 verbose parsed url   slashes: null,
+93 verbose parsed url   auth: null,
+93 verbose parsed url   host: null,
+93 verbose parsed url   port: null,
+93 verbose parsed url   hostname: null,
+93 verbose parsed url   hash: null,
+93 verbose parsed url   search: null,
+93 verbose parsed url   query: null,
+93 verbose parsed url   pathname: 'requirejs@~2.1',
+93 verbose parsed url   path: 'requirejs@~2.1',
+93 verbose parsed url   href: 'requirejs@~2.1' }
+94 verbose cache add name="requirejs" spec="~2.1" args=["requirejs","~2.1"]
+95 verbose parsed url { protocol: null,
+95 verbose parsed url   slashes: null,
+95 verbose parsed url   auth: null,
+95 verbose parsed url   host: null,
+95 verbose parsed url   port: null,
+95 verbose parsed url   hostname: null,
+95 verbose parsed url   hash: null,
+95 verbose parsed url   search: null,
+95 verbose parsed url   query: null,
+95 verbose parsed url   pathname: '~2.1',
+95 verbose parsed url   path: '~2.1',
+95 verbose parsed url   href: '~2.1' }
+96 verbose addNamed [ 'requirejs', '~2.1' ]
+97 verbose addNamed [ null, '>=2.1.0-0 <2.2.0-0' ]
+98 silly lockFile 8a82036b-requirejs-2-1 requirejs@~2.1
+99 verbose lock requirejs@~2.1 /home/cseibert/.npm/8a82036b-requirejs-2-1.lock
+100 silly addNameRange { name: 'requirejs',
+100 silly addNameRange   range: '>=2.1.0-0 <2.2.0-0',
+100 silly addNameRange   hasData: false }
+101 verbose request where is /requirejs
+102 verbose request registry https://registry.npmjs.org/
+103 verbose url raw /requirejs
+104 verbose url resolving [ 'https://registry.npmjs.org/', './requirejs' ]
+105 verbose url resolved https://registry.npmjs.org/requirejs
+106 verbose request where is https://registry.npmjs.org/requirejs
+107 info trying registry request attempt 1 at 11:50:22
+108 http GET https://registry.npmjs.org/requirejs
+109 http 200 https://registry.npmjs.org/requirejs
+110 silly registry.get cb [ 200,
+110 silly registry.get   { date: 'Tue, 13 Jan 2015 16:50:22 GMT',
+110 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+110 silly registry.get     etag: '"93OYRI6WN872BLKY3PKGMVWTU"',
+110 silly registry.get     'content-type': 'application/json',
+110 silly registry.get     'cache-control': 'max-age=60',
+110 silly registry.get     'content-length': '35929',
+110 silly registry.get     'accept-ranges': 'bytes',
+110 silly registry.get     via: '1.1 varnish',
+110 silly registry.get     age: '21',
+110 silly registry.get     'x-served-by': 'cache-jfk1024-JFK',
+110 silly registry.get     'x-cache': 'HIT',
+110 silly registry.get     'x-cache-hits': '1',
+110 silly registry.get     'x-timer': 'S1421167822.611570,VS0,VE0',
+110 silly registry.get     vary: 'Accept',
+110 silly registry.get     'keep-alive': 'timeout=10, max=50',
+110 silly registry.get     connection: 'Keep-Alive' } ]
+111 silly addNameRange number 2 { name: 'requirejs', range: '>=2.1.0-0 <2.2.0-0', hasData: true }
+112 silly addNameRange versions [ 'requirejs',
+112 silly addNameRange   [ '0.26.0',
+112 silly addNameRange     '0.27.0',
+112 silly addNameRange     '0.27.1',
+112 silly addNameRange     '1.0.0',
+112 silly addNameRange     '1.0.1',
+112 silly addNameRange     '1.0.2',
+112 silly addNameRange     '1.0.3',
+112 silly addNameRange     '1.0.4',
+112 silly addNameRange     '1.0.5',
+112 silly addNameRange     '1.0.6',
+112 silly addNameRange     '1.0.7',
+112 silly addNameRange     '1.0.8',
+112 silly addNameRange     '2.0.0',
+112 silly addNameRange     '2.0.1',
+112 silly addNameRange     '2.0.2',
+112 silly addNameRange     '2.0.3',
+112 silly addNameRange     '2.0.4',
+112 silly addNameRange     '2.0.5',
+112 silly addNameRange     '2.0.6',
+112 silly addNameRange     '2.1.0',
+112 silly addNameRange     '2.1.1',
+112 silly addNameRange     '2.1.2',
+112 silly addNameRange     '2.1.3',
+112 silly addNameRange     '2.1.4',
+112 silly addNameRange     '2.1.5',
+112 silly addNameRange     '2.1.6',
+112 silly addNameRange     '2.1.7',
+112 silly addNameRange     '2.1.8',
+112 silly addNameRange     '2.1.9',
+112 silly addNameRange     '2.1.10',
+112 silly addNameRange     '2.1.11',
+112 silly addNameRange     '2.1.12',
+112 silly addNameRange     '2.1.13',
+112 silly addNameRange     '2.1.14',
+112 silly addNameRange     '2.1.15' ] ]
+113 verbose addNamed [ 'requirejs', '2.1.15' ]
+114 verbose addNamed [ '2.1.15', '2.1.15' ]
+115 silly lockFile 87818c58-requirejs-2-1-15 requirejs@2.1.15
+116 verbose lock requirejs@2.1.15 /home/cseibert/.npm/87818c58-requirejs-2-1-15.lock
+117 silly lockFile 71b1f59b-g-requirejs-requirejs-2-1-15-tgz https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz
+118 verbose lock https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz /home/cseibert/.npm/71b1f59b-g-requirejs-requirejs-2-1-15-tgz.lock
+119 verbose addRemoteTarball [ 'https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz',
+119 verbose addRemoteTarball   'cbcfce55d584ae5983c00a20daa8eade37d18892' ]
+120 info retry fetch attempt 1 at 11:50:22
+121 verbose fetch to= /tmp/npm-4783-fte-DPyD/registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz
+122 http GET https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz
+123 http 200 https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz
+124 silly lockFile 71b1f59b-g-requirejs-requirejs-2-1-15-tgz https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz
+125 silly lockFile 71b1f59b-g-requirejs-requirejs-2-1-15-tgz https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz
+126 silly lockFile 87818c58-requirejs-2-1-15 requirejs@2.1.15
+127 silly lockFile 87818c58-requirejs-2-1-15 requirejs@2.1.15
+128 silly lockFile 8a82036b-requirejs-2-1 requirejs@~2.1
+129 silly lockFile 8a82036b-requirejs-2-1 requirejs@~2.1
+130 silly resolved [ { name: 'requirejs',
+130 silly resolved     description: 'Node adapter for RequireJS, for loading AMD modules. Includes RequireJS optimizer',
+130 silly resolved     version: '2.1.15',
+130 silly resolved     homepage: 'http://github.com/jrburke/r.js',
+130 silly resolved     author:
+130 silly resolved      { name: 'James Burke',
+130 silly resolved        email: 'jrburke@gmail.com',
+130 silly resolved        url: 'http://github.com/jrburke' },
+130 silly resolved     licenses: [ [Object], [Object] ],
+130 silly resolved     repository: { type: 'git', url: 'https://github.com/jrburke/r.js.git' },
+130 silly resolved     main: './bin/r.js',
+130 silly resolved     bin: { 'r.js': './bin/r.js' },
+130 silly resolved     engines: { node: '>=0.4.0' },
+130 silly resolved     bugs: { url: 'https://github.com/jrburke/r.js/issues' },
+130 silly resolved     _id: 'requirejs@2.1.15',
+130 silly resolved     scripts: {},
+130 silly resolved     _shasum: 'cbcfce55d584ae5983c00a20daa8eade37d18892',
+130 silly resolved     _from: 'requirejs@~2.1',
+130 silly resolved     _npmVersion: '1.4.14',
+130 silly resolved     _npmUser: { name: 'jrburke', email: 'jrburke@gmail.com' },
+130 silly resolved     maintainers: [ [Object] ],
+130 silly resolved     dist:
+130 silly resolved      { shasum: 'cbcfce55d584ae5983c00a20daa8eade37d18892',
+130 silly resolved        tarball: 'http://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz' },
+130 silly resolved     directories: {},
+130 silly resolved     _resolved: 'https://registry.npmjs.org/requirejs/-/requirejs-2.1.15.tgz' } ]
+131 info install requirejs@2.1.15 into /home/setter2/setter
+132 info installOne requirejs@2.1.15
+133 verbose node_modules/requirejs unbuild
+134 verbose tar unpack /home/cseibert/.npm/requirejs/2.1.15/package.tgz
+135 silly lockFile 112bc683-r2-setter-node-modules-requirejs tar:///home/setter2/setter/node_modules/requirejs
+136 verbose lock tar:///home/setter2/setter/node_modules/requirejs /home/cseibert/.npm/112bc683-r2-setter-node-modules-requirejs.lock
+137 silly lockFile 6461c761-npm-requirejs-2-1-15-package-tgz tar:///home/cseibert/.npm/requirejs/2.1.15/package.tgz
+138 verbose lock tar:///home/cseibert/.npm/requirejs/2.1.15/package.tgz /home/cseibert/.npm/6461c761-npm-requirejs-2-1-15-package-tgz.lock
+139 silly gunzTarPerm modes [ '775', '664' ]
+140 silly gunzTarPerm extractEntry package.json
+141 silly gunzTarPerm modified mode [ 'package.json', 420, 436 ]
+142 silly gunzTarPerm extractEntry README.md
+143 silly gunzTarPerm modified mode [ 'README.md', 420, 436 ]
+144 silly gunzTarPerm extractEntry require.js
+145 silly gunzTarPerm modified mode [ 'require.js', 420, 436 ]
+146 silly gunzTarPerm extractEntry bin/r.js
+147 silly gunzTarPerm modified mode [ 'bin/r.js', 420, 436 ]
+148 silly lockFile 112bc683-r2-setter-node-modules-requirejs tar:///home/setter2/setter/node_modules/requirejs
+149 silly lockFile 112bc683-r2-setter-node-modules-requirejs tar:///home/setter2/setter/node_modules/requirejs
+150 silly lockFile 6461c761-npm-requirejs-2-1-15-package-tgz tar:///home/cseibert/.npm/requirejs/2.1.15/package.tgz
+151 silly lockFile 6461c761-npm-requirejs-2-1-15-package-tgz tar:///home/cseibert/.npm/requirejs/2.1.15/package.tgz
+152 info preinstall requirejs@2.1.15
+153 verbose readDependencies using package.json deps
+154 verbose readDependencies using package.json deps
+155 silly resolved []
+156 verbose about to build /home/setter2/setter/node_modules/requirejs
+157 info build /home/setter2/setter/node_modules/requirejs
+158 verbose linkStuff [ false, false, false, '/home/setter2/setter/node_modules' ]
+159 info linkStuff requirejs@2.1.15
+160 verbose linkBins requirejs@2.1.15
+161 verbose link bins [ { 'r.js': './bin/r.js' },
+161 verbose link bins   '/home/setter2/setter/node_modules/.bin',
+161 verbose link bins   false ]
+162 verbose linkMans requirejs@2.1.15
+163 verbose rebuildBundles requirejs@2.1.15
+164 info install requirejs@2.1.15
+165 info postinstall requirejs@2.1.15
+166 verbose saving { requirejs: '^2.1.15', 'karma-requirejs': '^0.2.2' }
+167 error Error: EACCES, open '/home/setter2/setter/package.json'
+167 error  { [Error: EACCES, open '/home/setter2/setter/package.json']
+167 error   errno: 3,
+167 error   code: 'EACCES',
+167 error   path: '/home/setter2/setter/package.json' }
+168 error Please try running this command again as root/Administrator.
+169 error System Linux 3.13.0-32-generic
+170 error command "/usr/bin/node" "/usr/bin/npm" "install" "karma-requirejs" "--save-dev"
+171 error cwd /home/setter2/setter
+172 error node -v v0.10.33
+173 error npm -v 1.4.28
+174 error path /home/setter2/setter/package.json
+175 error code EACCES
+176 error errno 3
+177 error stack Error: EACCES, open '/home/setter2/setter/package.json'
+178 verbose exit [ 3, true ]

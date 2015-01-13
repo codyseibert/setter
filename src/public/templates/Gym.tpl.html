@@ -21,28 +21,16 @@
 
         </div>
 
-        <div class="mb2  small-12  medium-4 columns"
-                ng-hide="getHomeGymId() === gymId || isGymAccount()">
+        <div class="small-12 medium-12 columns"
+             ng-hide="getHomeGymId() === gymId || isGymAccount()">
 
             <button class="btn--primary  btn--medium  icon-home btn--expanded"
                         ng-click="setHomeGym()">
                 Make Home Gym
             </button>
-
         </div>
 
-      <div class="small-6  medium-6 columns">
-
-                <button
-                class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
-                ng-click="navigateToGymSuggestions(gymId)"
-                ng-show="isUserAccount()" >
-                    Post Suggestion
-                </button>
-
-        </div>
         <div class="small-6  medium-6 columns  ">
-
             <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
                     ng-click="navigateToWalls(gymId)"
                     ng-show="getAccountId() !== gymId">
@@ -50,7 +38,13 @@
             </button>
         </div>
 
-
+        <div class="small-6  medium-6 columns">
+            <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
+                    ng-click="navigateToGymSuggestions(gymId)"
+                    ng-show="isUserAccount()" >
+                Post Suggestion
+            </button>
+        </div>
     </section>
 
 

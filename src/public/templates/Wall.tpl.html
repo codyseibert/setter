@@ -103,45 +103,10 @@
 <section class="row  small-collapse">
     <div class="small-12 columns">
 
-        <!-- Routes in Zone -->
-        <ul class="list--tableStyle  list--navElem">
-
-            <!-- [] Route -->
-            <li class="list--tableStyle  ptb2"
-                ng-repeat="route in routes"
-                ng-click="navigateToRoute(gymId, wallId, route.id)">
-
-                <!-- I - Color -->
-                <i class="icon-circle"
-                   ng-style="{color: route.value}"> </i>
-
-                <!-- T - Color -->
-                {{route.route_name}} {{route.boulder_grade || route.rope_grade || 'Not Rated'}}
-
-                <!-- I - New -->
-                <span class="icon--new label  success  border-radius"
-                      ng-show="isUserAccount() && route.isNew">
-                    New
-                </span>
-
-                <!-- I - Right Icon -->
-                <i class="icon-right-big  right"> </i>
-
-                <!-- T - Send Count -->
-                <span class="right"
-                      style="margin-right: 40px;">
-                    {{route.send_count}} Sends
-                </span>
-
-                <!-- T - Send -->
-                <span class="right"
-                      style="margin-right: 40px;"
-                      ng-show="route.send">
-                      You've Sent
-                </span>
-            </li>
-        </ul>
-
+        <!-- Displays the routes in this zone -->
+        <ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
+            <!-- Routes Table Inserted Here-->
+        </ng-include>
 
         <!-- Delete Zone -->
         <section class="row">

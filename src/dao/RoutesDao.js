@@ -54,7 +54,7 @@ var RoutesDao = function () {
 
     this.getRoutesOnWall = function (pUserId, pWallId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, (SELECT true FROM sends s WHERE s.route_id = r.id AND s.user_id = ?) AS send, (SELECT COUNT(*) FROM sends s WHERE s.route_id = r.id) AS send_count, (SELECT rntu.id FROM route_new_to_user rntu WHERE rntu.route_id = r.id AND rntu.user_id = ?) AS isNew, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
+            'SELECT r.id, (SELECT ROUND(AVG(rating), 1) FROM ratings ra WHERE ra.route_id = r.id) AS rating, (SELECT true FROM sends s WHERE s.route_id = r.id AND s.user_id = ?) AS send, (SELECT COUNT(*) FROM sends s WHERE s.route_id = r.id) AS send_count, (SELECT rntu.id FROM route_new_to_user rntu WHERE rntu.route_id = r.id AND rntu.user_id = ?) AS isNew, r.name AS route_name, bg.name AS boulder_grade, rg.name AS rope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +

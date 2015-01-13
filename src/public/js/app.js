@@ -159,6 +159,8 @@ angular.module('SETTER', [
                 animation: false
             };
 
+            $rootScope.UNRATED_STRING = "Unrated";
+
             $rootScope.navigateToLogin = function () {
                 $location.path('login');
             };

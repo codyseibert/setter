@@ -483,8 +483,7 @@ table {
 }
 
 /* line 40, ../scss/modules/_generics.scss */
-.header .header-divider, fs.e
-.fieldWrapper, .label--block, .img-overlay {
+.header .header-divider, .fieldWrapper, .label--block, .img-overlay {
   display: block;
 }
 
@@ -516,8 +515,7 @@ table {
 }
 
 /* line 88, ../scss/modules/_generics.scss */
-.route-mainInfo, .wall-mainInfo, .header, .table li, .list--tableStyle > li, .list--noStyles, .list--dotted li, fs.e
-.fieldWrapper {
+.route-mainInfo, .wall-mainInfo, .header, .table li, .list--tableStyle > li, .list--noStyles, .list--dotted li, .fieldWrapper {
   overflow: hidden;
   zoom: 1;
 }
@@ -1052,7 +1050,7 @@ footer, .select--tetriary, .select--primary, .select--secondary {
 
 /* line 11, ../scss/modules/_typography.scss */
 .list--stats .list-title, .list--stats .list-position, .list--stats .list-elem a {
-  color: #6c6c6c;
+  color: #E0E0DF;
 }
 
 /* line 18, ../scss/modules/_typography.scss */
@@ -1116,28 +1114,18 @@ h6,
   font-weight: normal;
   font-style: normal;
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?4837664#fontello') format('svg');
-  }
-}
-*/
-/* line 219, ../scss/modules/_icons.scss */
+/* line 147, ../scss/modules/_icons.scss */
 .icon--topRight {
   position: absolute;
   top: -15px;
 }
 
-/* line 229, ../scss/modules/_icons.scss */
+/* line 157, ../scss/modules/_icons.scss */
 .rating--small > * {
   font-size: rem-calc(16);
 }
 
-/* line 233, ../scss/modules/_icons.scss */
+/* line 161, ../scss/modules/_icons.scss */
 .rating--medium > *, .route-secondaryInfo .route-rating .star:before,
 .route-secondaryInfo .route-rating .star--empty:before, .route-moreInfo .route-rating .star:before,
 .route-moreInfo .route-rating .star--empty:before, .wall-moreInfo .wall-rating .star:before,
@@ -1146,7 +1134,7 @@ h6,
   font-size: rem-calc(20);
 }
 
-/* line 237, ../scss/modules/_icons.scss */
+/* line 165, ../scss/modules/_icons.scss */
 .rating--big > *, .icon--big {
   font-size: rem-calc(26);
 }
@@ -1221,6 +1209,16 @@ h6,
     transform: rotate(359deg);
   }
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?4837664#fontello') format('svg');
+  }
+}
+*/
 /* If you set this to false, base styles are left out */
 /* This sets the speed at which the switch toggles */
 /* This sets the ease of the switch transition */
@@ -5366,18 +5364,18 @@ dialog[open] {
 /* line 75, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li a:not(.button) {
   display: block;
-  color: #696360;
+  color: #6B6862;
   margin: 0;
   padding: 0.4375rem 0.875rem;
 }
 /* line 80, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
   background: rgba(0, 0, 0, 0.025);
-  color: #98918e;
+  color: #999690;
 }
 /* line 87, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.active > a:first-child:not(.button) {
-  color: #98918e;
+  color: #999690;
   font-weight: normal;
   font-family: "Open Sans", sans-serif;
 }
@@ -5391,7 +5389,7 @@ dialog[open] {
 }
 /* line 101, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.heading {
-  color: #696360;
+  color: #6B6862;
   font-size: 0.875rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -5497,7 +5495,7 @@ table tr th,
 table tr td {
   padding: 0.5625rem 0.625rem;
   font-size: 0.875rem;
-  color: #222222;
+  color: #6B6862;
   text-align: left;
 }
 /* line 115, ../bower_components/foundation/scss/foundation/components/_tables.scss */
@@ -6770,13 +6768,13 @@ td {
 /* Default Link Styles */
 /* line 217, ../bower_components/foundation/scss/foundation/components/_type.scss */
 a {
-  color: #2b85af;
+  color: #ed6d56;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 222, ../bower_components/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #257297;
+  color: #e94a2d;
 }
 /* line 230, ../bower_components/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -7354,7 +7352,7 @@ blockquote p {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #ebe4d7;
+  background: #F7F0E3;
   z-index: 1001;
   box-sizing: content-box;
   transition: transform 500ms ease 0s;
@@ -7382,7 +7380,7 @@ blockquote p {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #ebe4d7;
+  background: #F7F0E3;
   z-index: 1001;
   box-sizing: content-box;
   transition: transform 500ms ease 0s;
@@ -7424,7 +7422,7 @@ ul.off-canvas-list li label {
 ul.off-canvas-list li a {
   display: block;
   padding: 0.75rem;
-  color: #696360;
+  color: #6B6862;
   border-bottom: 0;
   transition: background 300ms ease;
 }
@@ -7620,7 +7618,7 @@ ul.off-canvas-list li a:hover {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #ebe4d7;
+  background: #F7F0E3;
   z-index: 1002;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -7684,7 +7682,7 @@ ul.off-canvas-list li a:hover {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #ebe4d7;
+  background: #F7F0E3;
   z-index: 1002;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -8337,8 +8335,7 @@ th.hide-for-touch {
 }
 
 /* line 40, ../scss/modules/_generics.scss */
-.header .header-divider, fs.e
-.fieldWrapper, .label--block, .img-overlay {
+.header .header-divider, .fieldWrapper, .label--block, .img-overlay {
   display: block;
 }
 
@@ -8370,8 +8367,7 @@ th.hide-for-touch {
 }
 
 /* line 88, ../scss/modules/_generics.scss */
-.route-mainInfo, .wall-mainInfo, .header, .table li, .list--tableStyle > li, .list--noStyles, .list--dotted li, fs.e
-.fieldWrapper {
+.route-mainInfo, .wall-mainInfo, .header, .table li, .list--tableStyle > li, .list--noStyles, .list--dotted li, .fieldWrapper {
   overflow: hidden;
   zoom: 1;
 }
@@ -8906,7 +8902,7 @@ footer, .select--tetriary, .select--primary, .select--secondary {
 
 /* line 11, ../scss/modules/_typography.scss */
 .list--stats .list-title, .list--stats .list-position, .list--stats .list-elem a {
-  color: #6c6c6c;
+  color: #E0E0DF;
 }
 
 /* line 18, ../scss/modules/_typography.scss */
@@ -8970,28 +8966,18 @@ h6,
   font-weight: normal;
   font-style: normal;
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?4837664#fontello') format('svg');
-  }
-}
-*/
-/* line 219, ../scss/modules/_icons.scss */
+/* line 147, ../scss/modules/_icons.scss */
 .icon--topRight {
   position: absolute;
   top: -15px;
 }
 
-/* line 229, ../scss/modules/_icons.scss */
+/* line 157, ../scss/modules/_icons.scss */
 .rating--small > * {
   font-size: 1rem;
 }
 
-/* line 233, ../scss/modules/_icons.scss */
+/* line 161, ../scss/modules/_icons.scss */
 .rating--medium > *, .route-secondaryInfo .route-rating .star:before,
 .route-secondaryInfo .route-rating .star--empty:before, .route-moreInfo .route-rating .star:before,
 .route-moreInfo .route-rating .star--empty:before, .wall-moreInfo .wall-rating .star:before,
@@ -9000,7 +8986,7 @@ h6,
   font-size: 1.25rem;
 }
 
-/* line 237, ../scss/modules/_icons.scss */
+/* line 165, ../scss/modules/_icons.scss */
 .rating--big > *, .icon--big {
   font-size: 1.625rem;
 }
@@ -9075,6 +9061,16 @@ h6,
     transform: rotate(359deg);
   }
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?4837664#fontello') format('svg');
+  }
+}
+*/
 /* If you set this to false, base styles are left out */
 /* This sets the speed at which the switch toggles */
 /* This sets the ease of the switch transition */
@@ -9609,7 +9605,7 @@ ol {
 /* line 8, ../scss/partials/_typography.scss */
 html,
 body {
-  color: #333333;
+  color: #484848;
   font-size: 0.875rem;
 }
 @media (min-width: 640px) {
@@ -9632,51 +9628,41 @@ hr {
   margin-bottom: 1.5rem;
 }
 
-/* line 38, ../scss/partials/_typography.scss */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #333333;
-}
-
-/* line 52, ../scss/partials/_typography.scss */
+/* line 43, ../scss/partials/_typography.scss */
 .tdn {
   text-decoration: none;
 }
 
-/* line 53, ../scss/partials/_typography.scss */
+/* line 44, ../scss/partials/_typography.scss */
 .fwb {
   font-weight: 700;
 }
 
-/* line 54, ../scss/partials/_typography.scss */
+/* line 45, ../scss/partials/_typography.scss */
 .fwn {
   font-weight: 400;
 }
 
-/* line 55, ../scss/partials/_typography.scss */
+/* line 46, ../scss/partials/_typography.scss */
 .fwl {
   font-weight: 300;
 }
 
-/* line 57, ../scss/partials/_typography.scss */
+/* line 48, ../scss/partials/_typography.scss */
 .txtc2 {
-  color: #6c6c6c;
+  color: #E0E0DF;
 }
 
-/* line 115, ../scss/partials/_typography.scss */
+/* line 106, ../scss/partials/_typography.scss */
 a {
   color: #ed6d56;
 }
-/* line 117, ../scss/partials/_typography.scss */
+/* line 108, ../scss/partials/_typography.scss */
 a:hover {
   color: #df3618;
 }
 
-/* line 123, ../scss/partials/_typography.scss */
+/* line 114, ../scss/partials/_typography.scss */
 .title--main {
   font-weight: 300;
 }
@@ -10057,92 +10043,70 @@ input[type="submit"] {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #c3c3c3;
-  border: 1px solid #909090;
+  background-color: #E0E0DF;
+  border: 1px solid #aeaeab;
   margin-bottom: 0.75rem;
   margin-right: 0.375rem;
 }
 /* line 17, ../scss/modules/_buttons.scss */
 .btn--secondary:hover {
-  background: #b9b9b9;
+  background: #d6d6d5;
 }
 /* line 21, ../scss/modules/_buttons.scss */
 .btn--secondary:active {
-  background: #b9b9b9;
+  background: #d6d6d5;
 }
 /* line 50, ../scss/partials/_buttons.scss */
 .btn--secondary, .btn--secondary:hover {
   color: #333333;
 }
-/* line 56, ../scss/partials/_buttons.scss */
-.btn--secondary.active {
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #333333;
-  border: 1px solid black;
-  margin-bottom: 0.75rem;
-  margin-right: 0.375rem;
-}
-/* line 17, ../scss/modules/_buttons.scss */
-.btn--secondary.active:hover {
-  background: #292929;
-}
-/* line 21, ../scss/modules/_buttons.scss */
-.btn--secondary.active:active {
-  background: #292929;
-}
-/* line 58, ../scss/partials/_buttons.scss */
-.btn--secondary.active, .btn--secondary.active:hover {
-  color: #6c6c6c;
-}
 
-/* line 68, ../scss/partials/_buttons.scss */
+/* line 58, ../scss/partials/_buttons.scss */
 .btn--tetriary {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #6c6c6c;
-  border: 1px solid #393939;
+  background-color: #6B6862;
+  border: 1px solid #363431;
   margin-bottom: 0.75rem;
   margin-right: 0.375rem;
 }
 /* line 17, ../scss/modules/_buttons.scss */
 .btn--tetriary:hover {
-  background: #626262;
+  background: #605e58;
 }
 /* line 21, ../scss/modules/_buttons.scss */
 .btn--tetriary:active {
-  background: #626262;
+  background: #605e58;
 }
-/* line 70, ../scss/partials/_buttons.scss */
+/* line 60, ../scss/partials/_buttons.scss */
 .btn--tetriary:hover {
   color: #fff;
 }
 
-/* line 76, ../scss/partials/_buttons.scss */
+/* line 66, ../scss/partials/_buttons.scss */
 .btn--warning {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #f6db6c;
-  border: 1px solid #edc20f;
+  background-color: #EAAF63;
+  border: 1px solid #cc7f1b;
   margin-bottom: 0.75rem;
   margin-right: 0.375rem;
 }
 /* line 17, ../scss/modules/_buttons.scss */
 .btn--warning:hover {
-  background: #f5d659;
+  background: #e8a651;
 }
 /* line 21, ../scss/modules/_buttons.scss */
 .btn--warning:active {
-  background: #f5d659;
+  background: #e8a651;
 }
 
 /*------------------------------------*\
     #Button Groups
 \*------------------------------------*/
-/* line 87, ../scss/partials/_buttons.scss */
+/* line 77, ../scss/partials/_buttons.scss */
 .btnGroup--primary {
   list-style: none;
   margin: 0;
@@ -10183,16 +10147,16 @@ input[type="submit"] {
 .btnGroup--primary > li:last-child {
   border-right: 0;
 }
-/* line 89, ../scss/partials/_buttons.scss */
+/* line 79, ../scss/partials/_buttons.scss */
 .btnGroup--primary a {
   color: #fff;
 }
-/* line 92, ../scss/partials/_buttons.scss */
+/* line 82, ../scss/partials/_buttons.scss */
 .btnGroup--primary a:hover {
   color: #fff;
 }
 
-/* line 100, ../scss/partials/_buttons.scss */
+/* line 90, ../scss/partials/_buttons.scss */
 .btnGroup--secondary {
   list-style: none;
   margin: 0;
@@ -10202,10 +10166,10 @@ input[type="submit"] {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  border: 1px solid #909090;
+  border: 1px solid #aeaeab;
   margin-bottom: 0.75rem;
   overflow: hidden;
-  background-color: #c3c3c3;
+  background-color: #E0E0DF;
 }
 /* line 47, ../scss/modules/_buttons.scss */
 .btnGroup--secondary [class*="btn--"] {
@@ -10219,23 +10183,23 @@ input[type="submit"] {
 }
 /* line 56, ../scss/modules/_buttons.scss */
 .btnGroup--secondary > li {
-  border-right: 1px solid #909090;
+  border-right: 1px solid #aeaeab;
 }
 /* line 59, ../scss/modules/_buttons.scss */
 .btnGroup--secondary > li:hover {
-  background: #b9b9b9;
+  background: #d6d6d5;
 }
 /* line 63, ../scss/modules/_buttons.scss */
 .btnGroup--secondary > li:active {
-  background: #b9b9b9;
+  background: #d6d6d5;
 }
 /* line 67, ../scss/modules/_buttons.scss */
 .btnGroup--secondary > li:last-child {
   border-right: 0;
 }
-/* line 102, ../scss/partials/_buttons.scss */
+/* line 92, ../scss/partials/_buttons.scss */
 .btnGroup--secondary [class*="btn--"] {
-  color: #6c6c6c;
+  color: #E0E0DF;
 }
 
 /* line 77, ../scss/modules/_buttons.scss */
@@ -10301,11 +10265,11 @@ input[type="submit"] {
 /*------------------------------------*\
     #Special Button Types
 \*------------------------------------*/
-/* line 132, ../scss/partials/_buttons.scss */
+/* line 122, ../scss/partials/_buttons.scss */
 .btn--split {
   padding-right: 2rem !important;
 }
-/* line 135, ../scss/partials/_buttons.scss */
+/* line 125, ../scss/partials/_buttons.scss */
 .btn--split span {
   border-left: 1px solid #333333;
   display: block;
@@ -10317,7 +10281,7 @@ input[type="submit"] {
   width: 1rem;
 }
 
-/* line 150, ../scss/partials/_buttons.scss */
+/* line 140, ../scss/partials/_buttons.scss */
 .btn--fixedAction {
   border: 2px solid #fff;
   width: 3.625rem;
@@ -10326,7 +10290,7 @@ input[type="submit"] {
   bottom: 0;
   right: 0.3125rem;
 }
-/* line 161, ../scss/partials/_buttons.scss */
+/* line 151, ../scss/partials/_buttons.scss */
 .btn--fixedAction .icon {
   width: 2.1875rem;
   height: 2.1875rem;
@@ -10335,7 +10299,7 @@ input[type="submit"] {
 /*------------------------------------*\
     #Button Options
 \*------------------------------------*/
-/* line 177, ../scss/partials/_buttons.scss */
+/* line 167, ../scss/partials/_buttons.scss */
 .btn--expanded {
   width: 100%;
 }
@@ -10343,7 +10307,7 @@ input[type="submit"] {
 /*------------------------------------*\
     #Button Sizes
 \*------------------------------------*/
-/* line 190, ../scss/partials/_buttons.scss */
+/* line 180, ../scss/partials/_buttons.scss */
 .btn--tiny {
   padding: 0.375rem;
   padding-right: 0.5rem;
@@ -10351,31 +10315,31 @@ input[type="submit"] {
   font-size: 0.625rem;
 }
 
-/* line 197, ../scss/partials/_buttons.scss */
+/* line 187, ../scss/partials/_buttons.scss */
 .btn--small {
   padding: 0.5rem;
   padding-right: 1rem;
   padding-left: 1rem;
   font-size: 0.75rem;
 }
-/* line 203, ../scss/partials/_buttons.scss */
+/* line 193, ../scss/partials/_buttons.scss */
 .btn--small i:before {
   font-size: 0.875rem;
 }
 
-/* line 209, ../scss/partials/_buttons.scss */
+/* line 199, ../scss/partials/_buttons.scss */
 .btn--medium {
   padding: 0.625rem;
   padding-right: 1.25rem;
   padding-left: 1.25rem;
   font-size: 0.875rem;
 }
-/* line 215, ../scss/partials/_buttons.scss */
+/* line 205, ../scss/partials/_buttons.scss */
 .btn--medium i:before {
   font-size: 1rem;
 }
 
-/* line 220, ../scss/partials/_buttons.scss */
+/* line 210, ../scss/partials/_buttons.scss */
 .btn--big {
   padding: 0.625rem;
   padding-right: 2.5rem;
@@ -10383,7 +10347,7 @@ input[type="submit"] {
   font-size: 1.125rem;
 }
 
-/* line 227, ../scss/partials/_buttons.scss */
+/* line 217, ../scss/partials/_buttons.scss */
 .btn--jumbo {
   padding: 0.75rem;
   padding-right: 3.75rem;
@@ -10394,25 +10358,25 @@ input[type="submit"] {
 /*------------------------------------*\
     #Custom Suggestions Thumbs Up
 \*------------------------------------*/
-/* line 241, ../scss/partials/_buttons.scss */
+/* line 231, ../scss/partials/_buttons.scss */
 .suggestion {
   display: inline-block;
   color: #54487f;
   cursor: pointer;
 }
 
-/* line 247, ../scss/partials/_buttons.scss */
+/* line 237, ../scss/partials/_buttons.scss */
 .suggestion:hover {
   color: #e78724;
 }
 
-/* line 251, ../scss/partials/_buttons.scss */
+/* line 241, ../scss/partials/_buttons.scss */
 .suggestion.disabled {
   color: #aed850;
   cursor: default;
 }
 
-/* line 256, ../scss/partials/_buttons.scss */
+/* line 246, ../scss/partials/_buttons.scss */
 .suggestion.disabled:hover {
   color: #aed850;
 }
@@ -10420,7 +10384,7 @@ input[type="submit"] {
 /*------------------------------------*\
     # Custom Stars
 \*------------------------------------*/
-/* line 263, ../scss/partials/_buttons.scss */
+/* line 253, ../scss/partials/_buttons.scss */
 .star {
   cursor: pointer;
   color: #333;
@@ -10430,17 +10394,17 @@ input[type="submit"] {
   font-size: 40px;
 }
 
-/* line 272, ../scss/partials/_buttons.scss */
+/* line 262, ../scss/partials/_buttons.scss */
 .star:hover {
   color: #888;
 }
 
-/* line 276, ../scss/partials/_buttons.scss */
+/* line 266, ../scss/partials/_buttons.scss */
 .star.rated:hover {
   color: white;
 }
 
-/* line 280, ../scss/partials/_buttons.scss */
+/* line 270, ../scss/partials/_buttons.scss */
 .star.rated {
   color: orange;
 }
@@ -10489,7 +10453,7 @@ footer a:hover {
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [class*="comments"]:before, [rel*="comments"]:before {
   content: "";
   font-family: 'fontello';
@@ -10505,7 +10469,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-star:before {
   content: "";
   font-family: 'fontello';
@@ -10519,10 +10483,10 @@ footer a:hover {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  color: #6c6c6c;
+  color: #E0E0DF;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .rated .icon-star:before {
   content: "";
   font-family: 'fontello';
@@ -10539,7 +10503,7 @@ footer a:hover {
   color: #f3db54;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-star.hovered:before {
   content: "";
   font-family: 'fontello';
@@ -10556,7 +10520,7 @@ footer a:hover {
   color: #f3fb54;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [class*="icon-star-empty"]:before {
   content: "";
   font-family: 'fontello';
@@ -10573,7 +10537,7 @@ footer a:hover {
   color: #c3c3c3;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-dashboard:before {
   content: "";
   font-family: 'fontello';
@@ -10589,7 +10553,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-profile:before {
   content: "";
   font-family: 'fontello';
@@ -10605,7 +10569,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-home:before {
   content: "";
   font-family: 'fontello';
@@ -10621,7 +10585,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-globe:before {
   content: "";
   font-family: 'fontello';
@@ -10637,7 +10601,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-stats:before {
   content: "";
   font-family: 'fontello';
@@ -10653,7 +10617,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="topo"]:before,
 .icon-topo:before,
 .icon-map:before {
@@ -10671,7 +10635,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="insights"]:before,
 .icon-insights:before {
   content: "";
@@ -10688,7 +10652,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="logout"]:before,
 .icon-logout:before {
   content: "";
@@ -10705,7 +10669,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="settings"]:before,
 .icon-settings:before {
   content: "";
@@ -10722,7 +10686,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="setters"]:before,
 .icon-group:before {
   content: "";
@@ -10739,7 +10703,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-alert:before {
   content: "";
   font-family: 'fontello';
@@ -10755,7 +10719,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-trash:before {
   content: "";
   font-family: 'fontello';
@@ -10771,7 +10735,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="twitter.com"]:before, [rel="twitter-link"]:before {
   content: "";
   font-family: 'fontello';
@@ -10787,7 +10751,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [href*="facebook.com"]:before, [rel="facebook-link"]:before {
   content: "";
   font-family: 'fontello';
@@ -10803,7 +10767,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [rel*="website-link"]:before {
   content: "";
   font-family: 'fontello';
@@ -10819,7 +10783,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [rel*="address"]:before {
   content: "";
   font-family: 'fontello';
@@ -10835,7 +10799,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [rel*="email"]:before,
 .icon-envelope:before {
   content: "";
@@ -10852,7 +10816,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [rel*="tel"]:before {
   content: "";
   font-family: 'fontello';
@@ -10868,7 +10832,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 [rel="archive"]:before, [href*="routeArchive"]:before,
 .icon-archive:before {
   content: "";
@@ -10885,7 +10849,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-search:before {
   content: "";
   font-family: 'fontello';
@@ -10901,7 +10865,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-right-big:before {
   content: "";
   font-family: 'fontello';
@@ -10917,7 +10881,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-left-big:before {
   content: "";
   font-family: 'fontello';
@@ -10933,7 +10897,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-down-big:before {
   content: "";
   font-family: 'fontello';
@@ -10949,7 +10913,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-up-big:before {
   content: "";
   font-family: 'fontello';
@@ -10965,7 +10929,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-pyramidDown:before {
   content: "";
   font-family: 'fontello';
@@ -10981,7 +10945,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-pyramidUp:before {
   content: "";
   font-family: 'fontello';
@@ -10997,7 +10961,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-circle:before {
   content: "";
   font-family: 'fontello';
@@ -11013,7 +10977,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-megaphone:before {
   content: "";
   font-family: 'fontello';
@@ -11029,7 +10993,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-pencil:before {
   content: "";
   font-family: 'fontello';
@@ -11045,7 +11009,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-blog:before {
   content: "";
   font-family: 'fontello';
@@ -11061,7 +11025,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-plus:before {
   content: "";
   font-family: 'fontello';
@@ -11077,7 +11041,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-minus:before {
   content: "";
   font-family: 'fontello';
@@ -11093,7 +11057,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-thumbsUp:before {
   content: "";
   font-family: 'fontello';
@@ -11116,7 +11080,7 @@ footer a:hover {
   height: 2.25rem;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-key:before {
   content: "";
   font-family: 'fontello';
@@ -11159,7 +11123,7 @@ footer a:hover {
   background-image: url("../images/icon--topRope.svg");
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-messaging:before {
   content: "";
   font-family: 'fontello';
@@ -11175,7 +11139,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .icon-messaging-alt:before {
   content: "";
   font-family: 'fontello';
@@ -11352,12 +11316,12 @@ body {
 }
 /* line 137, ../scss/partials/_navs.scss */
 .nav-account label {
-  background-color: #6c6c6c;
+  background-color: #E0E0DF;
 }
 /* line 141, ../scss/partials/_navs.scss */
 .nav-account li a {
   display: block;
-  color: #6c6c6c;
+  color: #E0E0DF;
   width: 100%;
 }
 /* line 147, ../scss/partials/_navs.scss */
@@ -11386,7 +11350,7 @@ body {
 
 /* line 179, ../scss/partials/_navs.scss */
 .side-menu {
-  background-color: #ebe4d7;
+  background-color: #F7F0E3;
 }
 /* line 181, ../scss/partials/_navs.scss */
 .side-menu a {
@@ -11495,20 +11459,20 @@ ul.off-canvas-list li a:hover img,
 
 /* line 54, ../scss/partials/_popUps.scss */
 .popUp--secondary {
-  border: 1px solid #dbdb57;
+  border: 1px solid #E0E0DF;
 }
 /* line 56, ../scss/partials/_popUps.scss */
 .popUp--secondary .popUp-title {
-  background-color: #dbdb57;
+  background-color: #E0E0DF;
 }
 
 /* line 61, ../scss/partials/_popUps.scss */
 .popUp--warning {
-  border: 1px solid #f6db6c;
+  border: 1px solid #EAAF63;
 }
 /* line 64, ../scss/partials/_popUps.scss */
 .popUp--warning .popUp-title {
-  background-color: #f6db6c;
+  background-color: #EAAF63;
 }
 
 @media (min-width: 640px) {
@@ -11533,7 +11497,7 @@ ul.off-canvas-list li a:hover img,
   position: absolute;
   right: 1.5rem;
 }
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .popUp-closeLink:before {
   content: "";
   font-family: 'fontello';
@@ -11554,25 +11518,24 @@ ul.off-canvas-list li a:hover img,
   color: #fff;
 }
 
-/* line 1, ../scss/partials/_forms.scss */
-fs.e
+/* line 25, ../scss/partials/_forms.scss */
 .fieldWrapper {
   position: relative;
 }
 
-/* line 34, ../scss/partials/_forms.scss */
+/* line 32, ../scss/partials/_forms.scss */
 label, label.inline {
   margin-right: 0.75rem;
   font-size: 0.875rem;
 }
 
-/* line 41, ../scss/partials/_forms.scss */
+/* line 39, ../scss/partials/_forms.scss */
 .label--block {
   font-size: 1rem;
   padding-bottom: 0.75rem;
 }
 
-/* line 47, ../scss/partials/_forms.scss */
+/* line 45, ../scss/partials/_forms.scss */
 .label--inline {
   margin: 0 0 1rem;
   padding: 0.5625rem 0;
@@ -11582,18 +11545,18 @@ label, label.inline {
 /*------------------------------------*\
     #Forms Textareas
 \*------------------------------------*/
-/* line 63, ../scss/partials/_forms.scss */
+/* line 61, ../scss/partials/_forms.scss */
 [class*="textarea--"] {
   max-width: 100%;
 }
 
-/* line 67, ../scss/partials/_forms.scss */
+/* line 65, ../scss/partials/_forms.scss */
 .textarea--small {
   min-height: 9.375rem;
   max-height: 12.5rem;
 }
 
-/* line 72, ../scss/partials/_forms.scss */
+/* line 70, ../scss/partials/_forms.scss */
 .textarea--large {
   min-height: 25rem;
   max-height: 31.25rem;
@@ -11602,13 +11565,13 @@ label, label.inline {
 /*------------------------------------*\
     #Selects
 \*------------------------------------*/
-/* line 87, ../scss/partials/_forms.scss */
+/* line 85, ../scss/partials/_forms.scss */
 select {
   width: auto;
   outline: none;
 }
 
-/* line 92, ../scss/partials/_forms.scss */
+/* line 90, ../scss/partials/_forms.scss */
 [class^="select--"] {
   display: inline-block;
 }
@@ -11616,7 +11579,7 @@ select {
 /*------------------------------------*\
     #Select Types
 \*------------------------------------*/
-/* line 105, ../scss/partials/_forms.scss */
+/* line 103, ../scss/partials/_forms.scss */
 .select--tetriary {
   width: auto;
   outline: none;
@@ -11626,13 +11589,13 @@ select {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #333333;
-  border: 1px solid black;
+  background-color: #6B6862;
+  border: 1px solid #363431;
   font-weight: 700;
   margin-bottom: 0.75rem;
   margin-right: 0.375rem;
   overflow: hidden;
-  color: #c3c3c3;
+  color: #fff;
 }
 /* line 24, ../scss/modules/_forms.scss */
 .select--tetriary select {
@@ -11677,12 +11640,12 @@ select {
   line-height: normal;
   width: auto;
 }
-/* line 116, ../scss/partials/_forms.scss */
+/* line 117, ../scss/partials/_forms.scss */
 .select--primary select {
   color: #fff;
 }
 
-/* line 122, ../scss/partials/_forms.scss */
+/* line 123, ../scss/partials/_forms.scss */
 .select--secondary {
   width: auto;
   outline: none;
@@ -11692,8 +11655,8 @@ select {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #c3c3c3;
-  border: 1px solid #909090;
+  background-color: #E0E0DF;
+  border: 1px solid #aeaeab;
   font-weight: 700;
   margin-bottom: 0.75rem;
   margin-right: 0.375rem;
@@ -11715,12 +11678,12 @@ select {
 /*------------------------------------*\
     #Select Sizes
 \*------------------------------------*/
-/* line 135, ../scss/partials/_forms.scss */
+/* line 136, ../scss/partials/_forms.scss */
 .select--small {
   height: 2.375rem;
   padding-left: 1rem;
 }
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .select--small:after {
   content: "";
   font-family: 'fontello';
@@ -11737,7 +11700,7 @@ select {
   font-size: 0.875rem;
   margin-left: -1.25rem;
 }
-/* line 144, ../scss/partials/_forms.scss */
+/* line 145, ../scss/partials/_forms.scss */
 .select--small select {
   padding-right: 2.375rem;
   padding-left: 1rem;
@@ -11746,19 +11709,19 @@ select {
   height: 100%;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  /* line 144, ../scss/partials/_forms.scss */
+  /* line 145, ../scss/partials/_forms.scss */
   .select--small select {
     padding-right: 3.75rem;
   }
 }
 
-/* line 163, ../scss/partials/_forms.scss */
+/* line 164, ../scss/partials/_forms.scss */
 .select--medium {
   height: 2.75rem;
   padding-right: 0.375rem;
   padding-left: 1.25rem;
 }
-/* line 187, ../scss/modules/_icons.scss */
+/* line 115, ../scss/modules/_icons.scss */
 .select--medium:after {
   content: "";
   font-family: 'fontello';
@@ -11779,7 +11742,7 @@ select {
   position: absolute;
   pointer-events: none;
 }
-/* line 177, ../scss/partials/_forms.scss */
+/* line 178, ../scss/partials/_forms.scss */
 .select--medium select {
   padding-right: 2.375rem;
   padding-left: 1rem;
@@ -11788,13 +11751,13 @@ select {
   height: 100%;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  /* line 177, ../scss/partials/_forms.scss */
+  /* line 178, ../scss/partials/_forms.scss */
   .select--medium select {
     padding-right: 3.75rem;
   }
 }
 
-/* line 204, ../scss/partials/_forms.scss */
+/* line 205, ../scss/partials/_forms.scss */
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -11830,7 +11793,7 @@ textarea {
   box-sizing: border-box;
   transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
 }
-/* line 237, ../scss/partials/_forms.scss */
+/* line 238, ../scss/partials/_forms.scss */
 input[type="text"]:hover,
 input[type="password"]:hover,
 input[type="date"]:hover,
@@ -11845,10 +11808,10 @@ input[type="tel"]:hover,
 input[type="time"]:hover,
 input[type="url"]:hover,
 textarea:hover {
-  border: 2px solid #6c6c6c;
+  border: 2px solid #E0E0DF;
 }
 
-/* line 242, ../scss/partials/_forms.scss */
+/* line 243, ../scss/partials/_forms.scss */
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="date"]:focus,
@@ -11868,7 +11831,7 @@ textarea:focus {
   background-color: #fff;
 }
 
-/* line 267, ../scss/partials/_forms.scss */
+/* line 268, ../scss/partials/_forms.scss */
 .img-overlay {
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -11878,25 +11841,25 @@ textarea:focus {
   width: 7.5rem;
 }
 
-/* line 295, ../scss/partials/_forms.scss */
+/* line 296, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor {
   display: none;
 }
-/* line 298, ../scss/partials/_forms.scss */
+/* line 299, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor + label {
   cursor: pointer;
   margin-right: 0;
 }
-/* line 303, ../scss/partials/_forms.scss */
+/* line 304, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor + label:hover {
-  border: 2px solid #6c6c6c;
+  border: 2px solid #E0E0DF;
 }
-/* line 307, ../scss/partials/_forms.scss */
+/* line 308, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor:checked + label {
   border: 2px solid #333333;
 }
 
-/* line 312, ../scss/partials/_forms.scss */
+/* line 313, ../scss/partials/_forms.scss */
 .label---counter {
   min-height: 18px;
   min-width: 18px;
@@ -12047,7 +12010,7 @@ input[type="radio"].radio--routeColor:checked + label {
 
 /* line 53, ../scss/partials/_dropDowns.scss */
 .dropDown-closeLink {
-  color: #6c6c6c;
+  color: #E0E0DF;
   position: absolute;
   right: 0.75rem;
   top: 0.5rem;
@@ -12227,7 +12190,7 @@ input[type="radio"].radio--routeColor:checked + label {
 
 /* line 82, ../scss/partials/_graphs.scss */
 .barGraph-legend {
-  color: #6c6c6c;
+  color: #E0E0DF;
 }
 /* line 85, ../scss/partials/_graphs.scss */
 .barGraph-legend li {
@@ -12262,7 +12225,7 @@ svg {
 
 /* line 117, ../scss/partials/_graphs.scss */
 svg text {
-  fill: #6c6c6c;
+  fill: #E0E0DF;
 }
 
 /* line 121, ../scss/partials/_graphs.scss */

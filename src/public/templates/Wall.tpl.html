@@ -1,10 +1,10 @@
 <!-- T - Wall Template -->
-<div class="st--header mb4">
+<div class="mb4">
     <section class="row">
 
 
         <!-- S - Back Button -->
-        <div class="small-12 columns header">
+        <div class="header">
             <div class="left">
                 <!-- [] Back to Manage Zones -->
                 <button class="[ btn--secondary btn--medium right ] icon-left-big"
@@ -56,38 +56,40 @@
 
 
         <!-- S - Add Route - for Medium-Up -->
-        <div class="small-12 columns  hide-on-small">
+        <div class="small-12 columns  hide-on-small show-for-medium-up">
             <div class="row"
                  ng-show="isGymAccount()"
                  data-ui-component="routeActions">
-                <div class="small-12 columns mb2">
+
+                <div class="small-12 large-6 columns mb2">
+
                     <!-- [] Add Route -->
                     <button class="icon-plus btn--medium btn--primary btn--expanded"
                             ng-click="navigateToCreateRoute(gymId, wallId)">
                         Add Route
                     </button>
-                </div>
-            </div>
-        </div>
 
-        <!-- S - Strip Zone -->
-        <div class="small-12 columns">
-            <div class="row"
-                 ng-show="isGymAccount()"
-                 data-ui-component="routeActions">
-                <div class="small-12 columns mb2">
+                </div>
+                
+                <!-- S - Strip Zone -->
+                <div class="small-12  large-6 columns mb2">
+
                     <!-- [] - Strip Zone -->
                     <button class="icon-down-big btn--medium btn--secondary btn--expanded"
                             ng-click="stripZone(gymId, wallId)">
                         Strip Zone
                     </button>
+
                 </div>
+
             </div>
+
         </div>
+
 
         <!-- [] - Drill Icon Button -->
         <button ng-show="isGymAccount()"
-                class="btn--primary btn--fixedAction  hide-on-large"
+                class="btn--primary btn--fixedAction  show-for-small-only"
                 ng-click="navigateToCreateRoute(gymId, wallId)">
 
             <!-- I - Drill -->

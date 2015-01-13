@@ -1,5 +1,3 @@
-fs.e
-
 
 //Need For Input with an icon next to it
 
@@ -103,12 +101,15 @@ select {
 
 
 .select--tetriary {
-  @include select($grey--dark) {
-    color: $grey--medlight; 
+
+  @include select($brown--dark) {
+    color: #fff; 
+
   }
 }
 
 .select--primary {
+
  @include select($primaryColor) {
 
     color: #fff; 
@@ -120,7 +121,7 @@ select {
 }
 
 .select--secondary {
-  @include select($grey--medlight)
+  @include select($grey--medium)
 }
 
 

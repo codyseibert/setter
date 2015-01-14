@@ -23,7 +23,10 @@ var WallsDao = function () {
 
     this.getWallsInGym = function (pGymId, pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT w.id, w.name, w.last_update, (SELECT COUNT(*) FROM route_new_to_user rntu WHERE rntu.wall_id = w.id AND rntu.user_id = ?) AS new_count FROM walls w WHERE w.gym_id = ?',
+            'SELECT w.id, w.name, w.last_update, ' +
+                '(SELECT COUNT(*) FROM route_new_to_user rntu WHERE rntu.wall_id = w.id AND rntu.user_id = ?) AS new_count, ' +
+                '(SELECT COUNT(*) FROM routes r WHERE r.wall_id = w.id AND r.active = 1) AS route_count ' +
+                'FROM walls w WHERE w.gym_id = ?',
             [pAccountId, pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -86,7 +89,9 @@ var WallsDao = function () {
     };
 
     /**
-        Strips the zone of all routes.  This will delete all UserAlerts for
+        Strips the zone of all routes.
+
+        Important Note: This will delete all UserAlerts for
         that zone if they exist.
     */
     this.stripZone = function (pZoneId, pCallback) {

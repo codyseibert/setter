@@ -11,10 +11,14 @@ angular.module('SETTER')
 
             var gymRoutes = {},
                 routes = {},
+
                 boulderRouteDistribution = {},
-                ropeRouteDistribution = {},
+                topropeRouteDistribution = {},
+                leadRouteDistribution = {},
+
                 currentBoulderRoutes = {},
-                currentRopeRoutes = {};
+                currentTopRopeRoutes = {},
+                currentLeadRoutes = {};
 
             return {
 
@@ -22,7 +26,8 @@ angular.module('SETTER')
                     gymRoutes = {};
                     routes = {};
                     currentBoulderRoutes = {};
-                    currentRopeRoutes = {};
+                    currentTopRopeRoutes = {};
+                    currentLeadRoutes = {};
                 },
 
                 setGymRoutesDirty: function (pGymId) {
@@ -32,7 +37,7 @@ angular.module('SETTER')
                 setRoutesDirty: function (pGymId, pWallId) {
                     delete routes[pWallId];
                     delete currentBoulderRoutes[pGymId];
-                    delete currentRopeRoutes[pGymId];
+                    delete currentTopRopeRoutes[pGymId];
                 },
 
                 getRoutesInGym: function (pGymId, pCallback) {
@@ -70,6 +75,12 @@ angular.module('SETTER')
                     });
                 },
 
+
+
+
+                /*
+                *   SECTION - Current Routes by Type
+                */
                 getCurrentBoulderRoutes: function (pGymId, pCallback) {
                     if (currentBoulderRoutes[pGymId]) {
                         pCallback(currentBoulderRoutes[pGymId]);
@@ -85,21 +96,44 @@ angular.module('SETTER')
                     });
                 },
 
-                getCurrentRopeRoutes: function (pGymId, pCallback) {
-                    if (currentRopeRoutes[pGymId]) {
-                        pCallback(currentRopeRoutes[pGymId]);
+                getCurrentTopRopeRoutes: function (pGymId, pCallback) {
+                    if (currentTopRopeRoutes[pGymId]) {
+                        pCallback(currentTopRopeRoutes[pGymId]);
                         return;
                     }
 
                     $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/rope'
+                        url: 'api/gyms/' + pGymId + '/routes/toprope'
                     }).success(function (pData) {
-                        currentRopeRoutes[pGymId] = pData;
-                        pCallback(currentRopeRoutes[pGymId]);
+                        currentTopRopeRoutes[pGymId] = pData;
+                        pCallback(currentTopRopeRoutes[pGymId]);
                     });
                 },
 
+                getCurrentLeadRoutes: function (pGymId, pCallback) {
+                    if (currentLeadRoutes[pGymId]) {
+                        pCallback(currentLeadRoutes[pGymId]);
+                        return;
+                    }
+
+                    $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/lead'
+                    }).success(function (pData) {
+                        currentLeadRoutes[pGymId] = pData;
+                        pCallback(currentLeadRoutes[pGymId]);
+                    });
+                },
+
+
+
+
+
+                /*
+                *   SECTION - Current Routes by Type
+                */
+                // Boulder
                 getBoulderRouteDistribution: function (pGymId, pCallback) {
                     if (boulderRouteDistribution[pGymId]) {
                         pCallback(boulderRouteDistribution[pGymId]);
@@ -114,23 +148,54 @@ angular.module('SETTER')
                         pCallback(boulderRouteDistribution[pGymId]);
                     });
                 },
-
-                getRopeRouteDistribution: function (pGymId, pCallback) {
-                    if (ropeRouteDistribution[pGymId]) {
-                        pCallback(ropeRouteDistribution[pGymId]);
+                // Top Rope
+                getTopRopeRouteDistribution: function (pGymId, pCallback) {
+                    if (topropeRouteDistribution[pGymId]) {
+                        pCallback(topropeRouteDistribution[pGymId]);
                         return;
                     }
 
                     $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/rope/distribution'
+                        url: 'api/gyms/' + pGymId + '/routes/toprope/distribution'
                     }).success(function (pData) {
-                        ropeRouteDistribution[pGymId] = pData;
-                        pCallback(ropeRouteDistribution[pGymId]);
+                        topropeRouteDistribution[pGymId] = pData;
+                        pCallback(topropeRouteDistribution[pGymId]);
+                    });
+                },
+                // Lead
+                getLeadRouteDistribution: function (pGymId, pCallback) {
+                    if (leadRouteDistribution[pGymId]) {
+                        pCallback(leadRouteDistribution[pGymId]);
+                        return;
+                    }
+
+                    $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/lead/distribution'
+                    }).success(function (pData) {
+                        leadRouteDistribution[pGymId] = pData;
+                        pCallback(leadRouteDistribution[pGymId]);
                     });
                 },
 
-                createRoute: function (pGymId, pWallId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
+
+
+
+                /*
+                *   SECTION - MISC
+                */
+                createRoute: function (
+                    pGymId,
+                    pWallId,
+                    pName,
+                    pColorId,
+                    pBoulderGradeId,
+                    pTopRopeGradeId,
+                    pLeadGradeId,
+                    pSetterId,
+                    pNote) {
+
                     this.setGymRoutesDirty(pGymId);
                     this.setRoutesDirty(pGymId, pWallId);
 
@@ -141,13 +206,26 @@ angular.module('SETTER')
                             name: pName,
                             colorId: pColorId,
                             boulderGradeId: pBoulderGradeId,
-                            ropeGradeId: pRopeGradeId,
+                            topRopeGradeId: pTopRopeGradeId,
+                            leadGradeId: pLeadGradeId,
                             setterId: pSetterId,
                             note: pNote
                         }
                     });
                 },
-                updateRoute: function (pGymId, pWallId, pRouteId, pName, pColorId, pBoulderGradeId, pRopeGradeId, pSetterId, pNote) {
+
+                updateRoute: function (
+                    pGymId,
+                    pWallId,
+                    pRouteId,
+                    pName,
+                    pColorId,
+                    pBoulderGradeId,
+                    pTopRopeGradeId,
+                    pLeadGradeId,
+                    pSetterId,
+                    pNote) {
+
                     this.setGymRoutesDirty(pGymId);
                     this.setRoutesDirty(pGymId, pWallId);
 
@@ -158,12 +236,14 @@ angular.module('SETTER')
                             name: pName,
                             colorId: pColorId,
                             boulderGradeId: pBoulderGradeId,
-                            ropeGradeId: pRopeGradeId,
+                            topRopeGradeId: pTopRopeGradeId,
+                            leadGradeId: pLeadGradeId,
                             setterId: pSetterId,
                             note: pNote
                         }
                     });
                 },
+
                 deleteRoute: function (pGymId, pWallId, pRouteId) {
                     this.setGymRoutesDirty(pGymId);
                     this.setRoutesDirty(pGymId, pWallId);
@@ -173,6 +253,7 @@ angular.module('SETTER')
                         url: 'api/gyms/' + pGymId + '/routes/' + pRouteId
                     });
                 },
+
                 stripRoute: function (pGymId, pWallId, pRouteId) {
                     this.setGymRoutesDirty(pGymId);
                     this.setRoutesDirty(pGymId, pWallId);
@@ -182,6 +263,7 @@ angular.module('SETTER')
                         url: 'api/gyms/' + pGymId + '/routes/' + pRouteId + '/strip'
                     });
                 },
+
                 setRouteAsViewed: function (pRouteId) {
                     return $http({
                         method: 'DELETE',

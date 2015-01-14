@@ -40,7 +40,7 @@
 <section class="row">
     <div class="small-12 columns">
         <tabset>
-            <tab select="hideCharts()">
+            <tab select="hideSendsCharts()">
                 <tab-heading>
                     <i class="icon-globe"> </i> Activity
                 </tab-heading>
@@ -68,46 +68,37 @@
                 </content>
             </tab>
 
-            <tab select="showCharts()">
+            <tab select="showSendsCharts()">
                 <tab-heading>
                     <i class="icon-stats"> </i> Statistics
                 </tab-heading>
 
+
+                <!--
+                    SECTION - User's Grades
+                -->
                 <content>
                     <section class="row">
-                        <div class="small-6 columns mb4  text-center">
-                            <h2 class="mb2">
-                                Bouldering
-                            </h2>
+                        <ng-include
+                            ng-controller="BoulderGradeController"
+                            src=" 'templates/user/BoulderGrade.tpl.html' ">
+                        </ng-include>
 
-                            <h3 class="fwb h1"
-                                ng-show="hasBoulderSends">
-                                {{boulderGrade}}
-                            </h3>
 
-                            <h3 class="fwb"
-                                ng-show="!hasBoulderSends">
-                                No bouldering sends, yet
-                            </h3>
-                        </div>
+                        <ng-include
+                            ng-controller="TopRopeGradeController"
+                            src=" 'templates/user/TopRopeGrade.tpl.html' ">
+                        </ng-include>
 
-                        <div class="small-6 columns mb4  text-center">
-                            <h2 class="mb2">
-                                YDS
-                            </h2>
 
-                            <h3 class="fwb h1"
-                                ng-show="hasRopeSends">
-                                {{ropeGrade}}
-                            </h3>
-
-                            <h3 class="fwb"
-                                ng-show="!hasRopeSends">
-                                No rope sends, yet
-                            </h3>
-                        </div>
+                        <ng-include
+                            ng-controller="LeadGradeController"
+                            src=" 'templates/user/LeadGrade.tpl.html' ">
+                        </ng-include>
                     </section>
                 </content>
+
+
             </tab>
         </tabset>
     </div>
@@ -117,100 +108,26 @@
 
 <section id="charts"
          class="row"
-        style="position: absolute; top: -44px; left: -9999px;">
-    <div class="small-12 medium-6 columns">
-        <h2 class="fwb">
-            Bouldering
-        </h2>
+         style="position: absolute; top: -44px; left: -9999px;">
 
-        <h2>
-            Sent
-        </h2>
-        <canvas class="chart-bar"
-            ng-show="hasBoulderSends"
-            data="boulderSendsBarGraph.data"
-            labels="boulderSendsBarGraph.labels"
-            options="chartOptions"
-            legend="true"
-            width="100%"
-            height="100%">
-        </canvas>
+    <ng-include
+        ng-controller="BoulderSendsGraphController"
+        src=" 'templates/user/BoulderingSendsGraph.tpl.html' ">
+    </ng-include>
 
-        <span ng-show="!hasBoulderSends">
-            <h3 class="text-center fwb  mb2">
-                No bouldering sends, yet.
-            </h3>
+    <ng-include
+        ng-controller="TopRopeSendsGraphController"
+        src=" 'templates/user/TopRopeSendsGraph.tpl.html' ">
+    </ng-include>
 
-            <h4 class="h6  text-center"
-                ng-show="getAccountId() === userId">
-                <br>
-                <a ng-click="navigateToGyms()">Set a home gym</a>,
-                and track your progress by marking routes as "sent".
-            </h4>
-        </span>
-    </div>
+    <ng-include
+        ng-controller="LeadSendsGraphController"
+        src=" 'templates/user/LeadSendsGraph.tpl.html' ">
+    </ng-include>
 
-    <div class="small-12 medium-6 columns ng-hide">
-        <h2>
-            Progress
-        </h2>
 
-        <canvas class="chart-line"
-            ng-show="hasBoulderSends"
-            data="boulderSendsLineGraph.data"
-            labels="boulderSendsLineGraph.labels"
-            options="boulderSendsLineGraph.options"
-            legend="true"
-            width="100%"
-            height="100%">
-        </canvas>
-
-        <span ng-show="!hasBoulderSends">
-            <h3 class="text-center fwb  mb2">
-                No bouldering sends, yet.
-            </h3>
-
-            <h4 class="h6  text-center"
-                ng-show="getAccountId() === userId">
-                <br><a ng-click="navigateToGyms()">Set a home gym</a>,
-                and track your progress by marking routes as "sent".
-            </h4>
-        </span>
-    </div>
-
-    <div class="small-12 medium-6 columns">
-        <h2 class="fwb">
-            Rope
-        </h2>
-
-        <h2>
-            Sent
-        </h2>
-
-        <canvas class="chart-bar"
-            ng-show="hasRopeSends"
-            data="ropeSendsBarGraph.data"
-            labels="ropeSendsBarGraph.labels"
-            options="chartOptions"
-            legend="true"
-            width="100%"
-            height="100%">
-        </canvas>
-
-        <span ng-show="!hasRopeSends">
-            <h3 class="text-center fwb  mb2">
-                No rope sends, yet.
-            </h3>
-
-            <h4 class="h6  text-center"
-                ng-show="getAccountId() === userId">
-                <br><a ng-click="navigateToGyms()">
-                    Set a home gym</a>,
-                    and track your progress by marking routes as "sent".
-            </h4>
-        </span>
-    </div>
-
+    <!--
+    Hide the progress charts for now until they are even useful
     <div class="medium-6 small-12 columns ng-hide">
         <h2>
             Progress
@@ -238,6 +155,36 @@
             </h4>
         </span>
     </div>
+
+
+    <div class="small-12 medium-6 columns ng-hide">
+        <h2>
+            Progress
+        </h2>
+
+        <canvas class="chart-line"
+                ng-show="hasBoulderSends"
+                data="boulderSendsLineGraph.data"
+                labels="boulderSendsLineGraph.labels"
+                options="boulderSendsLineGraph.options"
+                legend="true"
+                width="100%"
+                height="100%">
+        </canvas>
+
+        <span ng-show="!hasBoulderSends">
+            <h3 class="text-center fwb  mb2">
+                No bouldering sends, yet.
+            </h3>
+
+            <h4 class="h6  text-center"
+                ng-show="getAccountId() === userId">
+                <br><a ng-click="navigateToGyms()">Set a home gym</a>,
+                and track your progress by marking routes as "sent".
+            </h4>
+        </span>
+    </div>
+-->
 </section>
 
 

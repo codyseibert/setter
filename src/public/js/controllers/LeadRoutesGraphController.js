@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, alert: false, Chart: false, $: false, jsPDF: false, confirm: false */
 
 angular.module('SETTER')
-    .controller('RopeRoutesGraphController', [
+    .controller('LeadRoutesGraphController', [
         '$scope',
         '$routeParams',
         'RoutesService',
@@ -23,7 +23,7 @@ angular.module('SETTER')
                 animation: false
             };
 
-            RoutesService.getCurrentRopeRoutes($scope.gymId, function (pData) {
+            RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
                 $scope.graph = BarGraphHelperService.generateRouteCountGraphData(pData);
             });
 

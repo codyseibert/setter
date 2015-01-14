@@ -130,7 +130,7 @@
         <tabset>
 
             <!-- Activity Tab -->
-            <tab select="hideCharts()" >
+            <tab select="hideDistributionCharts()" >
 
                 <!-- Tab Heading -->
                 <tab-heading>
@@ -141,11 +141,13 @@
                 </tab-heading>
 
                 <content>
+                    <!--
 
+                        SECTION - Gym Announcements
+
+                    -->
                     <section class="row">
-
-                        <!-- Gym Announcements Content -->
-                        <div class="small-12 medium-12 columns">
+                        <div class="small-12 columns">
                             <h2 class="fwl">
                                 Gym Announcements
                             </h2>
@@ -163,9 +165,19 @@
                                 </li>
                             </ul>
                         </div>
+                    </section>
 
+
+
+
+                        <!--
+
+                        SECTION - Newest
+
+                        -->
                         <!-- Newest Boulder Problems -->
-                        <div class="small-12 medium-6 columns">
+                    <section class="row">
+                        <div class="small-12 medium-6 large-4 columns">
                             <h2 class="fwl">
                                 Newest Boulder Problems
                             </h2>
@@ -175,41 +187,82 @@
                             </ng-include>
                         </div>
 
-                        <!-- Newest Rope Routes -->
-                        <div class="small-12 medium-6 columns">
+                        <!-- Newest Top Rope Routes -->
+                        <div class="small-12 medium-6 large-4 columns">
                             <h2 class="fwl">
-                                Newest Rope Routes
+                                Newest Top Rope Routes
                             </h2>
 
                             <ng-include
-                                src=" 'templates/gym/NewestRope.tpl.html' ">
+                                src=" 'templates/gym/NewestTopRope.tpl.html' ">
                             </ng-include>
                         </div>
 
-                        <!-- Best Rated Rope Problems -->
-                        <div class="small-12 medium-6 columns">
+                        <!-- Newest Lead Routes -->
+                        <div class="small-12 medium-6 large-4 columns">
                             <h2 class="fwl">
-                                Best Rated Rope Routes
+                                Newest Lead Routes
                             </h2>
 
                             <ng-include
-                                src=" 'templates/gym/TopRatedRope.tpl.html' ">
+                                src=" 'templates/gym/NewestLead.tpl.html' ">
                             </ng-include>
                         </div>
+                    </section>
 
-                        <!-- Best Rated Boulder Problems -->
-                        <div class="small-12 medium-6 columns">
+
+
+
+
+                    <!--
+
+                        SECTION - Best Rated
+
+                    -->
+                    <!-- Best Rated Boulder -->
+                    <section class="row">
+                        <div class="small-12 medium-6 large-4 columns">
                             <h2 class="fwl">
                                 Best Rated Boulder Problems
                             </h2>
 
                             <ng-include
-                                src=" 'templates/gym/TopRatedBoulder.tpl.html' ">
+                                src=" 'templates/gym/BestRatedBoulder.tpl.html' ">
                             </ng-include>
                         </div>
 
-                        <!-- Latest Climber Sends -->
-                        <div class="medium-6 small-12 columns">
+                        <!-- Best Rated Top Rope -->
+                        <div class="small-12 medium-6 large-4 columns">
+                            <h2 class="fwl">
+                                Best Rated Rope Routes
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/BestRatedTopRope.tpl.html' ">
+                            </ng-include>
+                        </div>
+
+                        <!-- Best Rated Lead -->
+                        <div class="small-12 medium-6 large-4 columns">
+                            <h2 class="fwl">
+                                Best Rated Lead
+                            </h2>
+
+                            <ng-include
+                                src=" 'templates/gym/BestRatedLead.tpl.html' ">
+                            </ng-include>
+                        </div>
+                    </section>
+
+
+
+                    <!--
+
+                        SECTION - Latest Climber Sends
+
+                    -->
+                    <section class="row">
+                        <div class="small-12 medium-6 columns">
                             <h2 class="fwl">
                                 Latest Climber Sends
                             </h2>
@@ -243,14 +296,15 @@
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </section>
+
+
                 </content>
             </tab>
 
 
-            <tab select="showCharts()">
+            <tab select="showDistributionCharts()">
 
                 <tab-heading>
                     <i class="icon-stats"> </i>
@@ -261,7 +315,7 @@
             </tab>
 
 
-            <tab select="hideCharts()">
+            <tab select="hideDistributionCharts()">
 
                 <tab-heading><i class="icon-group"> </i><span class="hide-for-small">Climbers</span></tab-heading>
 
@@ -308,25 +362,57 @@
 
 
 
-<section class="row"
-         id="charts"
-         style="position: absolute; top: -44px; left: -9999px">
-    <div class="small-12 medium-6 columns">
-        <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '"></ng-include>
-    </div>
+<!--
 
-    <div class="small-12 medium-6 columns">
-        <ng-include src=" 'templates/gym/RopeRoutesGraph.tpl.html '"></ng-include>
-    </div>
+    SECTION - Statistics Tab Content
 
-    <div class="small-12 columns">
-        <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
-    </div>
+    NOTE: "left: -9999px" is important because Chart.js will not render
+        unless the charts' container is visible.  By default, the foundation
+        tabs content is hidden if not selected.
 
-    <div class="small-12 columns">
-        <ng-include src=" 'templates/gym/RopeDistribution.tpl.html '"></ng-include>
-    </div>
-</section>
+    =(
+
+-->
+<div>
+    <section class="row"
+             id="charts"
+             style="position: absolute; top: -44px; left: -9999px">
+         <!--
+
+         SECTION - Distribution Charts
+
+         -->
+        <div class="small-12 medium-6 large-4 columns">
+            <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '"></ng-include>
+        </div>
+
+        <div class="small-12 medium-6 large-4 columns">
+            <ng-include src=" 'templates/gym/TopRopeRoutesGraph.tpl.html '"></ng-include>
+        </div>
+
+        <div class="small-12 medium-6 large-4 columns">
+            <ng-include src=" 'templates/gym/LeadRoutesGraph.tpl.html '"></ng-include>
+        </div>
+
+
+        <!--
+
+        SECTION - Zone/Grade Tables
+
+        -->
+        <section class="row">
+            <div class="small-12 columns">
+                <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
+            </div>
+
+            <div class="small-12 columns">
+                <ng-include src=" 'templates/gym/TopRopeDistribution.tpl.html '"></ng-include>
+            </div>
+        </section>
+    </section>
+
+
+</div>
 
 
 

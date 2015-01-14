@@ -31,285 +31,11 @@ angular.module('SETTER')
                 calculateBoulderGrade,
                 calculateRopeGrade;
 
-            $scope.hasRopeSends = true;
-            $scope.hasBoulderSends = true;
-            $scope.ropeGrade = 'Calculating';
-            $scope.boulderGrade = 'Calculating';
             $scope.userId = parseInt($routeParams.userId, 10);
-
-            $scope.options = {
-                scaleFontColor: "#000",
-                scaleFontSize: 20,
-                animation: false
-            };
-
-            createBoulderSendsBarGraph = function (pData) {
-                var data;
-                data = BarGraphHelperService.generateRouteCountGraphData(pData);
-                $scope.boulderSendsBarGraph = {
-                    labels: data.labels,
-                    data: data.data,
-                    hasData: data.data[0].length > 0
-                };
-            };
-
-            createRopeSendsBarGraph = function (pData) {
-                var data;
-                data = BarGraphHelperService.generateRouteCountGraphData(pData);
-                $scope.ropeSendsBarGraph = {
-                    labels: data.labels,
-                    data: data.data,
-                    hasData: data.data[0].length > 0
-                };
-            };
-
-            createBoulderSendsLineGraph = function (pData) {
-                var i,
-                    send,
-                    dataCopy = pData.slice(0),
-                    buckets = [],
-                    months,
-                    month,
-                    sum,
-                    average,
-                    j,
-                    bucket,
-                    sort,
-                    //carry,
-                    max;
-
-                $scope.boulderSendsLineGraph = {
-                    options: {
-                        scaleFontColor: "#000",
-                        scaleFontSize: 20,
-
-                        scaleOverride: true,
-                        scaleSteps: 6,
-                        scaleStepWidth: 2,
-                        scaleStartValue: 0,
-                        scaleLabel: '<%= "V" + value %>',
-
-                        animation: false
-                    }
-                };
-
-                for (i = 0; i < 12; i += 1) {
-                    buckets.push([]);
-                }
-                months = [
-                    "January",
-                    "Feburary",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December"
-                ];
-
-                // put into buckets
-                for (i = 0; i < dataCopy.length; i += 1) {
-                    send = dataCopy[i];
-                    send.moment_date = moment(send.date);
-                    month = send.moment_date.get('month');
-                    buckets[month].push(send);
-                }
-
-                sort = function (a, b) {
-                    return b.value - a.value;
-                };
-
-                // average each bucket
-                for (i = 0; i < buckets.length; i += 1) {
-                    bucket = buckets[i];
-                    bucket.sort(sort);
-                    max = bucket.slice(0, 5);
-
-                    sum = 0;
-                    for (j = 0; j < max.length; j += 1) {
-                        sum += max[j].value;
-                    }
-                    average = 0;
-                    if (max.length !== 0) {
-                        average = sum / max.length;
-                    }
-                    buckets[i] = average;
-                }
-
-                //carry = buckets[0];
-                for (i = 0; i < buckets.length; i += 1) {
-                    if (buckets[i] === 0) {
-                        buckets[i] = null;// carry;
-                    } //else {
-                        //carry = buckets[i];
-                    //}
-                }
-
-                $scope.boulderSendsLineGraph.labels = months;
-                $scope.boulderSendsLineGraph.data = [buckets];
-            };
-
-            createRopeSendsLineGraph = function (pData) {
-                var i,
-                    send,
-                    dataCopy = pData.slice(0),
-                    buckets,
-                    bucket,
-                    sum,
-                    j,
-                    average,
-                    months,
-                    month,
-                    sort,
-                    //carry,
-                    max;
-
-                $scope.ropeSendsLineGraph = {
-                    options: {
-                        scaleFontColor: "#000",
-                        scaleFontSize: 20,
-                        scaleOverride: true,
-                        scaleSteps: 8,
-                        scaleStepWidth: 0.01,
-                        scaleStartValue: 5.06,
-                        scaleLabel: '<%=value.replace(".0", ".")%>'
-                    }
-                };
-
-                buckets = [];
-                for (i = 0; i < 12; i += 1) {
-                    buckets.push([]);
-                }
-                months = [
-                    "January",
-                    "Feburary",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December"
-                ];
-
-                // put into buckets
-                for (i = 0; i < dataCopy.length; i += 1) {
-                    send = dataCopy[i];
-                    send.moment_date = moment(send.date);
-                    month = send.moment_date.get('month');
-                    buckets[month].push(send);
-                }
-
-                sort = function (a, b) {
-                    return b.value - a.value;
-                };
-
-                // average each bucket
-                for (i = 0; i < buckets.length; i += 1) {
-                    bucket = buckets[i];
-                    bucket.sort(sort);
-                    max = bucket.slice(0, 5);
-
-                    sum = 0;
-                    for (j = 0; j < max.length; j += 1) {
-                        sum += max[j].value;
-                    }
-                    average = 0;
-                    if (max.length !== 0) {
-                        average = sum / max.length;
-                    }
-                    buckets[i] = Math.max(5.06, 5  + average / 100.0);
-                }
-
-                //carry = buckets[0];
-                for (i = 0; i < buckets.length; i += 1) {
-                    if (buckets[i] === 5.06) {
-                        buckets[i] = null;//carry;
-                    } ///else {
-                    //    carry = buckets[i];
-                    //}
-                }
-
-                $scope.ropeSendsLineGraph.labels = months;
-                $scope.ropeSendsLineGraph.data = [buckets];
-            };
-
-            calculateBoulderGrade = function (pData) {
-                var dataCopy,
-                    sum,
-                    i,
-                    max,
-                    average;
-
-                dataCopy = pData.slice(0);
-                dataCopy.sort(function (a, b) {
-                    return b.value - a.value;
-                });
-
-                max = dataCopy.slice(0, 10);
-                sum = 0;
-                for (i = 0; i < max.length; i += 1) {
-                    sum += dataCopy[i].value;
-                }
-
-                average = sum / max.length;
-                average = parseFloat(average).toFixed(0);
-                $scope.boulderGrade = 'V' + average;
-            };
-
-            calculateRopeGrade = function (pData) {
-                var dataCopy,
-                    sum,
-                    i,
-                    max,
-                    average;
-
-                dataCopy = pData.slice(0);
-                dataCopy.sort(function (a, b) {
-                    return b.value - a.value;
-                });
-
-                max = dataCopy.slice(0, 10);
-                sum = 0;
-                for (i = 0; i < max.length; i += 1) {
-                    sum += dataCopy[i].value;
-                }
-
-                average = sum / max.length;
-                average = parseFloat(average).toFixed(0);
-                average = average.toString();
-                average = average.replace('.', '');
-                $scope.ropeGrade = '5.' + average;
-            };
 
             UsersService.getUser($scope.userId, function (pData) {
                 $scope.user = pData;
             });
-
-            UsersService.getBoulderSends($scope.userId)
-                .success(function (pData) {
-                    createBoulderSendsBarGraph(pData);
-                    createBoulderSendsLineGraph(pData);
-                    calculateBoulderGrade(pData);
-
-                    $scope.hasBoulderSends = pData.length > 0;
-                });
-
-            UsersService.getRopeSends($scope.userId)
-                .success(function (pData) {
-                    createRopeSendsBarGraph(pData);
-                    createRopeSendsLineGraph(pData);
-                    calculateRopeGrade(pData);
-
-                    $scope.hasRopeSends = pData.length > 0;
-                });
 
             UsersService.getUserImage($scope.userId, function (pData) {
                 $scope.image = pData;
@@ -326,6 +52,10 @@ angular.module('SETTER')
                     $scope.hasActivity = pData.length > 0;
                 });
 
+
+            /*
+            *   SECTION - Image
+            */
             $scope.uploadImage = function () {
                 angular.element("#image_file").trigger('click');
             };
@@ -344,17 +74,23 @@ angular.module('SETTER')
                 UsersService.setImageAsDirty(LoginService.getAccountId());
             };
 
-            $scope.authorization = LoginService.getHeader();
 
-            $scope.showCharts = function () {
+
+            /*
+            *   SECTION - MISC
+            */
+            $scope.showSendsCharts = function () {
                 angular.element('#charts').css('left', '0px');
                 angular.element('#charts').css('position', 'relative');
             };
 
-            $scope.hideCharts = function () {
+            $scope.hideSendsCharts = function () {
                 angular.element('#charts').css('left', '9999px');
                 angular.element('#charts').css('position', 'absolute');
             };
 
-            $scope.hideCharts();
+            $scope.hideSendsCharts();
+
+            $scope.authorization = LoginService.getHeader();
+
         }]);

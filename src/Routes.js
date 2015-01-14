@@ -36,23 +36,43 @@ var ValidateGymAdmin = require('./middleware/ValidateGymAdmin');
 var RouteToControllerBinder = function () {
     'use strict';
 
+
+
+
+
     // REGISTRATION
     app.post('/api/register/user',
         RegistrationController.registerUser);
 
+
+
+
+
     // LOGIN
     app.post('/api/login',
         LoginController.login);
+
+
+
+
 
     // LOST PASSWORD
     app.post('/api/password/reset',
         InjectAccountIdUsingEmail,
         AccountsController.mailNewPassword);
 
+
+
+
+
     // CHANGE PASSWORD
     app.post('/api/password/change',
         InjectAccountId,
         AccountsController.changePassword);
+
+
+
+
 
     // GYMS
     app.get('/api/gyms',
@@ -62,41 +82,89 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GymsController.getGym);
 
+
+
+    /*
+    *   SECTION - Distribution Chart
+    */
     app.get('/api/gyms/:gymId/routes/boulder/distribution',
         InjectAccountId,
         GymsController.getBoulderRouteDistribution);
 
-    app.get('/api/gyms/:gymId/routes/boulder/top',
+    app.get('/api/gyms/:gymId/routes/toprope/distribution',
         InjectAccountId,
-        GymsController.getTopRatedBoulder);
+        GymsController.getTopRopeRouteDistribution);
 
-    app.get('/api/gyms/:gymId/routes/rope/top',
+    app.get('/api/gyms/:gymId/routes/toprope/distribution',
         InjectAccountId,
-        GymsController.getTopRatedRope);
+        GymsController.getLeadRouteDistribution);
 
-    app.get('/api/gyms/:gymId/routes/rope/distribution',
+
+
+
+    /*
+    *   SECTION - Best Routes
+    */
+    app.get('/api/gyms/:gymId/routes/boulder/best',
         InjectAccountId,
-        GymsController.getRopeRouteDistribution);
+        GymsController.getBestRatedBoulder);
 
+    app.get('/api/gyms/:gymId/routes/toprope/best',
+        InjectAccountId,
+        GymsController.getBestRatedTopRope);
+
+    app.get('/api/gyms/:gymId/routes/lead/best',
+        InjectAccountId,
+        GymsController.getBestRatedLead);
+
+
+
+
+    /*
+    *   SECTION - Routes by Type
+    */
     app.get('/api/gyms/:gymId/routes/boulder',
         InjectAccountId,
         GymsController.getCurrentBoulderRoutes);
 
-    app.get('/api/gyms/:gymId/routes/rope',
+    app.get('/api/gyms/:gymId/routes/toprope',
         InjectAccountId,
-        GymsController.getCurrentRopeRoutes);
+        GymsController.getCurrentTopRopeRoutes);
 
+    app.get('/api/gyms/:gymId/routes/lead',
+        InjectAccountId,
+        GymsController.getCurrentLeadRoutes);
+
+
+
+
+    /*
+    *   SECTION - Newest Routes by Type
+    */
     app.get('/api/gyms/:gymId/routes/boulder/new',
         InjectAccountId,
         GymsController.getNewestBoulder);
 
-    app.get('/api/gyms/:gymId/routes/rope/new',
+    app.get('/api/gyms/:gymId/routes/toprope/new',
         InjectAccountId,
-        GymsController.getNewestRope);
+        GymsController.getNewestTopRope);
 
+    app.get('/api/gyms/:gymId/routes/lead/new',
+        InjectAccountId,
+        GymsController.getNewestLead);
+
+
+
+
+    /*
+    *   SECTION - Newest Routes by Type
+    */
     app.get('/api/gyms/:gymId/routes/new',
         InjectAccountId,
         GymsController.getNumberOfNewRoutes);
+
+
+
 
     app.get('/api/gyms/:gymId/users',
         InjectAccountId,
@@ -127,6 +195,11 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ValidateGymAdmin,
         AlertsController.createAlert);
+
+
+
+
+
 
 
     // WALLS
@@ -162,6 +235,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ValidateGymAdmin,
         WallsController.stripZone);
+
+
+
+
 
     // ROUTES
     app.get('/api/walls/:wallId/routes',
@@ -201,6 +278,10 @@ var RouteToControllerBinder = function () {
         ValidateGymAdmin,
         RoutesController.stripRoute);
 
+
+
+
+
     // COMMENTS
     app.get('/api/routes/:routeId/comments',
         InjectAccountId,
@@ -209,6 +290,10 @@ var RouteToControllerBinder = function () {
     app.post('/api/routes/:routeId/comments',
         InjectAccountId,
         CommentsController.createComment);
+
+
+
+
 
     // RATINGS
     app.get('/api/routes/:routeId/rating',
@@ -222,6 +307,10 @@ var RouteToControllerBinder = function () {
     app.get('/api/routes/:routeId/hasRated',
         InjectAccountId,
         RatingController.hasRated);
+
+
+
+
 
     // SENDS
     app.get('/api/routes/:routeId/sends',
@@ -240,6 +329,11 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         SendsController.deleteSend);
 
+
+
+
+
+
     // GRADES
     app.get('/api/grades/boulder',
         InjectAccountId,
@@ -249,10 +343,18 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GradesController.getRopeGrades);
 
+
+
+
+
     // COLORS
     app.get('/api/colors',
         InjectAccountId,
         ColorsController.getColors);
+
+
+
+
 
     // SETTERS
     app.get('/api/gyms/:gymId/setters',
@@ -274,14 +376,25 @@ var RouteToControllerBinder = function () {
         ValidateGymAdmin,
         SettersController.deleteSetterGymAccess);
 
+
+
+
+
     // USERS
     app.get('/api/users/:userId/sends/boulder',
         InjectAccountId,
         UsersController.getBoulderSends);
 
-    app.get('/api/users/:userId/sends/rope',
+    app.get('/api/users/:userId/sends/toprope',
         InjectAccountId,
-        UsersController.getRopeSends);
+        UsersController.getTopRopeSends);
+
+    app.get('/api/users/:userId/sends/lead',
+        InjectAccountId,
+        UsersController.getLeadSends);
+
+
+
 
     app.get('/api/users/:userId',
         InjectAccountId,
@@ -299,6 +412,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         UsersController.getActivityStream);
 
+
+
+
+
     // SUGGESTIONS
     app.get('/api/suggestions',
         InjectAccountId,
@@ -312,14 +429,26 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         SuggestionsController.upvoteSuggestion);
 
+
+
+
+
     // FEEDBACK
     app.post('/api/feedback',
         FeedbackController.createFeedback);
+
+
+
+
 
     // IMAGES
     app.post('/api/accounts/image',
         InjectAccountId,
         ImagesController.uploadAccountImage);
+
+
+
+
 
     // BLOG
     app.get('/api/blog',
@@ -333,17 +462,29 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         BlogController.updatePost);
 
+
+
+
+
     // GYM SUGGESTIONS
     app.post('/api/gyms/:gymId/suggestions/:suggestionId/read',
         InjectAccountId,
         ValidateGymAdmin,
         GymSuggestionsController.markAsRead);
 
+
+
+
+
     // ALERTS
     app.delete('/api/gyms/:gymId/alerts/:alertId',
         InjectAccountId,
         ValidateGymAdmin,
         AlertsController.deleteAlert);
+
+
+
+
 
     // GYM ACCOUNT REQUESTS
     app.post('/api/requests',

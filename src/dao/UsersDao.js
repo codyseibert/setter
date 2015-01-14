@@ -72,11 +72,22 @@ var UsersDao = function () {
         );
     };
 
-    this.getRopeSends = function (pUserId, pCallback) {
+    this.getTopRopeSends = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT rg.value, rg.name, s.date FROM sends s ' +
                 'INNER JOIN routes r ON s.route_id = r.id ' +
-                'INNER JOIN rope_grades rg ON r.rope_grade_id = rg.id WHERE s.user_id = ?',
+                'INNER JOIN rope_grades rg ON r.toprope_grade_id = rg.id WHERE s.user_id = ?',
+            [pUserId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+    this.getLeadSends = function (pUserId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT rg.value, rg.name, s.date FROM sends s ' +
+                'INNER JOIN routes r ON s.route_id = r.id ' +
+                'INNER JOIN rope_grades rg ON r.lead_grade_id = rg.id WHERE s.user_id = ?',
             [pUserId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -101,7 +112,7 @@ var UsersDao = function () {
                 'INNER JOIN walls w ON r.wall_id = w.id ' +
                 'INNER JOIN colors c ON c.id = r.color_id ' +
                 'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
-                'LEFT JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
+                'LEFT JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
                 'WHERE a.id = ? ORDER BY s.date DESC LIMIT 20',
             [pUserId],
             theDaoHelper.MULTIPLE,

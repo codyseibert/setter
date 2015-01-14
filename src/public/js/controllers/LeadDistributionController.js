@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false, $: false, naturalSort: false, jsPDF: false */
 
 angular.module('SETTER')
-    .controller('RopeDistributionController', [
+    .controller('LeadDistributionController', [
         '$scope',
         '$routeParams',
         'RoutesService',
@@ -21,13 +21,12 @@ angular.module('SETTER')
                 .success(function (pGrades) {
                     $scope.ropeGrades = pGrades;
 
-                    RoutesService.getRopeRouteDistribution($scope.gymId, function (pData) {
+                    RoutesService.getLeadRouteDistribution($scope.gymId, function (pData) {
                         var i,
                             j,
                             k,
                             count,
                             grade;
-
                         $scope.ropeRouteDistribution = pData;
                         $scope.ropeZoneKeys = [];
                         $scope.ropeZones = {};
@@ -59,6 +58,7 @@ angular.module('SETTER')
                     });
                 });
 
+            // TODO: Refactor
             $scope.export = function () {
                 var JsPDF = jsPDF,
                     doc = new JsPDF(),

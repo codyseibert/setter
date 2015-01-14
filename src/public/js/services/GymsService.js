@@ -96,28 +96,54 @@ angular.module('SETTER')
                         url: 'api/gyms/' + pGymId + '/routes/new'
                     });
                 },
-                getTopRatedBoulder: function (pGymId) {
+
+
+
+
+                /*
+                *   SECTION - Best Rated
+                */
+                getBestRatedBoulder: function (pGymId) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/boulder/top'
+                        url: 'api/gyms/' + pGymId + '/routes/boulder/best'
                     });
                 },
-                getTopRatedRope: function (pGymId) {
+                getBestRatedTopRope: function (pGymId) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/rope/top'
+                        url: 'api/gyms/' + pGymId + '/routes/toprope/best'
                     });
                 },
+                getBestRatedLead: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/lead/best'
+                    });
+                },
+
+
+
+
+                /*
+                *   SECTION - Newest Routes
+                */
                 getNewestBoulder: function (pGymId) {
                     return $http({
                         method: 'GET',
                         url: 'api/gyms/' + pGymId + '/routes/boulder/new'
                     });
                 },
-                getNewestRope: function (pGymId) {
+                getNewestTopRope: function (pGymId) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/rope/new'
+                        url: 'api/gyms/' + pGymId + '/routes/toprope/new'
+                    });
+                },
+                getNewestLead: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/lead/new'
                     });
                 }
             };

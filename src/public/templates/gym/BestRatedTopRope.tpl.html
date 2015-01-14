@@ -8,7 +8,7 @@
 
     <tbody>
         <tr bindonce
-            ng-repeat="route in topRatedBoulder"
+            ng-repeat="route in bestRatedTopRope"
             class="list--tableStyle  list--navElem"
             ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
 
@@ -22,7 +22,7 @@
             </td>
 
             <!-- Grade -->
-            <td bo-text="route.boulder_grade || UNRATED_STRING"></td>
+            <td bo-text="route.rope_grade || UNRATED_STRING"></td>
 
             <!-- Rating -->
             <td>

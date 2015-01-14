@@ -39,6 +39,9 @@ var UsersController = function () {
         theUsersDao.getUsers(callback);
     };
 
+
+
+
     this.getBoulderSends = function (pReq, pRes) {
         var userId,
             callback;
@@ -47,13 +50,22 @@ var UsersController = function () {
         theUsersDao.getBoulderSends(userId, callback);
     };
 
-    this.getRopeSends = function (pReq, pRes) {
+    this.getTopRopeSends = function (pReq, pRes) {
         var userId,
             callback;
         userId = pReq.params.userId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theUsersDao.getRopeSends(userId, callback);
+        theUsersDao.getTopRopeSends(userId, callback);
     };
+
+    this.getLeadSends = function (pReq, pRes) {
+        var userId,
+        callback;
+        userId = pReq.params.userId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theUsersDao.getLeadSends(userId, callback);
+    };
+
 
     this.setHomeGym = function (pReq, pRes) {
         var gymId,

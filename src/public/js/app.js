@@ -364,11 +364,15 @@ angular.module('SETTER', [
                 userId = null;
 
                 GymsService.getGyms(nothing);
+
                 GymsService.getGym(gymId, nothing);
                 GymsService.getGymImage(gymId, nothing);
                 GymsService.getHomeGymUsers(gymId, nothing);
+
                 RoutesService.getCurrentBoulderRoutes(gymId, nothing);
-                RoutesService.getCurrentRopeRoutes(gymId, nothing);
+                RoutesService.getCurrentTopRopeRoutes(gymId, nothing);
+                RoutesService.getCurrentLeadRoutes(gymId, nothing);
+
                 WallsService.getWallsInGym(gymId, nothing);
 
                 if ($rootScope.isUserAccount()) {

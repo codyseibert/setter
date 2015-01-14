@@ -38,6 +38,9 @@ var GymsController = function () {
         theGymsDao.getGymImage(gymId, callback);
     };
 
+
+
+
     this.getCurrentBoulderRoutes = function (pReq, pRes) {
         var gymId,
             callback;
@@ -46,45 +49,79 @@ var GymsController = function () {
         theGymsDao.getCurrentBoulderRoutes(gymId, callback);
     };
 
-    this.getCurrentRopeRoutes = function (pReq, pRes) {
+    this.getCurrentTopRopeRoutes = function (pReq, pRes) {
         var gymId,
             callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getCurrentRopeRoutes(gymId, callback);
+        theGymsDao.getCurrentTopRopeRoutes(gymId, callback);
     };
 
-    this.getRopeRouteDistribution = function (pReq, pRes) {
+    this.getCurrentLeadRoutes = function (pReq, pRes) {
         var gymId,
-            callback;
+        callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getRopeRouteDistribution(gymId, callback);
+        theGymsDao.getCurrentLeadRoutes(gymId, callback);
     };
+
+
+
+
 
     this.getBoulderRouteDistribution = function (pReq, pRes) {
         var gymId,
-            callback;
+        callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getBoulderRouteDistribution(gymId, callback);
     };
 
-    this.getTopRatedBoulder = function (pReq, pRes) {
+    this.getTopRopeRouteDistribution = function (pReq, pRes) {
         var gymId,
             callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getTopRatedBoulder(gymId, callback);
+        theGymsDao.getTopRopeRouteDistribution(gymId, callback);
     };
 
-    this.getTopRatedRope = function (pReq, pRes) {
+    this.getLeadRouteDistribution = function (pReq, pRes) {
         var gymId,
             callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getTopRatedRope(gymId, callback);
+        theGymsDao.getLeadRouteDistribution(gymId, callback);
     };
+
+
+
+
+    this.getBestRatedBoulder = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getBestRatedBoulder(gymId, callback);
+    };
+
+    this.getBestRatedTopRope = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getBestRatedTopRope(gymId, callback);
+    };
+
+    this.getBestRatedLead = function (pReq, pRes) {
+        var gymId,
+        callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getBestRatedLead(gymId, callback);
+    };
+
+
+
 
     this.getNewestBoulder = function (pReq, pRes) {
         var gymId,
@@ -94,14 +131,27 @@ var GymsController = function () {
         theGymsDao.getNewestBoulder(gymId, callback);
     };
 
-
-    this.getNewestRope = function (pReq, pRes) {
+    this.getNewestTopRope = function (pReq, pRes) {
         var gymId,
             callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestRope(gymId, callback);
+        theGymsDao.getNewestTopRope(gymId, callback);
     };
+
+    this.getNewestLead = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getNewestLead(gymId, callback);
+    };
+
+
+
+
+
+
 
     this.getHomeGymUsers = function (pReq, pRes) {
         var gymId,

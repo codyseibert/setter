@@ -69,6 +69,10 @@ var GymsDao = function () {
         );
     };
 
+
+
+
+
     this.getCurrentBoulderRoutes = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT bg.name, bg.value FROM routes r ' +
@@ -80,16 +84,31 @@ var GymsDao = function () {
         );
     };
 
-    this.getCurrentRopeRoutes = function (pGymId, pCallback) {
+    this.getCurrentTopRopeRoutes = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT rg.name, rg.value FROM routes r ' +
                 'INNER JOIN walls w ON w.id = r.wall_id ' +
-                'INNER JOIN rope_grades rg ON r.rope_grade_id = rg.id WHERE w.gym_id = ? AND r.active = 1',
+                'INNER JOIN rope_grades rg ON r.toprope_grade_id = rg.id WHERE w.gym_id = ? AND r.active = 1',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
+
+    this.getCurrentLeadRoutes = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT rg.name, rg.value FROM routes r ' +
+                'INNER JOIN walls w ON w.id = r.wall_id ' +
+                'INNER JOIN rope_grades rg ON r.lead_grade_id = rg.id WHERE w.gym_id = ? AND r.active = 1',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+
+
+
 
     this.getNewestBoulder = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
@@ -106,13 +125,13 @@ var GymsDao = function () {
         );
     };
 
-    this.getNewestRope = function (pGymId, pCallback) {
+    this.getNewestTopRope = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT ro.id, c.value, w.name AS zone_name, w.id AS wall_id, w.gym_id AS gym_id, rg.name AS rope_grade ' +
                 'FROM routes ro ' +
                 'INNER JOIN colors c ON ro.color_id = c.id ' +
                 'INNER JOIN walls w ON w.id = ro.wall_id ' +
-                'INNER JOIN rope_grades rg ON ro.rope_grade_id = rg.id ' +
+                'INNER JOIN rope_grades rg ON ro.toprope_grade_id = rg.id ' +
                 'WHERE ro.active = true AND w.gym_id = ? ' +
                 'ORDER BY date DESC LIMIT 10',
             [pGymId],
@@ -121,7 +140,26 @@ var GymsDao = function () {
         );
     };
 
-    this.getTopRatedBoulder = function (pGymId, pCallback) {
+    this.getNewestLead = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT ro.id, c.value, w.name AS zone_name, w.id AS wall_id, w.gym_id AS gym_id, rg.name AS rope_grade ' +
+                'FROM routes ro ' +
+                'INNER JOIN colors c ON ro.color_id = c.id ' +
+                'INNER JOIN walls w ON w.id = ro.wall_id ' +
+                'INNER JOIN rope_grades rg ON ro.lead_grade_id = rg.id ' +
+                'WHERE ro.active = true AND w.gym_id = ? ' +
+                'ORDER BY date DESC LIMIT 10',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+
+
+
+
+    this.getBestRatedBoulder = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT ro.id, w.name AS zone_name, AVG(ra.rating) AS rating, c.value, w.id AS wall_id, w.gym_id AS gym_id, bg.name AS boulder_grade ' +
                 'FROM routes ro ' +
@@ -138,14 +176,14 @@ var GymsDao = function () {
         );
     };
 
-    this.getTopRatedRope = function (pGymId, pCallback) {
+    this.getBestRatedTopRope = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT ro.id, w.name AS zone_name, AVG(ra.rating) AS rating, c.value, w.id AS wall_id, w.gym_id AS gym_id, rg.name AS rope_grade ' +
                 'FROM routes ro ' +
                 'INNER JOIN ratings ra ON ra.route_id = ro.id ' +
                 'INNER JOIN colors c ON ro.color_id = c.id ' +
                 'INNER JOIN walls w ON w.id = ro.wall_id ' +
-                'INNER JOIN rope_grades rg ON ro.rope_grade_id = rg.id ' +
+                'INNER JOIN rope_grades rg ON ro.toprope_grade_id = rg.id ' +
                 'WHERE ro.active = true AND w.gym_id = ? ' +
                 'GROUP BY ro.id ' +
                 'ORDER BY rating DESC LIMIT 10',
@@ -154,6 +192,27 @@ var GymsDao = function () {
             pCallback
         );
     };
+
+    this.getBestRatedLead = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT ro.id, w.name AS zone_name, AVG(ra.rating) AS rating, c.value, w.id AS wall_id, w.gym_id AS gym_id, rg.name AS rope_grade ' +
+                'FROM routes ro ' +
+                'INNER JOIN ratings ra ON ra.route_id = ro.id ' +
+                'INNER JOIN colors c ON ro.color_id = c.id ' +
+                'INNER JOIN walls w ON w.id = ro.wall_id ' +
+                'INNER JOIN rope_grades rg ON ro.lead_grade_id = rg.id ' +
+                'WHERE ro.active = true AND w.gym_id = ? ' +
+                'GROUP BY ro.id ' +
+                'ORDER BY rating DESC LIMIT 10',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+
+
+
 
     this.getBoulderRouteDistribution = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
@@ -167,17 +226,33 @@ var GymsDao = function () {
         );
     };
 
-    this.getRopeRouteDistribution = function (pGymId, pCallback) {
+    this.getTopRopeRouteDistribution = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT w.name AS zone, rg.name AS grade, COUNT(*) AS count FROM routes r ' +
                 'INNER JOIN walls w ON r.wall_id = w.id ' +
-                'INNER JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
-                'WHERE w.gym_id = ? GROUP BY w.name, r.rope_grade_id',
+                'INNER JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
+                'WHERE w.gym_id = ? GROUP BY w.name, r.toprope_grade_id',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
+
+    this.getLeadRouteDistribution = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT w.name AS zone, rg.name AS grade, COUNT(*) AS count FROM routes r ' +
+                'INNER JOIN walls w ON r.wall_id = w.id ' +
+                'INNER JOIN rope_grades rg ON rg.id = r.lead_grade_id ' +
+                'WHERE w.gym_id = ? GROUP BY w.name, r.lead_grade_id',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+
+
+
 
     this.getHomeGymUsers = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
@@ -200,7 +275,7 @@ var GymsDao = function () {
                 'INNER JOIN routes r ON r.id = s.route_id ' +
                 'INNER JOIN colors c ON c.id = r.color_id ' +
                 'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
-                'LEFT JOIN rope_grades rg ON rg.id = r.rope_grade_id ' +
+                'LEFT JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
                 'WHERE u.gym_id = ? ORDER BY s.date DESC LIMIT 20',
             [pGymId],
             theDaoHelper.MULTIPLE,

@@ -32,7 +32,8 @@ angular.module('SETTER')
             }
 
             var createBoulderRoutesBarGraph,
-                createRopeRoutesBarGraph;
+                createTopRopeRoutesBarGraph,
+                createLeadRoutesBarGraph;
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
@@ -42,77 +43,139 @@ angular.module('SETTER')
                 animation: false
             };
 
-            createBoulderRoutesBarGraph = function (pData) {
-                var data = BarGraphHelperService
-                    .generateRouteCountGraphData(pData);
-                $scope.boulderRoutesBarGraph = data;
-            };
 
-            createRopeRoutesBarGraph = function (pData) {
-                var data = BarGraphHelperService
-                    .generateRouteCountGraphData(pData);
-                $scope.ropeRoutesBarGraph = data;
-            };
 
+
+            /*
+            *   SECTION - Gym related service calls
+            */
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
-            });
-
-            GymsService.getNewestBoulder($scope.gymId)
-                .success(function (pData) {
-                    $scope.newestBoulder = pData;
-                });
-
-            GymsService.getNewestRope($scope.gymId)
-                .success(function (pData) {
-                    $scope.newestRope = pData;
-                });
-
-            RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
-                createBoulderRoutesBarGraph(pData);
-            });
-
-            RoutesService.getCurrentRopeRoutes($scope.gymId, function (pData) {
-                createRopeRoutesBarGraph(pData);
             });
 
             GymsService.getHomeGymUsers($scope.gymId, function (pData) {
                 $scope.users = pData;
             });
 
-            GymsService.getTopRatedRope($scope.gymId)
-                .success(function (pData) {
-                    $scope.topRatedRope = pData;
-                });
-
-            GymsService.getTopRatedBoulder($scope.gymId)
-                .success(function (pData) {
-                    $scope.topRatedBoulder = pData;
-                });
-
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = pData;
             });
 
             GymsService.getNumberOfNewRoutes($scope.gymId)
-                .success(function (pData) {
-                    $scope.newRoutes = pData;
-                });
+            .success(function (pData) {
+                $scope.newRoutes = pData;
+            });
 
             GymsService.getActivityStream($scope.gymId)
-                .success(function (pData) {
-                    $scope.activity = pData;
-                });
+            .success(function (pData) {
+                $scope.activity = pData;
+            });
 
+
+
+
+            /*
+            *   SECTION - Alerts
+            */
             AlertsService.getAlertsForGym($scope.gymId)
+            .success(function (pData) {
+                pData.map(function (pEntry) {
+                    pEntry.date = DateFormatService.format(pEntry.date);
+                    return pEntry;
+                });
+                $scope.alerts = pData;
+            });
+
+
+
+
+            /*
+            *   SECTION - Distribution Graphs
+            */
+            createBoulderRoutesBarGraph = function (pData) {
+                var data = BarGraphHelperService
+                    .generateRouteCountGraphData(pData);
+                $scope.boulderRoutesBarGraph = data;
+            };
+
+            createTopRopeRoutesBarGraph = function (pData) {
+                var data = BarGraphHelperService
+                    .generateRouteCountGraphData(pData);
+                $scope.topRopeRoutesBarGraph = data;
+            };
+
+            createLeadRoutesBarGraph = function (pData) {
+                var data = BarGraphHelperService
+                    .generateRouteCountGraphData(pData);
+                $scope.leadRoutesBarGraph = data;
+            };
+
+
+
+
+            /*
+            *   SECTION - Newest Routes
+            */
+            GymsService.getNewestBoulder($scope.gymId)
                 .success(function (pData) {
-                    pData.map(function (pEntry) {
-                        pEntry.date = DateFormatService.format(pEntry.date);
-                        return pEntry;
-                    });
-                    $scope.alerts = pData;
+                    $scope.newestBoulder = pData;
                 });
 
+            GymsService.getNewestTopRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.newestTopRope = pData;
+                });
+
+            GymsService.getNewestLead($scope.gymId)
+                .success(function (pData) {
+                    $scope.newestLead = pData;
+                });
+
+
+
+
+            /*
+            *   SECTION - Current Routes
+            */
+            RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
+                createBoulderRoutesBarGraph(pData);
+            });
+
+            RoutesService.getCurrentTopRopeRoutes($scope.gymId, function (pData) {
+                createTopRopeRoutesBarGraph(pData);
+            });
+
+            RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
+                createLeadRoutesBarGraph(pData);
+            });
+
+
+
+
+            /*
+            *   SECTION - Best Rated Routes
+            */
+            GymsService.getBestRatedBoulder($scope.gymId)
+                .success(function (pData) {
+                    $scope.bestRatedBoulder = pData;
+                });
+
+            GymsService.getBestRatedTopRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.bestRatedTopRope = pData;
+                });
+
+            GymsService.getBestRatedLead($scope.gymId)
+                .success(function (pData) {
+                    $scope.bestRatedLead = pData;
+                });
+
+
+
+
+            /*
+            *   SECTION - Scope Bindings
+            */
             $scope.setHomeGym = function () {
                 var yes = confirm("Are you sure you want to make " + $scope.gym.name + " your new home gym?");
                 if (!yes) {
@@ -127,6 +190,10 @@ angular.module('SETTER')
                     });
             };
 
+
+            /*
+            *   SUBSECTION - Image Upload
+            */
             $scope.uploadImage = function () {
                 angular.element("#image_file").trigger('click');
             };
@@ -139,21 +206,33 @@ angular.module('SETTER')
                 $scope.$apply();
             });
 
-            $scope.complete = function (content) {
+            $scope.imageUploadComplete = function (content) {
                 $scope.image = content;
             };
 
-            $scope.authorization = LoginService.getHeader();
 
-            $scope.showCharts = function () {
+            /*
+            *   SUBSECTION - Image Upload
+            */
+            $scope.showDistributionCharts = function () {
                 angular.element('#charts').css('left', '0px');
                 angular.element('#charts').css('position', 'relative');
             };
 
-            $scope.hideCharts = function () {
+            $scope.hideDistributionCharts = function () {
                 angular.element('#charts').css('left', '9999px');
                 angular.element('#charts').css('position', 'absolute');
             };
 
-            $scope.hideCharts();
+
+
+
+            /*
+            *   SECTION - MISC
+            */
+            // We need to set authorization for the 'upload image' functionality
+            $scope.authorization = LoginService.getHeader();
+
+            // Hide the charts by default since we don't start on the analytics tab
+            $scope.hideDistributionCharts();
         }]);

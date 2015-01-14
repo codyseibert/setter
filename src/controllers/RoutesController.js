@@ -50,7 +50,8 @@ var RoutesController = function () {
             wallId,
             name,
             boulderGradeId,
-            ropeGradeId,
+            topRopeGradeId,
+            leadGradeId,
             setterId,
             colorId,
             callback,
@@ -60,7 +61,8 @@ var RoutesController = function () {
         name = pReq.body.name || '';
         colorId = pReq.body.colorId;
         boulderGradeId = pReq.body.boulderGradeId;
-        ropeGradeId = pReq.body.ropeGradeId;
+        topRopeGradeId = pReq.body.topRopeGradeId;
+        leadGradeId = pReq.body.leadGradeId;
         setterId = pReq.body.setterId;
         note = pReq.body.note || '';
 
@@ -68,16 +70,28 @@ var RoutesController = function () {
             boulderGradeId = null;
         }
 
-        if (ropeGradeId === -1) {
-            ropeGradeId = null;
+        if (topRopeGradeId === -1) {
+            topRopeGradeId = null;
+        }
+
+        if (leadGradeId === -1) {
+            leadGradeId = null;
         }
 
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.createRoute(wallId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, function (pRoute) {
-            theRouteNewToUserDao.createNewRouteToUserAlertsForGym(gymId, wallId, pRoute.id, function (pData) {
-                callback(pRoute);
+        theRoutesDao.createRoute(wallId,
+            name,
+            setterId,
+            boulderGradeId,
+            topRopeGradeId,
+            leadGradeId,
+            colorId,
+            note,
+            function (pRoute) {
+                theRouteNewToUserDao.createNewRouteToUserAlertsForGym(gymId, wallId, pRoute.id, function (pData) {
+                    callback(pRoute);
+                });
             });
-        });
 
         theWallsDao.updateLastUpdate(wallId, function () {
             return undefined;
@@ -88,7 +102,8 @@ var RoutesController = function () {
         var routeId,
             name,
             boulderGradeId,
-            ropeGradeId,
+            topRopeGradeId,
+            leadGradeId,
             setterId,
             colorId,
             callback,
@@ -97,7 +112,8 @@ var RoutesController = function () {
         name = pReq.body.name || '';
         colorId = pReq.body.colorId;
         boulderGradeId = pReq.body.boulderGradeId;
-        ropeGradeId = pReq.body.ropeGradeId;
+        topRopeGradeId = pReq.body.topRopeGradeId;
+        leadGradeId = pReq.body.leadGradeId;
         setterId = pReq.body.setterId;
         note = pReq.body.note || '';
 
@@ -105,12 +121,25 @@ var RoutesController = function () {
             boulderGradeId = null;
         }
 
-        if (ropeGradeId === -1) {
-            ropeGradeId = null;
+        if (topRopeGradeId === -1) {
+            topRopeGradeId = null;
+        }
+
+        if (leadGradeId === -1) {
+            leadGradeId = null;
         }
 
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theRoutesDao.updateRoute(routeId, name, setterId, boulderGradeId, ropeGradeId, colorId, note, callback);
+        theRoutesDao.updateRoute(
+            routeId,
+            name,
+            setterId,
+            boulderGradeId,
+            topRopeGradeId,
+            leadGradeId,
+            colorId,
+            note,
+            callback);
     };
 
     this.deleteRoute = function (pReq, pRes) {

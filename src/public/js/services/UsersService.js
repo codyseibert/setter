@@ -48,18 +48,31 @@ angular.module('SETTER')
                     pCallback(image[pUserId]);
                 });
             },
+
+
+
+
             getBoulderSends: function (pUserId) {
                 return $http({
                     method: "GET",
                     url: "api/users/" + pUserId + "/sends/boulder"
                 });
             },
-            getRopeSends: function (pUserId) {
+            getTopRopeSends: function (pUserId) {
                 return $http({
                     method: "GET",
-                    url: "api/users/" + pUserId + "/sends/rope"
+                    url: "api/users/" + pUserId + "/sends/toprope"
                 });
             },
+            getLeadSends: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/sends/lead"
+                });
+            },
+
+
+
             setHomeGym: function (pGymId) {
                 return $http({
                     method: "POST",

@@ -1,8 +1,7 @@
-<section class="row pt2 ">
+<section class="row pt4 ">
 
     <div class="columns small-12 text-center">
-        <img src="images/setter-logo.svg" alt="Setter" class="hide-for-small saddie--medium [ center  mb2 ] ">
-        <h1 class="h2">Setter Login</h1>
+        <img src="images/setter-logo.svg" alt="Setter" class="hide-for-small saddie--small [ center  mb3 ] ">
     </div>
 
 </section>
@@ -10,27 +9,36 @@
 
 <section class="row">
 
-    <div class="columns small-12 medium-4 medium-centered">
+    <div class="columns small-12 medium-6 large-5 medium-centered">
 
-        <div class="fieldWrapper  mb4">
-
+        <div class="fieldWrapper  mb2">
+            
+            <label for="" class="label--block fwb">Email</label>
             <input ng-model="form.email" placeholder="email" type="email"/>
-
+            
+            <label for="" class="label--block fwb">Password</label>
             <input ng-model="form.password" ng-keydown="down($event)" placeholder="password" type="password" class="mb0"/>
 
-            <div class="mb3 fwb">
+            <div class="mb3 txt--micro  fwb">
                 <a 
                     ng-click="navigateToPasswordReset()">Forgot your Password?
                 </a>
             </div>
 
-            <div class="panel callout" ng-show="error">
+            <div class="panel warning" ng-show="error">
+
                 <div class="flag">
-                    <div class="flag-image pr1"><h4 class="h2 icon  icon-alert"></h4></div>
-                    <div class="flag-body"><h4 class="title">{{error}}</h4></div>
+
+                    <div class="flag-image pr1">
+                        <h4 class="h2 icon  icon-alert"></h4>
+                    </div>
+
+                    <div class="flag-body">
+                        <h4 class="title">{{error}}</h4>
+                    </div>
+
                 </div>
                 
-
             </div>
 
 
@@ -41,7 +49,7 @@
 
         </div>
 
-        <div class="fieldWrapper mb4  text-center">
+        <div class="mb3  text-center">
 
             <label for="" class="fwb  label--inline  mb0 ">Have an access key?</label>
 
@@ -49,12 +57,21 @@
                     ng-click="navigateToRegisterUser()">
                 Register Here
             </button>
+
         </div>
 
-        <div class="text-center">
+        <div class="text-center mb3">
+
             <a for=""
                 class="text-center "
                 ng-click="navigateToRegisterGym()">Climbing Gym? <br>Request an account here
             </a>
+
         </div>
+    </div>
+        <div class="small-12 medium-6 large-5 columns medium-centered text-center   ">
+            <h1 class="mb2 fwb">Setter</h1>
+            <p class="txt--micro">© 2015 Guillermo Martinez & Cody Seibert </p>
+        </div>
+
 </section>

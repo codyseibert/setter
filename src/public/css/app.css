@@ -424,13 +424,13 @@ table {
     #Base
 \*------------------------------------*/
 /*------------------------------------*\
-    #Colors
+    #Brand Colors
+\*------------------------------------*/
+/*------------------------------------*\
+    #Ui Colors 
 \*------------------------------------*/
 /*------------------------------------*\
     #Alert Colors
-\*------------------------------------*/
-/*------------------------------------*\
-    #Brand Colors
 \*------------------------------------*/
 /*------------------------------------*\
     #Route Colors
@@ -8276,13 +8276,13 @@ th.hide-for-touch {
     #Base
 \*------------------------------------*/
 /*------------------------------------*\
-    #Colors
+    #Brand Colors
+\*------------------------------------*/
+/*------------------------------------*\
+    #Ui Colors 
 \*------------------------------------*/
 /*------------------------------------*\
     #Alert Colors
-\*------------------------------------*/
-/*------------------------------------*\
-    #Brand Colors
 \*------------------------------------*/
 /*------------------------------------*\
     #Route Colors
@@ -10089,18 +10089,18 @@ input[type="submit"] {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
-  background-color: #EAAF63;
-  border: 1px solid #cc7f1b;
+  background-color: #E9AB54;
+  border: 1px solid #be7919;
   margin-bottom: 0.75rem;
   margin-right: 0.375rem;
 }
 /* line 17, ../scss/modules/_buttons.scss */
 .btn--warning:hover {
-  background: #e8a651;
+  background: #e7a242;
 }
 /* line 21, ../scss/modules/_buttons.scss */
 .btn--warning:active {
-  background: #e8a651;
+  background: #e7a242;
 }
 
 /*------------------------------------*\
@@ -11468,11 +11468,11 @@ ul.off-canvas-list li a:hover img,
 
 /* line 61, ../scss/partials/_popUps.scss */
 .popUp--warning {
-  border: 1px solid #EAAF63;
+  border: 1px solid #E9AB54;
 }
 /* line 64, ../scss/partials/_popUps.scss */
 .popUp--warning .popUp-title {
-  background-color: #EAAF63;
+  background-color: #E9AB54;
 }
 
 @media (min-width: 640px) {
@@ -12261,12 +12261,20 @@ ul[data-pie-id] {
 /*------------------------------------*\
     #Panels
 \*------------------------------------*/
-/* line 7, ../scss/partials/_panels.scss */
-.panel.callout {
-  background-color: #EAAF63;
-}
-/* line 12, ../scss/partials/_panels.scss */
-.panel.callout .title,
-.panel.callout .icon {
+/* line 9, ../scss/partials/_panels.scss */
+.panel.warning .title,
+.panel.warning .icon,
+.panel.success .title,
+.panel.success .icon {
   color: #FFF;
+}
+
+/* line 15, ../scss/partials/_panels.scss */
+.panel.warning {
+  background-color: #E9AB54;
+}
+
+/* line 19, ../scss/partials/_panels.scss */
+.panel.success {
+  background-color: #A3BF7C;
 }

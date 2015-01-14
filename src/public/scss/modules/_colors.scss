@@ -1,35 +1,4 @@
 
-/*------------------------------------*\
-    #Colors
-\*------------------------------------*/
-
-$color--text: #484848;
-
-$color--rating: #f3db54;
-$color--rating--hovered: #f3fb54;
-
-
-$grey--dark: #333333;
-$grey--medium: #E0E0DF;
-$grey--medlight: rgba(195, 195, 195, 1);
-$grey--light:  #F2F2F2;
-
-
-
-
-
-
-/*------------------------------------*\
-    #Alert Colors
-\*------------------------------------*/
-
-$warning: #EAAF63;
-
-
-
-
-
-
 
 /*------------------------------------*\
     #Brand Colors
@@ -53,6 +22,45 @@ $primaryColor--light: lighten($primaryColor, 25% );
 
 
 $color--dropDownLinks: $primaryColor--light;
+
+
+
+
+
+/*------------------------------------*\
+    #Ui Colors 
+\*------------------------------------*/
+
+
+$color--text: #484848;
+
+$color--rating: #f3db54;
+$color--rating--hovered: #f3fb54;
+
+
+$grey--dark: #333333;
+$grey--medium: #E0E0DF;
+$grey--medlight: rgba(195, 195, 195, 1);
+$grey--light:  #F2F2F2;
+
+
+
+
+
+
+/*------------------------------------*\
+    #Alert Colors
+\*------------------------------------*/
+
+
+$warning: #E9AB54;
+$success: #A3BF7C; 
+$hint: $orange--light; 
+
+
+
+
+
 
 
 

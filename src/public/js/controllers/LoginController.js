@@ -39,7 +39,7 @@ angular.module('SETTER')
                         LoginService.navigateToCorrectHomePage();
                     })
                     .error(function () {
-                        $scope.error = 'Yikes! Email or password are incorrect.';
+                        $scope.error = 'Yikes! Email or password entered are incorrect.';
                     });
             };
 

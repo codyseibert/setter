@@ -118,7 +118,7 @@
 }
 
 .icon-alert {
-    @include icon($icon--warning);
+    @include icon($icon--alert);
 }
 
 .icon-trash {

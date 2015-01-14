@@ -14,21 +14,27 @@
 
         <div class="fieldWrapper  mb4">
 
-            <div ng-show="error"
-                style="">
-                {{error}}
-                <div class="text-right mb3">
-    <a class="txt--micro  mb3"
-        ng-click="navigateToPasswordReset()">Forgot Password?
-    </a>
-</div>
-            </div>
-
             <input ng-model="form.email" placeholder="email" type="email"/>
 
             <input ng-model="form.password" ng-keydown="down($event)" placeholder="password" type="password" class="mb0"/>
+
+            <div class="mb3 fwb">
+                <a 
+                    ng-click="navigateToPasswordReset()">Forgot your Password?
+                </a>
+            </div>
+
+            <div class="panel callout" ng-show="error">
+                <div class="flag">
+                    <div class="flag-image pr1"><h4 class="h2 icon  icon-alert"></h4></div>
+                    <div class="flag-body"><h4 class="title">{{error}}</h4></div>
+                </div>
                 
-            <button class="btn--secondary btn--medium btn--expanded   "
+
+            </div>
+
+
+            <button class="btn--secondary  btn--medium  btn--expanded "
                     ng-click="login()">
                 LOGIN
             </button>

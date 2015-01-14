@@ -4,14 +4,19 @@
 \*------------------------------------*/
 
 
-.panel.callout {
-  
-  
-  background-color: $warning; 
-
-  .title,
-  .icon {
-    color: #FFF;  
+.panel.warning, 
+.panel.success {
+    .title,
+    .icon {
+      color: #FFF;  
   }
+}
+
+.panel.warning {
+  background-color: $warning; 
+}
+
+.panel.success {
+  background-color: $success; 
 }
 

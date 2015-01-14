@@ -80,6 +80,7 @@
   @include icon($icon--house);
 }
 
+
 .icon-globe {
   @include icon($icon--globe); 
 }
@@ -108,7 +109,7 @@
 
 [href*="settings"],
 .icon-settings {
-  @include icon($icon--settings);
+  @include icon($icon--cog);
 }
 
 [href*="setters"],
@@ -117,7 +118,7 @@
 }
 
 .icon-alert {
-    @include icon($icon--warning);
+    @include icon($icon--alert);
 }
 
 .icon-trash {

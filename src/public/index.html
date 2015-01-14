@@ -34,22 +34,28 @@
 
         <!-- Top Nav Bar -->
         <nav class="tab-bar hide-on-large" >
-            <section class="tab-bar-section text-center fwb ng-hide"
-                     ng-hide="isLoggedIn()">SETTER</section>
-
-            <span ng-show="isLoggedIn()"
-                  class="ng-hide">
-                <section class="left-small">
-                    <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-                </section>
-
-                <section class="right tab-bar-section">
+            <div class="text-center fwb ng-hide"
+                     ng-hide="isLoggedIn()">
                     <img src="images/setter-logo.svg"
                          height="40px"
                          width="40px"
-                         alt="SETTER"
+                         alt="Setter"
+                         class="text-right center mr2">   
+            </div>
+
+            <span ng-show="isLoggedIn()"
+                  class="ng-hide">
+                <div class="left-small">
+                    <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+                </div>
+
+                <div class="right tab-bar-section">
+                    <img src="images/setter-logo.svg"
+                         height="40px"
+                         width="40px"
+                         alt="Setter"
                          class="text-right  mr2">
-                </section>
+                </div>
             </span>
         </nav>
 

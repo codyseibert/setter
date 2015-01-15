@@ -215,13 +215,13 @@ angular.module('SETTER')
             *   SUBSECTION - Image Upload
             */
             $scope.showDistributionCharts = function () {
-                angular.element('#charts').css('left', '0px');
-                angular.element('#charts').css('position', 'relative');
+                //angular.element('#charts').css('left', '0px');
+                //angular.element('#charts').css('position', 'relative');
             };
 
             $scope.hideDistributionCharts = function () {
-                angular.element('#charts').css('left', '9999px');
-                angular.element('#charts').css('position', 'absolute');
+                //angular.element('#charts').css('left', '9999px');
+                //angular.element('#charts').css('position', 'absolute');
             };
 
 

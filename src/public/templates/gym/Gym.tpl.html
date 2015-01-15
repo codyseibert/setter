@@ -4,9 +4,10 @@
 
     <section class="row" ng-show="isUserAccount()">
 
-        <div class="small-12 columns mb4 header">
+        <div class="mb4 header">
 
             <div class="text-center"  >
+
                 <div class="small-12 columns "
                      ng-click="getAccountId() === gymId && uploadImage()">
                     <img class="avatar avatar--big  mb2"
@@ -47,12 +48,12 @@
         </div>
     </section>
 
-
+    <!-- Gym - Header -->
     <section class="row">
 
         <div class="header">
 
-            <div class="row large-collapse">
+            <div class="row">
 
                 <div class="small-12 medium-6 columns mb2">
 
@@ -307,9 +308,11 @@
             <tab select="showDistributionCharts()">
 
                 <tab-heading>
+
                     <i class="icon-stats"> </i>
 
                     <span class="hide-for-small">Statistics</span>
+
                 </tab-heading>
 
             </tab>
@@ -317,7 +320,10 @@
 
             <tab select="hideDistributionCharts()">
 
-                <tab-heading><i class="icon-group"> </i><span class="hide-for-small">Climbers</span></tab-heading>
+                <tab-heading>
+                    <i class="icon-group"> </i>
+                    <span class="hide-for-small">Climbers</span>
+                </tab-heading>
 
                 <content>
 
@@ -373,45 +379,63 @@
     =(
 
 -->
+<<<<<<< HEAD
 <div>
     <section class="row"
              id="charts">
          <!--
+=======
+<section class="row  selected"
+         id="charts"
+         style="position: absolute; top: -44px; left: -9999px">
+     <!--
+>>>>>>> cadd9ac05b8c0d076ec586a284f7334375e45862
 
-         SECTION - Distribution Charts
+     SECTION - Distribution Charts
 
-         -->
-        <div class="small-12 medium-6 large-4 columns">
-            <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '"></ng-include>
+     -->
+    <div class="small-12 medium-6 large-4 columns">
+
+        <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '">
+        </ng-include>
+
+    </div>
+
+    <div class="small-12 medium-6 large-4 columns">
+        <ng-include src=" 'templates/gym/TopRopeRoutesGraph.tpl.html '">
+        </ng-include>
+
+    </div>
+
+    <div class="small-12 medium-6 large-4 columns">
+
+        <ng-include src=" 'templates/gym/LeadRoutesGraph.tpl.html '">
+        </ng-include>
+
+    </div>
+
+
+    <!--
+
+    SECTION - Zone/Grade Tables
+
+    -->
+    <section class="row">
+
+        <div class="small-12 columns">
+            <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
+
         </div>
 
-        <div class="small-12 medium-6 large-4 columns">
-            <ng-include src=" 'templates/gym/TopRopeRoutesGraph.tpl.html '"></ng-include>
+        <div class="small-12 columns">
+
+            <ng-include src=" 'templates/gym/TopRopeDistribution.tpl.html '"></ng-include>
+
         </div>
 
-        <div class="small-12 medium-6 large-4 columns">
-            <ng-include src=" 'templates/gym/LeadRoutesGraph.tpl.html '"></ng-include>
-        </div>
-
-
-        <!--
-
-        SECTION - Zone/Grade Tables
-
-        -->
-        <section class="row">
-            <div class="small-12 columns">
-                <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
-            </div>
-
-            <div class="small-12 columns">
-                <ng-include src=" 'templates/gym/TopRopeDistribution.tpl.html '"></ng-include>
-            </div>
-        </section>
     </section>
 
-
-</div>
+</section>
 
 
 

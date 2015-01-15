@@ -1,6 +1,6 @@
 
 <!-- Header -->
-<div class="st--header">
+
 
     <section class="row" ng-show="isUserAccount()">
 
@@ -120,18 +120,17 @@
 
     </section>
 
-</div>
 
 
 <!-- Tabs-->
-<div class="row">
+<div class="row small-collapse">
 
     <div class="small-12 columns">
 
-        <tabset>
+        <tabset class="row small-collapse">
 
             <!-- Activity Tab -->
-            <tab select="hideDistributionCharts()" >
+            <tab class="small-4 columns  text-center" select="hideDistributionCharts()" >
 
                 <!-- Tab Heading -->
                 <tab-heading>
@@ -262,8 +261,8 @@
                         SECTION - Latest Climber Sends
 
                     -->
-                    <section class="row">
-                        <div class="small-12 medium-6 columns">
+                    <section class="row small-collapsed medium-uncollapse">
+                        <div class="small-12 columns">
                             <h2 class="fwl">
                                 Latest Climber Sends
                             </h2>
@@ -305,9 +304,9 @@
             </tab>
 
 
-            <tab select="showDistributionCharts()">
+            <tab class="small-4 columns  text-center" select="showDistributionCharts()">
 
-                <tab-heading>
+                <tab-heading class="text-center">
 
                     <i class="icon-stats"> </i>
 
@@ -318,9 +317,9 @@
             </tab>
 
 
-            <tab select="hideDistributionCharts()">
+            <tab class="small-4 columns  text-center" select="hideDistributionCharts()">
 
-                <tab-heading>
+                <tab-heading >
                     <i class="icon-group"> </i>
                     <span class="hide-for-small">Climbers</span>
                 </tab-heading>

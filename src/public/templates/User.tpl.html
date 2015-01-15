@@ -1,74 +1,172 @@
-<div class="st--header">
-    <section class="row">
-        <div class="header">
-            <button class="[ btn--secondary  btn--medium ] mb3 icon-left-big display--block"
-                    ng-show="lastPageWasGym() || lastPageWasRoute() || lastPageWasSetters()"
-                    ng-click="back()" >
-               Back
-            </button>
+<div class="st--header ptb2">
 
-            <div class="flag  mb2">
-                <div class="flag-image"
-                     ng-click="getAccountId() === userId && uploadImage()">
-                    <img class="avatar--big"
-                         ng-src="{{getUserImageSrc(image)}}">
-                </div>
+    <section class="row ">
 
-                <div class="flag-body">
-                    <h1 class="mb0  fwb"
-                        ng-show="getAccountId() === userId">
-                        {{user.firstname}} {{user.lastname}}
-                    </h1>
+        <div class="header ">
 
-                    <h1 class="mb0  fwb"
-                        ng-hide="getAccountId() === userId">
-                        {{user.firstname}} {{user.lastname}}
-                    </h1>
+            <div class="clearfix" >
 
-                    <h2 class="h4  icon-home "
-                        ng-click="navigateToGym(user.gym_id)">
-                        {{user.gym_name}}
-                    </h2>
-                </div>
+                <button class="[ btn--secondary  btn--medium ] left mb3 icon-left-big "
+                        ng-show="lastPageWasGym() || lastPageWasRoute() || lastPageWasSetters()"
+                        ng-click="back()" >
+                   Back
+                </button>
+
             </div>
+
+            <div class="row">
+
+                <div class="small-12 large-6 columns">
+
+                    <div class="flag mb2 ">
+                         
+                         <div class="flag-image"
+                              ng-click="getAccountId() === userId && uploadImage()">
+                             <img class="avatar--big"
+                                  ng-src="{{getUserImageSrc(image)}}">
+                         </div>
+                                     
+                         <div class="flag-body">
+                            <ul>
+                                <li>
+                                     <h1 class="h2  mb0  fwb"
+                                         ng-show="getAccountId() === userId">
+                                         {{user.firstname}} {{user.lastname}}
+                                     </h1>
+                                </li>
+
+                                <li>
+                                 
+                                     <h1 class="h2  mb0  fwb"
+                                         ng-hide="getAccountId() === userId">
+                                         {{user.firstname}} {{user.lastname}}
+                                     </h1>
+                                </li>
+
+                                <li>
+                                    <h2 class="h4  icon-home "
+                                 ng-click="navigateToGym(user.gym_id)">
+                                 {{user.gym_name}}
+                                    </h2>             
+
+                                </li>                        
+                            </ul>
+                        
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="large-collapse">
+                    <div class="show-for-large-up large-6 columns">
+                        
+                          <ng-include class="large-4  columns text-center  " 
+                         ng-controller="BoulderGradeController"
+                         src=" 'templates/user/BoulderGrade.tpl.html' ">
+                         </ng-include > 
+                     
+                     
+                         <ng-include class="large-4  columns text-center  " 
+                         ng-controller="TopRopeGradeController"
+                         src=" 'templates/user/TopRopeGrade.tpl.html' ">
+                         </ng-include > 
+                     
+                     
+                         <ng-include class="large-4  columns text-center  " 
+                         ng-controller="LeadGradeController"
+                         src=" 'templates/user/LeadGrade.tpl.html' ">
+                         </ng-include> 
+
+                    </div>
+                </div>
         </div>
+
+             <div class="row small-collapse hide-for-large">
+             
+               <ng-include class="small-4 medium-4 columns text-center" 
+                             ng-controller="BoulderGradeController"
+                             src=" 'templates/user/BoulderGrade.tpl.html' ">
+                         </ng-include >
+             
+             
+                 <ng-include class="small-4 medium-4 columns text-center" 
+                     ng-controller="TopRopeGradeController"
+                     src=" 'templates/user/TopRopeGrade.tpl.html' ">
+                 </ng-include >
+     
+     
+                 <ng-include class="small-4 medium-4 columns text-center" 
+                     ng-controller="LeadGradeController"
+                     src=" 'templates/user/LeadGrade.tpl.html' ">
+                 </ng-include>
+            </div>
+
+        </div>
+
     </section>
+
 </div>
 
 
 
-<section class="row">
+<section class="row small-collapse">
+
     <div class="small-12 columns">
+
         <tabset>
-            <tab select="hideSendsCharts()">
+
+            <tab class="small-6  columns  text-center"  select="hideSendsCharts()">
+
                 <tab-heading>
                     <i class="icon-globe"> </i> Activity
                 </tab-heading>
 
                 <content>
-                    <div class="row">
-                        <div class="small-12  columns  mb4">
-                            <h2>
-                                Latest Sends
-                            </h2>
-                            <div class="row small-collapse">
+
+                    <div class="row ">
+                         <div class="small-12 columns">
+                             <h2 class="fwl">Latest Sends</h2>
+                         </div>
+                            <div class="row small-collapse large-uncollapse ">
+
+                                <div class="small-12  columns  mb4">
+
                                 <ul class="list list--tableStyle">
-                                    <li class="list-elem"
+
+                                    <li class="ptb1  clearfix  list-elem"
                                         ng-repeat="act in activity">
-                                        <span ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
-                                            <i class="icon-circle icon--big"
-                                               ng-style="{color: act.value}"> </i>
-                                               {{formatGrade(act.bg, act.rg)}} on {{act.date}}
-                                        </span>
+
+                                        <div class="clearfix" ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
+
+                                            <span class="left">
+                                                <i class="icon-circle icon--medium"
+                                                   ng-style="{color: act.value}"> 
+                                                </i>
+                                                   {{formatGrade(act.bg, act.rg)}} 
+                                            </span>
+
+                                            <span class="right">on {{act.date}}
+                                            </span>
+
+                                        </div>
+
                                     </li>
+
                                 </ul>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </content>
+
             </tab>
 
-            <tab select="showSendsCharts()">
+
+            <tab  class="small-6 columns  text-center"  select="showSendsCharts()">
                 <tab-heading>
                     <i class="icon-stats"> </i> Statistics
                 </tab-heading>
@@ -79,22 +177,7 @@
                 -->
                 <content>
                     <section class="row">
-                        <ng-include
-                            ng-controller="BoulderGradeController"
-                            src=" 'templates/user/BoulderGrade.tpl.html' ">
-                        </ng-include>
-
-
-                        <ng-include
-                            ng-controller="TopRopeGradeController"
-                            src=" 'templates/user/TopRopeGrade.tpl.html' ">
-                        </ng-include>
-
-
-                        <ng-include
-                            ng-controller="LeadGradeController"
-                            src=" 'templates/user/LeadGrade.tpl.html' ">
-                        </ng-include>
+                      
                     </section>
                 </content>
 

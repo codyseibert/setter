@@ -1,10 +1,9 @@
 <!-- T - Wall Template -->
-<div class="mb4">
     <section class="row">
-
 
         <!-- S - Back Button -->
         <div class="header">
+
             <div class="left">
                 <!-- [] Back to Manage Zones -->
                 <button class="[ btn--secondary btn--medium right ] icon-left-big"
@@ -12,51 +11,55 @@
                     <span ng-show="isGymAccount()">
                         Manage
                     </span>
+
                     Zones
                 </button>
+
+            
             </div>
-        </div>
 
+            <!-- S Zone Title -->
+            <div class="row">
+            
+                <div class="small-12 columns">
 
-        <!-- S - Zone Image & Zone Title -->
-        <div class="small-12 columns">
-            <div ng-show="shouldShowWallImage()">
-                <div>
-                    <img style="height: 100px; overflow: hidden; cursor: pointer;"
-                         ng-click="getAccountId() === gymId && uploadImage()"
-                         ng-src="{{getGymImageSrc(wall)}}">
+                    <div class="media--fl"
+                         ng-show="isEditMode">
+
+                        <input ng-model="form.name"
+                               type="text">
+                        </input>
+
+                        <!-- [] Save Route -->
+                        <button class="btn--medium  btn--primary "
+                                ng-click="save()">
+                            Save
+                        </button>
+                    </div>
+
+                    <h1 class="title"
+                        ng-hide="isEditMode">
+                        {{wall.name}}
+
+                        <!-- [] Edit Route -->
+                        <a class="icon-pencil"
+                           ng-click="edit()"
+                           ng-hide="isUserAccount() || isEditMode">
+                        </a>
+                    </h1>
+
                 </div>
+
             </div>
 
-            <div class="media--fl"
-                 ng-show="isEditMode">
+            <hr class="header-divider  hide-for-small-only">
 
-                <input ng-model="form.name"
-                       type="text">
-                </input>
-
-                <!-- [] Save Route -->
-                <button class="btn--medium  btn--primary "
-                        ng-click="save()">
-                    Save
-                </button>
-            </div>
-
-            <h1 class="title"
-                ng-hide="isEditMode">
-                {{wall.name}}
-
-                <!-- [] Edit Route -->
-                <a class="icon-pencil"
-                   ng-click="edit()"
-                   ng-hide="isUserAccount() || isEditMode">
-                </a>
-            </h1>
         </div>
-
 
         <!-- S - Add Route - for Medium-Up -->
+
         <div class="small-12 columns  hide-on-small show-for-medium-up">
+
             <div class="row"
                  ng-show="isGymAccount()"
                  data-ui-component="routeActions">
@@ -85,8 +88,17 @@
             </div>
 
         </div>
+        
+        <!-- S - Zone Image -->
+        
+        <div class="small-12 columns  text-center" ng-show="shouldShowWallImage()">
+
+            <img class="mb4"  style="height: 160px; overflow: hidden; cursor: pointer;"
+                 ng-click="getAccountId() === gymId && uploadImage()"
+                 ng-src="{{getGymImageSrc(wall)}}">
 
 
+        </div>
         <!-- [] - Drill Icon Button -->
         <button ng-show="isGymAccount()"
                 class="btn--primary btn--fixedAction  show-for-small-only"
@@ -97,9 +109,7 @@
                  alt=""
                  class="icon">
         </button>
-    </section>
-</div>
-
+</section>
 
 <!-- Routes List & Delete Button -->
 <section class="row  small-collapse">

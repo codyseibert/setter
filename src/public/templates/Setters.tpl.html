@@ -41,7 +41,7 @@
 
                     <li >
 
-                    <h2 class="h3  fwb mb1" data-ui-component="setter-info-name">
+                    <h2 class="h3 fwb mb1" data-ui-component="setter-info-name">
                      {{setter.firstname}} {{setter.lastname}}
                     </h2>
 
@@ -59,30 +59,43 @@
 
             <ul class="list--dotted">
 
-                <li>
-                    <h3 class="h5 fwb mb0" >
-                    Total Routes Set
-                    </h3>
-                </li>
+              <li>
+                  <h3 class="h5 fwb mb0" >
+                  Total Routes Set
+                  </h3>
+              </li>
 
-                <li>
-                  <span class="txtc2 left">Bouldering</span>
-                  <a href="#" class="right"data-ui-component="setter-info-ropeRoutesTotal">
-                    <strong>{{setter.num_boulder_routes}}</strong>
-                  </a></li>
+              <li>
 
-                  <li>
-                  <span class="txtc2 left">Top Rope</span>
-                  <a href="#" class="right" data-ui-component="setter-info-ropeRoutesTotal">
-                    <strong>{{setter.num_rope_routes}}</strong>
-                  </a></li>
+                <span class="left">Bouldering
+                </span>
 
-                  <li>
-                  <span class="txtc2 left">Lead</span>
-                  <a href="#" class="right" data-ui-component="setter-info-boulderProbTotal">
-                    <strong>{{setter.num_rope_routes}}</strong>
-                  </a>
-                </li>
+                <a href="#" class="right"data-ui-component="setter-info-ropeRoutesTotal">
+                  <strong>{{setter.num_boulder_routes}}</strong>
+                </a>
+
+              </li>
+
+              <li>
+
+                <span class="left">Top Rope
+                </span>
+
+                <a href="#" class="right" data-ui-component="setter-info-ropeRoutesTotal">
+                  <strong>{{setter.num_rope_routes}}</strong>
+                </a>
+
+              </li>
+
+              <li>
+
+                <span class="left">Lead</span>
+
+                <a href="#" class="right" data-ui-component="setter-info-boulderProbTotal">
+                  <strong>{{setter.num_rope_routes}}</strong>
+                </a>
+
+              </li>
 
             </ul>
 
@@ -91,5 +104,7 @@
             </div>
 
        </section>
+
     </div>
+    
 </section>

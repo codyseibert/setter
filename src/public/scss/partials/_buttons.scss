@@ -33,6 +33,10 @@ input[type="submit"] {
 }
 
 
+[ng-click*="navigate"] {
+  cursor: pointer; 
+}
+
 
 
 

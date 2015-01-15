@@ -34,6 +34,7 @@
 
         <!-- Top Nav Bar -->
         <nav class="tab-bar hide-on-large" >
+
             <div class="text-center fwb ng-hide"
                      ng-hide="isLoggedIn()">
                     <img src="images/setter-logo.svg"
@@ -77,12 +78,11 @@
                    class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only"
                    ng-show="isLoggedIn()">
 
-                <div style="padding-top: 12px; text-align: center;">
-                    <img src="images/setter-logo.svg" style="width: 70px;"><br>
-                    <span style="font-size: 30px;">SETTER</span>
+                <div class="setterLogo--nav  mb3">
+                    <img src="images/setter-logo.svg" >
                 </div>
 
-                <ul class="pt5 "
+                <ul
                     ng-show="isLoggedIn()"
                     ng-include
                     src=" ' templates/Navigation.tpl.html ' ">

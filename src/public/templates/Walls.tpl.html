@@ -13,11 +13,11 @@
 
         </div>
 
-        <h1 ng-show="isGymAccount()" class="icon-th-list">
+        <h1 ng-show="isGymAccount()" class="fwb">
             <img src="images/icon--wrench.svg" alt="">  Manage Gym Zones
         </h1>
 
-        <h1 ng-hide="isGymAccount()" class="icon-th-list"> Gym Zones
+        <h1 ng-hide="isGymAccount()" class="fwb"> Gym Zones
         </h1>
 
         <hr class="header-divider  hide-for-small-only">
@@ -79,12 +79,16 @@
 
                     {{wall.name}}
                    <span class="round  label success " ng-show="isUserAccount() && wall.new_count">{{wall.new_count}}</span>
-                    <i class="icon-right-big right"> </i>
 
-                    <span class="right"
-                         style="margin-right: 20px; color: green">
+                    <i class="icon-right-big right"> </i>    
+
+                    <span class="right">
                         {{wall.route_count}} Routes
                     </span>
+
+
+
+
             </li>
 
         </ul>

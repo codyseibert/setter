@@ -125,31 +125,36 @@
                 <content>
 
                     <div class="row ">
-                         <div class="small-12 columns">
-                             <h2 class="fwl">Latest Sends</h2>
-                         </div>
-                            <div class="row small-collapse large-uncollapse ">
 
-                                <div class="small-12  columns  mb4">
+                         <div class="small-12 columns">
+
+                             <h2 class="fwl">Latest Sends</h2>
+
+                         </div>
+
+   
+
+
+                        <div class="row small-collapse large-uncollapse ">
+
+                            <div class="small-12  columns  mb4">
 
                                 <ul class="list list--tableStyle">
 
-                                    <li class="ptb1  clearfix  list-elem"
-                                        ng-repeat="act in activity">
+                                    <li class="ptb2    "
+                                        ng-repeat="act in activity" 
+                                        ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
 
-                                        <div class="clearfix" ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
+                                        <span>
+                                            <i class="icon-circle icon--medium"
+                                               ng-style="{color: act.value}"> 
+                                            </i>
+                                               {{formatGrade(act.bg, act.rg)}} 
+                                        </span>
 
-                                            <span class="left">
-                                                <i class="icon-circle icon--medium"
-                                                   ng-style="{color: act.value}"> 
-                                                </i>
-                                                   {{formatGrade(act.bg, act.rg)}} 
-                                            </span>
-
-                                            <span class="right">on {{act.date}}
-                                            </span>
-
-                                        </div>
+                                        <span class="right">
+                                            on {{act.date}}
+                                        </span>
 
                                     </li>
 

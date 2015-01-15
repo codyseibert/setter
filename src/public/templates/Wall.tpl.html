@@ -37,7 +37,7 @@
                         </button>
                     </div>
 
-                    <h1 class="title"
+                    <h1 class="fwb"
                         ng-hide="isEditMode">
                         {{wall.name}}
 
@@ -112,7 +112,8 @@
 </section>
 
 <!-- Routes List & Delete Button -->
-<section class="row  small-collapse">
+<section class="row  small-collapse large-uncollapse">
+
     <div class="small-12 columns">
 
         <!-- Displays the routes in this zone -->
@@ -122,6 +123,7 @@
 
         <!-- Delete Zone -->
         <section class="row">
+
             <div class="small-12 columns  text-center mb4"
                  ng-show="isGymAccount()"
                  data-ui-component="routeSubActions">
@@ -131,7 +133,9 @@
                 Delete Zone Permanently
                 </a>
             </div>
+
         </section>
+
     </div>
 </section>
 

@@ -320,8 +320,8 @@ angular.module('SETTER', [
                 LoginService.setNameFromCookie();
             }
 
-            $rootScope.formatGrade = function (pBoulderGrade, pRopeGrade) {
-                return pBoulderGrade || pRopeGrade || 'Not Rated';
+            $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
+                return pBoulderGrade || pTopRopeGrade || pLeadGrade || 'Not Rated';
             };
 
             var paths = ['/'],
@@ -403,9 +403,20 @@ angular.module('SETTER', [
                 }
             }
 
+            /*
+                Very nasty hack to get the charts to display...
+            */
             $rootScope.refreshCharts = function () {
                 $timeout(function () {
                     $rootScope.$apply();
+                }, 10);
+
+                $timeout(function () {
+                    $rootScope.$apply();
                 }, 100);
+
+                $timeout(function () {
+                    $rootScope.$apply();
+                }, 1000);
             };
         }]);

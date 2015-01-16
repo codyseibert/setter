@@ -77,6 +77,7 @@ angular.module('SETTER')
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {
                     $scope.activity = pData;
+                    console.log(pData);
                 });
 
 
@@ -226,5 +227,5 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
-            
+
         }]);

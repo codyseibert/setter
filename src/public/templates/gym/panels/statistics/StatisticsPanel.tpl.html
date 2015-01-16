@@ -24,16 +24,16 @@
 
 <section class="row">
     <!-- Boulder Distribution Graph -->
-    <div class="small-12 medium-6 large-4 columns"
-        inject-template-when-visible
-        template="templates/gym/panels/statistics/graphs/distribution/BoulderDistribution.tpl.html"
-        controller="BoulderDistributionController">
+    <div class="small-12 columns"
+        ng-include
+        src=" 'templates/gym/panels/statistics/graphs/distribution/BoulderDistribution.tpl.html' "
+        ng-controller="BoulderDistributionController">
     </div>
 
     <!-- Top Rope Distribution Graph -->
-    <div class="small-12 medium-6 large-4 columns"
-        inject-template-when-visible
-        template="templates/gym/panels/statistics/graphs/distribution/RopeDistribution.tpl.html"
-        controller="RopeDistributionController">
+    <div class="small-12 columns"
+        ng-include
+        src=" 'templates/gym/panels/statistics/graphs/distribution/RopeDistribution.tpl.html' "
+        ng-controller="RopeDistributionController">
     </div>
 </section>

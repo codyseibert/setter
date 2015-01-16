@@ -105,7 +105,7 @@ var UsersDao = function () {
 
     this.getActivityStream = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT a.id, c.value, s.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, w.gym_id, r.wall_id, s.route_id FROM users u ' +
+            'SELECT a.id, lg.name AS lg, c.value, s.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, w.gym_id, r.wall_id, s.route_id FROM users u ' +
                 'INNER JOIN accounts a ON u.account_id = a.id ' +
                 'INNER JOIN sends s ON s.user_id = a.id ' +
                 'INNER JOIN routes r ON r.id = s.route_id ' +
@@ -113,6 +113,7 @@ var UsersDao = function () {
                 'INNER JOIN colors c ON c.id = r.color_id ' +
                 'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
                 'LEFT JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
+                'LEFT JOIN rope_grades lg ON lg.id = r.lead_grade_id ' +
                 'WHERE a.id = ? ORDER BY s.date DESC LIMIT 20',
             [pUserId],
             theDaoHelper.MULTIPLE,

@@ -30,10 +30,13 @@ angular.module('SETTER')
                             return element.is(':visible');
                         },
                         function (newValue, oldValue) {
-                            var el = angular.element(template),
-                            compiled = $compile(el);
-                            compiled(scope);
-                            element.html(el);
+                            if (newValue === true) {
+                                console.log("here");
+                                var el = angular.element(template),
+                                compiled = $compile(el);
+                                compiled(scope);
+                                element.html(el);
+                            }
                         }
                     );
                 }

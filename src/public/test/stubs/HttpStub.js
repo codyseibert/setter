@@ -7,7 +7,6 @@ angular.module('SETTER')
                     deferred = $q.defer();
                     promise = deferred.promise;
 
-
                     promise.success = function (fn) {
                         promise.then(fn);
                         return promise;

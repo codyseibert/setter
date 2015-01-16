@@ -31,7 +31,6 @@ angular.module('SETTER')
                         },
                         function (newValue, oldValue) {
                             if (newValue === true) {
-                                console.log("here");
                                 var el = angular.element(template),
                                 compiled = $compile(el);
                                 compiled(scope);

@@ -33,19 +33,10 @@
     <div class="off-canvas-wrap">
 
         <!-- Top Nav Bar -->
-        <nav class="tab-bar hide-on-large" >
-
-            <div class="text-center fwb ng-hide"
-                     ng-hide="isLoggedIn()">
-                    <img src="images/setter-logo.svg"
-                         height="40px"
-                         width="40px"
-                         alt="Setter"
-                         class="text-right center mr2">
-            </div>
-
+        <nav class="tab-bar hide-for-large-up" >
             <span ng-show="isLoggedIn()"
                   class="ng-hide">
+
                 <div class="left-small">
                     <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
                 </div>
@@ -61,9 +52,13 @@
         </nav>
 
 
+        <!-- Menus -->
         <div class="inner-wrap">
-            <!-- Full Screen Menu -->
-            <aside class="left-off-canvas-menu  side-menu  hide-on-large">
+
+
+
+            <!-- Left Pull Out Menu -->
+            <aside class="left-off-canvas-menu  side-menu  hide-for-large-up">
 
                 <ul class="pt3  off-canvas-list"
                     ng-show="isLoggedIn()"
@@ -73,9 +68,12 @@
 
             </aside>
 
-            <!-- Mobile Menu -->
+
+
+
+            <!-- Full Screen Static Menu -->
             <aside style="padding-top: 0px;"
-                   class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only"
+                   class="hide-on-small  nav-primary  side-nav side-menu  show-for-large-up"
                    ng-show="isLoggedIn()">
 
                 <div class="setterLogo--nav  mb3">
@@ -90,6 +88,8 @@
 
             </aside>
 
+
+
             <!-- The Main Content -->
             <div class="relative selfClear"
                  ng-class="{'main-wrap': isLoggedIn()}">
@@ -101,6 +101,9 @@
                     </div>
                 </div>
             </div>
+
+
+
 
           <!-- close the off-canvas menu -->
           <a class="exit-off-canvas"></a>

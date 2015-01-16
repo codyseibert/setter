@@ -77,7 +77,6 @@ angular.module('SETTER')
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {
                     $scope.activity = pData;
-                    console.log(pData);
                 });
 
 

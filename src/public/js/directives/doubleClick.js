@@ -19,10 +19,8 @@ angular.module('SETTER')
                 link: function (scope, element, attr) {
                     scope.$watch(
                         function () {
-                            console.log($(element).hasClass('active'));
                             return $(element).hasClass('active');
                         }, function () {
-                            console.log("clicking again...");
                             element.click();
                         }
                     );

@@ -1,6 +1,8 @@
+
+<!-- User - Gym Header -->
 <section class="row" ng-show="isUserAccount()">
 
-    <div class="mb4 header">
+    <div class="header">
 
         <div class="text-center">
 
@@ -25,19 +27,20 @@
                 ng-click="setHomeGym()">
             Make Home Gym
         </button>
+        
     </div>
 
-    <div class="small-6  medium-6 columns  ">
+    <div class="small-12  medium-6 columns"  
+                ng-show="getAccountId() !== gymId">
 
         <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
-                ng-click="navigateToWalls(gymId)"
-                ng-show="getAccountId() !== gymId">
+                ng-click="navigateToWalls(gymId)">
             View Zones
         </button>
 
     </div>
 
-    <div class="small-6  medium-6 columns">
+    <div class="small-12  medium-6 columns  mb2">
 
         <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
                 ng-click="navigateToGymSuggestions(gymId)"
@@ -50,7 +53,7 @@
 </section>
 
 <!-- Gym - Header -->
-<section class="row">
+<section class="row"  ng-show="isGymAccount()">
 
     <div class="header">
 
@@ -58,7 +61,7 @@
 
             <div class="small-12 medium-6 columns mb2">
 
-                <div  ng-show="isGymAccount()">
+                <div>
 
                     <div class="flag">
 
@@ -91,7 +94,7 @@
 
         <div class="row large-collapse">
 
-            <div class="small-12 columns medium-6  mb3" ng-show="isGymAccount()">
+            <div class="small-12 columns medium-6 " ng-show="isGymAccount()">
 
                 <div class="small-12 medium-12 large-6 columns">
 
@@ -103,9 +106,9 @@
 
                 </div>
 
-                <div class="small-12 medium-12 large-6 columns">
+                <div class="small-12 medium-12 large-6 columns " ng-show="isGymAccount()"   >
 
-                    <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil" ng-click="navigateToWalls(gymId)" ng-show="isGymAccount()">
+                    <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil" ng-click="navigateToWalls(gymId)" >
                         Set Route
                     </button>
 

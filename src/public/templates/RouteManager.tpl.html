@@ -5,7 +5,7 @@
 
     <div class="header">
 
-        <h1 class="icon-archive"> 
+        <h1 class="icon-archive">
             Route Archive
         </h1>
 
@@ -30,7 +30,7 @@
         <div class="small-12 columns">
 
             <label class="fwb [ inline label--inline ] ">Show Type</label>
-            
+
             <label class="[ select--small select--primary ] display--inlineBlock">
 
                 <select ng-model="form.view"
@@ -45,11 +45,11 @@
     </section>
 
     <section class="row">
-        
+
         <div class="small-12  columns">
 
-            <div class="fieldwrapper  panel [ small-12  columns ] ">  
-            
+            <div class="fieldwrapper  panel [ small-12  columns ] ">
+
                 <div class="row">
 
                     <div class="small-12 columns">
@@ -111,13 +111,13 @@
                                         ng-change="refreshFilters()">
                                 </select>
 
+                                <select ng-model="form.ropeGradeFilter"
+                                        ng-show="form.view.value === ROPE_VIEW"
+                                        ng-options="grade.value for grade in ropeGradeInputs"
+                                        ng-change="refreshFilters()">
+                                </select>
+
                             </div>
-                            <!-- YDS Grade filter dropdown -->
-                            <select ng-model="form.ropeGradeFilter"
-                                    class="[ select--medium select--secondary ]"
-                                    ng-show="form.view.value === ROPE_VIEW"
-                                    ng-options="grade.value for grade in ropeGradeInputs"
-                                    ng-change="refreshFilters()"></select>
                         </div>
 
                         <div class="small-12  medium-6 large-5 end  columns">
@@ -167,54 +167,54 @@
                 </thead>
 
                 <tbody>
-            
+
                     <tr bindonce ng-repeat="route in routes"
                          class="list--tableStyle  list--navElem"
                          ng-show="route.show"
                          on-finish-render
                          ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
-            
+
                     <td  bo-text="route.wall_name || '-'"></td>
-            
+
                     <td>
                         <i class="icon-circle" bo-style="{color: route.value}"> </i></td>
-            
-                    <td 
+
+                    <td
                          ng-show="form.view.value === BOULDERING_VIEW"
                             bo-text="route.boulder_grade || '-'"></td>
-            
+
                     <td  ng-show="form.view.value === ROPE_VIEW"
                          bo-text="route.rope_grade || '-'">
                     </td>
-            
+
                     <!--
                     <td class="small-1 columns"
                         bo-text="route.route_name || '-'"></td>
                     -->
-            
+
                     <td bo-text="route.setter || '-'"></td>
-            
+
                     <td class="rating rating--small">
                         <!--
                         <span bo-show="route.rating !== -1" bo-text="route.rating"></span>
                         <span bo-show="route.rating === -1">-</span>
                         -->
 
-                        <i bindonce 
-                            ng-repeat="star in stars" bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}"> 
+                        <i bindonce
+                            ng-repeat="star in stars" bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}">
                         </i>
-                    
+
                     </td>
-            
+
                     <td bo-text="route.sends"></td>
-            
+
                     <td bo-text="route.date_format">
                     </td>
-            
+
     <!--                 <td>
                         <i bo-show="!route.active" class="icon-down-big"> </i>
                     </td> -->
-                    
+
                     </tr>
 
                 </tbody>

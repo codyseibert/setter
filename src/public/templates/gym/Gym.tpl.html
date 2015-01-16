@@ -1,126 +1,7 @@
 
 <!-- Header -->
-<div class="st--header">
+<ng-include src=" 'templates/gym/GymHeader.tpl.html' "></ng-include>
 
-    <section class="row" ng-show="isUserAccount()">
-
-        <div class="mb4 header">
-
-            <div class="text-center"  >
-
-                <div class="small-12 columns "
-                     ng-click="getAccountId() === gymId && uploadImage()">
-                    <img class="avatar avatar--big  mb2"
-                         ng-src="{{getGymImageSrc(image)}}">
-                </div>
-
-                <h1 class="h2 testQuery mb1">
-                    {{gym.name}}
-                </h1>
-
-            </div>
-
-        </div>
-
-        <div class="small-12 medium-12 columns"
-             ng-hide="getHomeGymId() === gymId || isGymAccount()">
-
-            <button class="btn--primary  btn--medium  icon-home btn--expanded"
-                        ng-click="setHomeGym()">
-                Make Home Gym
-            </button>
-        </div>
-
-        <div class="small-6  medium-6 columns  ">
-            <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
-                    ng-click="navigateToWalls(gymId)"
-                    ng-show="getAccountId() !== gymId">
-                View Zones
-            </button>
-        </div>
-
-        <div class="small-6  medium-6 columns">
-            <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
-                    ng-click="navigateToGymSuggestions(gymId)"
-                    ng-show="isUserAccount()" >
-                Post Suggestion
-            </button>
-        </div>
-    </section>
-
-    <!-- Gym - Header -->
-    <section class="row">
-
-        <div class="header">
-
-            <div class="row">
-
-                <div class="small-12 medium-6 columns mb2">
-
-                    <div  ng-show="isGymAccount()">
-
-                        <div class="flag">
-
-                            <div class="flag-image"
-                                    ng-click="getAccountId() === gymId && uploadImage()">
-                                    <div class="avatar avatar--big">
-                                        <img class=""
-                                             ng-src="{{getGymImageSrc(image)}}">
-
-                                    </div>
-
-                            </div>
-
-                            <div class="flag-body text-left">
-
-                                <h1 class=" display--block  h2 mb0 testQuery fwb">
-                                    Your Dashboard
-                                </h1>
-
-                                <h2 class=" display--block  h4  fwl ">{{gym.name}}
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="row large-collapse">
-
-                    <div class="small-12 columns medium-6  mb3" ng-show="isGymAccount()">
-
-                        <div class="small-12 medium-12 large-6 columns">
-
-                            <button class="[ btn--tetriary  btn--medium  btn--expanded ] right  icon-map" ng-click="navigateToWalls(gymId)">
-                                View Zones
-                            </button>
-
-                            <span class="icon--topRight round label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
-
-                        </div>
-
-                        <div class="small-12 medium-12 large-6 columns">
-
-                            <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil" ng-click="navigateToWalls(gymId)" ng-show="isGymAccount()">
-                                Set Route
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-
-    </section>
-
-</div>
 
 
 <!-- Tabs-->
@@ -128,315 +9,48 @@
 
     <div class="small-12 columns">
 
-        <tabset>
-
-            <!-- Activity Tab -->
-            <tab select="hideDistributionCharts()" >
-
-                <!-- Tab Heading -->
-                <tab-heading>
-                    <i class="icon-globe"> </i>
-                    <span class="hide-for-small">
-                        Activity
-                    </span>
-                </tab-heading>
-
-                <content>
-                    <!--
-
-                        SECTION - Gym Announcements
-
-                    -->
-                    <section class="row">
-                        <div class="small-12 columns">
-                            <h2 class="fwl">
-                                Gym Announcements
-                            </h2>
-
-                            <ul class="list--noStyles  list">
-
-                                <!-- Render the Alerts-->
-                                <li ng-repeat="alert in alerts">
-                                    <p>
-                                        {{alert.message}}
-                                        <span class="txt--micro  display--block">
-                                            {{alert.date}}
-                                        </span>
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-
-
-
-
-                        <!--
-
-                        SECTION - Newest
-
-                        -->
-                        <!-- Newest Boulder Problems -->
-                    <section class="row">
-                        <div class="small-12 medium-6 large-4 columns">
-                            <h2 class="fwl">
-                                Newest Boulder Problems
-                            </h2>
-
-                            <ng-include
-                                src=" 'templates/gym/NewestBoulder.tpl.html' ">
-                            </ng-include>
-                        </div>
-
-                        <!-- Newest Top Rope Routes -->
-                        <div class="small-12 medium-6 large-4 columns">
-                            <h2 class="fwl">
-                                Newest Top Rope Routes
-                            </h2>
-
-                            <ng-include
-                                src=" 'templates/gym/NewestTopRope.tpl.html' ">
-                            </ng-include>
-                        </div>
-
-                        <!-- Newest Lead Routes -->
-                        <div class="small-12 medium-6 large-4 columns">
-                            <h2 class="fwl">
-                                Newest Lead Routes
-                            </h2>
-
-                            <ng-include
-                                src=" 'templates/gym/NewestLead.tpl.html' ">
-                            </ng-include>
-                        </div>
-                    </section>
-
-
-
-
-
-                    <!--
-
-                        SECTION - Best Rated
-
-                    -->
-                    <!-- Best Rated Boulder -->
-                    <section class="row">
-                        <div class="small-12 medium-6 large-4 columns">
-                            <h2 class="fwl">
-                                Best Rated Boulder Problems
-                            </h2>
-
-                            <ng-include
-                                src=" 'templates/gym/BestRatedBoulder.tpl.html' ">
-                            </ng-include>
-                        </div>
-
-                        <!-- Best Rated Top Rope -->
-                        <div class="small-12 medium-6 large-4 columns">
-                            <h2 class="fwl">
-                                Best Rated Rope Routes
-                            </h2>
-
-                            <ng-include
-                                src=" 'templates/gym/BestRatedTopRope.tpl.html' ">
-                            </ng-include>
-                        </div>
-
-                        <!-- Best Rated Lead -->
-                        <div class="small-12 medium-6 large-4 columns">
-                            <h2 class="fwl">
-                                Best Rated Lead
-                            </h2>
-
-                            <ng-include
-                                src=" 'templates/gym/BestRatedLead.tpl.html' ">
-                            </ng-include>
-                        </div>
-                    </section>
-
-
-
-                    <!--
-
-                        SECTION - Latest Climber Sends
-
-                    -->
-                    <section class="row">
-                        <div class="small-12 medium-6 columns">
-                            <h2 class="fwl">
-                                Latest Climber Sends
-                            </h2>
-
-                            <div class="row" >
-                                <ul class="list--tableStyle ">
-                                   <li class="flag small-6 medium-3 large-3 columns ptb2"
-                                       ng-repeat="act in activity"
-                                       data-equalizer-watch>
-                                        <div >
-                                            <div class="flag-image">
-                                                <img class="avatar avatar--tiny"
-                                                     ng-click="navigateToUser(act.id)"
-                                                     ng-src="{{getUserImageSrc(act)}}">
-                                            </div>
-
-                                            <div class="flag-body h6"
-                                                 ng-click="navigateToUser(act.id)">
-                                                <a>
-                                                    <div class="title mr2 display--inlineBlock">
-                                                        {{act.name}}
-                                                    </div>
-
-                                                    <i class="icon-circle icon--medium"
-                                                       ng-style="{color: act.value}"
-                                                       ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
-                                                    </i> {{formatGrade(act.bg, act.rg)}}
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-
-                </content>
-            </tab>
-
-
-            <tab select="showDistributionCharts()">
-
-                <tab-heading>
-
-                    <i class="icon-stats"> </i>
-
-                    <span class="hide-for-small">Statistics</span>
-
-                </tab-heading>
-
-            </tab>
-
-
-            <tab select="hideDistributionCharts()">
-
-                <tab-heading>
-                    <i class="icon-group"> </i>
-                    <span class="hide-for-small">Climbers</span>
-                </tab-heading>
-
-                <content>
-
-                    <section class="row">
-
-                        <div class="small-12 columns">
-
-                            <h2 class="fwl">Gym's Climbers</h2>
-
-                            <div class="small-6 medium-3 large-3 columns   pb4"
-                                 ng-repeat="user in users"
-                                 ng-click="navigateToUser(user.id)">
-
-                            <div class="flag">
-
-                                <div class="flag-image">
-                                    <img class="avatar avatar--small  center mb1"
-                                         ng-src="{{getUserImageSrc(user)}}">
-                                </div>
-
-                                <div class="flag-body">
-                                    <a class="h5  display--block  center">
-                                        {{user.name}}</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </content>
-
-            </tab>
-
-        </tabset>
-
+        <!--
+
+            SECTION - Tabs
+
+        -->
+        <dl class="tabs">
+            <dd class="active"
+                ng-click="setPanelName(PANEL_ACTIVITY)">
+                <i class="icon-globe"> </i>
+                <span class="hide-for-small">
+                    Activity
+                </span>
+            </dd>
+
+            <dd ng-click="setPanelName(PANEL_STATS)">
+                <i class="icon-stats"> </i>
+                <span class="hide-for-small">
+                    Statistics
+                </span>
+            </dd>
+
+            <dd ng-click="setPanelName(PANEL_CLIMBERS)">
+                <i class="icon-group"> </i>
+                <span class="hide-for-small">
+                    Climbers
+                </span>
+            </dd>
+        </dl>
+
+
+        <!--
+
+            SECTION - Panels
+
+        -->
+        <div class="tabs-content">
+            <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>
+            <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' "></ng-include>
+            <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' "></ng-include>
+        </div>
     </div>
-
 </div>
-
-
-
-<!--
-
-    SECTION - Statistics Tab Content
-
-    NOTE: "left: -9999px" is important because Chart.js will not render
-        unless the charts' container is visible.  By default, the foundation
-        tabs content is hidden if not selected.
-
-    =(
-
--->
-<<<<<<< HEAD
-<div>
-    <section class="row"
-             id="charts">
-         <!--
-=======
-<section class="row  selected"
-         id="charts"
-         style="position: absolute; top: -44px; left: -9999px">
-     <!--
->>>>>>> cadd9ac05b8c0d076ec586a284f7334375e45862
-
-     SECTION - Distribution Charts
-
-     -->
-    <div class="small-12 medium-6 large-4 columns">
-
-        <ng-include src=" 'templates/gym/BoulderRoutesGraph.tpl.html '">
-        </ng-include>
-
-    </div>
-
-    <div class="small-12 medium-6 large-4 columns">
-        <ng-include src=" 'templates/gym/TopRopeRoutesGraph.tpl.html '">
-        </ng-include>
-
-    </div>
-
-    <div class="small-12 medium-6 large-4 columns">
-
-        <ng-include src=" 'templates/gym/LeadRoutesGraph.tpl.html '">
-        </ng-include>
-
-    </div>
-
-
-    <!--
-
-    SECTION - Zone/Grade Tables
-
-    -->
-    <section class="row">
-
-        <div class="small-12 columns">
-            <ng-include src=" 'templates/gym/BoulderDistribution.tpl.html '"></ng-include>
-
-        </div>
-
-        <div class="small-12 columns">
-
-            <ng-include src=" 'templates/gym/TopRopeDistribution.tpl.html '"></ng-include>
-
-        </div>
-
-    </section>
-
-</section>
-
 
 
 

@@ -146,6 +146,19 @@ angular.module('SETTER', [
         ) {
             'use strict';
 
+            // Add to string prototype to do sprintf
+            if (!String.prototype.format) {
+                String.prototype.format = function() {
+                    var args = arguments;
+                    return this.replace(/{(\d+)}/g, function(match, number) {
+                        return typeof args[number] != 'undefined'
+                        ? args[number]
+                        : match
+                        ;
+                    });
+                };
+            }
+
             FastClick.attach(document.body);
 
             // Set the global chart colors used throughout the site

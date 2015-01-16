@@ -1,11 +1,10 @@
-<div ng-controller="LeadRoutesGraphController">
-
+<div>
     <a  class="right"
         ng-click="export()"
         ng-show="getAccountId() === gymId">Export Graph
     </a>
 
-    <h2 class="fwl clearfix">Current Lead Routes</h2>
+    <h2 class="fwl clearfix">Current Boulder Routes</h2>
 
     <canvas
         id="boulderGraph"
@@ -15,6 +14,5 @@
         options="chartOptions"
         legend="true"
         width="100%"
-        height="100%">
     </canvas>
 </div>

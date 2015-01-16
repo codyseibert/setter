@@ -1,0 +1,121 @@
+<div class="st--header">
+
+    <section class="row" ng-show="isUserAccount()">
+
+        <div class="mb4 header">
+
+            <div class="text-center"  >
+
+                <div class="small-12 columns "
+                ng-click="getAccountId() === gymId && uploadImage()">
+                <img class="avatar avatar--big  mb2"
+                ng-src="{{getGymImageSrc(image)}}">
+            </div>
+
+            <h1 class="h2 testQuery mb1">
+                {{gym.name}}
+            </h1>
+
+        </div>
+
+    </div>
+
+    <div class="small-12 medium-12 columns"
+    ng-hide="getHomeGymId() === gymId || isGymAccount()">
+
+    <button class="btn--primary  btn--medium  icon-home btn--expanded"
+    ng-click="setHomeGym()">
+    Make Home Gym
+</button>
+</div>
+
+<div class="small-6  medium-6 columns  ">
+    <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
+    ng-click="navigateToWalls(gymId)"
+    ng-show="getAccountId() !== gymId">
+    View Zones
+</button>
+</div>
+
+<div class="small-6  medium-6 columns">
+    <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
+    ng-click="navigateToGymSuggestions(gymId)"
+    ng-show="isUserAccount()" >
+    Post Suggestion
+</button>
+</div>
+</section>
+
+<!-- Gym - Header -->
+<section class="row">
+
+    <div class="header">
+
+        <div class="row">
+
+            <div class="small-12 medium-6 columns mb2">
+
+                <div  ng-show="isGymAccount()">
+
+                    <div class="flag">
+
+                        <div class="flag-image"
+                        ng-click="getAccountId() === gymId && uploadImage()">
+                        <div class="avatar avatar--big">
+                            <img class=""
+                            ng-src="{{getGymImageSrc(image)}}">
+
+                        </div>
+
+                    </div>
+
+                    <div class="flag-body text-left">
+
+                        <h1 class=" display--block  h2 mb0 testQuery fwb">
+                            Your Dashboard
+                        </h1>
+
+                        <h2 class=" display--block  h4  fwl ">{{gym.name}}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row large-collapse">
+
+            <div class="small-12 columns medium-6  mb3" ng-show="isGymAccount()">
+
+                <div class="small-12 medium-12 large-6 columns">
+
+                    <button class="[ btn--tetriary  btn--medium  btn--expanded ] right  icon-map" ng-click="navigateToWalls(gymId)">
+                        View Zones
+                    </button>
+
+                    <span class="icon--topRight round label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
+
+                </div>
+
+                <div class="small-12 medium-12 large-6 columns">
+
+                    <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil" ng-click="navigateToWalls(gymId)" ng-show="isGymAccount()">
+                        Set Route
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</section>
+
+</div>

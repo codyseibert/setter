@@ -1,0 +1,27 @@
+<div class="content active" ng-show="panel === PANEL_MEMBERS">
+
+    <section class="row">
+
+        <div class="small-12 columns">
+
+            <div class="small-6 medium-3 large-3 columns   pb4"
+                ng-repeat="user in users"
+                ng-click="navigateToUser(user.id)">
+
+                <div class="flag">
+                    <div class="flag-image">
+                        <img class="avatar avatar--small  center mb1"
+                        ng-src="{{getUserImageSrc(user)}}">
+                    </div>
+
+                    <div class="flag-body">
+                        <a class="h5  display--block  center">{{user.name}}</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

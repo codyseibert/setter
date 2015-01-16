@@ -1,0 +1,100 @@
+<div class="content active" ng-show="panel === PANEL_ACTIVITY">
+
+
+
+    <!-- Gym Announcements -->
+    <section class="row">
+        <div class="small-12 columns">
+            <ng-include src=" 'templates/gym/panels/activity/sections/GymAnnouncements.tpl.html' "></ng-include>
+        </div>
+    </section>
+
+    <!-- Newest -->
+    <section class="row">
+
+        <!-- Newest Boulder -->
+        <div class="small-12 medium-6 large-4 columns">
+            <h2 class="fwl">
+                Newest Boulder Problems
+            </h2>
+
+            <ng-include
+                src=" 'templates/gym/panels/activity/sections/NewestBoulder.tpl.html' ">
+            </ng-include>
+        </div>
+
+
+        <!-- Newest Top Rope Routes -->
+        <div class="small-12 medium-6 large-4 columns">
+            <h2 class="fwl">
+                Newest Top Rope Routes
+            </h2>
+
+            <ng-include
+                src=" 'templates/gym/panels/activity/sections/NewestTopRope.tpl.html' ">
+            </ng-include>
+        </div>
+
+
+        <!-- Newest Lead Routes -->
+        <div class="small-12 medium-6 large-4 columns">
+            <h2 class="fwl">
+                Newest Lead Routes
+            </h2>
+
+            <ng-include
+                src=" 'templates/gym/panels/activity/sections/NewestLead.tpl.html' ">
+            </ng-include>
+        </div>
+    </section>
+
+
+    <!-- Best -->
+    <section class="row">
+        <!-- Best Rated Boulder -->
+        <div class="small-12 medium-6 large-4 columns">
+            <h2 class="fwl">
+                Best Rated Boulder Problems
+            </h2>
+
+            <ng-include
+                src=" 'templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html' ">
+            </ng-include>
+        </div>
+
+
+        <!-- Best Rated Top Rope -->
+        <div class="small-12 medium-6 large-4 columns">
+            <h2 class="fwl">
+                Best Rated Rope Routes
+            </h2>
+
+            <ng-include
+                src=" 'templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html' ">
+            </ng-include>
+        </div>
+
+
+        <!-- Best Rated Lead -->
+        <div class="small-12 medium-6 large-4 columns">
+            <h2 class="fwl">
+                Best Rated Lead
+            </h2>
+
+            <ng-include
+                src=" 'templates/gym/panels/activity/sections/BestRatedLead.tpl.html' ">
+            </ng-include>
+        </div>
+    </section>
+
+    <!--Latest Climber Sends -->
+    <section class="row">
+        <div class="small-12 medium-6 columns">
+            <h2 class="fwl">
+                Latest Climber Sends
+            </h2>
+
+            <ng-include src=" 'templates/gym/panels/activity/sections/LatestClimberSends.tpl.html' "></ng-include>
+        </div>
+    </section>
+</div>

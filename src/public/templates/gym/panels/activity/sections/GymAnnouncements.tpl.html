@@ -1,0 +1,17 @@
+<h2 class="fwl">
+    Gym Announcements
+</h2>
+
+<ul class="list--noStyles  list">
+
+        <!-- Render the Alerts-->
+        <li ng-repeat="alert in alerts">
+            <p>
+                {{alert.message}}
+                <span class="txt--micro  display--block">
+                    {{alert.date}}
+                </span>
+            </p>
+        </li>
+    </ul>
+</div>

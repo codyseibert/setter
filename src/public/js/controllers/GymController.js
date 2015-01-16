@@ -6,6 +6,8 @@ angular.module('SETTER')
         '$scope',
         '$routeParams',
         '$rootScope',
+        '$window',
+        '$compile',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -17,6 +19,8 @@ angular.module('SETTER')
             $scope,
             $routeParams,
             $rootScope,
+            $window,
+            $compile,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -43,8 +47,10 @@ angular.module('SETTER')
                 animation: false
             };
 
-
-
+            $scope.PANEL_ACTIVITY = 'ACTIVITY',
+            $scope.PANEL_STATS = 'STATS',
+            $scope.PANEL_CLIMBERS = 'CLIMBERS'
+            $scope.panel = $scope.PANEL_ACTIVITY;
 
             /*
             *   SECTION - Gym related service calls
@@ -211,20 +217,9 @@ angular.module('SETTER')
             };
 
 
-            /*
-            *   SUBSECTION - Image Upload
-            */
-            $scope.showDistributionCharts = function () {
-                //angular.element('#charts').css('left', '0px');
-                //angular.element('#charts').css('position', 'relative');
+            $scope.setPanelName = function (pPanelName) {
+                $scope.panel = pPanelName
             };
-
-            $scope.hideDistributionCharts = function () {
-                //angular.element('#charts').css('left', '9999px');
-                //angular.element('#charts').css('position', 'absolute');
-            };
-
-
 
 
             /*
@@ -233,6 +228,4 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
-            // Hide the charts by default since we don't start on the analytics tab
-            $scope.hideDistributionCharts();
         }]);

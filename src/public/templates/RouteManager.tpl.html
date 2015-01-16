@@ -31,14 +31,14 @@
 
             <label class="fwb [ inline label--inline ] ">Show Type</label>
             
-            <div class="[ select--small select--primary ] display--inlineBlock">
+            <label class="[ select--small select--primary ] display--inlineBlock">
 
                 <select ng-model="form.view"
                         ng-options="view.value for view in views"
                         ng-change="refreshView()">
                 </select>
 
-            </div>
+            </label>
 
         </div>
 
@@ -70,13 +70,12 @@
                             <!-- Setter Grade filter dropdown -->
                             <label class="fwb [ label--inline inline ]">Setter</label>
 
-                            <div class="select--small select--secondary">
+                            <label class="select--small select--secondary">
                                 <select ng-model="form.setterFilter"
-                                    class="[ select--medium select--secondary ]"
                                     ng-options="setter.value for setter in setterInputs"
                                     ng-change="refreshFilters()">
                                 </select>
-                            </div>
+                            </label>
 
                         </div>
 

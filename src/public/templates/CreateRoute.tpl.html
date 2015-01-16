@@ -1,31 +1,31 @@
-<div class="st--header mb2">
-    <section class="row small-collapse">
-        <div class="header">
-            <div class="display--block cf">
-                <button ng-hide="isEditMode"
-                    class="[ btn--secondary btn--medium left  ] icon-left-big  display--block "
-                    ng-click="navigateToWall(gymId, wallId)" >
-                    Back
-                </button>
 
-                <button ng-show="isEditMode"
-                    class="[ btn--secondary btn--medium left  ] icon-left-big  display--block"
-                    ng-click="navigateToRoute(gymId, wallId, routeId)" >
-                    Back
-                </button>
-            </div>
+<section class="row small-collapse">
+    <div class="header">
+        <div class="display--block cf">
+            <button ng-hide="isEditMode"
+                class="[ btn--secondary btn--medium left  ] icon-left-big  display--block "
+                ng-click="navigateToWall(gymId, wallId)" >
+                Back
+            </button>
 
-            <h1 ng-hide="isEditMode">
-                <img src="images/icon--drill--black.svg" alt="" class="mr2">
-                Set Route
-            </h1>
-
-            <h1 ng-show="isEditMode" class=" icon-pencil">
-                Edit Route
-            </h1>
+            <button ng-show="isEditMode"
+                class="[ btn--secondary btn--medium left  ] icon-left-big  display--block"
+                ng-click="navigateToRoute(gymId, wallId, routeId)" >
+                Back
+            </button>
         </div>
-    </section>
-</div>
+
+        <h1 ng-hide="isEditMode">
+            <img src="images/icon--drill--black.svg" alt="" class="mr2">
+            Set Route
+        </h1>
+
+        <h1 ng-show="isEditMode" class="fwb icon-pencil">
+            Edit Route
+        </h1>
+    </div>
+</section>
+
 
 
 <section class="row" ng-show="hasSetters()" data-ui-component="route-editInformation">

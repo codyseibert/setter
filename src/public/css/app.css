@@ -536,7 +536,8 @@ footer, .select--tetriary, .select--primary, .select--secondary {
 }
 
 /* line 122, ../scss/modules/_generics.scss */
-.btn--fixedAction {
+.btn--fixedAction, .reveal-modal, dialog,
+.reveal-modal-bg {
   position: fixed;
 }
 
@@ -8388,7 +8389,8 @@ footer, .select--tetriary, .select--primary, .select--secondary {
 }
 
 /* line 122, ../scss/modules/_generics.scss */
-.btn--fixedAction {
+.btn--fixedAction, .reveal-modal, dialog,
+.reveal-modal-bg {
   position: fixed;
 }
 
@@ -11715,17 +11717,21 @@ select {
   text-transform: none;
   font-size: 0.875rem;
   margin-left: -1.25rem;
+  right: 0.125rem;
+  top: 0.4375rem;
+  position: absolute;
+  pointer-events: none;
 }
-/* line 145, ../scss/partials/_forms.scss */
+/* line 149, ../scss/partials/_forms.scss */
 .select--small select {
   padding-right: 2.375rem;
   padding-left: 1rem;
-  margin-right: -1.25rem;
+  margin-right: -0.5rem;
   margin-left: -1rem;
   height: 100%;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  /* line 145, ../scss/partials/_forms.scss */
+  /* line 149, ../scss/partials/_forms.scss */
   .select--small select {
     padding-right: 3.75rem;
   }
@@ -12320,3 +12326,7 @@ dl.tabs > dd {
   padding-right: 0;
   float: left;
 }
+
+/*------------------------------------*\
+    #Modals
+\*------------------------------------*/

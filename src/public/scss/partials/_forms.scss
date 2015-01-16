@@ -140,12 +140,16 @@ select {
   @include icon($icon--arrowD, after) {
     font-size: rem-calc(14);
     margin-left: rem-calc(-20);
+    right: rem-calc(2);
+    top: rem-calc(7);
+    position:absolute;
+    pointer-events:none;
   }
 
   select {
     padding-right: rem-calc(38);
     padding-left: rem-calc(16);
-    margin-right: rem-calc(-20);
+    margin-right: rem-calc(-8);
     margin-left: rem-calc(-16);
     height: 100%;
 
@@ -155,10 +159,6 @@ select {
     }
 
   }
-  //Trying to get arrow to point up, not needed for now.
-  // &:focus {
-  //   @include icon($icon--arrowU, after);
-  // }
 }
 
 .select--medium {

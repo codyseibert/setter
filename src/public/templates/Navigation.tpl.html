@@ -57,14 +57,11 @@
     <a class="icon-messaging-alt"> Give Feedback</a>
 </li>
 
-<li ng-click="navigateToTOS()">
-    <a class="icon-messaging-alt"> Terms of Service</a>
-</li>
-
-<li ng-click="navigateToContact()">
-    <a class="icon-messaging-alt"> Contact</a>
-</li>
-
-<li ng-click="navigateToLogout()">
+<li ng-click="navigateToLogout()" class="mb4">
     <a class="icon-logout"> Logout</a>
 </li>
+
+
+<div class=" txt--micro  display--block  text-center">
+    <a ng-click="navigateToTOS()">Terms of Service</a> | <a ng-click="navigateToContact()">Contact</a>
+</div>

@@ -1,11 +1,9 @@
-
 <!-- Header -->
 <ng-include src=" 'templates/gym/GymHeader.tpl.html' "></ng-include>
 
 
-
 <!-- Tabs-->
-<div class="row">
+<div class="row small-collapse">
 
     <div class="small-12 columns">
 
@@ -14,42 +12,52 @@
             SECTION - Tabs
 
         -->
-        <dl class="tabs">
-            <dd class="active"
-                ng-click="setPanelName(PANEL_ACTIVITY)">
-                <i class="icon-globe"> </i>
-                <span class="hide-for-small">
-                    Activity
-                </span>
-            </dd>
+        <tabset>
+            <tab class="small-4  columns  text-center">
+                <tab-heading>
+                    <i class="icon-globe"> </i>
+                    <span class="hide-for-small">
+                        Activity
+                    </span>
+                </tab-heading>
 
-            <dd ng-click="setPanelName(PANEL_STATS)">
-                <i class="icon-stats"> </i>
-                <span class="hide-for-small">
-                    Statistics
-                </span>
-            </dd>
-
-            <dd ng-click="setPanelName(PANEL_CLIMBERS)">
-                <i class="icon-group"> </i>
-                <span class="hide-for-small">
-                    Climbers
-                </span>
-            </dd>
-        </dl>
+                <content>
+                    <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>
+                </content>
+            </tab>
 
 
-        <!--
+            <tab class="small-4  columns  text-center"
+                 select="refreshCharts()">
+                <tab-heading>
+                    <i class="icon-stats"> </i>
+                    <span class="hide-for-small">
+                        Statistics
+                    </span>
+                </tab-heading>
 
-            SECTION - Panels
+                <content>
+                    <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' "></ng-include>
+                </content>
+            </tab>
 
-        -->
-        <div class="tabs-content">
-            <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>
-            <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' "></ng-include>
-            <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' "></ng-include>
-        </div>
+
+            <tab class="small-4  columns  text-center">
+                <tab-heading>
+                    <i class="icon-group"> </i>
+                    <span class="hide-for-small">
+                        Climbers
+                    </span>
+                </tab-heading>
+
+                <content>
+                    <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' "></ng-include>
+                </content>
+            </tab>
+        </tabset>
+
     </div>
+
 </div>
 
 

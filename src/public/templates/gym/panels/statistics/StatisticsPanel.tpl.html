@@ -1,30 +1,39 @@
-<div class="content" ng-show="panel === PANEL_STATS">
-
-    <!-- Boulder Distribution Graph -->
+<section class="row">
+    <!-- Current Boulder Graph -->
     <div class="small-12 medium-6 large-4 columns"
-         ng-show="panel === PANEL_STATS"
          inject-template-when-visible
          template="templates/gym/panels/statistics/graphs/current/BoulderRoutesGraph.tpl.html"
          controller="BoulderRoutesGraphController">
     </div>
 
 
-    <!-- Top Rope Distribution Graph -->
+    <!-- Current Top Rope Graph -->
     <div class="small-12 medium-6 large-4 columns"
-         ng-show="panel === PANEL_STATS"
          inject-template-when-visible
          template="templates/gym/panels/statistics/graphs/current/TopRopeRoutesGraph.tpl.html"
          controller="TopRopeRoutesGraphController">
-
     </div>
 
-
-    <!-- Lead Distribution Graph -->
+    <!-- Current Lead Graph -->
     <div class="small-12 medium-6 large-4 columns"
-         ng-show="panel === PANEL_STATS"
          inject-template-when-visible
          template="templates/gym/panels/statistics/graphs/current/LeadRoutesGraph.tpl.html"
          controller="LeadRoutesGraphController">
-
     </div>
-</div>
+</section>
+
+<section class="row">
+    <!-- Boulder Distribution Graph -->
+    <div class="small-12 medium-6 large-4 columns"
+        inject-template-when-visible
+        template="templates/gym/panels/statistics/graphs/distribution/BoulderDistribution.tpl.html"
+        controller="BoulderDistributionController">
+    </div>
+
+    <!-- Top Rope Distribution Graph -->
+    <div class="small-12 medium-6 large-4 columns"
+        inject-template-when-visible
+        template="templates/gym/panels/statistics/graphs/distribution/RopeDistribution.tpl.html"
+        controller="RopeDistributionController">
+    </div>
+</section>

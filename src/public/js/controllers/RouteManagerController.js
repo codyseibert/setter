@@ -133,7 +133,7 @@ angular.module('SETTER')
                 pData.map(function (pEntry) {
                     pEntry.date_format = DateFormatService.format(pEntry.date);
                     pEntry.date_value = moment(pEntry.date).valueOf();
-                    pEntrytoprope_grade_id = pEntry.toprope_grade_id || -1;
+                    pEntry.toprope_grade_id = pEntry.toprope_grade_id || -1;
                     pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
                     if (!pEntry.rating) {
                         pEntry.rating = -1;

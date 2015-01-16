@@ -359,14 +359,17 @@ angular.module('SETTER', [
             };
 
             $rootScope.getGymImageSrc = function (pData) {
-                if (!pData.url || pData.url === '') {
+                if (!pData || pData.url === '') {
                     return 'images/no_gym_image.png';
                 }
                 return pData.url;
             };
 
             $rootScope.getUserImageSrc = function (pData) {
-                return (pData.url !== '' && pData.url) || 'images/no_image.png';
+                if (!pData || pData.url === '') {
+                    return 'images/no_image.png';
+                }
+                return pData.url;
             };
 
             if (LoginService.isLoggedIn()) {

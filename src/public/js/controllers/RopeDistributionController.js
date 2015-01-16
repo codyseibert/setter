@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false, $: false, naturalSort: false, jsPDF: false */
 
 angular.module('SETTER')
-    .controller('LeadDistributionController', [
+    .controller('RopeDistributionController', [
         '$scope',
         '$routeParams',
         'RoutesService',
@@ -21,7 +21,7 @@ angular.module('SETTER')
                 .success(function (pGrades) {
                     $scope.ropeGrades = pGrades;
 
-                    RoutesService.getLeadRouteDistribution($scope.gymId, function (pData) {
+                    RoutesService.getTopRopeRouteDistribution($scope.gymId, function (pData) {
                         var i,
                             j,
                             k,

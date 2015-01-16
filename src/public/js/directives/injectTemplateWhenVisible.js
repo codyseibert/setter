@@ -5,10 +5,12 @@ angular.module('SETTER')
         '$window',
         '$templateCache',
         '$compile',
+        '$timeout',
         function (
             $window,
             $templateCache,
-            $compile
+            $compile,
+            $timeout
         ) {
             'use strict';
 
@@ -28,13 +30,10 @@ angular.module('SETTER')
                             return element.is(':visible');
                         },
                         function (newValue, oldValue) {
-                            if (newValue === true) {
-                                console.log("set to visible");
-                                var el = angular.element(template),
-                                    compiled = $compile(el);
-                                compiled(scope);
-                                element.html(el);
-                            }
+                            var el = angular.element(template),
+                            compiled = $compile(el);
+                            compiled(scope);
+                            element.html(el);
                         }
                     );
                 }

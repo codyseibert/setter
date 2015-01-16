@@ -1,26 +1,30 @@
-<div class="st--header mb2">
-    <section class="row">
-        <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
-            <div class="left">
-                <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                    ng-click="back()" >
-                    Back
-                </button>
-            </div>
+
+<section class="row">
+
+    <div class="header" ng-hide="getAccountId() === gymId">
+
+        <div class="clearfix">
+            <button class="[ btn--secondary btn--medium left ] icon-left-big"
+                ng-click="back()" >
+                Back
+            </button>
         </div>
 
-        <div class="small-12 columns">
-            <h1 class="icon-mail-alt"> Contact Us</h1>
-        </div>
-    </section>
-</div>
+        <h1> Contact Us</h1>
+
+        <hr class="header-divider  hide-for-small-only">
+
+    </div>
+
+</section>
+
 
 
 <section class="row">
-    <div class="small-12 columns" style="font-size: 20px;">
+    <div class="small-12 large-7  columns" style="font-size: 20px;">
 
         <div class="mb4">
-            Send us an email at <a href="mailto:setterapp@gmail.com">setterapp@gmail.com</a> <br><br>or, <Br><Br>send us a message below!
+            Feel free to send us an email at <strong><a href="mailto:setterapp@gmail.com">setterapp@gmail.com</a></strong><br> or send us a message below!
         </div>
 
         <div class="mb" ng-show="thanks && !error">
@@ -39,14 +43,14 @@
                 type="text">
             </input>
 
-            <textarea ng-model="form.message"
-                placeholder="What's on your mind?!"
+            <textarea class="textarea--small" ng-model="form.message"
+                placeholder="What's on your mind?"
                 class="contact">
             </textarea>
 
             <button class=" [ btn--primary  btn--medium btn--expanded ]  icon-plus-squared"
                     ng-click='send()'>
-                Send
+                Send Message
             </button>
         </div>
     </div>

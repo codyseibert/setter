@@ -34,6 +34,7 @@
 
         <!-- Top Nav Bar -->
         <nav class="tab-bar hide-on-large" >
+
             <div class="text-center fwb ng-hide"
                      ng-hide="isLoggedIn()">
                     <img src="images/setter-logo.svg"
@@ -70,9 +71,6 @@
                     src=" ' templates/Navigation.tpl.html ' ">
                 </ul>
 
-                <div style="margin-top: 100px; text-align: center;">
-                    © 2015<br>Guillermo Casanova<br>&<br>Cody Seibert
-                </div>
             </aside>
 
             <!-- Mobile Menu -->
@@ -80,20 +78,16 @@
                    class="hide-on-small  nav-primary  side-nav side-menu  show-on-large-only"
                    ng-show="isLoggedIn()">
 
-                <div style="padding-top: 12px; text-align: center;">
-                    <img src="images/setter-logo.svg" style="width: 70px;"><br>
-                    <span style="font-size: 30px;">SETTER</span>
+                <div class="setterLogo--nav  mb3">
+                    <img src="images/setter-logo.svg" >
                 </div>
 
-                <ul class="pt5 "
+                <ul
                     ng-show="isLoggedIn()"
                     ng-include
                     src=" ' templates/Navigation.tpl.html ' ">
                 </ul>
 
-                <div style="margin-top: 100px; text-align: center;">
-                    © 2015<br>Guillermo Casanova<br>&<br>Cody Seibert
-                </div>
             </aside>
 
             <!-- The Main Content -->
@@ -172,8 +166,7 @@
         <script type="text/javascript" src="js/controllers/LeadRoutesGraphController.js"></script>
 
         <script type="text/javascript" src="js/controllers/BoulderDistributionController.js"></script>
-        <script type="text/javascript" src="js/controllers/TopRopeDistributionController.js"></script>
-        <script type="text/javascript" src="js/controllers/LeadDistributionController.js"></script>
+        <script type="text/javascript" src="js/controllers/RopeDistributionController.js"></script>
 
         <script type="text/javascript" src="js/controllers/user/BoulderSendsGraphController.js"></script>
         <script type="text/javascript" src="js/controllers/user/TopRopeSendsGraphController.js"></script>

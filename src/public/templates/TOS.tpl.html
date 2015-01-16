@@ -1,22 +1,30 @@
-<div class="st--header mb2">
-    <section class="row">
-        <div class="small-12 columns header" ng-hide="getAccountId() === gymId">
-            <div class="left">
-                <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                    ng-click="back()" >
-                    Back
-                </button>
-            </div>
-        </div>
-
-        <div class="small-12 columns">
-            <h1>Terms of Service</h1>
-        </div>
-    </section>
-</div>
 
 <section class="row">
+
+    <div class="header " ng-hide="getAccountId() === gymId">
+
+        <div class="clearfix">
+
+            <button class="[ btn--secondary btn--medium left ] icon-left-big"
+                ng-click="back()">
+                Back
+            </button>
+
+        </div>
+
+
+        <h1>Terms of Service</h1>
+
+        <hr class="header-divider  hide-for-small-only">
+    </div>
+
+</section>
+
+
+<section class="row">
+
     <div class="small-12 columns">
+
         <p class="tos">
             1. YOUR AGREEMENT WITH THE COMPANY
             <br><br>
@@ -157,6 +165,6 @@
             This document is an adaptation of the Google App Engine Terms of Service. The original work has been modified. Google, Inc. is not connected with and does not sponsor or endorse SETTER or its use of the work.
         </p>
 
-
     </div>
+    
 </section>

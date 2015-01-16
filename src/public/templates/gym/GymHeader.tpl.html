@@ -1,15 +1,13 @@
-<div class="st--header">
+<section class="row" ng-show="isUserAccount()">
 
-    <section class="row" ng-show="isUserAccount()">
+    <div class="mb4 header">
 
-        <div class="mb4 header">
+        <div class="text-center">
 
-            <div class="text-center"  >
-
-                <div class="small-12 columns "
-                ng-click="getAccountId() === gymId && uploadImage()">
+            <div class="small-12 columns"
+                 ng-click="getAccountId() === gymId && uploadImage()">
                 <img class="avatar avatar--big  mb2"
-                ng-src="{{getGymImageSrc(image)}}">
+                     ng-src="{{getGymImageSrc(image)}}">
             </div>
 
             <h1 class="h2 testQuery mb1">
@@ -21,29 +19,34 @@
     </div>
 
     <div class="small-12 medium-12 columns"
-    ng-hide="getHomeGymId() === gymId || isGymAccount()">
+         ng-hide="getHomeGymId() === gymId || isGymAccount()">
 
-    <button class="btn--primary  btn--medium  icon-home btn--expanded"
-    ng-click="setHomeGym()">
-    Make Home Gym
-</button>
-</div>
+        <button class="btn--primary  btn--medium  icon-home btn--expanded"
+                ng-click="setHomeGym()">
+            Make Home Gym
+        </button>
+    </div>
 
-<div class="small-6  medium-6 columns  ">
-    <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
-    ng-click="navigateToWalls(gymId)"
-    ng-show="getAccountId() !== gymId">
-    View Zones
-</button>
-</div>
+    <div class="small-6  medium-6 columns  ">
 
-<div class="small-6  medium-6 columns">
-    <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
-    ng-click="navigateToGymSuggestions(gymId)"
-    ng-show="isUserAccount()" >
-    Post Suggestion
-</button>
-</div>
+        <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
+                ng-click="navigateToWalls(gymId)"
+                ng-show="getAccountId() !== gymId">
+            View Zones
+        </button>
+
+    </div>
+
+    <div class="small-6  medium-6 columns">
+
+        <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
+                ng-click="navigateToGymSuggestions(gymId)"
+                ng-show="isUserAccount()" >
+            Post Suggestion
+        </button>
+
+    </div>
+    
 </section>
 
 <!-- Gym - Header -->
@@ -117,5 +120,3 @@
 
 
 </section>
-
-</div>

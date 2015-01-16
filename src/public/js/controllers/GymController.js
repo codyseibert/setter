@@ -8,6 +8,7 @@ angular.module('SETTER')
         '$rootScope',
         '$window',
         '$compile',
+        '$timeout',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -21,6 +22,7 @@ angular.module('SETTER')
             $rootScope,
             $window,
             $compile,
+            $timeout,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -68,14 +70,14 @@ angular.module('SETTER')
             });
 
             GymsService.getNumberOfNewRoutes($scope.gymId)
-            .success(function (pData) {
-                $scope.newRoutes = pData;
-            });
+                .success(function (pData) {
+                    $scope.newRoutes = pData;
+                });
 
             GymsService.getActivityStream($scope.gymId)
-            .success(function (pData) {
-                $scope.activity = pData;
-            });
+                .success(function (pData) {
+                    $scope.activity = pData;
+                });
 
 
 
@@ -84,13 +86,13 @@ angular.module('SETTER')
             *   SECTION - Alerts
             */
             AlertsService.getAlertsForGym($scope.gymId)
-            .success(function (pData) {
-                pData.map(function (pEntry) {
-                    pEntry.date = DateFormatService.format(pEntry.date);
-                    return pEntry;
+                .success(function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = DateFormatService.format(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.alerts = pData;
                 });
-                $scope.alerts = pData;
-            });
 
 
 
@@ -217,10 +219,6 @@ angular.module('SETTER')
             };
 
 
-            $scope.setPanelName = function (pPanelName) {
-                $scope.panel = pPanelName
-            };
-
 
             /*
             *   SECTION - MISC
@@ -228,4 +226,9 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
+            $scope.refreshCharts = function () {
+                $timeout(function () {
+                    $scope.$apply();
+                }, 100);
+            };
         }]);

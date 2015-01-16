@@ -5,29 +5,31 @@
         <i class="icon-circle"
            ng-style="{color: route.value}"> </i>
 
-        <!-- Name -->
-        {{route.route_name}}
-
+        <span class="display--inlineBlock  mr2"><!-- Name -->
+            {{route.route_name}}
+    
         <!-- Grade -->
         {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
+        </span>
 
         <!-- Icon -->
         <i class="icon-right-big  right"> </i>
 
         <!-- Sent -->
-        <span style="margin-right: 20px;"
+        <span class="fwb "
               ng-show="route.send">
-            <span class="show-for-medium-up">You've</span> Sent
+              Sent
         </span>
 
         <!-- Stars -->
-        <ng-include style="margin-right: 10px;"
+        <ng-include class="right rating rating--colored"
+                    style="margin-right: 10px;"
                     ng-controller="StarRatingController"
                     src=" 'templates/StarRating.tpl.html' ">
         </ng-include>
 
         <!-- Sends -->
-        {{route.send_count}} Send<span bindonce bo-show="{{route.send_count > 1}}">s</span>
+<!--         {{route.send_count}} Send<span bindonce bo-show="{{route.send_count > 1}}">s</span> -->
 
         <!-- New -->
         <span class="icon--new label  success  border-radius"

@@ -1,60 +1,55 @@
 <!-- H - Header -->
-<section class="row small-collapse">
+<section class="row ">
 
         <div class="header">
 
-            <h1>
+            <h1  class="fwb">
                 Settings
             </h1>
 
-            <div class="header-divider">
-              
-            </div>
+            <hr class="header-divider  hide-for-small-only">
+
         </div>
 
 </section>
 
 
 <!-- S - New Password -->
-<section class="row small-collapse">
+<section class="row">
 
-    <div class="small-4 small-centered columns">
+  <div class="small-12 small-centered large-6 large-uncentered columns">
 
-        <div>
-            <!-- I - Password -->
-            <input ng-model="form.password"
-                   type="password"
-                   placeholder="new password"
-                   autocorrect="off"
-                   autocapitalize="off"></input>
-        </div>
+    <div class="fieldwrapper">
+      <!-- I - Password -->
+      <label class="fwb label--block">
+        Create New Password
+      </label>
+      <input ng-model="form.password"
+             type="password"
+             placeholder="new password"
+             autocorrect="off"
+             autocapitalize="off">
+      </input>
+
+      <!-- S - Repeat Password -->
+      <!-- I - Repeat Password -->
+      <input ng-model="form.repeat"
+             type="password"
+             placeholder="repeat new password"
+             autocorrect="off"
+             autocapitalize="off">
+      </input>
 
     </div>
-    
-</section>
 
-<!-- S - Repeat Password -->
-<section class="row small-collapse">
-    <div class="small-4 small-centered columns">
-        <div>
-            <!-- I - Repeat Password -->
-            <input ng-model="form.repeat"
-                   type="password"
-                   placeholder="repeat password"
-                   autocorrect="off"
-                   autocapitalize="off"></input>
-        </div>
+      <!-- S - Change Password -->
+
+      <!-- [] - Change Password -->
+      <button class="[ btn--secondary  btn--medium  btn--expanded ] center"
+              ng-click="changePassword()">
+          Change Password
+      </button>
+
     </div>
-</section>
 
-<!-- S - Change Password -->
-<section class="row small-collapse">
-    <div class="small-4 small-centered columns">
-
-        <!-- [] - Change Password -->
-        <button class="[ btn--secondary  btn--medium  btn--expanded ] center"
-                ng-click="changePassword()">
-            Change Password
-        </button>
-    </div>
 </section>

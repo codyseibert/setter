@@ -1,0 +1,16 @@
+
+/*------------------------------------*\
+    #Tabs
+\*------------------------------------*/
+
+
+dl.tabs {
+  @include grid-row();
+  @include grid-row($behavior: nest-collapse);
+
+
+  & > dd {
+    @include grid-column($collapse: true); 
+  }
+
+}

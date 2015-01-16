@@ -59,7 +59,7 @@ var GymsController = function () {
 
     this.getCurrentLeadRoutes = function (pReq, pRes) {
         var gymId,
-        callback;
+            callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getCurrentLeadRoutes(gymId, callback);
@@ -71,7 +71,7 @@ var GymsController = function () {
 
     this.getBoulderRouteDistribution = function (pReq, pRes) {
         var gymId,
-        callback;
+            callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getBoulderRouteDistribution(gymId, callback);
@@ -114,7 +114,7 @@ var GymsController = function () {
 
     this.getBestRatedLead = function (pReq, pRes) {
         var gymId,
-        callback;
+            callback;
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getBestRatedLead(gymId, callback);

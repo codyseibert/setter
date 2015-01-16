@@ -1,4 +1,4 @@
-var password = "hellohighpoint";
+var password = "helloonthedge";
 
 var theCrypt = require('../src/Crypt');
 

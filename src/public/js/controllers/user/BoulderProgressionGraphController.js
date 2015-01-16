@@ -1,14 +1,12 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false, jsPDF: false, naturalSort: false */
+/*global angular: false, btoa: false, console: false, alert: false, Chart: false, moment: false, confirm: false, jsPDF: false, naturalSort: false */
 
 angular.module('SETTER')
     .controller('BoulderProgressionGraphController', [
         '$scope',
-        '$routeParams',
         'UsersService',
         function (
             $scope,
-            $routeParams,
             UsersService
         ) {
             'use strict';
@@ -104,7 +102,7 @@ angular.module('SETTER')
                         } //else {
                             //carry = buckets[i];
                             //}
-                        }
+                    }
 
                     $scope.boulderProgressGraph.labels = months;
                     $scope.boulderProgressGraph.data = [buckets];

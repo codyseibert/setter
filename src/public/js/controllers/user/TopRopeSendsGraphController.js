@@ -4,12 +4,10 @@
 angular.module('SETTER')
     .controller('TopRopeSendsGraphController', [
         '$scope',
-        '$routeParams',
         'UsersService',
         'BarGraphHelperService',
         function (
             $scope,
-            $routeParams,
             UsersService,
             BarGraphHelperService
         ) {

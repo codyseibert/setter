@@ -71,7 +71,8 @@ angular.module('SETTER')
                     topRopeGradeId,
                     leadGradeId,
                     setterId,
-                    note)
+                    note
+                )
                     .success(function (pData) {
                         $scope.form.boulderGrade = $scope.boulderGrades[0];
                         $scope.form.topRopeGrade = $scope.ropeGrades[0];
@@ -103,7 +104,8 @@ angular.module('SETTER')
                     topRopeGradeId,
                     leadGradeId,
                     setterId,
-                    note)
+                    note
+                )
                     .success(function (pData) {
                         $scope.navigateToRoute($scope.gymId, $scope.wallId, $scope.routeId);
                     });

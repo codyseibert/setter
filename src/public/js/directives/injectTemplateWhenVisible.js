@@ -2,15 +2,9 @@
 
 angular.module('SETTER')
     .directive('injectTemplateWhenVisible', [
-        '$window',
-        '$templateCache',
         '$compile',
-        '$timeout',
         function (
-            $window,
-            $templateCache,
-            $compile,
-            $timeout
+            $compile
         ) {
             'use strict';
 
@@ -26,13 +20,13 @@ angular.module('SETTER')
 
                     // Watch the element for visible change state
                     scope.$watch(
-                        function() {
+                        function () {
                             return element.is(':visible');
                         },
-                        function (newValue, oldValue) {
+                        function (newValue) {
                             if (newValue === true) {
                                 var el = angular.element(template),
-                                compiled = $compile(el);
+                                    compiled = $compile(el);
                                 compiled(scope);
                                 element.html(el);
                             }

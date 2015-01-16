@@ -24,13 +24,6 @@ angular.module('SETTER')
                 return;
             }
 
-            var createBoulderSendsBarGraph,
-                createRopeSendsBarGraph,
-                createBoulderSendsLineGraph,
-                createRopeSendsLineGraph,
-                calculateBoulderGrade,
-                calculateRopeGrade;
-
             $scope.userId = parseInt($routeParams.userId, 10);
 
             UsersService.getUser($scope.userId, function (pData) {

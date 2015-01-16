@@ -7,10 +7,10 @@ insert into accounts
     )
     values
     (
-        'contact@highpoint.com',
-        '$2a$10$I.N.rmQH.OgRFKxH3YXyNOx2BTxeRdDDaNFNUJgo3jltNhS9RMGsK',
+        'info@onthedgerockclimbing.com',
+        '$2a$10$Ye2MhsIX.4bKvOvS8pBDfe9La69392zLbHthXIxAKl4NNnBZ7p.Bq',
         2,
-        'xKzBYQdhDJ0K3822RiZO'
+        'HlofkGfmw4dBdZwQbcJG'
     );
 
 
@@ -22,7 +22,7 @@ insert into gyms
     )
     values
     (
-        26,
-        'High Point Climbing and Fitness',
-        '219 Broad Street Chattanooga, TN 37402'
+        30,
+        'On The Edge',
+        '200 West Drive, Melbourne, FL, 32904'
     );

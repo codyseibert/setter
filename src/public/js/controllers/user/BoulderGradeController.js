@@ -4,11 +4,9 @@
 angular.module('SETTER')
     .controller('BoulderGradeController', [
         '$scope',
-        '$routeParams',
         'UsersService',
         function (
             $scope,
-            $routeParams,
             UsersService
         ) {
             'use strict';

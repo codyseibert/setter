@@ -9,45 +9,45 @@ angular.module('SETTER')
             $http,
             HttpStubService
         ) {
-        'use strict';
+            'use strict';
 
-        var boulderGrades = null,
-            ropeGrade = null;
+            var boulderGrades = null,
+                ropeGrade = null;
 
-        return {
-            getBoulderGrades: function () {
-                var stub = HttpStubService.createStub();
+            return {
+                getBoulderGrades: function () {
+                    var stub = HttpStubService.createStub();
 
-                if (boulderGrades !== null) {
-                    stub.deferred.resolve(boulderGrades);
-                } else {
-                    $http({
-                        method: 'GET',
-                        url: 'api/grades/boulder'
-                    }).success(function (pData) {
-                        boulderGrades = pData;
+                    if (boulderGrades !== null) {
                         stub.deferred.resolve(boulderGrades);
-                    });
-                }
+                    } else {
+                        $http({
+                            method: 'GET',
+                            url: 'api/grades/boulder'
+                        }).success(function (pData) {
+                            boulderGrades = pData;
+                            stub.deferred.resolve(boulderGrades);
+                        });
+                    }
 
-                return stub.promise;
-            },
-            getRopeGrades: function () {
-                var stub = HttpStubService.createStub();
+                    return stub.promise;
+                },
+                getRopeGrades: function () {
+                    var stub = HttpStubService.createStub();
 
-                if (ropeGrade !== null) {
-                    stub.deferred.resolve(ropeGrade);
-                } else {
-                    $http({
-                        method: 'GET',
-                        url: 'api/grades/rope'
-                    }).success(function (pData) {
-                        ropeGrade = pData;
+                    if (ropeGrade !== null) {
                         stub.deferred.resolve(ropeGrade);
-                    });
-                }
+                    } else {
+                        $http({
+                            method: 'GET',
+                            url: 'api/grades/rope'
+                        }).success(function (pData) {
+                            ropeGrade = pData;
+                            stub.deferred.resolve(ropeGrade);
+                        });
+                    }
 
-                return stub.promise;
-            }
-        };
-    }]);
+                    return stub.promise;
+                }
+            };
+        }]);

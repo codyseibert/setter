@@ -4,12 +4,10 @@
 angular.module('SETTER')
     .controller('BoulderSendsGraphController', [
         '$scope',
-        '$routeParams',
         'UsersService',
         'BarGraphHelperService',
         function (
             $scope,
-            $routeParams,
             UsersService,
             BarGraphHelperService
         ) {

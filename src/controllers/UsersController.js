@@ -60,7 +60,7 @@ var UsersController = function () {
 
     this.getLeadSends = function (pReq, pRes) {
         var userId,
-        callback;
+            callback;
         userId = pReq.params.userId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theUsersDao.getLeadSends(userId, callback);

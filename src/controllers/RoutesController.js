@@ -139,7 +139,8 @@ var RoutesController = function () {
             leadGradeId,
             colorId,
             note,
-            callback);
+            callback
+        );
     };
 
     this.deleteRoute = function (pReq, pRes) {

@@ -194,7 +194,8 @@ angular.module('SETTER')
                     pTopRopeGradeId,
                     pLeadGradeId,
                     pSetterId,
-                    pNote) {
+                    pNote
+                ) {
 
                     this.setGymRoutesDirty(pGymId);
                     this.setRoutesDirty(pGymId, pWallId);
@@ -224,7 +225,8 @@ angular.module('SETTER')
                     pTopRopeGradeId,
                     pLeadGradeId,
                     pSetterId,
-                    pNote) {
+                    pNote
+                ) {
 
                     this.setGymRoutesDirty(pGymId);
                     this.setRoutesDirty(pGymId, pWallId);

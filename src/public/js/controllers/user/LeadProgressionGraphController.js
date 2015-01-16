@@ -3,15 +3,7 @@
 
 angular.module('SETTER')
     .controller('LeadProgressionGraphController', [
-        '$scope',
-        '$routeParams',
-        'UsersService',
-        'BarGraphHelperService',
         function (
-            $scope,
-            $routeParams,
-            UsersService,
-            BarGraphHelperService
         ) {
             'use strict';
 

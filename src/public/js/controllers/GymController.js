@@ -6,9 +6,6 @@ angular.module('SETTER')
         '$scope',
         '$routeParams',
         '$rootScope',
-        '$window',
-        '$compile',
-        '$timeout',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -20,9 +17,6 @@ angular.module('SETTER')
             $scope,
             $routeParams,
             $rootScope,
-            $window,
-            $compile,
-            $timeout,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -49,9 +43,9 @@ angular.module('SETTER')
                 animation: false
             };
 
-            $scope.PANEL_ACTIVITY = 'ACTIVITY',
-            $scope.PANEL_STATS = 'STATS',
-            $scope.PANEL_CLIMBERS = 'CLIMBERS'
+            $scope.PANEL_ACTIVITY = 'ACTIVITY';
+            $scope.PANEL_STATS = 'STATS';
+            $scope.PANEL_CLIMBERS = 'CLIMBERS';
             $scope.panel = $scope.PANEL_ACTIVITY;
 
             /*

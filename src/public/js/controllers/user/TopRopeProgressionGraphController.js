@@ -3,13 +3,7 @@
 
 angular.module('SETTER')
     .controller('TopRopeProgressionGraphController', [
-        '$scope',
-        '$routeParams',
-        'UsersService',
         function (
-            $scope,
-            $routeParams,
-            UsersService
         ) {
             'use strict';
 

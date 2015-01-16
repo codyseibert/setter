@@ -1,0 +1,19 @@
+<h2 class="fwl">
+    Total Lead Sends
+</h2>
+
+<canvas class="chart-bar"
+        ng-show="leadSendsBarGraph.hasData"
+        data="leadSendsBarGraph.data"
+        labels="leadSendsBarGraph.labels"
+        options="chartOptions"
+        legend="true"
+        width="100%"
+        height="100%">
+</canvas>
+
+<span ng-show="!leadSendsBarGraph.hasData">
+    <h3 class="text-center fwb  mb2">
+        No Sends
+    </h3>
+</span>

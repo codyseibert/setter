@@ -226,9 +226,5 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
-            $scope.refreshCharts = function () {
-                $timeout(function () {
-                    $scope.$apply();
-                }, 100);
-            };
+            
         }]);

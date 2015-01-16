@@ -115,165 +115,35 @@
 
         <tabset>
 
-            <tab class="small-6  columns  text-center"  select="hideSendsCharts()">
+            <tab class="small-6  columns  text-center">
 
                 <tab-heading>
                     <i class="icon-globe"> </i> Activity
                 </tab-heading>
 
                 <content>
-
-                    <div class="row ">
-
-                         <div class="small-12 columns">
-
-                             <h2 class="fwl">Latest Sends</h2>
-
-                         </div>
-
-
-
-
-                        <div class="row small-collapse large-uncollapse ">
-
-                            <div class="small-12  columns  mb4">
-
-                                <ul class="list list--tableStyle">
-
-                                    <li class="ptb2    "
-                                        ng-repeat="act in activity"
-                                        ng-click="navigateToRoute(act.gym_id, act.wall_id, act.route_id)">
-
-                                        <span>
-                                            <i class="icon-circle icon--medium"
-                                               ng-style="{color: act.value}">
-                                            </i>
-                                               {{formatGrade(act.bg, act.rg)}}
-                                        </span>
-
-                                        <span class="right">
-                                            on {{act.date}}
-                                        </span>
-
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                    <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' "><ng-include>
                 </content>
 
             </tab>
 
 
-            <tab  class="small-6 columns  text-center"  select="showSendsCharts()">
+            <tab  class="small-6 columns  text-center"  select="refreshCharts()">
+
                 <tab-heading>
                     <i class="icon-stats"> </i> Statistics
                 </tab-heading>
 
 
-                <!--
-                    SECTION - User's Grades
-                -->
                 <content>
-                    <section class="row">
-
-                    </section>
+                    <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' "><ng-include>
                 </content>
 
-
             </tab>
+
         </tabset>
     </div>
 </section>
-
-
-
-<section id="charts"
-         class="row"
-         style="position: absolute; top: -44px; left: -9999px;">
-
-    <ng-include
-        ng-controller="BoulderSendsGraphController"
-        src=" 'templates/user/BoulderingSendsGraph.tpl.html' ">
-    </ng-include>
-
-    <ng-include
-        ng-controller="TopRopeSendsGraphController"
-        src=" 'templates/user/TopRopeSendsGraph.tpl.html' ">
-    </ng-include>
-
-    <ng-include
-        ng-controller="LeadSendsGraphController"
-        src=" 'templates/user/LeadSendsGraph.tpl.html' ">
-    </ng-include>
-
-
-    <!--
-    Hide the progress charts for now until they are even useful
-    <div class="medium-6 small-12 columns ng-hide">
-        <h2>
-            Progress
-        </h2>
-
-        <canvas class="chart-line"
-            ng-show="hasRopeSends"
-            data="ropeSendsLineGraph.data"
-            labels="ropeSendsLineGraph.labels"
-            options="ropeSendsLineGraph.options"
-            legend="true"
-            width="100%"
-            height="100%">
-        </canvas>
-
-        <span ng-show="!hasRopeSends">
-            <h3 class="text-center fwb  mb2">
-                No rope sends, yet.
-            </h3>
-
-            <h4 class="h6  text-center"
-                ng-show="getAccountId() === userId">
-                <br><a ng-click="navigateToGyms()">Set a home gym</a>,
-                and track your progress by marking routes as "sent".
-            </h4>
-        </span>
-    </div>
-
-
-    <div class="small-12 medium-6 columns ng-hide">
-        <h2>
-            Progress
-        </h2>
-
-        <canvas class="chart-line"
-                ng-show="hasBoulderSends"
-                data="boulderSendsLineGraph.data"
-                labels="boulderSendsLineGraph.labels"
-                options="boulderSendsLineGraph.options"
-                legend="true"
-                width="100%"
-                height="100%">
-        </canvas>
-
-        <span ng-show="!hasBoulderSends">
-            <h3 class="text-center fwb  mb2">
-                No bouldering sends, yet.
-            </h3>
-
-            <h4 class="h6  text-center"
-                ng-show="getAccountId() === userId">
-                <br><a ng-click="navigateToGyms()">Set a home gym</a>,
-                and track your progress by marking routes as "sent".
-            </h4>
-        </span>
-    </div>
--->
-</section>
-
 
 
 

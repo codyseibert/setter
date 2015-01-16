@@ -107,7 +107,7 @@ angular.module('SETTER', [
                 })
                 .when('/users/:userId', {
                     controller: 'UserController',
-                    templateUrl: 'templates/User.tpl.html'
+                    templateUrl: 'templates/user/User.tpl.html'
                 })
                 .when('/suggestions', {
                     controller: 'SuggestionsController',
@@ -129,6 +129,7 @@ angular.module('SETTER', [
         '$rootScope',
         '$location',
         '$window',
+        '$timeout',
         'UsersService',
         'GymsService',
         'WallsService',
@@ -138,6 +139,7 @@ angular.module('SETTER', [
             $rootScope,
             $location,
             $window,
+            $timeout,
             UsersService,
             GymsService,
             WallsService,
@@ -400,4 +402,10 @@ angular.module('SETTER', [
                     UsersService.getUserImage(userId, nothing);
                 }
             }
+
+            $rootScope.refreshCharts = function () {
+                $timeout(function () {
+                    $rootScope.$apply();
+                }, 100);
+            };
         }]);

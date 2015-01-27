@@ -39,6 +39,6 @@ angular.module('SETTER')
                 doc = new JsPDF();
                 doc.text(20, 20, 'Current Bouldering Routes');
                 doc.addImage(image, 15, 40, 180, 160);
-                doc.save();
+                doc.save('BoulderRoutesGraph.pdf');
             };
         }]);

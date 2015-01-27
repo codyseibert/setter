@@ -54,7 +54,7 @@
     "validator": "^3.22.1",
     "mysql": "^2.5.3",
     "easyimage": "^1.0.3",
-    "bcrypt": "^0.8.0",
+    "bcrypt-nodejs": "^0.0.3",
     "serve-favicon": "^2.1.7",
     "morgan": "^1.5.0",
     "express-jwt": "^0.5.1",

@@ -1,5 +1,5 @@
 /*jslint nomen: true */
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var Crypt = function () {
     'use strict';

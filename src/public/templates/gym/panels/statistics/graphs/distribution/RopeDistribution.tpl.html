@@ -13,7 +13,7 @@
             <tbody>
                 <tr ng-repeat="zone in ropeZoneKeys">
                     <td>{{zone}}</td>
-                    <td ng-repeat="count in ropeZones[zone]">{{count}}</td>
+                    <td ng-repeat="count in ropeZones[zone]">{{count || ''}}</td>
                 </tr>
             </tbody>
         </table>

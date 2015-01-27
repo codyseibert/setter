@@ -20,7 +20,8 @@ var SettersDao = function () {
             'SELECT i.url, u.account_id, CONCAT(u.firstname, \' \', u.lastname) AS name, u.firstname, u.lastname, ' +
                 '(SELECT COUNT(*) FROM routes r WHERE r.setter_id = u.account_id AND r.boulder_grade_id IS NOT NULL) AS num_boulder_routes, ' +
                 '(SELECT COUNT(*) FROM routes r WHERE r.setter_id = u.account_id AND r.toprope_grade_id IS NOT NULL) AS num_rope_routes, ' +
-                '(SELECT ROUND(AVG(ra.rating), 1) FROM ratings ra INNER JOIN routes r ON r.id = ra.route_id WHERE r.setter_id = u.account_id) AS rating ' +
+                '(SELECT ROUND(AVG(ra.rating), 1) FROM ratings ra INNER JOIN routes r ON r.id = ra.route_id WHERE r.setter_id = u.account_id) AS rating, ' +
+                '(SELECT COUNT(*) FROM ratings ra INNER JOIN routes r ON r.id = ra.route_id WHERE r.setter_id = u.account_id) AS rating_count ' +
                 'FROM setters_gyms_access sga ' +
                 'INNER JOIN users u ON u.account_id = sga.setter_id ' +
                 'INNER JOIN accounts a ON a.id = u.account_id ' +

@@ -149,7 +149,9 @@
                             ng-mouseover="hasSent && setHoverRating(star)">
                         <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
                     </h4>
-                    ({{ratingCount || '0'}})
+                    <span class="txt--micro display--block">
+                        Based on {{ratingCount || '0'}} ratings
+                    </span>
                 </div>
             </div>
 
@@ -272,6 +274,3 @@
         </a>
     </div>
 </section>
-
-
-

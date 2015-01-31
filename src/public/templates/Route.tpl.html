@@ -3,11 +3,11 @@
      data-reveal>
 
     <h1 class="h2 fwl">
-        What did you think of this route?
+        Awesome Send!
     </h1>
 
     <p class="lead">
-        Help your gym's setters by rating this route.
+        Help your gym out by rating this route!
     </p>
 
     <div class="display: inline-block; text-align: center;"
@@ -158,7 +158,25 @@
                </div>
             </div>
 
-           
+            <div class="flag  mb3">
+                <h3 class="flag-image">
+                    Avg. Rating
+                </h3>
+
+               <div class="flag-body  text-right"
+                    ng-mouseleave="setHoverRating(-1)">
+                    <h4 class="mb0 h2 display--inlineBlock"
+                            ng-class="{rated: hasRated}"
+                            ng-repeat="star in stars"
+                            ng-click="hasSent && !isGymAccount() && rate(star)"
+                            ng-mouseover="hasSent && setHoverRating(star)">
+                        <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
+                    </h4>
+                    <span class="txt--micro display--block">
+                        Based on {{ratingCount || '0'}} ratings
+                    </span>
+                </div>
+            </div>
 
             <div class="flag  mb3">
                 <h3 class="flag-image">
@@ -279,6 +297,3 @@
         </a>
     </div>
 </section>
-
-
-

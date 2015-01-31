@@ -33,12 +33,12 @@ angular.module('SETTER')
                     doc,
                     JsPDF = jsPDF;
 
-                canvas = $('#ropeGraph').get(0);
+                canvas = $('#topRopeGraph').get(0);
                 image = new Image();
                 image.src = canvas.toDataURL("image/png");
                 doc = new JsPDF();
-                doc.text(20, 20, 'Current Rope Routes');
+                doc.text(20, 20, 'Current Top Rope Routes');
                 doc.addImage(image, 15, 40, 180, 160);
-                doc.save();
+                doc.save('TopRopeRoutesGraph.pdf');
             };
         }]);

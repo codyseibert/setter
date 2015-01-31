@@ -23,7 +23,7 @@
         </button>
     </div>
 
-    <div class="small-12 columns mb4">  
+    <div class="small-12 columns mb4">
 
        <section class="row" data-equalizer >
 
@@ -39,19 +39,17 @@
 
                 <ul class="flag-body">
 
-                    <li >
-
-                    <h2 class="h3 fwb mb1" data-ui-component="setter-info-name">
-                     {{setter.firstname}} {{setter.lastname}}
-                    </h2>
-
+                    <li>
+                        <h2 class="h3 fwb mb1" data-ui-component="setter-info-name">
+                         {{setter.firstname}} {{setter.lastname}}
+                        </h2>
                     </li>
 
                     <h4 class="mb0 rating rating--medium"
                         ng-repeat="star in setter.stars">
                         <i ng-class="{'icon-star': isFilled(star, setter), 'icon-star-empty': !isFilled(star, setter)}"> </i>
                     </h4>
-                    <span class="txt--micro display--block">({{setter.rating}}) Ratings</span>
+                    <span class="txt--micro display--block">({{setter.rating}}) Based on {{setter.rating_count || '0'}} ratings</span>
 
                 </ul>
 
@@ -106,5 +104,5 @@
        </section>
 
     </div>
-    
+
 </section>

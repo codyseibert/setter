@@ -3,9 +3,10 @@
        ng-click="export()"
        ng-show="getAccountId() === gymId">Export Graph</a>
 
-    <h2 class="fwl clearfix">Current Rope Routes</h2>
+    <h2 class="fwl clearfix">Current Top Rope Routes</h2>
 
     <canvas
+        id="topRopeGraph"
         class="chart-bar"
         data="graph.data"
         labels="graph.labels"

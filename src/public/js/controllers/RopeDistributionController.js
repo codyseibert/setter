@@ -101,7 +101,7 @@ angular.module('SETTER')
                         }
                     }
                 }
-                doc.save();
+                doc.save('RopeDistributionGraph.pdf');
             };
 
         }]);

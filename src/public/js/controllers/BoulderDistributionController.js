@@ -101,6 +101,6 @@ angular.module('SETTER')
                         }
                     }
                 }
-                doc.save();
+                doc.save('BoulderDistributionGraph.pdf');
             };
         }]);

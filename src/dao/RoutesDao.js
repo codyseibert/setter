@@ -69,7 +69,7 @@ var RoutesDao = function () {
         );
     };
 
-    this.createRoute = function (pWallId, pName, pSetterId, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote, pCallback) {
+    this.createRoute = function (pWallId, pName, pSetterId, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
         theDaoHelper.executeQuery(
             'INSERT INTO routes (wall_id, name, setter_id, boulder_grade_id, lead_grade_id, toprope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())',
             [pWallId, pName, pSetterId, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote],
@@ -78,7 +78,7 @@ var RoutesDao = function () {
         );
     };
 
-    this.updateRoute = function (pRouteId, pName, pSetterId, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote, pCallback) {
+    this.updateRoute = function (pRouteId, pName, pSetterId, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
         theDaoHelper.executeQuery(
             'UPDATE routes SET name = ?, setter_id = ?, boulder_grade_id = ?, lead_grade_id = ?, toprope_grade_id = ?, color_id = ?, note = ? WHERE id = ?',
             [pName, pSetterId, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote, pRouteId],

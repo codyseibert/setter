@@ -19,14 +19,14 @@ angular.module('SETTER')
                     var stub = HttpStubService.createStub();
 
                     if (boulderGrades !== null) {
-                        stub.deferred.resolve(boulderGrades);
+                        stub.deferred.resolve(boulderGrades.slice());
                     } else {
                         $http({
                             method: 'GET',
                             url: 'api/grades/boulder'
                         }).success(function (pData) {
                             boulderGrades = pData;
-                            stub.deferred.resolve(boulderGrades);
+                            stub.deferred.resolve(boulderGrades.slice());
                         });
                     }
 
@@ -36,14 +36,14 @@ angular.module('SETTER')
                     var stub = HttpStubService.createStub();
 
                     if (ropeGrade !== null) {
-                        stub.deferred.resolve(ropeGrade);
+                        stub.deferred.resolve(ropeGrade.slice());
                     } else {
                         $http({
                             method: 'GET',
                             url: 'api/grades/rope'
                         }).success(function (pData) {
                             ropeGrade = pData;
-                            stub.deferred.resolve(ropeGrade);
+                            stub.deferred.resolve(ropeGrade.slice());
                         });
                     }
 

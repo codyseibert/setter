@@ -92,8 +92,8 @@
                             ng-mouseover="hasSent && setHoverRating(star)">
                         <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
                     </h4>
-                
-                    <div class="display--Block">({{ratingCount || '0'}}) based on 50 ratings</div> 
+
+                    <div class="display--Block">({{rating || '0'}}) based on {{ratingCount || '0'}} ratings</div>
                 </div>
             </div>
 
@@ -156,26 +156,6 @@
                     {{route.firstname}} {{route.lastname}}
                     </h4>
                </div>
-            </div>
-
-            <div class="flag  mb3">
-                <h3 class="flag-image">
-                    Avg. Rating
-                </h3>
-
-               <div class="flag-body  text-right"
-                    ng-mouseleave="setHoverRating(-1)">
-                    <h4 class="mb0 h2 display--inlineBlock"
-                            ng-class="{rated: hasRated}"
-                            ng-repeat="star in stars"
-                            ng-click="hasSent && !isGymAccount() && rate(star)"
-                            ng-mouseover="hasSent && setHoverRating(star)">
-                        <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
-                    </h4>
-                    <span class="txt--micro display--block">
-                        Based on {{ratingCount || '0'}} ratings
-                    </span>
-                </div>
             </div>
 
             <div class="flag  mb3">

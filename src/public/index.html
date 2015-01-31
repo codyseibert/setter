@@ -58,7 +58,7 @@
 
 
             <!-- Left Pull Out Menu -->
-            <aside class="left-off-canvas-menu  side-menu  hide-for-large-up">
+            <aside class="left-off-canvas-menu  side-menu ">
 
                 <ul class="pt3  off-canvas-list"
                     ng-show="isLoggedIn()"
@@ -71,36 +71,116 @@
 
 
 
-            <!-- Full Screen Static Menu -->
-            <aside style="padding-top: 0px;"
-                   class="hide-on-small  nav-primary  side-nav side-menu  show-for-large-up"
-                   ng-show="isLoggedIn()">
 
-                <div class="setterLogo--nav  mb3">
-                    <img src="images/setter-logo.svg" >
-                </div>
+<!--Topbar for large desktop--> 
+<div class="sticky show-for-large-up">
 
-                <ul
-                    ng-show="isLoggedIn()"
-                    ng-include
-                    src=" ' templates/Navigation.tpl.html ' ">
-                </ul>
+    <nav    class="top-bar" 
+            data-topbar 
+            ng-show="isLoggedIn()">
 
-            </aside>
+    <div class="row">
+     <!-- Left Nav Section -->        
+        <div class="small-9 columns">
+     
+            <ul class="logo list--inline display--inline">
+             
+               <li>
+             
+                     <img src="images/setter-logo.svg"
+                          height="35px"
+                          width="35px"
+                          alt="Setter"
+                          class="text-right mr1 mb1">
+             
+               </li>
+             
+            </ul>
+               
+             <ul class="top-bar-links list--inline display--inline "
+             ng-show="isLoggedIn()"
+             ng-include
+             src=" ' templates/NavigationLarge.tpl.html ' ">
+             </ul>
 
+        </div>
+     
+     <!-- Right Nav Section -->
+     <div class="small-3 columns">
+
+
+
+         <ul class="list--inline right top-bar-links">
+
+             <li data-dropdown="account-dropdown">
+         
+                <a class="display--inlineBlock">
+                    
+                    <div class="display--inlineBlock  avatar avatar--tiny mr1"></div>
+                        
+                    <span class="txt--micro  ">Aiguille Rock Clim...
+                    </span>
+
+                    <span class="ml1  icon-menuDropdown  icon--tiny">
+                        
+                    </span>
+
+                </a>
+         
+             </li>
+            
+         </ul>
+
+
+
+
+                 <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large" data-dropdown-content>
+
+                    <li ng-show="isGymAccount()"
+                    ng-click="navigateToGymSuggestions(getAccountId())">
+                    <a class="icon-messaging">Suggestions
+
+                    <span class="label">5</span></a>
+
+                    </li>
+                    
+                    <!--Show For User Only--> 
+                    <li ng-show="isUserAccount()"
+                        ng-click="navigateToSettings()">
+                        <a class="icon-settings"> Settings</a>
+                    </li>
+                   
+                     <li ng-click="navigateToLogout()">
+                       <a class="icon-logout">Log Out</a>
+                     </li>
+             
+                     <li>
+                         <a class="icon-profile">Your User Account</a>
+                     </li>
+
+
+                    <li ng-click="navigateToSuggestionsPage()">
+                            <a class="icon-messaging-alt"> Give Feedback</a>
+                    </li>
+    
+               </ul>
+     </div>
+ </div>
+
+    </nav>
+
+</div>
 
 
             <!-- The Main Content -->
-            <div class="relative selfClear"
-                 ng-class="{'main-wrap': isLoggedIn()}">
-                <div class="main full-height relative">
-                    <div id="content">
-                        <div style="min-height: 900px;"
+
+                 
+                 <div id="content  row">
+                        <div 
                              ng-view autoscroll="true"
                              class="mainview-animation"></div>
                     </div>
-                </div>
-            </div>
+           
 
 
 
@@ -128,6 +208,7 @@
     <script src="bower_components/foundation/js/foundation.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
     <script src="bower_components/angular-bindonce/bindonce.js"></script>
     <script src="bower_components/spin.js/spin.js"></script>
     <script src="bower_components/angular-spinner/angular-spinner.js"></script>

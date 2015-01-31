@@ -47,6 +47,8 @@ angular.module('SETTER')
             $scope.PANEL_STATS = 'STATS';
             $scope.PANEL_CLIMBERS = 'CLIMBERS';
             $scope.panel = $scope.PANEL_ACTIVITY;
+            $scope.options = {}; 
+            $scope.form = {}; 
 
             /*
             *   SECTION - Gym related service calls

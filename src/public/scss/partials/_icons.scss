@@ -173,6 +173,10 @@
 
 }
 
+.icon-menuDropdown {
+  @include icon($icon--arrowD, after);
+}
+
 .icon-up-big {
    @include icon($icon--arrowU);
 }
@@ -287,6 +291,10 @@
 //
 //Icon Sizes
 //
+
+.icon--tiny {
+  font-size: rem-calc(10); 
+}
 
 .icon--medium {
   @extend %icon--medium;

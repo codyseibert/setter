@@ -9,42 +9,106 @@
 
 
 <!-- Newest -->
-<section class="row">
+<section class="row small-collapse">
 
-    <!-- Newest Boulder -->
-    <div class="small-12 medium-6 large-4 columns">
-        <h2 class="fwl">
-            Newest Boulder Problems
-        </h2>
+    <div class="small-12 columns">
 
-        <ng-include
-            src=" 'templates/gym/panels/activity/sections/NewestBoulder.tpl.html' ">
-        </ng-include>
-    </div>
+        <div class="row ">
+
+            <div class="small-6 columns">
+                <h2 class="fwl display--inlineBlock">Newest Sets</h2>
+            </div>
+            
+    <!--         <label class="select--medium select--primary right">
+        <select 
+                    ng-model="form.view"
+                    ng-options="view.value for view in views"
+                    ng-change="refreshView()">
+                    <option value="">Bouldering</option>
+                    <option value="">Bouldering</option>
+                    <option value="">Bouldering</option>
+        </select>
+    </label>
+    
+     -->
+    
+            <div class="small-6 columns">
+
+                <span class="show-for-medium-up display--inlineBlock">
+                
+                Bouldering
+
+                    <a href="">
+
+                        <span role="tooltip" data-tooltip aria-haspopup="true" class="has-tip" title="Tooltips are awesome, you should totally use them!">
+
+                            <img class="icon--hoverOpacity   mr1" src="images/icon--bouldering.svg" alt="" height="35px" width="35px">
+
+                        </span>
+
+                    </a>
+                
+                    <a href="">
+                        <img class="icon--hoverOpacity   mr1" src="images/icon--topRope.svg" alt="" height="35px" width="35px" >
+                    </a>
+                    
+                    <a href="">
+                        <img class="icon--hoverOpacity " src="images/icon--lead.svg" alt="" height="35px" width="35px">
+                    </a>
+
+                </span>
 
 
-    <!-- Newest Top Rope Routes -->
-    <div class="small-12 medium-6 large-4 columns">
-        <h2 class="fwl">
-            Newest Top Rope Routes
-        </h2>
+                <span class=" hide-for-medium-up">
+
+                    <a href="">
+
+                    <span role="tooltip" data-tooltip aria-haspopup="true" class="has-tip" title="Tooltips are awesome, you should totally use them!">
+
+                        <img class="icon--hoverOpacity   mr1" src="images/icon--bouldering.svg" alt="" height="35px" width="35px">
+
+                    </span>
+
+                    </a>
+
+                    <a href="">
+                    <img class="icon--hoverOpacity   mr1" src="images/icon--topRope.svg" alt="" height="35px" width="35px" >
+                    </a>
+
+                    <a href="">
+                    <img class="icon--hoverOpacity " src="images/icon--lead.svg" alt="" height="35px" width="35px">
+                    </a>
+
+                </span>
+
+            </div>
+
+        </div>
 
         <ng-include
             src=" 'templates/gym/panels/activity/sections/NewestTopRope.tpl.html' ">
         </ng-include>
+
     </div>
 
+    <!-- Newest Boulder -->
+    <div class="small-12 medium-6  columns">
+
+
+        <ng-include
+            src=" 'templates/gym/panels/activity/sections/NewestBoulder.tpl.html' ">
+        </ng-include>
+
+    </div>
 
     <!-- Newest Lead Routes -->
     <div class="small-12 medium-6 large-4 columns">
-        <h2 class="fwl">
-            Newest Lead Routes
-        </h2>
 
         <ng-include
             src=" 'templates/gym/panels/activity/sections/NewestLead.tpl.html' ">
         </ng-include>
     </div>
+
 </section>
 
 
@@ -55,6 +119,7 @@
 <section class="row">
     <!-- Best Rated Boulder -->
     <div class="small-12 medium-6 large-4 columns">
+
         <h2 class="fwl">
             Best Rated Boulder Problems
         </h2>
@@ -62,11 +127,13 @@
         <ng-include
             src=" 'templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html' ">
         </ng-include>
+
     </div>
 
 
     <!-- Best Rated Top Rope -->
     <div class="small-12 medium-6 large-4 columns">
+
         <h2 class="fwl">
             Best Rated Rope Routes
         </h2>
@@ -74,6 +141,7 @@
         <ng-include
             src=" 'templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html' ">
         </ng-include>
+
     </div>
 
 
@@ -87,6 +155,7 @@
             src=" 'templates/gym/panels/activity/sections/BestRatedLead.tpl.html' ">
         </ng-include>
     </div>
+
 </section>
 
 
@@ -94,11 +163,19 @@
 
 <!-- Latest Climber Sends -->
 <section class="row">
-    <div class="small-12 medium-6 columns">
-        <h2 class="fwl">
+
+    <div class="small-12 columns">
+        <h2 class="mb1 fwl">
             Latest Climber Sends
         </h2>
-
-        <ng-include src=" 'templates/gym/panels/activity/sections/LatestClimberSends.tpl.html' "></ng-include>
     </div>
+
+    <div class="row small-collapse">
+        <div class="small-12  columns">
+        
+            <ng-include src=" 'templates/gym/panels/activity/sections/LatestClimberSends.tpl.html' "></ng-include>
+        
+        </div>
+    </div>
+
 </section>

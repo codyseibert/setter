@@ -43,6 +43,12 @@
   }
 }
 
+.linkList--separators {
+  li {
+    border-bottom: 1px solid $grey--medlight;
+  }
+}
+
 .dropDown--withForm {
   @extend %ptrbl3;
   @extend %pt3; 

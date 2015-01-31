@@ -70,9 +70,8 @@ body
   // @include background-image(linear-gradient($from 10%, $to 70%));
   background-color: $primaryColor;
   z-index: 10;
-
+  height: rem-calc(60);
   @include box-shadow(0 -1px 0 rgba(255, 255, 255, .2) inset);
-  border-bottom: 1px solid darken($primaryColor, 20%);
 
   .tab-bar-link {
     &:hover {
@@ -113,10 +112,35 @@ body
 
 .top-bar {
 
-  position: fixed;
-  top: 0;
+    ul.top-bar-links {
 
-}
+     li {
+        @extend %display--inline; 
+        @extend %prl2; 
+        font-size: rem-calc(14);
+        height: rem-calc(60);
+
+        a { 
+            color: #fff;
+            height: rem-calc(60);
+            line-height:rem-calc(65);
+        }
+
+        &:hover {
+          
+          background-color: darken($primaryColor, 4%); 
+
+        }
+
+    }
+
+  }
+
+  .avatar {
+    vertical-align: middle; 
+  }
+
+} 
 
 .nav-account {
   background-color: $grey--light;

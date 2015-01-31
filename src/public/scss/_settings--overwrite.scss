@@ -35,7 +35,7 @@
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
-$row-width: rem-calc(1280);
+$row-width: rem-calc(1100);
 // $total-columns: 12;
 
 // Global
@@ -1175,11 +1175,11 @@ $tabs-navigation-active-font-color: $primaryColor;
 // TOP BAR
 //
 
-// $include-html-top-bar-classes: $include-html-classes;
+//$include-html-top-bar-classes: false;
 
 // Background color for the top bar
-$topbar-bg-color:$primaryColor;
-$topbar-bg: $topbar-bg-color;
+$topbar-bg-color: rgba( 255, 255, 255, .0); 
+//$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 $topbar-height: rem-calc(50);
@@ -1199,16 +1199,16 @@ $topbar-height: rem-calc(50);
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
+$topbar-link-color: #fff;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: $font-weight-normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-color-hover: #272727;
-// $topbar-link-bg-hover: #272727;
+$topbar-link-bg: rgba( 255, 255, 255, .01);
+//$topbar-link-bg-color-hover: transparent;
+$topbar-link-bg-hover: rgba( 255, 255, 255, .01);
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;

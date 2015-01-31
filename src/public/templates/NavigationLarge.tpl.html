@@ -11,12 +11,7 @@
 
 <li ng-show="isUserAccount()"
     ng-click="navigateToGym(getHomeGymId())">
-    <a class="icon-home"> Your Home Gym</a>
-</li>
-
-<li ng-show="isUserAccount()"
-    ng-click="navigateToSettings()">
-    <a class="icon-settings"> Settings</a>
+    <a class="icon-home"> Home Gym</a>
 </li>
 
 <!-- Gym Specific -->
@@ -27,7 +22,7 @@
 
 <li ng-show="isGymAccount()"
     ng-click="navigateToWalls(getAccountId())">
-    <a> <img src="images/icon--wrench.svg" alt=""> Manage Zones</a>
+    <a> Zones</a>
 </li>
 
 <li ng-show="isGymAccount()"
@@ -37,12 +32,7 @@
 
 <li ng-show="isGymAccount()"
     ng-click="navigateToSetters(getAccountId())">
-    <a class="icon-group"> Manage Setters</a>
-</li>
-
-<li ng-show="isGymAccount()"
-    ng-click="navigateToGymSuggestions(getAccountId())">
-    <a class="icon-messaging"> Suggestions</a>
+    <a class="icon-group">Setters</a>
 </li>
 
 <li ng-show="isGymAccount()"
@@ -50,21 +40,7 @@
     <a class="icon-megaphone"> Announcements</a>
 </li>
 
-<li class="mb4"></li>
-
-<!-- Always Show -->
-
-
-<li ng-click="navigateToSuggestionsPage()">
-        <a class="icon-messaging-alt"> Give Feedback</a>
-    </li>
-    
-    <li ng-click="navigateToLogout()" class="mb4">
-        <a class="icon-logout"> Logout</a>
-    </li>
 
 
 
-<!-- <div class=" txt--micro  display--block  text-center">
-    <a ng-click="navigateToTOS()">Terms of Service</a> | <a ng-click="navigateToContact()">Contact</a>
-</div> -->
+

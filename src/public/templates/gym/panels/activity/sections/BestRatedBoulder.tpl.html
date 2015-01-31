@@ -1,10 +1,5 @@
 <table class="small-12 columns">
-    <thead>
-        <th>Zone</th>
-        <th>Color</th>
-        <th>Grade</th>
-        <th>Rating</th>
-    </thead>
+
 
     <tbody>
         <tr bindonce
@@ -26,8 +21,8 @@
 
             <!-- Rating -->
             <td>
-                <ng-include class="right"
-                            style="margin-right: 10px;"
+                <ng-include class="rating  rating--medium  rating--colored"
+                            
                             ng-controller="StarRatingController"
                             src=" 'templates/StarRating.tpl.html' ">
                 </ng-include>

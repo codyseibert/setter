@@ -88,15 +88,21 @@ var WallsDao = function () {
         );
     };
 
-    /**
-        Strips the zone of all routes.
-
-        Important Note: This will delete all UserAlerts for
-        that zone if they exist.
-    */
     this.stripZone = function (pZoneId, pCallback) {
-        theRouteNewToUserDao
-            .deleteAllNewRouteToUserAlertForZone(pZoneId, pCallback);
+
+        var deleteAlerts = function (pResults) {
+            theRouteNewToUserDao
+                .deleteAllNewRouteToUserAlertForZone(pZoneId, function () {
+                    pCallback(pResults);
+                });
+        };
+
+        theDaoHelper.executeQuery(
+            'UPDATE routes SET active = 0 WHERE wall_id = ?',
+            [pZoneId],
+            theDaoHelper.UPDATE,
+            deleteAlerts
+        );
     };
 };
 

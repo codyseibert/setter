@@ -17,10 +17,13 @@ angular.module('SETTER')
                     walls = {};
                     wall = {};
                 },
+
+                // Forces the browser to refresh data on the /walls
                 setWallsDirty: function (pGymId) {
                     delete walls[pGymId];
                 },
 
+                // Used for forcing the service to refresh data on /wall
                 setWallDirty: function (pWallId) {
                     delete wall[pWallId];
                 },
@@ -91,6 +94,7 @@ angular.module('SETTER')
 
                 stripZone: function (pGymId, pWallId) {
                     this.setWallDirty(pWallId);
+                    this.setWallsDirty(pGymId);
 
                     return $http({
                         method: "POST",

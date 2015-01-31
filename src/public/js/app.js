@@ -163,7 +163,7 @@ angular.module('SETTER', [
             }
 
             FastClick.attach(document.body);
-
+            
             // Set the global chart colors used throughout the site
             Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
             Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
@@ -335,6 +335,8 @@ angular.module('SETTER', [
                 $rootScope.lastPath = paths[0];
                 paths.push($location.$$path);
                 paths.splice(0, 1);
+
+
             });
 
             $rootScope.pageWasBookmarked = function () {

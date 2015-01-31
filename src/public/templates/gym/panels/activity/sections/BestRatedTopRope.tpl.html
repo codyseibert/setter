@@ -1,4 +1,4 @@
-<table class="small-12 columns">
+<table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
 
     <tbody>
@@ -7,8 +7,9 @@
             class="list--tableStyle  list--navElem"
             ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
 
-            <!-- Zone -->
-            <td bo-text="route.zone_name"></td>
+            <!-- Grade -->
+            <td bo-text="route.rope_grade || UNRATED_STRING"></td>
+
 
             <!-- Color -->
             <td>
@@ -16,8 +17,9 @@
                 ng-style="{color: route.value}"> </i>
             </td>
 
-            <!-- Grade -->
-            <td bo-text="route.rope_grade || UNRATED_STRING"></td>
+            <!-- Zone -->
+            <td bo-text="route.zone_name"></td>
+
 
             <!-- Rating -->
             <td>
@@ -26,6 +28,14 @@
                             src=" 'templates/StarRating.tpl.html' ">
                 </ng-include>
             </td>
+
+
+            <td >
+                <div class="icon-right-big right">
+                    
+                </div>
+            </td>
+
         </tr>
     </tbody>
 </table>

@@ -114,9 +114,11 @@
   @extend %mb5;
 }
 
-.st--header {
-background-color: #EFEFEF; 
+
+.section--alt {
+  background-color: $grey--light;
 }
+
 
 //
 //Route Object

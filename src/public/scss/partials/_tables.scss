@@ -55,14 +55,28 @@
 
 
 .table--list {
+  
   & tr:first-child {
-    border-top: 1px solid $grey--medlight; 
+    border-top: 1px solid $listBorderColor; 
+  }
+
+  & tr:nth-child(even) {
+    background-color: #fff; 
+  }
+
+  & tr:nth-child(odd) {
+    background-color: $grey--light; 
   }
 
   & tr {
-     border-bottom: 1px solid $grey--medlight; 
+     border-bottom: 1px solid $listBorderColor; 
   }
 
+}
+
+
+.table-data {
+  
 }
 
 .table--clickableElem {

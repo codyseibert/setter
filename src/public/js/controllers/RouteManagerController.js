@@ -11,6 +11,7 @@ angular.module('SETTER')
         'GradesService',
         'DateFormatService',
         'LoginService',
+        'NaturalSort',
         function (
             $scope,
             $q,
@@ -18,7 +19,8 @@ angular.module('SETTER')
             RoutesService,
             GradesService,
             DateFormatService,
-            LoginService
+            LoginService,
+            NaturalSort
         ) {
             'use strict';
 
@@ -291,7 +293,7 @@ angular.module('SETTER')
                     $scope.setterInputs = getUniqueSet(pData, 'setter');
 
                     // Zone Option - prepend 'any zone'
-                    sortByValue($scope.zoneInputs);
+                    $scope.zoneInputs.sort(NaturalSort);
                     clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
                     clone.value = "Any";
                     $scope.zoneInputs.unshift(clone);

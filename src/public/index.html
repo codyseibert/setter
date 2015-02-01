@@ -72,31 +72,31 @@
 
 
 
-<!--Topbar for large desktop--> 
+<!--Topbar for large desktop-->
 <div class="sticky show-for-large-up">
 
-    <nav    class="top-bar" 
-            data-topbar 
+    <nav    class="top-bar"
+            data-topbar
             ng-show="isLoggedIn()">
 
     <div class="row">
-     <!-- Left Nav Section -->        
+     <!-- Left Nav Section -->
         <div class="small-9 columns">
-    
+
             <ul class="logo list--inline display--inline">
-             
+
                <li>
-             
+
                      <img src="images/setter-logo.svg"
                           height="35px"
                           width="35px"
                           alt="Setter"
                           class="text-right mr1 mb1">
-             
+
                </li>
-             
+
             </ul>
-               
+
              <ul class="top-bar-links list--inline display--inline "
              ng-show="isLoggedIn()"
              ng-include
@@ -104,7 +104,7 @@
              </ul>
 
         </div>
-     
+
      <!-- Right Nav Section -->
     <div class="small-3 columns">
 
@@ -115,14 +115,14 @@
             <li data-dropdown="account-dropdown">
 
                 <a class="display--inlineBlock">
-                    
+
                     <div class="display--inlineBlock  avatar avatar--tiny mr1"></div>
-                        
+
                     <span class="txt--micro  ">Aiguille Rock Clim...
                     </span>
 
                     <span class="ml1  icon-menuDropdown  icon--tiny">
-                        
+
                     </span>
 
                 </a>
@@ -131,7 +131,7 @@
 
         </ul>
 
-        <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large" 
+        <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large"
         data-dropdown-content>
 
             <li ng-show="isGymAccount()"
@@ -143,7 +143,7 @@
 
             </li>
 
-            <!--Show For User Only--> 
+            <!--Show For User Only-->
             <li ng-show="isUserAccount()"
             ng-click="navigateToSettings()">
             <a class="icon-settings"> Settings</a>
@@ -174,13 +174,13 @@
 
             <!-- The Main Content -->
 
-                 
+
                  <div id="content  row">
-                        <div 
+                        <div
                              ng-view autoscroll="true"
                              class="mainview-animation"></div>
                     </div>
-           
+
 
 
 
@@ -267,8 +267,7 @@
         <!-- Directives -->
         <script type="text/javascript" src="js/directives/onFinishRender.js"></script>
         <script type="text/javascript" src="js/directives/injectTemplateWhenVisible.js"></script>
-        <script type="text/javascript" src="js/directives/onRenderRefreshTooltip.js">
-        </script>
+        <script type="text/javascript" src="js/directives/onRenderRefreshTooltip.js"></script>
 
         <!-- Services -->
         <script type="text/javascript" src="js/services/AccountsService.js"></script>
@@ -292,6 +291,9 @@
         <script type="text/javascript" src="js/services/AlertsService.js"></script>
         <script type="text/javascript" src="js/services/GymAccountRequestsService.js"></script>
         <script type="text/javascript" src="js/services/HttpStubService.js"></script>
+
+        <!-- Other -->
+        <script type="text/javascript" src="js/other/naturalSort.js"></script>
     <!-- /build -->
 
         <script type="text/javascript">

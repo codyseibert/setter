@@ -9,7 +9,7 @@
     @extend %clearfix;
     padding-right: rem-calc(12);
     padding-left: rem-calc(12); 
-    border-top: 1px solid $grey--medlight; 
+    border-top: 1px solid $listBorderColor; 
   }
 
   & > li:nth-child(odd) {
@@ -17,7 +17,7 @@
   }
 
   & > li:last-child {
-    border-bottom: 1px solid $grey--medlight; 
+    border-bottom: 1px solid $listBorderColor; 
   }
 
   .title {

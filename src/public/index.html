@@ -82,7 +82,7 @@
     <div class="row">
      <!-- Left Nav Section -->        
         <div class="small-9 columns">
-     
+    
             <ul class="logo list--inline display--inline">
              
                <li>
@@ -106,14 +106,14 @@
         </div>
      
      <!-- Right Nav Section -->
-     <div class="small-3 columns">
+    <div class="small-3 columns">
 
+        <ul class="list--inline right top-bar-links"
 
+        ng-click="navigateToUser(getAccountId())">
 
-         <ul class="list--inline right top-bar-links">
+            <li data-dropdown="account-dropdown">
 
-             <li data-dropdown="account-dropdown">
-         
                 <a class="display--inlineBlock">
                     
                     <div class="display--inlineBlock  avatar avatar--tiny mr1"></div>
@@ -126,45 +126,45 @@
                     </span>
 
                 </a>
-         
-             </li>
-            
-         </ul>
 
+            </li>
 
+        </ul>
 
+        <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large" 
+        data-dropdown-content>
 
-                 <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large" data-dropdown-content>
+            <li ng-show="isGymAccount()"
+            ng-click="navigateToGymSuggestions(getAccountId())">
 
-                    <li ng-show="isGymAccount()"
-                    ng-click="navigateToGymSuggestions(getAccountId())">
-                    <a class="icon-messaging">Suggestions
+            <a class="icon-messaging">Suggestions
 
-                    <span class="label">5</span></a>
+            <span class="label">5</span></a>
 
-                    </li>
-                    
-                    <!--Show For User Only--> 
-                    <li ng-show="isUserAccount()"
-                        ng-click="navigateToSettings()">
-                        <a class="icon-settings"> Settings</a>
-                    </li>
-                   
-                     <li ng-click="navigateToLogout()">
-                       <a class="icon-logout">Log Out</a>
-                     </li>
-             
-                     <li>
-                         <a class="icon-profile">Your User Account</a>
-                     </li>
+            </li>
 
+            <!--Show For User Only--> 
+            <li ng-show="isUserAccount()"
+            ng-click="navigateToSettings()">
+            <a class="icon-settings"> Settings</a>
+            </li>
 
-                    <li ng-click="navigateToSuggestionsPage()">
-                            <a class="icon-messaging-alt"> Give Feedback</a>
-                    </li>
-    
-               </ul>
-     </div>
+            <li ng-click="navigateToLogout()">
+            <a class="icon-logout">Log Out</a>
+            </li>
+
+            <li>
+             <a class="icon-profile">Your User Account or gym if setter</a>
+            </li>
+
+            <li ng-click="navigateToSuggestionsPage()">
+                <a class="icon-messaging-alt"> Give Feedback</a>
+            </li>
+
+        </ul>
+
+    </div>
+
  </div>
 
     </nav>
@@ -209,6 +209,7 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
     <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.tooltip.js"></script>
     <script src="bower_components/angular-bindonce/bindonce.js"></script>
     <script src="bower_components/spin.js/spin.js"></script>
     <script src="bower_components/angular-spinner/angular-spinner.js"></script>
@@ -266,7 +267,8 @@
         <!-- Directives -->
         <script type="text/javascript" src="js/directives/onFinishRender.js"></script>
         <script type="text/javascript" src="js/directives/injectTemplateWhenVisible.js"></script>
-
+        <script type="text/javascript" src="js/directives/onRenderRefreshTooltip.js">
+        </script>
 
         <!-- Services -->
         <script type="text/javascript" src="js/services/AccountsService.js"></script>

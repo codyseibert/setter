@@ -43,12 +43,17 @@ angular.module('SETTER')
                 animation: false
             };
 
+            $scope.BOULDERING = 'bouldering';
+            $scope.TOPROPE = 'toprope';
+            $scope.LEAD = 'lead';
+
             $scope.PANEL_ACTIVITY = 'ACTIVITY';
             $scope.PANEL_STATS = 'STATS';
             $scope.PANEL_CLIMBERS = 'CLIMBERS';
             $scope.panel = $scope.PANEL_ACTIVITY;
-            $scope.options = {}; 
-            $scope.form = {}; 
+            $scope.options = {};
+            $scope.form = {};
+            $scope.type = $scope.BOULDERING;
 
             /*
             *   SECTION - Gym related service calls
@@ -214,7 +219,9 @@ angular.module('SETTER')
                 $scope.image = content;
             };
 
-
+            $scope.setType = function (pType) {
+                $scope.type = pType;
+            };
 
             /*
             *   SECTION - MISC
@@ -224,5 +231,3 @@ angular.module('SETTER')
 
 
         }]);
-
-

@@ -1,12 +1,16 @@
+<h2 class="fwl">
+    Newest Top Rope
+</h2>
+
 <table class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">
 
     <tbody>
 
         <tr bindonce
             ng-repeat="route in newestTopRope"
-           
+
             ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
-            
+
             <!-- Grade -->
             <td  bo-text="route.rope_grade || UNRATED_STRING"></td>
 
@@ -20,17 +24,17 @@
             <td  bo-text="route.zone_name">
 
             </td>
-            
-            <!--Date Set--> 
+
+            <!--Date Set-->
             <td >
                 <span class="txt--micro">Set on <br>
-                </span>  
+                </span>
                 Jan 25th, 14
             </td>
 
             <td >
                 <div class="icon-right-big right">
-                    
+
                 </div>
             </td>
 

@@ -22,7 +22,7 @@
     us-spinner>
 </div>
 
-
+<!-- Section - Filters -->
 <div ng-show="finishedRendering">
 
     <section class="row">
@@ -34,7 +34,7 @@
             <label class="[ select--small select--primary ] display--inlineBlock">
 
                 <select ng-model="form.view"
-                        ng-options="view.value for view in views"
+                        ng-options="view.name for view in views"
                         ng-change="refreshView()">
                 </select>
 
@@ -100,20 +100,19 @@
                     <div class="small-12 columns">
 
                         <div class="small-12  medium-6 large-5 columns">
-                            <!-- V Grade filter dropdown -->
+                            <!-- Grade filter dropdown -->
                             <label class="fwb [ label--inline  inline ] ">Grade</label>
 
                             <div class="select--small select--secondary">
-
-                                <select ng-model="form.boulderGradeFilter"
-                                        ng-show="form.view.value === BOULDERING_VIEW"
-                                        ng-options="grade.value for grade in boulderGradeInputs"
+                                <select ng-model="form.boulderGrade"
+                                        ng-show="form.view.name === BOULDERING_VIEW"
+                                        ng-options="grade.name for grade in boulderGradeInputs"
                                         ng-change="refreshFilters()">
                                 </select>
 
-                                <select ng-model="form.ropeGradeFilter"
-                                        ng-show="form.view.value === ROPE_VIEW"
-                                        ng-options="grade.value for grade in ropeGradeInputs"
+                                <select ng-model="form.ropeGrade"
+                                        ng-show="form.view.name === TOPROPE_VIEW || form.view.name === LEAD_VIEW"
+                                        ng-options="grade.name for grade in ropeGradeInputs"
                                         ng-change="refreshFilters()">
                                 </select>
 
@@ -145,6 +144,11 @@
 
     </section>
 
+
+
+
+
+    <!-- Section - Routes -->
     <section class="row">
 
         <div class="small-12 columns">
@@ -152,68 +156,70 @@
             <table class="small-12 columns">
 
                 <thead>
+                    <!-- Loop through all the headers from the controller and render them -->
                     <th ng-repeat="filter in filters"
-                            ng-hide="(form.view.value === ROPE_VIEW && filter.name === 'V') || (form.view.value === BOULDERING_VIEW && filter.name === 'YDS')"  ng-click="sortIconClicked(filter)">
+                        ng-hide="hideHeader(filter)"
+                        ng-click="sortIconClicked(filter)">
                         <a>
-                        {{filter.name}}
-                        <i >
-                            <span ng-show="filter.sort === 0"></span>
-                            <span class="icon-pyramidDown" ng-show="filter.sort === 1"></span>
-                            <span class="icon-pyramidUp" ng-show="filter.sort === 2"></span>
-                        </i>
+                            {{filter.label}}
+                            <i>
+                                <span ng-show="filter.sort === 0"></span>
+                                <span class="icon-pyramidDown" ng-show="filter.sort === 1"></span>
+                                <span class="icon-pyramidUp" ng-show="filter.sort === 2"></span>
+                            </i>
                         </a>
                     </th>
-
                 </thead>
 
                 <tbody>
-
+                    <!-- Loop through all the routes from the controller and render them -->
                     <tr bindonce ng-repeat="route in routes"
-                         class="list--tableStyle  list--navElem"
-                         ng-show="route.show"
-                         on-finish-render
-                         ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
+                        class="list--tableStyle  list--navElem"
+                        ng-show="route.show"
+                        on-finish-render
+                        ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
 
-                    <td  bo-text="route.wall_name || '-'"></td>
+                        <!-- Zone -->
+                        <td bo-text="route.wall_name || '-'"></td>
 
-                    <td>
-                        <i class="icon-circle" bo-style="{color: route.value}"> </i></td>
+                        <!-- Color -->
+                        <td>
+                            <i class="icon-circle" bo-style="{color: route.value}"> </i>
+                        </td>
 
-                    <td
-                         ng-show="form.view.value === BOULDERING_VIEW"
+
+
+
+                        <!-- Boulder Grade -->
+                        <td ng-show="form.view.name === BOULDERING_VIEW"
                             bo-text="route.boulder_grade || '-'"></td>
 
-                    <td  ng-show="form.view.value === ROPE_VIEW"
-                         bo-text="route.rope_grade || '-'">
-                    </td>
+                        <!-- Top Rope Grade -->
+                        <td ng-show="form.view.name === TOPROPE_VIEW"
+                            bo-text="route.toprope_grade || '-'"></td>
 
-                    <!--
-                    <td class="small-1 columns"
-                        bo-text="route.route_name || '-'"></td>
-                    -->
+                        <!-- Lead Grade -->
+                        <td ng-show="form.view.name === LEAD_VIEW"
+                            bo-text="route.lead_grade || '-'"></td>
 
-                    <td bo-text="route.setter || '-'"></td>
 
-                    <td class="rating rating--small">
-                        <!--
-                        <span bo-show="route.rating !== -1" bo-text="route.rating"></span>
-                        <span bo-show="route.rating === -1">-</span>
-                        -->
 
-                        <i bindonce
-                            ng-repeat="star in stars" bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}">
-                        </i>
+                        <!-- Setter -->
+                        <td bo-text="route.setter || '-'"></td>
 
-                    </td>
+                        <!-- Rating -->
+                        <td class="rating rating--small">
+                            <i bindonce
+                               ng-repeat="star in stars"
+                               bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}">
+                            </i>
+                        </td>
 
-                    <td bo-text="route.sends"></td>
+                        <!-- Sends -->
+                        <td bo-text="route.sends"></td>
 
-                    <td bo-text="route.date_format">
-                    </td>
-
-    <!--                 <td>
-                        <i bo-show="!route.active" class="icon-down-big"> </i>
-                    </td> -->
+                        <!-- Date Set -->
+                        <td bo-text="route.date_format"></td>
 
                     </tr>
 

@@ -22,7 +22,7 @@ var RoutesDao = function () {
 
     this.getRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, r.name AS route_name, r.setter_id, w.name AS wall_name, r.boulder_grade_id, lg.name AS lead_grade, r.lead_grade_id, r.toprope_grade_id, r.color_id, lg.name AS lead_grade, bg.name AS boulder_grade, rg.name AS toprope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date, r.note FROM routes r ' +
+            'SELECT r.id, r.type, r.name AS route_name, r.setter_id, w.name AS wall_name, r.boulder_grade_id, lg.name AS lead_grade, r.lead_grade_id, r.toprope_grade_id, r.color_id, lg.name AS lead_grade, bg.name AS boulder_grade, rg.name AS toprope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date, r.note FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'INNER JOIN walls w ON w.id = r.wall_id ' +
@@ -38,7 +38,7 @@ var RoutesDao = function () {
 
     this.getRoutesInGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, r.active, r.setter_id, w.gym_id, w.name AS wall_name, w.id AS wall_id, r.lead_grade_id, lg.name AS lead_grade, r.name AS route_name, bg.name AS boulder_grade, rg.name AS toprope_grade, bg.id AS boulder_grade_id, rg.id AS toprope_grade_id, c.name AS color, c.value AS value, CONCAT(u.firstname, \' \', u.lastname) AS setter, r.date, ' +
+            'SELECT r.id, r.active, r.type, r.setter_id, w.gym_id, w.name AS wall_name, w.id AS wall_id, r.lead_grade_id, lg.name AS lead_grade, r.name AS route_name, bg.name AS boulder_grade, rg.name AS toprope_grade, bg.id AS boulder_grade_id, rg.id AS toprope_grade_id, c.name AS color, c.value AS value, CONCAT(u.firstname, \' \', u.lastname) AS setter, r.date, ' +
                 '(SELECT COUNT(*) FROM sends s WHERE s.route_id = r.id) AS sends, ' +
                 '(SELECT ROUND(AVG(rating), 1) FROM ratings ra WHERE ra.route_id = r.id) AS rating FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
@@ -69,19 +69,19 @@ var RoutesDao = function () {
         );
     };
 
-    this.createRoute = function (pWallId, pName, pSetterId, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
+    this.createRoute = function (pWallId, pName, pSetterId, pType, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO routes (wall_id, name, setter_id, boulder_grade_id, lead_grade_id, toprope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())',
-            [pWallId, pName, pSetterId, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote],
+            'INSERT INTO routes (wall_id, name, setter_id, type = ?, boulder_grade_id, lead_grade_id, toprope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())',
+            [pWallId, pName, pSetterId, pType, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote],
             theDaoHelper.INSERT,
             pCallback
         );
     };
 
-    this.updateRoute = function (pRouteId, pName, pSetterId, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
+    this.updateRoute = function (pRouteId, pName, pSetterId, pType, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
         theDaoHelper.executeQuery(
-            'UPDATE routes SET name = ?, setter_id = ?, boulder_grade_id = ?, lead_grade_id = ?, toprope_grade_id = ?, color_id = ?, note = ? WHERE id = ?',
-            [pName, pSetterId, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote, pRouteId],
+            'UPDATE routes SET name = ?, setter_id = ?, type = ?, boulder_grade_id = ?, lead_grade_id = ?, toprope_grade_id = ?, color_id = ?, note = ? WHERE id = ?',
+            [pName, pSetterId, pType, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote, pRouteId],
             theDaoHelper.UPDATE,
             pCallback
         );

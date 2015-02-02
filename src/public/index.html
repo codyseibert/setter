@@ -28,7 +28,7 @@
         <style>[ng-cloak] { display: none; }</style>
     </head>
 
-    <body ng-app="SETTER">
+<body ng-app="SETTER">
 
     <div class="off-canvas-wrap" data-offcanvas >
 
@@ -69,127 +69,128 @@
             </aside>
 
 
+        <!--Topbar for large desktop-->
+        <div class="sticky show-for-large-up">
+
+            <nav    class="top-bar"
+                    data-topbar
+                    ng-show="isLoggedIn()">
+
+                <div class="row">
+                 <!-- Left Nav Section -->
+                    <div class="small-9 columns">
+
+                        <ul class="logo list--inline display--inline">
+
+                           <li>
+
+                                 <img src="images/setter-logo.svg"
+                                      height="35px"
+                                      width="35px"
+                                      alt="Setter"
+                                      class="text-right mr1 mb1">
+
+                           </li>
+
+                        </ul>
+
+                         <ul class="top-bar-links list--inline display--inline "
+                         ng-show="isLoggedIn()"
+                         ng-include
+                         src=" ' templates/NavigationLarge.tpl.html ' ">
+                         </ul>
+
+                    </div>
+
+                     <!-- Right Nav Section -->
+                    <div class="small-3 columns">
+
+                        <ul class="list--inline right top-bar-links"
+
+                        ng-click="navigateToUser(getAccountId())">
+
+                            <li data-dropdown="account-dropdown">
+
+                                <a class="display--inlineBlock">
+                                    
+                                    <div class="display--inlineBlock  avatar avatar--tiny mr1"></div>
+                                        
+                                    <span class="txt--micro  ">Aiguille Rock Clim...
+                                    </span>
+
+                                    <span class="ml1  icon-menuDropdown  icon--tiny">
+                                        
+                                    </span>
 
 
+                                </a>
 
-    <!--Topbar for large desktop--> 
-    <div class="sticky show-for-large-up">
+                            </li>
 
-        <nav    class="top-bar" 
-                data-topbar 
-                ng-show="isLoggedIn()">
+                        </ul>
 
-        <div class="row">
-         <!-- Left Nav Section -->        
-            <div class="small-9 columns">
-        
-                <ul class="logo list--inline display--inline">
-                 
-                   <li>
-                 
-                         <img src="images/setter-logo.svg"
-                              height="35px"
-                              width="35px"
-                              alt="Setter"
-                              class="text-right mr1 mb1">
-                 
-                   </li>
-                 
-                </ul>
-                   
-                 <ul class="top-bar-links list--inline display--inline "
-                 ng-show="isLoggedIn()"
-                 ng-include
-                 src=" ' templates/NavigationLarge.tpl.html ' ">
-                 </ul>
+                        <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large"
+                        data-dropdown-content>
 
-            </div>
-         
-         <!-- Right Nav Section -->
-        <div class="small-3 columns">
+                            <li ng-show="isGymAccount()"
+                            ng-click="navigateToGymSuggestions(getAccountId())">
 
-            <ul class="list--inline right top-bar-links"
+                                <a class="icon-messaging">Suggestions
 
-            ng-click="navigateToUser(getAccountId())">
+                                <span class="label">5</span>
 
-                <li data-dropdown="account-dropdown">
+                                </a>
 
-                    <a class="display--inlineBlock">
-                        
-                        <div class="display--inlineBlock  avatar avatar--tiny mr1"></div>
-                            
-                        <span class="txt--micro  ">Aiguille Rock Clim...
-                        </span>
+                            </li>
 
-                        <span class="ml1  icon-menuDropdown  icon--tiny">
-                            
-                        </span>
+                            <!--Show For User Only-->
+                            <li ng-show="isUserAccount()"
+                            ng-click="navigateToSettings()">
+                                <a class="icon-settings"> Settings</a>
+                            </li>
 
-                    </a>
+                            <li ng-click="navigateToLogout()">
+                                <a class="icon-logout">Log Out</a>
+                            </li>
 
-                </li>
+                            <li>
+                                <a class="icon-profile">Your User Account or gym if setter</a>
+                            </li>
 
-            </ul>
+                            <li ng-click="navigateToSuggestionsPage()">
+                                <a class="icon-messaging-alt"> Give Feedback</a>
+                            </li>
 
-            <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large" 
-            data-dropdown-content>
+                        </ul>
 
-                <li ng-show="isGymAccount()"
-                ng-click="navigateToGymSuggestions(getAccountId())">
+                    </div>
 
-                <a class="icon-messaging">Suggestions
+                </div>
 
-                <span class="label">5</span></a>
-
-                </li>
-
-                <!--Show For User Only--> 
-                <li ng-show="isUserAccount()"
-                ng-click="navigateToSettings()">
-                <a class="icon-settings"> Settings</a>
-                </li>
-
-                <li ng-click="navigateToLogout()">
-                <a class="icon-logout">Log Out</a>
-                </li>
-
-                <li>
-                 <a class="icon-profile">Your User Account or gym if setter</a>
-                </li>
-
-                <li ng-click="navigateToSuggestionsPage()">
-                    <a class="icon-messaging-alt"> Give Feedback</a>
-                </li>
-
-            </ul>
+            </nav>
 
         </div>
-
-     </div>
-
-        </nav>
-
-    </div>
 
 
             <!-- The Main Content -->
 
-                 
-                 <div id="content  row">
-                        <div 
-                             ng-view autoscroll="true"
-                             class="mainview-animation"></div>
 
+        <div id="content  row">
 
-gguillermo ma
-                    </div>
+            <div
+                 ng-view autoscroll="true"
+                 class="mainview-animation">
+            </div>
+
+        </div>
            
 
           <!-- close the off-canvas menu -->
-          <a class="exit-off-canvas"></a>
+        <a class="exit-off-canvas"></a>
 
-      </div>
     </div>
+
+</div>
 
 
     <!-- bower:js -->
@@ -267,8 +268,7 @@ gguillermo ma
         <!-- Directives -->
         <script type="text/javascript" src="js/directives/onFinishRender.js"></script>
         <script type="text/javascript" src="js/directives/injectTemplateWhenVisible.js"></script>
-        <script type="text/javascript" src="js/directives/onRenderRefreshTooltip.js">
-        </script>
+        <script type="text/javascript" src="js/directives/onRenderRefreshTooltip.js"></script>
 
         <!-- Services -->
         <script type="text/javascript" src="js/services/AccountsService.js"></script>
@@ -292,6 +292,9 @@ gguillermo ma
         <script type="text/javascript" src="js/services/AlertsService.js"></script>
         <script type="text/javascript" src="js/services/GymAccountRequestsService.js"></script>
         <script type="text/javascript" src="js/services/HttpStubService.js"></script>
+
+        <!-- Other -->
+        <script type="text/javascript" src="js/other/naturalSort.js"></script>
     <!-- /build -->
 
         <script type="text/javascript">

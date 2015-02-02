@@ -49,6 +49,7 @@ var RoutesController = function () {
         var gymId,
             wallId,
             name,
+            type,
             boulderGradeId,
             topRopeGradeId,
             leadGradeId,
@@ -60,6 +61,7 @@ var RoutesController = function () {
         wallId = pReq.params.wallId;
         name = pReq.body.name || '';
         colorId = pReq.body.colorId;
+        type = pReq.body.type;
         boulderGradeId = pReq.body.boulderGradeId;
         topRopeGradeId = pReq.body.topRopeGradeId;
         leadGradeId = pReq.body.leadGradeId;
@@ -82,6 +84,7 @@ var RoutesController = function () {
         theRoutesDao.createRoute(wallId,
             name,
             setterId,
+            type,
             boulderGradeId,
             topRopeGradeId,
             leadGradeId,
@@ -101,6 +104,7 @@ var RoutesController = function () {
     this.updateRoute = function (pReq, pRes) {
         var routeId,
             name,
+            type,
             boulderGradeId,
             topRopeGradeId,
             leadGradeId,
@@ -111,6 +115,7 @@ var RoutesController = function () {
         routeId = pReq.params.routeId;
         name = pReq.body.name || '';
         colorId = pReq.body.colorId;
+        type = pReq.body.type;
         boulderGradeId = pReq.body.boulderGradeId;
         topRopeGradeId = pReq.body.topRopeGradeId;
         leadGradeId = pReq.body.leadGradeId;
@@ -134,6 +139,7 @@ var RoutesController = function () {
             routeId,
             name,
             setterId,
+            type,
             boulderGradeId,
             topRopeGradeId,
             leadGradeId,

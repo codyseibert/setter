@@ -2,23 +2,25 @@
 /*jslint unparam: true*/
 /*global angular: false, btoa: false, console: false, moment: false, confirm: false */
 
-/*jslint nomen: true */
-/*jslint unparam: true*/
-/*global angular: false, btoa: false, console: false, moment: false, confirm: false */
-
 angular.module('SETTER')
     .controller('RouteManagerController', [
         '$scope',
+        '$q',
         '$routeParams',
         'RoutesService',
+        'GradesService',
         'DateFormatService',
         'LoginService',
+        'NaturalSort',
         function (
             $scope,
+            $q,
             $routeParams,
             RoutesService,
+            GradesService,
             DateFormatService,
-            LoginService
+            LoginService,
+            NaturalSort
         ) {
             'use strict';
 
@@ -58,28 +60,40 @@ angular.module('SETTER')
             }());
 
             $scope.BOULDERING_VIEW = 'Bouldering';
-            $scope.ROPE_VIEW = 'Rope';
+            $scope.TOPROPE_VIEW = 'Top Rope';
+            $scope.LEAD_VIEW = 'Lead';
             $scope.views = [
                 {
-                    value: $scope.BOULDERING_VIEW
+                    key: 'type',
+                    value: 0,
+                    name: $scope.BOULDERING_VIEW
                 },
                 {
-                    value: $scope.ROPE_VIEW
+                    key: 'type',
+                    value: 1,
+                    name: $scope.TOPROPE_VIEW
+                },
+                {
+                    key: 'type',
+                    value: 2,
+                    name: $scope.LEAD_VIEW
                 }
             ];
             $scope.form.view = $scope.views[0];
 
-            addFilter = function (pName, pKey) {
+            addFilter = function (pName, pKey, pLabel) {
                 $scope.filters.push({
                     name: pName,
                     key: pKey,
+                    label: pLabel || pName,
                     sort: 0
                 });
             };
             addFilter('Zone', 'wall_name');
             addFilter('Color', 'color');
-            addFilter('Grade', 'boulder_grade_id');
-            addFilter('YDS', 'rope_grade_id');
+            addFilter('Boulder', 'boulder_grade_id', 'Grade');
+            addFilter('TopRope', 'toprope_grade_id', 'Grade');
+            addFilter('Lead', 'lead_grade_id', 'Grade');
             addFilter('Setter', 'setter');
             addFilter('Rating', 'rating');
             addFilter('Sends', 'sends');
@@ -127,68 +141,6 @@ angular.module('SETTER')
                 });
             };
 
-            RoutesService.getRoutesInGym($scope.gymId, function (pData) {
-                var clone;
-
-                pData.map(function (pEntry) {
-                    pEntry.date_format = DateFormatService.format(pEntry.date);
-                    pEntry.date_value = moment(pEntry.date).valueOf();
-                    pEntry.toprope_grade_id = pEntry.toprope_grade_id || -1;
-                    pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
-                    if (!pEntry.rating) {
-                        pEntry.rating = -1;
-                    } else {
-                        pEntry.rating = parseInt(pEntry.rating, 10);
-                    }
-                    pEntry.show = true;
-                    return pEntry;
-                });
-
-                $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
-                $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
-                $scope.boulderGradeInputs = getUniqueSet(pData, 'boulder_grade', 'boulder_grade_id');
-                $scope.ropeGradeInputs = getUniqueSet(pData, 'rope_grade', 'rope_grade_id');
-                $scope.setterInputs = getUniqueSet(pData, 'setter');
-
-                // Zone Option - prepend 'any zone'
-                sortByValue($scope.zoneInputs);
-                clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
-                clone.value = "Any";
-                $scope.zoneInputs.unshift(clone);
-
-                // Color Option - prepend 'any color'
-                sortByValue($scope.colorInputs);
-                clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
-                clone.value = "Any";
-                $scope.colorInputs.unshift(clone);
-
-                // Boulder Grade Option - prepend 'any grade'
-                sortByExtra($scope.boulderGradeInputs);
-                clone = JSON.parse(JSON.stringify($scope.boulderGradeInputs[0]));
-                clone.value = "Any";
-                $scope.boulderGradeInputs.unshift(clone);
-
-                // Rope Grade Option - prepend 'any garde'
-                sortByExtra($scope.ropeGradeInputs);
-                clone = JSON.parse(JSON.stringify($scope.ropeGradeInputs[0]));
-                clone.value = "Any";
-                $scope.ropeGradeInputs.unshift(clone);
-
-                // Setter Option - prepend 'any setter'
-                sortByValue($scope.setterInputs);
-                clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
-                clone.value = "Any";
-                $scope.setterInputs.unshift(clone);
-
-                $scope.form.zoneFilter = $scope.zoneInputs[0];
-                $scope.form.colorFilter = $scope.colorInputs[0];
-                $scope.form.boulderGradeFilter = $scope.boulderGradeInputs[0];
-                $scope.form.ropeGradeFilter = $scope.ropeGradeInputs[0];
-                $scope.form.setterFilter = $scope.setterInputs[0];
-
-                $scope.routes = pData;
-            });
-
             $scope.sortIconClicked = function (pFilter) {
                 $scope.filters.map(function (pEntry) {
                     if (pEntry !== pFilter) {
@@ -218,7 +170,7 @@ angular.module('SETTER')
                     key,
                     entry;
 
-                if (pFilter.value.indexOf('Any') !== -1) {
+                if ((pFilter.value + '').indexOf('Any') !== -1) {
                     return;
                 }
 
@@ -240,15 +192,27 @@ angular.module('SETTER')
 
             $scope.refreshFilters = function () {
                 showAllRoutes();
+
+                refreshFilter($scope.form.view);
                 refreshFilter($scope.form.zoneFilter);
                 refreshFilter($scope.form.colorFilter);
 
-                if ($scope.form.view.value === $scope.BOULDERING_VIEW) {
-                    refreshFilter($scope.form.boulderGradeFilter);
+                if ($scope.form.view.name === $scope.BOULDERING_VIEW) {
+                    $scope.form.boulderGrade.value = $scope.form.boulderGrade.name;
+                    $scope.form.boulderGrade.key = 'boulder_grade';
+                    refreshFilter($scope.form.boulderGrade);
                 }
 
-                if ($scope.form.view.value === $scope.ROPE_VIEW) {
-                    refreshFilter($scope.form.ropeGradeFilter);
+                if ($scope.form.view.name === $scope.TOPROPE_VIEW) {
+                    $scope.form.ropeGrade.value = $scope.form.ropeGrade.name;
+                    $scope.form.ropeGrade.key = 'toprope_grade';
+                    refreshFilter($scope.form.ropeGrade);
+                }
+
+                if ($scope.form.view.name === $scope.LEAD_VIEW) {
+                    $scope.form.ropeGrade.value = $scope.form.ropeGrade.name;
+                    $scope.form.ropeGrade.key = 'lead_grade';
+                    refreshFilter($scope.form.ropeGrade);
                 }
 
                 refreshFilter($scope.form.setterFilter);
@@ -264,4 +228,96 @@ angular.module('SETTER')
                 }
                 return false;
             };
+
+            $scope.hideHeader = function (pFilter) {
+                var filterName = pFilter.name;
+                var type = $scope.form.view.name;
+
+                if (filterName === 'Boulder') {
+                    return type !== $scope.BOULDERING_VIEW;
+                } else if (filterName === 'TopRope') {
+                    return type !== $scope.TOPROPE_VIEW;
+                } else if (filterName === 'Lead') {
+                    return type !== $scope.LEAD_VIEW;
+                }
+            };
+
+            var boulderGradesPromise = GradesService.getBoulderGrades()
+                .success(function (pData) {
+                    pData.unshift({
+                        id: -1,
+                        name: "Any"
+                    });
+                    $scope.boulderGradeInputs = pData;
+                    $scope.form.boulderGrade = pData[0];
+                });
+
+            var ropeGradesPromise = GradesService.getRopeGrades()
+                .success(function (pData) {
+                    pData.unshift({
+                        id: -1,
+                        name: "Any"
+                    });
+                    $scope.ropeGradeInputs = pData;
+                    $scope.form.ropeGrade = pData[0];
+                });
+
+            $q.all([
+                boulderGradesPromise,
+                ropeGradesPromise
+            ])
+            .then (function () {
+                RoutesService.getRoutesInGym($scope.gymId, function (pData) {
+                    var clone;
+
+                    pData.map(function (pEntry) {
+                        pEntry.date_format = DateFormatService.format(pEntry.date);
+                        pEntry.date_value = moment(pEntry.date).valueOf();
+                        pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
+                        pEntry.toprope_grade_id = pEntry.toprope_grade_id || -1;
+                        pEntry.lead_grade_id = pEntry.lead_grade_id || -1;
+
+                        if (!pEntry.rating) {
+                            pEntry.rating = -1;
+                        } else {
+                            pEntry.rating = parseInt(pEntry.rating, 10);
+                        }
+
+                        pEntry.show = true;
+                        return pEntry;
+                    });
+
+                    // Creates the data needed by the select elements
+                    $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
+                    $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
+                    $scope.setterInputs = getUniqueSet(pData, 'setter');
+
+                    // Zone Option - prepend 'any zone'
+                    $scope.zoneInputs.sort(NaturalSort);
+                    clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
+                    clone.value = "Any";
+                    $scope.zoneInputs.unshift(clone);
+
+                    // Color Option - prepend 'any color'
+                    sortByValue($scope.colorInputs);
+                    clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
+                    clone.value = "Any";
+                    $scope.colorInputs.unshift(clone);
+
+                    // Setter Option - prepend 'any setter'
+                    sortByValue($scope.setterInputs);
+                    clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
+                    clone.value = "Any";
+                    $scope.setterInputs.unshift(clone);
+
+                    $scope.form.zoneFilter = $scope.zoneInputs[0];
+                    $scope.form.colorFilter = $scope.colorInputs[0];
+                    $scope.form.setterFilter = $scope.setterInputs[0];
+
+                    $scope.routes = pData;
+
+                    $scope.refreshFilters();
+                });
+            });
+
         }]);

@@ -1,3 +1,7 @@
+<h2 class="fwl">
+    Best Rated Bouldering
+</h2>
+
 <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
 
@@ -9,7 +13,6 @@
 
             <!-- Grade -->
             <td bo-text="route.boulder_grade || UNRATED_STRING"></td>
-
 
             <!-- Color -->
             <td>
@@ -23,7 +26,7 @@
             <!-- Rating -->
             <td>
                 <ng-include class="rating  rating--medium  rating--colored"
-                            
+
                             ng-controller="StarRatingController"
                             src=" 'templates/StarRating.tpl.html' ">
                 </ng-include>
@@ -31,7 +34,7 @@
 
             <td >
                 <div class="icon-right-big right">
-                    
+
                 </div>
             </td>
 

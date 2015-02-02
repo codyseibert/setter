@@ -49,9 +49,18 @@ angular.module('SETTER')
             $scope.setters = [];
 
             $scope.types = [
-                {name: 'Boulder'},
-                {name: 'Top Rope'},
-                {name: 'Lead'}
+                {
+                    id: BOULDER_TYPE,
+                    name: 'Boulder'
+                },
+                {
+                    id: TOPROPE_TYPE,
+                    name: 'Top Rope'
+                },
+                {
+                    id: LEAD_TYPE,
+                    name: 'Lead'
+                }
             ];
             $scope.form.type = $scope.types[BOULDER_TYPE];
 
@@ -72,6 +81,7 @@ angular.module('SETTER')
                 cleanGrades();
 
                 var name = $scope.form.name,
+                    type = $scope.form.type.id,
                     boulderGradeId = $scope.form.boulderGrade.id,
                     topRopeGradeId = $scope.form.topRopeGrade.id,
                     leadGradeId = $scope.form.leadGrade.id,
@@ -84,6 +94,7 @@ angular.module('SETTER')
                     $scope.wallId,
                     name,
                     colorId,
+                    type,
                     boulderGradeId,
                     topRopeGradeId,
                     leadGradeId,
@@ -106,6 +117,7 @@ angular.module('SETTER')
                 cleanGrades();
 
                 var name = $scope.form.name,
+                    type = $scope.form.type.id,
                     boulderGradeId = $scope.form.boulderGrade.id,
                     topRopeGradeId = $scope.form.topRopeGrade.id,
                     leadGradeId = $scope.form.leadGrade.id,
@@ -119,6 +131,7 @@ angular.module('SETTER')
                     $scope.routeId,
                     name,
                     colorId,
+                    type,
                     boulderGradeId,
                     topRopeGradeId,
                     leadGradeId,
@@ -204,6 +217,7 @@ angular.module('SETTER')
 
                     RoutesService.getRoute($scope.routeId)
                         .success(function (pData) {
+                            $scope.form.type = findEntry(pData.type, $scope.types);
                             $scope.form.boulderGrade = findEntry(pData.boulder_grade_id, $scope.boulderGrades);
                             $scope.form.topRopeGrade = findEntry(pData.toprope_grade_id, $scope.ropeGrades);
                             $scope.form.leadGrade = findEntry(pData.lead_grade_id, $scope.ropeGrades);
@@ -212,15 +226,6 @@ angular.module('SETTER')
                             $scope.form.note = pData.note;
                             $scope.form.name = pData.route_name;
                             $scope.colorChanged();
-
-                            // Find (if any) grade already set, and select that grade 'type'
-                            if ($scope.form.boulderGrade.id !== -1) {
-                                $scope.form.type = $scope.types[BOULDER_TYPE];
-                            } else if ($scope.form.topRopeGrade.id !== -1) {
-                                $scope.form.type = $scope.types[TOPROPE_TYPE];
-                            } else if ($scope.form.leadGrade.id !== -1) {
-                                $scope.form.type = $scope.types[LEAD_TYPE];
-                            }
                         });
                 });
 

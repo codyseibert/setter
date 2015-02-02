@@ -190,6 +190,7 @@ angular.module('SETTER')
                     pWallId,
                     pName,
                     pColorId,
+                    pType,
                     pBoulderGradeId,
                     pTopRopeGradeId,
                     pLeadGradeId,
@@ -206,6 +207,7 @@ angular.module('SETTER')
                         data: {
                             name: pName,
                             colorId: pColorId,
+                            type: pType,
                             boulderGradeId: pBoulderGradeId,
                             topRopeGradeId: pTopRopeGradeId,
                             leadGradeId: pLeadGradeId,
@@ -221,6 +223,7 @@ angular.module('SETTER')
                     pRouteId,
                     pName,
                     pColorId,
+                    pType,
                     pBoulderGradeId,
                     pTopRopeGradeId,
                     pLeadGradeId,
@@ -237,6 +240,7 @@ angular.module('SETTER')
                         data: {
                             name: pName,
                             colorId: pColorId,
+                            type: pType,
                             boulderGradeId: pBoulderGradeId,
                             topRopeGradeId: pTopRopeGradeId,
                             leadGradeId: pLeadGradeId,

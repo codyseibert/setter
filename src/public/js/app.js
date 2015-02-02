@@ -6,9 +6,6 @@ angular.module('SETTER', [
     'ngAnimate',
     'ngUpload',
     'chart.js',
-    'mm.foundation',
-    'mm.foundation.tabs',
-    'mm.foundation.offcanvas',
     'pasvaz.bindonce',
     'angularSpinner'])
     .config([

@@ -288,6 +288,23 @@
 }
 
 
+.opacityHover--lightToDark {
+  opacity: .5;
+  @include transition(opacity, .6s, ease-in-out);
+
+  &:hover {
+    opacity: 1; 
+  }
+}
+
+//
+//Icon States
+//
+
+.active {
+  opacity: 1; 
+}
+
 //
 //Icon Sizes
 //

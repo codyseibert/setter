@@ -3,30 +3,22 @@
 
 <!-- Gym Announcements -->
 <section class="row">
-    <div class="small-12 columns">
-        <ng-include src=" 'templates/gym/panels/activity/sections/GymAnnouncements.tpl.html' "></ng-include>
+
+    <div class="small-12 columns mb2">
+
+        <div class="small-12 columns panel">
+            
+            <ng-include src=" 'templates/gym/panels/activity/sections/GymAnnouncements.tpl.html' ">
+            </ng-include>
+
+        </div>
+
     </div>
+
 </section>
 
-
-
-
-<!-- Newest -->
-<section class="row small-collapse">
-
-    <div class="small-12 columns">
-
-        <div class="row ">
-
-            <div class="small-5 columns">
-
-            </div>
-
-            <div class="small-7 columns">
-
+<!-- 
                 <span class="show-for-medium-up display--inlineBlock">
-
-                Bouldering
 
                     <img role="tooltip"
                         data-tooltip
@@ -51,35 +43,192 @@
                         src="images/icon--lead.svg" alt="" height="35px" width="35px">
 
 
-                </span>
+                </span> -->
 
 
-                <span class=" hide-for-medium-up   text-right">
+<section class="row small-collapse">
 
-                    <img role="tooltip"
-                         data-tooltip
-                         data-options="disable_for_touch:true" aria-haspopup="true"
-                         title="Bouldering"
-                         class="icon--hoverOpacity  mr1  has-tip  tip-top"
-                         ng-click="setType(BOULDERING)"
-                         src="images/icon--bouldering.svg" alt="" height="35px" width="35px">
+    <!-- Newest -->
+    <div class="small-12 columns large-6">
 
-                    <img  role="tooltip"
-                         data-tooltip data-options="disable_for_touch:true" aria-haspopup="true"
-                         title="Top Rope"
-                         class="icon--hoverOpacity  mr1  has-tip  tip-top"
-                         ng-click="setType(TOPROPE)"
-                         src="images/icon--topRope.svg" alt="Top Rope" height="35px" width="35px" >
+        <div class="row ">
+        
+            <div class="small-12  columns">
+        
+                <h2 class="fwl  mb2">
+                    Latest Routes & Problems
+                </h2>
+        
+            </div>
+        
+            <div class="small-12  columns  text-right">
+        
+                <label class="label--inline   
+                display--inlineBlock left">
+                Showing
+                </label>
+    
+                <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
+    
+                    <span  ng-show="typeNewest === BOULDERING">
+                        Bouldering
+                    </span>
+    
+                    <span ng-hide="true" ng-show="typeNewest === TOPROPE">
+                        Top Rope 
+                    </span>
+    
+                    <span ng-hide="true" ng-show="typeNewest === LEAD">
+                        Lead 
+                    </span>
+    
+                </label>
+    
+                <img role="tooltip"
+                     data-tooltip
+                     data-options="disable_for_touch:true" aria-haspopup="true"
+                     title="Bouldering"
+                     class="opacityHover--lightToDark   mr1  has-tip  tip-top"
+                     ng-click="setTypeNewest(BOULDERING)"
+                     ng-class="{'active': typeNewest == BOULDERING}"
+                     src="images/icon--bouldering.svg" alt="" height="32px" width="32px">
+    
+                <img  role="tooltip"
+                     data-tooltip data-options="disable_for_touch:true" aria-haspopup="true"
+                     title="Top Rope"
+                     class="opacityHover--lightToDark   mr1  has-tip  tip-top"
+                     ng-click="setTypeNewest(TOPROPE)"
+                     ng-class="{'active': typeNewest == TOPROPE}"
+                     src="images/icon--topRope.svg" alt="Top Rope" height="32px" width="32px" >
+    
+                <img role="tooltip"
+                     data-tooltip data-options="disable_for_touch:true" aria-haspopup="true"
+                     title="Lead"
+                     class="opacityHover--lightToDark   mr1  has-tip  tip-top"
+                     ng-class="{'active': typeNewest == LEAD}"
+                     ng-click="setTypeNewest(LEAD)"
+                     src="images/icon--lead.svg" alt="" height="32px" width="32px">
+            </div>
+        
+        </div>
+        
+        <div class="row small-collapse large-uncollapse">
 
-                    <img role="tooltip"
-                         data-tooltip data-options="disable_for_touch:true" aria-haspopup="true"
-                         title="Lead"
-                         class="icon--hoverOpacity  mr1  has-tip  tip-top"
-                         ng-click="setType(LEAD)"
-                         src="images/icon--lead.svg" alt="" height="35px" width="35px">
+            <div class="small-12 columns">
+            
+                <!-- Newest Boulder -->
+                <ng-include
+                    ng-show="typeNewest === BOULDERING"
+                    src=" 'templates/gym/panels/activity/sections/NewestBoulder.tpl.html' ">
+                </ng-include>
+            
+                <!-- Newest Top Rope -->
+                <ng-include
+                    ng-show="typeNewest === TOPROPE"
+                    src=" 'templates/gym/panels/activity/sections/NewestTopRope.tpl.html' ">
+                </ng-include>
+            
+                <!-- Newest Lead Routes -->
+                <ng-include
+                    ng-show="typeNewest === LEAD"
+                    src=" 'templates/gym/panels/activity/sections/NewestLead.tpl.html' ">
+                </ng-include>
+            
+            </div>
 
-                </span>
+        </div>
 
+    </div>
+
+    <div class="small-12 large-6 columns">
+
+        <!-- Best -->
+        <div class="row ">
+
+            <div class="small-12 columns">
+
+                <h2 class="fwl  mb2">
+                    Top Routes & Problems
+                </h2>
+
+            </div>
+
+            <div class="small-12 columns  text-right">
+                 
+                <label class="label--inline display--inlineBlock left">
+                    Showing
+                </label>
+
+                <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
+
+                    <span  ng-show="typeBest === BOULDERING">
+                        Bouldering
+                    </span>
+
+                    <span ng-hide="true" ng-show="typeBest === TOPROPE">
+                        Top Rope 
+                    </span>
+
+                    <span ng-hide="true" ng-show="typeBest === LEAD">
+                        Lead 
+                    </span>
+
+                </label>
+
+                <img role="tooltip"
+                     data-tooltip
+                     data-options="disable_for_touch:true" aria-haspopup="true"
+                     title="Bouldering"
+                     class="opacityHover--lightToDark  mr1  has-tip  tip-top"
+                     ng-class="{'active': typeBest == BOULDERING}"
+                     ng-click="setTypeBest(BOULDERING)"
+                     src="images/icon--bouldering.svg" alt="" height="35px" width="35px">
+
+                <img  role="tooltip"
+                     data-tooltip data-options="disable_for_touch:true" aria-haspopup="true"
+                     title="Top Rope"
+                     class="opacityHover--lightToDark  mr1  has-tip  tip-top"
+                     ng-class="{'active': typeBest == TOPROPE}"
+                     ng-click="setTypeBest(TOPROPE)"
+                     src="images/icon--topRope.svg" alt="Top Rope" height="35px" width="35px" >
+
+                <img role="tooltip"
+                     data-tooltip data-options="disable_for_touch:true" aria-haspopup="true"
+                     title="Lead"
+                     class="opacityHover--lightToDark  mr1  has-tip  tip-top"
+                     ng-class="{'active': typeBest == LEAD}"
+                     ng-click="setTypeBest(LEAD)"
+                     src="images/icon--lead.svg" alt="" height="35px" width="35px">
+        
+            </div>
+
+        </div>
+
+        <!-- Best -->
+        <div class="row small-collapse large-uncollapse">
+
+            <div class="small-12  columns">
+            
+                <!-- Best Rated Boulder -->
+                <ng-include
+                    src=" 'templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html' "
+                    ng-show="typeBest === BOULDERING">
+                </ng-include>
+            
+            
+                <!-- Best Rated Top Rope -->
+                <ng-include
+                    src=" 'templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html' "
+                    ng-show="typeBest === TOPROPE">
+                </ng-include>
+            
+            
+                <!-- Best Rated Lead -->
+                <ng-include
+                    src=" 'templates/gym/panels/activity/sections/BestRatedLead.tpl.html' "
+                    ng-show="typeBest === LEAD">
+                </ng-include>
+            
             </div>
 
         </div>
@@ -90,74 +239,12 @@
 
 
 
-<section class="row">
-
-    <!-- Newest -->
-    <div class="small-12 medium-6 columns">
-        <!-- Newest Boulder -->
-        <ng-include
-            ng-show="type === BOULDERING"
-            src=" 'templates/gym/panels/activity/sections/NewestBoulder.tpl.html' ">
-        </ng-include>
-
-        <!-- Newest Top Rope -->
-        <ng-include
-            ng-show="type === TOPROPE"
-            src=" 'templates/gym/panels/activity/sections/NewestTopRope.tpl.html' ">
-        </ng-include>
-
-        <!-- Newest Lead Routes -->
-        <ng-include
-            ng-show="type === LEAD"
-            src=" 'templates/gym/panels/activity/sections/NewestLead.tpl.html' ">
-        </ng-include>
-    </div>
-
-    <!-- Best -->
-    <div class="small-12 medium-6 columns">
-
-        <!-- Best Rated Boulder -->
-        <ng-include
-            src=" 'templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html' "
-            ng-show="type === BOULDERING">
-        </ng-include>
-
-
-        <!-- Best Rated Top Rope -->
-        <ng-include
-            src=" 'templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html' "
-            ng-show="type === TOPROPE">
-        </ng-include>
-
-
-        <!-- Best Rated Lead -->
-        <ng-include
-            src=" 'templates/gym/panels/activity/sections/BestRatedLead.tpl.html' "
-            ng-show="type === LEAD">
-        </ng-include>
-
-    </div>
-
-</section>
-
-
-
 
 <!-- Latest Climber Sends -->
-<section class="row">
+<section class="row small-collapse  large-uncollapse">
 
-    <div class="small-12 columns">
-        <h2 class="mb1 fwl">
-            Latest Climber Sends
-        </h2>
-    </div>
-
-    <div class="row small-collapse">
-        <div class="small-12  columns">
-
+        <div class="small-12 large-6 end columns">
             <ng-include src=" 'templates/gym/panels/activity/sections/LatestClimberSends.tpl.html' "></ng-include>
-
         </div>
-    </div>
 
 </section>

@@ -53,7 +53,8 @@ angular.module('SETTER')
             $scope.panel = $scope.PANEL_ACTIVITY;
             $scope.options = {};
             $scope.form = {};
-            $scope.type = $scope.BOULDERING;
+            $scope.typeNewest = $scope.BOULDERING;
+            $scope.typeBest = $scope.BOULDERING; 
 
             /*
             *   SECTION - Gym related service calls
@@ -219,10 +220,13 @@ angular.module('SETTER')
                 $scope.image = content;
             };
 
-            $scope.setType = function (pType) {
-                $scope.type = pType;
+            $scope.setTypeNewest = function (pType) {
+                $scope.typeNewest = pType;
             };
 
+            $scope.setTypeBest = function (pType) {
+                $scope.typeBest = pType;
+            };
             /*
             *   SECTION - MISC
             */

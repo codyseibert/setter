@@ -1,13 +1,11 @@
-<section class="row small-collapse">
-
-    <div class="small-12 columns">
+<section class="row pt2">
 
         <div class="small-6 medium-3 large-3 columns   pb4"
             ng-repeat="user in users"
             ng-click="navigateToUser(user.id)">
 
             <div class="flag">
-                <div class="flag-image">
+                <div class="flag-image pr2">
                     <img class="avatar avatar--small  center mb1"
                     ng-src="{{getUserImageSrc(user)}}">
                 </div>
@@ -18,7 +16,5 @@
             </div>
 
         </div>
-
-    </div>
 
 </section>

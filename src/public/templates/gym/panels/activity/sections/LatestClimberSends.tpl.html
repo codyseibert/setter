@@ -1,27 +1,45 @@
-<ul class="list--tableStyle ">
-    <li class="flag small-6 medium-3 large-3 columns ptb2"
-    ng-repeat="act in activity"
-    data-equalizer-watch>
-    <div >
-        <div class="flag-image">
-            <img class="avatar avatar--tiny"
-            ng-click="navigateToUser(act.id)"
-            ng-src="{{getUserImageSrc(act)}}">
-        </div>
 
-        <div class="flag-body h6"
-        ng-click="navigateToUser(act.id)">
-        <a>
-            <div class="title mr2 display--inlineBlock">
-                {{act.name}}
-            </div>
 
+<div class="small-12 columns">
+    <h2 class="fwl">
+        Latest Sends
+    </h2>
+</div>
+
+
+<table class="small-12 columns  table--unStyled  table--list">
+
+    <tbody>
+
+        <tr 
+        ng-repeat="act in activity"
+        data-equalizer-watch>
+            
+            <td >
+                <div class="flag">
+                <div class="flag-image">
+                    <img class="avatar avatar--tiny "
+                    ng-click="navigateToUser(act.id)"
+                    ng-src="{{getUserImageSrc(act)}}">
+                </div>
+
+                <div class="flag-body">
+                    <a class="title mr2 display--inlineBlock" 
+                    ng-click="navigateToUser(act.id)">
+                        {{act.name}}
+                    </a>
+                </div>
+                </div>
+            </td>
+
+            <td>
             <i class="icon-circle icon--medium"
             ng-style="{color: act.value}"
             ng-click="navigateToRoute(gymId, act.wall_id, act.route_id)">
-        </i> {{formatGrade(act.bg, act.rg, act.lg)}}
-    </a>
-</div>
-</div>
-</li>
-</ul>
+            </i> 
+            {{formatGrade(act.bg, act.rg, act.lg)}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+

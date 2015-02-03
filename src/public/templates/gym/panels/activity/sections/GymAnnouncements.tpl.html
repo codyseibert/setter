@@ -1,17 +1,22 @@
-<h2 class="fwl">
+<h2 class="mb3  fwl">
     Gym Announcements
 </h2>
 
-<ul class="list--noStyles  list">
+<ul class="list--noStyles  list mb0">
 
         <!-- Render the Alerts-->
         <li ng-repeat="alert in alerts">
             <p>
                 {{alert.message}}
                 <span class="txt--micro  display--block">
-                    {{alert.date}}
+                    Posted {{alert.date}}
                 </span>
             </p>
+
+            <hr>
+
         </li>
+
     </ul>
+
 </div>

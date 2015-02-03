@@ -7267,11 +7267,11 @@ blockquote p {
 .inner-wrap {
   position: relative;
   width: 100%;
-  -webkit-transition: -webkit-transform 500ms ease-in-out;
-  -moz-transition: -moz-transform 500ms ease-in-out;
-  -ms-transition: -ms-transform 500ms ease-in-out;
-  -o-transition: -o-transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -moz-transition: -moz-transform 300ms ease-in-out;
+  -ms-transition: -ms-transform 300ms ease-in-out;
+  -o-transition: -o-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 /* line 172, ../bower_components/foundation/scss/foundation/components/_global.scss */
 .inner-wrap:before, .inner-wrap:after {
@@ -7672,11 +7672,11 @@ ul.off-canvas-list li a:hover {
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
   left: 0;
-  -webkit-transition: -webkit-transform 500ms ease-in-out;
-  -moz-transition: -moz-transform 500ms ease-in-out;
-  -ms-transition: -ms-transform 500ms ease-in-out;
-  -o-transition: -o-transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -moz-transition: -moz-transform 300ms ease-in-out;
+  -ms-transition: -ms-transform 300ms ease-in-out;
+  -o-transition: -o-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 /* line 399, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
 .left-submenu * {
@@ -7736,11 +7736,11 @@ ul.off-canvas-list li a:hover {
   -o-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
   right: 0;
-  -webkit-transition: -webkit-transform 500ms ease-in-out;
-  -moz-transition: -moz-transform 500ms ease-in-out;
-  -ms-transition: -ms-transform 500ms ease-in-out;
-  -o-transition: -o-transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  -moz-transition: -moz-transform 300ms ease-in-out;
+  -ms-transition: -ms-transform 300ms ease-in-out;
+  -o-transition: -o-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
 }
 /* line 399, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
 .right-submenu * {
@@ -9767,29 +9767,29 @@ a:hover {
 /*------------------------------------*\
     #Tables
 \*------------------------------------*/
-/* line 52, ../scss/partials/_tables.scss */
+/* line 7, ../scss/partials/_tables.scss */
 .table--unStyled {
   border: 0;
 }
 
-/* line 59, ../scss/partials/_tables.scss */
+/* line 14, ../scss/partials/_tables.scss */
 .table--list tr:first-child {
   border-top: 1px solid #ddd;
 }
-/* line 63, ../scss/partials/_tables.scss */
+/* line 18, ../scss/partials/_tables.scss */
 .table--list tr:nth-child(even) {
   background-color: #fff;
 }
-/* line 67, ../scss/partials/_tables.scss */
+/* line 22, ../scss/partials/_tables.scss */
 .table--list tr:nth-child(odd) {
   background-color: #F2F2F2;
 }
-/* line 71, ../scss/partials/_tables.scss */
+/* line 26, ../scss/partials/_tables.scss */
 .table--list tr {
   border-bottom: 1px solid #ddd;
 }
 
-/* line 86, ../scss/partials/_tables.scss */
+/* line 41, ../scss/partials/_tables.scss */
 .table--clickableElem tr:hover, .table--clickableElem tr:focus {
   background-color: #f9d1c9;
 }
@@ -11271,12 +11271,30 @@ footer a:hover {
   margin-right: 0;
 }
 
+/* line 291, ../scss/partials/_icons.scss */
+.opacityHover--lightToDark {
+  opacity: .5;
+  -moz-transition: opacity, 0.6s, ease-in-out;
+  -o-transition: opacity, 0.6s, ease-in-out;
+  -webkit-transition: opacity, 0.6s, ease-in-out;
+  transition: opacity, 0.6s, ease-in-out;
+}
 /* line 295, ../scss/partials/_icons.scss */
+.opacityHover--lightToDark:hover {
+  opacity: 1;
+}
+
+/* line 304, ../scss/partials/_icons.scss */
+.active {
+  opacity: 1;
+}
+
+/* line 312, ../scss/partials/_icons.scss */
 .icon--tiny {
   font-size: 0.625rem;
 }
 
-/* line 307, ../scss/partials/_icons.scss */
+/* line 324, ../scss/partials/_icons.scss */
 .saddie {
   background-image: url("../images/setter-logo.svg");
   background-repeat: no-repeat;
@@ -11285,13 +11303,13 @@ footer a:hover {
   width: 100%;
 }
 
-/* line 315, ../scss/partials/_icons.scss */
+/* line 332, ../scss/partials/_icons.scss */
 .saddie--medium {
   min-height: 13.75rem;
   min-width: 13.75rem;
 }
 
-/* line 320, ../scss/partials/_icons.scss */
+/* line 337, ../scss/partials/_icons.scss */
 .saddie--small {
   min-width: 6.25rem;
   min-height: 6.25rem;

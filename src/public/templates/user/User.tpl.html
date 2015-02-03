@@ -109,40 +109,59 @@
 
 
 
-<section class="row small-collapse">
+<section class="row">
 
-    <div class="small-12 columns">
+    <ul 
+        ng-model="userTabs" 
+        ng-init="userTabs = 'panel1'"
+        class="tabs row small-collapse" data-tab
+        role="tablist">
 
-        <tabset>
+        <li class="tab-title  [ small-6  columns ]  
+        text-center" ng-class="{'active': userTabs =='panel1'}">
 
-            <tab class="small-6  columns  text-center">
+            <a ng-click="userTabs  = 'panel1' ">
 
-                <tab-heading>
-                    <i class="icon-globe"> </i> Activity
-                </tab-heading>
+                <i class="icon-globe"> </i> 
+                Activity
 
-                <content>
-                    <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' "><ng-include>
-                </content>
+            </a>
 
-            </tab>
-
-
-            <tab  class="small-6 columns  text-center"  select="refreshCharts()">
-
-                <tab-heading>
-                    <i class="icon-stats"> </i> Statistics
-                </tab-heading>
+        </li>
 
 
-                <content>
-                    <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' "><ng-include>
-                </content>
+        <li  class="tab-title  [ small-6  columns ] text-center"
+            ng-class="{'active': userTabs =='panel2'}"  
+            ng-click="refreshCharts()">
 
-            </tab>
 
-        </tabset>
+            <a ng-click="userTabs = 'panel2'">
+                <i class="icon-stats"> </i> 
+                Statistics
+            </a>
+
+        </li>
+
+    </ul>
+
+
+    <div class="tabs-content small-12 columns">
+        
+        <div class="content" ng-class="{'active' : userTabs == 'panel1'}">
+            
+            <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' ">
+            </ng-include>
+
+        </div>
+
+        <div class="content" ng-class="{'active' : userTabs == 'panel2'}">
+            <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' ">
+            </ng-include>
+        </div>
+
     </div>
+
+
 </section>
 
 

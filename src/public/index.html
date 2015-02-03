@@ -105,9 +105,7 @@
                      <!-- Right Nav Section -->
                     <div class="small-3 columns">
 
-                        <ul class="list--inline right top-bar-links"
-
-                        ng-click="navigateToUser(getAccountId())">
+                        <ul class="list--inline right top-bar-links">
 
                             <li data-dropdown="account-dropdown">
 
@@ -131,7 +129,7 @@
 
                         <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large"
                         data-dropdown-content>
-
+                            <!--Show For Gyms Only-->
                             <li ng-show="isGymAccount()"
                             ng-click="navigateToGymSuggestions(getAccountId())">
 
@@ -142,7 +140,12 @@
                                 </a>
 
                             </li>
-
+                            
+                            <li ng-show="isUserAccount()"
+                                ng-click="navigateToUser(getAccountId())">
+                                
+                                <a href="">View Profile</a>
+                            </li>
                             <!--Show For User Only-->
                             <li ng-show="isUserAccount()"
                             ng-click="navigateToSettings()">

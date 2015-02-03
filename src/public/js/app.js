@@ -162,13 +162,14 @@ angular.module('SETTER', [
             FastClick.attach(document.body);
             
             // Set the global chart colors used throughout the site
-            Chart.defaults.global.colours[0].fillColor = "rgba(237, 109, 86, 1)";
-            Chart.defaults.global.colours[0].strokeColor = "rgba(237, 109, 86, 0.5)";
+            Chart.defaults.global.colours[0].fillColor = "#AECB83";
+            Chart.defaults.global.colours[0].strokeColor = "#A3BF7C";
+            Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
             Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
 
             $rootScope.chartOptions = {
                 scaleFontColor: "#000",
-                scaleFontSize: 20,
+                scaleFontSize: 12,
                 animation: false
             };
 

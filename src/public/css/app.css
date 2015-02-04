@@ -11182,14 +11182,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 222, ../scss/partials/_icons.scss */
-[src*="icon--wrench"],
-[src*="icon--drill"] {
-  width: 2.25rem;
-  height: 2.25rem;
-}
-
-/* line 228, ../scss/partials/_icons.scss */
+/* line 223, ../scss/partials/_icons.scss */
 .icon--wrench--small {
   width: 2.25rem;
   height: 2.25rem;
@@ -11211,7 +11204,7 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 247, ../scss/partials/_icons.scss */
+/* line 242, ../scss/partials/_icons.scss */
 .icon--bouldering,
 .icon--topRope,
 .icon--leadClimbing {
@@ -11223,17 +11216,17 @@ footer a:hover {
   width: 1.875rem;
 }
 
-/* line 258, ../scss/partials/_icons.scss */
+/* line 253, ../scss/partials/_icons.scss */
 .icon--bouldering {
   background-image: url("../images/icon--bouldering.svg");
 }
 
-/* line 262, ../scss/partials/_icons.scss */
+/* line 257, ../scss/partials/_icons.scss */
 .icon--leadClimbing {
   background-image: url("../images/icon--leadClimbing.svg");
 }
 
-/* line 266, ../scss/partials/_icons.scss */
+/* line 261, ../scss/partials/_icons.scss */
 .icon--topRope {
   background-image: url("../images/icon--topRope.svg");
 }
@@ -11270,17 +11263,17 @@ footer a:hover {
   text-transform: none;
 }
 
-/* line 286, ../scss/partials/_icons.scss */
+/* line 281, ../scss/partials/_icons.scss */
 .icon--label {
   display: inline-block;
   margin-right: 0;
 }
-/* line 290, ../scss/partials/_icons.scss */
+/* line 285, ../scss/partials/_icons.scss */
 .icon--label:before {
   margin-right: 0;
 }
 
-/* line 296, ../scss/partials/_icons.scss */
+/* line 291, ../scss/partials/_icons.scss */
 .opacityHover--lightToDark {
   opacity: .5;
   -moz-transition: opacity, 0.6s, ease-in-out;
@@ -11288,22 +11281,22 @@ footer a:hover {
   -webkit-transition: opacity, 0.6s, ease-in-out;
   transition: opacity, 0.6s, ease-in-out;
 }
-/* line 300, ../scss/partials/_icons.scss */
+/* line 295, ../scss/partials/_icons.scss */
 .opacityHover--lightToDark:hover {
   opacity: 1;
 }
 
-/* line 309, ../scss/partials/_icons.scss */
+/* line 304, ../scss/partials/_icons.scss */
 .active {
   opacity: 1;
 }
 
-/* line 317, ../scss/partials/_icons.scss */
+/* line 312, ../scss/partials/_icons.scss */
 .icon--tiny {
   font-size: 0.625rem;
 }
 
-/* line 329, ../scss/partials/_icons.scss */
+/* line 324, ../scss/partials/_icons.scss */
 .saddie {
   background-image: url("../images/setter-logo.svg");
   background-repeat: no-repeat;
@@ -11312,13 +11305,13 @@ footer a:hover {
   width: 100%;
 }
 
-/* line 337, ../scss/partials/_icons.scss */
+/* line 332, ../scss/partials/_icons.scss */
 .saddie--medium {
   min-height: 13.75rem;
   min-width: 13.75rem;
 }
 
-/* line 342, ../scss/partials/_icons.scss */
+/* line 337, ../scss/partials/_icons.scss */
 .saddie--small {
   min-width: 6.25rem;
   min-height: 6.25rem;
@@ -11502,6 +11495,7 @@ body {
 
 /* line 203, ../scss/partials/_navs.scss */
 .side-menu {
+  height: 100vh;
   background-color: #F7F0E3;
 }
 /* line 205, ../scss/partials/_navs.scss */

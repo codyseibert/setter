@@ -219,11 +219,6 @@
   @include icon($icon--thumbsUp);
 }
 
-[src*="icon--wrench"],
-[src*="icon--drill"] {
-  width: rem-calc(36);
-  height: rem-calc(36);
-}
 
 .icon--wrench--small {
     width: rem-calc(36);

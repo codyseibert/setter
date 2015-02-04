@@ -29,7 +29,7 @@ angular.module('SETTER')
                 LoginService.login($scope.form)
                     .success(function (pData) {
                         $cookies.email = $scope.form.email;
-                        
+
                         LoginService.setHeader(pData.token);
                         LoginService.setAccountType(pData.accountType);
                         LoginService.setAccountId(pData.accountId);

@@ -27,7 +27,8 @@ angular.module('SETTER')
                 homeGymId = null,
                 accountId = null,
                 url = null,
-                name = null;
+                name = null,
+                gymName = null;
 
             return {
                 login: function (pLoginInfo) {
@@ -63,6 +64,9 @@ angular.module('SETTER')
                 setImageUrlFromCookie: function () {
                     url = $cookies.url;
                 },
+                setGymNameFromCookie: function () {
+                    gymName = $cookies.gymName;
+                },
                 setHomeGymIdFromCookie: function () {
                     homeGymId = $cookies.homeGymId;
 
@@ -83,6 +87,7 @@ angular.module('SETTER')
                     delete $cookies.homeGymId;
                     delete $cookies.url;
                     delete $cookies.name;
+                    delete $cookies.gymName;
                     delete $http.defaults.headers.common.Authorization;
 
                     WallsService.clearCache();
@@ -116,6 +121,10 @@ angular.module('SETTER')
                     name = pName;
                     $cookies.name = pName;
                 },
+                setGymName: function (pGymName) {
+                    gymName = pGymName;
+                    $cookies.gymName = pGymName;
+                },
                 getHomeGymId: function () {
                     return homeGymId;
                 },
@@ -129,7 +138,7 @@ angular.module('SETTER')
                     return url;
                 },
                 getName: function () {
-                    return name;
+                    return gymName || name;
                 },
                 isGymAccount: function () {
                     return accountType === GYM_TYPE;

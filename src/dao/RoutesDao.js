@@ -71,7 +71,7 @@ var RoutesDao = function () {
 
     this.createRoute = function (pWallId, pName, pSetterId, pType, pBoulderGradeId, pTopRopeGradeId, pLeadGradeId, pColorId, pNote, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO routes (wall_id, name, setter_id, type = ?, boulder_grade_id, lead_grade_id, toprope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())',
+            'INSERT INTO routes (wall_id, name, setter_id, type, boulder_grade_id, lead_grade_id, toprope_grade_id, color_id, note, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())',
             [pWallId, pName, pSetterId, pType, pBoulderGradeId, pLeadGradeId, pTopRopeGradeId, pColorId, pNote],
             theDaoHelper.INSERT,
             pCallback

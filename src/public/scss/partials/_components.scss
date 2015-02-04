@@ -17,6 +17,7 @@
 [class*="avatar"] {
   @include border-radius(100%);
   background-color: $grey--medlight;
+  background-size: contain;
   cursor: pointer;
 }
 
@@ -64,8 +65,8 @@
 
 
 .rating {
-  @extend %display--inlineBlock; 
-  
+  @extend %display--inlineBlock;
+
   i:before {
     margin-right: rem-calc(3);
   }
@@ -91,8 +92,8 @@
 
 .rating--colored {
   .icon-star:before {
-    color: #E9E04A; 
-  } 
+    color: #E9E04A;
+  }
 }
 
 
@@ -519,7 +520,7 @@
   @extend %mt3;
   @extend %mb2;
   @extend %clearfix;
-  
+
   .header-divider {
     @extend %mt2;
     @extend %display--block;
@@ -527,4 +528,3 @@
     width: 100%;
   }
 }
-

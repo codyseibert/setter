@@ -110,14 +110,17 @@
                             <li data-dropdown="account-dropdown">
 
                                 <a class="display--inlineBlock">
-                                    
-                                    <div class="display--inlineBlock  avatar avatar--tiny mr1"></div>
-                                        
-                                    <span class="txt--micro  ">Aiguille Rock Clim...
+
+                                    <div class="display--inlineBlock  avatar avatar--tiny mr1"
+                                        ng-style="{'background-image': getImageUrlString()}">
+                                        </div>
+
+                                    <span class="txt--micro  ">
+                                        {{userName}}
                                     </span>
 
                                     <span class="ml1  icon-menuDropdown  icon--tiny">
-                                        
+
                                     </span>
 
 
@@ -140,10 +143,10 @@
                                 </a>
 
                             </li>
-                            
+
                             <li ng-show="isUserAccount()"
                                 ng-click="navigateToUser(getAccountId())">
-                                
+
                                 <a href="">View Profile</a>
                             </li>
                             <!--Show For User Only-->
@@ -186,7 +189,7 @@
             </div>
 
         </div>
-           
+
 
           <!-- close the off-canvas menu -->
         <a class="exit-off-canvas"></a>

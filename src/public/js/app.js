@@ -160,7 +160,7 @@ angular.module('SETTER', [
             }
 
             FastClick.attach(document.body);
-            
+
             // Set the global chart colors used throughout the site
             Chart.defaults.global.colours[0].fillColor = "#AECB83";
             Chart.defaults.global.colours[0].strokeColor = "#A3BF7C";
@@ -317,6 +317,9 @@ angular.module('SETTER', [
                 LoginService.setHomeGymIdFromCookie();
                 LoginService.setImageUrlFromCookie();
                 LoginService.setNameFromCookie();
+
+                $rootScope.userName = LoginService.getName();
+                $rootScope.imageUrl = LoginService.getImageUrl();
             }
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
@@ -373,6 +376,10 @@ angular.module('SETTER', [
                     return 'images/no_image.png';
                 }
                 return pData.url;
+            };
+
+            $rootScope.getImageUrlString = function () {
+                return "url("+LoginService.getImageUrl()+")";
             };
 
             if (LoginService.isLoggedIn()) {

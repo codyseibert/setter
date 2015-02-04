@@ -225,6 +225,11 @@
   height: rem-calc(36);
 }
 
+.icon--wrench--small {
+    width: rem-calc(36);
+  height: rem-calc(36);
+}
+
 .icon-key {
   @include icon($icon--key);
 }

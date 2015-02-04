@@ -115,12 +115,14 @@
                                         ng-style="{'background-image': getImageUrlString()}">
                                         </div>
 
-                                    <span class="txt--micro  ">
+                                    <span 
+                                        class="txt--micro" >
                                         {{userName}}
                                     </span>
 
-                                    <span class="ml1  icon-menuDropdown  icon--tiny">
 
+                                    <span class="ml1  icon-menuDropdown  icon--tiny">
+   
                                     </span>
 
 
@@ -130,7 +132,7 @@
 
                         </ul>
 
-                        <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large"
+                        <ul id="account-dropdown" class="mt1 f-dropdown  dropDown--linkList linkList--separators  large"
                         data-dropdown-content>
                             <!--Show For Gyms Only-->
                             <li ng-show="isGymAccount()"
@@ -146,17 +148,15 @@
 
                             <li ng-show="isUserAccount()"
                                 ng-click="navigateToUser(getAccountId())">
+                                <a href="">
+                                <span class="fwb"> {{userName}}</span><br>
+                                View Profile</a>
 
-                                <a href="">View Profile</a>
                             </li>
                             <!--Show For User Only-->
                             <li ng-show="isUserAccount()"
                             ng-click="navigateToSettings()">
                                 <a class="icon-settings"> Settings</a>
-                            </li>
-
-                            <li ng-click="navigateToLogout()">
-                                <a class="icon-logout">Log Out</a>
                             </li>
 
                             <li>
@@ -167,6 +167,9 @@
                                 <a class="icon-messaging-alt"> Give Feedback</a>
                             </li>
 
+                            <li ng-click="navigateToLogout()">
+                                <a class="icon-logout">Log Out</a>
+                            </li>
                         </ul>
 
                     </div>

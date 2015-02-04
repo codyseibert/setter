@@ -18,6 +18,8 @@
   @include border-radius(100%);
   background-color: $grey--medlight;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
 }
 

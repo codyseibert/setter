@@ -317,6 +317,7 @@ angular.module('SETTER', [
                 LoginService.setHomeGymIdFromCookie();
                 LoginService.setImageUrlFromCookie();
                 LoginService.setNameFromCookie();
+                LoginService.setGymNameFromCookie();
 
                 $rootScope.userName = LoginService.getName();
                 $rootScope.imageUrl = LoginService.getImageUrl();
@@ -379,7 +380,7 @@ angular.module('SETTER', [
             };
 
             $rootScope.getImageUrlString = function () {
-                return "url("+LoginService.getImageUrl()+")";
+                return "url(" + LoginService.getImageUrl() + ")";
             };
 
             if (LoginService.isLoggedIn()) {

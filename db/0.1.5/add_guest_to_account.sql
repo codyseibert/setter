@@ -1,0 +1,2 @@
+USE setter;
+ALTER TABLE users ADD COLUMN guest BOOLEAN DEFAULT 0;

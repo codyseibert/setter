@@ -35,6 +35,7 @@ var LoginHelper = function () {
                 accountType: pResults.type_id,
                 accountId: pAccountId,
                 homeGymId: pResults.gym_id,
+                gymName: pResults.name,
                 url: pResults.url,
                 fullname: pResults.fullname
             });

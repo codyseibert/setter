@@ -1,5 +1,7 @@
 build/
 node_modules/
 src/public/.sass-cache
+src/public/images/uploads/
 coverage/
 results.txt
+.sass-cache/

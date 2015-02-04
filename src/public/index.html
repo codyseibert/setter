@@ -116,19 +116,13 @@
                                         </div>
 
                                     <span 
-                                        class="txt--micro" 
-                                        ng-show="isUserAccount()">
-                                        User
-                                    </span>
-
-                                    <span 
-                                        class="txt--micro" 
-                                        ng-show="isGymAccount()">
+                                        class="txt--micro" >
                                         {{userName}}
                                     </span>
 
+
                                     <span class="ml1  icon-menuDropdown  icon--tiny">
-                                        {{gymName}}
+   
                                     </span>
 
 
@@ -138,7 +132,7 @@
 
                         </ul>
 
-                        <ul id="account-dropdown" class="mt2 f-dropdown  dropDown--linkList linkList--separators  large"
+                        <ul id="account-dropdown" class="mt1 f-dropdown  dropDown--linkList linkList--separators  large"
                         data-dropdown-content>
                             <!--Show For Gyms Only-->
                             <li ng-show="isGymAccount()"

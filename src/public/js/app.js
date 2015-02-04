@@ -321,7 +321,6 @@ angular.module('SETTER', [
 
                 $rootScope.userName = LoginService.getName();
                 $rootScope.imageUrl = LoginService.getImageUrl();
-                $rootScope.gymName = LoginService.getName(); 
             }
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {

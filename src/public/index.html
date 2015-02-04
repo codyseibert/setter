@@ -115,14 +115,14 @@
                                         ng-style="{'background-image': getImageUrlString()}">
                                         </div>
 
-                                    <span 
+                                    <span
                                         class="txt--micro" >
-                                        {{userName}}
+                                        {{getAccountName()}}
                                     </span>
 
 
                                     <span class="ml1  icon-menuDropdown  icon--tiny">
-   
+
                                     </span>
 
 
@@ -149,7 +149,7 @@
                             <li ng-show="isUserAccount()"
                                 ng-click="navigateToUser(getAccountId())">
                                 <a href="">
-                                <span class="fwb"> {{userName}}</span><br>
+                                <span class="fwb"> {{getAccountName()}}</span><br>
                                 View Profile</a>
 
                             </li>

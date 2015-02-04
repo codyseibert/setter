@@ -318,10 +318,13 @@ angular.module('SETTER', [
                 LoginService.setImageUrlFromCookie();
                 LoginService.setNameFromCookie();
                 LoginService.setGymNameFromCookie();
-
-                $rootScope.userName = LoginService.getName();
+                
                 $rootScope.imageUrl = LoginService.getImageUrl();
             }
+
+            $rootScope.getAccountName = function () {
+                return LoginService.getName();
+            };
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
                 return pBoulderGrade || pTopRopeGrade || pLeadGrade || 'Not Rated';
@@ -337,8 +340,6 @@ angular.module('SETTER', [
                 $rootScope.lastPath = paths[0];
                 paths.push($location.$$path);
                 paths.splice(0, 1);
-
-
             });
 
             $rootScope.pageWasBookmarked = function () {
@@ -383,6 +384,10 @@ angular.module('SETTER', [
                 return "url(" + LoginService.getImageUrl() + ")";
             };
 
+
+            /*
+                Used for forcing the data to be loaded directly up front and cached.
+            */
             if (LoginService.isLoggedIn()) {
                 gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
                 nothing = function () {

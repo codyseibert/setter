@@ -138,12 +138,7 @@ angular.module('SETTER')
                     return url;
                 },
                 getName: function () {
-                    if(gymName === "null") {
-                        return name; 
-                    } 
-                    else {
-                        return gymName;
-                    }
+                    return gymName || name;
                 },
                 isGymAccount: function () {
                     return accountType === GYM_TYPE;

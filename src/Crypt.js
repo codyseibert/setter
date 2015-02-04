@@ -9,7 +9,7 @@ var Crypt = function () {
             if (err) {
                 return callback(err);
             }
-            bcrypt.hash(password, salt, function (err, hash) {
+            bcrypt.hash(password, salt, null, function (err, hash) {
                 return callback(err, hash);
             });
         });

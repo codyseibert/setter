@@ -17,12 +17,6 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
-            $scope.chartOptions = {
-                scaleFontColor: "#000",
-                scaleFontSize: 20,
-                animation: false
-            };
-
             RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
                 $scope.graph = BarGraphHelperService.generateRouteCountGraphData(pData);
             });

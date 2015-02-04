@@ -37,14 +37,15 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
-            $scope.chartOptions = {
-                scaleFontColor: "#000",
-                scaleFontSize: 20,
-                animation: false
-            };
-
             $scope.BOULDERING = 'bouldering';
             $scope.TOPROPE = 'toprope';
+
+            // Displaying Tab Logic
+            $scope.PANEL_ACTIVITY = 'activity';
+            $scope.PANEL_STATS = 'stats';
+            $scope.PANEL_CLIMBERS = 'climbers';
+            $scope.currentTab = $scope.PANEL_ACTIVITY;
+
             $scope.LEAD = 'lead';
 
             $scope.PANEL_ACTIVITY = 'ACTIVITY';
@@ -54,7 +55,7 @@ angular.module('SETTER')
             $scope.options = {};
             $scope.form = {};
             $scope.typeNewest = $scope.BOULDERING;
-            $scope.typeBest = $scope.BOULDERING; 
+            $scope.typeBest = $scope.BOULDERING;
 
             /*
             *   SECTION - Gym related service calls
@@ -233,5 +234,7 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
-
+            $scope.setCurrentTab = function (pCurrentTab) {
+                $scope.currentTab = pCurrentTab;
+            }
         }]);

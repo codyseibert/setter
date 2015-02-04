@@ -11,12 +11,6 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            $scope.options = {
-                scaleFontColor: "#000",
-                scaleFontSize: 20,
-                animation: false
-            };
-
             UsersService.getBoulderSends($scope.userId)
                 .success(function (pData) {
                     var i,
@@ -35,9 +29,6 @@ angular.module('SETTER')
 
                     $scope.boulderProgressGraph = {
                         options: {
-                            scaleFontColor: "#000",
-                            scaleFontSize: 20,
-
                             scaleOverride: true,
                             scaleSteps: 6,
                             scaleStepWidth: 2,

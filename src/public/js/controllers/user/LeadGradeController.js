@@ -11,12 +11,6 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            $scope.options = {
-                scaleFontColor: "#000",
-                scaleFontSize: 20,
-                animation: false
-            };
-
             UsersService.getLeadSends($scope.userId)
                 .success(function (pData) {
                     var dataCopy,

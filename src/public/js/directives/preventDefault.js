@@ -9,7 +9,6 @@ angular.module('SETTER')
             var linkFn = function(scope, element, attrs) {
                 $(element).on('click', function(event) {
                     event.preventDefault(); 
-                    console.log('working'); 
                 });
             };
 
@@ -18,4 +17,3 @@ angular.module('SETTER')
                 link: linkFn
             };
         }]);
-

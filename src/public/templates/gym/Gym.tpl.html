@@ -12,65 +12,58 @@
             SECTION - Tabs
 
         -->
+        <ul class="tabs row small-collapse"
+            ng-init="setCurrentTab(PANEL_ACTIVITY)"
+            role="tablist">
 
+            <li class="tab-title  [ small-4  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_ACTIVITY}" >
 
-        <ul 
-        ng-model="tabs" 
-        ng-init="tabs = 'panel1'" 
-        class="tabs row small-collapse" data-tab 
-        role="tablist">
-
-            <li class="tab-title  [ small-4  columns ]  
-            text-center"
-                ng-class="{'active': tabs =='panel1'}" > 
-                    
-                <a ng-click="tabs  = 'panel1'">
+                <a ng-click="setCurrentTab(PANEL_ACTIVITY)">
                     <i class="icon-globe"></i>
                     Activity
                 </a>
-            
+
             </li>
 
-            <li class="tab-title  [ small-4  columns ]  
-            text-center"
-                ng-class="{'active': tabs =='panel2'}"
-                ng-click="refreshCharts()"
-                >
+            <li class="tab-title  [ small-4  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_STATS}"
+                ng-click="refreshCharts()">
 
-                <a ng-click="tabs  = 'panel2'; refreshCharts(); "  >
+                <a ng-click="setCurrentTab(PANEL_STATS)">
                     <i class="icon-stats"></i>
                     Statistics
                 </a>
-            
-            </li>
-            
-            <li class="tab-title  [ small-4  columns ]  
-            text-center"
-                ng-class="{'active': tabs =='panel3'}">
 
-                <a ng-click="tabs  = 'panel3' ">
+            </li>
+
+            <li class="tab-title  [ small-4  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_CLIMBERS}">
+
+                <a ng-click="setCurrentTab(PANEL_CLIMBERS)">
                     <i class="icon-group"></i>
                     Climbers
                 </a>
 
             </li>
-                
+
         </ul>
 
         <div class="tabs-content small-12 columns">
-            
-            <div class="content" 
-                ng-class="{'active': tabs == 'panel1'}"
-                >
+
+            <div class="content"
+                 ng-class="{'active': currentTab === PANEL_ACTIVITY}">
                 <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>
             </div>
 
-            <div class="content" ng-class="{'active': tabs == 'panel2'}">
+            <div class="content"
+                 ng-class="{'active': currentTab === PANEL_STATS}">
                     <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' ">
                     </ng-include>
             </div>
 
-            <div class="content" ng-class="{'active': tabs == 'panel3'}">
+            <div class="content"
+                 ng-class="{'active': currentTab === PANEL_CLIMBERS}">
                     <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' "></ng-include>
             </div>
 

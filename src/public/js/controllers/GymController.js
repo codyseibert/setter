@@ -122,6 +122,16 @@ angular.module('SETTER')
             };
 
 
+            var formatDates = function (pData) {
+                var i,
+                    length;
+
+                for (i = 0, length = pData.length; i < length; i += 1){
+                    pData[i].date_format = DateFormatService.format(pData[i].date);
+                }
+            };
+
+
 
 
             /*
@@ -130,19 +140,43 @@ angular.module('SETTER')
             GymsService.getNewestBoulder($scope.gymId)
                 .success(function (pData) {
                     $scope.newestBoulder = pData;
+                    formatDates(pData);
                 });
 
             GymsService.getNewestTopRope($scope.gymId)
                 .success(function (pData) {
                     $scope.newestTopRope = pData;
+                    formatDates(pData);
                 });
 
             GymsService.getNewestLead($scope.gymId)
                 .success(function (pData) {
                     $scope.newestLead = pData;
+                    formatDates(pData);
                 });
 
 
+
+            /*
+            *   SECTION - Best Rated Routes
+            */
+            GymsService.getBestRatedBoulder($scope.gymId)
+                .success(function (pData) {
+                    $scope.bestRatedBoulder = pData;
+                    formatDates(pData);
+                });
+
+            GymsService.getBestRatedTopRope($scope.gymId)
+                .success(function (pData) {
+                    $scope.bestRatedTopRope = pData;
+                    formatDates(pData);
+                });
+
+            GymsService.getBestRatedLead($scope.gymId)
+                .success(function (pData) {
+                    $scope.bestRatedLead = pData;
+                    formatDates(pData);
+                });
 
 
             /*
@@ -159,28 +193,6 @@ angular.module('SETTER')
             RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
                 createLeadRoutesBarGraph(pData);
             });
-
-
-
-
-            /*
-            *   SECTION - Best Rated Routes
-            */
-            GymsService.getBestRatedBoulder($scope.gymId)
-                .success(function (pData) {
-                    $scope.bestRatedBoulder = pData;
-                });
-
-            GymsService.getBestRatedTopRope($scope.gymId)
-                .success(function (pData) {
-                    $scope.bestRatedTopRope = pData;
-                });
-
-            GymsService.getBestRatedLead($scope.gymId)
-                .success(function (pData) {
-                    $scope.bestRatedLead = pData;
-                });
-
 
 
 

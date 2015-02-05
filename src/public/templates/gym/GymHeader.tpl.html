@@ -6,11 +6,11 @@
 
         <div class="small-12 columns"
              ng-click="getAccountId() === gymId && uploadImage()">
-            <div class="avatar avatar--big  mb2" ng-style="{'background-image': getImageUrlString()}" ></div>
-
+            <div class="avatar avatar--big  mb2"
+                 ng-style="{'background-image': getImageUrlString()}" ></div>
 
             <h1 class="fwl h2 testQuery mb1">
-            {{gym.name}}
+              {{gym.name}}
             </h1>
 
         </div>
@@ -73,7 +73,12 @@
                             {{gym.name}}
                         </h1>
 
-                        <a href="" class="icon-home" ng-click="setHomeGym()">Set as Home Gym</a>
+                        <a href=""
+                           class="icon-home"
+                           ng-click="setHomeGym()"
+                           ng-hide="getHomeGymId() === gymId || isGymAccount()">
+                          Set as Home Gym
+                        </a>
                     </div>
 
 

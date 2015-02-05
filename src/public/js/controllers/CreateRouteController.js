@@ -37,7 +37,8 @@ angular.module('SETTER')
                 findEntry,
                 BOULDER_TYPE = 0,
                 TOPROPE_TYPE = 1,
-                LEAD_TYPE = 2;
+                LEAD_TYPE = 2,
+                cleanGrades;
 
             $scope.gymId = $routeParams.gymId;
             $scope.wallId = $routeParams.wallId;
@@ -64,7 +65,10 @@ angular.module('SETTER')
             ];
             $scope.form.type = $scope.types[BOULDER_TYPE];
 
-            var cleanGrades = function () {
+            /*
+                Resets unselected dropdown backend-values back to default
+            */
+            cleanGrades = function () {
                 if ($scope.form.type.name === 'Boulder') {
                     $scope.form.topRopeGrade = $scope.ropeGrades[0];
                     $scope.form.leadGrade = $scope.ropeGrades[0];
@@ -78,8 +82,6 @@ angular.module('SETTER')
             };
 
             $scope.addClicked = function () {
-                cleanGrades();
-
                 var name = $scope.form.name,
                     type = $scope.form.type.id,
                     boulderGradeId = $scope.form.boulderGrade.id,
@@ -88,6 +90,8 @@ angular.module('SETTER')
                     colorId = $scope.form.color,
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
+
+                cleanGrades();
 
                 RoutesService.createRoute(
                     $scope.gymId,
@@ -114,8 +118,6 @@ angular.module('SETTER')
             };
 
             $scope.saveClicked = function () {
-                cleanGrades();
-
                 var name = $scope.form.name,
                     type = $scope.form.type.id,
                     boulderGradeId = $scope.form.boulderGrade.id,
@@ -124,6 +126,8 @@ angular.module('SETTER')
                     colorId = $scope.form.color,
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
+
+                cleanGrades();
 
                 RoutesService.updateRoute(
                     $scope.gymId,

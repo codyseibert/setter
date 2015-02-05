@@ -356,6 +356,9 @@ module.exports = function(grunt) {
                 src: [
                     'src/public/js/**/*.js'
                 ],
+                exclude: [
+                    'src/public/js/other/naturalSort.js'
+                ],
                 directives: {
                     browser: true,
                     todo: true

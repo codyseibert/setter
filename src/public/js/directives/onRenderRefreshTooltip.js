@@ -1,4 +1,4 @@
-/*global angular: false, btoa: false, console: false, Chart: false, moment: false */
+/*global angular: false, btoa: false, console: false, Chart: false, moment: false, $: false */
 
 angular.module('SETTER')
     .directive('onRenderRefreshTooltip', [
@@ -12,5 +12,3 @@ angular.module('SETTER')
                 }
             };
         }]);
-
-

@@ -1,14 +1,15 @@
 /*global angular: false, btoa: false, console: false, Chart: false, moment: false */
 
+/*ignore jslint start*/
 angular.module('SETTER')
     .factory('NaturalSort', [function () {
         'use strict';
 
         return function naturalSort (aa, bb) {
+            // Edited here to make sure it could sort the objects
             var a = aa.value;
             var b = bb.value;
 
-            "use strict";
             var re = /(^([+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?)?$|^0x[0-9a-f]+$|\d+)/gi,
             sre = /(^[ ]*|[ ]*$)/g,
             dre = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/,

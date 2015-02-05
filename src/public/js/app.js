@@ -318,7 +318,6 @@ angular.module('SETTER', [
                 LoginService.setImageUrlFromCookie();
                 LoginService.setNameFromCookie();
                 LoginService.setGymNameFromCookie();
-                
                 $rootScope.imageUrl = LoginService.getImageUrl();
             }
 

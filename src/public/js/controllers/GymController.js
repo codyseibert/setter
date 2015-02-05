@@ -33,7 +33,8 @@ angular.module('SETTER')
 
             var createBoulderRoutesBarGraph,
                 createTopRopeRoutesBarGraph,
-                createLeadRoutesBarGraph;
+                createLeadRoutesBarGraph,
+                formatDates;
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
@@ -121,16 +122,18 @@ angular.module('SETTER')
                 $scope.leadRoutesBarGraph = data;
             };
 
-
-            var formatDates = function (pData) {
+            /*
+                Formats all the dates in the array for the front end templates
+                TODO: convert to use angular filters in templates
+            */
+            formatDates = function (pData) {
                 var i,
                     length;
 
-                for (i = 0, length = pData.length; i < length; i += 1){
+                for (i = 0, length = pData.length; i < length; i += 1) {
                     pData[i].date_format = DateFormatService.format(pData[i].date);
                 }
             };
-
 
 
 
@@ -240,13 +243,17 @@ angular.module('SETTER')
             $scope.setTypeBest = function (pType) {
                 $scope.typeBest = pType;
             };
+
+
+
             /*
             *   SECTION - MISC
             */
+
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
             $scope.setCurrentTab = function (pCurrentTab) {
                 $scope.currentTab = pCurrentTab;
-            }
+            };
         }]);

@@ -65,7 +65,11 @@ angular.module('SETTER')
                     url = $cookies.url;
                 },
                 setGymNameFromCookie: function () {
-                    gymName = $cookies.gymName;
+                    if ($cookies.gymName === 'null') {
+                        gymName = null;
+                    } else {
+                        gymName = $cookies.gymName;
+                    }
                 },
                 setHomeGymIdFromCookie: function () {
                     homeGymId = $cookies.homeGymId;

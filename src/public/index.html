@@ -111,7 +111,8 @@
 
                                 <a class="display--inlineBlock">
 
-                                    <div class="display--inlineBlock  avatar avatar--tiny mr1"
+                                    <div
+                                        class="display--inlineBlock  avatar avatar--tiny mr1"
                                         ng-style="{'background-image': getImageUrlString()}">
                                         </div>
 
@@ -149,8 +150,11 @@
                             <li ng-show="isUserAccount()"
                                 ng-click="navigateToUser(getAccountId())">
                                 <a href="">
-                                <span class="fwb"> {{getAccountName()}}</span><br>
-                                View Profile</a>
+                                <span class="fwb">
+                                  {{getAccountName()}}</span>
+                                  <br>
+                                  View Profile
+                                </a>
 
                             </li>
                             <!--Show For User Only-->

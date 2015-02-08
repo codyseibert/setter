@@ -71,7 +71,7 @@ body
   background-color: $primaryColor;
   z-index: 10;
   height: rem-calc(60);
-  @include box-shadow(0 -1px 0 rgba(255, 255, 255, .2) inset);
+  @include box-shadow(0 2px 4px rgba(0, 0, 0, .4));
 
   .tab-bar-link {
     &:hover {
@@ -115,20 +115,20 @@ body
     ul.top-bar-links {
 
      li {
-        @extend %display--inline; 
-        @extend %prl2; 
+        @extend %display--inline;
+        @extend %prl2;
         font-size: rem-calc(14);
         height: rem-calc(60);
 
-        a { 
+        a {
             color: #fff;
             height: rem-calc(60);
             line-height:rem-calc(65);
         }
 
         &:hover {
-          
-          background-color: darken($primaryColor, 4%); 
+
+          background-color: darken($primaryColor, 4%);
 
         }
 
@@ -137,10 +137,10 @@ body
   }
 
   .avatar {
-    vertical-align: middle; 
+    vertical-align: middle;
   }
 
-} 
+}
 
 .nav-account {
   background-color: $grey--light;
@@ -201,7 +201,7 @@ body
 //
 
 .side-menu {
-  height: 100vh; 
+  height: 100vh;
   a {
     margin-left: rem-calc(6);
   }

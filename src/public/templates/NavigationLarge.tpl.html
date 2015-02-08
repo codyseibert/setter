@@ -1,47 +1,49 @@
 <!-- User Specific -->
 <li ng-show="isUserAccount()"
     ng-click="navigateToUser(getAccountId())">
-    <a class="icon-profile"> View Profile</a>
+    <a class="icon-profile">
+        View Profile</a>
 </li>
 
 <li ng-show="isUserAccount()"
     ng-click="navigateToGyms()">
-    <a class="icon-search"> Search Gyms</a>
+    <a class="icon-search">
+        Search Gyms</a>
 </li>
 
 <li ng-show="isUserAccount()"
     ng-click="navigateToGym(getHomeGymId())">
-    <a class="icon-home"> Home Gym</a>
+    <a class="icon-home">
+        Home Gym</a>
 </li>
 
 <!-- Gym Specific -->
 <li ng-show="isGymAccount()"
     ng-click="navigateToGym(getAccountId())">
-    <a class="icon-dashboard"> Dashboard</a>
+    <a class="icon-dashboard">
+        Dashboard</a>
 </li>
 
 <li ng-show="isGymAccount()"
     ng-click="navigateToWalls(getAccountId())">
-    <img src="images/icon--drill.svg" alt="" height="16px" width="16px" class="mr1">
-    <a> Zones</a>
+    <a class="icon-map"> 
+        Zones</a>
 </li>
 
 <li ng-show="isGymAccount()"
     ng-click="navigateToRouteManager(getAccountId())">
-    <a class="icon-archive"> Route Archive</a>
+    <a class="icon-archive">
+        Route Archive</a>
 </li>
 
 <li ng-show="isGymAccount()"
     ng-click="navigateToSetters(getAccountId())">
-    <a class="icon-group">Setters</a>
+    <a class="icon-group">
+        Setters</a>
 </li>
 
 <li ng-show="isGymAccount()"
     ng-click="navigateToAlerts(getAccountId())">
-    <a class="icon-megaphone"> Announcements</a>
+    <a class="icon-megaphone">
+        Announcements</a>
 </li>
-
-
-
-
-

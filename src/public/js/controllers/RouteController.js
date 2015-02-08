@@ -71,7 +71,7 @@ angular.module('SETTER')
             loadRouteRating = function () {
                 RatingsService.getRatingForRoute($scope.routeId)
                     .success(function (pData) {
-                        $scope.rating = pData.rating;
+                        $scope.rating = Math.round(pData.rating * 10) / 10;
                         $scope.ratingCount = pData.count;
                     });
             };

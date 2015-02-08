@@ -6,10 +6,12 @@
 
         <div class="small-12 columns"
              ng-click="getAccountId() === gymId && uploadImage()">
-            <div class="avatar avatar--big  mb2"
-                 ng-style="{'background-image': getImageUrlString()}" ></div>
 
-            <h1 class="fwl h2 testQuery mb1">
+            <div class="center avatar avatar--big  mb2"
+                 ng-style="{'background-image': getImageUrlString()}" >
+            </div>
+
+            <h1 class="fwb h2 mb1">
               {{gym.name}}
             </h1>
 
@@ -63,7 +65,7 @@
                     <div class="flag-image">
 
                         <img class="avatar avatar--big  mb2"
-                         ng-src="{{getGymImageSrc(image)}}">
+                             ng-src="{{getGymImageSrc(image)}}">
 
                     </div>
 

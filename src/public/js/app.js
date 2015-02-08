@@ -366,14 +366,14 @@ angular.module('SETTER', [
             };
 
             $rootScope.getGymImageSrc = function (pData) {
-                if (!pData || pData.url === '') {
+                if (!pData || !pData.url || pData.url === '') {
                     return 'images/no_gym_image.png';
                 }
                 return pData.url;
             };
 
             $rootScope.getUserImageSrc = function (pData) {
-                if (!pData || pData.url === '') {
+                if (!pData || !pData.url || pData.url === '') {
                     return 'images/no_image.png';
                 }
                 return pData.url;

@@ -159,27 +159,19 @@
 
             </div>
 
-            <div class="row large-collapse">
 
-                <div class="small-12 columns medium-6 " ng-show="isGymAccount()">
+            <div class="small-12 columns medium-6" ng-show="isGymAccount()">
 
-                    <div class="small-12 medium-12 large-6 columns">
+                <div class="small-12 medium-12 large-1 columns">
+                    <!-- Needed to float the right div over -->
+                </div>
 
-                        <button class="[ btn--tetriary  btn--medium  btn--expanded ] right  icon-map" ng-click="navigateToWalls(gymId)">
-                            View Gym Zones
-                        </button>
+                <div class="small-12 medium-12 large-6 columns">
 
-                        <span class="icon--topRight round label  success  border-radius" ng-show="isUserAccount() && newRoutes.count">{{newRoutes.count}} NEW ROUTES</span>
-
-                    </div>
-
-                    <div class="small-12 medium-12 large-6 columns " ng-show="isGymAccount()"   >
-
-                        <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil" ng-click="navigateToWalls(gymId)" >
-                            Set Route
-                        </button>
-
-                    </div>
+                    <button class="[ btn--primary  btn--medium  btn--expanded ] right  icon-pencil"
+                            ng-click="navigateToWalls(gymId)" >
+                        Set Route
+                    </button>
 
                 </div>
 

@@ -256,6 +256,17 @@ module.exports = function(grunt) {
             }
         },
 
+        watch: {
+            style: {
+                files: '**/*.scss',
+                tasks: ['sass']
+            },
+            static: {
+                files: 'src/**/*.js',
+                tasks: ['check']
+            }
+        },
+
         csslint: {
             strict: {
                 options: {

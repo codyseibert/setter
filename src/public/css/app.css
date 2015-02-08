@@ -7879,9 +7879,9 @@ body {
   background-color: #ed6d56;
   z-index: 10;
   height: 3.75rem;
-  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); }
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); }
   .tab-bar .tab-bar-link:hover,
   .top-bar .tab-bar-link:hover {
     color: #ec6148; }

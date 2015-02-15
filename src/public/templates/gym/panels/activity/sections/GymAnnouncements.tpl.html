@@ -2,8 +2,12 @@
     Gym Announcements
 </h2>
 
-<h2 ng-show="!hasAnnouncements()">
+<h2 ng-show="!hasAnnouncements() && getAccountId !== gymId">
     This gym has no announcements!
+</h2>
+
+<h2 ng-show="!hasAnnouncements() && getAccountId === gymId">
+    You have no posted any announcements!
 </h2>
 
 <ul class="list--noStyles  list mb0">

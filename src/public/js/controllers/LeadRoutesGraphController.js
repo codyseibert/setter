@@ -16,8 +16,10 @@ angular.module('SETTER')
             'use strict';
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
+            $scope.hasLead = false;
 
             RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
+                $scope.hasLead = pData.length > 0;
                 $scope.graph = BarGraphHelperService.generateRouteCountGraphData(pData);
             });
 

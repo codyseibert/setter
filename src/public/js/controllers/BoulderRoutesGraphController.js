@@ -16,8 +16,10 @@ angular.module('SETTER')
             'use strict';
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
+            $scope.hasBoulder = false;
 
             RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
+                $scope.hasBoulder = pData.length > 0;
                 $scope.graph = BarGraphHelperService.generateRouteCountGraphData(pData);
             });
 

@@ -1,3 +1,5 @@
+
+
 <div>
     <a  class="right"
         ng-click="export()"
@@ -5,6 +7,34 @@
     </a>
 
     <h2 class="h3 clearfix">Bouldering</h2>
+
+    <div ng-show="!hasBoulder && getAccountId() !== gymId">
+
+        <h2>
+
+            This gym has no boulder problems set!
+
+        </h2>
+
+    </div>
+
+    <div ng-show="!hasBoulder && getAccountId() === gymId">
+
+        <h2>
+
+            You have not set any boulder problems!
+
+        </h2>
+
+        <button type="submit"
+            class="btn--primary icon-plus btn--medium"
+            ng-click="navigateToWalls(gymId)">
+
+            Set Some Routes!
+
+        </button>
+
+    </div>
 
     <canvas
         id="boulderGraph"

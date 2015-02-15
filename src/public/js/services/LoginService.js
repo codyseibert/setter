@@ -98,7 +98,7 @@ angular.module('SETTER')
                     GymsService.clearCache();
                     RoutesService.clearCache();
 
-                    $location.path("login");
+                    $location.path('/');
                 },
                 setAccountType: function (pAccountType) {
                     pAccountType = parseInt(pAccountType, 10);

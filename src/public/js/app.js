@@ -17,8 +17,8 @@ angular.module('SETTER', [
 
             $routeProvider
                 .when('/', {
-                  controller: 'SplashController',
-                  templateUrl: 'templates/Splash.tpl.html'
+                    controller: 'SplashController',
+                    templateUrl: 'templates/Splash.tpl.html'
                 })
                 .when('/login', {
                     controller: 'LoginController',

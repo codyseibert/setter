@@ -9,13 +9,16 @@ angular.module('SETTER')
     'DateFormatService',
     'LoginService',
     function SplashController(
-      $scope,
-      $sce,
-      BlogService,
-      DateFormatService,
-      LoginService
+        $scope,
+        $sce,
+        BlogService,
+        DateFormatService,
+        LoginService
     ) {
-      'use strict';
+    'use strict';
 
+        if (LoginService.isLoggedIn()) {
+            LoginService.logout();
+        }
 
     }]);

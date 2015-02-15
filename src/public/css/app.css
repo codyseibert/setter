@@ -6383,7 +6383,6 @@ ol {
   position: absolute;
   left: 0;
   right: 0;
-  z-index: -1;
   display: block;
   background-image: url("../images/bg1.png");
   background-size: cover;

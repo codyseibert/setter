@@ -53,6 +53,7 @@ angular.module('SETTER')
             $scope.BOULDERING_VIEW = 'Bouldering';
             $scope.TOPROPE_VIEW = 'Top Rope';
             $scope.LEAD_VIEW = 'Lead';
+            $scope.isLoading = true;
             $scope.views = [
                 {
                     key: 'type',
@@ -174,6 +175,10 @@ angular.module('SETTER')
                 }
             }
 
+            $scope.hasRoutes = function () {
+                return $scope.routes.length > 0;
+            }
+
             $scope.refreshFilters = function () {
                 showAllRoutes();
 
@@ -287,6 +292,12 @@ angular.module('SETTER')
                 .then(function () {
                     RoutesService.getRoutesInGym($scope.gymId, function (pData) {
                         var clone;
+
+                        $scope.isLoading = false;
+
+                        if (pData.length == 0) {
+                            return
+                        }
 
                         pData.map(function (pEntry) {
                             pEntry.date_format = DateFormatService.format(pEntry.date);

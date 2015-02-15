@@ -64,8 +64,6 @@ angular.module('SETTER')
                                 $scope.ropeCounts[k].push(gradeCount)
                             }
                         }
-
-                        console.log ($scope.ropeCounts);
                     });
                 });
 

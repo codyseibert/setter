@@ -1,5 +1,29 @@
 
-<table class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">
+<h2 class="text-center"
+    ng-show="!hasTopRope() && getAccountId() !== gymId">
+
+    This gym has no top rope routes set!
+    <br><br>
+    Please ask them to update their information!
+
+</h2>
+
+<h2 ng-show="!hasTopRope() && getAccountId() === gymId">
+
+    You have no top rope routes!
+
+    <button type="submit"
+        class="btn--primary icon-plus btn--medium"
+        ng-click="navigateToWalls(gymId)">
+
+        Set Some Routes!
+
+    </button>
+
+</h2>
+
+<table ng-show="hasTopRope()"
+       class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">
 
     <tbody>
 

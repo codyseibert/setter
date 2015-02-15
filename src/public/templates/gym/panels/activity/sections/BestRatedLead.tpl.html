@@ -1,5 +1,22 @@
 
-<table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+<h2 class="text-center"
+    ng-show="!hasRatedLead() && getAccountId() !== gymId">
+
+    No one has rated the lead routes!<br><br>
+    Please ask your friends to rate routes!
+
+</h2>
+
+<h2 class="text-center"
+    ng-show="!hasRatedLead() && getAccountId() == gymId">
+
+    No one has rated your lead routes!<br><br>
+    Please ask them to help out your gym by rating routes!
+
+</h2>
+
+<table ng-show="hasRatedLead()"
+       class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
     <tbody>
         <tr bindonce

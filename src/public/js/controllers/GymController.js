@@ -197,7 +197,37 @@ angular.module('SETTER')
                 createLeadRoutesBarGraph(pData);
             });
 
+            $scope.hasAnnouncements = function () {
+                return $scope.alerts.length > 0
+            }
 
+            $scope.hasActivity = function () {
+                return $scope.activity.length > 0
+            }
+
+            $scope.hasBoulder = function () {
+                return $scope.newestBoulder.length > 0
+            }
+
+            $scope.hasTopRope = function () {
+                return $scope.newestTopRope.length > 0
+            }
+
+            $scope.hasLead = function () {
+                return $scope.newestLead.length > 0
+            }
+
+            $scope.hasRatedBoulder = function () {
+                return $scope.bestRatedBoulder.length > 0
+            }
+
+            $scope.hasRatedTopRope = function () {
+                return $scope.bestRatedTopRope.length > 0
+            }
+
+            $scope.hasRatedLead = function () {
+                return $scope.bestRatedLead.length > 0
+            }
 
             /*
             *   SECTION - Scope Bindings

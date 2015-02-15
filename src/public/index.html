@@ -70,11 +70,11 @@
 
 
         <!--Topbar for large desktop-->
-        <div class="sticky show-for-large-up">
+        <div class=" show-for-large-up"  ng-show="isLoggedIn()">
 
             <nav class="top-bar"
                  data-topbar
-                 ng-show="isLoggedIn()">
+                 >
 
                 <div class="row">
                  <!-- Left Nav Section -->
@@ -183,7 +183,7 @@
             <!-- The Main Content -->
 
 
-        <div id="content  row">
+        <div id="content">
 
             <div
                  ng-view autoscroll="true"

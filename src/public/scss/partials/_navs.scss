@@ -70,7 +70,7 @@ body
   background-color: $primaryColor;
   z-index: 10;
   height: rem-calc(60);
-  @include box-shadow(0 2px 4px rgba(0, 0, 0, .4));
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, .2));
 
   .tab-bar-link {
     &:hover {

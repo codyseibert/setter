@@ -1,17 +1,17 @@
 @mixin breakpoint($point) {
- @if $point == god-bear {
+ @if $point == godBear {
     @media (min-width: 1251px) { @content; }
   }
   @else if $point == onlyMobile {
     @media (max-width: 640px) { @content; }
   }
-  @else if $point == papa-bear {
+  @else if $point == papaBear {
     @media (min-width: 1180) { @content; }
   }
-  @else if $point == mama-bear {
+  @else if $point == mamaBear {
     @media (min-width: 940px) { @content;}
   }
-  @else if $point == teen-bear {
+  @else if $point == teenBear {
     @media (min-width: 640px) { @content; }
   }
   @else if $point == smallbear {

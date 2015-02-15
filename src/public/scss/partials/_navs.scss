@@ -56,6 +56,21 @@ body
 }
 
 
+/*------------------------------------*\
+    #Top Bars
+\*------------------------------------*/
+
+
+.topBar--splash {
+    .links a {
+        color: $grey--dark; 
+
+        &:hover {
+            color: $primaryColor; 
+        }
+    }   
+}
+
 
 
 //
@@ -199,25 +214,25 @@ body
 //Side Menu Styles
 //
 
-.side-menu {
-  height: 100vh;
-  a {
-    margin-left: rem-calc(6);
-  }
+// .side-menu {
+//   height: 100vh;
+//   a {
+//     margin-left: rem-calc(6);
+//   }
 
-  a:before {
-    @extend %h2;
-    padding: rem-calc(6);
-    margin-right: rem-calc(24);
-  }
-  a > img {
-    padding: rem-calc(6);
-    margin-right: rem-calc(16);
-    opacity: .8;
-  }
+//   a:before {
+//     @extend %h2;
+//     padding: rem-calc(6);
+//     margin-right: rem-calc(24);
+//   }
+//   a > img {
+//     padding: rem-calc(6);
+//     margin-right: rem-calc(16);
+//     opacity: .8;
+//   }
 
-  background-color: $off-canvas-bg;
-}
+//   background-color: $off-canvas-bg;
+// }
 
 
 //

@@ -1,0 +1,38 @@
+
+
+/*------------------------------------*\
+    #Logos
+\*------------------------------------*/
+
+
+
+.saddie {
+   background-image: url("../images/setter-logo.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+   width: 100%;
+}
+
+.saddie--medium {
+  min-height: rem-calc(220);
+  min-width: rem-calc(220);
+}
+
+.saddie--small {
+  min-width: rem-calc(100);
+  min-height: rem-calc(100);
+}
+
+
+.saddie--withName {
+    background-image: url("../images/saddie--withName.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+}
+
+.saddie--withName--small {
+   min-height: rem-calc(60); 
+   min-width: rem-calc(200);
+}

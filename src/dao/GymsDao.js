@@ -227,7 +227,7 @@ var GymsDao = function () {
             'SELECT w.name AS zone, bg.name AS grade, COUNT(*) AS count FROM routes r ' +
                 'INNER JOIN walls w ON r.wall_id = w.id ' +
                 'INNER JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
-                'WHERE w.gym_id = ? GROUP BY w.name, r.boulder_grade_id',
+                'WHERE w.gym_id = ? AND r.active = true GROUP BY w.name, r.boulder_grade_id',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -239,7 +239,7 @@ var GymsDao = function () {
             'SELECT w.name AS zone, rg.name AS grade, COUNT(*) AS count FROM routes r ' +
                 'INNER JOIN walls w ON r.wall_id = w.id ' +
                 'INNER JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
-                'WHERE w.gym_id = ? GROUP BY w.name, r.toprope_grade_id',
+                'WHERE w.gym_id = ? AND r.active = true GROUP BY w.name, r.toprope_grade_id',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -251,7 +251,7 @@ var GymsDao = function () {
             'SELECT w.name AS zone, rg.name AS grade, COUNT(*) AS count FROM routes r ' +
                 'INNER JOIN walls w ON r.wall_id = w.id ' +
                 'INNER JOIN rope_grades rg ON rg.id = r.lead_grade_id ' +
-                'WHERE w.gym_id = ? GROUP BY w.name, r.lead_grade_id',
+                'WHERE w.gym_id = ? AND r.active = true GROUP BY w.name, r.lead_grade_id',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

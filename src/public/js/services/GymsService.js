@@ -15,6 +15,9 @@ angular.module('SETTER')
                 gyms = null;
 
             return {
+                setGymImageAsDirty: function () {
+                    image = {};
+                },
                 clearCache: function () {
                     gym = {};
                     image = {};

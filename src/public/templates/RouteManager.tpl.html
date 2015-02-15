@@ -15,11 +15,22 @@
 
 </section>
 
+<div class="row" ng-show="!isLoading && !hasRoutes()">
+    <div class="small-12 columns">
+        You have not set any routes!
+        <button type="submit"
+                class="btn--primary icon-plus btn--medium"
+                ng-click="navigateToWalls(gymId)">
+            Set Some Routes!
+        </button>
+    </div>
+</div>
 
-
-<div ng-hide="finishedRendering"
-    style="width: 150px; height: 150px;"
-    us-spinner>
+<div class="row" ng-hide="!isLoading || finishedRendering">
+    <div class="small-12 columns">
+        <div style="width: 150px; height: 150px; position: relative" us-spinner>
+        </div>
+    </div>
 </div>
 
 <!-- Section - Filters -->

@@ -31,6 +31,7 @@ angular.module('SETTER')
                         $scope.boulderRouteDistribution = pData;
                         $scope.boulderZoneKeys = [];
                         $scope.boulderZones = {};
+                        $scope.boulderCounts = {};
 
                         // build up a lookup table for (zone, grade) -> count
                         for (i = 0; i < pData.length; i += 1) {
@@ -53,9 +54,18 @@ angular.module('SETTER')
                             if ($scope.boulderZones.hasOwnProperty(k)) {
                                 $scope.boulderZoneKeys.push(k);
                             }
+                            $scope.boulderCounts[k] = [];
+                        }
+                        $scope.boulderZoneKeys.sort(naturalSort());
+
+                        for (k in $scope.boulderZones) {
+                            for (i = 0; i < $scope.boulderGrades.length; i += 1) {
+                                var gradeName = $scope.boulderGrades[i].name
+                                var gradeCount = $scope.boulderZones[k][gradeName]
+                                $scope.boulderCounts[k].push(gradeCount)
+                            }
                         }
 
-                        $scope.boulderZoneKeys.sort(naturalSort());
                     });
                 });
 

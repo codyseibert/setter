@@ -11,9 +11,9 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="zone in ropeZoneKeys">
+                <tr ng-repeat="(zone, grades) in ropeZoneKeys">
                     <td>{{zone}}</td>
-                    <td ng-repeat="count in ropeZones[zone]">{{count || ''}}</td>
+                    <td ng-repeat="count in ropeCounts[zone] track by $index">{{count || ''}}</td>
                 </tr>
             </tbody>
         </table>

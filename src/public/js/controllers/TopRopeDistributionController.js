@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false, $: false, naturalSort: false, jsPDF: false */
 
 angular.module('SETTER')
-    .controller('RopeDistributionController', [
+    .controller('TopRopeDistributionController', [
         '$scope',
         '$routeParams',
         'RoutesService',
@@ -30,6 +30,7 @@ angular.module('SETTER')
                         $scope.ropeRouteDistribution = pData;
                         $scope.ropeZoneKeys = [];
                         $scope.ropeZones = {};
+                        $scope.ropeCounts = {};
 
                         // build up a lookup table for (zone, grade) -> count
                         for (i = 0; i < pData.length; i += 1) {
@@ -52,9 +53,17 @@ angular.module('SETTER')
                             if ($scope.ropeZones.hasOwnProperty(k)) {
                                 $scope.ropeZoneKeys.push(k);
                             }
+                            $scope.ropeCounts[k] = [];
                         }
-
                         $scope.ropeZoneKeys.sort(naturalSort());
+
+                        for (k in $scope.ropeZones) {
+                            for (i = 0; i < $scope.ropeGrades.length; i += 1) {
+                                var gradeName = $scope.ropeGrades[i].name
+                                var gradeCount = $scope.ropeZones[k][gradeName]
+                                $scope.ropeCounts[k].push(gradeCount)
+                            }
+                        }
                     });
                 });
 

@@ -14,6 +14,7 @@ var theAccountsDao = require('../dao/AccountsDao');
 var theWallsDao = require('../dao/WallsDao');
 var theImagesDao = require('../dao/ImagesDao');
 var easyimage = require('easyimage');
+var path = require('path')
 
 /**
     Used for posting new images to the file system.
@@ -29,12 +30,13 @@ var ImagesController = function () {
             new_width,
             new_height,
             ratio,
+            extension,
             base;
 
 
         if (!req.files ||
-                !req.files.file ||
-                !req.files.file.name) {
+            !req.files.file ||
+            !req.files.file.name) {
             res.send("error");
             return;
         }
@@ -50,25 +52,23 @@ var ImagesController = function () {
                 height = file.height;
                 ratio = width / height;
 
-                // Scale image down if too large
-                if (width > MAX_WIDTH) {
-                    new_width = MAX_WIDTH;
-                    new_height = MAX_WIDTH / ratio;
-                    easyimage.resize({
-                        width: new_width,
-                        height: new_height,
-                        src: image.path,
-                        dst: base + '/public/images/uploads/' + image.name.replace('.jpg', '_scaled.jpg')
-                    }).then(function () {
-                        theImagesDao.insertImage('images/uploads/' + image.name, function (pResults) {
-                            var ret = {
-                                id: pResults.id,
-                                url: 'images/uploads/' + image.name.replace('.jpg', '_scaled.jpg')
-                            };
-                            pCallback(ret);
-                        });
+                extension = image.extension;
+                new_width = MAX_WIDTH;
+                new_height = MAX_WIDTH / ratio;
+                easyimage.resize({
+                    width: new_width,
+                    height: new_height,
+                    src: image.path,
+                    dst: base + '/public/images/uploads/' + image.name.replace(extension, '_scaled.' + extension)
+                }).then(function () {
+                    theImagesDao.insertImage('images/uploads/' + image.name, function (pResults) {
+                        var ret = {
+                            id: pResults.id,
+                            url: 'images/uploads/' + image.name.replace(extension, '_scaled.' + extension)
+                        };
+                        pCallback(ret);
                     });
-                }
+                });
             });
     };
 

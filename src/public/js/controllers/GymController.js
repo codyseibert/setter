@@ -58,6 +58,21 @@ angular.module('SETTER')
             $scope.typeNewest = $scope.BOULDERING;
             $scope.typeBest = $scope.BOULDERING;
 
+            $scope.bestRatedBoulder = [];
+            $scope.bestRatedLead = [];
+            $scope.bestRatedTopRope = [];
+            $scope.activity = []
+            $scope.newRoutes = []
+            $scope.alerts = []
+            $scope.boulderRoutesBarGraph = []
+            $scope.topRopeRoutesBarGraph = []
+            $scope.leadRoutesBarGraph = []
+            $scope.newestLead = []
+            $scope.newestBoulder = []
+            $scope.newestTopRope = []
+            $scope.users = []
+
+
             /*
             *   SECTION - Gym related service calls
             */
@@ -66,6 +81,11 @@ angular.module('SETTER')
             });
 
             GymsService.getHomeGymUsers($scope.gymId, function (pData) {
+                for (var i = 0; i < pData.length; i += 1) {
+                    if (pData[i].name === 'Guest Setter') {
+                        pData.splice(i, 1);
+                    }
+                }
                 $scope.users = pData;
             });
 
@@ -196,6 +216,10 @@ angular.module('SETTER')
             RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
                 createLeadRoutesBarGraph(pData);
             });
+
+            $scope.hasUsers = function () {
+                return $scope.users.length > 0;
+            }
 
             $scope.hasAnnouncements = function () {
                 return $scope.alerts.length > 0

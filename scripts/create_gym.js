@@ -1,17 +1,16 @@
-var theCrypt = require('../src/Crypt');
-var theDB = require('../src/DBConnection');
-var theMessages = require('../src/Messages');
-var theDaoHelper = require('../src/dao/DaoHelper');
+var theCrypt = require('../Crypt');
+var theDB = require('../DBConnection');
+var theMessages = require('../Messages');
+var theDaoHelper = require('../dao/DaoHelper');
 var randomstring = require('just.randomstring');
 
 var USER_TYPE = 2;
 var TOKEN = randomstring(20);
 
-var EMAIL = "some_email@gmail.com";
-var GYM_NAME = "Aiguille";
-var ADDRESS = "999 Charles Street";
-var PASSWORD = "some_random_password";
-
+var EMAIL = "info@x-tremerock.com";
+var GYM_NAME = "X-Treme";
+var ADDRESS = "13972 SW 139 Court, Miami, FL 33186";
+var PASSWORD = "helloxtreme";
 
 theCrypt.crypt(PASSWORD, function (err, hash) {
 

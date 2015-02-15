@@ -1,4 +1,5 @@
-var password = "helloonthedge";
+var password = process.argv[2];
+console.log (password);
 
 var theCrypt = require('../src/Crypt');
 

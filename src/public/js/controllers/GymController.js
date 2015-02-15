@@ -234,6 +234,8 @@ angular.module('SETTER')
 
             $scope.imageUploadComplete = function (content) {
                 $scope.image = content;
+                LoginService.setImageUrl(content.url);
+                UsersService.setImageAsDirty(LoginService.getAccountId());
             };
 
             $scope.setTypeNewest = function (pType) {

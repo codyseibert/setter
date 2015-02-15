@@ -80,7 +80,7 @@
         enctype="multipart/form-data"
         action="{{'/api/accounts/image'}}"
         method="post"
-        ng-upload="complete(content)">
+        ng-upload="imageUploadComplete(content)">
     <input id="image_file"
         type="file"
         name="file" />

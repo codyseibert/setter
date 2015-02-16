@@ -1,6 +1,22 @@
 
+<h2 class="text-center"
+    ng-show="!hasRatedTopRope() && getAccountId() !== gymId">
 
-<table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+    No one has rated the top rope routes!<br><br>
+    Please ask your friends to rate routes!
+
+</h2>
+
+<h2 class="text-center"
+    ng-show="!hasRatedTopRope() && getAccountId() == gymId">
+
+    No one has rated your top rope routes!<br><br>
+    Please ask them to help out your gym by rating routes!
+
+</h2>
+
+<table ng-show="hasRatedTopRope()"
+       class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
 
     <tbody>
@@ -38,7 +54,7 @@
                 {{route.date_format}}
 
             </td>
-            
+
             <td >
                 <div class="icon-right-big right">
 

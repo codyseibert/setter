@@ -3,8 +3,37 @@
             ng-show="getAccountId() === gymId">Export Data</a>
 
     <div id="ropeDistribution">
-        <h2>Rope Distribution</h2>
-        <table>
+        <h2>Top Rope Distribution</h2>
+
+        <div ng-show="!hasTopRope && getAccountId !== gymId">
+
+            <h2>
+
+                This gym has no top rope routes!
+
+            </h2>
+
+        </div>
+
+        <div ng-show="!hasTopRope && getAccountId === gymId">
+
+            <h2>
+
+                You have not set any top rope routes!
+
+            </h2>
+
+            <button type="submit"
+                class="btn--primary icon-plus btn--medium"
+                ng-click="navigateToWalls(gymId)">
+
+                Set Some Routes!
+
+            </button>
+
+        </div>
+
+        <table ng-show="hasTopRope">
             <thead>
                 <th>Zone</th>
                 <th ng-repeat="grade in ropeGrades">{{grade.name}}</th>

@@ -1,5 +1,30 @@
 
-<table class="[ small-12 columns ] table--unStyled table--list table--clickableElem">
+<h2 class="text-center"
+    ng-show="!hasBoulder() && getAccountId() !== gymId">
+
+    This gym has no boulder problems set!
+    <br><br>
+    Please ask them to update their information!
+
+</h2>
+
+<h2 class="text-center"
+    ng-show="!hasBoulder() && getAccountId() == gymId">
+
+    You have no boulder problems set!
+
+    <button type="submit"
+        class="btn--primary icon-plus btn--medium"
+        ng-click="navigateToWalls(gymId)">
+
+        Set Some Routes!
+
+    </button>
+
+</h2>
+
+<table ng-show="hasBoulder()"
+       class="[ small-12 columns ] table--unStyled table--list table--clickableElem">
 
     <tbody>
         <tr bindonce

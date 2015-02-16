@@ -4,7 +4,37 @@
 
     <div id="boulderDistribution">
         <h2>Bouldering Distribution</h2>
-        <table>
+
+        <div ng-show="!hasBoulder && getAccountId !== gymId">
+
+            <h2>
+
+                This gym has no boulder problems set!
+
+            </h2>
+
+        </div>
+
+        <div ng-show="!hasBoulder && getAccountId === gymId">
+
+            <h2>
+
+                You have not set any boulder problems!
+
+            </h2>
+
+            <button type="submit"
+                class="btn--primary icon-plus btn--medium"
+                ng-click="navigateToWalls(gymId)">
+
+                Set Some Routes!
+
+            </button>
+
+        </div>
+
+
+        <table ng-show="hasBoulder">
             <thead>
                 <th>Zone</th>
                 <th ng-repeat="grade in boulderGrades">{{grade.name}}</th>

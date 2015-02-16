@@ -1,6 +1,22 @@
 
-<table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+<h2 class="text-center"
+    ng-show="!hasRatedBoulder() && getAccountId() !== gymId">
 
+    No one has rated the boulder problems!<br><br>
+    Please ask your friends to rate problems!
+
+</h2>
+
+<h2 class="text-center"
+    ng-show="!hasRatedBoulder() && getAccountId() == gymId">
+
+    No one has rated your boulder problems!<br><br>
+    Please ask them to help out your gym by rating problems!
+
+</h2>
+
+<table ng-show="hasRatedBoulder()"
+       class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
     <tbody>
         <tr bindonce

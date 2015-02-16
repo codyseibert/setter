@@ -5,6 +5,34 @@
 
     <h2 class="h3 clearfix">Top Rope</h2>
 
+    <div ng-show="!hasTopRope && getAccountId() !== gymId">
+
+        <h2>
+
+            This gym has no top rope routes set!
+
+        </h2>
+
+    </div>
+
+    <div ng-show="!hasTopRope && getAccountId() === gymId">
+
+        <h2>
+
+            You have not set any top rope routes!
+
+        </h2>
+
+        <button type="submit"
+            class="btn--primary icon-plus btn--medium"
+            ng-click="navigateToWalls(gymId)">
+
+            Set Some Routes!
+
+        </button>
+
+    </div>
+
     <canvas
         id="topRopeGraph"
         class="chart-bar"

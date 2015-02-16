@@ -1,6 +1,30 @@
 
+<h2 class="text-center"
+    ng-show="!hasLead() && getAccountId() !== gymId">
 
-<table class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">
+    This gym has no lead routes set!
+    <br><br>
+    Please ask them to update their information!
+
+</h2>
+
+<h2 ng-show="!hasLead() && getAccountId() == gymId">
+
+    You have no lead routes!
+
+    <button type="submit"
+        class="btn--primary icon-plus btn--medium"
+        ng-click="navigateToWalls(gymId)">
+
+        Set Some Routes!
+
+    </button>
+
+</h2>
+
+
+<table ng-show="hasLead()"
+       class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">
 
     <tbody>
         <tr bindonce

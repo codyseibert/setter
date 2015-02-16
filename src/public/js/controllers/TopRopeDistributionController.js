@@ -16,6 +16,7 @@ angular.module('SETTER')
             'use strict';
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
+            $scope.hasTopRope = false;
 
             GradesService.getRopeGrades()
                 .success(function (pGrades) {
@@ -31,6 +32,8 @@ angular.module('SETTER')
                         $scope.ropeZoneKeys = [];
                         $scope.ropeZones = {};
                         $scope.ropeCounts = {};
+
+                        $scope.hasTopRope = pData.length > 0;
 
                         // build up a lookup table for (zone, grade) -> count
                         for (i = 0; i < pData.length; i += 1) {

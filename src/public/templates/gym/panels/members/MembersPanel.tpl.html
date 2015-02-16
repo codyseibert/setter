@@ -1,20 +1,48 @@
 <section class="row pt2">
 
-        <div class="small-6 medium-3 large-3 columns   pb4"
-            ng-repeat="user in users"
-            ng-click="navigateToUser(user.id)">
+    <div class="text-center"
+         ng-show="!hasUsers() && getAccountId() !== gymId">
 
-            <div class="flag">
-                <div class="flag-image pr2">
-                    <img class="avatar avatar--small  center mb1"
-                    ng-src="{{getUserImageSrc(user)}}">
-                </div>
+        <h2>
 
-                <div class="flag-body">
-                    <a class="h5  display--block  center">{{user.name}}</a>
-                </div>
+            This gym has no users!
+
+        </h2>
+
+    </div>
+
+    <div class="text-center"
+         ng-show="!hasUsers() && getAccountId() === gymId">
+
+        <h2>
+
+            You do not have any users!  Please ask your gym members to start using SETTER!
+
+        </h2>
+
+    </div>
+
+    <div class="small-6 medium-3 large-3 columns   pb4"
+        ng-repeat="user in users"
+        ng-click="navigateToUser(user.id)">
+
+        <div class="flag">
+
+            <div class="flag-image pr2">
+
+                <img class="avatar avatar--small  center mb1"
+                ng-src="{{getUserImageSrc(user)}}">
+
+            </div>
+
+            <div class="flag-body">
+
+                <a class="h5  display--block  center">{{user.name}}</a>
+
             </div>
 
         </div>
+
+    </div>
 
 </section>

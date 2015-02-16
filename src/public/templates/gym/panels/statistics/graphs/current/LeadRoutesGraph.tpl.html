@@ -6,6 +6,34 @@
 
     <h2 class="h3 clearfix">Lead</h2>
 
+    <div ng-show="!hasLead && getAccountId() !== gymId">
+
+        <h2>
+
+            This gym has no lead routes set!
+
+        </h2>
+
+    </div>
+
+    <div ng-show="!hasLead && getAccountId() === gymId">
+
+        <h2>
+
+            You have not set any lead routes!
+
+        </h2>
+
+        <button type="submit"
+            class="btn--primary icon-plus btn--medium"
+            ng-click="navigateToWalls(gymId)">
+
+            Set Some Routes!
+
+        </button>
+
+    </div>
+
     <canvas
         id="leadGraph"
         class="chart-bar"

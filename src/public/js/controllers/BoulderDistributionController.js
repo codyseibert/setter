@@ -16,6 +16,7 @@ angular.module('SETTER')
             'use strict';
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
+            $scope.hasBoulder = false;
 
             GradesService.getBoulderGrades()
                 .success(function (pGrades) {
@@ -27,6 +28,8 @@ angular.module('SETTER')
                             k,
                             count,
                             grade;
+
+                        $scope.hasBoulder = pData.length > 0;
 
                         $scope.boulderRouteDistribution = pData;
                         $scope.boulderZoneKeys = [];

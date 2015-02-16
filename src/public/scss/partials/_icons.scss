@@ -297,6 +297,11 @@
   }
 }
 
+
+.icon--colored {
+    color: $primaryColor; 
+}
+
 //
 //Icon States
 //
@@ -319,4 +324,8 @@
 
 .icon--big {
   @extend %icon--big;
+}
+
+.icon--jumbo {
+ @extend %icon--jumbo; 
 }

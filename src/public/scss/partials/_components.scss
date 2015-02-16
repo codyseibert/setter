@@ -170,8 +170,8 @@
     float: left; 
 
     @media #{$large-up} { 
-        width: rem-calc(920);
-        margin-right: rem-calc(-380); 
+        width: rem-calc(800);
+        margin-right: rem-calc(-200); 
     }
     
 }

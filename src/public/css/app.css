@@ -1140,6 +1140,11 @@ h6,
   font-size: rem-calc(26);
 }
 
+/* line 173, ../scss/modules/_icons.scss */
+.icon--jumbo {
+  font-size: rem-calc(32);
+}
+
 @-moz-keyframes spin {
   0% {
     -moz-transform: rotate(0deg);
@@ -1210,16 +1215,6 @@ h6,
     transform: rotate(359deg);
   }
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?4837664#fontello') format('svg');
-  }
-}
-*/
 /* If you set this to false, base styles are left out */
 /* This sets the speed at which the switch toggles */
 /* This sets the ease of the switch transition */
@@ -6852,7 +6847,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", Helvetica, sans-serif;
   font-weight: normal;
   font-style: normal;
-  color: #222222;
+  color: #484848;
   text-rendering: optimizeLegibility;
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
@@ -6861,7 +6856,7 @@ h1, h2, h3, h4, h5, h6 {
 /* line 262, ../bower_components/foundation/scss/foundation/components/_type.scss */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 60%;
-  color: #6f6f6f;
+  color: #888888;
   line-height: 0;
 }
 
@@ -6898,7 +6893,7 @@ h6 {
 /* line 276, ../bower_components/foundation/scss/foundation/components/_type.scss */
 .subheader {
   line-height: 1.4;
-  color: #6f6f6f;
+  color: #888888;
   font-weight: normal;
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
@@ -7058,7 +7053,7 @@ blockquote {
 blockquote cite {
   display: block;
   font-size: 0.8125rem;
-  color: #555555;
+  color: #727272;
 }
 /* line 408, ../bower_components/foundation/scss/foundation/components/_type.scss */
 blockquote cite:before {
@@ -7067,14 +7062,14 @@ blockquote cite:before {
 /* line 412, ../bower_components/foundation/scss/foundation/components/_type.scss */
 blockquote cite a,
 blockquote cite a:visited {
-  color: #555555;
+  color: #727272;
 }
 
 /* line 418, ../bower_components/foundation/scss/foundation/components/_type.scss */
 blockquote,
 blockquote p {
   line-height: 1.6;
-  color: #6f6f6f;
+  color: #888888;
 }
 
 /* Microformats */
@@ -9035,6 +9030,11 @@ h6,
   font-size: 1.625rem;
 }
 
+/* line 173, ../scss/modules/_icons.scss */
+.icon--jumbo {
+  font-size: 2rem;
+}
+
 @-moz-keyframes spin {
   0% {
     -moz-transform: rotate(0deg);
@@ -9105,16 +9105,6 @@ h6,
     transform: rotate(359deg);
   }
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?4837664#fontello') format('svg');
-  }
-}
-*/
 /* If you set this to false, base styles are left out */
 /* This sets the speed at which the switch toggles */
 /* This sets the ease of the switch transition */
@@ -9331,8 +9321,8 @@ ol {
 @media only screen and (min-width: 64.063em) {
   /* line 165, ../scss/partials/_components.scss */
   .background-photo-foreground {
-    width: 57.5rem;
-    margin-right: -23.75rem;
+    width: 50rem;
+    margin-right: -12.5rem;
   }
 }
 
@@ -9770,20 +9760,16 @@ a:hover {
   display: inline;
 }
 
-/* line 32, ../scss/partials/_generics.scss */
-.align-vertically {
-  display: inline-block !important;
+/* line 31, ../scss/partials/_generics.scss */
+.vertical-align {
   position: relative;
-  vertical-align: middle;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-/* line 39, ../scss/partials/_generics.scss */
-.alignContentsVertically > * {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-/* line 45, ../scss/partials/_generics.scss */
+/* line 52, ../scss/partials/_generics.scss */
 .parentTable {
   display: table;
 }
@@ -9791,23 +9777,23 @@ a:hover {
 /*------------------------------------*\
     #Clearfix 
 \*------------------------------------*/
-/* line 58, ../scss/partials/_generics.scss */
+/* line 65, ../scss/partials/_generics.scss */
 .cf {
   overflow: hidden;
   zoom: 1;
 }
 
-/* line 65, ../scss/partials/_generics.scss */
+/* line 72, ../scss/partials/_generics.scss */
 .selfClear:after {
   clear: both;
 }
-/* line 68, ../scss/partials/_generics.scss */
+/* line 75, ../scss/partials/_generics.scss */
 .selfClear:before, .selfClear:after {
   content: " ";
   display: table;
 }
 
-/* line 75, ../scss/partials/_generics.scss */
+/* line 82, ../scss/partials/_generics.scss */
 .center {
   margin-right: auto !important;
   margin-left: auto !important;
@@ -9817,55 +9803,55 @@ a:hover {
 /*------------------------------------*\
     #Flag Object 
 \*------------------------------------*/
-/* line 102, ../scss/partials/_generics.scss */
+/* line 109, ../scss/partials/_generics.scss */
 .flag {
   display: table;
   width: 100%;
 }
 
-/* line 107, ../scss/partials/_generics.scss */
+/* line 114, ../scss/partials/_generics.scss */
 .flag-image,
 .flag-body {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 112, ../scss/partials/_generics.scss */
+/* line 119, ../scss/partials/_generics.scss */
 .flag--top .flag-image, .flag--top
 .flag-body {
   vertical-align: top;
 }
-/* line 116, ../scss/partials/_generics.scss */
+/* line 123, ../scss/partials/_generics.scss */
 .flag--bottom .flag-image, .flag--bottom
 .flag-body {
   vertical-align: bottom;
 }
 
-/* line 121, ../scss/partials/_generics.scss */
+/* line 128, ../scss/partials/_generics.scss */
 .flag-image {
   padding-right: 1.5rem;
 }
-/* line 124, ../scss/partials/_generics.scss */
+/* line 131, ../scss/partials/_generics.scss */
 .flag-image > img {
   display: block;
   max-width: none;
 }
-/* line 129, ../scss/partials/_generics.scss */
+/* line 136, ../scss/partials/_generics.scss */
 .flag--rev .flag-image {
   padding-left: 10px;
   padding-right: 0;
 }
 
-/* line 136, ../scss/partials/_generics.scss */
+/* line 143, ../scss/partials/_generics.scss */
 .flag-body {
   width: 100%;
 }
 
-/* line 141, ../scss/partials/_generics.scss */
+/* line 148, ../scss/partials/_generics.scss */
 .nowrap {
   white-space: nowrap;
 }
 
-/* line 145, ../scss/partials/_generics.scss */
+/* line 152, ../scss/partials/_generics.scss */
 .full-height {
   height: 100%;
 }
@@ -9873,32 +9859,32 @@ a:hover {
 /*------------------------------------*\
     #Positions
 \*------------------------------------*/
-/* line 166, ../scss/partials/_generics.scss */
+/* line 173, ../scss/partials/_generics.scss */
 .relative {
   position: relative;
 }
 
-/* line 170, ../scss/partials/_generics.scss */
+/* line 177, ../scss/partials/_generics.scss */
 .absolute {
   position: absolute;
 }
 
-/* line 176, ../scss/partials/_generics.scss */
+/* line 183, ../scss/partials/_generics.scss */
 .vh100 {
   height: 100vh;
 }
 
-/* line 196, ../scss/partials/_generics.scss */
+/* line 203, ../scss/partials/_generics.scss */
 .hide-on-small {
   display: none;
 }
 
-/* line 203, ../scss/partials/_generics.scss */
+/* line 210, ../scss/partials/_generics.scss */
 .show-on-small {
   display: block;
 }
 
-/* line 215, ../scss/partials/_generics.scss */
+/* line 222, ../scss/partials/_generics.scss */
 .media--fr {
   overflow: auto;
   zoom: 1;
@@ -9912,7 +9898,7 @@ a:hover {
   overflow: hidden;
 }
 
-/* line 219, ../scss/partials/_generics.scss */
+/* line 226, ../scss/partials/_generics.scss */
 .media--fl {
   overflow: auto;
   zoom: 1;
@@ -9926,7 +9912,7 @@ a:hover {
   overflow: hidden;
 }
 
-/* line 230, ../scss/partials/_generics.scss */
+/* line 237, ../scss/partials/_generics.scss */
 .hr--vertical {
   width: 2px;
   height: 100%;
@@ -9935,12 +9921,12 @@ a:hover {
   background-color: pink;
 }
 
-/* line 238, ../scss/partials/_generics.scss */
+/* line 245, ../scss/partials/_generics.scss */
 .hr--light {
   border-color: #F2F2F2;
 }
 
-/* line 250, ../scss/partials/_generics.scss */
+/* line 257, ../scss/partials/_generics.scss */
 .mga {
   margin: auto;
 }
@@ -11247,12 +11233,17 @@ footer a:hover {
   opacity: 1;
 }
 
-/* line 304, ../scss/partials/_icons.scss */
+/* line 301, ../scss/partials/_icons.scss */
+.icon--colored {
+  color: #ed6d56;
+}
+
+/* line 309, ../scss/partials/_icons.scss */
 .active {
   opacity: 1;
 }
 
-/* line 312, ../scss/partials/_icons.scss */
+/* line 317, ../scss/partials/_icons.scss */
 .icon--tiny {
   font-size: 0.625rem;
 }
@@ -11316,21 +11307,25 @@ body {
 /*------------------------------------*\
     #Top Bars
 \*------------------------------------*/
-/* line 65, ../scss/partials/_navs.scss */
+/* line 64, ../scss/partials/_navs.scss */
+.topBar--splash {
+  height: 6.25rem;
+}
+/* line 67, ../scss/partials/_navs.scss */
 .topBar--splash .links a {
   color: #333333;
 }
-/* line 68, ../scss/partials/_navs.scss */
+/* line 70, ../scss/partials/_navs.scss */
 .topBar--splash .links a:hover {
   color: #ed6d56;
 }
 
-/* line 79, ../scss/partials/_navs.scss */
+/* line 81, ../scss/partials/_navs.scss */
 .sticky {
   z-index: 10;
 }
 
-/* line 80, ../scss/partials/_navs.scss */
+/* line 82, ../scss/partials/_navs.scss */
 .tab-bar,
 .top-bar {
   background-color: #ed6d56;
@@ -11340,30 +11335,37 @@ body {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 91, ../scss/partials/_navs.scss */
+/* line 93, ../scss/partials/_navs.scss */
 .tab-bar .tab-bar-link:hover,
 .top-bar .tab-bar-link:hover {
   color: #ec6148;
 }
 
-/* line 100, ../scss/partials/_navs.scss */
+/* line 101, ../scss/partials/_navs.scss */
+.dropShadow {
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* line 106, ../scss/partials/_navs.scss */
 .setterLogo--nav {
   height: 10.9375rem;
   width: 100%;
   background-color: #ed6d56;
 }
-/* line 105, ../scss/partials/_navs.scss */
+/* line 111, ../scss/partials/_navs.scss */
 .setterLogo--nav img {
   width: 65%;
   height: 10.9375rem;
 }
 
-/* line 112, ../scss/partials/_navs.scss */
+/* line 118, ../scss/partials/_navs.scss */
 .nav-primary {
   background-color: red;
 }
 
-/* line 116, ../scss/partials/_navs.scss */
+/* line 122, ../scss/partials/_navs.scss */
 .nav-primary,
 .nav-account {
   width: 15rem;
@@ -11374,53 +11376,53 @@ body {
   z-index: 4;
 }
 
-/* line 131, ../scss/partials/_navs.scss */
+/* line 137, ../scss/partials/_navs.scss */
 .top-bar ul.top-bar-links li {
   font-size: 0.875rem;
   height: 3.75rem;
 }
-/* line 137, ../scss/partials/_navs.scss */
+/* line 143, ../scss/partials/_navs.scss */
 .top-bar ul.top-bar-links li a {
   color: #fff;
   height: 3.75rem;
   line-height: 4.0625rem;
 }
-/* line 143, ../scss/partials/_navs.scss */
+/* line 149, ../scss/partials/_navs.scss */
 .top-bar ul.top-bar-links li:hover {
   background-color: #eb5d44;
 }
-/* line 153, ../scss/partials/_navs.scss */
+/* line 159, ../scss/partials/_navs.scss */
 .top-bar .avatar {
   vertical-align: middle;
 }
 
-/* line 159, ../scss/partials/_navs.scss */
+/* line 165, ../scss/partials/_navs.scss */
 .nav-account {
   background-color: #F2F2F2;
   left: 15rem;
 }
-/* line 163, ../scss/partials/_navs.scss */
+/* line 169, ../scss/partials/_navs.scss */
 .nav-account li, .nav-account label {
   color: #fff;
   display: block;
   width: 100%;
 }
-/* line 175, ../scss/partials/_navs.scss */
+/* line 181, ../scss/partials/_navs.scss */
 .nav-account label {
   background-color: #E0E0DF;
 }
-/* line 179, ../scss/partials/_navs.scss */
+/* line 185, ../scss/partials/_navs.scss */
 .nav-account li a {
   display: block;
   color: #E0E0DF;
   width: 100%;
 }
-/* line 185, ../scss/partials/_navs.scss */
+/* line 191, ../scss/partials/_navs.scss */
 .nav-account li a:hover {
   background-color: #c3c3c3;
   color: #333333;
 }
-/* line 192, ../scss/partials/_navs.scss */
+/* line 198, ../scss/partials/_navs.scss */
 .nav-account .copyright {
   color: #333333;
   font-size: 0.8125rem;
@@ -11429,7 +11431,7 @@ body {
   text-align: center;
 }
 
-/* line 204, ../scss/partials/_navs.scss */
+/* line 210, ../scss/partials/_navs.scss */
 .nav-avatar {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -11439,12 +11441,12 @@ body {
   background-color: white;
 }
 
-/* line 242, ../scss/partials/_navs.scss */
+/* line 248, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover,
 .nav-primary ul li a:hover {
   background-color: #fff;
 }
-/* line 244, ../scss/partials/_navs.scss */
+/* line 250, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover img,
 .nav-primary ul li a:hover img {
   opacity: 1;

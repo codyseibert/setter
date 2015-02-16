@@ -28,19 +28,26 @@
 
 
 
-
-.align-vertically {
-  display: inline-block !important;
-  position: relative; 
-  vertical-align: middle; 
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-.alignContentsVertically {
-  & > * {
-    display: inline-block; 
-    vertical-align: middle; 
-  }
-}
+// .align-vertically {
+//   display: inline-block !important;
+//   position: relative; 
+//   vertical-align: middle; 
+// }
+
+// .alignContentsVertically {
+//   & > * {
+//     display: inline-block; 
+//     vertical-align: middle; 
+//   }
+// }
 
 .parentTable {
   display: table; 

@@ -170,6 +170,10 @@ $icon--thrash: '\e808';
 }
 
 
+%icon--jumbo {
+    font-size: rem-calc(32); 
+}
+
 
 
 //
@@ -259,76 +263,3 @@ $icon--thrash: '\e808';
   }
 }
 
-
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?4837664#fontello') format('svg');
-  }
-}
-*/
-
-
-
-// .icon-star-empty:before { content: '\e800'; } /* '' */
-// .icon-star:before { content: '\e801'; } /* '' */
-// .icon-picture:before { content: '\e802'; } /* '' */
-// .icon-home:before { content: '\e803'; } /* '' */
-// .icon-frown:before { content: '\e804'; } /* '' */
-// .icon-smile:before { content: '\e805'; } /* '' */
-// .icon-meh:before { content: '\e806'; } /* '' */
-// .icon-blank:before { content: '\e807'; } /* '' */
-// .icon-trash:before { content: '\e808'; } /* '' */
-// .icon-plus:before { content: '\e809'; } /* '' */
-// .icon-right-open:before { content: '\e80a'; } /* '' */
-// .icon-left-open:before { content: '\e80b'; } /* '' */
-// .icon-down-open:before { content: '\e80c'; } /* '' */
-// .icon-up-open:before { content: '\e80d'; } /* '' */
-// .icon-spin4-1:before { content: '\e80e'; } /* '' */
-// .icon-comment-alt-1:before { content: '\e80f'; } /* '' */
-// .icon-comment-1:before { content: '\e810'; } /* '' */
-// .icon-globe-alt-1:before { content: '\e811'; } /* '' */
-// .icon-chart-pie-1:before { content: '\e812'; } /* '' */
-// .icon-twitter-1:before { content: '\e813'; } /* '' */
-// .icon-location-1:before { content: '\e814'; } /* '' */
-// .icon-facebook-1:before { content: '\e815'; } /* '' */
-// .icon-trash-1:before { content: '\e816'; } /* '' */
-// .icon-group-1:before { content: '\e817'; } /* '' */
-// .icon-mail-1:before { content: '\e818'; } /* '' */
-// .icon-phone-1:before { content: '\e819'; } /* '' */
-// .icon-cog-alt-1:before { content: '\e81a'; } /* '' */
-// .icon-check-empty-1:before { content: '\e81b'; } /* '' */
-// .icon-award:before { content: '\e81c'; } /* '' */
-// .icon-award-empty:before { content: '\e81d'; } /* '' */
-// .icon-fire:before { content: '\e81e'; } /* '' */
-// .icon-down-micro:before { content: '\e81f'; } /* '' */
-// .icon-up-micro:before { content: '\e820'; } /* '' */
-// .icon-check-1:before { content: '\e821'; } /* '' */
-// .icon-cog-1:before { content: '\e822'; } /* '' */
-// .icon-map-1:before { content: '\e823'; } /* '' */
-// .icon-off-2:before { content: '\e824'; } /* '' */
-// .icon-cancel-circled2-1:before { content: '\e825'; } /* '' */
-// .icon-folder-open-1:before { content: '\e826'; } /* '' */
-// .icon-search-1:before { content: '\e827'; } /* '' */
-// .icon-torso-1:before { content: '\e828'; } /* '' */
-// .icon-attention:before { content: '\e829'; } /* '' */
-// .icon-pencil:before { content: '\e82a'; } /* '' */
-// .icon-edit:before { content: '\e82b'; } /* '' */
-// .icon-rss:before { content: '\e82c'; } /* '' */
-// .icon-megaphone:before { content: '\e82d'; } /* '' */
-// .icon-key:before { content: '\e82e'; } /* '' */
-// .icon-book:before { content: '\e82f'; } /* '' */
-// .icon-circle:before { content: '\e830'; } /* '' */
-// .icon-thumbs-up-alt:before { content: '\e831'; } /* '' */
-// .icon-thumbs-down-alt:before { content: '\e832'; } /* '' */
-// .icon-glass:before { content: '\e833'; } /* '' */
-// .icon-minus:before { content: '\e834'; } /* '' */
-// .icon-gauge-2:before { content: '\e835'; } /* '' */
-// .icon-chart-area:before { content: '\e836'; } /* '' */
-// .icon-chart-bar:before { content: '\e837'; } /* '' */
-// .icon-chart-pie:before { content: '\e838'; } /* '' */
-// .icon-globe:before { content: '\e839'; } /* '' */
-// .icon-flash-1:before { content: '\e83a'; } /* '' */

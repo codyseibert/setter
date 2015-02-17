@@ -104,10 +104,12 @@ h6,
 
 
 a { 
-  color: $primaryColor; 
-  &:hover {
-    color: darken($primaryColor, 15%);
-  }
+    @include transition(all .2s ease-in-out);
+    color: $primaryColor; 
+
+    &:hover {
+        color: darken($primaryColor, 15%);
+    }
 }
 
 

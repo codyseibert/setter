@@ -19,7 +19,7 @@
 
             <ul class="links  right  vertical-align">
 
-                <a class="mr2">
+                <a class="mr2  fwb" ng-click="navigateToLogin()">
                     Log In
                 </a>
 
@@ -51,7 +51,7 @@
       
       
       <button ng-click="navigateToRegisterUser()" class="btn btn--primary btn--big show-for-large-up">
-        Get Started <i class="icon-right-big"></i>
+        Get Started<i class="icon-right-big"></i>
       </button>
   </div>
 
@@ -507,6 +507,7 @@
 
                         <!-- Home Gym -->
                         <label class="label--block  fwb" for="gym">Home Gym</label>
+
                         <label class="[ select--medium select--secondary ] left mb4">
                             <select name="gym"
                                     ng-model="form.gym"
@@ -524,41 +525,95 @@
                             ng-click='registerClicked()'>
                             Sign me up!
                         </button>
-                    </div>
-                </div>
 
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
-
 
     </div>
 
 </div>
 
 
+<footer class="section--alt" >
 
+    <div class="row">
 
+        <div class="[ small-12 medium-10 medium-centered columns ]">
+        
+            <div class="row ptb4">
+        
+                <section class="small-12  medium-4 columns  text-center">
+        
+                  <h1 class="h2  fwl">
+                      Connect With Us
+                  </h1>
+        
+                  <ul class="list--inline mb2">
+        
+                      <li>
+                        <a class="icon--jumbo  section-link" href="https://twitter.com/setterapp" target="_blank"></a>
+                        </li>
+            
+                      <li>
+                        <a class="icon--jumbo  section-link" href="https://www.facebook.com/thisissetter" target="_blank"></a>
+                      </li>
+                  </ul>
+        
+                  <ul>
+                      <a href="mailto:setterapp@gmail.com" class="section-link">setterapp@gmail.com</a>
+                  </ul>
+        
+                </section>   
+        
+                <section class="small-12  medium-4 columns  text-center dividerLeftRight--alt">
 
+                    <h1 class="h2  fwl">
+                        Get the Latest 
+                    </h1>
+                    <!-- Begin MailChimp Signup Form -->
+               
+                    <div id="mc_embed_signup">
 
+                        <form action="//setterapp.us9.list-manage.com/subscribe/post?u=47170203e5b3a4bb510763ce1&amp;id=324a64539e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                            <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Your Email" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;"><input type="text" name="b_47170203e5b3a4bb510763ce1_324a64539e" tabindex="-1" value=""></div>
+                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn--medium btn--tetriary plr3 mb3"></div>
+                            </div>
+                        </form>
 
-  <footer class="section--alt">
+                    </div>
+                    <!--End mc_embed_signup-->
+                </section>
+        
+                <section class="small-12  medium-4 columns  text-center">
+        
+                    <h1 class="h2  fwl">
+                        Boring Stuff 
+                    </h1>
+        
+                    <ul class="list--inline">
 
-    <div class="row ptb3">
+                        <li>
+                            <a class="section-link">Terms of Service</a>
+                        </li>
 
-      <section class="small-12  medium-6 columns  text-center">
-      <h1 class="h2  section-text">
-          Connect With Us
+                        <li class="txt--micro">©2015 Cody Seibert & Guillermo Martinez</li>
 
-      </h1>
+                    </ul>
+        
+                </section>  
+                
+            </div>
+        
+        </div>
 
-      </section>
-    <section class="small-12  medium-6 columns  text-center  ">
-        <h1 class="h2  section-text">
-            Receive Updates
-        </h1>
-      </section>
     </div>
 
-  </footer>
+</footer>

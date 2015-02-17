@@ -1,0 +1,134 @@
+
+
+/*------------------------------------*\
+    #Sections
+\*------------------------------------*/
+
+
+[class*="section--"] {
+    @extend %relative; 
+    @extend %display--block; 
+}
+
+.section--primary {
+    background-color: $primaryColor;
+    color: #fff;
+    min-height: rem-calc(8);
+
+    .section-text {
+        color: #fff; 
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .2);        
+    }
+
+}
+
+.section--tetriary {
+    background-color: $brown--dark; 
+    color: #fff; 
+
+    .section-text {
+        color: #fff;        
+    }
+}
+
+
+.section--secondary {
+  background-color: $grey--light;
+}
+
+.section--alt {
+    background-color: $brown; 
+    
+    .section-headline { 
+        color: $primaryColor; 
+    }
+    
+    .section-link, {
+        color: $brown--dark; 
+
+        &:hover {
+            opacity: .8; 
+        }
+    }
+}
+
+
+.main-section {
+  @extend %mb5;
+}
+
+.section--photo {
+    overflow: hidden; 
+}
+
+
+.background-photo-foreground  img {
+
+    @extend %center; 
+    width: 80%; 
+    position: relative; 
+    left: 0; 
+    top: rem-calc(20);
+
+    @media #{$large-up} { 
+        width: 100%; 
+        top: rem-calc(10);
+    }
+}
+
+.background-photo-foreground {
+    @extend %relative;
+    @extend %display--block; 
+
+    width: 100%; 
+    float: left; 
+
+    @media #{$large-up} { 
+        width: rem-calc(800);
+        margin-right: rem-calc(-200); 
+    }
+    
+}
+
+.background-photo:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    background-image: url("../images/bg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 120%;
+    height: 800px;
+    opacity: .1;
+
+  //  -webkit-filter: blur(2px);
+  // -moz-filter: blur(2px);
+  // -o-filter: blur(2px);
+  // -ms-filter: blur(2px);
+  // filter: blur(2px);
+   
+}
+
+// .background--photo {
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     z-index: 0;
+//     margin-left: -20px;
+//     margin-right: 20px;
+//     width: 110%;
+// }
+
+//
+//Route Object
+//
+
+// .route {
+//   [class*="route-"] {
+//     display: inline;
+//     margin-right: rem-calc(20);
+//   }
+// }

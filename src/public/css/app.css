@@ -483,7 +483,7 @@ table {
 }
 
 /* line 40, ../scss/modules/_generics.scss */
-[class*="section--"], .background-photo-foreground, .header .header-divider, .fieldWrapper, .label--block, .img-overlay {
+.header .header-divider, .fieldWrapper, .label--block, .img-overlay, [class*="section--"], .background-photo-foreground {
   display: block;
 }
 
@@ -503,7 +503,7 @@ table {
 }
 
 /* line 67, ../scss/modules/_generics.scss */
-.background-photo-foreground img, .setterLogo--nav img {
+.setterLogo--nav img, .background-photo-foreground img {
   margin-right: auto;
   margin-left: auto;
   display: block;
@@ -531,7 +531,7 @@ table {
     #Positions
 \*------------------------------------*/
 /* line 113, ../scss/modules/_generics.scss */
-[class*="section--"], .background-photo-foreground, footer, .select--tetriary, .select--primary, .select--secondary {
+footer, .select--tetriary, .select--primary, .select--secondary, [class*="section--"], .background-photo-foreground {
   position: relative;
 }
 
@@ -638,7 +638,7 @@ table {
 }
 
 /* line 264, ../scss/modules/_generics.scss */
-.main-section, .mb5, .textarea--large {
+.mb5, .textarea--large, .main-section {
   margin-bottom: rem-calc(48) !important;
 }
 
@@ -1140,7 +1140,7 @@ h6,
   font-size: rem-calc(26);
 }
 
-/* line 173, ../scss/modules/_icons.scss */
+/* line 172, ../scss/modules/_icons.scss */
 .icon--jumbo {
   font-size: rem-calc(32);
 }
@@ -1215,6 +1215,16 @@ h6,
     transform: rotate(359deg);
   }
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?4837664#fontello') format('svg');
+  }
+}
+*/
 /* If you set this to false, base styles are left out */
 /* This sets the speed at which the switch toggles */
 /* This sets the ease of the switch transition */
@@ -8373,7 +8383,7 @@ th.hide-for-touch {
 }
 
 /* line 40, ../scss/modules/_generics.scss */
-[class*="section--"], .background-photo-foreground, .header .header-divider, .fieldWrapper, .label--block, .img-overlay {
+.header .header-divider, .fieldWrapper, .label--block, .img-overlay, [class*="section--"], .background-photo-foreground {
   display: block;
 }
 
@@ -8393,7 +8403,7 @@ th.hide-for-touch {
 }
 
 /* line 67, ../scss/modules/_generics.scss */
-.background-photo-foreground img, .setterLogo--nav img {
+.setterLogo--nav img, .background-photo-foreground img {
   margin-right: auto;
   margin-left: auto;
   display: block;
@@ -8421,7 +8431,7 @@ th.hide-for-touch {
     #Positions
 \*------------------------------------*/
 /* line 113, ../scss/modules/_generics.scss */
-[class*="section--"], .background-photo-foreground, footer, .select--tetriary, .select--primary, .select--secondary {
+footer, .select--tetriary, .select--primary, .select--secondary, [class*="section--"], .background-photo-foreground {
   position: relative;
 }
 
@@ -8528,7 +8538,7 @@ th.hide-for-touch {
 }
 
 /* line 264, ../scss/modules/_generics.scss */
-.main-section, .mb5, .textarea--large {
+.mb5, .textarea--large, .main-section {
   margin-bottom: 3rem !important;
 }
 
@@ -9030,7 +9040,7 @@ h6,
   font-size: 1.625rem;
 }
 
-/* line 173, ../scss/modules/_icons.scss */
+/* line 172, ../scss/modules/_icons.scss */
 .icon--jumbo {
   font-size: 2rem;
 }
@@ -9105,6 +9115,16 @@ h6,
     transform: rotate(359deg);
   }
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?4837664#fontello') format('svg');
+  }
+}
+*/
 /* If you set this to false, base styles are left out */
 /* This sets the speed at which the switch toggles */
 /* This sets the ease of the switch transition */
@@ -9261,131 +9281,45 @@ ol {
   color: #E9E04A;
 }
 
-/*------------------------------------*\
-    #Sections
-\*------------------------------------*/
-/* line 117, ../scss/partials/_components.scss */
-.section--primary {
-  background-color: #ed6d56;
-  color: #fff;
-  min-height: 0.5rem;
-}
-/* line 122, ../scss/partials/_components.scss */
-.section--primary .section-text {
-  color: #fff;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* line 129, ../scss/partials/_components.scss */
-.section--tetriary {
-  background-color: #6B6862;
-  color: #fff;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-}
-/* line 134, ../scss/partials/_components.scss */
-.section--tetriary .section-text {
-  color: #fff;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* line 141, ../scss/partials/_components.scss */
-.section--secondary {
-  background-color: #F2F2F2;
-}
-
-/* line 145, ../scss/partials/_components.scss */
-.section--alt {
-  background-color: #EBE4D7;
-}
-
-/* line 154, ../scss/partials/_components.scss */
-.section--photo {
-  overflow: hidden;
-}
-
-/* line 159, ../scss/partials/_components.scss */
-.background-photo-foreground img {
-  width: 80%;
-  position: relative;
-  left: 0;
-  top: 1.25rem;
-}
-@media only screen and (min-width: 64.063em) {
-  /* line 159, ../scss/partials/_components.scss */
-  .background-photo-foreground img {
-    width: 100%;
-    top: 0.625rem;
-  }
-}
-
-/* line 173, ../scss/partials/_components.scss */
-.background-photo-foreground {
-  width: 100%;
-  float: left;
-}
-@media only screen and (min-width: 64.063em) {
-  /* line 173, ../scss/partials/_components.scss */
-  .background-photo-foreground {
-    width: 50rem;
-    margin-right: -12.5rem;
-  }
-}
-
-/* line 187, ../scss/partials/_components.scss */
-.background-photo:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: block;
-  background-image: url("../images/bg1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 120%;
-  height: 800px;
-  opacity: .1;
-}
-
-/* line 230, ../scss/partials/_components.scss */
+/* line 107, ../scss/partials/_components.scss */
 .route {
   text-align: justify;
 }
 
-/* line 283, ../scss/partials/_components.scss */
+/* line 160, ../scss/partials/_components.scss */
 .route-mainInfo > span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 287, ../scss/partials/_components.scss */
+/* line 164, ../scss/partials/_components.scss */
 .route-mainInfo > span:last-child {
   float: right;
 }
 
-/* line 301, ../scss/partials/_components.scss */
+/* line 178, ../scss/partials/_components.scss */
 .route-secondaryInfo {
   display: none;
   width: 75%;
 }
-/* line 306, ../scss/partials/_components.scss */
+/* line 183, ../scss/partials/_components.scss */
 .route-secondaryInfo > span {
   display: inline-block;
   vertical-align: middle;
   margin-right: 1%;
 }
 
-/* line 350, ../scss/partials/_components.scss */
+/* line 227, ../scss/partials/_components.scss */
 .route-moreInfo {
   padding-left: 0;
   padding-right: 0;
   text-align: left;
 }
-/* line 370, ../scss/partials/_components.scss */
+/* line 247, ../scss/partials/_components.scss */
 .route-moreInfo .route-moreInfo-link {
   margin-top: 0.25rem;
 }
 
-/* line 381, ../scss/partials/_components.scss */
+/* line 258, ../scss/partials/_components.scss */
 .route-color {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -9396,160 +9330,160 @@ ol {
   border: 1px solid #c3c3c3;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--brown {
   background-color: #5D4636;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--brown:hover {
   background-color: #5D4636 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--lightbrown {
   background-color: #CAA16D;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--lightbrown:hover {
   background-color: #CAA16D !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--blue {
   background-color: #4d77cb;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--blue:hover {
   background-color: #4d77cb !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--lightBlue {
   background-color: #6491ed;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--lightBlue:hover {
   background-color: #6491ed !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--teal {
   background-color: #20d2f8;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--teal:hover {
   background-color: #20d2f8 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--pink {
   background-color: #c93d98;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--pink:hover {
   background-color: #c93d98 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--red {
   background-color: #c51038;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--red:hover {
   background-color: #c51038 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--green {
   background-color: #34b27d;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--green:hover {
   background-color: #34b27d !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--darkgreen {
   background-color: #6caa4f;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--darkgreen:hover {
   background-color: #6caa4f !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--limeGreen {
   background-color: #88AE2C;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--limeGreen:hover {
   background-color: #88AE2C !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--yellow {
   background-color: #faf038;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--yellow:hover {
   background-color: #faf038 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--orange {
   background-color: #de923c;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--orange:hover {
   background-color: #de923c !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--purple {
   background-color: #7F5E93;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--purple:hover {
   background-color: #7F5E93 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--lightpurple {
   background-color: #9e80c7;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--lightpurple:hover {
   background-color: #9e80c7 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--white {
   background-color: #f1f1f1;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--white:hover {
   background-color: #f1f1f1 !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--grey {
   background-color: #97969c;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--grey:hover {
   background-color: #97969c !important;
 }
 
-/* line 396, ../scss/partials/_components.scss */
+/* line 273, ../scss/partials/_components.scss */
 .route-color--black {
   background-color: #1A1A1A;
 }
-/* line 399, ../scss/partials/_components.scss */
+/* line 276, ../scss/partials/_components.scss */
 .route-color--black:hover {
   background-color: #1A1A1A !important;
 }
 
-/* line 409, ../scss/partials/_components.scss */
+/* line 286, ../scss/partials/_components.scss */
 .topo {
   border: 4px solid #c3c3c3;
   min-height: 6.25rem;
@@ -9558,61 +9492,61 @@ ol {
   overflow: hidden;
   display: table;
 }
-/* line 417, ../scss/partials/_components.scss */
+/* line 294, ../scss/partials/_components.scss */
 .topo img {
   vertical-align: middle;
   height: auto;
   width: 100%;
 }
 
-/* line 424, ../scss/partials/_components.scss */
+/* line 301, ../scss/partials/_components.scss */
 .zoneMarker {
   fill: #ed6d56;
 }
-/* line 427, ../scss/partials/_components.scss */
+/* line 304, ../scss/partials/_components.scss */
 .zoneMarker:hover {
   fill: #df3618;
 }
 
-/* line 449, ../scss/partials/_components.scss */
+/* line 326, ../scss/partials/_components.scss */
 .wall-mainInfo > span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 453, ../scss/partials/_components.scss */
+/* line 330, ../scss/partials/_components.scss */
 .wall-mainInfo > span:last-child {
   float: right;
 }
 
-/* line 481, ../scss/partials/_components.scss */
+/* line 358, ../scss/partials/_components.scss */
 .wall-moreInfo {
   padding-left: 0;
   padding-right: 0;
   text-align: left;
 }
-/* line 501, ../scss/partials/_components.scss */
+/* line 378, ../scss/partials/_components.scss */
 .wall-moreInfo .wall-moreInfo-link {
   margin-top: 0.25rem;
 }
 
-/* line 513, ../scss/partials/_components.scss */
+/* line 390, ../scss/partials/_components.scss */
 .wall-secondaryInfo {
   display: none;
   width: 70%;
 }
-/* line 518, ../scss/partials/_components.scss */
+/* line 395, ../scss/partials/_components.scss */
 .wall-secondaryInfo > span {
   display: inline-block;
   vertical-align: middle;
   margin-right: 1%;
 }
 
-/* line 557, ../scss/partials/_components.scss */
+/* line 434, ../scss/partials/_components.scss */
 .gymDashHeader-content .title {
   width: 10.375rem;
 }
 
-/* line 569, ../scss/partials/_components.scss */
+/* line 446, ../scss/partials/_components.scss */
 .setter-profile-avatar {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -9621,12 +9555,12 @@ ol {
   height: 100px;
   width: 100px;
 }
-/* line 575, ../scss/partials/_components.scss */
+/* line 452, ../scss/partials/_components.scss */
 .setter-profile-avatar .avatar-image {
   vertical-align: top;
 }
 
-/* line 586, ../scss/partials/_components.scss */
+/* line 463, ../scss/partials/_components.scss */
 .gymImageContainer {
   border: 1px solid #c3c3c3;
   background-color: #F2F2F2;
@@ -9634,13 +9568,13 @@ ol {
   width: 100%;
 }
 
-/* line 603, ../scss/partials/_components.scss */
+/* line 480, ../scss/partials/_components.scss */
 .logInForm-container {
   max-width: 23.75rem;
   display: block;
 }
 
-/* line 613, ../scss/partials/_components.scss */
+/* line 490, ../scss/partials/_components.scss */
 .header {
   padding-left: 1.4375rem;
   padding-right: 1.4375rem;
@@ -9648,12 +9582,12 @@ ol {
   float: right;
   float: left;
 }
-/* line 619, ../scss/partials/_components.scss */
+/* line 496, ../scss/partials/_components.scss */
 .header .header-divider {
   width: 100%;
 }
 
-/* line 627, ../scss/partials/_components.scss */
+/* line 504, ../scss/partials/_components.scss */
 .header--splash {
   min-height: 31.25rem;
 }
@@ -9707,14 +9641,18 @@ hr {
 
 /* line 106, ../scss/partials/_typography.scss */
 a {
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: #ed6d56;
 }
-/* line 108, ../scss/partials/_typography.scss */
+/* line 110, ../scss/partials/_typography.scss */
 a:hover {
   color: #df3618;
 }
 
-/* line 114, ../scss/partials/_typography.scss */
+/* line 116, ../scss/partials/_typography.scss */
 .title--main {
   font-weight: 300;
 }
@@ -10459,21 +10397,22 @@ input[type="submit"] {
   color: orange;
 }
 
-/* line 1, ../scss/partials/_footer.scss */
-footer {
-  background-color: #6B6862;
-  height: 6.25rem;
-  clear: both;
-  color: #fff;
+/*------------------------------------*\
+    #Footer
+\*------------------------------------*/
+/*------------------------------------*\
+    #Dividers
+\*------------------------------------*/
+/* line 21, ../scss/partials/_footer.scss */
+.dividerLeftRight--alt {
+  border: 0;
 }
-/* line 9, ../scss/partials/_footer.scss */
-footer a {
-  color: #fff;
-}
-/* line 12, ../scss/partials/_footer.scss */
-footer a:hover {
-  color: #fff;
-  text-decoration: underline;
+@media only screen and (min-width: 40.063em) {
+  /* line 21, ../scss/partials/_footer.scss */
+  .dividerLeftRight--alt {
+    border-right: 2px solid #dacdb5;
+    border-left: 2px solid #dacdb5;
+  }
 }
 
 /*------------------------------------*\
@@ -10787,7 +10726,7 @@ footer a:hover {
 
 /* line 118, ../scss/modules/_icons.scss */
 [href*="twitter.com"]:before, [rel="twitter-link"]:before {
-  content: "";
+  content: "";
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;
@@ -10803,7 +10742,7 @@ footer a:hover {
 
 /* line 118, ../scss/modules/_icons.scss */
 [href*="facebook.com"]:before, [rel="facebook-link"]:before {
-  content: "";
+  content: "";
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;
@@ -11448,7 +11387,7 @@ body {
   border-radius: 100%;
   height: 2.25rem;
   width: 2.25rem;
-  background-color: white;
+  background-color: #fff;
 }
 
 /* line 248, ../scss/partials/_navs.scss */
@@ -12410,4 +12349,100 @@ ul[data-pie-id] {
 .saddie--withName--small {
   min-height: 3.75rem;
   min-width: 12.5rem;
+}
+
+/*------------------------------------*\
+    #Sections
+\*------------------------------------*/
+/* line 13, ../scss/partials/_Sections.scss */
+.section--primary {
+  background-color: #ed6d56;
+  color: #fff;
+  min-height: 0.5rem;
+}
+/* line 18, ../scss/partials/_Sections.scss */
+.section--primary .section-text {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* line 25, ../scss/partials/_Sections.scss */
+.section--tetriary {
+  background-color: #6B6862;
+  color: #fff;
+}
+/* line 29, ../scss/partials/_Sections.scss */
+.section--tetriary .section-text {
+  color: #fff;
+}
+
+/* line 35, ../scss/partials/_Sections.scss */
+.section--secondary {
+  background-color: #F2F2F2;
+}
+
+/* line 39, ../scss/partials/_Sections.scss */
+.section--alt {
+  background-color: #EBE4D7;
+}
+/* line 42, ../scss/partials/_Sections.scss */
+.section--alt .section-headline {
+  color: #ed6d56;
+}
+/* line 46, ../scss/partials/_Sections.scss */
+.section--alt .section-link {
+  color: #6B6862;
+}
+/* line 49, ../scss/partials/_Sections.scss */
+.section--alt .section-link:hover {
+  opacity: .8;
+}
+
+/* line 60, ../scss/partials/_Sections.scss */
+.section--photo {
+  overflow: hidden;
+}
+
+/* line 65, ../scss/partials/_Sections.scss */
+.background-photo-foreground img {
+  width: 80%;
+  position: relative;
+  left: 0;
+  top: 1.25rem;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 65, ../scss/partials/_Sections.scss */
+  .background-photo-foreground img {
+    width: 100%;
+    top: 0.625rem;
+  }
+}
+
+/* line 79, ../scss/partials/_Sections.scss */
+.background-photo-foreground {
+  width: 100%;
+  float: left;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 79, ../scss/partials/_Sections.scss */
+  .background-photo-foreground {
+    width: 50rem;
+    margin-right: -12.5rem;
+  }
+}
+
+/* line 93, ../scss/partials/_Sections.scss */
+.background-photo:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  background-image: url("../images/bg1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120%;
+  height: 800px;
+  opacity: .1;
 }

@@ -18,7 +18,7 @@ $green: #A3BF7C;
 
 $primaryColor: $orange;
 $primaryColor--light: #FFEDE9;
-
+$primaryColor--dark: darken($primaryColor, 30%); 
 
 
 $color--dropDownLinks: $primaryColor--light;

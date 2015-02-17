@@ -12371,6 +12371,16 @@ dl.tabs > dd {
   float: left;
 }
 
+/* line 47, ../scss/partials/_tabs.scss */
+.tabs-title--big > a {
+  font-size: 1.375rem !important;
+}
+
+/* line 51, ../scss/partials/_tabs.scss */
+.tabs-content--standAlone {
+  background-color: #fff;
+}
+
 /*------------------------------------*\
     #Modals
 \*------------------------------------*/

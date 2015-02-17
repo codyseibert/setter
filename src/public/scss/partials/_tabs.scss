@@ -14,3 +14,41 @@ dl.tabs {
   }
 
 }
+
+// .tabs--simple {
+
+//     .tab-title a {
+//         background-color: transparent;
+        
+
+//         &:hover {
+//             background-color: transparent; 
+
+//         }  
+//     }
+// }
+
+
+// .tabs--primary {
+//         border-bottom: 2px $brown--light solid;
+
+//        .tab-title a {
+//             color: $primaryColor--dark;
+
+//         }
+        
+//         .tab-title:hover {
+//             border-bottom: 2px $brown--dark solid;
+
+//         } 
+// }
+
+
+.tabs-title--big > a {
+    font-size: rem-calc(22) !important; 
+}
+
+.tabs-content--standAlone {
+    background-color: #fff; 
+}
+

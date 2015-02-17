@@ -12348,37 +12348,17 @@ ul[data-pie-id] {
 /*------------------------------------*\
     #Tabs
 \*------------------------------------*/
-/* line 7, ../scss/partials/_tabs.scss */
-dl.tabs {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 80rem;
-  overflow: hidden;
-  *zoom: 1;
-  width: auto;
-  margin: 0;
-  max-width: none;
-  overflow: hidden;
-  *zoom: 1;
-}
-/* line 12, ../scss/partials/_tabs.scss */
-dl.tabs > dd {
-  padding-left: 0;
-  padding-right: 0;
-  float: left;
+@media only screen and (min-width: 40.063em) {
+  /* line 37, ../scss/partials/_tabs.scss */
+  .tabs-title--big > a {
+    font-size: 1.625rem !important;
+  }
 }
 
-/* line 47, ../scss/partials/_tabs.scss */
-.tabs-title--big > a {
-  font-size: 1.375rem !important;
-}
-
-/* line 51, ../scss/partials/_tabs.scss */
+/* line 46, ../scss/partials/_tabs.scss */
 .tabs-content--standAlone {
   background-color: #fff;
+  color: #484848;
 }
 
 /*------------------------------------*\

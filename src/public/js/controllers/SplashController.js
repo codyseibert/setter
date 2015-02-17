@@ -21,4 +21,15 @@ angular.module('SETTER')
             LoginService.logout();
         }
 
+
+        $scope.GYM_REGISTRATION = 'gymRegistration';
+        $scope.USER_REGISTRATION = 'userRegistration'; 
+        $scope.currentRegistrationTab = $scope.GYM_REGISTRATION; 
+
+        $scope.panel = $scope.GYM_REGISTRATION; 
+
+        $scope.setCurrentTab = function (pCurrentTab) {
+            $scope.currentRegistrationTab = pCurrentTab;
+        };
+
     }]);

@@ -40,14 +40,13 @@ angular.module('SETTER')
 
             $scope.BOULDERING = 'bouldering';
             $scope.TOPROPE = 'toprope';
+            $scope.LEAD = 'lead';
 
             // Displaying Tab Logic
             $scope.PANEL_ACTIVITY = 'activity';
             $scope.PANEL_STATS = 'stats';
             $scope.PANEL_CLIMBERS = 'climbers';
             $scope.currentTab = $scope.PANEL_ACTIVITY;
-
-            $scope.LEAD = 'lead';
 
             $scope.PANEL_ACTIVITY = 'ACTIVITY';
             $scope.PANEL_STATS = 'STATS';

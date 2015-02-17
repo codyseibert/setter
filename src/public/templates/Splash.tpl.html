@@ -309,7 +309,7 @@
 
         <div class="small-12 columns  text-center">
 
-            <h1 class="section--primary-text text--mega fwb">Get Started Today!
+            <h1 class="mb5 section--primary-text text--mega fwb">Get started today by registering below! 
             </h1>
 
         </div>
@@ -320,23 +320,23 @@
 
         <div class="medium-7 small-centered columns">
             
-            <ul class="[ tabs  tabs--simple tabs--primary ] [ row small-collapse ]"
-                ng-init="setCurrentTab(PANEL_ACTIVITY)"
+            <ul class="[ tabs  tabs--simple tabs--primary ] [ row small-collapse ] mr0"
+                ng-init="setCurrentTab(GYM_REGISTRATION)"
                 role="tablist">
 
-                <li class="tab-title  tabs-title--big  [ small-6  columns ] text-center">
+                <li class="tab-title  tabs-title--big  [ small-6  columns ] text-center
+                " ng-class="{'active': currentRegistrationTab === GYM_REGISTRATION}">
 
-                    <a ng-click="setCurrentTab(USER_REGISTRATION)">
+                    <a ng-click="setCurrentTab(GYM_REGISTRATION)">
 
-                        Climbing Gyms
+                       Gyms
                     </a>
 
                 </li>
 
-                <li class="tab-title  tabs-title--big  [ small-6  columns ] text-center"
-                    >
+                <li class="tab-title  tabs-title--big  [ small-6  columns ] text-center" ng-class="{'active': currentRegistrationTab === USER_REGISTRATION}" >
 
-                    <a ng-click="setCurrentTab(GYM_REGISTRATION)">
+                    <a ng-click="setCurrentTab(USER_REGISTRATION)">
     
                         Climbers
                     </a>
@@ -345,10 +345,10 @@
 
             </ul>
 
-            <div class="tabs-content tabs-content--standAlone  small-12 columns">
+            <div class="tabs-content tabs-content--standAlone">
 
-                <div class="content"
-                     ng-class="{'active': currentTab === USER_REGISTRATION}">
+                <div class="content prl3"
+                     ng-class="{'active': currentRegistrationTab === GYM_REGISTRATION}">
 
                         <!-- Begin MailChimp Signup Form -->
                         <div id="mc_embed_signup">
@@ -444,15 +444,79 @@
                                 name="subscribe"
                                 id="mc-embedded-subscribe"
                                 ng-click="save()"
-                                class="[ btn--tetriary  btn--medium  btn--expanded ] ">
-                            Request Account
+                                class="[ btn--primary  btn--big ptb2  btn--expanded ] ">
+                            Request Your Gym Account
                         </button>
 
                 </div>
 
                 <div class="content"
-                 ng-class="{'active': currentTab === GYM_REGISTRATION}">
+                 ng-class="{'active': currentRegistrationTab === USER_REGISTRATION}">
 
+                    <div class="prl3  mb4  novalidate">
+
+                        <p>Start loggin your sends and helping your gym's setters by creating your free account below.</p>
+
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label class="label--block  fwb"
+                                   for="email">Email</label>
+                            <input ng-model='form.email'
+                                   placeholder="email"
+                                   type="email"
+                                   name="email"/>
+                        </div>
+
+
+                        <!-- Email -->
+                        <label class="label--block  fwb" for="password">Password</label>
+                        <input ng-model='form.password'
+                               placeholder="password"
+                               type="password"
+                               name="password"/>
+
+
+                        <!-- First Name -->
+                        <label class="label--block  fwb"
+                               for="firstName">First Name</label>
+                        <input ng-model='form.firstname'
+                               placeholder="first name"
+                               type="text"
+                               style="text-transform: capitalize;"
+                               name="firstName" />
+
+
+                        <!-- Last Name -->
+                        <label class="label--block  fwb"
+                               for="lastName">Last Name</label>
+                        <input class="mb4"
+                               ng-model='form.lastname'
+                               placeholder="last name"
+                               type="text"
+                               style="text-transform: capitalize;"
+                               name="lastName" />
+
+                        <!-- Home Gym -->
+                        <label class="label--block  fwb" for="gym">Home Gym</label>
+                        <label class="[ select--medium select--secondary ] left mb4">
+                            <select name="gym"
+                                    ng-model="form.gym"
+                                    ng-options="gym.name for gym in gyms">
+                            </select>
+                        </label>
+
+                        
+                        <div ng-show="error"
+                            style="color: red; text-align: center; margin-bottom: 40px;">
+                            {{error}}!
+                        </div>
+
+                        <button class=" [ btn--primary  btn--big btn--expanded ]"
+                            ng-click='registerClicked()'>
+                            Sign me up!
+                        </button>
+                    </div>
                 </div>
 
 

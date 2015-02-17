@@ -4,16 +4,6 @@
 \*------------------------------------*/
 
 
-dl.tabs {
-  @include grid-row();
-  @include grid-row($behavior: nest-collapse);
-
-
-  & > dd {
-    @include grid-column($collapse: true); 
-  }
-
-}
 
 // .tabs--simple {
 
@@ -45,10 +35,16 @@ dl.tabs {
 
 
 .tabs-title--big > a {
-    font-size: rem-calc(22) !important; 
+    
+    @media #{$medium-up} {
+        font-size: rem-calc(26) !important; 
+    }
+
 }
 
+
 .tabs-content--standAlone {
-    background-color: #fff; 
+    background-color: #fff;
+    color: $color--text;  
 }
 

@@ -1,8 +1,7 @@
 <!--
     HIDDEN MODAL
 -->
-<div id="rate-modal"
-     class="reveal-modal"
+<div class="modal reveal-modal tiny"
      data-reveal>
 
     <h1 class="h2 fwl">
@@ -12,6 +11,11 @@
     <p class="lead">
         Help your gym out by rating this route!
     </p>
+
+    <button class="[ btn--secondary btn--medium right ] left"
+            ng-click="closeModal()">
+        I promise I'll rate later!
+    </button>
 
     <div class="display: inline-block; text-align: center;"
             ng-mouseleave="setHoverRating(-1)">

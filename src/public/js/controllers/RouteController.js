@@ -117,7 +117,7 @@ angular.module('SETTER')
 
             $scope.send = function () {
 
-                angular.element("#rate-modal").foundation('reveal', 'open');
+                angular.element(".modal").foundation('reveal', 'open');
 
                 SendsService.createSend($scope.routeId)
                     .success(function () {
@@ -160,9 +160,13 @@ angular.module('SETTER')
                         $scope.hasRated = true;
                         loadRouteRating();
 
-                        angular.element("#rate-modal").foundation('reveal', 'close');
+                        angular.element(".modal").foundation('reveal', 'close');
                     });
             };
+
+            $scope.closeModal = function () {
+                angular.element(".modal").foundation('reveal', 'close');
+            }
 
             $scope.isFilled = function (pStar) {
                 if (pStar.rating <= $scope.hoverRating ||

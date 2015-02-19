@@ -1069,7 +1069,7 @@ h1,
 
 /* line 29, ../scss/modules/_typography.scss */
 h2,
-.h2 {
+.h2, .side-menu a:before {
   font-size: rem-calc(24);
   line-height: 1;
 }
@@ -8969,7 +8969,7 @@ h1,
 
 /* line 29, ../scss/modules/_typography.scss */
 h2,
-.h2 {
+.h2, .side-menu a:before {
   font-size: 1.5rem;
   line-height: 1;
 }
@@ -11403,12 +11403,38 @@ body {
   background-color: #fff;
 }
 
-/* line 252, ../scss/partials/_navs.scss */
+/* line 227, ../scss/partials/_navs.scss */
+.side-menu {
+  background-color: #F7F0E3;
+}
+/* line 228, ../scss/partials/_navs.scss */
+.side-menu a {
+  margin-left: 0.375rem;
+}
+/* line 232, ../scss/partials/_navs.scss */
+.side-menu a:before {
+  padding: 0.375rem;
+  margin-right: 1.5rem;
+}
+/* line 237, ../scss/partials/_navs.scss */
+.side-menu a > img {
+  padding: 0.375rem;
+  margin-right: 1rem;
+  opacity: .8;
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 227, ../scss/partials/_navs.scss */
+  .side-menu {
+    height: 100vh;
+  }
+}
+
+/* line 255, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover,
 .nav-primary ul li a:hover {
   background-color: #fff;
 }
-/* line 254, ../scss/partials/_navs.scss */
+/* line 257, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover img,
 .nav-primary ul li a:hover img {
   opacity: 1;

@@ -9592,6 +9592,13 @@ ol {
   min-height: 31.25rem;
 }
 
+@media only screen and (min-width: 64.063em) {
+  /* line 509, ../scss/partials/_components.scss */
+  .splash-message {
+    margin-top: 15%;
+  }
+}
+
 /*------------------------------------*\
     #Typography
 \*------------------------------------*/
@@ -11258,7 +11265,7 @@ body {
 \*------------------------------------*/
 /* line 64, ../scss/partials/_navs.scss */
 .topBar--splash {
-  height: 6.25rem;
+  height: 4.0625rem;
 }
 /* line 67, ../scss/partials/_navs.scss */
 .topBar--splash .links a {
@@ -11268,13 +11275,19 @@ body {
 .topBar--splash .links a:hover {
   color: #ed6d56;
 }
+@media only screen and (min-width: 40.063em) {
+  /* line 64, ../scss/partials/_navs.scss */
+  .topBar--splash {
+    height: 6.25rem;
+  }
+}
 
-/* line 81, ../scss/partials/_navs.scss */
+/* line 85, ../scss/partials/_navs.scss */
 .sticky {
   z-index: 10;
 }
 
-/* line 82, ../scss/partials/_navs.scss */
+/* line 86, ../scss/partials/_navs.scss */
 .tab-bar,
 .top-bar {
   background-color: #ed6d56;
@@ -11284,37 +11297,37 @@ body {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 93, ../scss/partials/_navs.scss */
+/* line 97, ../scss/partials/_navs.scss */
 .tab-bar .tab-bar-link:hover,
 .top-bar .tab-bar-link:hover {
   color: #ec6148;
 }
 
-/* line 101, ../scss/partials/_navs.scss */
+/* line 105, ../scss/partials/_navs.scss */
 .dropShadow {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 106, ../scss/partials/_navs.scss */
+/* line 110, ../scss/partials/_navs.scss */
 .setterLogo--nav {
   height: 10.9375rem;
   width: 100%;
   background-color: #ed6d56;
 }
-/* line 111, ../scss/partials/_navs.scss */
+/* line 115, ../scss/partials/_navs.scss */
 .setterLogo--nav img {
   width: 65%;
   height: 10.9375rem;
 }
 
-/* line 118, ../scss/partials/_navs.scss */
+/* line 122, ../scss/partials/_navs.scss */
 .nav-primary {
   background-color: red;
 }
 
-/* line 122, ../scss/partials/_navs.scss */
+/* line 126, ../scss/partials/_navs.scss */
 .nav-primary,
 .nav-account {
   width: 15rem;
@@ -11325,53 +11338,53 @@ body {
   z-index: 4;
 }
 
-/* line 137, ../scss/partials/_navs.scss */
+/* line 141, ../scss/partials/_navs.scss */
 .top-bar ul.top-bar-links li {
   font-size: 0.875rem;
   height: 3.75rem;
 }
-/* line 143, ../scss/partials/_navs.scss */
+/* line 147, ../scss/partials/_navs.scss */
 .top-bar ul.top-bar-links li a {
   color: #fff;
   height: 3.75rem;
   line-height: 4.0625rem;
 }
-/* line 149, ../scss/partials/_navs.scss */
+/* line 153, ../scss/partials/_navs.scss */
 .top-bar ul.top-bar-links li:hover {
   background-color: #eb5d44;
 }
-/* line 159, ../scss/partials/_navs.scss */
+/* line 163, ../scss/partials/_navs.scss */
 .top-bar .avatar {
   vertical-align: middle;
 }
 
-/* line 165, ../scss/partials/_navs.scss */
+/* line 169, ../scss/partials/_navs.scss */
 .nav-account {
   background-color: #F2F2F2;
   left: 15rem;
 }
-/* line 169, ../scss/partials/_navs.scss */
+/* line 173, ../scss/partials/_navs.scss */
 .nav-account li, .nav-account label {
   color: #fff;
   display: block;
   width: 100%;
 }
-/* line 181, ../scss/partials/_navs.scss */
+/* line 185, ../scss/partials/_navs.scss */
 .nav-account label {
   background-color: #E0E0DF;
 }
-/* line 185, ../scss/partials/_navs.scss */
+/* line 189, ../scss/partials/_navs.scss */
 .nav-account li a {
   display: block;
   color: #E0E0DF;
   width: 100%;
 }
-/* line 191, ../scss/partials/_navs.scss */
+/* line 195, ../scss/partials/_navs.scss */
 .nav-account li a:hover {
   background-color: #c3c3c3;
   color: #333333;
 }
-/* line 198, ../scss/partials/_navs.scss */
+/* line 202, ../scss/partials/_navs.scss */
 .nav-account .copyright {
   color: #333333;
   font-size: 0.8125rem;
@@ -11380,7 +11393,7 @@ body {
   text-align: center;
 }
 
-/* line 210, ../scss/partials/_navs.scss */
+/* line 214, ../scss/partials/_navs.scss */
 .nav-avatar {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -11390,12 +11403,12 @@ body {
   background-color: #fff;
 }
 
-/* line 248, ../scss/partials/_navs.scss */
+/* line 252, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover,
 .nav-primary ul li a:hover {
   background-color: #fff;
 }
-/* line 250, ../scss/partials/_navs.scss */
+/* line 254, ../scss/partials/_navs.scss */
 ul.off-canvas-list li a:hover img,
 .nav-primary ul li a:hover img {
   opacity: 1;
@@ -12322,22 +12335,27 @@ ul[data-pie-id] {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 100%;
 }
 
-/* line 17, ../scss/partials/_logos.scss */
+/* line 16, ../scss/partials/_logos.scss */
 .saddie--medium {
   min-height: 13.75rem;
   min-width: 13.75rem;
 }
 
-/* line 22, ../scss/partials/_logos.scss */
+/* line 21, ../scss/partials/_logos.scss */
 .saddie--small {
   min-width: 6.25rem;
   min-height: 6.25rem;
 }
 
-/* line 28, ../scss/partials/_logos.scss */
+/* line 27, ../scss/partials/_logos.scss */
+.saddie--tiny {
+  min-width: 3.125rem;
+  min-height: 3.125rem;
+}
+
+/* line 32, ../scss/partials/_logos.scss */
 .saddie--withName {
   background-image: url("../images/saddie--withName.svg");
   background-repeat: no-repeat;
@@ -12345,7 +12363,7 @@ ul[data-pie-id] {
   background-size: contain;
 }
 
-/* line 35, ../scss/partials/_logos.scss */
+/* line 39, ../scss/partials/_logos.scss */
 .saddie--withName--small {
   min-height: 3.75rem;
   min-width: 12.5rem;

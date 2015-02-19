@@ -62,7 +62,7 @@ body
 
 
 .topBar--splash {
-    height: rem-calc(100); 
+    height: rem-calc(65); 
 
     .links a {
         color: $grey--dark; 
@@ -71,6 +71,10 @@ body
             color: $primaryColor; 
         }
     }   
+
+    @media #{$medium-up} {
+        height: rem-calc(100); 
+    }
 }
 
 

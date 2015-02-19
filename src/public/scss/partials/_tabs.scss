@@ -34,6 +34,10 @@
 // }
 
 
+.tab-title > a {
+    background-color: $grey--medlight; 
+}
+
 .tabs-title--big > a {
     
     @media #{$medium-up} {

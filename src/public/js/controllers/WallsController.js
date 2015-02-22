@@ -20,7 +20,7 @@ angular.module('SETTER')
                 return;
             }
 
-            $scope.gymId = $routeParams.gymId;
+            $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.walls = [];
 
             $scope.form = {

@@ -27,7 +27,9 @@ angular.module('SETTER')
                             j,
                             k,
                             count,
-                            grade;
+                            grade,
+                            gradeName,
+                            gradeCount;
 
                         $scope.hasBoulder = pData.length > 0;
 
@@ -56,16 +58,18 @@ angular.module('SETTER')
                         for (k in $scope.boulderZones) {
                             if ($scope.boulderZones.hasOwnProperty(k)) {
                                 $scope.boulderZoneKeys.push(k);
+                                $scope.boulderCounts[k] = [];
                             }
-                            $scope.boulderCounts[k] = [];
                         }
                         $scope.boulderZoneKeys.sort(naturalSort());
 
                         for (k in $scope.boulderZones) {
-                            for (i = 0; i < $scope.boulderGrades.length; i += 1) {
-                                var gradeName = $scope.boulderGrades[i].name
-                                var gradeCount = $scope.boulderZones[k][gradeName]
-                                $scope.boulderCounts[k].push(gradeCount)
+                            if ($scope.boulderZones.hasOwnProperty(k)) {
+                                for (i = 0; i < $scope.boulderGrades.length; i += 1) {
+                                    gradeName = $scope.boulderGrades[i].name;
+                                    gradeCount = $scope.boulderZones[k][gradeName];
+                                    $scope.boulderCounts[k].push(gradeCount);
+                                }
                             }
                         }
 

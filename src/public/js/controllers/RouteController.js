@@ -166,7 +166,7 @@ angular.module('SETTER')
 
             $scope.closeModal = function () {
                 angular.element(".modal").foundation('reveal', 'close');
-            }
+            };
 
             $scope.isFilled = function (pStar) {
                 if (pStar.rating <= $scope.hoverRating ||

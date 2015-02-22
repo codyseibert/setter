@@ -45,6 +45,9 @@ angular.module('SETTER')
                     $scope.hasActivity = pData.length > 0;
                 });
 
+            $scope.hasActivity = function () {
+                return $scope.activity.length > 0;
+            }
 
             /*
             *   SECTION - Image

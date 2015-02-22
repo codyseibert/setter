@@ -1,6 +1,5 @@
-
+<!-- Header -->
 <section class="row">
-
 
     <div class="header">
 
@@ -27,7 +26,7 @@
 
 </section>
 
-
+<!-- Zone Actions -->
 <section class="row">
 
     <div class="small-12 columns">
@@ -67,8 +66,27 @@
     </div>
 </section>
 
+<!-- Gym - Blank State Copy -->
+<section ng-show="!hasWalls() && getAccountId() === gymId">
+
+    Use the Add Zone Widget above to add a zone to your gym.
+
+</section>
 
 
+<!-- User - Blank State Copy -->
+<section ng-show="!hasWalls() && getAccountId() !== gymId">
+
+    This gym has not set any rountes.
+    <a prevent-default
+       ng-click="navigateToGymSuggestions(gymId)">
+       Click here to leave a suggestion!
+   </a>
+
+</section>
+
+
+<!-- NG Repeat Zone List -->
 <section class="row  small-collapse  large-uncollapse">
 
     <div class="small-12 columns">
@@ -81,7 +99,7 @@
                     {{wall.name}}
                    <span class="round  label success " ng-show="isUserAccount() && wall.new_count">{{wall.new_count}}</span>
 
-                    <i class="icon-right-big right"> </i>    
+                    <i class="icon-right-big right"> </i>
 
                     <span class="right">
                         {{wall.route_count}} Routes

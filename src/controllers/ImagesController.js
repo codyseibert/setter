@@ -14,7 +14,7 @@ var theAccountsDao = require('../dao/AccountsDao');
 var theWallsDao = require('../dao/WallsDao');
 var theImagesDao = require('../dao/ImagesDao');
 var easyimage = require('easyimage');
-var path = require('path')
+var path = require('path');
 
 /**
     Used for posting new images to the file system.
@@ -35,8 +35,8 @@ var ImagesController = function () {
 
 
         if (!req.files ||
-            !req.files.file ||
-            !req.files.file.name) {
+                !req.files.file ||
+                !req.files.file.name) {
             res.send("error");
             return;
         }

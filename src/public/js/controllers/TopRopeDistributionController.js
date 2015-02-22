@@ -27,7 +27,9 @@ angular.module('SETTER')
                             j,
                             k,
                             count,
-                            grade;
+                            grade,
+                            gradeName,
+                            gradeCount;
                         $scope.ropeRouteDistribution = pData;
                         $scope.ropeZoneKeys = [];
                         $scope.ropeZones = {};
@@ -55,16 +57,18 @@ angular.module('SETTER')
                         for (k in $scope.ropeZones) {
                             if ($scope.ropeZones.hasOwnProperty(k)) {
                                 $scope.ropeZoneKeys.push(k);
+                                $scope.ropeCounts[k] = [];
                             }
-                            $scope.ropeCounts[k] = [];
                         }
                         $scope.ropeZoneKeys.sort(naturalSort());
 
                         for (k in $scope.ropeZones) {
-                            for (i = 0; i < $scope.ropeGrades.length; i += 1) {
-                                var gradeName = $scope.ropeGrades[i].name
-                                var gradeCount = $scope.ropeZones[k][gradeName]
-                                $scope.ropeCounts[k].push(gradeCount)
+                            if ($scope.ropeZones.hasOwnProperty(k)) {
+                                for (i = 0; i < $scope.ropeGrades.length; i += 1) {
+                                    gradeName = $scope.ropeGrades[i].name;
+                                    gradeCount = $scope.ropeZones[k][gradeName];
+                                    $scope.ropeCounts[k].push(gradeCount);
+                                }
                             }
                         }
                     });

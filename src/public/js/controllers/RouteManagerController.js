@@ -29,7 +29,9 @@ angular.module('SETTER')
                 getUniqueSet,
                 sortByValue,
                 boulderGradesPromise,
-                ropeGradesPromise;
+                ropeGradesPromise,
+                refreshFilter,
+                showAllRoutes;
 
             if (!LoginService.validateLoggedIn()) {
                 return;
@@ -141,9 +143,9 @@ angular.module('SETTER')
             };
 
             /*
-                TODO: Convert to none function ("function" is not used anywhere throughout the source)
+                TODO: Convert from 'function' to var function
             */
-            function refreshFilter(pFilter) {
+            refreshFilter = function (pFilter) {
                 var length,
                     key,
                     entry,
@@ -162,22 +164,22 @@ angular.module('SETTER')
                         entry.show = false;
                     }
                 }
-            }
+            };
 
 
             /*
-                TODO: Convert to none function (It isn't used anywhere throughout the source)
+                TODO: Convert from 'function' to var function
             */
-            function showAllRoutes() {
+            showAllRoutes = function () {
                 var length;
                 for (i = 0, length = $scope.routes.length; i < length; i += 1) {
                     $scope.routes[i].show = true;
                 }
-            }
+            };
 
             $scope.hasRoutes = function () {
                 return $scope.routes.length > 0;
-            }
+            };
 
             $scope.refreshFilters = function () {
                 showAllRoutes();
@@ -295,8 +297,8 @@ angular.module('SETTER')
 
                         $scope.isLoading = false;
 
-                        if (pData.length == 0) {
-                            return
+                        if (pData.length === 0) {
+                            return;
                         }
 
                         pData.map(function (pEntry) {

@@ -40,41 +40,41 @@
 
 <div class="overflow--hidden">
     <div class="section--tetriary  section--photo  header--splash">
-    
+
         <div class="background-photo">
-    
+
             <div class="row  pt5">
-    
+
                 <div class=" small-12 medium-12 pt5 large-only-text-left large-5 columns  text-center">
-    
-    
+
+
                   <div class="splash-message">
                       <h1 class="fwl  section-text">
                           The indoor climbing manager for
                           setters, climbers, and gyms.
                       </h1>
-                      
-                      
+
+
                       <button ng-click="navigateToRegisterUser()" class="btn btn--primary btn--big show-for-large-up">
                         Get Started<i class="icon-right-big"></i>
                       </button>
 
                   </div>
-    
+
                 </div>
-    
+
                 <div class="background-photo-foreground">
-    
+
                 <img src="images/splash1.png" alt="" >
-    
+
                 </div>
-    
+
             </div>
-    
-    
-    
+
+
+
         </div>
-    
+
     </div>
 </div>
 
@@ -550,39 +550,39 @@
     <div class="row ptb4">
 
         <div class="[ small-12 medium-10 medium-centered columns ]">
-        
+
             <div class="row pb4">
-        
+
                 <section class="small-12  medium-4 columns  text-center">
-        
+
                   <h1 class="h3  fwl">
-                      Connect with us 
+                      Connect with us
                   </h1>
-        
+
                   <ul class="list--inline mb2">
-        
+
                       <li>
                         <a class="icon--jumbo  section-link" href="https://twitter.com/setterapp" target="_blank"></a>
                         </li>
-            
+
                       <li>
                         <a class="icon--jumbo  section-link" href="https://www.facebook.com/thisissetter" target="_blank"></a>
                       </li>
                   </ul>
-        
+
                   <ul>
                       <a href="mailto:setterapp@gmail.com" class="section-link">setterapp@gmail.com</a>
                   </ul>
-        
-                </section>   
-        
+
+                </section>
+
                 <section class="small-12  medium-4 columns  text-center dividerLeftRight--alt">
 
                     <h1 class="h3  fwl">
-                       Join our mailing list 
+                       Join our mailing list
                     </h1>
                     <!-- Begin MailChimp Signup Form -->
-               
+
                     <div id="mc_embed_signup">
 
                         <form action="//setterapp.us9.list-manage.com/subscribe/post?u=47170203e5b3a4bb510763ce1&amp;id=324a64539e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -597,17 +597,21 @@
                     </div>
                     <!--End mc_embed_signup-->
                 </section>
-        
+
                 <section class="small-12  medium-4 columns  text-center">
-        
+
                     <h1 class="h3  fwl">
                         Site info
                     </h1>
-        
+
                     <ul class="">
 
                         <li>
-                            <a class="section-link">Terms of Service</a>
+                            <a class="section-link"
+                               prevent-default
+                               ng-click="navigateToTOS()">
+                                Terms of Service
+                            </a>
                         </li>
 
                         <li>
@@ -615,9 +619,9 @@
                         </li>
 
                     </ul>
-        
-                </section>  
-                
+
+                </section>
+
             </div>
 
             <div class="row">
@@ -629,7 +633,7 @@
                 </div>
 
             </div>
-        
+
         </div>
 
     </div>

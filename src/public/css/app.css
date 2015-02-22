@@ -12524,10 +12524,10 @@ ul[data-pie-id] {
 /* line 12, ../scss/partials/_placeholders.scss */
 .placeholder-text {
   width: 80%;
-  padding-right: 0.625rem;
-  padding-left: 0.625rem;
-  height: 40%;
-  overflow: auto;
+  padding-right: 0.3125rem;
+  padding-left: 0.3125rem;
+  height: 50%;
+  overflow: hidden;
   margin: auto;
   position: absolute;
   top: 0;

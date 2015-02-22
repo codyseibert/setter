@@ -1,4 +1,6 @@
 
+
+
 <!-- User - Gym Header -->
 <section class="row hide-for-medium-up" ng-show="isUserAccount()">
 
@@ -8,7 +10,7 @@
              ng-click="getAccountId() === gymId && uploadImage()">
 
             <div class="center avatar avatar--big  mb2"
-                 ng-style="{'background-image': getImageUrlString()}" >
+                 ng-style="{'background-image': 'url(' + getGymImageSrc(image) + ')'}" >
             </div>
 
             <h1 class="fwb h2 mb1">
@@ -50,6 +52,10 @@
     </div>
 
 </section>
+
+
+
+
 
 <!-- User - Gym Desktop -->
 <div class="section--alt">

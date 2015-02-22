@@ -1,30 +1,49 @@
 # Page - Splash Screen - Welcome to SETTER
-Good day!  My name is Cody Seibert, and I am one of the developers behind setters.  Today, I will be giving you a quick overview of how to use setter for your climbing gym.
+Hello and welcome to our SETTER overview video.  My name is Cody, one of the developers behind setters.  In this video, I will be giving you a quick overview of how to use setter for managing your climbing gym's route and problems.
+
+
+
+
 
 # Page - Login Screen
-First off, we are going to log in to one of our pre-existing gym accounts used by Aiguille Rock Climbing Center in Orlando FL.
+First off, we are going to log in to one of our pre-existing gym accounts used by Aiguille Rock Climbing Center of Orlando FL.
 
-# Action
-    - type in email
-    - type in password
-    - click login
+- type in email
+- type in password
+- click login
+
+
+
 
 # Activity Tab
-After we log in, we will be brought to our dashboard page.  On this page, there are three different tabs: activity, statistics, and climbers.  The activity tab shows information about your gym's routes & problems, in addition to the most recent climber sends.
+When we first log in, we are brought to our gym dashboard page.  On this page, there are three different tabs: activity, statistics, and climbers.  
+
+The activity tab shows information about your gym's routes & problems, in addition to the most recent climber sends.
 
 - click on statistics tab
 
+
+
+
+
 # Statistics Tab
-Next, we will navigate to the statistics tab which displays the current routes and problems at your gym, as well as the bouldering and rope distribution.  You may export this data by clicking the export graph link found at the top right of each graph.
+Next, on the statistics tab, you can view the current routes and problems at your gym, as well as the bouldering and rope distribution.  
+
+You may export this data by clicking the export graph link found at the top right of each graph.
 
 - click on export button
 - open the pdf
 - close the pdf
 
-To add a route in SETTER, click the set route button which takes you to the manage zone page.
+Now, let's add route in SETTER.  To do so, let's click the set route button which navigates you to the manage zone page.
 
 - Click Route Button
 
+
+
+
+
+# Manage Zones
 Here, we can find the list of zones that are currently available at your gym.
 
 If no zones are currently available, you may add one by using the add zone widget at the top of the list
@@ -39,6 +58,9 @@ For this example, we will add a boulder problem on the lead cave zone
 
 - click on lead cave
 
+
+
+# Add Route
 Here is a list of the current routes and problems set on this zone, along with their ratings based on member feedback.
 
 - click on Add Route
@@ -63,6 +85,10 @@ Now let's navigates to the route archive page.
 - click route archive
 
 
+
+
+
+
 # Route Archive
 On the route archive page, we can view all of the routes that have ever been at the gym.  Filters allow you filter routes by climbing type, setters, grade, route color, and zone.
 
@@ -72,13 +98,16 @@ So how would someone add a setter?
 
 To do so, let's navigate to the manager setters page.
 
+
+
+
+
 # Manage Setters
 To add a setter, click the add setter button, search for the user you want to add, and click the plus icon next to their name.
 
+
+
+
+
 # Finish
 That concludes our quick overview. Thanks for watching! If you have any questions, feel free to contact us at setterapp@gmail.com.  You may also find us on twitter and facebook.
-
-
-
-
-FEEDBACK

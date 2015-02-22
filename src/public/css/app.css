@@ -443,14 +443,14 @@ table {
 }
 
 /* line 11, ../scss/modules/_generics.scss */
-.popUp {
+.popUp, .placeholder-text {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
   border-radius: 16px;
 }
 
 /* line 16, ../scss/modules/_generics.scss */
-.btn--fixedAction, .popUp {
+.btn--fixedAction, .popUp, .placeholder-text {
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
@@ -8343,14 +8343,14 @@ th.hide-for-touch {
 }
 
 /* line 11, ../scss/modules/_generics.scss */
-.popUp {
+.popUp, .placeholder-text {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
   border-radius: 16px;
 }
 
 /* line 16, ../scss/modules/_generics.scss */
-.btn--fixedAction, .popUp {
+.btn--fixedAction, .popUp, .placeholder-text {
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
@@ -12511,4 +12511,29 @@ ul[data-pie-id] {
   width: 120%;
   height: 800px;
   opacity: .1;
+}
+
+/*------------------------------------*\
+    #Placeholders
+\*------------------------------------*/
+/* line 7, ../scss/partials/_placeholders.scss */
+.placeholder--graph {
+  opacity: .4;
+}
+
+/* line 12, ../scss/partials/_placeholders.scss */
+.placeholder-text {
+  width: 80%;
+  padding-right: 0.625rem;
+  padding-left: 0.625rem;
+  height: 40%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 40;
+  background-color: #fff;
 }

@@ -16,21 +16,28 @@
 
     </div>
 
-    <div ng-show="!hasLead && getAccountId() === gymId">
+    <div class="relative" ng-show="!hasLead && getAccountId() === gymId">
 
-        <h2>
+        <div class="placeholder-text  text-center"
+             ng-click="navigateToWalls(gymId)">
 
-            You have not set any lead routes!
+            <div class="vertical-align">
 
-        </h2>
+                <h2 class="h4 fwb mb2">
+                This is not your gym's graph
+                </h2>
 
-        <button type="submit"
-            class="btn--primary icon-plus btn--medium"
-            ng-click="navigateToWalls(gymId)">
+                <p>
+                    Currrently there are no lead routes, but you may set new ones on the <a prevent-default>Manage Zones page</a>.
+                </p>
+    
+            </div>
 
-            Set Some Routes!
+        </div>
 
-        </button>
+
+        <img class="placeholder--graph" src="images/placeholder--leadGraph.jpg" alt="placeholder graph"> 
+
 
     </div>
 

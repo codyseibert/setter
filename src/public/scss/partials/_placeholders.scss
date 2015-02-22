@@ -1,0 +1,28 @@
+
+/*------------------------------------*\
+    #Placeholders
+\*------------------------------------*/
+
+
+.placeholder--graph {
+    opacity: .4; 
+}
+
+
+.placeholder-text { 
+
+    width: 80%;
+    padding-right: rem-calc(10);
+    padding-left: rem-calc(10); 
+  height: 40%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 40; 
+  background-color: #fff; 
+  @extend %dropshadow; 
+  @extend %radius--boxes; 
+
+}
+

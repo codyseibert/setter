@@ -2,63 +2,63 @@
 
 
 <!-- User - Gym Header -->
-<section class="row hide-for-medium-up" ng-show="isUserAccount()">
+<div class="section--secondary">
+    <section class="row hide-for-medium-up" ng-show="isUserAccount()">
 
-    <div class="header  text-center">
+        <div class="header  text-center">
+
+            <div class="small-12 columns"
+                 ng-click="getAccountId() === gymId && uploadImage()">
+
+                <div class="center avatar avatar--big  mb2"
+                     ng-style="{'background-image': 'url(' + getGymImageSrc(image) + ')'}" >
+                </div>
+
+                <h1 class="fwb h2 mb1">
+                  {{gym.name}}
+                </h1>
+            </div>
+        </div>
+
 
         <div class="small-12 columns"
-             ng-click="getAccountId() === gymId && uploadImage()">
-
-            <div class="center avatar avatar--big  mb2"
-                 ng-style="{'background-image': 'url(' + getGymImageSrc(image) + ')'}" >
-            </div>
-
-            <h1 class="fwb h2 mb1">
-              {{gym.name}}
-            </h1>
+             ng-hide="getHomeGymId() === gymId || isGymAccount()">
+            <button class="btn--primary  btn--medium  icon-home btn--expanded"
+                    ng-click="setHomeGym()">
+                Set as Home Gym
+            </button>
 
         </div>
 
-    </div>
+        <div class="small-12 columns"
+                    ng-show="getAccountId() !== gymId">
 
+            <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
+                    ng-click="navigateToWalls(gymId)">
+                View Gym Zones
+            </button>
 
-    <div class="small-12 columns"
-         ng-hide="getHomeGymId() === gymId || isGymAccount()">
-        <button class="btn--primary  btn--medium  icon-home btn--expanded"
-                ng-click="setHomeGym()">
-            Set as Home Gym
-        </button>
+        </div>
 
-    </div>
+        <div class="small-12 columns  mb2">
 
-    <div class="small-12 columns"
-                ng-show="getAccountId() !== gymId">
+            <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
+                    ng-click="navigateToGymSuggestions(gymId)"
+                    ng-show="isUserAccount()" >
+                Post Suggestion
+            </button>
 
-        <button class="[ btn--primary  btn--medium  btn--expanded ]  icon-map"
-                ng-click="navigateToWalls(gymId)">
-            View Gym Zones
-        </button>
+        </div>
 
-    </div>
-
-    <div class="small-12 columns  mb2">
-
-        <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
-                ng-click="navigateToGymSuggestions(gymId)"
-                ng-show="isUserAccount()" >
-            Post Suggestion
-        </button>
-
-    </div>
-
-</section>
+    </section>
+</div>
 
 
 
 
 
 <!-- User - Gym Desktop -->
-<div class="section--alt">
+<div class="section--secondary">
     <section class="row show-for-medium-up" ng-show="isUserAccount()">
 
         <div class="header">

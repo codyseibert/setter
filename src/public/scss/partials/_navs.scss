@@ -62,7 +62,7 @@ body
 
 
 .topBar--splash {
-    height: rem-calc(100); 
+    height: rem-calc(65); 
 
     .links a {
         color: $grey--dark; 
@@ -71,6 +71,10 @@ body
             color: $primaryColor; 
         }
     }   
+
+    @media #{$medium-up} {
+        height: rem-calc(100); 
+    }
 }
 
 
@@ -79,15 +83,12 @@ body
 //Side Menu Object
 //
 .sticky {z-index: 10;}
-.tab-bar,
-.top-bar {
+.tab-bar {
   // $from: $primaryColor;
   // $to: darken($primaryColor, 8%);
   // @include background-image(linear-gradient($from 10%, $to 70%));
   background-color: $primaryColor;
-  z-index: 10;
   height: rem-calc(60);
-  @include box-shadow(0 1px 2px rgba(0, 0, 0, .2));
 
   .tab-bar-link {
     &:hover {
@@ -98,10 +99,20 @@ body
   }
 }
 
-.dropShadow {
+.tab-bar, 
+.top-bar {
+    z-index: 10;
     @include box-shadow(0 1px 2px rgba(0, 0, 0, .2));
 }
 
+.top-bar {
+    height: rem-calc(70); 
+    background-color: #fff;
+}
+
+.dropShadow {
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, .2));
+}
 
 .setterLogo--nav {
   height: rem-calc(175);
@@ -135,20 +146,21 @@ body
     ul.top-bar-links {
 
      li {
+        @include transition(background-color .4s ease-in-out);
         @extend %display--inline;
         @extend %prl2;
-        font-size: rem-calc(14);
-        height: rem-calc(60);
+        font-size: rem-calc(16);
+        height: rem-calc(70);
 
         a {
-            color: #fff;
-            height: rem-calc(60);
-            line-height:rem-calc(65);
+            color: $brown--dark;
+            height: rem-calc(70);
+            line-height:rem-calc(70);
         }
 
         &:hover {
-
-          background-color: darken($primaryColor, 4%);
+          background-color: $primaryColor;
+          a { color: #fff; }
 
         }
 
@@ -220,25 +232,28 @@ body
 //Side Menu Styles
 //
 
-// .side-menu {
-//   height: 100vh;
-//   a {
-//     margin-left: rem-calc(6);
-//   }
+.side-menu {
+  a {
+    margin-left: rem-calc(6);
+  }
 
-//   a:before {
-//     @extend %h2;
-//     padding: rem-calc(6);
-//     margin-right: rem-calc(24);
-//   }
-//   a > img {
-//     padding: rem-calc(6);
-//     margin-right: rem-calc(16);
-//     opacity: .8;
-//   }
+  a:before {
+    @extend %h2;
+    padding: rem-calc(6);
+    margin-right: rem-calc(24);
+  }
+  a > img {
+    padding: rem-calc(6);
+    margin-right: rem-calc(16);
+    opacity: .8;
+  }
 
-//   background-color: $off-canvas-bg;
-// }
+  background-color: $off-canvas-bg;
+
+  @media #{$large-up} {
+    height: 100vh;
+  }
+}
 
 
 //

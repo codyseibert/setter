@@ -11,7 +11,6 @@
    background-repeat: no-repeat;
    background-position: center;
    background-size: contain;
-   width: 100%;
 }
 
 .saddie--medium {
@@ -24,6 +23,11 @@
   min-height: rem-calc(100);
 }
 
+
+.saddie--tiny {
+    min-width: rem-calc(50);
+    min-height: rem-calc(50); 
+}
 
 .saddie--withName {
     background-image: url("../images/saddie--withName.svg");

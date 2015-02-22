@@ -16,10 +16,10 @@ angular.module('SETTER', [
             'use strict';
 
             $routeProvider
-                // .when('/', {
-                //     controller: 'SplashController',
-                //     templateUrl: 'templates/Splash.tpl.html'
-                // })
+                .when('/', {
+                    controller: 'SplashController',
+                    templateUrl: 'templates/Splash.tpl.html'
+                })
                 .when('/login', {
                     controller: 'LoginController',
                     templateUrl: 'templates/Login.tpl.html'
@@ -123,7 +123,7 @@ angular.module('SETTER', [
                     templateUrl: 'templates/TOS.tpl.html'
                 })
                 .otherwise({
-                    redirectTo: '/login'
+                    redirectTo: '/'
                 });
         }])
     .run([

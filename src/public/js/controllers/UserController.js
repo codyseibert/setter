@@ -47,7 +47,7 @@ angular.module('SETTER')
 
             $scope.hasActivity = function () {
                 return $scope.activity.length > 0;
-            }
+            };
 
             /*
             *   SECTION - Image

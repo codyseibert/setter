@@ -80,6 +80,11 @@ module.exports = function(grunt) {
                 src: [
                     "coverage"
                 ]
+            },
+            jenkins: {
+                src: [
+                    "build"
+                ]
             }
         },
 
@@ -442,5 +447,10 @@ module.exports = function(grunt) {
         'replace:css',
         'processhtml:prod'
     ]);
+
+    grunt.registerTask('build:jenkins', [
+        'clean:jenkins',
+        'build'
+    ])
 
 };

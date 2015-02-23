@@ -7,7 +7,8 @@ angular.module('SETTER', [
     'ngUpload',
     'chart.js',
     'pasvaz.bindonce',
-    'angularSpinner'])
+    'angularSpinner',
+    'smoothScroll'])
     .config([
         '$routeProvider',
         function (

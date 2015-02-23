@@ -1071,7 +1071,7 @@ h1,
 h2,
 .h2, .side-menu a:before {
   font-size: rem-calc(24);
-  line-height: 1;
+  line-height: 1.2;
 }
 
 /* line 34, ../scss/modules/_typography.scss */
@@ -8971,7 +8971,7 @@ h1,
 h2,
 .h2, .side-menu a:before {
   font-size: 1.5rem;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 /* line 34, ../scss/modules/_typography.scss */
@@ -12521,12 +12521,17 @@ ul[data-pie-id] {
   opacity: .4;
 }
 
-/* line 12, ../scss/partials/_placeholders.scss */
+/* line 11, ../scss/partials/_placeholders.scss */
+.placeholderImage {
+  opacity: .4;
+}
+
+/* line 16, ../scss/partials/_placeholders.scss */
 .placeholder-text {
   width: 80%;
-  padding-right: 0.3125rem;
-  padding-left: 0.3125rem;
-  height: 50%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  height: 60%;
   overflow: hidden;
   margin: auto;
   position: absolute;
@@ -12536,4 +12541,39 @@ ul[data-pie-id] {
   right: 0;
   z-index: 40;
   background-color: #fff;
+}
+
+/* line 32, ../scss/partials/_placeholders.scss */
+.placeholder-text.small {
+  height: 35%;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 32, ../scss/partials/_placeholders.scss */
+  .placeholder-text.small {
+    width: 50%;
+  }
+}
+
+/* line 41, ../scss/partials/_placeholders.scss */
+.placeholder-text.medium {
+  height: 50%;
+}
+
+/* line 45, ../scss/partials/_placeholders.scss */
+.placeholder-text.large {
+  height: 80%;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 45, ../scss/partials/_placeholders.scss */
+  .placeholder-text.large {
+    height: 80%;
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 45, ../scss/partials/_placeholders.scss */
+  .placeholder-text.large {
+    height: 60%;
+    width: 60%;
+  }
 }

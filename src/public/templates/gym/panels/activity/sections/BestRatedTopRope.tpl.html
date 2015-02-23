@@ -7,13 +7,27 @@
 
 </h2>
 
-<h2 class="text-center"
-    ng-show="!hasRatedTopRope() && getAccountId() == gymId">
+<div class="relative" ng-show="!hasRatedTopRope() && getAccountId() == gymId">
 
-    No one has rated your top rope routes!<br><br>
-    Please ask them to help out your gym by rating routes!
+    <div class="[ placeholder-text  large ]  text-center"
+         ng-click="navigateToWalls(gymId)">
 
-</h2>
+        <div class="vertical-align">
+
+            <h2 class="h4 fwb mb2">
+                These aren't the best top rope routes at your gym.  
+            </h2>
+
+            <p>
+                Currently your climbers haven't rated your top rope routes, let them know you are on Setter to <span class="fwb">start getting feedback!</span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <img class="placeholder--graph" src="images/placeholder--bestTopRope.jpg" alt="placeholder list"> 
+</div> 
 
 <table ng-show="hasRatedTopRope()"
        class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">

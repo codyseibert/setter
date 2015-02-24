@@ -501,11 +501,6 @@
   }
 }
 
-.header--splash {
-    min-height: rem-calc(500); 
-}
-
-
 .splash-message {
     @media #{$large-up} {
         margin-top: 15%; 

@@ -14,10 +14,11 @@
         </div>
 
         <h1 ng-show="isGymAccount()" class="fwb">
-            <img src="images/icon--drill--black.svg" alt="" height="30px" width="30px">  Manage Gym Zones
+            <img src="images/icon--drill--black.svg" alt="" height="30px" width="30px">  Manage Zones
         </h1>
 
-        <h1 ng-hide="isGymAccount()" class="fwb"> Gym Zones
+        <h1 ng-hide="isGymAccount()" class="fwb"> 
+            Gym Zones
         </h1>
 
         <hr class="header-divider  hide-for-small-only">
@@ -31,7 +32,7 @@
 
     <div class="small-12 columns">
 
-        <div class="media--fl">
+        <div class="media--fl" ng-hide="!hasWalls()">
 
             <div>
                 <label for="searchTerm" class="icon--label icon-search inline"></label>
@@ -45,6 +46,7 @@
                         ng-change="applyFilter()"
                         placeholder="Search by Wall Name">
             </div>
+
         </div>
 
         <div class="media--fl" ng-show="isGymAccount() && hasWalls()">
@@ -68,21 +70,44 @@
 
 </section>
 
-
-<!-- User - Blank State Copy -->
-<section ng-show="!hasWalls() && getAccountId() !== gymId">
-
-    This gym has not set any rountes.
-    <a prevent-default
-       ng-click="navigateToGymSuggestions(gymId)">
-       Click here to leave a suggestion!
-   </a>
-
-</section>
-
-
 <!-- NG Repeat Zone List -->
 <div class="row  small-collapse  large-uncollapse">
+    <!-- User - Blank State Copy -->
+    <section class="small-12 columns" ng-show="!hasWalls() && getAccountId() !== gymId">
+
+        <!-- User - Blank State for no Zones Small Only -->
+        <div class="row  show-for-small-only">
+
+            <div class="small-12 columns">
+
+                <h2 class="wb  fwb">Bummer, it appears this gym hasn't set any routes yet.</h2>
+                
+                <p>
+                    Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>. 
+                </p>
+                
+            </div>
+
+        </div>
+
+        <!-- User - Blank State for no Zones Medium Up -->
+        <div class="placeholder-text  medium  show-for-medium-up">
+            
+                <div class="vertical-align  text-center">
+
+                    <h2 class="wb  fwb">Bummer, it appears this gym hasn't set any routes yet.</h2>
+                    
+                    <p>
+                        Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>. 
+                    </p>
+
+                </div>
+
+        </div>
+
+        <img class="placeholderImage  show-for-medium-up" src="images/placeholder--zones.jpg" alt="Walls Placeholder"   width="1126"  height="414">
+
+    </section>
 
     <!-- Gym - Blank State Copy -->
     <section class="small-12 columns" ng-show="!hasWalls() && getAccountId() === gymId">

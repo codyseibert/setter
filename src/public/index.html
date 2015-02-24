@@ -35,17 +35,20 @@
 <body ng-app="SETTER">
 
     <div class="off-canvas-wrap" data-offcanvas >
-
+    
         <!-- Top Nav Bar -->
         <nav class="tab-bar hide-for-large-up"  ng-show="isLoggedIn()" >
 
                 <div class="left-small">
+
                     <a class="left-off-canvas-toggle menu-icon" >
                         <span></span>
                     </a>
+                    
                 </div>
 
                 <div class="right tab-bar-section">
+
                     <img src="images/setter-logo.svg"
                          height="40px"
                          width="40px"
@@ -55,9 +58,9 @@
 
         </nav>
 
-
         <!-- Menus -->
         <div class="inner-wrap">
+
 
             <!-- Left Pull Out Menu -->
             <aside class="left-off-canvas-menu  side-menu ">
@@ -71,8 +74,10 @@
             </aside>
 
 
+
         <!--Topbar for large desktop-->
         <div class="section--primary  show-for-large-up"></div>
+
         <div class="show-for-large-up"  ng-show="isLoggedIn()">
 
             <nav class="top-bar"
@@ -308,14 +313,14 @@
 
         <!-- Other -->
         <script type="text/javascript" src="js/other/naturalSort.js"></script>
-    <!-- /build -->
+        <!-- /build -->
 
         <script type="text/javascript">
             $(document).foundation({
                  offcanvas : {
                     // Sets method in which offcanvas opens.
                     // [ move | overlap_single | overlap ]
-                    open_method: 'move',
+                    open_method: 'overlap',
                     // Should the menu close when a menu link is clicked?
                     // [ true | false ]
                     close_on_click : true

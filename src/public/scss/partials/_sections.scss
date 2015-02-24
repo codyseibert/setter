@@ -53,6 +53,11 @@
 }
 
 
+.section--login {
+    background-color: $grey--light; 
+    height: 100vh; 
+}
+
 .main-section {
   @extend %mb5;
 }

@@ -12464,12 +12464,18 @@ ul[data-pie-id] {
   opacity: .8;
 }
 
-/* line 60, ../scss/partials/_sections.scss */
+/* line 56, ../scss/partials/_sections.scss */
+.section--login {
+  background-color: #F2F2F2;
+  height: 100vh;
+}
+
+/* line 65, ../scss/partials/_sections.scss */
 .section--photo {
   overflow: hidden;
 }
 
-/* line 65, ../scss/partials/_sections.scss */
+/* line 70, ../scss/partials/_sections.scss */
 .background-photo-foreground img {
   width: 80%;
   position: relative;
@@ -12477,27 +12483,27 @@ ul[data-pie-id] {
   top: 2.5rem;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 65, ../scss/partials/_sections.scss */
+  /* line 70, ../scss/partials/_sections.scss */
   .background-photo-foreground img {
     width: 100%;
     top: 0.625rem;
   }
 }
 
-/* line 79, ../scss/partials/_sections.scss */
+/* line 84, ../scss/partials/_sections.scss */
 .background-photo-foreground {
   width: 100%;
   float: left;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 79, ../scss/partials/_sections.scss */
+  /* line 84, ../scss/partials/_sections.scss */
   .background-photo-foreground {
     width: 50rem;
     margin-right: -12.5rem;
   }
 }
 
-/* line 93, ../scss/partials/_sections.scss */
+/* line 98, ../scss/partials/_sections.scss */
 .background-photo:before {
   content: "";
   position: absolute;

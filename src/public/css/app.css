@@ -1307,48 +1307,6 @@ ol {
   margin-left: 0 !important;
 }
 
-/* line 22, ../scss/partials/_base.scss */
-.fade {
-  opacity: 0;
-  -webkit-transition: opacity .15s linear;
-  transition: opacity .15s linear;
-}
-
-/* line 27, ../scss/partials/_base.scss */
-.fade.in {
-  opacity: 1;
-}
-
-/* line 31, ../scss/partials/_base.scss */
-.reveal-modal.fade, dialog.fade {
-  -webkit-transition: -webkit-transform .3s ease-out;
-  -moz-transition: -moz-transform .3s ease-out;
-  -o-transition: -o-transform .3s ease-out;
-  transition: transform .3s ease-out;
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  transform: translate(0, -25%);
-}
-
-/* line 40, ../scss/partials/_base.scss */
-.reveal-modal.in, dialog.in {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-
-/* line 46, ../scss/partials/_base.scss */
-.reveal-modal-bg.fade {
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-
-/* line 50, ../scss/partials/_base.scss */
-.reveal-modal-bg.in {
-  filter: alpha(opacity=50);
-  opacity: .5;
-}
-
 /* line 347, ../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-version {
   font-family: "/5.5.0/";
@@ -9245,48 +9203,6 @@ ul,
 ol {
   list-style: none;
   margin-left: 0 !important;
-}
-
-/* line 22, ../scss/partials/_base.scss */
-.fade {
-  opacity: 0;
-  -webkit-transition: opacity .15s linear;
-  transition: opacity .15s linear;
-}
-
-/* line 27, ../scss/partials/_base.scss */
-.fade.in {
-  opacity: 1;
-}
-
-/* line 31, ../scss/partials/_base.scss */
-.reveal-modal.fade, dialog.fade {
-  -webkit-transition: -webkit-transform .3s ease-out;
-  -moz-transition: -moz-transform .3s ease-out;
-  -o-transition: -o-transform .3s ease-out;
-  transition: transform .3s ease-out;
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  transform: translate(0, -25%);
-}
-
-/* line 40, ../scss/partials/_base.scss */
-.reveal-modal.in, dialog.in {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-
-/* line 46, ../scss/partials/_base.scss */
-.reveal-modal-bg.fade {
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-
-/* line 50, ../scss/partials/_base.scss */
-.reveal-modal-bg.in {
-  filter: alpha(opacity=50);
-  opacity: .5;
 }
 
 /*------------------------------------*\

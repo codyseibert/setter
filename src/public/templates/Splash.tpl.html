@@ -457,17 +457,23 @@
                                name="lastName" />
 
                         <!-- Home Gym -->
-                        <label class="label--block  fwb" for="gym">Home Gym</label>
 
-                        <label class="[ select--medium select--secondary ] left mb4">
+                        <label class="label--block  fwb" for="gym">Home Gym</label>
+                        
+                        <label class="[ select--medium select--secondary ] left mb2 mr2">
                             <select name="gym"
                                     ng-model="form.gym"
                                     ng-options="gym.name for gym in gyms">
                             </select>
                         </label>
 
-                        <div>
-                            If your home gym is not listed, tell them about setter and ask them to sign up!
+                        <div class="left">
+
+                            <p class="txt--micro">
+                                <strong>Can't find your favorite gym listed?</strong><br>
+                                Let them know about Setter so they can sign-up or <a href="mailto:setterapp@gmail.com" class="fwb">contact us</a>.
+                            </p>
+
                         </div>
 
                         <div ng-show="error"

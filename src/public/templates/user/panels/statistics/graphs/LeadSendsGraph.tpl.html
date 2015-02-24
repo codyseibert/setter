@@ -13,7 +13,29 @@
 </canvas>
 
 <span ng-show="!leadSendsBarGraph.hasData">
-    <h3 class="text-center fwb  mb2">
-        No Sends
-    </h3>
+
+    <div class="relative">
+
+        <div class="placeholder-text  text-center">
+
+            <div class="vertical-align">
+
+                <h2 class="h4 fwb mb2">
+                    Oops! These are not your lead stats. 
+                </h2>
+
+                <p>
+                    Why don't you send some over at your 
+                    <a prevent-default ng-click="navigateToGym(user.gym_id)" class="fwb">your home gym</a>?
+                </p>
+    
+            </div>
+
+        </div>
+
+        
+        <img class="placeholder--graph" src="images/placeholder--leadGraph.jpg" alt="placeholder graph" height="503"  width="553"> 
+
+    </div>
+
 </span>

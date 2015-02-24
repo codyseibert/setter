@@ -39,7 +39,17 @@
 }
 
 .placeholder-text.medium {
-    height: 50%; 
+    height: 50%;
+
+    @media #{$medium-up} {
+        height: 50%; 
+        width: 60%; 
+    }
+
+    @media #{$large-up} {
+        height: 50%;
+        width: 70%; 
+    } 
 }
 
 .placeholder-text.large { 

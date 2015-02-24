@@ -1,38 +1,55 @@
 
-<h2 class="text-center"
-    ng-show="!hasBoulder() && getAccountId() !== gymId">
+<!-- User - Blank state for no routes available --> 
+<div class="relative" ng-show="!hasBoulder() && getAccountId() !== gymId">
 
-    This gym has no boulder problems set!
-    <br><br>
-    Please ask them to update their information!
-
-</h2>
-
-<div class="relative" ng-show="!hasBoulder() && getAccountId() == gymId">
-
-    <div class="[ placeholder-text  large  ]  text-center"
-         ng-click="navigateToWalls(gymId)">
+    <div class="[ placeholder-text  large  ] text-center">
 
         <div class="vertical-align">
 
             <h2 class="h4 fwb mb2">
-                These aren't your newest bouldering problems. 
+               Bummer, this gym has no bouldering problems yet. 
             </h2>
 
             <p>
-                Currently there are no bouldering problems, but you may set new ones on the
-                <a prevent-default class="fwb">Manage Zones page</a>.
+                If you'd like to climb some, let them know over at their 
+                <a prevent-default 
+                   ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
             </p>
 
         </div>
 
     </div>
 
-    <img class="placeholder--graph" src="images/placeholder--newestBouldering.jpg" alt="placeholder list"> 
+    <img class="placeholderImage" src="images/placeholder--newestBouldering.jpg" alt="placeholder list">
+
+</div> 
+
+<!-- Gym - Blank state for no routes available --> 
+<div class="relative" ng-show="!hasBoulder() && getAccountId() == gymId">
+
+    <div class="[ placeholder-text  large ]  text-center">
+
+        <div class="vertical-align">
+
+            <h2 class="[ h4  mb2 ]  fwb">
+                Oops! These aren't your newest bouldering problems. 
+            </h2>
+
+            <p>
+                There aren't any here right now, but you can 
+                set new ones on the <a ng-click="navigateToWalls(gymId)" prevent-default class="fwb">Manage Zones page</a>.
+            </p>
+
+        </div>
+
+    </div>
+
+    <img class="placeholderImage" src="images/placeholder--newestBouldering.jpg" alt="placeholder list"> 
+
 </div> 
 
 <table ng-show="hasBoulder()"
-       class="[ small-12 columns ] table--unStyled table--list table--clickableElem">
+       class="[ small-12 columns ] [ table--unStyled table--list table--clickableElem ]">
 
     <tbody>
         <tr bindonce

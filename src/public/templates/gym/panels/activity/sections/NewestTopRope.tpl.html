@@ -1,4 +1,5 @@
 
+<!-- User - Blank state for no routes available --> 
 <div class="relative" ng-show="!hasTopRope() && getAccountId() !== gymId">
 
     <div class="[ placeholder-text  large  ] text-center">
@@ -6,7 +7,7 @@
         <div class="vertical-align">
 
             <h2 class="h4 fwb mb2">
-               Bummer, this gym has no Top Rope routes. 
+               Bummer, this gym has no top rope routes yet. 
             </h2>
 
             <p>
@@ -20,32 +21,30 @@
 
     </div>
 
-    <img class="placeholder--graph" src="images/placeholder--newestTopRope.jpg" alt="placeholder list">
+    <img class="placeholderImage" src="images/placeholder--newestTopRope.jpg" alt="placeholder list">
 
 </div> 
 
-
+<!-- Gym - Blank state for no routes available --> 
 <div class="relative" ng-show="!hasTopRope() && getAccountId() == gymId">
 
-    <div class="[ placeholder-text  large  ] text-center"
-         ng-click="navigateToWalls(gymId)">
+    <div class="[ placeholder-text  large  ] text-center">
 
         <div class="vertical-align">
 
             <h2 class="h4 fwb mb2">
-                These aren't your newest top rope routes. 
+                Oops! These aren't your newest top rope routes. 
             </h2>
 
             <p>
-                Currently you have no top rope routes, but you may set new ones on the
-                <a prevent-default class="fwb">Manage Zones page</a>.
+                There aren't any here right now, but you can 
+                set new ones on the <a ng-click="navigateToWalls(gymId)" prevent-default class="fwb">Manage Zones page</a>.
             </p>
-
         </div>
 
     </div>
 
-    <img class="placeholder--graph" src="images/placeholder--newestTopRope.jpg" alt="placeholder list"> 
+    <img class="placeholderImage" src="images/placeholder--newestTopRope.jpg" alt="placeholder list"> 
 
 </div> 
 

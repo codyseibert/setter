@@ -1,32 +1,47 @@
 
-<h2 class="text-center"
-    ng-show="!hasRatedLead() && getAccountId() !== gymId">
+<!-- User - Blank state for no routes available --> 
+<div class="relative" ng-show="!hasRatedLead() && getAccountId() !== gymId">
 
-    No one has rated the lead routes!<br><br>
-    Please ask your friends to rate routes!
-
-</h2>
-
-<div class="relative" ng-show="!hasRatedLead() && getAccountId() == gymId">
-
-    <div class="[ placeholder-text  large  ]  text-center"
-         ng-click="navigateToWalls(gymId)">
+    <div class="[ placeholder-text  large ]  text-center">
 
         <div class="vertical-align">
 
             <h2 class="h4 fwb mb2">
-                These aren't the best lead routes at your gym.  
+                Oh no! There are no rated routes available yet. 
             </h2>
 
             <p>
-                Currently your climbers haven't rated your lead routes, let them know you are on Setter to <span class="fwb">start getting feedback</span>!
+                Either this gym hasn't set any routes or climbers haven't rated them.
             </p>
 
         </div>
 
     </div>
 
-    <img class="placeholder--graph" src="images/placeholder--bestLead.jpg" alt="placeholder list"
+    <img class="placeholderImage" src="images/placeholder--bestLead.jpg" alt="placeholder list"
+         height="305"  width="553"> 
+</div> 
+
+<!-- Gym - Blank state for no routes available --> 
+<div class="relative" ng-show="!hasRatedLead() && getAccountId() == gymId">
+
+    <div class="[ placeholder-text  large  ]  text-center">
+
+        <div class="vertical-align">
+
+            <h2 class="h4 fwb mb2">
+                Oops! These aren't the best lead routes at your gym.  
+            </h2>
+
+            <p>
+                Climbers at your gym haven't rated any yet. Let them know you are on Setter and <span class="fwb">start getting feedback!</span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <img class="placeholderImage" src="images/placeholder--bestLead.jpg" alt="placeholder list"
          height="305"  width="553"> 
 </div> 
 

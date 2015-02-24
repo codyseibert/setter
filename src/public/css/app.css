@@ -12638,20 +12638,34 @@ ul[data-pie-id] {
 .placeholder-text.medium {
   height: 50%;
 }
+@media only screen and (min-width: 40.063em) {
+  /* line 41, ../scss/partials/_placeholders.scss */
+  .placeholder-text.medium {
+    height: 50%;
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 41, ../scss/partials/_placeholders.scss */
+  .placeholder-text.medium {
+    height: 50%;
+    width: 70%;
+  }
+}
 
-/* line 45, ../scss/partials/_placeholders.scss */
+/* line 55, ../scss/partials/_placeholders.scss */
 .placeholder-text.large {
   height: 80%;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 45, ../scss/partials/_placeholders.scss */
+  /* line 55, ../scss/partials/_placeholders.scss */
   .placeholder-text.large {
     height: 80%;
     width: 80%;
   }
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 45, ../scss/partials/_placeholders.scss */
+  /* line 55, ../scss/partials/_placeholders.scss */
   .placeholder-text.large {
     height: 60%;
     width: 60%;

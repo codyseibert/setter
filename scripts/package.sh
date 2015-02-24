@@ -18,4 +18,4 @@ rm -rf $ARTIFACTS_DIR
 mkdir $ARTIFACTS_DIR
 
 cd "$APP_DIR"
-tar -czf "$ARTIFACT_PATH" "$APP_DIR"
+tar -czf "$ARTIFACT_PATH" "."

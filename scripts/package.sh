@@ -1,5 +1,5 @@
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-BASE_DIR="$SCRIPT_DIR/.."
+BASE_DIR="$SCRIPT_DIR"
 
 BUILD_NUMBER="$1"
 BUILD_NAME="setter_$BUILD_NUMBER"

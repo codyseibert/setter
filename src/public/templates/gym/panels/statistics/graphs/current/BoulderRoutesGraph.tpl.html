@@ -1,23 +1,40 @@
 
-
 <div>
+
     <a  class="right"
         ng-click="export()"
         ng-show="getAccountId() === gymId">Export Graph
     </a>
 
     <h2 class="h3 clearfix">Bouldering</h2>
+    
+    <!-- User - Blank state for no routes available --> 
+    <div class="relative" ng-show="!hasBoulder && getAccountId() !== gymId">
 
-    <div ng-show="!hasBoulder && getAccountId() !== gymId">
+        <div class="placeholder-text  text-center">
 
-        <h2>
+            <div class="vertical-align">
 
-            This gym has no boulder problems set!
+                <h2 class="h4 fwb mb2">
+                    This gym has no bouldering routes, yet.
+                </h2>
 
-        </h2>
+                <p>
+                    If you'd like to climb some, let them know over at their 
+                    <a prevent-default 
+                       ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
+                </p>
+    
+            </div>
+
+        </div>
+
+        
+        <img class="placeholder--graph" src="images/placeholder--boulderingGraph.jpg" alt="placeholder graph" height="503"  width="553"> 
 
     </div>
 
+    <!-- Gyms - Blank state for no routes available --> 
     <div class="relative" ng-show="!hasBoulder && getAccountId() === gymId">
 
         <div class="placeholder-text  text-center"
@@ -54,4 +71,5 @@
         width="100%"
         height="100%">
     </canvas>
+
 </div>

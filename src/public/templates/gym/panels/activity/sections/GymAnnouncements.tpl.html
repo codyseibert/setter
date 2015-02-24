@@ -2,12 +2,12 @@
     Gym Announcements
 </h2>
 
-<h2 ng-show="!hasAnnouncements() && getAccountId !== gymId">
-    This gym has no announcements!
+<h2 class="h4  ptb3 display--block" ng-show="!hasAnnouncements() && getAccountId !== gymId">
+    There have been no announcements posted by this gym, yet.
 </h2>
 
-<h2 ng-show="!hasAnnouncements() && getAccountId === gymId">
-    You have no posted any announcements!
+<h2 class="h4  ptb3 display--block" ng-show="!hasAnnouncements() && getAccountId === gymId">
+    You haven't posted any announcements for your climbers yet, post your first one here. 
 </h2>
 
 <ul class="list--noStyles  list mb0">

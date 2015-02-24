@@ -1,14 +1,31 @@
 
-<h2 class="text-center"
-    ng-show="!hasTopRope() && getAccountId() !== gymId">
+<div class="relative" ng-show="!hasTopRope() && getAccountId() !== gymId">
 
-    This gym has no top rope routes set!
-    <br><br>
-    Please ask them to update their information!
+    <div class="[ placeholder-text  large  ] text-center">
 
-</h2>
+        <div class="vertical-align">
 
-<div class="relative" ng-show="!hasBoulder() && getAccountId() == gymId">
+            <h2 class="h4 fwb mb2">
+               Bummer, this gym has no Top Rope routes. 
+            </h2>
+
+            <p>
+                If you'd like to climb some, let them know over at their 
+                <a prevent-default 
+                   ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
+            </p>
+
+
+        </div>
+
+    </div>
+
+    <img class="placeholder--graph" src="images/placeholder--newestTopRope.jpg" alt="placeholder list">
+
+</div> 
+
+
+<div class="relative" ng-show="!hasTopRope() && getAccountId() == gymId">
 
     <div class="[ placeholder-text  large  ] text-center"
          ng-click="navigateToWalls(gymId)">
@@ -16,7 +33,7 @@
         <div class="vertical-align">
 
             <h2 class="h4 fwb mb2">
-            These aren't your newest top rope routes. 
+                These aren't your newest top rope routes. 
             </h2>
 
             <p>
@@ -29,7 +46,9 @@
     </div>
 
     <img class="placeholder--graph" src="images/placeholder--newestTopRope.jpg" alt="placeholder list"> 
+
 </div> 
+
 
 <table ng-show="hasTopRope()"
        class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">

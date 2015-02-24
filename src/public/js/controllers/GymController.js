@@ -79,7 +79,7 @@ angular.module('SETTER')
                 $scope.gym = pData;
             });
 
-            setTimeout(function() {
+            setTimeout(function () {
                 GymsService.getHomeGymUsers($scope.gymId, function (pData) {
                     var i;
                     for (i = 0; i < pData.length; i += 1) {
@@ -175,7 +175,7 @@ angular.module('SETTER')
                     formatDates(pData);
                 });
 
-            setTimeout(function() {
+            setTimeout(function () {
 
                 GymsService.getNewestTopRope($scope.gymId)
                     .success(function (pData) {
@@ -202,10 +202,10 @@ angular.module('SETTER')
                         $scope.bestRatedLead = pData;
                         formatDates(pData);
                     });
-            }, 1000)
+            }, 1000);
 
 
-            setTimeout(function() {
+            setTimeout(function () {
                 /*
                 *   SECTION - Current Routes
                 */
@@ -220,7 +220,7 @@ angular.module('SETTER')
                 RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
                     createLeadRoutesBarGraph(pData);
                 });
-            }, 1000)
+            }, 1000);
 
 
             $scope.hasUsers = function () {

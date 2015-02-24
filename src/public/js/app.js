@@ -338,7 +338,6 @@ angular.module('SETTER', [
                 userReg = /users\/[0-9]+$/,
                 settersReg = /gyms\/[0-9]+\/setters$/,
                 addSettersReg = /gyms\/[0-9]+\/setters\/add$/,
-                addSettersReg = /gyms\/[0-9]+\/setters\/add$/,
                 gymsReg = /gyms\/[0-9]+$/,
                 searchGymsReg = /gyms$/,
                 zonesReg = /gyms\/[0-9]+\/walls$/,

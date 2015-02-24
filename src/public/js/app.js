@@ -337,7 +337,9 @@ angular.module('SETTER', [
             var paths = ['/'],
                 userReg = /users\/[0-9]+$/,
                 settersReg = /gyms\/[0-9]+\/setters$/,
+                addSettersReg = /gyms\/[0-9]+\/setters\/add$/,
                 gymsReg = /gyms\/[0-9]+$/,
+                searchGymsReg = /gyms$/,
                 zonesReg = /gyms\/[0-9]+\/walls$/,
                 zoneReg = /gyms\/[0-9]+\/walls\/[0-9]+$/,
                 routeReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes\/[0-9]+$/,
@@ -372,6 +374,26 @@ angular.module('SETTER', [
                 }
 
                 if ($rootScope.currentPageIsEditRoute() && $rootScope.lastPageWasRoute()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasUser()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasGyms()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsGyms() && $rootScope.lastPageWasSearchGyms()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsAddSetters() && $rootScope.lastPageWasSetters()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsUser() && $rootScope.lastPageWasSetters()) {
                     $rootScope.slideLeft = true;
                 }
             });
@@ -413,12 +435,20 @@ angular.module('SETTER', [
                 return $location.$$path.match(settersReg);
             };
 
+            $rootScope.currentPageIsAddSetters = function () {
+                return $location.$$path.match(addSettersReg);
+            };
+
 
 
 
             // Last Page Check Logic
             $rootScope.lastPageWasRouteArchive = function () {
                 return $rootScope.lastPath.match(routesReg) !== null;
+            };
+
+            $rootScope.lastPageWasSearchGyms = function () {
+                return $rootScope.lastPath.match(searchGymsReg) !== null;
             };
 
             $rootScope.lastPageWasGyms = function () {

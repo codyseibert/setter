@@ -79,15 +79,17 @@ angular.module('SETTER')
                 $scope.gym = pData;
             });
 
-            GymsService.getHomeGymUsers($scope.gymId, function (pData) {
-                var i;
-                for (i = 0; i < pData.length; i += 1) {
-                    if (pData[i].name === 'Guest Setter') {
-                        pData.splice(i, 1);
+            setTimeout(function () {
+                GymsService.getHomeGymUsers($scope.gymId, function (pData) {
+                    var i;
+                    for (i = 0; i < pData.length; i += 1) {
+                        if (pData[i].name === 'Guest Setter') {
+                            pData.splice(i, 1);
+                        }
                     }
-                }
-                $scope.users = pData;
-            });
+                    $scope.users = pData;
+                });
+            }, 1000);
 
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = pData;
@@ -102,8 +104,6 @@ angular.module('SETTER')
                 .success(function (pData) {
                     $scope.activity = pData;
                 });
-
-
 
 
             /*
@@ -166,20 +166,6 @@ angular.module('SETTER')
                     formatDates(pData);
                 });
 
-            GymsService.getNewestTopRope($scope.gymId)
-                .success(function (pData) {
-                    $scope.newestTopRope = pData;
-                    formatDates(pData);
-                });
-
-            GymsService.getNewestLead($scope.gymId)
-                .success(function (pData) {
-                    $scope.newestLead = pData;
-                    formatDates(pData);
-                });
-
-
-
             /*
             *   SECTION - Best Rated Routes
             */
@@ -189,33 +175,53 @@ angular.module('SETTER')
                     formatDates(pData);
                 });
 
-            GymsService.getBestRatedTopRope($scope.gymId)
-                .success(function (pData) {
-                    $scope.bestRatedTopRope = pData;
-                    formatDates(pData);
+            setTimeout(function () {
+
+                GymsService.getNewestTopRope($scope.gymId)
+                    .success(function (pData) {
+                        $scope.newestTopRope = pData;
+                        formatDates(pData);
+                    });
+
+                GymsService.getNewestLead($scope.gymId)
+                    .success(function (pData) {
+                        $scope.newestLead = pData;
+                        formatDates(pData);
+                    });
+
+
+
+                GymsService.getBestRatedTopRope($scope.gymId)
+                    .success(function (pData) {
+                        $scope.bestRatedTopRope = pData;
+                        formatDates(pData);
+                    });
+
+                GymsService.getBestRatedLead($scope.gymId)
+                    .success(function (pData) {
+                        $scope.bestRatedLead = pData;
+                        formatDates(pData);
+                    });
+            }, 1000);
+
+
+            setTimeout(function () {
+                /*
+                *   SECTION - Current Routes
+                */
+                RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
+                    createBoulderRoutesBarGraph(pData);
                 });
 
-            GymsService.getBestRatedLead($scope.gymId)
-                .success(function (pData) {
-                    $scope.bestRatedLead = pData;
-                    formatDates(pData);
+                RoutesService.getCurrentTopRopeRoutes($scope.gymId, function (pData) {
+                    createTopRopeRoutesBarGraph(pData);
                 });
 
+                RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
+                    createLeadRoutesBarGraph(pData);
+                });
+            }, 1000);
 
-            /*
-            *   SECTION - Current Routes
-            */
-            RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
-                createBoulderRoutesBarGraph(pData);
-            });
-
-            RoutesService.getCurrentTopRopeRoutes($scope.gymId, function (pData) {
-                createTopRopeRoutesBarGraph(pData);
-            });
-
-            RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
-                createLeadRoutesBarGraph(pData);
-            });
 
             $scope.hasUsers = function () {
                 return $scope.users.length > 0;

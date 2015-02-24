@@ -8,13 +8,16 @@
     opacity: .4; 
 }
 
+.placeholderImage {
+    opacity: .4; 
+}
+
 
 .placeholder-text { 
-
     width: 80%;
-    padding-right: rem-calc(5);
-    padding-left: rem-calc(5); 
-  height: 50%;
+    padding-right: rem-calc(12);
+    padding-left: rem-calc(12); 
+  height: 60%;
   overflow: hidden;
   margin: auto;
   position: absolute;
@@ -26,3 +29,30 @@
 
 }
 
+.placeholder-text.small {
+    height: 35%; 
+
+    @media #{$medium-up} {
+        width: 50%; 
+    }
+
+}
+
+.placeholder-text.medium {
+    height: 50%; 
+}
+
+.placeholder-text.large { 
+    height: 80%;
+    
+
+    @media #{$medium-up} {
+        height: 80%; 
+        width: 80%; 
+    }
+
+    @media #{$large-up} {
+        height: 60%;
+        width: 60%; 
+    }
+}

@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="media--fl" ng-show="isGymAccount()">
+        <div class="media--fl" ng-show="isGymAccount() && hasWalls()">
             <button type="submit"
                         alt="Add New Zone"
                         class="btn--primary icon-plus btn--medium "
@@ -63,13 +63,8 @@
                         ng-model="form.wallName"/>
             </div>
         </div>
+
     </div>
-</section>
-
-<!-- Gym - Blank State Copy -->
-<section ng-show="!hasWalls() && getAccountId() === gymId">
-
-    Use the Add Zone Widget above to add a zone to your gym.
 
 </section>
 
@@ -87,7 +82,90 @@
 
 
 <!-- NG Repeat Zone List -->
-<section class="row  small-collapse  large-uncollapse">
+<div class="row  small-collapse  large-uncollapse">
+
+    <!-- Gym - Blank State Copy -->
+    <section class="small-12 columns" ng-show="!hasWalls() && getAccountId() === gymId">
+
+        <!-- Gym - Blank State for no Zones Small Only -->
+        <div class="row  show-for-small-only">
+
+            <div class="small-12 columns">
+
+                <h2 class="wb  fwb">You have no zones available to set routes on, yet.</h2>
+                
+                <p>
+                    Before you can start adding awesome routes & problems to your gym you must first create a zone. <span class="fwb">Add your first zone below!  </span>
+                </p>
+                
+                <div class="media--fl" ng-show="isGymAccount()">
+                
+                    <button type="submit"
+                                alt="Add New Zone"
+                                class="btn--primary icon-plus btn--medium mb1 "
+                                ng-click="addClicked()">
+                        Add Zone
+                    </button>
+                
+                    <div>
+                        <input type="text"
+                                name="name"
+                                id="wallName"
+                                placeholder="New zone Name"
+                                ng-model="form.wallName"
+                                class="mb1"/>
+                    </div>
+                
+                
+                </div>
+                
+                <p class="txt--micro">
+                    <i><span class="uc fwb">Note:</span> Zones can serve as walls, climbing areas/sections, or whichever is the preferred method of wall categorization at your gym</i>.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Gym - Blank State for no Zones Medium Up -->
+        <div class="placeholder-text  large  show-for-medium-up">
+            
+                <div class="vertical-align">
+
+                    <h2 class="wb  fwb">You have no zones available to set routes on, yet.</h2>
+
+                    <p>
+                        Before you can start adding awesome routes & problems to your gym you must first create a zone. <span class="fwb">Add your first zone below!  </span>
+                    </p>
+
+                    <div class="media--fl" ng-show="isGymAccount()">
+
+                        <button type="submit"
+                                    alt="Add New Zone"
+                                    class="btn--primary icon-plus btn--medium mb1 "
+                                    ng-click="addClicked()">
+                            Add Zone
+                        </button>
+
+                        <div>
+                            <input type="text"
+                                    name="name"
+                                    id="wallName"
+                                    placeholder="New zone Name"
+                                    ng-model="form.wallName"
+                                    class="mb1"/>
+                        </div>
+
+
+                    </div>
+                    <p class="txt--micro">
+                        <i><span class="uc fwb">Note:</span> Zones can serve as walls, climbing areas/sections, or whichever is the preferred method of wall categorization at your gym</i>.
+                    </p>
+                </div>
+        </div>
+
+        <img class="placeholderImage  show-for-medium-up" src="images/placeholder--zones.jpg" alt="Walls Placeholder"   width="1126"  height="414">
+
+    </section>
 
     <div class="small-12 columns">
 
@@ -114,4 +192,4 @@
 
     </div>
 
-</section>
+</div>

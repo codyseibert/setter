@@ -7,13 +7,28 @@
 
 </h2>
 
-<h2 class="text-center"
-    ng-show="!hasRatedLead() && getAccountId() == gymId">
+<div class="relative" ng-show="!hasRatedLead() && getAccountId() == gymId">
 
-    No one has rated your lead routes!<br><br>
-    Please ask them to help out your gym by rating routes!
+    <div class="[ placeholder-text  large  ]  text-center"
+         ng-click="navigateToWalls(gymId)">
 
-</h2>
+        <div class="vertical-align">
+
+            <h2 class="h4 fwb mb2">
+                These aren't the best lead routes at your gym.  
+            </h2>
+
+            <p>
+                Currently your climbers haven't rated your lead routes, let them know you are on Setter to <span class="fwb">start getting feedback</span>!
+            </p>
+
+        </div>
+
+    </div>
+
+    <img class="placeholder--graph" src="images/placeholder--bestLead.jpg" alt="placeholder list"
+         height="305"  width="553"> 
+</div> 
 
 <table ng-show="hasRatedLead()"
        class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">

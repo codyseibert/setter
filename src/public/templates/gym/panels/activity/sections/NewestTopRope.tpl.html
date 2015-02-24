@@ -8,19 +8,28 @@
 
 </h2>
 
-<h2 ng-show="!hasTopRope() && getAccountId() === gymId">
+<div class="relative" ng-show="!hasBoulder() && getAccountId() == gymId">
 
-    You have no top rope routes!
+    <div class="[ placeholder-text  large  ] text-center"
+         ng-click="navigateToWalls(gymId)">
 
-    <button type="submit"
-        class="btn--primary icon-plus btn--medium"
-        ng-click="navigateToWalls(gymId)">
+        <div class="vertical-align">
 
-        Set Some Routes!
+            <h2 class="h4 fwb mb2">
+            These aren't your newest top rope routes. 
+            </h2>
 
-    </button>
+            <p>
+                Currently you have no top rope routes, but you may set new ones on the
+                <a prevent-default class="fwb">Manage Zones page</a>.
+            </p>
 
-</h2>
+        </div>
+
+    </div>
+
+    <img class="placeholder--graph" src="images/placeholder--newestTopRope.jpg" alt="placeholder list"> 
+</div> 
 
 <table ng-show="hasTopRope()"
        class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">

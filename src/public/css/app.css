@@ -770,7 +770,12 @@ h1,
 h2,
 .h2, .side-menu a:before {
   font-size: rem-calc(24);
+<<<<<<< HEAD
   line-height: 1; }
+=======
+  line-height: 1.2;
+}
+>>>>>>> 09c8f47c404531bd56a382c495a6330e12183122
 
 h3,
 .h3, [class*="dropDown--"] .dropDown-separator, [class*="dropdown"] .dropDown-separator {
@@ -6143,7 +6148,12 @@ h1,
 h2,
 .h2, .side-menu a:before {
   font-size: 1.5rem;
+<<<<<<< HEAD
   line-height: 1; }
+=======
+  line-height: 1.2;
+}
+>>>>>>> 09c8f47c404531bd56a382c495a6330e12183122
 
 h3,
 .h3, [class*="dropDown--"] .dropDown-separator, [class*="dropdown"] .dropDown-separator {
@@ -8779,11 +8789,20 @@ ul[data-pie-id] {
 .placeholder--graph {
   opacity: .4; }
 
+<<<<<<< HEAD
+=======
+/* line 11, ../scss/partials/_placeholders.scss */
+.placeholderImage {
+  opacity: .4;
+}
+
+/* line 16, ../scss/partials/_placeholders.scss */
+>>>>>>> 09c8f47c404531bd56a382c495a6330e12183122
 .placeholder-text {
   width: 80%;
-  padding-right: 0.3125rem;
-  padding-left: 0.3125rem;
-  height: 50%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  height: 60%;
   overflow: hidden;
   margin: auto;
   position: absolute;
@@ -8792,6 +8811,46 @@ ul[data-pie-id] {
   bottom: 0;
   right: 0;
   z-index: 40;
+<<<<<<< HEAD
   background-color: #fff; }
 
 /*# sourceMappingURL=app.css.map */
+=======
+  background-color: #fff;
+}
+
+/* line 32, ../scss/partials/_placeholders.scss */
+.placeholder-text.small {
+  height: 35%;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 32, ../scss/partials/_placeholders.scss */
+  .placeholder-text.small {
+    width: 50%;
+  }
+}
+
+/* line 41, ../scss/partials/_placeholders.scss */
+.placeholder-text.medium {
+  height: 50%;
+}
+
+/* line 45, ../scss/partials/_placeholders.scss */
+.placeholder-text.large {
+  height: 80%;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 45, ../scss/partials/_placeholders.scss */
+  .placeholder-text.large {
+    height: 80%;
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 45, ../scss/partials/_placeholders.scss */
+  .placeholder-text.large {
+    height: 60%;
+    width: 60%;
+  }
+}
+>>>>>>> 09c8f47c404531bd56a382c495a6330e12183122

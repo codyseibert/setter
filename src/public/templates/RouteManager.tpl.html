@@ -5,7 +5,7 @@
 
     <div class="header">
 
-        <h1 class="icon-archive">
+        <h1 class="fwb  icon-archive">
             Route Archive
         </h1>
 
@@ -16,21 +16,44 @@
 </section>
 
 <div class="row" ng-show="!isLoading && !hasRoutes()">
-    <div class="small-12 columns">
-        You have not set any routes!
-        <button type="submit"
-                class="btn--primary icon-plus btn--medium"
-                ng-click="navigateToWalls(gymId)">
-            Set Some Routes!
-        </button>
+
+<div class="small-12 columns show-for-small-only">
+    
+    <h2>You haven't set any routes or problems yet, start setting over at the <a class="fwb" prevent-default ng-click="navigateToManageZone()">Manage Zones page</a>. 
+    </h2>
+    <h3>Climbers will then be able to provide feedback and log their sends.</h3>
+    
+</div>
+
+<div class="small-12 columns  show-for-medium-up">
+
+    <div class="placeholder-text  small">
+    
+        <div class="vertical-align  text-center">
+    
+            <h2 class="fwb">This is the route archive.</h2>
+            <h3>You haven't set any routes or problems yet, start setting over at the <a class="fwb" prevent-default ng-click="navigateToManageZone()">Manage Zones page</a>. Climbers will then be able to provide feedback and log their sends. 
+            </h3>
+    
+        </div>
+    
     </div>
+    
+    <img class="placeholderImage" src="images/placeholder--routeArchive.jpg" alt="Route Archive Placeholder" width="1133"  height="636"> 
+
+</div>
+
 </div>
 
 <div class="row" ng-hide="!isLoading || finishedRendering">
+
     <div class="small-12 columns">
+
         <div style="width: 150px; height: 150px; position: relative" us-spinner>
         </div>
+
     </div>
+
 </div>
 
 <!-- Section - Filters -->

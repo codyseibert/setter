@@ -7,13 +7,28 @@
 
 </h2>
 
-<h2 class="text-center"
-    ng-show="!hasRatedBoulder() && getAccountId() == gymId">
+<div class="relative" ng-show="!hasRatedBoulder() && getAccountId() == gymId">
 
-    No one has rated your boulder problems!<br><br>
-    Please ask them to help out your gym by rating problems!
+    <div class="[ placeholder-text  text-center ]  large"
+         ng-click="navigateToWalls(gymId)">
 
-</h2>
+        <div class="vertical-align">
+
+            <h2 class="h4 fwb mb2">
+                These aren't the best boulder problems at your gym.  
+            </h2>
+
+            <p>
+                Currently your climbers haven't rated your boulder problems, let them know you are on Setter to <span class="fwb">start getting feedback!</span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <img class="placeholder--graph" src="images/placeholder--bestBouldering.jpg" alt="placeholder list"
+         height="305"  width="553"> 
+</div> 
 
 <table ng-show="hasRatedBoulder()"
        class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">

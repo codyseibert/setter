@@ -1,4 +1,4 @@
-/*global angular: false, btoa: false, Chart: false, confirm: false, FastClick: false */
+/*global angular: false, btoa: false, Chart: false, confirm: false, FastClick: false, console: false */
 
 angular.module('SETTER', [
     'ngRoute',
@@ -335,40 +335,124 @@ angular.module('SETTER', [
             };
 
             var paths = ['/'],
-                gymsReg = /gyms\/([0-9]+)$/,
+                userReg = /users\/[0-9]+$/,
+                settersReg = /gyms\/[0-9]+\/setters$/,
+                gymsReg = /gyms\/[0-9]+$/,
+                zonesReg = /gyms\/[0-9]+\/walls$/,
+                zoneReg = /gyms\/[0-9]+\/walls\/[0-9]+$/,
+                routeReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes\/[0-9]+$/,
+                routesReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes$/,
+                editRouteReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes\/[0-9]+\/edit$/,
                 gymId,
                 nothing,
                 userId;
 
             $rootScope.$on('$routeChangeSuccess', function () {
-                $rootScope.lastPath = paths[0];
-                paths.push($location.$$path);
+                var currentPath,
+                    lastPath;
+                currentPath = $location.$$path;
+                lastPath = paths[0];
+                $rootScope.lastPath = lastPath;
+                paths.push(currentPath);
                 paths.splice(0, 1);
+
+                // Always slide right (handles back logic)
+                $rootScope.slideLeft = false;
+
+                if ($rootScope.currentPageIsZones() && $rootScope.lastPageWasGyms()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsZone() && $rootScope.lastPageWasZones()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasZone()) {
+                    $rootScope.slideLeft = true;
+                }
+
+                if ($rootScope.currentPageIsEditRoute() && $rootScope.lastPageWasRoute()) {
+                    $rootScope.slideLeft = true;
+                }
             });
 
             $rootScope.pageWasBookmarked = function () {
                 return $rootScope.lastPath === '/';
             };
 
-            $rootScope.lastPageWasZone = function () {
-                return $rootScope.lastPath.indexOf('walls') !== -1;
+            // Current Page Check Logic
+            $rootScope.currentPageIsRouteArchive = function () {
+                return $location.$$path.match(routesReg);
             };
 
-            $rootScope.lastPageWasUser = function () {
-                return $rootScope.lastPath.indexOf('users') !== -1;
+            $rootScope.currentPageIsGyms = function () {
+                return $location.$$path.match(gymsReg);
             };
 
-            $rootScope.lastPageWasGym = function () {
+            $rootScope.currentPageIsZones = function () {
+                return $location.$$path.match(zonesReg);
+            };
+
+            $rootScope.currentPageIsZone = function () {
+                return $location.$$path.match(zoneReg);
+            };
+
+            $rootScope.currentPageIsRoute = function () {
+                return $location.$$path.match(routeReg);
+            };
+
+            $rootScope.currentPageIsEditRoute = function () {
+                return $location.$$path.match(editRouteReg);
+            };
+
+            $rootScope.currentPageIsUser = function () {
+                return $location.$$path.match(userReg);
+            };
+
+            $rootScope.currentPageIsSetters = function () {
+                return $location.$$path.match(settersReg);
+            };
+
+
+
+
+            // Last Page Check Logic
+            $rootScope.lastPageWasRouteArchive = function () {
+                return $rootScope.lastPath.match(routesReg) !== null;
+            };
+
+            $rootScope.lastPageWasGyms = function () {
                 return $rootScope.lastPath.match(gymsReg) !== null;
             };
 
+            $rootScope.lastPageWasZones = function () {
+                return $rootScope.lastPath.match(zonesReg) !== null;
+            };
+
+            $rootScope.lastPageWasZone = function () {
+                return $rootScope.lastPath.match(zoneReg) !== null;
+            };
+
             $rootScope.lastPageWasRoute = function () {
-                return $rootScope.lastPath.indexOf('routes') !== -1;
+                return $rootScope.lastPath.match(routeReg) !== null;
+            };
+
+            $rootScope.lastPageWasEditRoute = function () {
+                return $rootScope.lastPath.match(editRouteReg) !== null;
+            };
+
+            $rootScope.lastPageWasUser = function () {
+                return $rootScope.lastPath.match(userReg) !== null;
             };
 
             $rootScope.lastPageWasSetters = function () {
-                return $rootScope.lastPath.indexOf('setters') !== -1;
+                return $rootScope.lastPath.match(settersReg) !== null;
             };
+
+
+
+
+
 
             $rootScope.getGymImageSrc = function (pData) {
                 if (!pData || !pData.url || pData.url === '') {

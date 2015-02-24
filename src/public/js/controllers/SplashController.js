@@ -1,17 +1,15 @@
 /*jslint nomen: true */
-/*global angular: false, btoa: false, console: false, confirm: false, moment: false */
+/*global angular: false, btoa: false, console: false, confirm: false, moment: false, alert: false */
 
 angular.module('SETTER')
     .controller('SplashController', [
         '$scope',
-        '$location',
         'UsersService',
         'GymsService',
         'LoginService',
         'GymAccountRequestsService',
         function (
             $scope,
-            $location,
             UsersService,
             GymsService,
             LoginService,
@@ -42,11 +40,8 @@ angular.module('SETTER')
             };
 
             $scope.saveAccountRequest = function () {
-                GymAccountRequestsService.createGymAccountRequest(
-                    $scope.requestForm.email,
-                    $scope.requestForm.name,
-                    $scope.requestForm.address)
-                    .success(function (pData) {
+                GymAccountRequestsService.createGymAccountRequest($scope.requestForm.email, $scope.requestForm.name, $scope.requestForm.address)
+                    .success(function () {
                         $scope.requestForm.email = "";
                         $scope.requestForm.name = "";
                         $scope.requestForm.address = "";
@@ -59,22 +54,22 @@ angular.module('SETTER')
                 $scope.form.gym_id = $scope.form.gym.account_id;
 
                 UsersService.registerUser($scope.form)
-                .success(function (pData) {
-                    LoginService.setHeader(pData.token);
-                    LoginService.setAccountType(pData.accountType);
-                    LoginService.setAccountId(pData.accountId);
-                    LoginService.setHomeGymId($scope.form.gym_id);
-                    LoginService.setImageUrl(null);
-                    LoginService.setName($scope.form.firstname + ' ' + $scope.form.lastname);
-                    $scope.navigateToGym($scope.form.gym_id);
-                })
-                .error(function (pData) {
-                    $scope.error = pData.error;
+                    .success(function (pData) {
+                        LoginService.setHeader(pData.token);
+                        LoginService.setAccountType(pData.accountType);
+                        LoginService.setAccountId(pData.accountId);
+                        LoginService.setHomeGymId($scope.form.gym_id);
+                        LoginService.setImageUrl(null);
+                        LoginService.setName($scope.form.firstname + ' ' + $scope.form.lastname);
+                        $scope.navigateToGym($scope.form.gym_id);
+                    })
+                    .error(function (pData) {
+                        $scope.error = pData.error;
 
-                    if ($scope.error === 'default error') {
-                        $scope.error = 'Email address already in use';
-                    }
-                });
+                        if ($scope.error === 'default error') {
+                            $scope.error = 'Email address already in use';
+                        }
+                    });
             };
 
         }]);

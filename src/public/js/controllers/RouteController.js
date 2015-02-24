@@ -212,7 +212,7 @@ angular.module('SETTER')
             };
 
             $scope.topNavigationClicked = function () {
-                if ($scope.pageWasBookmarked() || $scope.lastPageWasZone()) {
+                if ($scope.pageWasBookmarked() || $scope.lastPageWasZone() || $scope.lastPageWasEditRoute()) {
                     $scope.navigateToWall($scope.gymId, $scope.wallId);
                 } else {
                     $scope.back();

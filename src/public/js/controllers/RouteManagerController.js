@@ -31,7 +31,8 @@ angular.module('SETTER')
                 boulderGradesPromise,
                 ropeGradesPromise,
                 refreshFilter,
-                showAllRoutes;
+                showAllRoutes,
+                processRoutes;
 
             if (!LoginService.validateLoggedIn()) {
                 return;
@@ -177,6 +178,66 @@ angular.module('SETTER')
                 }
             };
 
+
+            processRoutes = function (pData) {
+                var clone;
+
+                $scope.isLoading = false;
+
+                if (pData.length === 0) {
+                    return;
+                }
+
+                pData.map(function (pEntry) {
+                    pEntry.date_format = DateFormatService.format(pEntry.date);
+                    pEntry.date_value = moment(pEntry.date).valueOf();
+                    pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
+                    pEntry.toprope_grade_id = pEntry.toprope_grade_id || -1;
+                    pEntry.lead_grade_id = pEntry.lead_grade_id || -1;
+
+                    if (!pEntry.rating) {
+                        pEntry.rating = -1;
+                    } else {
+                        pEntry.rating = parseInt(pEntry.rating, 10);
+                    }
+
+                    pEntry.show = true;
+                    return pEntry;
+                });
+
+                // Creates the data needed by the select elements
+                $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
+                $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
+                $scope.setterInputs = getUniqueSet(pData, 'setter');
+
+                // Zone Option - prepend 'any zone'
+                $scope.zoneInputs.sort(NaturalSort);
+                clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
+                clone.value = "Any";
+                $scope.zoneInputs.unshift(clone);
+
+                // Color Option - prepend 'any color'
+                sortByValue($scope.colorInputs);
+                clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
+                clone.value = "Any";
+                $scope.colorInputs.unshift(clone);
+
+                // Setter Option - prepend 'any setter'
+                sortByValue($scope.setterInputs);
+                clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
+                clone.value = "Any";
+                $scope.setterInputs.unshift(clone);
+
+                $scope.form.zoneFilter = $scope.zoneInputs[0];
+                $scope.form.colorFilter = $scope.colorInputs[0];
+                $scope.form.setterFilter = $scope.setterInputs[0];
+
+                $scope.routes = pData;
+
+                $scope.refreshFilters();
+                $scope.$apply();
+            };
+
             $scope.hasRoutes = function () {
                 return $scope.routes.length > 0;
             };
@@ -287,68 +348,18 @@ angular.module('SETTER')
                     $scope.form.ropeGrade = pData[0];
                 });
 
+
+
             $q.all([
                 boulderGradesPromise,
                 ropeGradesPromise
             ])
                 .then(function () {
                     RoutesService.getRoutesInGym($scope.gymId, function (pData) {
-                        var clone;
-
-                        $scope.isLoading = false;
-
-                        if (pData.length === 0) {
-                            return;
-                        }
-
-                        pData.map(function (pEntry) {
-                            pEntry.date_format = DateFormatService.format(pEntry.date);
-                            pEntry.date_value = moment(pEntry.date).valueOf();
-                            pEntry.boulder_grade_id = pEntry.boulder_grade_id || -1;
-                            pEntry.toprope_grade_id = pEntry.toprope_grade_id || -1;
-                            pEntry.lead_grade_id = pEntry.lead_grade_id || -1;
-
-                            if (!pEntry.rating) {
-                                pEntry.rating = -1;
-                            } else {
-                                pEntry.rating = parseInt(pEntry.rating, 10);
-                            }
-
-                            pEntry.show = true;
-                            return pEntry;
-                        });
-
-                        // Creates the data needed by the select elements
-                        $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
-                        $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
-                        $scope.setterInputs = getUniqueSet(pData, 'setter');
-
-                        // Zone Option - prepend 'any zone'
-                        $scope.zoneInputs.sort(NaturalSort);
-                        clone = JSON.parse(JSON.stringify($scope.zoneInputs[0]));
-                        clone.value = "Any";
-                        $scope.zoneInputs.unshift(clone);
-
-                        // Color Option - prepend 'any color'
-                        sortByValue($scope.colorInputs);
-                        clone = JSON.parse(JSON.stringify($scope.colorInputs[0]));
-                        clone.value = "Any";
-                        $scope.colorInputs.unshift(clone);
-
-                        // Setter Option - prepend 'any setter'
-                        sortByValue($scope.setterInputs);
-                        clone = JSON.parse(JSON.stringify($scope.setterInputs[0]));
-                        clone.value = "Any";
-                        $scope.setterInputs.unshift(clone);
-
-                        $scope.form.zoneFilter = $scope.zoneInputs[0];
-                        $scope.form.colorFilter = $scope.colorInputs[0];
-                        $scope.form.setterFilter = $scope.setterInputs[0];
-
-                        $scope.routes = pData;
-
-                        $scope.refreshFilters();
+                        setTimeout(function () {
+                            console.log(pData);
+                            processRoutes(pData);
+                        }, 1000);
                     });
                 });
-
         }]);

@@ -6,6 +6,10 @@
         <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
         <META HTTP-EQUIV="Expires" CONTENT="-1">
 
+        <link href="images/setter_icon.png" rel="apple-touch-icon" />
+        <link href="images/setter_icon.png" rel="icon" sizes="192x192" />
+        <link href="images/setter_icon.png" rel="icon" sizes="128x128" />
+
         <title>SETTER</title>
         <link rel="stylesheet" href="css/app.css" />
 
@@ -48,7 +52,7 @@
                          alt="Setter"
                          class="text-right  mr2">
                 </div>
-      
+
         </nav>
 
 
@@ -185,8 +189,9 @@
         <div id="content">
 
             <div
-                 ng-view autoscroll="true"
-                 class="mainview-animation">
+                 ng-view
+                 autoscroll="true"
+                 ng-class="{'mainview-animation-slide-left': slideLeft, 'mainview-animation-slide-right': !slideLeft}">
             </div>
 
         </div>

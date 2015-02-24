@@ -42,7 +42,7 @@
                 class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
                 ng-click="topNavigationClicked()" >
 
-                <span ng-show="pageWasBookmarked() || lastPageWasZone()">
+                <span ng-show="pageWasBookmarked() || lastPageWasZone() || lastPageWasEditRoute()">
                     Zone
                 </span>
 
@@ -50,14 +50,14 @@
                     User
                 </span>
 
-                <span ng-show="!pageWasBookmarked() && !lastPageWasUser() && !lastPageWasZone()">
+                <span ng-hide="pageWasBookmarked() || lastPageWasZone() || lastPageWasEditRoute()">
                     Back
                 </span>
 
             </button>
 
 
-            <div class="gridRow--100">
+            <div class="gridRow--100 ng-hide">
               <label class="label--block">Color</label>
                 <ul class="mb3 list--inline">
 
@@ -79,7 +79,7 @@
                   <li><input class="radio--routeColor" type="radio" id="routeColor--white" name="routeColor"><label for="routeColor--white" class="route-color route-color--white"></label></li>
                   <li><input class="radio--routeColor" type="radio" id="routeColor--grey" name="routeColor"><label for="routeColor--grey" class="route-color route-color--grey"></label></li>
                   <li><input class="radio--routeColor" type="radio" id="routeColor--black" name="routeColor"><label for="routeColor--black" class="route-color route-color--black"></label></li>
-                <!--End Route Color Options--> 
+                <!--End Route Color Options-->
                 </ul>
 
 

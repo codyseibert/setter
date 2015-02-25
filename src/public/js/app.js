@@ -359,43 +359,53 @@ angular.module('SETTER', [
                 paths.splice(0, 1);
 
                 // Always slide right (handles back logic)
-                $rootScope.slideLeft = false;
+                $rootScope.slideInRight = false;
+
+                if ($rootScope.currentPageIsGyms() && $rootScope.lastPageWasUser()) {
+                  $rootScope.slideInRight = true;
+                }
+
+                if ($rootScope.currentPageIsSearchGyms() && $rootScope.lastPageWasUser()) {
+                  $rootScope.slideInRight = true;
+                }
 
                 if ($rootScope.currentPageIsZones() && $rootScope.lastPageWasGyms()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsZone() && $rootScope.lastPageWasZones()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasZone()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsEditRoute() && $rootScope.lastPageWasRoute()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasUser()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasGyms()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsGyms() && $rootScope.lastPageWasSearchGyms()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsAddSetters() && $rootScope.lastPageWasSetters()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsUser() && $rootScope.lastPageWasSetters()) {
-                    $rootScope.slideLeft = true;
+                    $rootScope.slideInRight = true;
                 }
+
+                $rootScope.$apply();
             });
 
             $rootScope.pageWasBookmarked = function () {
@@ -409,6 +419,10 @@ angular.module('SETTER', [
 
             $rootScope.currentPageIsGyms = function () {
                 return $location.$$path.match(gymsReg);
+            };
+
+            $rootScope.currentPageIsSearchGyms = function () {
+              return $location.$$path.match(searchGymsReg);
             };
 
             $rootScope.currentPageIsZones = function () {

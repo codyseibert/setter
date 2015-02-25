@@ -35,7 +35,7 @@
 <body ng-app="SETTER">
 
     <div class="off-canvas-wrap" data-offcanvas >
-    
+
         <!-- Top Nav Bar -->
         <nav class="tab-bar hide-for-large-up"  ng-show="isLoggedIn()" >
 
@@ -44,7 +44,7 @@
                     <a class="left-off-canvas-toggle menu-icon" >
                         <span></span>
                     </a>
-                    
+
                 </div>
 
                 <div class="right tab-bar-section">
@@ -191,16 +191,19 @@
             <!-- The Main Content -->
 
 
-        <div id="content">
+        <div id="content"
+             class="relative display--block">
 
             <div
                  ng-view
-                 autoscroll="true">
+                 autoscroll="true"
+                 class="page"
+                 ng-class="{'slide-in-right': slideInRight, 'slide-in-left': !slideInRight}">
             </div>
 
         </div>
 
-        
+
 <!--                  ng-class="{'mainview-animation-slide-left': slideLeft, 'mainview-animation-slide-right': !slideLeft}"
  -->
 

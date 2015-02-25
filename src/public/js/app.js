@@ -405,7 +405,16 @@ angular.module('SETTER', [
                     $rootScope.slideInRight = true;
                 }
 
-                $rootScope.$apply();
+                // TODO: FIX EWWW
+                $('.page').removeClass('slide-in-right');
+                $('.page').removeClass('slide-in-left');
+                if ($rootScope.slideInRight) {
+                  $('.page').addClass('slide-in-right');
+                } else {
+                  $('.page').addClass('slide-in-left');
+                }
+
+                //$rootScope.$apply();
             });
 
             $rootScope.pageWasBookmarked = function () {

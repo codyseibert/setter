@@ -12619,14 +12619,39 @@ ul[data-pie-id] {
     transform: translateX(100%);
   }
 }
-/* line 20, ../scss/partials/_animations.scss */
+@-webkit-keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/* line 33, ../scss/partials/_animations.scss */
 .ng-enter {
   animation: slideInRight 0.5s both ease-in;
   z-index: 8888;
+  -webkit-animation: slideInRight 0.5s both ease-in;
+  z-index: 8888;
 }
 
-/* line 24, ../scss/partials/_animations.scss */
+/* line 38, ../scss/partials/_animations.scss */
 .ng-leave {
   animation: slideOutLeft 0.5s both ease-in;
+  z-index: 9999;
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
   z-index: 9999;
 }

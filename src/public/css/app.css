@@ -12597,3 +12597,36 @@ ul[data-pie-id] {
     width: 60%;
   }
 }
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+/* line 20, ../scss/partials/_animations.scss */
+.ng-enter {
+  animation: slideInRight 0.5s both ease-in;
+  z-index: 8888;
+}
+
+/* line 24, ../scss/partials/_animations.scss */
+.ng-leave {
+  animation: slideOutLeft 0.5s both ease-in;
+  z-index: 9999;
+}

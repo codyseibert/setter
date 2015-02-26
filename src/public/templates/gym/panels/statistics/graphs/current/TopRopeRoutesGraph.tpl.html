@@ -7,8 +7,8 @@
 
     <h2 class="h3 clearfix">Top Rope</h2>
 
-    <!-- User - Blank state for no routes available --> 
-    <div class="relative" ng-show="!hasTopRope && getAccountId() !== gymId">
+    <!-- User - Blank state for no routes available -->
+    <div class="relative" ng-show="!hasTopRope() && getAccountId() !== gymId">
 
         <div class="placeholder-text  text-center">
 
@@ -19,21 +19,21 @@
                 </h2>
 
                 <p>
-                    If you'd like to climb some, let them know over at their 
-                    <a prevent-default 
+                    If you'd like to climb some, let them know over at their
+                    <a prevent-default
                        ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
                 </p>
-    
-    
+
+
             </div>
 
         </div>
 
-        <img class="placeholder--graph" src="images/placeholder--topRopeGraph.jpg" alt="placeholder graph"height="503"  width="553"> 
+        <img class="placeholder--graph" src="images/placeholder--topRopeGraph.jpg" alt="placeholder graph"height="503"  width="553">
 
     </div>
 
-    <!-- Gyms - Blank state for no routes available --> 
+    <!-- Gyms - Blank state for no routes available -->
     <div class="relative" ng-show="!hasTopRope && getAccountId() === gymId">
 
         <div class="placeholder-text  text-center">
@@ -48,12 +48,12 @@
                     Start setting some at the
                     <a ng-click="navigateToWalls(gymId)" prevent-default class="fwb">Manage Zones page</a>.
                 </p>
-    
+
             </div>
 
         </div>
 
-        <img class="placeholder--graph" src="images/placeholder--topRopeGraph.jpg" alt="placeholder graph"height="503"  width="553"> 
+        <img class="placeholder--graph" src="images/placeholder--topRopeGraph.jpg" alt="placeholder graph"height="503"  width="553">
 
     </div>
 

@@ -57,18 +57,21 @@ angular.module('SETTER')
             $scope.typeNewest = $scope.BOULDERING;
             $scope.typeBest = $scope.BOULDERING;
 
-            $scope.bestRatedBoulder = [];
-            $scope.bestRatedLead = [];
-            $scope.bestRatedTopRope = [];
             $scope.activity = [];
             $scope.newRoutes = [];
             $scope.alerts = [];
+
             $scope.boulderRoutesBarGraph = [];
             $scope.topRopeRoutesBarGraph = [];
             $scope.leadRoutesBarGraph = [];
-            $scope.newestLead = [];
+
             $scope.newestBoulder = [];
-            $scope.newestTopRope = [];
+            // $scope.newestTopRope = [];
+            $scope.newestLead = [];
+            $scope.bestRatedBoulder = [];
+            $scope.bestRatedTopRope = [];
+            $scope.bestRatedLead = [];
+
             $scope.users = [];
 
 
@@ -240,7 +243,7 @@ angular.module('SETTER')
             };
 
             $scope.hasTopRope = function () {
-                return $scope.newestTopRope.length > 0;
+                return $scope.newestTopRope && $scope.newestTopRope.length > 0;
             };
 
             $scope.hasLead = function () {
@@ -258,6 +261,17 @@ angular.module('SETTER')
             $scope.hasRatedLead = function () {
                 return $scope.bestRatedLead.length > 0;
             };
+
+
+
+            // TODO: Add other 5 methods for other panels
+            $scope.shouldDisplayNewestTopRopeBlankState = function () {
+                return $scope.newestTopRope !== null && !$scope.hasTopRope();
+            };
+
+
+
+
 
             /*
             *   SECTION - Scope Bindings

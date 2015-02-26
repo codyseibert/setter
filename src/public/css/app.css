@@ -12508,34 +12508,34 @@ ul[data-pie-id] {
 }
 @-webkit-keyframes slideInLeft {
   from {
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
   }
   to {
-    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
   }
 }
 @-webkit-keyframes slideInRight {
   from {
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
   }
   to {
-    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
   }
 }
 @-webkit-keyframes slideOutLeft {
   from {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
   }
 }
 @-webkit-keyframes slideOutRight {
   from {
-    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
   }
   to {
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
   }
 }
 /* line 46, ../scss/partials/_animations.scss */

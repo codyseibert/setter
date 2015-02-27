@@ -1,23 +1,5 @@
-<div blank-state-place-holder
-     ng-show="shouldDisplayNewestTopRopeBlankState() && getAccountId() !== gymId"
-     class="relative"
-     title="Bummer, this gym has no top rope routes yet."
-     content="If you'd like to climb some, let them know over at their"
-     link-click="navigateToGymSuggestions(gymId)"
-     link-text="Suggestions Board"
-     img-place-holder="images/placeholder--newestTopRope.jpg"
-     img-show-when="shouldDisplayNewestTopRopeBlankState() && getAccountId() !== gymId"></div>
-
-<div
-     blank-state-place-holder
-     ng-show="shouldDisplayNewestTopRopeBlankState() && getAccountId() === gymId"
-     class="relative"
-     title="Oops! These aren't your newest top rope routes."
-     content="There aren't any here right now, but you can set new ones on the"
-     link-click="navigateToGymSuggestions(gymId)"
-     link-text="Suggestions Board"
-     img-place-holder="images/placeholder--newestTopRope.jpg"
-     img-show-when="shouldDisplayNewestTopRopeBlankState() && getAccountId() === gymId"></div>
+<div blank-state-place-holder="blankStateModels.newest.toprope.user"></div>
+<div blank-state-place-holder="blankStateModels.newest.toprope.gym"></div>
 
 <table ng-show="hasTopRope()"
        class=" [ small-12 columns ] table--unStyled table--list table--clickableElem">

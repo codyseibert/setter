@@ -1,49 +1,5 @@
-
-<!-- User - Blank state for no problems available --> 
-<div class="relative" ng-show="!hasRatedBoulder() && getAccountId() !== gymId">
-
-    <div class="[ placeholder-text  large ]  text-center">
-
-        <div class="vertical-align">
-
-            <h2 class="h4 fwb mb2">
-                Oh no! There are no rated problems available yet. 
-            </h2>
-
-            <p>
-                Either this gym hasn't set any problems or climbers haven't rated them.
-            </p>
-
-        </div>
-
-    </div>
-
-    <img class="placeholderImage" src="images/placeholder--bestBouldering.jpg" alt="placeholder list"
-         height="305"  width="553"> 
-</div> 
-
-<!-- Gym - Blank state for no problems available --> 
-<div class="relative" ng-show="!hasRatedBoulder() && getAccountId() == gymId">
-
-    <div class="[ placeholder-text  text-center ]  large">
-
-        <div class="vertical-align">
-
-            <h2 class="h4 fwb mb2">
-                Oops! These aren't the best boulder problems at your gym.  
-            </h2>
-
-            <p>
-                Climbers at your gym haven't rated any yet. Let them know you are on Setter and <span class="fwb">start getting feedback!</span>
-            </p>
-
-        </div>
-
-    </div>
-
-    <img class="placeholderImage" src="images/placeholder--bestBouldering.jpg" alt="placeholder list"
-         height="305"  width="553"> 
-</div> 
+<div blank-state-place-holder="blankStateModels.best.boulder.user"></div>
+<div blank-state-place-holder="blankStateModels.best.boulder.gym"></div>
 
 <table ng-show="hasRatedBoulder()"
        class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">

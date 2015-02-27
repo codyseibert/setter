@@ -12,17 +12,16 @@ angular.module('SETTER')
 
             return {
                 scope: {
-                    'title': '@',
-                    'content': '@',
-                    'linkClick': '&',
-                    'linkText': '@',
-                    'imgPlaceHolder': '@',
-                    'imgShowWhen': '='
+                    'model': '=blankStatePlaceHolder'
                 },
                 restrict: 'A',
+                replace: true,
                 templateUrl: 'templates/BlankStatePlaceHolder.tpl.html',
                 link: function (scope, element, attrs) {
-
+                    // scope.$watch('model', function (newValue, oldValue) {
+                    //     console.log(newValue);
+                    //     scope.blankStatePlaceHolder.show = newValue;
+                    // }, true);
                 }
             };
         }]);

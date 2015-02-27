@@ -1,20 +1,28 @@
-<div class="[ placeholder-text  large  ] text-center">
-    <div class="vertical-align">
+<div
+    ng-show="model.show()"
+    class="relative">
+    <div class="[ placeholder-text  large  ] text-center">
 
-        <h2 class="h4 fwb mb2">
-            {{title}}
-        </h2>
+        <div class="vertical-align">
 
-        <p>
-            {{content}}
-            {{imgPlaceHolder}}
-            <a prevent-default
-                ng-click="linkClick()"
-                class="fwb">{{linkText}}</a>.
-        </p>
+            <h2 class="h4 fwb mb2">
+                {{model.content.title}}
+            </h2>
+
+            <p>
+                {{model.content.text}}
+                <br>
+                <a prevent-default
+                    ng-click="model.click()"
+                    class="fwb">
+                    {{model.content.link_text}}
+                </a>
+            </p>
+
+        </div>
 
     </div>
-</div>
 
-<img class="placeholderImage"
-     ng-src="{{imgShowWhen ? imgPlaceHolder : 'images/placeholder.gif'}}">
+    <img class="placeholderImage"
+         ng-src="{{model.show() ? model.image : 'images/placeholder.gif'}}">
+</div>

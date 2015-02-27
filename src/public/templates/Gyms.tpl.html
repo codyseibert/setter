@@ -14,7 +14,7 @@
         </div>
 
         <h1 class="fwb icon-search ">Search Gyms</h1>
-        
+
         <hr class="header-divider hide-for-small-only">
 
     </div>
@@ -24,12 +24,12 @@
 <section class="row">
 
     <div class="small-12 columns">
-        
+
         <label for="searchTerm"
                name="gymName"></label>
 
         <input class="mb5"
-                name=""
+               name=""
                type="search"
                id="searchTerm"
                placeholder="Search gym by name"
@@ -40,10 +40,11 @@
 
     <div class="small-12 columns">
 
-        <div class="flag  "ng-repeat="gym in gyms"
-                    style="cursor: pointer; margin-bottom: 30px;"
-                    ng-show="gym.show"
-                    ng-click="navigateToGym(gym.account_id)">
+        <div class="flag"
+            ng-repeat="gym in gyms"
+            style="cursor: pointer; margin-bottom: 30px;"
+            ng-show="gym.show"
+            ng-click="navigateToGym(gym.account_id)">
 
             <div class="flag-image">
                 <img class="avatar  avatar--big"

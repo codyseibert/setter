@@ -1,52 +1,5 @@
-
-<!-- User - Blank state for no routes available --> 
-<div class="relative" ng-show="!hasLead() && getAccountId() !== gymId">
-
-    <div class="[ placeholder-text  large  ] text-center">
-
-        <div class="vertical-align">
-
-            <h2 class="h4 fwb mb2">
-               Bummer, this gym has no lead routes yet. 
-            </h2>
-
-            <p>
-                If you'd like to climb some, let them know over at their 
-                <a prevent-default 
-                   ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
-            </p>
-
-        </div>
-
-    </div>
-
-    <img class="placeholderImage" src="images/placeholder--newestLead.jpg" alt="placeholder list">
-
-</div> 
-
-<!-- Gym - Blank state for no routes available --> 
-<div class="relative" ng-show="!hasBoulder() && getAccountId() == gymId">
-
-    <div class="[ placeholder-text  large  ]  text-center">
-
-        <div class="vertical-align">
-
-            <h2 class="h4 fwb mb2">
-                Oops! These aren't your newest lead routes. 
-            </h2>
-
-            <p>
-                There aren't any here right now, but you can 
-                set new ones on the <a ng-click="navigateToWalls(gymId)" prevent-default class="fwb">Manage Zones page</a>.
-            </p>
-
-        </div>
-
-    </div>
-
-    <img class="placeholderImage" src="images/placeholder--newestLead.jpg" alt="placeholder list"> 
-</div> 
-
+<div blank-state-place-holder="blankStateModels.newest.lead.user"></div>
+<div blank-state-place-holder="blankStateModels.newest.lead.gym"></div>
 
 <table ng-show="hasLead()"
        class=" [ small-12 columns ] [  table--unStyled table--list table--clickableElem ]">

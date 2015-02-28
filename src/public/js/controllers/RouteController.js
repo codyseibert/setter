@@ -10,7 +10,7 @@ angular.module('SETTER')
         'CommentsService',
         'RatingsService',
         'SendsService',
-        'DateFormatService',
+        // 'DateFormatService',
         'WallsService',
         'LoginService',
         function (
@@ -20,7 +20,7 @@ angular.module('SETTER')
             CommentsService,
             RatingsService,
             SendsService,
-            DateFormatService,
+            // DateFormatService,
             WallsService,
             LoginService
         ) {
@@ -56,7 +56,7 @@ angular.module('SETTER')
 
             RoutesService.getRoute($scope.routeId)
                 .success(function (pData) {
-                    pData.date = DateFormatService.format(pData.date);
+                    pData.date = pData.date;
                     $scope.route = pData;
                 });
 
@@ -64,7 +64,7 @@ angular.module('SETTER')
                 .success(function (pData) {
                     $scope.comments = pData;
                     for (i = 0; i < pData.length; i += 1) {
-                        pData[i].date = DateFormatService.format(pData[i].date);
+                        pData[i].date = pData[i].date;
                     }
                 });
 
@@ -107,7 +107,8 @@ angular.module('SETTER')
                             id: pData.id,
                             account_id: $scope.getAccountId(),
                             message: $scope.form.message,
-                            date: DateFormatService.formatWithTime(moment()),
+                            date: moment(),
+                            // date: DateFormatService.formatWithTime(moment()),
                             url: LoginService.getImageUrl(),
                             name: LoginService.getName()
                         });

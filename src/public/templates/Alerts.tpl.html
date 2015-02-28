@@ -4,8 +4,10 @@
     <div class="header">
 
         <h1 class="fwb   mb2 icon-megaphone "> Announcements</h1>
+
         <h2 class="h3 fwl">Notify your climbers of new routes, news, etc.
         </h2>
+
         <hr class="header-divider hide-for-small-only">
         
     </div>
@@ -15,29 +17,42 @@
 
 
 <section class="row">
+
     <div class="small-12 large-6 columns  mb4">
 
         <textarea class="textarea--small" type="text"
                 placeholder="Type an alert to send your climbers"
                 ng-model="form.message"/>
-            <button class="btn--primary  btn--medium  btn--expanded icon-plus"
+
+        <button class="btn--primary  btn--medium  btn--expanded icon-plus"
                 ng-click="postAlert()">
             Post Announcement
         </button>
 
     </div>
+
     <div class="small-12 large-6 columns">
+
         <h2 class="fwl">Old Announcements</h2>
+
         <ul class="list list--noStyles">
+
             <li ng-repeat="alert in alerts">
+
                 <h3 class="h4  mb1">{{alert.message}}</h3>
-                <h4 class="h5  mb1">{{alert.date}}
+
+                <h4 class="h5  mb1">{{alert.date | date : 'MMM dd, yyyy'}}
                 </h4>
+
                 <a class="icon-trash display--block  h6  mb3" ng-click="delete(alert)">
                     Remove 
-                    </a>
+                </a>
 
             </li>
+
         </ul>
+
     </div>
+
 </section>
+

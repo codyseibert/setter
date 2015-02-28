@@ -10,7 +10,6 @@ angular.module('SETTER')
         'CommentsService',
         'RatingsService',
         'SendsService',
-        // 'DateFormatService',
         'WallsService',
         'LoginService',
         function (
@@ -20,7 +19,6 @@ angular.module('SETTER')
             CommentsService,
             RatingsService,
             SendsService,
-            // DateFormatService,
             WallsService,
             LoginService
         ) {
@@ -108,7 +106,6 @@ angular.module('SETTER')
                             account_id: $scope.getAccountId(),
                             message: $scope.form.message,
                             date: moment(),
-                            // date: DateFormatService.formatWithTime(moment()),
                             url: LoginService.getImageUrl(),
                             name: LoginService.getName()
                         });

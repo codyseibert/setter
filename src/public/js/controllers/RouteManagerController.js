@@ -284,7 +284,7 @@ angular.module('SETTER')
                 for (var i = 0; i < $scope.routes.length; i += 1) {
                     var route = $scope.routes[i];
                     if (route.show) {
-                        $scope.isOneVisible = true
+                        $scope.isOneVisible = true;
                         break;
                     }
                 }

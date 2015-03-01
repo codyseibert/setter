@@ -21,15 +21,15 @@ angular.module('SETTER')
             $scope.hasBoulder = undefined;
 
             var showForUser = function () {
-                return $scope.hasBoulder !== undefined
-                    && $scope.hasBoulder === false
-                    && $rootScope.getAccountId() !== $scope.gymId
+                return $scope.hasBoulder !== undefined &&
+                    $scope.hasBoulder === false &&
+                    $rootScope.getAccountId() !== $scope.gymId;
             };
 
             var showForGym = function () {
-                return $scope.hasBoulder !== undefined
-                    && $scope.hasBoulder === false
-                    && $rootScope.getAccountId() === $scope.gymId
+                return $scope.hasBoulder !== undefined &&
+                    $scope.hasBoulder === false &&
+                    $rootScope.getAccountId() === $scope.gymId;
             };
 
             var navigateToGymSuggestions = function () {
@@ -42,7 +42,7 @@ angular.module('SETTER')
 
             $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
                 $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            }
+            };
 
             $scope.boulderRoutesBlankState = {
                 user: {

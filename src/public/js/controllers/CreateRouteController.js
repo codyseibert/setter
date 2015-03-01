@@ -164,8 +164,8 @@ angular.module('SETTER')
             };
 
             $scope.selectColor = function(color) {
-                $scope.selectedColorId = color; 
-            }
+                $scope.selectedColorId = color;
+            };
 
             getBoulderGradesPromise = GradesService.getBoulderGrades()
                 .success(function (pData) {

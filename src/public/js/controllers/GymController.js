@@ -33,7 +33,7 @@ angular.module('SETTER')
 
             var createBoulderRoutesBarGraph,
                 createTopRopeRoutesBarGraph,
-                createLeadRoutesBarGraph
+                createLeadRoutesBarGraph;
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
@@ -144,7 +144,7 @@ angular.module('SETTER')
             */
             GymsService.getNewestBoulder($scope.gymId)
                 .success(function (pData) {
-                    $scope.newestBoulder = pData
+                    $scope.newestBoulder = pData;
                 });
 
             /*
@@ -152,7 +152,7 @@ angular.module('SETTER')
             */
             GymsService.getBestRatedBoulder($scope.gymId)
                 .success(function (pData) {
-                    $scope.bestRatedBoulder = pData
+                    $scope.bestRatedBoulder = pData;
                 });
 
             setTimeout(function () {
@@ -268,7 +268,7 @@ angular.module('SETTER')
 
             $scope.setTypeBest = function (pType) {
                 $scope.typeBest = pType;
-                $scope.typeBestCurrent = pType; 
+                $scope.typeBestCurrent = pType;
             };
 
             var loadStatisticsPanelData = function () {

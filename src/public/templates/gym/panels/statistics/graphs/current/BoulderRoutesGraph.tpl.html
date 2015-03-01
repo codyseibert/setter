@@ -1,4 +1,5 @@
 
+
 <div>
 
     <a  class="right"
@@ -8,56 +9,8 @@
 
     <h2 class="h3 clearfix">Bouldering</h2>
 
-    <!-- User - Blank state for no routes available -->
-    <div class="relative" ng-show="!hasBoulder && getAccountId() !== gymId">
-
-        <div class="placeholder-text  text-center">
-
-            <div class="vertical-align">
-
-                <h2 class="h4 fwb mb2">
-                    This gym has no bouldering routes, yet.
-                </h2>
-
-                <p>
-                    If you'd like to climb some, let them know over at their
-                    <a prevent-default
-                       ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <img class="placeholder--graph" src="images/placeholder--BoulderingGraph.jpg" alt="placeholder graph" height="503"  width="553">
-
-    </div>
-
-    <!-- Gyms - Blank state for no routes available -->
-    <div class="relative" ng-show="!hasBoulder && getAccountId() === gymId">
-
-        <div class="placeholder-text  text-center">
-
-            <div class="vertical-align">
-
-                <h2 class="h4 fwb mb2">
-                    Oops! There are no problems at your gym yet.
-                </h2>
-
-                <p>
-                    Start setting some at the
-                    <a ng-click="navigateToWalls(gymId)" prevent-default class="fwb">Manage Zones page</a>.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <img class="placeholder--graph" src="images/placeholder--BoulderingGraph.jpg" alt="placeholder graph" height="503"  width="553">
-
-    </div>
+    <div blank-state-place-holder="boulderRoutesBlankState.gym"></div>
+    <div blank-state-place-holder="boulderRoutesBlankState.user"></div>
 
     <div
         inject-template-when-visibled

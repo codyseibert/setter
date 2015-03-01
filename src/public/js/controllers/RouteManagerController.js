@@ -377,7 +377,7 @@ angular.module('SETTER')
                     RoutesService.getRoutesInGym($scope.gymId, function (pData) {
                         $timeout(function () {
                             processRoutes(pData);
-                        }, 600);
+                        }, 500);
                     });
                 });
         }]);

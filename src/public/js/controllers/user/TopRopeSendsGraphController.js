@@ -4,14 +4,18 @@
 angular.module('SETTER')
     .controller('TopRopeSendsGraphController', [
         '$scope',
+        '$routeParams',
         'UsersService',
         'BarGraphHelperService',
         function (
             $scope,
+            $routeParams,
             UsersService,
             BarGraphHelperService
         ) {
             'use strict';
+
+            $scope.userId = parseInt($routeParams.userId, 10);
 
             UsersService.getTopRopeSends($scope.userId)
                 .success(function (pData) {

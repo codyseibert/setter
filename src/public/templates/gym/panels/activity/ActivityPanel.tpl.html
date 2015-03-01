@@ -52,13 +52,17 @@
                     <span ng-hide="true" ng-show="typeNewest === LEAD">
                         Lead
                     </span>
+                    <!--Note: Working on getting this to get a variable from the gym controller-->
+                    <span >
+                        {{true}}
+                    </span>
 
                 </label>
 
                 <img role="tooltip"
                      data-tooltip
                      data-options="disable_for_touch:true"
-                     aria-haspopup="true"
+
                      title="Bouldering"
                      class="opacityHover--lightToDark   mr1  has-tip  tip-top"
                      ng-click="setTypeNewest(BOULDERING)"
@@ -68,7 +72,7 @@
                 <img role="tooltip"
                      data-tooltip
                      data-options="disable_for_touch:true"
-                     aria-haspopup="true"
+
                      title="Top Rope"
                      class="opacityHover--lightToDark   mr1  has-tip  tip-top"
                      ng-click="setTypeNewest(TOPROPE)"
@@ -78,7 +82,7 @@
                 <img role="tooltip"
                      data-tooltip
                      data-options="disable_for_touch:true"
-                     aria-haspopup="true"
+
                      title="Lead"
                      class="opacityHover--lightToDark   mr1  has-tip  tip-top"
                      ng-class="{'active': typeNewest == LEAD}"

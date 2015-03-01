@@ -351,6 +351,7 @@ angular.module('SETTER', [
                 routeReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes\/[0-9]+$/,
                 routesReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes$/,
                 editRouteReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes\/[0-9]+\/edit$/,
+                createRouteReg = /gyms\/[0-9]+\/walls\/[0-9]+\/routes\/create$/,
                 gymId,
                 nothing,
                 userId;
@@ -391,6 +392,10 @@ angular.module('SETTER', [
                     $rootScope.slideInRight = true;
                 }
 
+                if ($rootScope.currentPageIsCreateRoute() && $rootScope.lastPageWasZone()) {
+                    $rootScope.slideInRight = true;
+                }
+
                 if ($rootScope.currentPageIsRoute() && $rootScope.lastPageWasUser()) {
                     $rootScope.slideInRight = true;
                 }
@@ -411,7 +416,7 @@ angular.module('SETTER', [
                     $rootScope.slideInRight = true;
                 }
 
-                // TODO: FIX EWWW
+                // TODO: FIX ME
                 $('.page').removeClass('slide-in-right');
                 $('.page').removeClass('slide-in-left');
                 if ($rootScope.slideInRight) {
@@ -456,6 +461,10 @@ angular.module('SETTER', [
                 return $location.$$path.match(editRouteReg);
             };
 
+            $rootScope.currentPageIsCreateRoute = function () {
+                return $location.$$path.match(createRouteReg);
+            };
+
             $rootScope.currentPageIsUser = function () {
                 return $location.$$path.match(userReg);
             };
@@ -498,6 +507,10 @@ angular.module('SETTER', [
 
             $rootScope.lastPageWasEditRoute = function () {
                 return $rootScope.lastPath.match(editRouteReg) !== null;
+            };
+
+            $rootScope.lastPageWasCreateRoute = function () {
+                return $rootScope.lastPath.match(createRouteReg) !== null;
             };
 
             $rootScope.lastPageWasUser = function () {

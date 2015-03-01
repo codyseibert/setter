@@ -66,6 +66,5 @@ angular.module('SETTER')
             GymsService.getBestRatedTopRope($scope.gymId)
                 .success(function (pData) {
                     $scope.bestTopRope = pData;
-                    DateFormatService.formatDates(pData);
                 });
         }]);

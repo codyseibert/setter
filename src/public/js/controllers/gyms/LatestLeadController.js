@@ -69,6 +69,5 @@ angular.module('SETTER')
             GymsService.getNewestLead($scope.gymId)
                 .success(function (pData) {
                     $scope.latestLead = pData;
-                    DateFormatService.formatDates(pData);
                 });
         }]);

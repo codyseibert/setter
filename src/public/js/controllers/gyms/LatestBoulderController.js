@@ -69,6 +69,5 @@ angular.module('SETTER')
             GymsService.getNewestBoulder($scope.gymId)
                 .success(function (pData) {
                     $scope.latestBoulder = pData;
-                    DateFormatService.formatDates(pData);
                 });
         }]);

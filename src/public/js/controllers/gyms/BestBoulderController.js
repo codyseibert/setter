@@ -69,6 +69,5 @@ angular.module('SETTER')
             GymsService.getBestRatedBoulder($scope.gymId)
                 .success(function (pData) {
                     $scope.bestBoulder = pData;
-                    DateFormatService.formatDates(pData);
                 });
         }]);

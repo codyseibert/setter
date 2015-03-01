@@ -3,7 +3,22 @@
     #Modals
 \*------------------------------------*/
 
+
+
+.reveal-modal {
+      @media #{$small-up} {
+    top: rem-calc(30);
+  }
+
+  @media #{$medium-up} {
+    top: rem-calc(120); 
+  }
+}
+
+
 .reveal-modal,
 .reveal-modal-bg {
-  @extend %fixed; 
+  @media #{$medium-up} {
+    position: fixed; 
+  }
 }

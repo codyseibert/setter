@@ -427,9 +427,16 @@ table {
 footer, .select--tetriary, .select--primary, .select--secondary, [class*="section--"], .background-photo-foreground {
   position: relative; }
 
+<<<<<<< HEAD
 .btn--fixedAction, .reveal-modal, dialog,
 .reveal-modal-bg {
   position: fixed; }
+=======
+/* line 122, ../scss/modules/_generics.scss */
+.btn--fixedAction {
+  position: fixed;
+}
+>>>>>>> 5a8242d274970261cb94ade5fa50a0b6d419584d
 
 .header .header-divider, .nav-primary,
 .nav-account {
@@ -5726,9 +5733,16 @@ th.hide-for-touch {
 footer, .select--tetriary, .select--primary, .select--secondary, [class*="section--"], .background-photo-foreground {
   position: relative; }
 
+<<<<<<< HEAD
 .btn--fixedAction, .reveal-modal, dialog,
 .reveal-modal-bg {
   position: fixed; }
+=======
+/* line 122, ../scss/modules/_generics.scss */
+.btn--fixedAction {
+  position: fixed;
+}
+>>>>>>> 5a8242d274970261cb94ade5fa50a0b6d419584d
 
 .header .header-divider, .nav-primary,
 .nav-account {
@@ -8456,6 +8470,27 @@ ul[data-pie-id] {
 /*------------------------------------*\
     #Modals
 \*------------------------------------*/
+@media only screen {
+  /* line 8, ../scss/partials/_modals.scss */
+  .reveal-modal, dialog {
+    top: 1.875rem;
+  }
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 8, ../scss/partials/_modals.scss */
+  .reveal-modal, dialog {
+    top: 7.5rem;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  /* line 19, ../scss/partials/_modals.scss */
+  .reveal-modal, dialog,
+  .reveal-modal-bg {
+    position: fixed;
+  }
+}
+
 /*------------------------------------*\
     #Logos
 \*------------------------------------*/

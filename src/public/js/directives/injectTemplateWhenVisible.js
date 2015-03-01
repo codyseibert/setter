@@ -19,16 +19,18 @@ angular.module('SETTER')
                     // Load a internal template that consists of ng-include
                     var templateUrl = ' \'{0}\' '.format(attr.template),
                         controllerName = attr.controller,
-                        template = TEMPLATE.format(templateUrl, controllerName);
+                        template = TEMPLATE.format(templateUrl, controllerName),
+                        loaded = false;
 
                     // Watch the element for visible change state
                     scope.$watch('injectWhen',
                         function (newValue) {
-                            if (newValue === true) {
+                            if (newValue === true && !loaded) {
                                 var el = angular.element(template),
                                     compiled = $compile(el);
                                 compiled(scope);
                                 element.html(el);
+                                loaded = true;
                             }
                         }
                     );

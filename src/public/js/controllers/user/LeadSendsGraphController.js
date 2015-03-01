@@ -4,14 +4,17 @@
 angular.module('SETTER')
     .controller('LeadSendsGraphController', [
         '$scope',
+        '$routeParams',
         'UsersService',
         'BarGraphHelperService',
         function (
             $scope,
+            $routeParams,
             UsersService,
             BarGraphHelperService
         ) {
             'use strict';
+            $scope.userId = parseInt($routeParams.userId, 10);
 
             UsersService.getLeadSends($scope.userId)
                 .success(function (pData) {

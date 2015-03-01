@@ -25,6 +25,7 @@ angular.module('SETTER')
             }
 
             $scope.userId = parseInt($routeParams.userId, 10);
+            $scope.hasActivity = false;
 
             UsersService.getUser($scope.userId, function (pData) {
                 $scope.user = pData;
@@ -44,10 +45,6 @@ angular.module('SETTER')
 
                     $scope.hasActivity = pData.length > 0;
                 });
-
-            $scope.hasActivity = function () {
-                return $scope.activity.length > 0;
-            };
 
             /*
             *   SECTION - Image

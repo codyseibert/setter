@@ -177,7 +177,7 @@ angular.module('SETTER', [
             Chart.defaults.global.colours[0].strokeColor = "#A3BF7C";
             Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
             Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
-            Chart.defaults.global.animation = false; 
+            Chart.defaults.global.animation = false;
 
             $rootScope.chartOptions = {
                 scaleFontColor: "#000",

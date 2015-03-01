@@ -4,14 +4,17 @@
 angular.module('SETTER')
     .controller('BoulderSendsGraphController', [
         '$scope',
+        '$routeParams',
         'UsersService',
         'BarGraphHelperService',
         function (
             $scope,
+            $routeParams,
             UsersService,
             BarGraphHelperService
         ) {
             'use strict';
+            $scope.userId = parseInt($routeParams.userId, 10);
 
             UsersService.getBoulderSends($scope.userId)
                 .success(function (pData) {

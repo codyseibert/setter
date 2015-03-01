@@ -536,8 +536,7 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
 }
 
 /* line 122, ../scss/modules/_generics.scss */
-.btn--fixedAction, .reveal-modal, dialog,
-.reveal-modal-bg {
+.btn--fixedAction {
   position: fixed;
 }
 
@@ -8372,8 +8371,7 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
 }
 
 /* line 122, ../scss/modules/_generics.scss */
-.btn--fixedAction, .reveal-modal, dialog,
-.reveal-modal-bg {
+.btn--fixedAction {
   position: fixed;
 }
 
@@ -12105,6 +12103,27 @@ ul[data-pie-id] {
 /*------------------------------------*\
     #Modals
 \*------------------------------------*/
+@media only screen {
+  /* line 8, ../scss/partials/_modals.scss */
+  .reveal-modal, dialog {
+    top: 1.875rem;
+  }
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 8, ../scss/partials/_modals.scss */
+  .reveal-modal, dialog {
+    top: 7.5rem;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  /* line 19, ../scss/partials/_modals.scss */
+  .reveal-modal, dialog,
+  .reveal-modal-bg {
+    position: fixed;
+  }
+}
+
 /*------------------------------------*\
     #Logos
 \*------------------------------------*/

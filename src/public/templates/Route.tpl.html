@@ -1,21 +1,21 @@
 <!--
     HIDDEN MODAL
 -->
-<div class="modal reveal-modal tiny"
+<div class="modal reveal-modal small  text-center"
      data-reveal>
 
-    <h1 class="h2 fwl">
-        Awesome Send!
+    <h1 class="h2">
+        Awesome send!
     </h1>
 
-    <p class="lead">
-        Help your gym out by rating this route!
+    <p class="fwb">
+        Help your gym out by rating this route 
     </p>
 
-    <div class="display: inline-block; text-align: center;"
+    <div class="center"
             ng-mouseleave="setHoverRating(-1)">
 
-        <h4 class="mb0 h2 display--inlineBlock"
+        <h4 class="mb0 h2 display--inlineBlock "
             ng-class="{rated: hasRated}"
             ng-repeat="star in stars"
             ng-mouseover="setHoverRating(star)"
@@ -25,9 +25,9 @@
 
     </div>
 
-    <button class="[ btn--secondary btn--medium right ] display--block"
+    <button class="[ btn--secondary btn--medium ]  mt3  display--block  center"
             ng-click="closeModal()">
-        I promise I'll rate later!
+        I promise I'll rate later
     </button>
 
     <a class="close-reveal-modal">
@@ -60,14 +60,6 @@
                 </span>
 
             </button>
-
-            <div class="gridRow--100">
-
-              <label class="label--block">Route Name</label>
-
-              <input type="text" name="routeName"  placeholder="Name of route if applicable" />
-
-            </div>
 
             <div class="display--block"
                  ng-show="isGymAccount()"

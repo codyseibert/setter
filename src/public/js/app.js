@@ -123,6 +123,10 @@ angular.module('SETTER', [
                     controller: 'TOSController',
                     templateUrl: 'templates/TOS.tpl.html'
                 })
+                .when('/blank', {
+                    controller: 'BlankController',
+                    templateUrl: 'templates/Blank.tpl.html'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
@@ -137,6 +141,7 @@ angular.module('SETTER', [
         'WallsService',
         'RoutesService',
         'LoginService',
+        'DateFormatService',
         function (
             $rootScope,
             $location,
@@ -146,7 +151,8 @@ angular.module('SETTER', [
             GymsService,
             WallsService,
             RoutesService,
-            LoginService
+            LoginService,
+            DateFormatService
         ) {
             'use strict';
 
@@ -558,20 +564,29 @@ angular.module('SETTER', [
                 }
             }
 
+            $rootScope.formatDates = function (pData) {
+                var i,
+                    length;
+
+                for (i = 0, length = pData.length; i < length; i += 1) {
+                    pData[i].date_format = DateFormatService.format(pData[i].date);
+                }
+            };
+
             /*
                 Very nasty hack to get the charts to display...
             */
             $rootScope.refreshCharts = function () {
-                // $timeout(function () {
-                //     $rootScope.$apply();
-                // }, 10);
+                $timeout(function () {
+                    $rootScope.$apply();
+                }, 10);
 
                 $timeout(function () {
                     $rootScope.$apply();
                 }, 100);
 
-                // $timeout(function () {
-                //     $rootScope.$apply();
-                // }, 1000);
+                $timeout(function () {
+                    $rootScope.$apply();
+                }, 1000);
             };
         }]);

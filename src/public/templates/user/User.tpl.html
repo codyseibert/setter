@@ -111,18 +111,18 @@
 
 <section class="row">
 
-    <ul 
-        ng-model="userTabs" 
+    <ul
+        ng-model="userTabs"
         ng-init="userTabs = 'panel1'"
         class="tabs row small-collapse" data-tab
         role="tablist">
 
-        <li class="tab-title  [ small-6  columns ]  
+        <li class="tab-title  [ small-6  columns ]
         text-center" ng-class="{'active': userTabs =='panel1'}">
 
             <a ng-click="userTabs  = 'panel1' ">
 
-                <i class="icon-globe"> </i> 
+                <i class="icon-globe"> </i>
                 Activity
 
             </a>
@@ -131,12 +131,11 @@
 
 
         <li  class="tab-title  [ small-6  columns ] text-center"
-            ng-class="{'active': userTabs =='panel2'}"  
-            ng-click="refreshCharts()">
+            ng-class="{'active': userTabs =='panel2'}">
 
 
             <a ng-click="userTabs = 'panel2'">
-                <i class="icon-stats"> </i> 
+                <i class="icon-stats"> </i>
                 Statistics
             </a>
 
@@ -146,9 +145,9 @@
 
 
     <div class="tabs-content small-12 columns">
-        
+
         <div class="content" ng-class="{'active' : userTabs == 'panel1'}">
-            
+
             <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' ">
             </ng-include>
 

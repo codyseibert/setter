@@ -1,0 +1,33 @@
+<!-- Grade -->
+<td bo-text="route.boulder_grade || UNRATED_STRING"></td>
+
+<!-- Color -->
+<td>
+    <i class="icon-circle"
+    ng-style="{color: route.value}"> </i>
+</td>
+
+<!-- Zone -->
+<td bo-text="route.zone_name"></td>
+
+<!-- Rating -->
+<td>
+    <ng-include class="rating  rating--medium  rating--colored"
+    ng-controller="StarRatingController"
+    src=" 'templates/StarRating.tpl.html' ">
+</ng-include>
+</td>
+
+<!--Date Set-->
+<td class="show-for-medium-up">
+    <span class="txt--micro">Set on <br>
+    </span>
+    {{route.date_format}}
+
+</td>
+
+<td >
+    <div class="icon-right-big right">
+
+    </div>
+</td>

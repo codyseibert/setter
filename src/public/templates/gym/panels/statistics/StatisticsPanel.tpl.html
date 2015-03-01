@@ -2,26 +2,26 @@
     <div class="small-12 columns">
         <h1 class="fwl h2">Current Routes & Problems</h1>
     </div>
-    
+
     <!-- Current Boulder Graph -->
     <div class="small-12 medium-6 large-4 columns"
-         inject-template-when-visible
-         template="templates/gym/panels/statistics/graphs/current/BoulderRoutesGraph.tpl.html"
-         controller="BoulderRoutesGraphController">
+        ng-include
+        src= " 'templates/gym/panels/statistics/graphs/current/BoulderRoutesGraph.tpl.html' "
+        ng-controller="BoulderRoutesGraphController">
     </div>
 
     <!-- Current Top Rope Graph -->
     <div class="small-12 medium-6 large-4 columns"
-         inject-template-when-visible
-         template="templates/gym/panels/statistics/graphs/current/TopRopeRoutesGraph.tpl.html"
-         controller="TopRopeRoutesGraphController">
+         ng-include
+         src=" 'templates/gym/panels/statistics/graphs/current/TopRopeRoutesGraph.tpl.html' "
+         ng-controller="TopRopeRoutesGraphController">
     </div>
 
     <!-- Current Lead Graph -->
     <div class="small-12 medium-6 large-4 columns"
-         inject-template-when-visible
-         template="templates/gym/panels/statistics/graphs/current/LeadRoutesGraph.tpl.html"
-         controller="LeadRoutesGraphController">
+         ng-include
+         src=" 'templates/gym/panels/statistics/graphs/current/LeadRoutesGraph.tpl.html' "
+         ng-controller="LeadRoutesGraphController">
     </div>
 
 </section>

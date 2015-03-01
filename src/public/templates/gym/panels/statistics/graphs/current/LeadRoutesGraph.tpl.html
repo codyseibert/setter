@@ -6,7 +6,7 @@
 
     <h2 class="h3 clearfix">Lead</h2>
 
-    <!-- User - Blank state for no routes available --> 
+    <!-- User - Blank state for no routes available -->
     <div class="relative" ng-show="!hasLead && getAccountId() !== gymId">
 
         <div class="placeholder-text  text-center">
@@ -18,20 +18,20 @@
                 </h2>
 
                 <p>
-                    If you'd like to climb some, let them know over at their 
+                    If you'd like to climb some, let them know over at their
                     <a prevent-default ng-click="navigateToGymSuggestions(gymId)" class="fwb">Suggestions Board</a>.
                 </p>
-    
+
             </div>
 
         </div>
 
-        
-        <img class="placeholder--graph" src="images/placeholder--leadGraph.jpg" alt="placeholder graph" height="503"  width="553"> 
+
+        <img class="placeholder--graph" src="images/placeholder--leadGraph.jpg" alt="placeholder graph" height="503"  width="553">
 
     </div>
 
-    <!-- Gyms - Blank state for no routes available --> 
+    <!-- Gyms - Blank state for no routes available -->
     <div class="relative" ng-show="!hasLead && getAccountId() === gymId">
 
         <div class="placeholder-text  text-center">
@@ -46,27 +46,23 @@
                     Start setting some at the
                     <a ng-click="navigateToWalls(gymId)" prevent-default class="fwb">Manage Zones page</a>.
                 </p>
-    
+
             </div>
 
         </div>
 
 
-        <img class="placeholder--graph" src="images/placeholder--leadGraph.jpg" alt="placeholder graph"
-            height="503"  width="553"> 
-
+        <img class="placeholder--graph"
+            src="images/placeholder--leadGraph.jpg"
+            alt="placeholder graph"
+            height="503"
+            width="553">
 
     </div>
 
-    <canvas
-        id="leadGraph"
-        class="chart-bar"
-        data="graph.data"
-        labels="graph.labels"
-        options="chartOptions"
-        legend="true"
-        width="100%"
-        height="100%">
-    </canvas>
-
+    <div
+        inject-template-when-visibled
+        template="templates/gym/panels/statistics/graphs/current/LeadRoutesGraphCanvas.tpl.html"
+        controller="LeadRoutesGraphController">
+    </div>
 </div>

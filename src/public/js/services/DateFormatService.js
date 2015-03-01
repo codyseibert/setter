@@ -11,6 +11,14 @@ angular.module('SETTER')
             },
             formatWithTime: function (pDateString) {
                 return moment(pDateString).format("MMM Do YYYY hh:mm:ss");
+            },
+            formatDates: function (pData) {
+                var i,
+                    length;
+
+                for (i = 0, length = pData.length; i < length; i += 1) {
+                    pData[i].date_format = this.format(pData[i].date);
+                }
             }
         };
     }]);

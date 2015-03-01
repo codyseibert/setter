@@ -18,10 +18,7 @@ angular.module('SETTER')
                 replace: true,
                 templateUrl: 'templates/BlankStatePlaceHolder.tpl.html',
                 link: function (scope, element, attrs) {
-                    // scope.$watch('model', function (newValue, oldValue) {
-                    //     console.log(newValue);
-                    //     scope.blankStatePlaceHolder.show = newValue;
-                    // }, true);
+                    
                 }
             };
         }]);

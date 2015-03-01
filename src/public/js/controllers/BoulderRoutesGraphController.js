@@ -4,11 +4,13 @@
 angular.module('SETTER')
     .controller('BoulderRoutesGraphController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         'RoutesService',
         'BarGraphHelperService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             RoutesService,
             BarGraphHelperService
@@ -37,4 +39,5 @@ angular.module('SETTER')
                 doc.addImage(image, 15, 40, 180, 160);
                 doc.save('BoulderRoutesGraph.pdf');
             };
+
         }]);

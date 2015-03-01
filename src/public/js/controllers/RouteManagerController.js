@@ -357,7 +357,6 @@ angular.module('SETTER')
                 .then(function () {
                     RoutesService.getRoutesInGym($scope.gymId, function (pData) {
                         setTimeout(function () {
-                            console.log(pData);
                             processRoutes(pData);
                         }, 1000);
                     });

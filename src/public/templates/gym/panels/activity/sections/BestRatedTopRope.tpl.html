@@ -1,52 +1,18 @@
-<div blank-state-place-holder="blankStateModels.best.toprope.user"></div>
-<div blank-state-place-holder="blankStateModels.best.toprope.gym"></div>
+<div blank-state-place-holder="bestTopRopeBlankState.user"></div>
+<div blank-state-place-holder="bestTopRopeBlankState.gym"></div>
 
-<table ng-show="hasRatedTopRope()"
-       class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
-
+<table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
     <tbody>
+
         <tr bindonce
-            ng-repeat="route in bestRatedTopRope"
+            ng-repeat="route in bestTopRope"
             class="list--tableStyle  list--navElem"
-            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
-
-            <!-- Grade -->
-            <td bo-text="route.rope_grade || UNRATED_STRING"></td>
-
-
-            <!-- Color -->
-            <td>
-                <i class="icon-circle"
-                ng-style="{color: route.value}"> </i>
-            </td>
-
-            <!-- Zone -->
-            <td bo-text="route.zone_name"></td>
-
-
-            <!-- Rating -->
-            <td>
-                <ng-include class="  rating rating--medium  rating--colored"
-                            ng-controller="StarRatingController"
-                            src=" 'templates/StarRating.tpl.html' ">
-                </ng-include>
-            </td>
-
-            <!--Date Set-->
-            <td class="show-for-medium-up">
-                <span class="txt--micro">Set on <br>
-                </span>
-                {{route.date_format}}
-
-            </td>
-
-            <td >
-                <div class="icon-right-big right">
-
-                </div>
-            </td>
-
+            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)"
+            ng-include
+            src=" 'templates/gym/panels/activity/sections/BestRatedRoutes.tpl.html' ">
         </tr>
+
     </tbody>
+
 </table>

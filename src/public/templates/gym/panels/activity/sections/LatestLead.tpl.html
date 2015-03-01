@@ -1,0 +1,18 @@
+<div blank-state-place-holder="latestLeadBlankState.user"></div>
+<div blank-state-place-holder="latestLeadBlankState.gym"></div>
+
+<table class=" [ small-12 columns ] [  table--unStyled table--list table--clickableElem ]">
+
+    <tbody>
+
+        <tr bindonce
+            ng-repeat="route in latestLead"
+            class="list--tableStyle  list--navElem"
+            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)"
+            ng-include
+            src=" 'templates/gym/panels/activity/sections/LatestRoutes.tpl.html' ">
+        </tr>
+
+    </tbody>
+
+</table>

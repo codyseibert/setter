@@ -41,7 +41,7 @@
 
                 <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
 
-                    <span  ng-show="typeNewest === BOULDERING">
+                    <span ng-show="typeNewest === BOULDERING">
                         Bouldering
                     </span>
 
@@ -91,24 +91,32 @@
         <div class="row small-collapse large-uncollapse">
 
             <div class="small-12 columns">
-
                 <!-- Newest Boulder -->
-                <ng-include
+                <div
                     ng-show="typeNewest === BOULDERING"
-                    src=" 'templates/gym/panels/activity/sections/NewestBoulder.tpl.html' ">
-                </ng-include>
+                    inject-when="typeNewest === BOULDERING"
+                    inject-template-when-visible
+                    template="templates/gym/panels/activity/sections/LatestBoulder.tpl.html"
+                    controller="LatestBoulderController">
+                </div>
 
                 <!-- Newest Top Rope -->
-                <ng-include
+                <div
                     ng-show="typeNewest === TOPROPE"
-                    src=" 'templates/gym/panels/activity/sections/NewestTopRope.tpl.html' ">
-                </ng-include>
+                    inject-when="typeNewest === TOPROPE"
+                    inject-template-when-visible
+                    template="templates/gym/panels/activity/sections/LatestTopRope.tpl.html"
+                    controller="LatestTopRopeController">
+                </div>
 
                 <!-- Newest Lead Routes -->
-                <ng-include
+                <div
                     ng-show="typeNewest === LEAD"
-                    src=" 'templates/gym/panels/activity/sections/NewestLead.tpl.html' ">
-                </ng-include>
+                    inject-when="typeNewest === LEAD"
+                    inject-template-when-visible
+                    template="templates/gym/panels/activity/sections/LatestLead.tpl.html"
+                    controller="LatestLeadController">
+                </div>
 
             </div>
 
@@ -191,24 +199,31 @@
             <div class="small-12  columns">
 
                 <!-- Best Rated Boulder -->
-                <ng-include
-                    src=" 'templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html' "
-                    ng-show="typeBest === BOULDERING">
-                </ng-include>
-
+                <div
+                    ng-show="typeBest === BOULDERING"
+                    inject-when="typeBest === BOULDERING"
+                    inject-template-when-visible
+                    template="templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html"
+                    controller="BestBoulderController">
+                </div>
 
                 <!-- Best Rated Top Rope -->
-                <ng-include
-                    src=" 'templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html' "
-                    ng-show="typeBest === TOPROPE">
-                </ng-include>
-
+                <div
+                    ng-show="typeBest === TOPROPE"
+                    inject-when="typeBest === TOPROPE"
+                    inject-template-when-visible
+                    template="templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html"
+                    controller="BestTopRopeController">
+                </div>
 
                 <!-- Best Rated Lead -->
-                <ng-include
-                    src=" 'templates/gym/panels/activity/sections/BestRatedLead.tpl.html' "
-                    ng-show="typeBest === LEAD">
-                </ng-include>
+                <div
+                    ng-show="typeBest === LEAD"
+                    inject-when="typeBest === LEAD"
+                    inject-template-when-visible
+                    template="templates/gym/panels/activity/sections/BestRatedLead.tpl.html"
+                    controller="BestLeadController">
+                </div>
 
             </div>
 

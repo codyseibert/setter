@@ -69,6 +69,5 @@ angular.module('SETTER')
             GymsService.getBestRatedLead($scope.gymId)
                 .success(function (pData) {
                     $scope.bestLead = pData;
-                    console.log(pData);
                 });
         }]);

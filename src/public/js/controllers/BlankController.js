@@ -8,5 +8,5 @@ angular.module('SETTER')
             $scope
         ) {
             'use strict';
-
+            angular.noop();
         }]);

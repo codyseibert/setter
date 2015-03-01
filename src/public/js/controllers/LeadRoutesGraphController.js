@@ -21,15 +21,15 @@ angular.module('SETTER')
             $scope.hasLead = undefined;
 
             var showForUser = function () {
-                return $scope.hasLead !== undefined
-                    && $scope.hasLead === false
-                    && $rootScope.getAccountId() !== $scope.gymId
+                return $scope.hasLead !== undefined &&
+                    $scope.hasLead === false &&
+                    $rootScope.getAccountId() !== $scope.gymId;
             };
 
             var showForGym = function () {
-                return $scope.hasLead !== undefined
-                    && $scope.hasLead === false
-                    && $rootScope.getAccountId() === $scope.gymId
+                return $scope.hasLead !== undefined &&
+                    $scope.hasLead === false &&
+                    $rootScope.getAccountId() === $scope.gymId;
             };
 
             var navigateToGymSuggestions = function () {
@@ -42,7 +42,7 @@ angular.module('SETTER')
 
             $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
                 $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            }
+            };
 
             $scope.leadRoutesBlankState = {
                 user: {

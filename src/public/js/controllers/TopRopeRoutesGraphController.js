@@ -21,15 +21,15 @@ angular.module('SETTER')
             $scope.hasTopRope = undefined;
 
             var showForUser = function () {
-                return $scope.hasTopRope !== undefined
-                    && $scope.hasTopRope === false
-                    && $rootScope.getAccountId() !== $scope.gymId
+                return $scope.hasTopRope !== undefined &&
+                    $scope.hasTopRope === false &&
+                    $rootScope.getAccountId() !== $scope.gymId;
             };
 
             var showForGym = function () {
-                return $scope.hasTopRope !== undefined
-                    && $scope.hasTopRope === false
-                    && $rootScope.getAccountId() === $scope.gymId
+                return $scope.hasTopRope !== undefined &&
+                    $scope.hasTopRope === false &&
+                    $rootScope.getAccountId() === $scope.gymId;
             };
 
             var navigateToGymSuggestions = function () {
@@ -42,7 +42,7 @@ angular.module('SETTER')
 
             $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
                 $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            }
+            };
 
             $scope.topRopeRoutesBlankState = {
                 user: {

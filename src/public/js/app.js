@@ -1,4 +1,4 @@
-/*global angular: false, btoa: false, Chart: false, confirm: false, FastClick: false, console: false */
+/*global angular: false, btoa: false, Chart: false, confirm: false, FastClick: false, console: false, $: false */
 
 angular.module('SETTER', [
     'ngRoute',
@@ -371,11 +371,11 @@ angular.module('SETTER', [
                 $rootScope.slideInRight = false;
 
                 if ($rootScope.currentPageIsGyms() && $rootScope.lastPageWasUser()) {
-                  $rootScope.slideInRight = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsSearchGyms() && $rootScope.lastPageWasUser()) {
-                  $rootScope.slideInRight = true;
+                    $rootScope.slideInRight = true;
                 }
 
                 if ($rootScope.currentPageIsZones() && $rootScope.lastPageWasGyms()) {
@@ -422,9 +422,9 @@ angular.module('SETTER', [
                 $('.page').removeClass('slide-in-right');
                 $('.page').removeClass('slide-in-left');
                 if ($rootScope.slideInRight) {
-                  $('.page').addClass('slide-in-right');
+                    $('.page').addClass('slide-in-right');
                 } else {
-                  $('.page').addClass('slide-in-left');
+                    $('.page').addClass('slide-in-left');
                 }
 
                 //$rootScope.$apply();
@@ -439,17 +439,12 @@ angular.module('SETTER', [
                 return $location.$$path.match(routesReg);
             };
 
-            $rootScope.currentPageIsSplash = function() {
-
-                return $location.$$path.match(splashPag)
-            };
-
             $rootScope.currentPageIsGyms = function () {
                 return $location.$$path.match(gymsReg);
             };
 
             $rootScope.currentPageIsSearchGyms = function () {
-              return $location.$$path.match(searchGymsReg);
+                return $location.$$path.match(searchGymsReg);
             };
 
             $rootScope.currentPageIsZones = function () {

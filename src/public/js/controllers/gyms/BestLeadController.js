@@ -20,15 +20,15 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
             var showForUser = function () {
-                return $scope.bestLead !== undefined
-                  && $scope.bestLead.length === 0
-                  && $rootScope.getAccountId() !== $scope.gymId;
+                return $scope.bestLead !== undefined &&
+                    $scope.bestLead.length === 0 &&
+                    $rootScope.getAccountId() !== $scope.gymId;
             };
 
             var showForGym = function () {
-                return $scope.bestLead !== undefined
-                  && $scope.bestLead.length === 0
-                  && $rootScope.getAccountId() === $scope.gymId;
+                return $scope.bestLead !== undefined &&
+                    $scope.bestLead.length === 0 &&
+                    $rootScope.getAccountId() === $scope.gymId;
             };
 
             var navigateToGymSuggestions = function () {
@@ -41,7 +41,7 @@ angular.module('SETTER')
 
             $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
                 $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            }
+            };
 
             $scope.bestLeadBlankState = {
                 user: {

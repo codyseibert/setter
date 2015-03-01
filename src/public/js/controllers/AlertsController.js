@@ -26,10 +26,6 @@ angular.module('SETTER')
 
             AlertsService.getAlertsForGym($scope.gymId)
                 .success(function (pData) {
-                    pData.map(function (pEntry) {
-                        pEntry.date = pEntry.date; 
-                        return pEntry;
-                    });
                     $scope.alerts = pData;
                 });
 

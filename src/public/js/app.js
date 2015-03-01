@@ -177,6 +177,7 @@ angular.module('SETTER', [
             Chart.defaults.global.colours[0].strokeColor = "#A3BF7C";
             Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
             Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
+            Chart.defaults.global.animation = false; 
 
             $rootScope.chartOptions = {
                 scaleFontColor: "#000",
@@ -365,6 +366,7 @@ angular.module('SETTER', [
                 paths.push(currentPath);
                 paths.splice(0, 1);
 
+
                 // Always slide right (handles back logic)
                 $rootScope.slideInRight = false;
 
@@ -435,6 +437,11 @@ angular.module('SETTER', [
             // Current Page Check Logic
             $rootScope.currentPageIsRouteArchive = function () {
                 return $location.$$path.match(routesReg);
+            };
+
+            $rootScope.currentPageIsSplash = function() {
+
+                return $location.$$path.match(splashPag)
             };
 
             $rootScope.currentPageIsGyms = function () {

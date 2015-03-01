@@ -61,36 +61,14 @@
 
             </button>
 
-
-            <div class="gridRow--100 ng-hide">
-              <label class="label--block">Color</label>
-                <ul class="mb3 list--inline">
-
-                <!--Route Color Options-->
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--brown" name="routeColor"><label for="routeColor--brown" class="route-color route-color--brown"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--lightbrown" name="routeColor"><label for="routeColor--lightbrown" class="route-color route-color--lightbrown"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--blue" name="routeColor"><label for="routeColor--blue" class="route-color route-color--blue"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--lightblue" name="routeColor"><label for="routeColor--lightblue" class="route-color route-color--lightblue"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--teal" name="routeColor"><label for="routeColor--teal" class="route-color route-color--teal"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--pink" name="routeColor"><label for="routeColor--pink" class="route-color route-color--pink"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--red" name="routeColor"><label for="routeColor--red" class="route-color route-color--red"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--green" name="routeColor"><label for="routeColor--green" class="route-color route-color--green"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--darkgreen" name="routeColor"><label for="routeColor--darkgreen" class="route-color route-color--darkgreen"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--limegreen" name="routeColor"><label for="routeColor--limegreen" class="route-color route-color--limegreen"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--yellow" name="routeColor"><label for="routeColor--yellow" class="route-color route-color--yellow"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--orange" name="routeColor"><label for="routeColor--orange" class="route-color route-color--orange"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--purple" name="routeColor"><label for="routeColor--purple" class="route-color route-color--purple"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--lightpurple" name="routeColor"><label for="routeColor--lightpurple" class="route-color route-color--lightpurple"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--white" name="routeColor"><label for="routeColor--white" class="route-color route-color--white"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--grey" name="routeColor"><label for="routeColor--grey" class="route-color route-color--grey"></label></li>
-                  <li><input class="radio--routeColor" type="radio" id="routeColor--black" name="routeColor"><label for="routeColor--black" class="route-color route-color--black"></label></li>
-                <!--End Route Color Options-->
-                </ul>
-
+            <div class="gridRow--100">
 
               <label class="label--block">Route Name</label>
+
               <input type="text" name="routeName"  placeholder="Name of route if applicable" />
+
             </div>
+
             <div class="display--block"
                  ng-show="isGymAccount()"
                  data-ui-component="route-actions">
@@ -111,7 +89,9 @@
             <h1 class="h2 fwb mb2">
                 Route Information
             </h1>
+
         </div>
+
 </section>
 
 
@@ -178,10 +158,13 @@
                 </h3>
 
                 <div class="flag-body  text-right">
+
                     <h4 class="h2  mb0">
                         <i class="icon-circle icon--big" ng-style="{color: route.value}"> </i>
                     </h4>
+
                 </div>
+                
             </div>
 
              <div class="flag  mb3">

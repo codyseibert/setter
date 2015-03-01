@@ -35,7 +35,7 @@
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
-$row-width: rem-calc(1320);
+$row-width: rem-calc(1300);
 // $total-columns: 12;
 
 // Global
@@ -1150,10 +1150,10 @@ $tabs-navigation-active-font-color: $primaryColor;
 
 // $include-html-tooltip-classes: $include-html-classes;
 
-// $has-tip-border-bottom: dotted 1px #ccc;
+$has-tip-border-bottom: 0;
 // $has-tip-font-weight: $font-weight-bold;
 // $has-tip-font-color: #333;
-// $has-tip-border-bottom-hover: dotted 1px scale-color($primary-color, $lightness: -55%);
+$has-tip-border-bottom-hover: 0;
 // $has-tip-font-color-hover: $primary-color;
 // $has-tip-cursor-type: help;
 

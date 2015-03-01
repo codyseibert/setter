@@ -9,7 +9,7 @@ html,
 body {
   color: $color--text; 
   font-size: rem-calc(14);
-  @include breakpoint(teen-bear) {
+  @media #{$medium-up} {
     font-size: rem-calc(16);
   }
 }

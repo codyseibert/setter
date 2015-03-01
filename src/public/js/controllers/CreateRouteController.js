@@ -63,6 +63,8 @@ angular.module('SETTER')
                     name: 'Lead'
                 }
             ];
+
+
             $scope.form.type = $scope.types[BOULDER_TYPE];
 
             /*
@@ -87,7 +89,7 @@ angular.module('SETTER')
                     boulderGradeId = $scope.form.boulderGrade.id,
                     topRopeGradeId = $scope.form.topRopeGrade.id,
                     leadGradeId = $scope.form.leadGrade.id,
-                    colorId = $scope.form.color,
+                    colorId = $scope.selectedColorId,
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
@@ -123,7 +125,7 @@ angular.module('SETTER')
                     boulderGradeId = $scope.form.boulderGrade.id,
                     topRopeGradeId = $scope.form.topRopeGrade.id,
                     leadGradeId = $scope.form.leadGrade.id,
-                    colorId = $scope.form.color,
+                    colorId = $scope.selectedColorId,
                     setterId = $scope.form.setter.account_id,
                     note = $scope.form.note;
 
@@ -161,6 +163,10 @@ angular.module('SETTER')
                 }
             };
 
+            $scope.selectColor = function(color) {
+                $scope.selectedColorId = color; 
+            }
+
             getBoulderGradesPromise = GradesService.getBoulderGrades()
                 .success(function (pData) {
                     pData.unshift({
@@ -185,7 +191,7 @@ angular.module('SETTER')
             getColorsPromise = ColorsService.getColors()
                 .success(function (pData) {
                     $scope.colors = pData;
-                    $scope.form.color = pData[0].id;
+                    $scope.selectedColorId = pData[0].id;
                     $scope.colorChanged();
                 });
 

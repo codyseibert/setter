@@ -1430,7 +1430,7 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 82.5rem;
+  max-width: 81.25rem;
 }
 /* line 172, ../bower_components/foundation/scss/foundation/components/_global.scss */
 .row:before, .row:after {
@@ -5195,7 +5195,7 @@ ul.pagination li {
   /* line 168, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal, dialog {
     width: 80%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5223,7 +5223,7 @@ ul.pagination li {
   /* line 183, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.tiny, dialog.tiny {
     width: 30%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5233,7 +5233,7 @@ ul.pagination li {
   /* line 184, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.small, dialog.small {
     width: 40%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5243,7 +5243,7 @@ ul.pagination li {
   /* line 185, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.medium, dialog.medium {
     width: 60%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5253,7 +5253,7 @@ ul.pagination li {
   /* line 186, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.large, dialog.large {
     width: 70%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5263,7 +5263,7 @@ ul.pagination li {
   /* line 187, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.xlarge, dialog.xlarge {
     width: 95%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5283,7 +5283,7 @@ ul.pagination li {
   /* line 188, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.full, dialog.full {
     width: 100vw;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -5644,14 +5644,14 @@ table tr td {
 /* Tooltips */
 /* line 38, ../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .has-tip {
-  border-bottom: dotted 1px #CCCCCC;
+  border-bottom: 0;
   cursor: help;
   font-weight: bold;
   color: #333333;
 }
 /* line 44, ../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .has-tip:hover, .has-tip:focus {
-  border-bottom: dotted 1px #003f54;
+  border-bottom: 0;
   color: #008CBA;
 }
 /* line 50, ../bower_components/foundation/scss/foundation/components/_tooltips.scss */
@@ -5706,7 +5706,7 @@ table tr td {
 /* line 95, ../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .tooltip.opened {
   color: #008CBA !important;
-  border-bottom: dotted 1px #003f54 !important;
+  border-bottom: 0 !important;
 }
 
 /* line 101, ../bower_components/foundation/scss/foundation/components/_tooltips.scss */
@@ -6281,7 +6281,7 @@ meta.foundation-mq-topbar {
 
   /* line 477, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .contain-to-grid .top-bar {
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     margin: 0 auto;
     margin-bottom: 0;
   }
@@ -9191,171 +9191,7 @@ ol {
   margin-top: 0.25rem;
 }
 
-/* line 258, ../scss/partials/_components.scss */
-.route-color {
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
-  display: block;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 1px solid #c3c3c3;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--brown {
-  background-color: #5D4636;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--brown:hover {
-  background-color: #5D4636 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--lightbrown {
-  background-color: #CAA16D;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--lightbrown:hover {
-  background-color: #CAA16D !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--blue {
-  background-color: #4d77cb;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--blue:hover {
-  background-color: #4d77cb !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--lightBlue {
-  background-color: #6491ed;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--lightBlue:hover {
-  background-color: #6491ed !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--teal {
-  background-color: #20d2f8;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--teal:hover {
-  background-color: #20d2f8 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--pink {
-  background-color: #c93d98;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--pink:hover {
-  background-color: #c93d98 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--red {
-  background-color: #c51038;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--red:hover {
-  background-color: #c51038 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--green {
-  background-color: #34b27d;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--green:hover {
-  background-color: #34b27d !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--darkgreen {
-  background-color: #6caa4f;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--darkgreen:hover {
-  background-color: #6caa4f !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--limeGreen {
-  background-color: #88AE2C;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--limeGreen:hover {
-  background-color: #88AE2C !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--yellow {
-  background-color: #faf038;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--yellow:hover {
-  background-color: #faf038 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--orange {
-  background-color: #de923c;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--orange:hover {
-  background-color: #de923c !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--purple {
-  background-color: #7F5E93;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--purple:hover {
-  background-color: #7F5E93 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--lightpurple {
-  background-color: #9e80c7;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--lightpurple:hover {
-  background-color: #9e80c7 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--white {
-  background-color: #f1f1f1;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--white:hover {
-  background-color: #f1f1f1 !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--grey {
-  background-color: #97969c;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--grey:hover {
-  background-color: #97969c !important;
-}
-
-/* line 273, ../scss/partials/_components.scss */
-.route-color--black {
-  background-color: #1A1A1A;
-}
-/* line 276, ../scss/partials/_components.scss */
-.route-color--black:hover {
-  background-color: #1A1A1A !important;
-}
-
-/* line 286, ../scss/partials/_components.scss */
+/* line 259, ../scss/partials/_components.scss */
 .topo {
   border: 4px solid #c3c3c3;
   min-height: 6.25rem;
@@ -9364,61 +9200,61 @@ ol {
   overflow: hidden;
   display: table;
 }
-/* line 294, ../scss/partials/_components.scss */
+/* line 267, ../scss/partials/_components.scss */
 .topo img {
   vertical-align: middle;
   height: auto;
   width: 100%;
 }
 
-/* line 301, ../scss/partials/_components.scss */
+/* line 274, ../scss/partials/_components.scss */
 .zoneMarker {
   fill: #ed6d56;
 }
-/* line 304, ../scss/partials/_components.scss */
+/* line 277, ../scss/partials/_components.scss */
 .zoneMarker:hover {
   fill: #df3618;
 }
 
-/* line 326, ../scss/partials/_components.scss */
+/* line 299, ../scss/partials/_components.scss */
 .wall-mainInfo > span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 330, ../scss/partials/_components.scss */
+/* line 303, ../scss/partials/_components.scss */
 .wall-mainInfo > span:last-child {
   float: right;
 }
 
-/* line 358, ../scss/partials/_components.scss */
+/* line 331, ../scss/partials/_components.scss */
 .wall-moreInfo {
   padding-left: 0;
   padding-right: 0;
   text-align: left;
 }
-/* line 378, ../scss/partials/_components.scss */
+/* line 351, ../scss/partials/_components.scss */
 .wall-moreInfo .wall-moreInfo-link {
   margin-top: 0.25rem;
 }
 
-/* line 390, ../scss/partials/_components.scss */
+/* line 363, ../scss/partials/_components.scss */
 .wall-secondaryInfo {
   display: none;
   width: 70%;
 }
-/* line 395, ../scss/partials/_components.scss */
+/* line 368, ../scss/partials/_components.scss */
 .wall-secondaryInfo > span {
   display: inline-block;
   vertical-align: middle;
   margin-right: 1%;
 }
 
-/* line 434, ../scss/partials/_components.scss */
+/* line 407, ../scss/partials/_components.scss */
 .gymDashHeader-content .title {
   width: 10.375rem;
 }
 
-/* line 446, ../scss/partials/_components.scss */
+/* line 419, ../scss/partials/_components.scss */
 .setter-profile-avatar {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -9427,12 +9263,12 @@ ol {
   height: 100px;
   width: 100px;
 }
-/* line 452, ../scss/partials/_components.scss */
+/* line 425, ../scss/partials/_components.scss */
 .setter-profile-avatar .avatar-image {
   vertical-align: top;
 }
 
-/* line 463, ../scss/partials/_components.scss */
+/* line 436, ../scss/partials/_components.scss */
 .gymImageContainer {
   border: 1px solid #c3c3c3;
   background-color: #F2F2F2;
@@ -9440,13 +9276,13 @@ ol {
   width: 100%;
 }
 
-/* line 480, ../scss/partials/_components.scss */
+/* line 453, ../scss/partials/_components.scss */
 .logInForm-container {
   max-width: 23.75rem;
   display: block;
 }
 
-/* line 490, ../scss/partials/_components.scss */
+/* line 463, ../scss/partials/_components.scss */
 .header {
   padding-left: 1.4375rem;
   padding-right: 1.4375rem;
@@ -9454,13 +9290,13 @@ ol {
   float: right;
   float: left;
 }
-/* line 496, ../scss/partials/_components.scss */
+/* line 469, ../scss/partials/_components.scss */
 .header .header-divider {
   width: 100%;
 }
 
 @media only screen and (min-width: 64.063em) {
-  /* line 504, ../scss/partials/_components.scss */
+  /* line 477, ../scss/partials/_components.scss */
   .splash-message {
     margin-top: 15%;
   }
@@ -9474,6 +9310,13 @@ html,
 body {
   color: #484848;
   font-size: 0.875rem;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 8, ../scss/partials/_typography.scss */
+  html,
+  body {
+    font-size: 1rem;
+  }
 }
 
 /* line 27, ../scss/partials/_typography.scss */
@@ -11378,7 +11221,7 @@ ul.off-canvas-list li a:hover img,
   /* line 7, ../scss/partials/_popUps.scss */
   .popUp {
     width: 80%;
-    max-width: 82.5rem;
+    max-width: 81.25rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -11699,7 +11542,10 @@ select {
   }
 }
 
-/* line 205, ../scss/partials/_forms.scss */
+/*------------------------------------*\
+    #Inputs
+\*------------------------------------*/
+/* line 206, ../scss/partials/_forms.scss */
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -11733,9 +11579,9 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+  transition: box-shadow .45s, border-color .45s ease-in-out;
 }
-/* line 238, ../scss/partials/_forms.scss */
+/* line 239, ../scss/partials/_forms.scss */
 input[type="text"]:hover,
 input[type="password"]:hover,
 input[type="date"]:hover,
@@ -11753,7 +11599,7 @@ textarea:hover {
   border: 2px solid #E0E0DF;
 }
 
-/* line 243, ../scss/partials/_forms.scss */
+/* line 244, ../scss/partials/_forms.scss */
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="date"]:focus,
@@ -11773,7 +11619,7 @@ textarea:focus {
   background-color: #fff;
 }
 
-/* line 268, ../scss/partials/_forms.scss */
+/* line 269, ../scss/partials/_forms.scss */
 .img-overlay {
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -11783,25 +11629,31 @@ textarea:focus {
   width: 7.5rem;
 }
 
-/* line 296, ../scss/partials/_forms.scss */
+/*------------------------------------*\
+    #Radio Buttons
+\*------------------------------------*/
+/*------------------------------------*\
+    #Route Color Radio Buttons
+\*------------------------------------*/
+/* line 300, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor {
   display: none;
 }
-/* line 299, ../scss/partials/_forms.scss */
+/* line 303, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor + label {
   cursor: pointer;
   margin-right: 0;
 }
-/* line 304, ../scss/partials/_forms.scss */
-input[type="radio"].radio--routeColor + label:hover {
-  border: 2px solid #E0E0DF;
-}
 /* line 308, ../scss/partials/_forms.scss */
+input[type="radio"].radio--routeColor + label:hover {
+  border: 4px solid #E0E0DF;
+}
+/* line 312, ../scss/partials/_forms.scss */
 input[type="radio"].radio--routeColor:checked + label {
-  border: 2px solid #333333;
+  border: 4px solid #333333;
 }
 
-/* line 313, ../scss/partials/_forms.scss */
+/* line 317, ../scss/partials/_forms.scss */
 .label---counter {
   min-height: 18px;
   min-width: 18px;
@@ -12586,4 +12438,170 @@ ul[data-pie-id] {
 /* line 7, ../scss/partials/_angular.scss */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
+}
+
+/*------------------------------------*\
+    #Route Colors (Extends from colors.scss module)
+\*------------------------------------*/
+/* line 6, ../scss/partials/_routeColors.scss */
+.route-color {
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  display: block;
+  width: 2.125rem;
+  height: 2.125rem;
+  border: 1px solid #c3c3c3;
+}
+/* line 13, ../scss/partials/_routeColors.scss */
+.route-color:hover {
+  border: 4px solid #E0E0DF;
+}
+/* line 17, ../scss/partials/_routeColors.scss */
+.route-color.selected {
+  border: 4px solid #333333;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--darkBlue {
+  background-color: #2B63AF;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--darkBlue:hover {
+  background-color: #2B63AF !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--blue {
+  background-color: #1771B9;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--blue:hover {
+  background-color: #1771B9 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--lightBlue {
+  background-color: #66A4D2;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--lightBlue:hover {
+  background-color: #66A4D2 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--purple {
+  background-color: #523E94;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--purple:hover {
+  background-color: #523E94 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--lightPurple {
+  background-color: #9E80C7;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--lightPurple:hover {
+  background-color: #9E80C7 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--pink {
+  background-color: #F182B3;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--pink:hover {
+  background-color: #F182B3 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--orange {
+  background-color: #F05B24;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--orange:hover {
+  background-color: #F05B24 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--yellow {
+  background-color: #F6EB2C;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--yellow:hover {
+  background-color: #F6EB2C !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--red {
+  background-color: #E6232E;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--red:hover {
+  background-color: #E6232E !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--green {
+  background-color: #349F47;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--green:hover {
+  background-color: #349F47 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--soIllGreen {
+  background-color: #88AF3E;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--soIllGreen:hover {
+  background-color: #88AF3E !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--black {
+  background-color: #181718;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--black:hover {
+  background-color: #181718 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--grey {
+  background-color: #98989D;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--grey:hover {
+  background-color: #98989D !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--blanco {
+  background-color: #F3F3F4;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--blanco:hover {
+  background-color: #F3F3F4 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--brown {
+  background-color: #995B50;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--brown:hover {
+  background-color: #995B50 !important;
+}
+
+/* line 29, ../scss/partials/_routeColors.scss */
+.route-color--tan {
+  background-color: #D0A364;
+}
+/* line 32, ../scss/partials/_routeColors.scss */
+.route-color--tan:hover {
+  background-color: #D0A364 !important;
 }

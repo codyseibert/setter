@@ -251,33 +251,6 @@
 }
 
 
-//
-//Route Colors
-//
-
-.route-color {
-  @include border-radius(100%);
-  display: block;
-  width: rem-calc(24);
-  height: rem-calc(24);
-  border: 1px solid $grey--medlight;
-}
-
-
-
-@each $val in $routeColors {
-
-    $colorName: nth($val, 1);
-    $code: nth($val, 2);
-
-    .route-color--#{$colorName} {
-      background-color: $code;
-
-      &:hover {
-        background-color: $code !important;
-      }
-    }
-}
 
 //
 //Topos

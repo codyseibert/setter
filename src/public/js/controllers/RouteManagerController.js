@@ -7,6 +7,7 @@ angular.module('SETTER')
         '$scope',
         '$q',
         '$routeParams',
+        '$timeout',
         'RoutesService',
         'GradesService',
         'DateFormatService',
@@ -16,6 +17,7 @@ angular.module('SETTER')
             $scope,
             $q,
             $routeParams,
+            $timeout,
             RoutesService,
             GradesService,
             DateFormatService,
@@ -373,7 +375,9 @@ angular.module('SETTER')
             ])
                 .then(function () {
                     RoutesService.getRoutesInGym($scope.gymId, function (pData) {
-                        processRoutes(pData);
+                        $timeout(function () {
+                            processRoutes(pData);
+                        }, 600);
                     });
                 });
         }]);

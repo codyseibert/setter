@@ -37,9 +37,9 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
-            $scope.BOULDERING = 'bouldering';
-            $scope.TOPROPE = 'toprope';
-            $scope.LEAD = 'lead';
+            $scope.BOULDERING = 'Bouldering';
+            $scope.TOPROPE = 'Top Rope';
+            $scope.LEAD = 'Lead';
 
             // Displaying Tab Logic
             $scope.PANEL_ACTIVITY = 'activity';
@@ -54,7 +54,9 @@ angular.module('SETTER')
             $scope.options = {};
             $scope.form = {};
             $scope.typeNewest = $scope.BOULDERING;
+            $scope.typeNewestCurrent = $scope.BOULDERING;
             $scope.typeBest = $scope.BOULDERING;
+            $scope.typeBestCurrent = $scope.BOULDERING;
 
             $scope.activity = [];
             $scope.newRoutes = [];
@@ -261,10 +263,12 @@ angular.module('SETTER')
 
             $scope.setTypeNewest = function (pType) {
                 $scope.typeNewest = pType;
+                $scope.typeNewestCurrent = pType;
             };
 
             $scope.setTypeBest = function (pType) {
                 $scope.typeBest = pType;
+                $scope.typeBestCurrent = pType; 
             };
 
             var loadStatisticsPanelData = function () {

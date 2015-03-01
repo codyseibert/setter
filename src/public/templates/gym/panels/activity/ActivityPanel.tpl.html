@@ -41,22 +41,9 @@
 
                 <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
 
-                    <span ng-show="typeNewest === BOULDERING">
-                        Bouldering
+                    <span>
+                        {{ typeNewestCurrent }}
                     </span>
-
-                    <span ng-hide="true" ng-show="typeNewest === TOPROPE">
-                        Top Rope
-                    </span>
-
-                    <span ng-hide="true" ng-show="typeNewest === LEAD">
-                        Lead
-                    </span>
-                    <!--Note: Working on getting this to get a variable from the gym controller-->
-                    <span >
-                        {{true}}
-                    </span>
-
                 </label>
 
                 <img role="tooltip"
@@ -149,16 +136,8 @@
 
                 <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
 
-                    <span  ng-show="typeBest === BOULDERING">
-                        Bouldering
-                    </span>
-
-                    <span ng-hide="true" ng-show="typeBest === TOPROPE">
-                        Top Rope
-                    </span>
-
-                    <span ng-hide="true" ng-show="typeBest === LEAD">
-                        Lead
+                    <span>
+                        {{ typeBestCurrent }}
                     </span>
 
                 </label>

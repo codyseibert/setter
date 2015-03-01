@@ -22,13 +22,13 @@ angular.module('SETTER')
             var showForUser = function () {
                 return $scope.latestTopRope !== undefined
                     && $scope.latestTopRope.length === 0
-                    && $scope.getAccountId() !== $scope.gymId;
+                    && $rootScope.getAccountId() !== $scope.gymId;
             };
 
             var showForGym = function () {
                 return $scope.latestTopRope !== undefined
                     && $scope.latestTopRope.length === 0
-                    && $scope.getAccountId() === $scope.gymId;
+                    && $rootScope.getAccountId() === $scope.gymId;
             };
 
             var navigateToGymSuggestions = function () {

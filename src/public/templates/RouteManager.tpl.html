@@ -18,32 +18,32 @@
 <div class="row" ng-show="!isLoading && !hasRoutes()">
 
 <div class="small-12 columns show-for-small-only">
-    
+
     <h2>
         You haven't set any routes or problems yet.
     </h2>
-    
+
     <h3>
         Start setting over at the <a class="fwb" prevent-default ng-click="navigateToManageZone()"> Manage Zones page</a> to get feedback from your climbers.
     </h3>
-    
+
 </div>
 
 <div class="small-12 columns  show-for-medium-up">
 
     <div class="placeholder-text  small">
-    
+
         <div class="vertical-align  text-center">
-    
+
             <h2 class="fwb">This is the route archive, but nothing's here.</h2>
             <h3>You haven't set any routes or problems yet. Start setting over at the <a class="fwb" prevent-default ng-click="navigateToManageZone()">Manage Zones page</a> to get feedback from your climbers.
             </h3>
-    
+
         </div>
-    
+
     </div>
-    
-    <img class="placeholderImage" src="images/placeholder--routeArchive.jpg" alt="Route Archive Placeholder" width="1133"  height="636"> 
+
+    <img class="placeholderImage" src="images/placeholder--routeArchive.jpg" alt="Route Archive Placeholder" width="1133"  height="636">
 
 </div>
 
@@ -210,8 +210,20 @@
                 </thead>
 
                 <tbody>
+                    <tr ng-hide="isOneVisible">
+
+                        <td class="text-center" colspan="7" style="padding-top: 50px;">
+
+                            <h2>
+                                There are no {{form.view.name}} routes with your selected filters!
+                            </h2>
+
+                        </td>
+
+                    </tr>
+
                     <!-- Loop through all the routes from the controller and render them -->
-                    <tr bindonce ng-repeat="route in routes"
+                    <tr bindonce ng-repeat="route in routes | limitTo: displayCount track by route.id "
                         class="list--tableStyle  list--navElem"
                         ng-show="route.show"
                         on-finish-render
@@ -264,6 +276,11 @@
                 </tbody>
 
             </table>
+
+            <div class="text-right">
+                {{displayCount}} routes diplayed <button value="Load More" ng-click="loadMore()">Load More</button>
+            </div>
+
         </div>
     </section>
 

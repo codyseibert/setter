@@ -21,11 +21,15 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
             var showForUser = function () {
-                return $scope.bestTopRope !== undefined && $scope.bestTopRope.length === 0 && $scope.getAccountId() !== $scope.gymId
+                return $scope.bestTopRope !== undefined
+                  && $scope.bestTopRope.length === 0
+                  && $rootScope.getAccountId() !== $scope.gymId
             };
 
             var showForGym = function () {
-                return $scope.bestTopRope !== undefined && $scope.bestTopRope.length === 0 && $scope.getAccountId() === $scope.gymId
+                return $scope.bestTopRope !== undefined
+                  && $scope.bestTopRope.length === 0
+                  && $rootScope.getAccountId() === $scope.gymId
             };
 
             var navigateToGymSuggestions = function () {

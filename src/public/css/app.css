@@ -5644,7 +5644,7 @@ table tr td {
 /* line 38, ../bower_components/foundation/scss/foundation/components/_tooltips.scss */
 .has-tip {
   border-bottom: 0;
-  cursor: help;
+  cursor: pointer;
   font-weight: bold;
   color: #333333;
 }

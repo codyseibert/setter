@@ -1,81 +1,81 @@
-@keyframes slideInLeft {
-  from  { transform:translateX(-100%); }
-  to    { transform: translateX(0%); }
-}
-
-@keyframes slideInRight {
-    from  { transform:translateX(100%); }
-    to    { transform: translateX(0%); }
-}
-
-@keyframes slideOutLeft {
-    from  { transform: translateX(0%); }
-    to      { transform: translateX(-100%); }
-}
-
-@keyframes slideOutRight {
-    from    { transform:translateX(0%); }
-    to      { transform: translateX(100%); }
-}
-
-
-
-@-webkit-keyframes slideInLeft {
-  from  { -webkit-transform:translateX(-100%); }
-  to    { -webkit-transform: translateX(0%); }
-}
-
-@-webkit-keyframes slideInRight {
-    from  { -webkit-transform:translateX(100%); }
-    to    { -webkit-transform: translateX(0%); }
-}
-
-@-webkit-keyframes slideOutLeft {
-    from  { -webkit-transform: translateX(0); }
-    to  { -webkit-transform: translateX(-100%); }
-}
-
-@-webkit-keyframes slideOutRight {
-    from  { -webkit-transform:translateX(0%); }
-    to    { -webkit-transform: translateX(100%); }
-}
-
-
-
-
-.page {
-  bottom: 0;
-  top: 0;
-  width: 100%;
-}
-
-
-// SLIDE NEW PANEL IN FROM THE RIGHT
-.slide-in-right.ng-enter {
-  position: absolute;
-  animation: slideInRight 0.5s both ease-in;
-  -webkit-animation: slideInRight 0.5s both ease-in;
-  z-index: 9999;
-}
-
-.slide-in-right.ng-leave {
-  position: absolute;
-  animation: slideOutLeft 0.5s both ease-in;
-  -webkit-animation: slideOutLeft 0.5s both ease-in;
-  z-index: 8888;
-}
-
-// SLIDE NEW PANEL IN FROM THE LEFT
-.slide-in-left.ng-enter {
-  position: absolute;
-  animation: slideInLeft 0.5s both ease-in;
-  -webkit-animation: slideInLeft 0.5s both ease-in;
-  z-index: 9999;
-}
-
-.slide-in-left.ng-leave {
-  position: absolute;
-  animation: slideOutRight 0.5s both ease-in;
-  -webkit-animation: slideOutRight 0.5s both ease-in;
-  z-index: 8888;
-}
+// @keyframes slideInLeft {
+//   from  { transform:translateX(-100%); }
+//   to    { transform: translateX(0%); }
+// }
+//
+// @keyframes slideInRight {
+//     from  { transform:translateX(100%); }
+//     to    { transform: translateX(0%); }
+// }
+//
+// @keyframes slideOutLeft {
+//     from  { transform: translateX(0%); }
+//     to      { transform: translateX(-100%); }
+// }
+//
+// @keyframes slideOutRight {
+//     from    { transform:translateX(0%); }
+//     to      { transform: translateX(100%); }
+// }
+//
+//
+//
+// @-webkit-keyframes slideInLeft {
+//   from  { -webkit-transform:translateX(-100%); }
+//   to    { -webkit-transform: translateX(0%); }
+// }
+//
+// @-webkit-keyframes slideInRight {
+//     from  { -webkit-transform:translateX(100%); }
+//     to    { -webkit-transform: translateX(0%); }
+// }
+//
+// @-webkit-keyframes slideOutLeft {
+//     from  { -webkit-transform: translateX(0); }
+//     to  { -webkit-transform: translateX(-100%); }
+// }
+//
+// @-webkit-keyframes slideOutRight {
+//     from  { -webkit-transform:translateX(0%); }
+//     to    { -webkit-transform: translateX(100%); }
+// }
+//
+//
+//
+//
+// .page {
+//   bottom: 0;
+//   top: 0;
+//   width: 100%;
+// }
+//
+//
+// // SLIDE NEW PANEL IN FROM THE RIGHT
+// .slide-in-right.ng-enter {
+//   position: absolute;
+//   animation: slideInRight 0.5s both ease-in;
+//   -webkit-animation: slideInRight 0.5s both ease-in;
+//   z-index: 9999;
+// }
+//
+// .slide-in-right.ng-leave {
+//   position: absolute;
+//   animation: slideOutLeft 0.5s both ease-in;
+//   -webkit-animation: slideOutLeft 0.5s both ease-in;
+//   z-index: 8888;
+// }
+//
+// // SLIDE NEW PANEL IN FROM THE LEFT
+// .slide-in-left.ng-enter {
+//   position: absolute;
+//   animation: slideInLeft 0.5s both ease-in;
+//   -webkit-animation: slideInLeft 0.5s both ease-in;
+//   z-index: 9999;
+// }
+//
+// .slide-in-left.ng-leave {
+//   position: absolute;
+//   animation: slideOutRight 0.5s both ease-in;
+//   -webkit-animation: slideOutRight 0.5s both ease-in;
+//   z-index: 8888;
+// }

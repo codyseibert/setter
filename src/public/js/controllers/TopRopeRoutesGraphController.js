@@ -4,11 +4,13 @@
 angular.module('SETTER')
     .controller('TopRopeRoutesGraphController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         'RoutesService',
         'BarGraphHelperService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             RoutesService,
             BarGraphHelperService
@@ -16,7 +18,54 @@ angular.module('SETTER')
             'use strict';
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
-            $scope.hasTopRope = false;
+            $scope.hasTopRope = undefined;
+
+            var showForUser = function () {
+                return $scope.hasTopRope !== undefined
+                    && $scope.hasTopRope === false
+                    && $rootScope.getAccountId() !== $scope.gymId
+            };
+
+            var showForGym = function () {
+                return $scope.hasTopRope !== undefined
+                    && $scope.hasTopRope === false
+                    && $rootScope.getAccountId() === $scope.gymId
+            };
+
+            var navigateToGymSuggestions = function () {
+                $rootScope.navigateToGymSuggestions($scope.gymId);
+            };
+
+            var navigateToGymZones = function () {
+                $rootScope.navigateToWalls($scope.gymId);
+            };
+
+            $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
+                $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
+            }
+
+            $scope.topRopeRoutesBlankState = {
+                user: {
+                    show: showForUser,
+                    content: {
+                        title: "This gym has no top rope routes, yet.",
+                        text: "If you'd like to climb some, let them know over at their",
+                        link_text: "Suggestions Board"
+                    },
+                    image: "images/placeholder--topRopeGraph.jpg",
+                    click: navigateToGymSuggestions
+                },
+                gym: {
+                    show: showForGym,
+                    content: {
+                        title: "Oops! There are no top rope routes at your gym yet.",
+                        text: "Start setting some at the",
+                        link_text: "Manage Zones Page"
+                    },
+                    image: "images/placeholder--topRopeGraph.jpg",
+                    click: navigateToGymZones
+                }
+            };
 
             RoutesService.getCurrentTopRopeRoutes($scope.gymId, function (pData) {
                 $scope.hasTopRope = pData.length > 0;

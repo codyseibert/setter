@@ -12,13 +12,9 @@
         Help your gym out by rating this route!
     </p>
 
-    <button class="[ btn--secondary btn--medium right ] left"
-            ng-click="closeModal()">
-        I promise I'll rate later!
-    </button>
-
     <div class="display: inline-block; text-align: center;"
             ng-mouseleave="setHoverRating(-1)">
+
         <h4 class="mb0 h2 display--inlineBlock"
             ng-class="{rated: hasRated}"
             ng-repeat="star in stars"
@@ -26,10 +22,18 @@
             ng-click="!isGymAccount() && rate(star)">
             <i ng-class="{'hovered': isHovered(star), 'icon-star': isFilled(star), 'icon-star-empty': !isFilled(star)}" class="rating  mb0  right"> </i>
         </h4>
+
     </div>
+
+    <button class="[ btn--secondary btn--medium right ] display--block"
+            ng-click="closeModal()">
+        I promise I'll rate later!
+    </button>
+
     <a class="close-reveal-modal">
         &#215;
     </a>
+
 </div>
 
 <!--
@@ -38,6 +42,7 @@
 <section class="row ">
 
         <div class="header">
+
             <button
                 class="[ btn--secondary  btn--medium ] mb2 icon-left-big display--block"
                 ng-click="topNavigationClicked()" >
@@ -197,10 +202,13 @@
                 </h3>
 
                <div class="flag-body  text-right">
+
                 <h4 class="h3  mb0  fwb">
                     {{route.firstname}} {{route.lastname}}
-                    </h4>
+                </h4>
+                
                </div>
+
             </div>
 
             <div class="flag  mb3">

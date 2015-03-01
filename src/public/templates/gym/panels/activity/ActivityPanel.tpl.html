@@ -40,25 +40,17 @@
                 </label>
 
                 <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
-
-                    <span  ng-show="typeNewest === BOULDERING">
-                        Bouldering
-                    </span>
-
-                    <span ng-hide="true" ng-show="typeNewest === TOPROPE">
-                        Top Rope
-                    </span>
-
-                    <span ng-hide="true" ng-show="typeNewest === LEAD">
-                        Lead
+                    <!--Note: Working on getting this to get a variable from the gym controller-->
+                    <span >
+                        {{ This Needs to be the curreny type's text only}}
                     </span>
 
                 </label>
 
                 <img role="tooltip"
                      data-tooltip
-                     data-options="disable_for_touch:true"
-                     aria-haspopup="true"
+                     data-options="disable_for_touch:true" 
+                     
                      title="Bouldering"
                      class="opacityHover--lightToDark   mr1  has-tip  tip-top"
                      ng-click="setTypeNewest(BOULDERING)"
@@ -68,7 +60,7 @@
                 <img role="tooltip"
                      data-tooltip
                      data-options="disable_for_touch:true"
-                     aria-haspopup="true"
+                     
                      title="Top Rope"
                      class="opacityHover--lightToDark   mr1  has-tip  tip-top"
                      ng-click="setTypeNewest(TOPROPE)"
@@ -78,7 +70,7 @@
                 <img role="tooltip"
                      data-tooltip
                      data-options="disable_for_touch:true"
-                     aria-haspopup="true"
+                     
                      title="Lead"
                      class="opacityHover--lightToDark   mr1  has-tip  tip-top"
                      ng-class="{'active': typeNewest == LEAD}"

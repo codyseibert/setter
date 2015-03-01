@@ -57,6 +57,9 @@ angular.module('SETTER')
             $scope.TOPROPE_VIEW = 'Top Rope';
             $scope.LEAD_VIEW = 'Lead';
             $scope.isLoading = true;
+
+            $scope.displayCount = 50;
+
             $scope.views = [
                 {
                     key: 'type',
@@ -75,6 +78,11 @@ angular.module('SETTER')
                 }
             ];
             $scope.form.view = $scope.views[0];
+
+            $scope.loadMore = function () {
+                $scope.displayCount += 50;
+                $scope.displayCount = Math.min($scope.routes.length, $scope.displayCount);
+            };
 
 
             /*
@@ -228,6 +236,7 @@ angular.module('SETTER')
                 clone.value = "Any";
                 $scope.setterInputs.unshift(clone);
 
+                // Select the 'Any' be default
                 $scope.form.zoneFilter = $scope.zoneInputs[0];
                 $scope.form.colorFilter = $scope.colorInputs[0];
                 $scope.form.setterFilter = $scope.setterInputs[0];
@@ -268,6 +277,15 @@ angular.module('SETTER')
                 }
 
                 refreshFilter($scope.form.setterFilter);
+
+                $scope.isOneVisible = false;
+                for (var i = 0; i < $scope.routes.length; i += 1) {
+                    var route = $scope.routes[i];
+                    if (route.show) {
+                        $scope.isOneVisible = true
+                        break;
+                    }
+                }
             };
 
             $scope.refreshView = function () {
@@ -349,16 +367,13 @@ angular.module('SETTER')
                 });
 
 
-
             $q.all([
                 boulderGradesPromise,
                 ropeGradesPromise
             ])
                 .then(function () {
                     RoutesService.getRoutesInGym($scope.gymId, function (pData) {
-                        setTimeout(function () {
-                            processRoutes(pData);
-                        }, 1000);
+                        processRoutes(pData);
                     });
                 });
         }]);

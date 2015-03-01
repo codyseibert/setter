@@ -20,11 +20,15 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
             var showForUser = function () {
-                return $scope.bestLead !== undefined && $scope.bestLead.length === 0 && $scope.getAccountId() !== $scope.gymId
+                return $scope.bestLead !== undefined
+                  && $scope.bestLead.length === 0
+                  && $rootScope.getAccountId() !== $scope.gymId;
             };
 
             var showForGym = function () {
-                return $scope.bestLead !== undefined && $scope.bestLead.length === 0 && $scope.getAccountId() === $scope.gymId
+                return $scope.bestLead !== undefined
+                  && $scope.bestLead.length === 0
+                  && $rootScope.getAccountId() === $scope.gymId;
             };
 
             var navigateToGymSuggestions = function () {
@@ -65,5 +69,6 @@ angular.module('SETTER')
             GymsService.getBestRatedLead($scope.gymId)
                 .success(function (pData) {
                     $scope.bestLead = pData;
+                    console.log(pData);
                 });
         }]);

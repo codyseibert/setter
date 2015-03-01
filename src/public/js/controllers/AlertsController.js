@@ -7,14 +7,12 @@ angular.module('SETTER')
         '$routeParams',
         '$window',
         'AlertsService',
-        'DateFormatService',
         'LoginService',
         function (
             $scope,
             $routeParams,
             $window,
             AlertsService,
-            DateFormatService,
             LoginService
         ) {
             'use strict';
@@ -29,7 +27,7 @@ angular.module('SETTER')
             AlertsService.getAlertsForGym($scope.gymId)
                 .success(function (pData) {
                     pData.map(function (pEntry) {
-                        pEntry.date = DateFormatService.format(pEntry.date);
+                        pEntry.date = pEntry.date; 
                         return pEntry;
                     });
                     $scope.alerts = pData;
@@ -53,7 +51,7 @@ angular.module('SETTER')
                         var alert = {
                             id: pData.id,
                             message: $scope.form.message,
-                            date: DateFormatService.format(moment())
+                            date: moment()
                         };
 
                         $scope.alerts.unshift(alert);

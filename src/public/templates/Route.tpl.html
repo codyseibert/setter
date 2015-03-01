@@ -140,15 +140,19 @@
 
 
             <div class="flag  mb3">
+
                 <h3 class="flag-image">
                     Name
                 </h3>
 
                <div class="flag-body  text-right">
+
                     <h4 class="h3  mb0">
                        {{route.route_name || 'N/A'}}
                     </h4>
+
                </div>
+
             </div>
 
             <div class="flag  mb3">
@@ -206,7 +210,7 @@
 
                 <div class="flag-body  text-right">
                     <h4 class="h3  mb0 ">
-                        {{route.date}}
+                        {{route.date | date :  'MMM dd, yyyy' }}
                     </h4>
                 </div>
             </div>
@@ -237,8 +241,11 @@
     </div>
 </section>
 
+
 <section class="row">
+
     <div class="small-12 columns  mb4">
+
         <h2 class='fwl'>
             Climber Feedback
         </h2>
@@ -262,14 +269,20 @@
                 <br>
 
                 <i>
-                    {{comment.date}}
+                    Posted: {{comment.date | date : 'MMM dd, yyyy' }}
                 </i>
             </div>
 
             <div>
-                <div class="mb1"></div>
+
+                <div class="mb1">
+                    
+                </div>
+
                 {{comment.message}}
+
             </div>
+
         </div>
 
         <div ng-hide="isGymAccount()">

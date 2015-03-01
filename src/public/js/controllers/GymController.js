@@ -13,7 +13,6 @@ angular.module('SETTER')
         'UsersService',
         'LoginService',
         'AlertsService',
-        'DateFormatService',
         function (
             $scope,
             $routeParams,
@@ -24,8 +23,7 @@ angular.module('SETTER')
             BarGraphHelperService,
             UsersService,
             LoginService,
-            AlertsService,
-            DateFormatService
+            AlertsService
         ) {
             'use strict';
 
@@ -35,8 +33,7 @@ angular.module('SETTER')
 
             var createBoulderRoutesBarGraph,
                 createTopRopeRoutesBarGraph,
-                createLeadRoutesBarGraph,
-                formatDates;
+                createLeadRoutesBarGraph
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
@@ -110,7 +107,7 @@ angular.module('SETTER')
             AlertsService.getAlertsForGym($scope.gymId)
                 .success(function (pData) {
                     pData.map(function (pEntry) {
-                        pEntry.date = DateFormatService.format(pEntry.date);
+                        pEntry.date = pEntry.date;
                         return pEntry;
                     });
                     $scope.alerts = pData;
@@ -141,27 +138,11 @@ angular.module('SETTER')
             };
 
             /*
-                Formats all the dates in the array for the front end templates
-                TODO: convert to use angular filters in templates
-            */
-            formatDates = function (pData) {
-                var i,
-                    length;
-
-                for (i = 0, length = pData.length; i < length; i += 1) {
-                    pData[i].date_format = DateFormatService.format(pData[i].date);
-                }
-            };
-
-
-
-            /*
             *   SECTION - Newest Routes
             */
             GymsService.getNewestBoulder($scope.gymId)
                 .success(function (pData) {
-                    $scope.newestBoulder = pData;
-                    formatDates(pData);
+                    $scope.newestBoulder = pData
                 });
 
             /*
@@ -169,8 +150,7 @@ angular.module('SETTER')
             */
             GymsService.getBestRatedBoulder($scope.gymId)
                 .success(function (pData) {
-                    $scope.bestRatedBoulder = pData;
-                    formatDates(pData);
+                    $scope.bestRatedBoulder = pData
                 });
 
             setTimeout(function () {
@@ -178,13 +158,11 @@ angular.module('SETTER')
                 GymsService.getNewestTopRope($scope.gymId)
                     .success(function (pData) {
                         $scope.newestTopRope = pData;
-                        formatDates(pData);
                     });
 
                 GymsService.getNewestLead($scope.gymId)
                     .success(function (pData) {
                         $scope.newestLead = pData;
-                        formatDates(pData);
                     });
 
 
@@ -192,13 +170,11 @@ angular.module('SETTER')
                 GymsService.getBestRatedTopRope($scope.gymId)
                     .success(function (pData) {
                         $scope.bestRatedTopRope = pData;
-                        formatDates(pData);
                     });
 
                 GymsService.getBestRatedLead($scope.gymId)
                     .success(function (pData) {
                         $scope.bestRatedLead = pData;
-                        formatDates(pData);
                     });
             }, 1000);
 

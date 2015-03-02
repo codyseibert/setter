@@ -4,11 +4,13 @@
 angular.module('SETTER')
     .controller('TopRopeDistributionController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         'RoutesService',
         'GradesService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             RoutesService,
             GradesService
@@ -17,6 +19,9 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.hasTopRope = false;
+            $scope.getAccountId = function () {
+                return $rootScope.getAccountId();
+            }
 
             GradesService.getRopeGrades()
                 .success(function (pGrades) {

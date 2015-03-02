@@ -5,7 +5,7 @@
     <div id="ropeDistribution">
         <h2>Top Rope Distribution</h2>
 
-        <div ng-show="!hasTopRope && getAccountId !== gymId">
+        <div ng-show="!hasTopRope && getAccountId() !== gymId">
 
             <h2>
 
@@ -15,7 +15,7 @@
 
         </div>
 
-        <div ng-show="!hasTopRope && getAccountId === gymId">
+        <div ng-show="!hasTopRope && getAccountId() === gymId">
 
             <h2>
 

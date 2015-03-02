@@ -19,6 +19,9 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.hasTopRope = undefined;
+            $scope.getAccountId = function () {
+                return $rootScope.getAccountId();
+            }
 
             var showForUser = function () {
                 return $scope.hasTopRope !== undefined &&

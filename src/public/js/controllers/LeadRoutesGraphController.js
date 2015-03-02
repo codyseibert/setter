@@ -19,6 +19,9 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.hasLead = undefined;
+            $scope.getAccountId = function () {
+                return $rootScope.getAccountId();
+            }
 
             var showForUser = function () {
                 return $scope.hasLead !== undefined &&

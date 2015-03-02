@@ -4,11 +4,13 @@
 angular.module('SETTER')
     .controller('BoulderDistributionController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         'RoutesService',
         'GradesService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             RoutesService,
             GradesService
@@ -17,6 +19,9 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.hasBoulder = false;
+            $scope.getAccountId = function () {
+                return $rootScope.getAccountId();
+            }
 
             GradesService.getBoulderGrades()
                 .success(function (pGrades) {

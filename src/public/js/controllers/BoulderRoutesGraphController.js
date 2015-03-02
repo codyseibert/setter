@@ -19,6 +19,10 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.hasBoulder = undefined;
+            $scope.getAccountId = function () {
+                return $rootScope.getAccountId();
+            }
+
 
             var showForUser = function () {
                 return $scope.hasBoulder !== undefined &&

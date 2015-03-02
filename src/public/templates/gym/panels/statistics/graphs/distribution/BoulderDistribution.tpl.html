@@ -5,7 +5,7 @@
     <div id="boulderDistribution">
         <h2>Bouldering Distribution</h2>
 
-        <div ng-show="!hasBoulder && getAccountId !== gymId">
+        <div ng-show="!hasBoulder && getAccountId() !== gymId">
 
             <h2>
 
@@ -15,7 +15,7 @@
 
         </div>
 
-        <div ng-show="!hasBoulder && getAccountId === gymId">
+        <div ng-show="!hasBoulder && getAccountId() === gymId">
 
             <h2>
 

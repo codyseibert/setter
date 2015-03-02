@@ -61,6 +61,8 @@ angular.module('SETTER')
             $scope.isLoading = true;
 
             $scope.displayCount = 50;
+            $scope.addedRoutes  = 0; 
+            $scope.moreAvail = true; 
 
             $scope.views = [
                 {
@@ -84,8 +86,35 @@ angular.module('SETTER')
             $scope.loadMore = function () {
                 $scope.displayCount += 50;
                 $scope.displayCount = Math.min($scope.routes.length, $scope.displayCount);
+                // $scope.routesLeft  = $scope.displayCount -= $scope.displayCount;
+                
             };
 
+            $scope.moreAvail = function () {
+
+                if ($scope.routesShown < 50 || $scope.addedRoutes === $scope.routes.length) {
+
+                    return false; 
+                }
+                else {
+                    return true; 
+                }
+
+            };
+
+            $scope.checkIfShown = function () {
+
+                var routesShown = 0; 
+
+                for (var i = 0, length = $scope.routes.length; i < length; i++) {
+
+                    if ($scope.routes[i].show) {
+                        routesShown++ 
+                    }
+                }
+
+                return routesShown; 
+            };
 
             /*
                 Creates the stars used for displaying on the routes on template
@@ -255,6 +284,8 @@ angular.module('SETTER')
 
             $scope.refreshFilters = function () {
                 showAllRoutes();
+                $scope.loadMore(); 
+                console.log('refreshed filters' + $scope.routes.length)
 
                 refreshFilter($scope.form.view);
                 refreshFilter($scope.form.zoneFilter);
@@ -281,7 +312,7 @@ angular.module('SETTER')
                 refreshFilter($scope.form.setterFilter);
 
                 $scope.isOneVisible = false;
-                for (var i = 0; i < $scope.routes.length; i += 1) {
+                for (var i = 0, length = $scope.routes.length; i < length; i += 1) {
                     var route = $scope.routes[i];
                     if (route.show) {
                         $scope.isOneVisible = true;

@@ -47,9 +47,9 @@ angular.module('SETTER')
                 user: {
                     show: showForUser,
                     content: {
-                        title: "This gym has no lead routes logged yet!",
-                        text: "Ask this gym to update their setter profile",
-                        link_text: "Leave Gym a Suggestion"
+                        title: "Bummer, this gym has no boulder problems yet.",
+                        text: "If you'd like to climb some, let them know over at their",
+                        link_text: "Suggestions board."
                     },
                     image: "images/placeholder--newestBouldering.jpg",
                     click: navigateToGymSuggestions
@@ -57,9 +57,9 @@ angular.module('SETTER')
                 gym: {
                     show: showForGym,
                     content: {
-                        title: "You have no routes!",
-                        text: "Click below to start adding routes",
-                        link_text: "Add Routes"
+                        title: "Oops! These aren't your newest bouldering problems.",
+                        text: "There aren't any here right now, but you can set new ones on the",
+                        link_text: " Manage Zones page"
                     },
                     image: "images/placeholder--newestBouldering.jpg",
                     click: navigateToGymZones

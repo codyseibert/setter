@@ -36,7 +36,7 @@
         <div class="vertical-align  text-center">
 
             <h2 class="fwb">This is the route archive, but nothing's here.</h2>
-            <h3>You haven't set any routes or problems yet. Start setting over at the <a class="fwb" prevent-default ng-click="navigateToManageZone()">Manage Zones page</a> to get feedback from your climbers.
+            <h3>You haven't set any routes or problems yet. Start setting over at the <a class="fwb" prevent-default ng-click="navigateToWalls(gymId)">Manage Zones page</a> to get feedback from your climbers.
             </h3>
 
         </div>
@@ -86,7 +86,7 @@
 
         <div class="small-12  columns">
 
-            <div class="fieldwrapper  panel [ small-12  columns ] ">
+            <div class="fieldwrapper  panel">
 
                 <div class="row">
 
@@ -191,95 +191,116 @@
 
         <div class="small-12 columns">
 
-            <table class="small-12 columns">
+            <div class="row">
 
-                <thead>
-                    <!-- Loop through all the headers from the controller and render them -->
-                    <th ng-repeat="filter in filters"
-                        ng-hide="hideHeader(filter)"
-                        ng-click="sortIconClicked(filter)">
-                        <a>
-                            {{filter.label}}
-                            <i>
-                                <span ng-show="filter.sort === 0"></span>
-                                <span class="icon-pyramidDown" ng-show="filter.sort === 1"></span>
-                                <span class="icon-pyramidUp" ng-show="filter.sort === 2"></span>
-                            </i>
-                        </a>
-                    </th>
-                </thead>
-
-                <tbody>
-                    <tr ng-hide="isOneVisible">
-
-                        <td class="text-center" colspan="7" style="padding-top: 50px;">
-
-                            <h2>
-                                There are no {{form.view.name}} routes with your selected filters!
-                            </h2>
-
-                        </td>
-
-                    </tr>
-
-                    <!-- Loop through all the routes from the controller and render them -->
-                    <tr bindonce ng-repeat="route in routes | limitTo: displayCount track by route.id "
-                        class="list--tableStyle  list--navElem"
-                        ng-show="route.show"
-                        on-finish-render
-                        ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
-
-                        <!-- Zone -->
-                        <td bo-text="route.wall_name || '-'"></td>
-
-                        <!-- Color -->
-                        <td>
-                            <i class="icon-circle" bo-style="{color: route.value}"> </i>
-                        </td>
-
-
-
-
-                        <!-- Boulder Grade -->
-                        <td ng-show="form.view.name === BOULDERING_VIEW"
-                            bo-text="route.boulder_grade || '-'"></td>
-
-                        <!-- Top Rope Grade -->
-                        <td ng-show="form.view.name === TOPROPE_VIEW"
-                            bo-text="route.toprope_grade || '-'"></td>
-
-                        <!-- Lead Grade -->
-                        <td ng-show="form.view.name === LEAD_VIEW"
-                            bo-text="route.lead_grade || '-'"></td>
-
-
-
-                        <!-- Setter -->
-                        <td bo-text="route.setter || '-'"></td>
-
-                        <!-- Rating -->
-                        <td class="rating rating--colored rating--small">
-                            <i bindonce
-                               ng-repeat="star in stars"
-                               bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}">
-                            </i>
-                        </td>
-
-                        <!-- Sends -->
-                        <td bo-text="route.sends"></td>
-
-                        <!-- Date Set -->
-                        <td bo-text="route.date_format"></td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-            <div class="text-right">
-                {{displayCount}} routes diplayed <button value="Load More" ng-click="loadMore()">Load More</button>
+                <table class="small-12 columns">
+                
+                    <thead>
+                        <!-- Loop through all the headers from the controller and render them -->
+                        <th ng-repeat="filter in filters"
+                            ng-hide="hideHeader(filter)"
+                            ng-click="sortIconClicked(filter)">
+                            <a>
+                                {{filter.label}}
+                                <i>
+                                    <span ng-show="filter.sort === 0"></span>
+                                    <span class="icon-pyramidDown" ng-show="filter.sort === 1"></span>
+                                    <span class="icon-pyramidUp" ng-show="filter.sort === 2"></span>
+                                </i>
+                            </a>
+                        </th>
+                    </thead>
+                
+                    <tbody>
+                        <tr ng-hide="isOneVisible">
+                
+                            <td class="text-center" colspan="7" style="padding-top: 50px;">
+                
+                                <h2 class="h3 fwl">
+                                    There are no {{form.view.name}} routes with your selected filters.
+                                </h2>
+                
+                            </td>
+                
+                        </tr>
+                
+                        <!-- Loop through all the routes from the controller and render them -->
+                        <tr bindonce ng-repeat="route in routes | limitTo: displayCount track by route.id "
+                            class="list--tableStyle  list--navElem"
+                            ng-show="route.show"
+                            on-finish-render
+                            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)">
+                
+                            <!-- Zone -->
+                            <td bo-text="route.wall_name || '-'"></td>
+                
+                            <!-- Color -->
+                            <td>
+                                <i class="icon-circle" bo-style="{color: route.value}"> </i>
+                            </td>
+                
+                
+                
+                
+                            <!-- Boulder Grade -->
+                            <td ng-show="form.view.name === BOULDERING_VIEW"
+                                bo-text="route.boulder_grade || '-'"></td>
+                
+                            <!-- Top Rope Grade -->
+                            <td ng-show="form.view.name === TOPROPE_VIEW"
+                                bo-text="route.toprope_grade || '-'"></td>
+                
+                            <!-- Lead Grade -->
+                            <td ng-show="form.view.name === LEAD_VIEW"
+                                bo-text="route.lead_grade || '-'"></td>
+                
+                
+                
+                            <!-- Setter -->
+                            <td bo-text="route.setter || '-'"></td>
+                
+                            <!-- Rating -->
+                            <td class="rating rating--colored rating--small">
+                                <i bindonce
+                                   ng-repeat="star in stars"
+                                   bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}">
+                                </i>
+                            </td>
+                
+                            <!-- Sends -->
+                            <td bo-text="route.sends"></td>
+                
+                            <!-- Date Set -->
+                            <td bo-text="route.date_format"></td>
+                
+                        </tr>
+                
+                    </tbody>
+                
+                </table>
             </div>
+
+            <div class="center display--block" ng-click="loadMore()">
+                
+                <h3 class="h5  hoverAnim2 text-center" >
+
+                    <span ng-show="moreAvail()">
+                    
+                        <a ng-click="loadMore()">
+                        
+                        {{displayCount }} Click to load more
+                        
+                        <div class="display--block  icon--large icon-down-big" rel="down"></div>
+                        
+                        </a>
+
+                    </span>
+
+                </h3>
+
+            </div>
+
+
 
         </div>
     </section>

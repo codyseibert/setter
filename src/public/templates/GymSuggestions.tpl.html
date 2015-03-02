@@ -1,26 +1,21 @@
 <!-- Header -->
 <section class="row">
 
-    <div class="header" ng-hide="getAccountId() === gymId">
-
-        <div class="clearfix  display--block">
-
-            <button class="[ btn--secondary btn--medium ] icon-left-big  left"
-                ng-click="back()" >
-                Back
-            </button>
-
-        </div>
+    <div class="header">
 
         <h1 class="icon-messaging  fwb" ng-show="getAccountId() === gymId">
             Climber Suggestions
         </h1>
 
+        <p ng-show="getAccountId() === gymId">
+           Below are suggestions from your climbers. 
+        </p>
+
         <h1 class="icon-mail-alt  fwb" ng-show="getAccountId() !== gymId">
             Suggestions Board
         </h1>
 
-        <p>
+        <p ng-show="getAccountId() !== gymId">
            Let your gym know of any climbs or additions you'd like to see, or just show them some love.
         </p>
 

@@ -9,7 +9,7 @@
   width: rem-calc(34);
   height: rem-calc(34);
   border: 1px solid $grey--medlight;
-
+cursor: pointer; 
     &:hover {
         border: 4px solid $grey--medium;
     }

@@ -12376,6 +12376,7 @@ ul[data-pie-id] {
   width: 2.125rem;
   height: 2.125rem;
   border: 1px solid #c3c3c3;
+  cursor: pointer;
 }
 /* line 13, ../scss/partials/_routeColors.scss */
 .route-color:hover {

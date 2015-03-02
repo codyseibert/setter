@@ -126,7 +126,7 @@
 
                                     <span
                                         class="txt--micro" >
-                                        {{getAccountName()}}
+                                        {{getAccountName() | limitTo: 20}}{{getAccountName().length > 20 ? '...' : ''}}
                                     </span>
 
 
@@ -147,7 +147,7 @@
                             <li ng-show="isGymAccount()"
                             ng-click="navigateToGymSuggestions(getAccountId())">
 
-                                <a class="icon-messaging">Suggestions
+                                <a class="icon-messaging ">Suggestions
 
                                 <span class="label ng-hide">5</span>
 
@@ -157,9 +157,9 @@
 
                             <li ng-show="isUserAccount()"
                                 ng-click="navigateToUser(getAccountId())">
-                                <a href="">
+                                <a class="">
                                 <span class="fwb">
-                                  {{getAccountName()}}</span>
+                                  {{getAccountName() | limitTo: 20 }}</span>
                                   <br>
                                   View Profile
                                 </a>
@@ -168,15 +168,15 @@
                             <!--Show For User Only-->
                             <li ng-show="isUserAccount()"
                             ng-click="navigateToSettings()">
-                                <a class="icon-settings"> Settings</a>
+                                <a class=" icon-settings"> Settings</a>
                             </li>
 
                             <li ng-click="navigateToSuggestionsPage()">
-                                <a class="icon-messaging-alt"> Give Feedback</a>
+                                <a class=" icon-messaging-alt"> Give Feedback</a>
                             </li>
 
                             <li ng-click="navigateToLogout()">
-                                <a class="icon-logout">Log Out</a>
+                                <a class=" icon-logout">Log Out</a>
                             </li>
                         </ul>
 

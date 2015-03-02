@@ -2,34 +2,26 @@
     <a ng-click="export()"
             ng-show="getAccountId() === gymId" class="right">Export Data</a>
 
-    <div id="boulderDistribution">
+    <div id="boulderDistribution" class="mb2">
         <h2>Bouldering Distribution</h2>
 
         <div ng-show="!hasBoulder && getAccountId() !== gymId">
 
-            <h2>
+            <h3 class="fwl">
 
-                This gym has no boulder problems set!
+                Not enough routes or problems set yet, <a ng-click="navigateToZones()">go set some</a>!  
 
-            </h2>
+            </h3>
 
         </div>
 
         <div ng-show="!hasBoulder && getAccountId() === gymId">
 
-            <h2>
+            <h3 class="fwl">
 
-                You have not set any boulder problems!
+                There are currently no boulder problems set, check back later! 
 
-            </h2>
-
-            <button type="submit"
-                class="btn--primary icon-plus btn--medium"
-                ng-click="navigateToWalls(gymId)">
-
-                Set Some Routes!
-
-            </button>
+            </h3>
 
         </div>
 

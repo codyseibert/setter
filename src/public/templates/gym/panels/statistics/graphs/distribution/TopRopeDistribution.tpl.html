@@ -7,29 +7,21 @@
 
         <div ng-show="!hasTopRope && getAccountId() !== gymId">
 
-            <h2>
+            <h3 class='fwl'>
 
-                This gym has no top rope routes!
+                Not enough routes or problems set yet, <a ng-click="navigateToZones()">go set some</a>!  
 
-            </h2>
+            </h3>
 
         </div>
 
         <div ng-show="!hasTopRope && getAccountId() === gymId">
 
-            <h2>
+            <h3 class='fwl'>
 
-                You have not set any top rope routes!
+                There are currently no rope routes set, check back later! 
 
-            </h2>
-
-            <button type="submit"
-                class="btn--primary icon-plus btn--medium"
-                ng-click="navigateToWalls(gymId)">
-
-                Set Some Routes!
-
-            </button>
+            </h3>
 
         </div>
 

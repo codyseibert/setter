@@ -32,11 +32,11 @@ angular.module('SETTER')
             };
 
             var navigateToGymSuggestions = function () {
-                $scope.navigateToGymSuggestions($scope.gymId);
+                $rootScope.navigateToGymSuggestions($scope.gymId);
             };
 
             var navigateToGymZones = function () {
-                $scope.navigateToWalls($scope.gymId);
+                $rootScope.navigateToWalls($scope.gymId);
             };
 
             $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {

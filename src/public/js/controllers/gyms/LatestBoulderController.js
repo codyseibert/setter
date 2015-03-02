@@ -36,7 +36,7 @@ angular.module('SETTER')
             };
 
             var navigateToGymZones = function () {
-                $scope.navigateToWalls($scope.gymId);
+                $rootScope.navigateToWalls($scope.gymId);
             };
 
             $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {

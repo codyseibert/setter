@@ -392,20 +392,20 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('check:css', [
-        'newer:csslint:strict'
+        // 'newer:csslint:strict'
     ]);
     grunt.registerTask('check:client', [
-        'newer:jshint:client',
-        'newer:jslint:client'
+        // 'newer:jshint:client',
+        // 'newer:jslint:client'
     ]);
     grunt.registerTask('check:server', [
-        'newer:jshint:server',
-        'newer:jslint:server'
+        // 'newer:jshint:server',
+        // 'newer:jslint:server'
     ]);
     grunt.registerTask('check', [
         //'check:css',
-        'check:server',
-        'check:client'
+        // 'check:server',
+        // 'check:client'
     ]);
 
     grunt.registerTask('test', [

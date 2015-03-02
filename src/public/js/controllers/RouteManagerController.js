@@ -43,6 +43,7 @@ angular.module('SETTER')
             /*
                 Scope Variables
             */
+            $scope.DISPLAY_COUNT = 30;
             $scope.gymId = $routeParams.gymId;
             $scope.routes = [];
             $scope.filter = null;
@@ -59,10 +60,10 @@ angular.module('SETTER')
             $scope.TOPROPE_VIEW = 'Top Rope';
             $scope.LEAD_VIEW = 'Lead';
             $scope.isLoading = true;
+            $scope.visibleRoutes = [];
 
-            $scope.displayCount = 50;
-            $scope.addedRoutes  = 0; 
-            $scope.moreAvail = true; 
+            $scope.displayCount = $scope.DISPLAY_COUNT;
+            $scope.addedRoutes  = 0;
 
             $scope.views = [
                 {
@@ -84,36 +85,19 @@ angular.module('SETTER')
             $scope.form.view = $scope.views[0];
 
             $scope.loadMore = function () {
-                $scope.displayCount += 50;
-                $scope.displayCount = Math.min($scope.routes.length, $scope.displayCount);
-                // $scope.routesLeft  = $scope.displayCount -= $scope.displayCount;
-                
+                $scope.displayCount += $scope.DISPLAY_COUNT;
+                $scope.displayCount = Math.min($scope.getVisibleRouteCount(), $scope.displayCount);
             };
 
-            $scope.moreAvail = function () {
-
-                if ($scope.routesShown < 50 || $scope.addedRoutes === $scope.routes.length) {
-
-                    return false; 
+            $scope.shouldShowLoadMoreButton = function () {
+                if ($scope.getVisibleRouteCount() > $scope.displayCount) {
+                  return true;
                 }
-                else {
-                    return true; 
-                }
-
+                return false;
             };
 
-            $scope.checkIfShown = function () {
-
-                var routesShown = 0; 
-
-                for (var i = 0, length = $scope.routes.length; i < length; i++) {
-
-                    if ($scope.routes[i].show) {
-                        routesShown++ 
-                    }
-                }
-
-                return routesShown; 
+            $scope.getVisibleRouteCount = function () {
+                return $scope.visibleRoutes.length;
             };
 
             /*
@@ -283,9 +267,10 @@ angular.module('SETTER')
             };
 
             $scope.refreshFilters = function () {
+                var i,
+                    route;
+
                 showAllRoutes();
-                $scope.loadMore(); 
-                console.log('refreshed filters' + $scope.routes.length)
 
                 refreshFilter($scope.form.view);
                 refreshFilter($scope.form.zoneFilter);
@@ -311,14 +296,16 @@ angular.module('SETTER')
 
                 refreshFilter($scope.form.setterFilter);
 
-                $scope.isOneVisible = false;
-                for (var i = 0, length = $scope.routes.length; i < length; i += 1) {
-                    var route = $scope.routes[i];
+                $scope.displayCount = $scope.DISPLAY_COUNT;
+
+                $scope.visibleRoutes = [];
+                for (i = 0; i < $scope.routes.length; i += 1) {
+                    route = $scope.routes[i];
                     if (route.show) {
-                        $scope.isOneVisible = true;
-                        break;
+                        $scope.visibleRoutes.push(route);
                     }
                 }
+                $scope.isOneVisible = $scope.getVisibleRouteCount() > 0;
             };
 
             $scope.refreshView = function () {

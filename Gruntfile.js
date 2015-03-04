@@ -70,7 +70,8 @@ module.exports = function(grunt) {
                   relative: false
                 },
                 dependencies: {
-                    'angular': 'jquery'
+                    'angular': 'jquery',
+                    'foundation': 'jquery'
                 },
                 callback: function(mainFiles, component) {
                     return _.map(mainFiles, function(filepath) {

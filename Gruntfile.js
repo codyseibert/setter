@@ -8,6 +8,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-preprocess');
     grunt.loadNpmTasks('grunt-text-replace');
 
+    var _ = require('lodash');
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -58,6 +60,25 @@ module.exports = function(grunt) {
             },
             dev: {
 
+            }
+        },
+
+        bower_concat: {
+            build: {
+                dest: 'build/app/public/js/_bower.js',
+                bowerOptions: {
+                  relative: false
+                },
+                dependencies: {
+                    'angular': 'jquery'
+                },
+                callback: function(mainFiles, component) {
+                    return _.map(mainFiles, function(filepath) {
+                        // Use minified files if available
+                        var min = filepath.replace(/\.js$/, '.min.js');
+                        return grunt.file.exists(min) ? min : filepath;
+                    });
+                }
             }
         },
 
@@ -445,7 +466,8 @@ module.exports = function(grunt) {
         'replace:index',
         'replace:port',
         'replace:css',
-        'processhtml:prod'
+        'processhtml:prod',
+        'bower_concat'
     ]);
 
     grunt.registerTask('build:jenkins', [

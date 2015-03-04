@@ -1,0 +1,31 @@
+{
+  "name": "natural-sort",
+  "version": "0.1.0",
+  "description": "Sorting with support for numbers, dates, unicode and more.",
+  "authors": [
+    {
+      "name": "Tomek Wiszniewski",
+      "email": "<t.wiszniewski@gmail.com>"
+    }
+  ],
+  "copyright": "Studio B12 GmbH 2014",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/studio-b12/natural-sort.git"
+  },
+  "main": "/dist/natural-sort.js",
+  "ignore": [
+    "/package.json"
+  ],
+  "homepage": "https://github.com/studio-b12/natural-sort",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "ec2dea035b0ca5f3e32d34c32d8b1b0345a76f23"
+  },
+  "_source": "git://github.com/studio-b12/natural-sort.git",
+  "_target": "~0.1.0",
+  "_originalSource": "natural-sort"
+}

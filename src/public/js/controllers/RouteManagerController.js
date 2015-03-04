@@ -352,7 +352,7 @@ angular.module('SETTER')
 
                 pFilter.sort = (pFilter.sort + 1) % 3;
                 key = pFilter.key;
-                $scope.routes.sort(function (a, b) {
+                $scope.visibleRoutes.sort(function (a, b) {
                     if (pFilter.sort === 2) {
                         temp = a;
                         a = b;

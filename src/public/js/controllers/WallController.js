@@ -45,7 +45,7 @@ angular.module('SETTER')
             $scope.form = {};
             $scope.image = null;
 
-
+            $scope.routeSelected = false;
             /*
                 REST Calls
             */
@@ -139,6 +139,22 @@ angular.module('SETTER')
             $scope.complete = function (content) {
                 $scope.image = content;
                 WallsService.setWallDirty($scope.wallId);
+            };
+
+            $scope.selectRoute = function() {
+
+                if($scope.routeSelected) {
+                    $scope.routeSelected = false; 
+                }
+                else {
+                    $scope.routeSelected = true; 
+                }
+
+            };
+
+            $scope.isRouteSelected = function() {
+
+                return $scope.routeSelected;
             };
 
             $scope.authorization = LoginService.getHeader();

@@ -78,9 +78,17 @@
 
             </div>
 
-            <h1 class="h2 fwb mb2">
-                Route Information
-            </h1>
+            <div class="row">
+
+                <div class="small-12 columns">
+
+                    <h1 class="h2 fwb mt1 mb2">
+                        Route Information
+                    </h1>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -91,7 +99,24 @@
 
 <section class="row"
          data-ui-component="route-information">
+
     <div class="small-12 columns  mb4">
+
+        <div ng-show="isUserAccount()" class="mb2">
+
+            <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
+                    ng-click="send()"
+                    ng-hide="hasSent">
+                Send Route
+            </button>
+
+            <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
+                    ng-click="unsend()"
+                    ng-show="hasSent">
+                Unsend Route
+            </button>
+
+        </div>
 
 
         <div class="flag  mb3">
@@ -198,30 +223,56 @@
                 </div>
             </div>
 
-            <div class="mb4">
+            <div class="mb4" ng-hide="">
+
                 <h3 class="h4 fwb  mb2">
                     Notes
                 </h3>
+
                 <p>
                     {{route.note || 'N/A'}}
                 </p>
+
+            </div>
+    </div>
+
+</section>
+
+
+<section class="row">
+    <div class="small-12 columns  ">
+        <h2 class="fwl">
+            Route Sends ({{sends.length}})
+        </h2>
+    </div>
+
+    <div class="small-12 columns  mb4">
+        <div class="flag  mb2"
+             ng-repeat="send in sends">
+
+            <div class=" flag-image"
+                 ng-click="navigateToUser(send.account_id)">
+                <img class="avatar--small"
+                     ng-src="{{getUserImageSrc(send)}}">
             </div>
 
-
-        <div ng-hide="isGymAccount()">
-            <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
-                    ng-click="send()"
-                    ng-hide="hasSent">
-                Send Route
-            </button>
-
-            <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
-                    ng-click="unsend()"
-                    ng-show="hasSent">
-                Unsend Route
-            </button>
+            <div class="flag-body">
+                {{send.name}}
+            </div>
         </div>
     </div>
+
+    <div class="small-12 columns mb4  text-center"
+         ng-show="getAccountId() === gymId">
+
+        <a class="icon-trash"
+           ng-click="delete()">
+
+            Delete Route Permanently
+        </a>
+
+    </div>
+
 </section>
 
 
@@ -279,38 +330,5 @@
                 Post Comment
             </button>
         </div>
-    </div>
-</section>
-
-
-<section class="row">
-    <div class="small-12 columns  ">
-        <h2 class="fwl">
-            Route Sends ({{sends.length}})
-        </h2>
-    </div>
-
-    <div class="small-12 columns  mb4">
-        <div class="flag  mb2"
-             ng-repeat="send in sends">
-
-            <div class=" flag-image"
-                 ng-click="navigateToUser(send.account_id)">
-                <img class="avatar--small"
-                     ng-src="{{getUserImageSrc(send)}}">
-            </div>
-
-            <div class="flag-body">
-                {{send.name}}
-            </div>
-        </div>
-    </div>
-
-    <div class="small-12 columns mb4  text-center"
-         ng-show="getAccountId() === gymId">
-        <a class="icon-trash"
-           ng-click="delete()">
-            Delete Route Permanently
-        </a>
     </div>
 </section>

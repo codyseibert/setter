@@ -12357,6 +12357,17 @@ ul[data-pie-id] {
 }
 
 /*------------------------------------*\
+    #Animations
+\*------------------------------------*/
+/* line 7, ../scss/partials/_animations.scss */
+.animate {
+  -moz-transition: all, 0.2s, ease-out 1s;
+  -o-transition: all, 0.2s, ease-out 1s;
+  -webkit-transition: all, 0.2s, ease-out 1s;
+  transition: all 0.2s ease-out 1s;
+}
+
+/*------------------------------------*\
     #Angular CSS Used by Directives
 \*------------------------------------*/
 /* line 7, ../scss/partials/_angular.scss */

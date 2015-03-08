@@ -38,7 +38,8 @@
                     </div>
 
                     <h1 class="fwb"
-                        ng-hide="isEditMode">
+                        ng-hide="isEditMode"
+                        ng-click="selectRoute()">
                         {{wall.name}}
 
                         <!-- [] Edit Route -->
@@ -114,7 +115,7 @@
 <!-- Routes List & Delete Button -->
 <section class="row  small-collapse large-uncollapse">
 
-    <div class="small-12 columns">
+    <div class="columns" ng-class=" isRouteSelected() ? 'small-7' : 'small-12'  ">
 
         <!-- Displays the routes in this zone -->
         <ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
@@ -137,6 +138,18 @@
         </section>
 
     </div>
+
+    <div ng-cloak class="columns animate" ng-class=" isRouteSelected() ? 'small-5' : 'ng-hide'  ">
+        <ul>
+            <li>
+                <h1>All Route Info Goes Here!</h1>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
 </section>
 
 

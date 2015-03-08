@@ -38,7 +38,7 @@
     <div class="off-canvas-wrap" data-offcanvas >
 
         <!-- Top Nav Bar -->
-        <nav class="tab-bar hide-for-large-up"  ng-show="isLoggedIn()" >
+        <nav class="tab-bar hide-for-large-up"  ng-show="isLoggedIn()" ng-cloak >
 
                 <div class="left-small">
 
@@ -78,8 +78,8 @@
 
         <!--Topbar for large desktop-->
         <div class="section--primary  show-for-large-up"></div>
-
-        <div class="show-for-large-up"  ng-show="isLoggedIn()">
+ 
+        <div class="show-for-large-up"  ng-show="isLoggedIn()" ng-cloak>
 
             <nav class="top-bar"
                  data-topbar
@@ -332,7 +332,7 @@
         <script type="text/javascript" src="js/other/naturalSort.js"></script>
       <!-- /build -->
 
-        <script type="text/javascript">
+        <script async type="text/javascript">
             $(document).foundation({
                  offcanvas : {
                     // Sets method in which offcanvas opens.

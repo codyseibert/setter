@@ -1,13 +1,14 @@
 <ul class="list--tableStyle  list--navElem">
     <li class="list--tableStyle  ptb2"
         ng-repeat="route in routes"
-        ng-click="navigateToRoute(gymId, wallId, route.id)">
+        ng-click="selectRoute(route)">
+        <!-- ng-click="navigateToRoute(gymId, wallId, route.id)"> -->
         <i class="icon-circle"
            ng-style="{color: route.value}"> </i>
 
         <span class="display--inlineBlock  mr2"><!-- Name -->
             {{route.route_name}}
-    
+
         <!-- Grade -->
         {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
         </span>

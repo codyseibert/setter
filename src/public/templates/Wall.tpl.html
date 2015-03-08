@@ -139,18 +139,39 @@
 
     </div>
 
-    <div ng-cloak class="columns animate" ng-class=" isRouteSelected() ? 'small-5' : 'ng-hide'  ">
-        <ul>
-            <li>
-                <h1>All Route Info Goes Here!</h1>
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
+    <!-- <div ng-cloak class="columns animate"
+         ng-class="isRouteSelected() ? 'small-5' : 'ng-hide'">
+        <div ng-include
+            src=" 'templates/Route.tpl.html '"
+            ng-controller="RouteController">
+        </div>
+    </div> -->
+
+    <!-- <aside id="route_right" class="right-off-canvas-menu">
+
+        <ul class="pt3  off-canvas-list"
+            ng-show="isLoggedIn()"
+            ng-include
+            src=" 'templates/Route.tpl.html '"
+            ng-controller="RouteController">
         </ul>
+
+    </aside> -->
+
+    <div class="animate" style="position: absolute; right: 0px; top: 0px; width: 85%; background-color: white;" ng-show="isRouteSelected()">
+        <ul
+            class="pt3  off-canvas-list"
+            ng-show="isLoggedIn()"
+            ng-include
+            src=" 'templates/Route.tpl.html' "
+            ng-controller="RouteController">
+          </ul>
     </div>
 
 </section>
+
+
+
 
 
 <!-- Hidden Form used by Image Upload -->

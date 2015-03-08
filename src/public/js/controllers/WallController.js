@@ -18,6 +18,7 @@ angular.module('SETTER')
         'WallsService',
         'DateFormatService',
         'LoginService',
+        'SelectedRouteService',
         function (
             $scope,
             $interval,
@@ -25,7 +26,8 @@ angular.module('SETTER')
             RoutesService,
             WallsService,
             DateFormatService,
-            LoginService
+            LoginService,
+            SelectedRouteService
         ) {
             'use strict';
 
@@ -141,19 +143,12 @@ angular.module('SETTER')
                 WallsService.setWallDirty($scope.wallId);
             };
 
-            $scope.selectRoute = function() {
-
-                if($scope.routeSelected) {
-                    $scope.routeSelected = false; 
-                }
-                else {
-                    $scope.routeSelected = true; 
-                }
-
+            $scope.selectRoute = function(route) {
+                $scope.routeSelected = route;
+                SelectedRouteService.setSelectedRoute(route);
             };
 
             $scope.isRouteSelected = function() {
-
                 return $scope.routeSelected;
             };
 

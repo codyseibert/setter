@@ -38,7 +38,7 @@
     <div class="off-canvas-wrap" data-offcanvas >
 
         <!-- Top Nav Bar -->
-        <nav class="tab-bar hide-for-large-up"  ng-show="isLoggedIn()" >
+        <nav class="tab-bar hide-for-large-up"  ng-show="isLoggedIn()" ng-cloak >
 
                 <div class="left-small">
 
@@ -78,8 +78,8 @@
 
         <!--Topbar for large desktop-->
         <div class="section--primary  show-for-large-up"></div>
-
-        <div class="show-for-large-up"  ng-show="isLoggedIn()">
+ 
+        <div class="show-for-large-up"  ng-show="isLoggedIn()" ng-cloak>
 
             <nav class="top-bar"
                  data-topbar

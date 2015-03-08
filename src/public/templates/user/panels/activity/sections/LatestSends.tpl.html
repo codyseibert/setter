@@ -6,7 +6,7 @@
 
 </div>
 
-<div ng-show="!hasActivity && getAccountId() === userId">
+<div ng-show="!hasActivity && getAccountId() === userId" ng-cloak>
 
         <!-- Small Blank State -->
         <div class="show-for-small-only">
@@ -46,7 +46,7 @@
 
 </div>
 
-<div ng-show="!hasActivity && getAccountId() !== userId">
+<div ng-show="!hasActivity && getAccountId() !== userId" ng-cloak>
 
         <!-- Small Blank State -->
         <div class="show-for-small-only">

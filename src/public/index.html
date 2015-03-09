@@ -77,13 +77,14 @@
 
 
         <!--Topbar for large desktop-->
-        <div class="section--primary  show-for-large-up"></div>
-
+       
         <div class="show-for-large-up"  ng-show="isLoggedIn()" ng-cloak>
-
+            
             <nav class="top-bar"
                  data-topbar
                  >
+                  <div class="section--primary  show-for-large-up"></div>
+
 
                 <div class="row">
                  <!-- Left Nav Section -->
@@ -210,6 +211,8 @@
 
           <!-- close the off-canvas menu -->
         <a class="exit-off-canvas"></a>
+
+
 
     </div>
 
@@ -369,6 +372,7 @@
             ga('create', 'UA-58169926-1', 'auto');
             ga('send', 'pageview');
         </script>
+
 
     </body>
 </html>

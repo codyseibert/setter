@@ -33,7 +33,8 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = $routeParams.wallId;
             $scope.routeId = SelectedRouteService.getSelectedRoute();
-            $scope.newValue = null; 
+            $scope.newValue = 0;
+             
             $scope.$watch(function () {
                 return SelectedRouteService.getSelectedRoute();
             }, function (newValue, oldValue) {

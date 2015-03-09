@@ -13,6 +13,7 @@ angular.module('SETTER')
         'UsersService',
         'LoginService',
         'AlertsService',
+        'SelectedRouteService',
         function (
             $scope,
             $routeParams,
@@ -23,7 +24,8 @@ angular.module('SETTER')
             BarGraphHelperService,
             UsersService,
             LoginService,
-            AlertsService
+            AlertsService,
+            SelectedRouteService
         ) {
             'use strict';
 
@@ -67,6 +69,9 @@ angular.module('SETTER')
             $scope.leadRoutesBarGraph = [];
 
             $scope.users = [];
+
+            $scope.routeSelected = false;
+            $scope.offCanvasModalShown = false; 
 
             /*
             *   SECTION - Gym related service calls
@@ -301,5 +306,36 @@ angular.module('SETTER')
                 } else if (pCurrentTab === $scope.PANEL_CLIMBERS) {
                   loadClimberPanelData();
                 }
+            };
+
+            $scope.selectRoute = function(route) {
+                $scope.routeSelected = route;
+                SelectedRouteService.setSelectedRoute(route);
+                setTimeout(function() {
+                    $scope.offCanvasModalShown = true;  
+
+                    }, 200); 
+
+            };
+
+            $scope.isRouteSelected = function() {
+                return $scope.routeSelected;
+            };
+
+
+            /* 
+
+                Functions to hide/toggle modal on page
+            */
+
+            $scope.toggleModal = function() {
+                console.log('toggling');
+                
+                $scope.offCanvasModalShown = !$scope.offCanvasModalShown; 
+
+            }; 
+
+            $scope.hideModal = function() {
+                $scope.offCanvasModalShown = false;  
             };
         }]);

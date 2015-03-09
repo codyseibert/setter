@@ -450,17 +450,24 @@ table {
 }
 
 /* line 16, ../scss/modules/_generics.scss */
-.btn--fixedAction, .side-menu, .popUp, .offCanvasModal, .placeholder-text {
+.btn--fixedAction, .side-menu, .popUp, .placeholder-text {
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* line 20, ../scss/modules/_generics.scss */
+.offCanvasModal {
+  -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* line 24, ../scss/modules/_generics.scss */
 .accordion--plain dd > a {
   color: #ed6d56;
 }
-/* line 22, ../scss/modules/_generics.scss */
+/* line 26, ../scss/modules/_generics.scss */
 .accordion--plain dd > a:hover {
   color: #e94a2d;
 }
@@ -468,12 +475,12 @@ table {
 /*------------------------------------*\
     #Display Types
 \*------------------------------------*/
-/* line 36, ../scss/modules/_generics.scss */
+/* line 40, ../scss/modules/_generics.scss */
 .gymDashHeader-content .title, .list--inline > li, .top-bar ul.top-bar-links li {
   display: inline-block;
 }
 
-/* line 38, ../scss/modules/_generics.scss */
+/* line 42, ../scss/modules/_generics.scss */
 .route-moreInfo .route-grade,
 .route-moreInfo .route-rating,
 .route-moreInfo .route-type, .wall-moreInfo .wall-grade,
@@ -482,17 +489,17 @@ table {
   display: inline-block;
 }
 
-/* line 40, ../scss/modules/_generics.scss */
+/* line 44, ../scss/modules/_generics.scss */
 .header .header-divider, .fieldWrapper, .label--block, .img-overlay, [class*="section--"], .background-photo-foreground {
   display: block;
 }
 
-/* line 42, ../scss/modules/_generics.scss */
+/* line 46, ../scss/modules/_generics.scss */
 .popUp .popUp-title, [class*="dropDown--"] .dropDown-separator, [class*="dropdown"] .dropDown-separator {
   text-align: center;
 }
 
-/* line 49, ../scss/modules/_generics.scss */
+/* line 53, ../scss/modules/_generics.scss */
 .route-moreInfo .route-grade,
 .route-moreInfo .route-rating,
 .route-moreInfo .route-type, .wall-moreInfo .wall-grade,
@@ -502,25 +509,25 @@ table {
   vertical-align: middle;
 }
 
-/* line 67, ../scss/modules/_generics.scss */
+/* line 71, ../scss/modules/_generics.scss */
 .setterLogo--nav img, .background-photo-foreground img {
   margin-right: auto;
   margin-left: auto;
   display: block;
 }
 
-/* line 78, ../scss/modules/_generics.scss */
+/* line 82, ../scss/modules/_generics.scss */
 .popUp {
   width: 100%;
 }
 
-/* line 88, ../scss/modules/_generics.scss */
+/* line 92, ../scss/modules/_generics.scss */
 .route-mainInfo, .wall-mainInfo, .header, .list--tableStyle > li, .list--noStyles, .list--dotted li, .fieldWrapper {
   overflow: hidden;
   zoom: 1;
 }
 
-/* line 94, ../scss/modules/_generics.scss */
+/* line 98, ../scss/modules/_generics.scss */
 .logInForm-container, .popUp .popUp-title {
   display: block;
   margin-left: auto;
@@ -530,220 +537,220 @@ table {
 /*------------------------------------*\
     #Positions
 \*------------------------------------*/
-/* line 113, ../scss/modules/_generics.scss */
+/* line 117, ../scss/modules/_generics.scss */
 footer, .select--tetriary, .select--primary, .select--secondary, [class*="section--"], .background-photo-foreground {
   position: relative;
 }
 
-/* line 122, ../scss/modules/_generics.scss */
+/* line 126, ../scss/modules/_generics.scss */
 .btn--fixedAction {
   position: fixed;
 }
 
-/* line 132, ../scss/modules/_generics.scss */
+/* line 136, ../scss/modules/_generics.scss */
 .header .header-divider, .nav-primary,
 .nav-account {
   float: left;
 }
 
-/* line 136, ../scss/modules/_generics.scss */
+/* line 140, ../scss/modules/_generics.scss */
 .route-secondaryInfo, .route-secondaryInfo .route-actions, .route-moreInfo .route-moreInfo-link, .wall-moreInfo .wall-moreInfo-link, .wall-secondaryInfo, .wall-secondaryInfo .wall-actions {
   float: right;
 }
 
-/* line 186, ../scss/modules/_generics.scss */
+/* line 190, ../scss/modules/_generics.scss */
 .nomargin, .mtrbl0 {
   margin: 0 !important;
 }
 
-/* line 190, ../scss/modules/_generics.scss */
+/* line 194, ../scss/modules/_generics.scss */
 .mtrbl1 {
   margin: rem-calc(6) !important;
 }
 
-/* line 194, ../scss/modules/_generics.scss */
+/* line 198, ../scss/modules/_generics.scss */
 .mtrbl2 {
   margin: rem-calc(12) !important;
 }
 
-/* line 198, ../scss/modules/_generics.scss */
+/* line 202, ../scss/modules/_generics.scss */
 .mtrbl3 {
   margin: rem-calc(24) !important;
 }
 
-/* line 202, ../scss/modules/_generics.scss */
+/* line 206, ../scss/modules/_generics.scss */
 .mtrbl4 {
   margin: rem-calc(36) !important;
 }
 
-/* line 206, ../scss/modules/_generics.scss */
+/* line 210, ../scss/modules/_generics.scss */
 .mtrbl5 {
   margin: rem-calc(48) !important;
 }
 
-/* line 215, ../scss/modules/_generics.scss */
+/* line 219, ../scss/modules/_generics.scss */
 .mt0 {
   margin-top: 0 !important;
 }
 
-/* line 219, ../scss/modules/_generics.scss */
+/* line 223, ../scss/modules/_generics.scss */
 .mt1 {
   margin-top: rem-calc(6) !important;
 }
 
-/* line 223, ../scss/modules/_generics.scss */
+/* line 227, ../scss/modules/_generics.scss */
 .header .header-divider, .mt2, .icon--label {
   margin-top: rem-calc(12) !important;
 }
 
-/* line 227, ../scss/modules/_generics.scss */
+/* line 231, ../scss/modules/_generics.scss */
 .header, .mt3 {
   margin-top: rem-calc(24) !important;
 }
 
-/* line 231, ../scss/modules/_generics.scss */
+/* line 235, ../scss/modules/_generics.scss */
 .mt4 {
   margin-top: rem-calc(36) !important;
 }
 
-/* line 235, ../scss/modules/_generics.scss */
+/* line 239, ../scss/modules/_generics.scss */
 .mt5 {
   margin-top: rem-calc(48) !important;
 }
 
-/* line 244, ../scss/modules/_generics.scss */
+/* line 248, ../scss/modules/_generics.scss */
 .mb0 {
   margin-bottom: 0 !important;
 }
 
-/* line 248, ../scss/modules/_generics.scss */
+/* line 252, ../scss/modules/_generics.scss */
 .mb1, .list--stats .list-title {
   margin-bottom: rem-calc(6) !important;
 }
 
-/* line 252, ../scss/modules/_generics.scss */
+/* line 256, ../scss/modules/_generics.scss */
 .header, .mb2, .list--noStyles li {
   margin-bottom: rem-calc(12) !important;
 }
 
-/* line 256, ../scss/modules/_generics.scss */
+/* line 260, ../scss/modules/_generics.scss */
 .mb3 {
   margin-bottom: rem-calc(24) !important;
 }
 
-/* line 260, ../scss/modules/_generics.scss */
+/* line 264, ../scss/modules/_generics.scss */
 .mb4 {
   margin-bottom: rem-calc(36) !important;
 }
 
-/* line 264, ../scss/modules/_generics.scss */
+/* line 268, ../scss/modules/_generics.scss */
 .mb5, .textarea--large, .main-section {
   margin-bottom: rem-calc(48) !important;
 }
 
-/* line 274, ../scss/modules/_generics.scss */
+/* line 278, ../scss/modules/_generics.scss */
 .mtb0 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
-/* line 279, ../scss/modules/_generics.scss */
+/* line 283, ../scss/modules/_generics.scss */
 .mtb1 {
   margin-top: rem-calc(6) !important;
   margin-bottom: rem-calc(6) !important;
 }
 
-/* line 284, ../scss/modules/_generics.scss */
+/* line 288, ../scss/modules/_generics.scss */
 .mtb2 {
   margin-top: rem-calc(12) !important;
   margin-bottom: rem-calc(12) !important;
 }
 
-/* line 289, ../scss/modules/_generics.scss */
+/* line 293, ../scss/modules/_generics.scss */
 .mtb3 {
   margin-top: rem-calc(24) !important;
   margin-bottom: rem-calc(24) !important;
 }
 
-/* line 294, ../scss/modules/_generics.scss */
+/* line 298, ../scss/modules/_generics.scss */
 .mtb4 {
   margin-top: rem-calc(36) !important;
   margin-bottom: rem-calc(36) !important;
 }
 
-/* line 299, ../scss/modules/_generics.scss */
+/* line 303, ../scss/modules/_generics.scss */
 .mtb5 {
   margin-top: rem-calc(48) !important;
   margin-bottom: rem-calc(48) !important;
 }
 
-/* line 309, ../scss/modules/_generics.scss */
+/* line 313, ../scss/modules/_generics.scss */
 .mrl0 {
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
 
-/* line 314, ../scss/modules/_generics.scss */
+/* line 318, ../scss/modules/_generics.scss */
 .mrl1 {
   margin-right: rem-calc(6) !important;
   margin-bottom: rem-calc(6) !important;
 }
 
-/* line 319, ../scss/modules/_generics.scss */
+/* line 323, ../scss/modules/_generics.scss */
 .mrl2 {
   margin-right: rem-calc(12) !important;
   margin-left: rem-calc(12) !important;
 }
 
-/* line 324, ../scss/modules/_generics.scss */
+/* line 328, ../scss/modules/_generics.scss */
 .mrl3 {
   margin-right: rem-calc(24) !important;
   margin-left: rem-calc(24) !important;
 }
 
-/* line 329, ../scss/modules/_generics.scss */
+/* line 333, ../scss/modules/_generics.scss */
 .mrl4 {
   margin-right: rem-calc(36) !important;
   margin-left: rem-calc(36) !important;
 }
 
-/* line 334, ../scss/modules/_generics.scss */
+/* line 338, ../scss/modules/_generics.scss */
 .mrl5 {
   margin-right: rem-calc(48) !important;
   margin-left: rem-calc(48) !important;
 }
 
-/* line 345, ../scss/modules/_generics.scss */
+/* line 349, ../scss/modules/_generics.scss */
 .ml0 {
   margin-left: 0 !important;
 }
 
-/* line 349, ../scss/modules/_generics.scss */
+/* line 353, ../scss/modules/_generics.scss */
 .ml1 {
   margin-left: rem-calc(6) !important;
 }
 
-/* line 353, ../scss/modules/_generics.scss */
+/* line 357, ../scss/modules/_generics.scss */
 .ml2 {
   margin-left: rem-calc(12) !important;
 }
 
-/* line 357, ../scss/modules/_generics.scss */
+/* line 361, ../scss/modules/_generics.scss */
 .ml3 {
   margin-left: rem-calc(24) !important;
 }
 
-/* line 361, ../scss/modules/_generics.scss */
+/* line 365, ../scss/modules/_generics.scss */
 .ml4 {
   margin-left: rem-calc(36) !important;
 }
 
-/* line 365, ../scss/modules/_generics.scss */
+/* line 369, ../scss/modules/_generics.scss */
 .ml5 {
   margin-left: rem-calc(48) !important;
 }
 
-/* line 376, ../scss/modules/_generics.scss */
+/* line 380, ../scss/modules/_generics.scss */
 .route-mainInfo > span:last-child, .route-secondaryInfo .route-rating .star:before,
 .route-secondaryInfo .route-rating .star--empty:before, .route-checkbox, .route-moreInfo .route-rating .star:before,
 .route-moreInfo .route-rating .star--empty:before, .wall-mainInfo > span:last-child, .wall-moreInfo .wall-rating .star:before,
@@ -752,255 +759,255 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
   margin-right: 0 !important;
 }
 
-/* line 380, ../scss/modules/_generics.scss */
+/* line 384, ../scss/modules/_generics.scss */
 .mr1 {
   margin-right: rem-calc(6) !important;
 }
 
-/* line 384, ../scss/modules/_generics.scss */
+/* line 388, ../scss/modules/_generics.scss */
 .route-mainInfo > span, .route-moreInfo .route-grade,
 .route-moreInfo .route-rating,
 .route-moreInfo .route-type, .wall-mainInfo > span, .mr2, .list--stats .list-position, .dropDown--account {
   margin-right: rem-calc(12) !important;
 }
 
-/* line 388, ../scss/modules/_generics.scss */
+/* line 392, ../scss/modules/_generics.scss */
 .wall-moreInfo .wall-grade,
 .wall-moreInfo .wall-rating,
 .wall-moreInfo .wall-totalRoutes, .mr3 {
   margin-right: rem-calc(24) !important;
 }
 
-/* line 392, ../scss/modules/_generics.scss */
+/* line 396, ../scss/modules/_generics.scss */
 .mr4 {
   margin-right: rem-calc(36) !important;
 }
 
-/* line 396, ../scss/modules/_generics.scss */
+/* line 400, ../scss/modules/_generics.scss */
 .mr5 {
   margin-right: rem-calc(48) !important;
 }
 
-/* line 409, ../scss/modules/_generics.scss */
+/* line 413, ../scss/modules/_generics.scss */
 .ptrbl0 {
   padding: 0 !important;
 }
 
-/* line 413, ../scss/modules/_generics.scss */
+/* line 417, ../scss/modules/_generics.scss */
 .ptrbl1 {
   padding: rem-calc(6) !important;
 }
 
-/* line 417, ../scss/modules/_generics.scss */
+/* line 421, ../scss/modules/_generics.scss */
 .ptrbl2 {
   padding: rem-calc(12) !important;
 }
 
-/* line 421, ../scss/modules/_generics.scss */
+/* line 425, ../scss/modules/_generics.scss */
 .ptrbl3, .dropDown--withForm {
   padding: rem-calc(24) !important;
 }
 
-/* line 425, ../scss/modules/_generics.scss */
+/* line 429, ../scss/modules/_generics.scss */
 .ptrbl4 {
   padding: rem-calc(36) !important;
 }
 
-/* line 429, ../scss/modules/_generics.scss */
+/* line 433, ../scss/modules/_generics.scss */
 .ptrbl5 {
   padding: rem-calc(48) !important;
 }
 
-/* line 438, ../scss/modules/_generics.scss */
+/* line 442, ../scss/modules/_generics.scss */
 .pt0 {
   padding-top: 0 !important;
 }
 
-/* line 442, ../scss/modules/_generics.scss */
+/* line 446, ../scss/modules/_generics.scss */
 .pt1 {
   padding-top: rem-calc(6) !important;
 }
 
-/* line 446, ../scss/modules/_generics.scss */
+/* line 450, ../scss/modules/_generics.scss */
 .pt2, .list--stats .list-primaryElem, footer {
   padding-top: rem-calc(12) !important;
 }
 
-/* line 450, ../scss/modules/_generics.scss */
+/* line 454, ../scss/modules/_generics.scss */
 .pt3, .dropDown--withForm {
   padding-top: rem-calc(24) !important;
 }
 
-/* line 454, ../scss/modules/_generics.scss */
+/* line 458, ../scss/modules/_generics.scss */
 .pt4 {
   padding-top: rem-calc(36) !important;
 }
 
-/* line 458, ../scss/modules/_generics.scss */
+/* line 462, ../scss/modules/_generics.scss */
 .pt5 {
   padding-top: rem-calc(48) !important;
 }
 
-/* line 467, ../scss/modules/_generics.scss */
+/* line 471, ../scss/modules/_generics.scss */
 .pb0 {
   padding-bottom: 0 !important;
 }
 
-/* line 471, ../scss/modules/_generics.scss */
+/* line 475, ../scss/modules/_generics.scss */
 .pb1, .list--stats .list-primaryElem {
   padding-bottom: rem-calc(6) !important;
 }
 
-/* line 475, ../scss/modules/_generics.scss */
+/* line 479, ../scss/modules/_generics.scss */
 .pb2 {
   padding-bottom: rem-calc(12) !important;
 }
 
-/* line 479, ../scss/modules/_generics.scss */
+/* line 483, ../scss/modules/_generics.scss */
 .pb3 {
   padding-bottom: rem-calc(24) !important;
 }
 
-/* line 483, ../scss/modules/_generics.scss */
+/* line 487, ../scss/modules/_generics.scss */
 .pb4 {
   padding-bottom: rem-calc(36) !important;
 }
 
-/* line 487, ../scss/modules/_generics.scss */
+/* line 491, ../scss/modules/_generics.scss */
 .pb5 {
   padding-bottom: rem-calc(48) !important;
 }
 
-/* line 497, ../scss/modules/_generics.scss */
+/* line 501, ../scss/modules/_generics.scss */
 .ptb0 {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-/* line 502, ../scss/modules/_generics.scss */
+/* line 506, ../scss/modules/_generics.scss */
 .ptb1, .nav-account .copyright {
   padding-top: rem-calc(6) !important;
   padding-bottom: rem-calc(6) !important;
 }
 
-/* line 507, ../scss/modules/_generics.scss */
+/* line 511, ../scss/modules/_generics.scss */
 .route, .wall, .ptb2, [class*="dropDown--"] .dropDown-separator, [class*="dropdown"] .dropDown-separator, .dropDown--linkList li a {
   padding-top: rem-calc(12) !important;
   padding-bottom: rem-calc(12) !important;
 }
 
-/* line 512, ../scss/modules/_generics.scss */
+/* line 516, ../scss/modules/_generics.scss */
 .ptb3, .nav-account a,
 .nav-account label {
   padding-top: rem-calc(24) !important;
   padding-bottom: rem-calc(24) !important;
 }
 
-/* line 517, ../scss/modules/_generics.scss */
+/* line 521, ../scss/modules/_generics.scss */
 .ptb4 {
   padding-top: rem-calc(36) !important;
   padding-bottom: rem-calc(36) !important;
 }
 
-/* line 522, ../scss/modules/_generics.scss */
+/* line 526, ../scss/modules/_generics.scss */
 .ptb5 {
   padding-top: rem-calc(48) !important;
   padding-bottom: rem-calc(48) !important;
 }
 
-/* line 532, ../scss/modules/_generics.scss */
+/* line 536, ../scss/modules/_generics.scss */
 .prl0 {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
 
-/* line 537, ../scss/modules/_generics.scss */
+/* line 541, ../scss/modules/_generics.scss */
 .prl1 {
   padding-right: rem-calc(6) !important;
   padding-bottom: rem-calc(6) !important;
 }
 
-/* line 542, ../scss/modules/_generics.scss */
+/* line 546, ../scss/modules/_generics.scss */
 .prl2, .main-section, .top-bar ul.top-bar-links li {
   padding-right: rem-calc(12) !important;
   padding-left: rem-calc(12) !important;
 }
 
-/* line 547, ../scss/modules/_generics.scss */
+/* line 551, ../scss/modules/_generics.scss */
 .prl3 {
   padding-right: rem-calc(24) !important;
   padding-left: rem-calc(24) !important;
 }
 
-/* line 552, ../scss/modules/_generics.scss */
+/* line 556, ../scss/modules/_generics.scss */
 .prl4 {
   padding-right: rem-calc(36) !important;
   padding-left: rem-calc(36) !important;
 }
 
-/* line 557, ../scss/modules/_generics.scss */
+/* line 561, ../scss/modules/_generics.scss */
 .prl5 {
   padding-right: rem-calc(48) !important;
   padding-left: rem-calc(48) !important;
 }
 
-/* line 568, ../scss/modules/_generics.scss */
+/* line 572, ../scss/modules/_generics.scss */
 .pl0 {
   padding-left: 0 !important;
 }
 
-/* line 572, ../scss/modules/_generics.scss */
+/* line 576, ../scss/modules/_generics.scss */
 .pl1 {
   padding-left: rem-calc(6) !important;
 }
 
-/* line 576, ../scss/modules/_generics.scss */
+/* line 580, ../scss/modules/_generics.scss */
 .pl2, .nav-account a,
 .nav-account label, .nav-account li a {
   padding-left: rem-calc(12) !important;
 }
 
-/* line 580, ../scss/modules/_generics.scss */
+/* line 584, ../scss/modules/_generics.scss */
 .pl3 {
   padding-left: rem-calc(24) !important;
 }
 
-/* line 584, ../scss/modules/_generics.scss */
+/* line 588, ../scss/modules/_generics.scss */
 .pl4 {
   padding-left: rem-calc(36) !important;
 }
 
-/* line 588, ../scss/modules/_generics.scss */
+/* line 592, ../scss/modules/_generics.scss */
 .pl5 {
   padding-left: rem-calc(48) !important;
 }
 
-/* line 599, ../scss/modules/_generics.scss */
+/* line 603, ../scss/modules/_generics.scss */
 .pr0 {
   padding-right: 0 !important;
 }
 
-/* line 603, ../scss/modules/_generics.scss */
+/* line 607, ../scss/modules/_generics.scss */
 .pr1 {
   padding-right: rem-calc(6) !important;
 }
 
-/* line 607, ../scss/modules/_generics.scss */
+/* line 611, ../scss/modules/_generics.scss */
 .pr2 {
   padding-right: rem-calc(12) !important;
 }
 
-/* line 611, ../scss/modules/_generics.scss */
+/* line 615, ../scss/modules/_generics.scss */
 .pr3 {
   padding-right: rem-calc(24) !important;
 }
 
-/* line 615, ../scss/modules/_generics.scss */
+/* line 619, ../scss/modules/_generics.scss */
 .pr4 {
   padding-right: rem-calc(36) !important;
 }
 
-/* line 619, ../scss/modules/_generics.scss */
+/* line 623, ../scss/modules/_generics.scss */
 .pr5 {
   padding-right: rem-calc(48) !important;
 }
@@ -8285,17 +8292,24 @@ th.hide-for-touch {
 }
 
 /* line 16, ../scss/modules/_generics.scss */
-.btn--fixedAction, .side-menu, .popUp, .offCanvasModal, .placeholder-text {
+.btn--fixedAction, .side-menu, .popUp, .placeholder-text {
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* line 20, ../scss/modules/_generics.scss */
+.offCanvasModal {
+  -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* line 24, ../scss/modules/_generics.scss */
 .accordion--plain dd > a {
   color: #ed6d56;
 }
-/* line 22, ../scss/modules/_generics.scss */
+/* line 26, ../scss/modules/_generics.scss */
 .accordion--plain dd > a:hover {
   color: #e94a2d;
 }
@@ -8303,12 +8317,12 @@ th.hide-for-touch {
 /*------------------------------------*\
     #Display Types
 \*------------------------------------*/
-/* line 36, ../scss/modules/_generics.scss */
+/* line 40, ../scss/modules/_generics.scss */
 .gymDashHeader-content .title, .list--inline > li, .top-bar ul.top-bar-links li {
   display: inline-block;
 }
 
-/* line 38, ../scss/modules/_generics.scss */
+/* line 42, ../scss/modules/_generics.scss */
 .route-moreInfo .route-grade,
 .route-moreInfo .route-rating,
 .route-moreInfo .route-type, .wall-moreInfo .wall-grade,
@@ -8317,17 +8331,17 @@ th.hide-for-touch {
   display: inline-block;
 }
 
-/* line 40, ../scss/modules/_generics.scss */
+/* line 44, ../scss/modules/_generics.scss */
 .header .header-divider, .fieldWrapper, .label--block, .img-overlay, [class*="section--"], .background-photo-foreground {
   display: block;
 }
 
-/* line 42, ../scss/modules/_generics.scss */
+/* line 46, ../scss/modules/_generics.scss */
 .popUp .popUp-title, [class*="dropDown--"] .dropDown-separator, [class*="dropdown"] .dropDown-separator {
   text-align: center;
 }
 
-/* line 49, ../scss/modules/_generics.scss */
+/* line 53, ../scss/modules/_generics.scss */
 .route-moreInfo .route-grade,
 .route-moreInfo .route-rating,
 .route-moreInfo .route-type, .wall-moreInfo .wall-grade,
@@ -8337,25 +8351,25 @@ th.hide-for-touch {
   vertical-align: middle;
 }
 
-/* line 67, ../scss/modules/_generics.scss */
+/* line 71, ../scss/modules/_generics.scss */
 .setterLogo--nav img, .background-photo-foreground img {
   margin-right: auto;
   margin-left: auto;
   display: block;
 }
 
-/* line 78, ../scss/modules/_generics.scss */
+/* line 82, ../scss/modules/_generics.scss */
 .popUp {
   width: 100%;
 }
 
-/* line 88, ../scss/modules/_generics.scss */
+/* line 92, ../scss/modules/_generics.scss */
 .route-mainInfo, .wall-mainInfo, .header, .list--tableStyle > li, .list--noStyles, .list--dotted li, .fieldWrapper {
   overflow: hidden;
   zoom: 1;
 }
 
-/* line 94, ../scss/modules/_generics.scss */
+/* line 98, ../scss/modules/_generics.scss */
 .logInForm-container, .popUp .popUp-title {
   display: block;
   margin-left: auto;
@@ -8365,220 +8379,220 @@ th.hide-for-touch {
 /*------------------------------------*\
     #Positions
 \*------------------------------------*/
-/* line 113, ../scss/modules/_generics.scss */
+/* line 117, ../scss/modules/_generics.scss */
 footer, .select--tetriary, .select--primary, .select--secondary, [class*="section--"], .background-photo-foreground {
   position: relative;
 }
 
-/* line 122, ../scss/modules/_generics.scss */
+/* line 126, ../scss/modules/_generics.scss */
 .btn--fixedAction {
   position: fixed;
 }
 
-/* line 132, ../scss/modules/_generics.scss */
+/* line 136, ../scss/modules/_generics.scss */
 .header .header-divider, .nav-primary,
 .nav-account {
   float: left;
 }
 
-/* line 136, ../scss/modules/_generics.scss */
+/* line 140, ../scss/modules/_generics.scss */
 .route-secondaryInfo, .route-secondaryInfo .route-actions, .route-moreInfo .route-moreInfo-link, .wall-moreInfo .wall-moreInfo-link, .wall-secondaryInfo, .wall-secondaryInfo .wall-actions {
   float: right;
 }
 
-/* line 186, ../scss/modules/_generics.scss */
+/* line 190, ../scss/modules/_generics.scss */
 .nomargin, .mtrbl0 {
   margin: 0 !important;
 }
 
-/* line 190, ../scss/modules/_generics.scss */
+/* line 194, ../scss/modules/_generics.scss */
 .mtrbl1 {
   margin: 0.375rem !important;
 }
 
-/* line 194, ../scss/modules/_generics.scss */
+/* line 198, ../scss/modules/_generics.scss */
 .mtrbl2 {
   margin: 0.75rem !important;
 }
 
-/* line 198, ../scss/modules/_generics.scss */
+/* line 202, ../scss/modules/_generics.scss */
 .mtrbl3 {
   margin: 1.5rem !important;
 }
 
-/* line 202, ../scss/modules/_generics.scss */
+/* line 206, ../scss/modules/_generics.scss */
 .mtrbl4 {
   margin: 2.25rem !important;
 }
 
-/* line 206, ../scss/modules/_generics.scss */
+/* line 210, ../scss/modules/_generics.scss */
 .mtrbl5 {
   margin: 3rem !important;
 }
 
-/* line 215, ../scss/modules/_generics.scss */
+/* line 219, ../scss/modules/_generics.scss */
 .mt0 {
   margin-top: 0 !important;
 }
 
-/* line 219, ../scss/modules/_generics.scss */
+/* line 223, ../scss/modules/_generics.scss */
 .mt1 {
   margin-top: 0.375rem !important;
 }
 
-/* line 223, ../scss/modules/_generics.scss */
+/* line 227, ../scss/modules/_generics.scss */
 .header .header-divider, .mt2, .icon--label {
   margin-top: 0.75rem !important;
 }
 
-/* line 227, ../scss/modules/_generics.scss */
+/* line 231, ../scss/modules/_generics.scss */
 .header, .mt3 {
   margin-top: 1.5rem !important;
 }
 
-/* line 231, ../scss/modules/_generics.scss */
+/* line 235, ../scss/modules/_generics.scss */
 .mt4 {
   margin-top: 2.25rem !important;
 }
 
-/* line 235, ../scss/modules/_generics.scss */
+/* line 239, ../scss/modules/_generics.scss */
 .mt5 {
   margin-top: 3rem !important;
 }
 
-/* line 244, ../scss/modules/_generics.scss */
+/* line 248, ../scss/modules/_generics.scss */
 .mb0 {
   margin-bottom: 0 !important;
 }
 
-/* line 248, ../scss/modules/_generics.scss */
+/* line 252, ../scss/modules/_generics.scss */
 .mb1, .list--stats .list-title {
   margin-bottom: 0.375rem !important;
 }
 
-/* line 252, ../scss/modules/_generics.scss */
+/* line 256, ../scss/modules/_generics.scss */
 .header, .mb2, .list--noStyles li {
   margin-bottom: 0.75rem !important;
 }
 
-/* line 256, ../scss/modules/_generics.scss */
+/* line 260, ../scss/modules/_generics.scss */
 .mb3 {
   margin-bottom: 1.5rem !important;
 }
 
-/* line 260, ../scss/modules/_generics.scss */
+/* line 264, ../scss/modules/_generics.scss */
 .mb4 {
   margin-bottom: 2.25rem !important;
 }
 
-/* line 264, ../scss/modules/_generics.scss */
+/* line 268, ../scss/modules/_generics.scss */
 .mb5, .textarea--large, .main-section {
   margin-bottom: 3rem !important;
 }
 
-/* line 274, ../scss/modules/_generics.scss */
+/* line 278, ../scss/modules/_generics.scss */
 .mtb0 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
-/* line 279, ../scss/modules/_generics.scss */
+/* line 283, ../scss/modules/_generics.scss */
 .mtb1 {
   margin-top: 0.375rem !important;
   margin-bottom: 0.375rem !important;
 }
 
-/* line 284, ../scss/modules/_generics.scss */
+/* line 288, ../scss/modules/_generics.scss */
 .mtb2 {
   margin-top: 0.75rem !important;
   margin-bottom: 0.75rem !important;
 }
 
-/* line 289, ../scss/modules/_generics.scss */
+/* line 293, ../scss/modules/_generics.scss */
 .mtb3 {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
 }
 
-/* line 294, ../scss/modules/_generics.scss */
+/* line 298, ../scss/modules/_generics.scss */
 .mtb4 {
   margin-top: 2.25rem !important;
   margin-bottom: 2.25rem !important;
 }
 
-/* line 299, ../scss/modules/_generics.scss */
+/* line 303, ../scss/modules/_generics.scss */
 .mtb5 {
   margin-top: 3rem !important;
   margin-bottom: 3rem !important;
 }
 
-/* line 309, ../scss/modules/_generics.scss */
+/* line 313, ../scss/modules/_generics.scss */
 .mrl0 {
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
 
-/* line 314, ../scss/modules/_generics.scss */
+/* line 318, ../scss/modules/_generics.scss */
 .mrl1 {
   margin-right: 0.375rem !important;
   margin-bottom: 0.375rem !important;
 }
 
-/* line 319, ../scss/modules/_generics.scss */
+/* line 323, ../scss/modules/_generics.scss */
 .mrl2 {
   margin-right: 0.75rem !important;
   margin-left: 0.75rem !important;
 }
 
-/* line 324, ../scss/modules/_generics.scss */
+/* line 328, ../scss/modules/_generics.scss */
 .mrl3 {
   margin-right: 1.5rem !important;
   margin-left: 1.5rem !important;
 }
 
-/* line 329, ../scss/modules/_generics.scss */
+/* line 333, ../scss/modules/_generics.scss */
 .mrl4 {
   margin-right: 2.25rem !important;
   margin-left: 2.25rem !important;
 }
 
-/* line 334, ../scss/modules/_generics.scss */
+/* line 338, ../scss/modules/_generics.scss */
 .mrl5 {
   margin-right: 3rem !important;
   margin-left: 3rem !important;
 }
 
-/* line 345, ../scss/modules/_generics.scss */
+/* line 349, ../scss/modules/_generics.scss */
 .ml0 {
   margin-left: 0 !important;
 }
 
-/* line 349, ../scss/modules/_generics.scss */
+/* line 353, ../scss/modules/_generics.scss */
 .ml1 {
   margin-left: 0.375rem !important;
 }
 
-/* line 353, ../scss/modules/_generics.scss */
+/* line 357, ../scss/modules/_generics.scss */
 .ml2 {
   margin-left: 0.75rem !important;
 }
 
-/* line 357, ../scss/modules/_generics.scss */
+/* line 361, ../scss/modules/_generics.scss */
 .ml3 {
   margin-left: 1.5rem !important;
 }
 
-/* line 361, ../scss/modules/_generics.scss */
+/* line 365, ../scss/modules/_generics.scss */
 .ml4 {
   margin-left: 2.25rem !important;
 }
 
-/* line 365, ../scss/modules/_generics.scss */
+/* line 369, ../scss/modules/_generics.scss */
 .ml5 {
   margin-left: 3rem !important;
 }
 
-/* line 376, ../scss/modules/_generics.scss */
+/* line 380, ../scss/modules/_generics.scss */
 .route-mainInfo > span:last-child, .route-secondaryInfo .route-rating .star:before,
 .route-secondaryInfo .route-rating .star--empty:before, .route-checkbox, .route-moreInfo .route-rating .star:before,
 .route-moreInfo .route-rating .star--empty:before, .wall-mainInfo > span:last-child, .wall-moreInfo .wall-rating .star:before,
@@ -8587,255 +8601,255 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
   margin-right: 0 !important;
 }
 
-/* line 380, ../scss/modules/_generics.scss */
+/* line 384, ../scss/modules/_generics.scss */
 .mr1 {
   margin-right: 0.375rem !important;
 }
 
-/* line 384, ../scss/modules/_generics.scss */
+/* line 388, ../scss/modules/_generics.scss */
 .route-mainInfo > span, .route-moreInfo .route-grade,
 .route-moreInfo .route-rating,
 .route-moreInfo .route-type, .wall-mainInfo > span, .mr2, .list--stats .list-position, .dropDown--account {
   margin-right: 0.75rem !important;
 }
 
-/* line 388, ../scss/modules/_generics.scss */
+/* line 392, ../scss/modules/_generics.scss */
 .wall-moreInfo .wall-grade,
 .wall-moreInfo .wall-rating,
 .wall-moreInfo .wall-totalRoutes, .mr3 {
   margin-right: 1.5rem !important;
 }
 
-/* line 392, ../scss/modules/_generics.scss */
+/* line 396, ../scss/modules/_generics.scss */
 .mr4 {
   margin-right: 2.25rem !important;
 }
 
-/* line 396, ../scss/modules/_generics.scss */
+/* line 400, ../scss/modules/_generics.scss */
 .mr5 {
   margin-right: 3rem !important;
 }
 
-/* line 409, ../scss/modules/_generics.scss */
+/* line 413, ../scss/modules/_generics.scss */
 .ptrbl0 {
   padding: 0 !important;
 }
 
-/* line 413, ../scss/modules/_generics.scss */
+/* line 417, ../scss/modules/_generics.scss */
 .ptrbl1 {
   padding: 0.375rem !important;
 }
 
-/* line 417, ../scss/modules/_generics.scss */
+/* line 421, ../scss/modules/_generics.scss */
 .ptrbl2 {
   padding: 0.75rem !important;
 }
 
-/* line 421, ../scss/modules/_generics.scss */
+/* line 425, ../scss/modules/_generics.scss */
 .ptrbl3, .dropDown--withForm {
   padding: 1.5rem !important;
 }
 
-/* line 425, ../scss/modules/_generics.scss */
+/* line 429, ../scss/modules/_generics.scss */
 .ptrbl4 {
   padding: 2.25rem !important;
 }
 
-/* line 429, ../scss/modules/_generics.scss */
+/* line 433, ../scss/modules/_generics.scss */
 .ptrbl5 {
   padding: 3rem !important;
 }
 
-/* line 438, ../scss/modules/_generics.scss */
+/* line 442, ../scss/modules/_generics.scss */
 .pt0 {
   padding-top: 0 !important;
 }
 
-/* line 442, ../scss/modules/_generics.scss */
+/* line 446, ../scss/modules/_generics.scss */
 .pt1 {
   padding-top: 0.375rem !important;
 }
 
-/* line 446, ../scss/modules/_generics.scss */
+/* line 450, ../scss/modules/_generics.scss */
 .pt2, .list--stats .list-primaryElem, footer {
   padding-top: 0.75rem !important;
 }
 
-/* line 450, ../scss/modules/_generics.scss */
+/* line 454, ../scss/modules/_generics.scss */
 .pt3, .dropDown--withForm {
   padding-top: 1.5rem !important;
 }
 
-/* line 454, ../scss/modules/_generics.scss */
+/* line 458, ../scss/modules/_generics.scss */
 .pt4 {
   padding-top: 2.25rem !important;
 }
 
-/* line 458, ../scss/modules/_generics.scss */
+/* line 462, ../scss/modules/_generics.scss */
 .pt5 {
   padding-top: 3rem !important;
 }
 
-/* line 467, ../scss/modules/_generics.scss */
+/* line 471, ../scss/modules/_generics.scss */
 .pb0 {
   padding-bottom: 0 !important;
 }
 
-/* line 471, ../scss/modules/_generics.scss */
+/* line 475, ../scss/modules/_generics.scss */
 .pb1, .list--stats .list-primaryElem {
   padding-bottom: 0.375rem !important;
 }
 
-/* line 475, ../scss/modules/_generics.scss */
+/* line 479, ../scss/modules/_generics.scss */
 .pb2 {
   padding-bottom: 0.75rem !important;
 }
 
-/* line 479, ../scss/modules/_generics.scss */
+/* line 483, ../scss/modules/_generics.scss */
 .pb3 {
   padding-bottom: 1.5rem !important;
 }
 
-/* line 483, ../scss/modules/_generics.scss */
+/* line 487, ../scss/modules/_generics.scss */
 .pb4 {
   padding-bottom: 2.25rem !important;
 }
 
-/* line 487, ../scss/modules/_generics.scss */
+/* line 491, ../scss/modules/_generics.scss */
 .pb5 {
   padding-bottom: 3rem !important;
 }
 
-/* line 497, ../scss/modules/_generics.scss */
+/* line 501, ../scss/modules/_generics.scss */
 .ptb0 {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-/* line 502, ../scss/modules/_generics.scss */
+/* line 506, ../scss/modules/_generics.scss */
 .ptb1, .nav-account .copyright {
   padding-top: 0.375rem !important;
   padding-bottom: 0.375rem !important;
 }
 
-/* line 507, ../scss/modules/_generics.scss */
+/* line 511, ../scss/modules/_generics.scss */
 .route, .wall, .ptb2, [class*="dropDown--"] .dropDown-separator, [class*="dropdown"] .dropDown-separator, .dropDown--linkList li a {
   padding-top: 0.75rem !important;
   padding-bottom: 0.75rem !important;
 }
 
-/* line 512, ../scss/modules/_generics.scss */
+/* line 516, ../scss/modules/_generics.scss */
 .ptb3, .nav-account a,
 .nav-account label {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
 }
 
-/* line 517, ../scss/modules/_generics.scss */
+/* line 521, ../scss/modules/_generics.scss */
 .ptb4 {
   padding-top: 2.25rem !important;
   padding-bottom: 2.25rem !important;
 }
 
-/* line 522, ../scss/modules/_generics.scss */
+/* line 526, ../scss/modules/_generics.scss */
 .ptb5 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
 
-/* line 532, ../scss/modules/_generics.scss */
+/* line 536, ../scss/modules/_generics.scss */
 .prl0 {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
 
-/* line 537, ../scss/modules/_generics.scss */
+/* line 541, ../scss/modules/_generics.scss */
 .prl1 {
   padding-right: 0.375rem !important;
   padding-bottom: 0.375rem !important;
 }
 
-/* line 542, ../scss/modules/_generics.scss */
+/* line 546, ../scss/modules/_generics.scss */
 .prl2, .main-section, .top-bar ul.top-bar-links li {
   padding-right: 0.75rem !important;
   padding-left: 0.75rem !important;
 }
 
-/* line 547, ../scss/modules/_generics.scss */
+/* line 551, ../scss/modules/_generics.scss */
 .prl3 {
   padding-right: 1.5rem !important;
   padding-left: 1.5rem !important;
 }
 
-/* line 552, ../scss/modules/_generics.scss */
+/* line 556, ../scss/modules/_generics.scss */
 .prl4 {
   padding-right: 2.25rem !important;
   padding-left: 2.25rem !important;
 }
 
-/* line 557, ../scss/modules/_generics.scss */
+/* line 561, ../scss/modules/_generics.scss */
 .prl5 {
   padding-right: 3rem !important;
   padding-left: 3rem !important;
 }
 
-/* line 568, ../scss/modules/_generics.scss */
+/* line 572, ../scss/modules/_generics.scss */
 .pl0 {
   padding-left: 0 !important;
 }
 
-/* line 572, ../scss/modules/_generics.scss */
+/* line 576, ../scss/modules/_generics.scss */
 .pl1 {
   padding-left: 0.375rem !important;
 }
 
-/* line 576, ../scss/modules/_generics.scss */
+/* line 580, ../scss/modules/_generics.scss */
 .pl2, .nav-account a,
 .nav-account label, .nav-account li a {
   padding-left: 0.75rem !important;
 }
 
-/* line 580, ../scss/modules/_generics.scss */
+/* line 584, ../scss/modules/_generics.scss */
 .pl3 {
   padding-left: 1.5rem !important;
 }
 
-/* line 584, ../scss/modules/_generics.scss */
+/* line 588, ../scss/modules/_generics.scss */
 .pl4 {
   padding-left: 2.25rem !important;
 }
 
-/* line 588, ../scss/modules/_generics.scss */
+/* line 592, ../scss/modules/_generics.scss */
 .pl5 {
   padding-left: 3rem !important;
 }
 
-/* line 599, ../scss/modules/_generics.scss */
+/* line 603, ../scss/modules/_generics.scss */
 .pr0 {
   padding-right: 0 !important;
 }
 
-/* line 603, ../scss/modules/_generics.scss */
+/* line 607, ../scss/modules/_generics.scss */
 .pr1 {
   padding-right: 0.375rem !important;
 }
 
-/* line 607, ../scss/modules/_generics.scss */
+/* line 611, ../scss/modules/_generics.scss */
 .pr2 {
   padding-right: 0.75rem !important;
 }
 
-/* line 611, ../scss/modules/_generics.scss */
+/* line 615, ../scss/modules/_generics.scss */
 .pr3 {
   padding-right: 1.5rem !important;
 }
 
-/* line 615, ../scss/modules/_generics.scss */
+/* line 619, ../scss/modules/_generics.scss */
 .pr4 {
   padding-right: 2.25rem !important;
 }
 
-/* line 619, ../scss/modules/_generics.scss */
+/* line 623, ../scss/modules/_generics.scss */
 .pr5 {
   padding-right: 3rem !important;
 }
@@ -9551,11 +9565,11 @@ a:hover {
   overflow: auto;
   zoom: 1;
 }
-/* line 150, ../scss/modules/_generics.scss */
+/* line 154, ../scss/modules/_generics.scss */
 .media--fr > :first-child {
   float: right;
 }
-/* line 154, ../scss/modules/_generics.scss */
+/* line 158, ../scss/modules/_generics.scss */
 .media--fr > :last-child {
   overflow: hidden;
 }
@@ -9565,11 +9579,11 @@ a:hover {
   overflow: auto;
   zoom: 1;
 }
-/* line 150, ../scss/modules/_generics.scss */
+/* line 154, ../scss/modules/_generics.scss */
 .media--fl > :first-child {
   float: left;
 }
-/* line 154, ../scss/modules/_generics.scss */
+/* line 158, ../scss/modules/_generics.scss */
 .media--fl > :last-child {
   overflow: hidden;
 }
@@ -9713,15 +9727,10 @@ input[type="submit"] {
   font-weight: 700;
 }
 
-/* line 36, ../scss/partials/_buttons.scss */
-[ng-click*="navigate"] {
-  cursor: pointer;
-}
-
 /*------------------------------------*\
     #Button Types
 \*------------------------------------*/
-/* line 48, ../scss/partials/_buttons.scss */
+/* line 46, ../scss/partials/_buttons.scss */
 .btn--primary {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
@@ -9740,7 +9749,7 @@ input[type="submit"] {
   background: #eb5d44;
 }
 
-/* line 52, ../scss/partials/_buttons.scss */
+/* line 50, ../scss/partials/_buttons.scss */
 .btn--secondary {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
@@ -9758,12 +9767,12 @@ input[type="submit"] {
 .btn--secondary:active {
   background: #d6d6d5;
 }
-/* line 54, ../scss/partials/_buttons.scss */
+/* line 52, ../scss/partials/_buttons.scss */
 .btn--secondary, .btn--secondary:hover {
   color: #333333;
 }
 
-/* line 62, ../scss/partials/_buttons.scss */
+/* line 60, ../scss/partials/_buttons.scss */
 .btn--tetriary {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
@@ -9781,12 +9790,12 @@ input[type="submit"] {
 .btn--tetriary:active {
   background: #605e58;
 }
-/* line 64, ../scss/partials/_buttons.scss */
+/* line 62, ../scss/partials/_buttons.scss */
 .btn--tetriary:hover {
   color: #fff;
 }
 
-/* line 70, ../scss/partials/_buttons.scss */
+/* line 68, ../scss/partials/_buttons.scss */
 .btn--warning {
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
@@ -9808,7 +9817,7 @@ input[type="submit"] {
 /*------------------------------------*\
     #Button Groups
 \*------------------------------------*/
-/* line 81, ../scss/partials/_buttons.scss */
+/* line 79, ../scss/partials/_buttons.scss */
 .btnGroup--primary {
   list-style: none;
   margin: 0;
@@ -9849,16 +9858,16 @@ input[type="submit"] {
 .btnGroup--primary > li:last-child {
   border-right: 0;
 }
-/* line 83, ../scss/partials/_buttons.scss */
+/* line 81, ../scss/partials/_buttons.scss */
 .btnGroup--primary a {
   color: #fff;
 }
-/* line 86, ../scss/partials/_buttons.scss */
+/* line 84, ../scss/partials/_buttons.scss */
 .btnGroup--primary a:hover {
   color: #fff;
 }
 
-/* line 94, ../scss/partials/_buttons.scss */
+/* line 92, ../scss/partials/_buttons.scss */
 .btnGroup--secondary {
   list-style: none;
   margin: 0;
@@ -9899,7 +9908,7 @@ input[type="submit"] {
 .btnGroup--secondary > li:last-child {
   border-right: 0;
 }
-/* line 96, ../scss/partials/_buttons.scss */
+/* line 94, ../scss/partials/_buttons.scss */
 .btnGroup--secondary [class*="btn--"] {
   color: #E0E0DF;
 }
@@ -9967,11 +9976,11 @@ input[type="submit"] {
 /*------------------------------------*\
     #Special Button Types
 \*------------------------------------*/
-/* line 126, ../scss/partials/_buttons.scss */
+/* line 124, ../scss/partials/_buttons.scss */
 .btn--split {
   padding-right: 2rem !important;
 }
-/* line 129, ../scss/partials/_buttons.scss */
+/* line 127, ../scss/partials/_buttons.scss */
 .btn--split span {
   border-left: 1px solid #333333;
   display: block;
@@ -9983,7 +9992,7 @@ input[type="submit"] {
   width: 1rem;
 }
 
-/* line 144, ../scss/partials/_buttons.scss */
+/* line 142, ../scss/partials/_buttons.scss */
 .btn--fixedAction {
   border: 2px solid #fff;
   width: 3.625rem;
@@ -9992,7 +10001,7 @@ input[type="submit"] {
   bottom: 0;
   right: 0.3125rem;
 }
-/* line 155, ../scss/partials/_buttons.scss */
+/* line 153, ../scss/partials/_buttons.scss */
 .btn--fixedAction .icon {
   width: 2.1875rem;
   height: 2.1875rem;
@@ -10001,7 +10010,7 @@ input[type="submit"] {
 /*------------------------------------*\
     #Button Options
 \*------------------------------------*/
-/* line 171, ../scss/partials/_buttons.scss */
+/* line 169, ../scss/partials/_buttons.scss */
 .btn--expanded {
   width: 100%;
 }
@@ -10009,7 +10018,7 @@ input[type="submit"] {
 /*------------------------------------*\
     #Button Sizes
 \*------------------------------------*/
-/* line 184, ../scss/partials/_buttons.scss */
+/* line 182, ../scss/partials/_buttons.scss */
 .btn--tiny {
   padding: 0.375rem;
   padding-right: 0.5rem;
@@ -10017,31 +10026,31 @@ input[type="submit"] {
   font-size: 0.625rem;
 }
 
-/* line 191, ../scss/partials/_buttons.scss */
+/* line 189, ../scss/partials/_buttons.scss */
 .btn--small {
   padding: 0.5rem;
   padding-right: 1rem;
   padding-left: 1rem;
   font-size: 0.75rem;
 }
-/* line 197, ../scss/partials/_buttons.scss */
+/* line 195, ../scss/partials/_buttons.scss */
 .btn--small i:before {
   font-size: 0.875rem;
 }
 
-/* line 203, ../scss/partials/_buttons.scss */
+/* line 201, ../scss/partials/_buttons.scss */
 .btn--medium {
   padding: 0.625rem;
   padding-right: 1.25rem;
   padding-left: 1.25rem;
   font-size: 0.875rem;
 }
-/* line 209, ../scss/partials/_buttons.scss */
+/* line 207, ../scss/partials/_buttons.scss */
 .btn--medium i:before {
   font-size: 1rem;
 }
 
-/* line 214, ../scss/partials/_buttons.scss */
+/* line 212, ../scss/partials/_buttons.scss */
 .btn--big {
   padding: 0.625rem;
   padding-right: 2.5rem;
@@ -10049,7 +10058,7 @@ input[type="submit"] {
   font-size: 1.125rem;
 }
 
-/* line 221, ../scss/partials/_buttons.scss */
+/* line 219, ../scss/partials/_buttons.scss */
 .btn--jumbo {
   padding: 0.75rem;
   padding-right: 3.75rem;
@@ -10060,25 +10069,25 @@ input[type="submit"] {
 /*------------------------------------*\
     #Custom Suggestions Thumbs Up
 \*------------------------------------*/
-/* line 235, ../scss/partials/_buttons.scss */
+/* line 233, ../scss/partials/_buttons.scss */
 .suggestion {
   display: inline-block;
   color: #54487f;
   cursor: pointer;
 }
 
-/* line 241, ../scss/partials/_buttons.scss */
+/* line 239, ../scss/partials/_buttons.scss */
 .suggestion:hover {
   color: #e78724;
 }
 
-/* line 245, ../scss/partials/_buttons.scss */
+/* line 243, ../scss/partials/_buttons.scss */
 .suggestion.disabled {
   color: #aed850;
   cursor: default;
 }
 
-/* line 250, ../scss/partials/_buttons.scss */
+/* line 248, ../scss/partials/_buttons.scss */
 .suggestion.disabled:hover {
   color: #aed850;
 }
@@ -10086,7 +10095,7 @@ input[type="submit"] {
 /*------------------------------------*\
     # Custom Stars
 \*------------------------------------*/
-/* line 257, ../scss/partials/_buttons.scss */
+/* line 255, ../scss/partials/_buttons.scss */
 .star {
   cursor: pointer;
   color: #333;
@@ -10096,17 +10105,17 @@ input[type="submit"] {
   font-size: 40px;
 }
 
-/* line 266, ../scss/partials/_buttons.scss */
+/* line 264, ../scss/partials/_buttons.scss */
 .star:hover {
   color: #888;
 }
 
-/* line 270, ../scss/partials/_buttons.scss */
+/* line 268, ../scss/partials/_buttons.scss */
 .star.rated:hover {
   color: white;
 }
 
-/* line 274, ../scss/partials/_buttons.scss */
+/* line 272, ../scss/partials/_buttons.scss */
 .star.rated {
   color: orange;
 }
@@ -12141,20 +12150,25 @@ ul[data-pie-id] {
 
 /* line 28, ../scss/partials/_modals.scss */
 .offCanvasModal {
-  position: absolute;
-  width: 50%;
+  position: fixed;
+  width: 90%;
   /* Default */
   top: 0;
-  padding-top: 1.875rem;
+  padding-top: 5rem;
   right: 0;
   background-color: #fff;
-  box-shadow: 4px 4px 80px #000;
   z-index: 5;
   height: 100%;
   overflow-y: scroll;
 }
+@media only screen and (min-width: 40.063em) {
+  /* line 28, ../scss/partials/_modals.scss */
+  .offCanvasModal {
+    width: 50%;
+  }
+}
 
-/* line 51, ../scss/partials/_modals.scss */
+/* line 56, ../scss/partials/_modals.scss */
 .offCanvasModal-overlay {
   /* A dark translucent div that covers the whole screen */
   position: absolute;
@@ -12163,6 +12177,14 @@ ul[data-pie-id] {
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: #000;
+  opacity: 0.4;
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 56, ../scss/partials/_modals.scss */
+  .offCanvasModal-overlay {
+    display: none;
+  }
 }
 
 /*------------------------------------*\
@@ -12414,6 +12436,11 @@ ul[data-pie-id] {
 /* line 7, ../scss/partials/_angular.scss */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
+}
+
+/* line 12, ../scss/partials/_angular.scss */
+[ng-click] {
+  cursor: pointer;
 }
 
 /*------------------------------------*\

@@ -11,8 +11,9 @@ angular.module('SETTER')
         templateUrl: 'templates/offCanvasModal.tpl.html',
 
         link: function(scope, element, attrs)  {
-            scope.diaglogStyle = {}; 
+            
             scope.hideOffCanvasModal = function() {
+                console.log('this ran for sure');
                 scope.ngShow = false; 
             }; 
         },

@@ -2,13 +2,14 @@
 <section class="row">
 
     <!-- S - Back Button -->
-    <div class="header">
+    <div class="header" ng-click="hideModal()" >
 
         <div class="left">
             <!-- [] Back to Manage Zones -->
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                     ng-click="navigateToWalls(gymId)"
-                    ng-click="hideOffCanvasModal()" >
+                    ng-click="toggleModal()"; 
+                    >
                 <span ng-show="isGymAccount()">
                     Manage
                 </span>
@@ -147,31 +148,12 @@
 
     </div>
 
-    <!-- <div ng-cloak class="columns animate"
-         ng-class="isRouteSelected() ? 'small-5' : 'ng-hide'">
-        <div ng-include
-            src=" 'templates/Route.tpl.html '"
-            ng-controller="RouteController">
-        </div>
-    </div> -->
-
-    <!-- <aside id="route_right" class="right-off-canvas-menu">
-
-        <ul class="pt3  off-canvas-list"
-            ng-show="isLoggedIn()"
-            ng-include
-            src=" 'templates/Route.tpl.html '"
-            ng-controller="RouteController">
-        </ul>
-
-    </aside> -->
-
 </section>
 
 
 
 
-    <off-canvas-modal class="animate" ng-show="offCanvasModalShown" ng-cloak>
+    <off-canvas-modal class="animate" ng-show="offCanvasModalShown">
          <div
             ng-show="isLoggedIn()"
             ng-include

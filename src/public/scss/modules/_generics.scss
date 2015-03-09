@@ -17,6 +17,10 @@
   @include box-shadow(0 0 3px rgba(0, 0, 0, .3) !important);
 }
 
+%dropshadow--middleLayer {
+    @include box-shadow(0 2px 10px rgba(0, 0, 0, .4) !important);
+}
+
 %link--normal {
   color: $primaryColor;
   &:hover {

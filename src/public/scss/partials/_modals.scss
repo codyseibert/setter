@@ -26,17 +26,22 @@
 
 
 .offCanvasModal {
-    @extend %dropshadow; 
-  position: absolute;
-  width: 50%; /* Default */
+    @extend %dropshadow--middleLayer; 
+  position: fixed;
+  width: 90%; /* Default */
     top: 0;
-    padding-top: rem-calc(30);
+    padding-top: rem-calc(80);
     right: 0; 
   background-color: #fff;
-  box-shadow: 4px 4px 80px #000;
+  // box-shadow: 4px 4px 80px #000;
   z-index: 5; 
   height: 100%; 
   overflow-y: scroll; 
+
+  @media #{$medium-up} {
+    width: 50%; 
+  }
+
 }
 
 .offCanvasModal--right.showing {
@@ -50,10 +55,17 @@
 
 .offCanvasModal-overlay {
   /* A dark translucent div that covers the whole screen */
-  position:absolute;
-  z-index:3;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+    position:absolute;
+    z-index:3;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: #000;
+    opacity: 0.4;
+
+    @media #{$medium-up} {
+        display: none; 
+    }
+
 }

@@ -22,3 +22,38 @@
     position: fixed; 
   }
 }
+
+
+
+.offCanvasModal {
+    @extend %dropshadow; 
+  position: absolute;
+  width: 50%; /* Default */
+    top: 0;
+    padding-top: rem-calc(30);
+    right: 0; 
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+  z-index: 5; 
+  height: 100%; 
+  overflow-y: scroll; 
+}
+
+.offCanvasModal--right.showing {
+    // right: 0px;
+    // top: 0px;
+}
+
+.offCanvasModal--right {
+    // right: -999px; 
+}
+
+.offCanvasModal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:3;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}

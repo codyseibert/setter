@@ -219,6 +219,10 @@
   @include icon($icon--thumbsUp);
 }
 
+.icon-cancel {
+ @include icon($icon--cancelCircle); 
+}
+
 
 .icon--wrench--small {
     width: rem-calc(36);

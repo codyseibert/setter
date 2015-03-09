@@ -461,7 +461,7 @@
 //
 
 .header {
-  @include grid-column(12, nest);
+  @include grid-column(12);
   @extend %mt3;
   @extend %mb2;
   @extend %clearfix;

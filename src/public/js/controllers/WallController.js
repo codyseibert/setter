@@ -1,4 +1,4 @@
-/*jslint nomen: true */
+    /*jslint nomen: true */
 /*jslint unparam: true*/
 /*global angular: false, btoa: false, console: false, moment: false, confirm: false */
 
@@ -48,6 +48,13 @@ angular.module('SETTER')
             $scope.image = null;
 
             $scope.routeSelected = false;
+
+            $scope.offCanvasModalShown = false; 
+
+            $scope.toggleModal = function() {
+                console.log('toggling');
+                $scope.offCanvasModalShown = !$scope.offCanvasModalShown; 
+            }; 
             /*
                 REST Calls
             */
@@ -146,6 +153,7 @@ angular.module('SETTER')
             $scope.selectRoute = function(route) {
                 $scope.routeSelected = route;
                 SelectedRouteService.setSelectedRoute(route);
+                $scope.offCanvasModalShown = true; 
             };
 
             $scope.isRouteSelected = function() {

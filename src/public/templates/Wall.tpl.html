@@ -1,126 +1,134 @@
 <!-- T - Wall Template -->
-    <section class="row">
+<section class="row">
 
-        <!-- S - Back Button -->
-        <div class="header">
+    <!-- S - Back Button -->
+    <div class="header">
 
-            <div class="left">
-                <!-- [] Back to Manage Zones -->
-                <button class="[ btn--secondary btn--medium right ] icon-left-big"
-                        ng-click="navigateToWalls(gymId)" >
-                    <span ng-show="isGymAccount()">
-                        Manage
-                    </span>
+        <div class="left">
+            <!-- [] Back to Manage Zones -->
+            <button class="[ btn--secondary btn--medium right ] icon-left-big"
+                    ng-click="navigateToWalls(gymId)"
+                    ng-click="hideOffCanvasModal()" >
+                <span ng-show="isGymAccount()">
+                    Manage
+                </span>
 
-                    Zones
-                </button>
+                Zones
+            </button>
 
-
-            </div>
-
-            <!-- S Zone Title -->
-            <div class="row">
-
-                <div class="small-12 columns">
-
-                    <div class="media--fl"
-                         ng-show="isEditMode">
-
-                        <input ng-model="form.name"
-                               type="text">
-                        </input>
-
-                        <!-- [] Save Route -->
-                        <button class="btn--medium  btn--primary "
-                                ng-click="save()">
-                            Save
-                        </button>
-                    </div>
-
-                    <h1 class="fwb"
-                        ng-hide="isEditMode"
-                        ng-click="selectRoute()">
-                        {{wall.name}}
-
-                        <!-- [] Edit Route -->
-                        <a class="icon-pencil"
-                           ng-click="edit()"
-                           ng-hide="isUserAccount() || isEditMode">
-                        </a>
-                    </h1>
-
-                </div>
-
-            </div>
-
-            <hr class="header-divider  hide-for-small-only">
 
         </div>
 
-        <!-- S - Add Route - for Medium-Up -->
+        <!-- S Zone Title -->
+        <div class="row">
 
-        <div class="small-12 columns  hide-on-small show-for-medium-up">
+            <div class="small-12 columns">
 
-            <div class="row"
-                 ng-show="isGymAccount()"
-                 data-ui-component="routeActions">
+                <div class="media--fl"
+                     ng-show="isEditMode">
 
-                <div class="small-12 large-6 columns mb2">
+                    <input ng-model="form.name"
+                           type="text">
+                    </input>
 
-                    <!-- [] Add Route -->
-                    <button class="icon-plus btn--medium btn--primary btn--expanded"
-                            ng-click="navigateToCreateRoute(gymId, wallId)">
-                        Add Route
+                    <!-- [] Save Route -->
+                    <button class="btn--medium  btn--primary "
+                            ng-click="save()">
+                        Save
                     </button>
-
                 </div>
 
-                <!-- S - Strip Zone -->
-                <div class="small-12  large-6 columns mb2">
+                <h1 class="fwb"
+                    ng-hide="isEditMode"
+                    ng-click="selectRoute()">
+                    {{wall.name}}
 
-                    <!-- [] - Strip Zone -->
-                    <button class="icon-down-big btn--medium btn--secondary btn--expanded"
-                            ng-click="stripZone(gymId, wallId)">
-                        Strip Zone
-                    </button>
-
-                </div>
+                    <!-- [] Edit Route -->
+                    <a class="icon-pencil"
+                       ng-click="edit()"
+                       ng-hide="isUserAccount() || isEditMode">
+                    </a>
+                </h1>
 
             </div>
 
         </div>
 
-        <!-- S - Zone Image -->
+        <hr class="header-divider  hide-for-small-only">
 
-        <div class="small-12 columns  text-center" ng-show="false && shouldShowWallImage()">
+    </div>
 
-            <img class="mb4"  style="height: 160px; overflow: hidden; cursor: pointer;"
-                 ng-click="getAccountId() === gymId && uploadImage()"
-                 ng-src="{{getGymImageSrc(wall)}}">
+    <!-- Gyms - Zone Image -->
 
+    <div class="small-12 columns  text-center" ng-show="false && shouldShowWallImage()">
 
-        </div>
-        <!-- [] - Drill Icon Button -->
-        <button ng-show="isGymAccount()"
-                class="btn--primary btn--fixedAction  show-for-small-only"
-                ng-click="navigateToCreateRoute(gymId, wallId)">
+        <img class="mb4"  style="height: 160px; overflow: hidden; cursor: pointer;"
+             ng-click="getAccountId() === gymId && uploadImage()"
+             ng-src="{{getGymImageSrc(wall)}}">
 
-            <!-- I - Drill -->
-            <img src="images/icon--drill.svg"
-                 alt=""
-                 class="icon">
-        </button>
+    </div>
+
+    <!-- [] - Drill Icon Button -->
+    <button ng-show="isGymAccount()"
+            class="btn--primary btn--fixedAction  show-for-small-only"
+            ng-click="navigateToCreateRoute(gymId, wallId)">
+
+        <!-- I - Drill -->
+        <img src="images/icon--drill.svg"
+             alt=""
+             class="icon">
+    </button>
+
 </section>
 
 <!-- Routes List & Delete Button -->
-<section class="row  small-collapse large-uncollapse">
+<section class="row">
 
-    <div class="columns" ng-class=" isRouteSelected() ? 'small-7' : 'small-12'  ">
+    <div class="columns animate">
+     
+        <!-- Gyms - Wall Actions for Medium up  -->
+        <div class="row"
+             ng-show="getAccountId() === gymId"
+             data-ui-component="routeActions">
 
-        <!-- Displays the routes in this zone -->
-        <ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
-            <!-- Routes Table Inserted Here-->
-        </ng-include>
+            <div class="small-12 columns mb2 show-for-large-up">
+
+                <!-- Gyms  Add Route -->
+                <button class="icon-plus btn--medium btn--primary display--inlineBlock "
+                        ng-click="navigateToCreateRoute(gymId, wallId)">
+                    Add Route
+                </button>
+
+
+                <!-- [] - Strip Zone -->
+                <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
+                        ng-click="stripZone(gymId, wallId)">
+                    Strip Zone
+                </button>
+
+            </div>
+
+            <div class="small-12 columns b2 hide-for-large-up">
+                  <button class="icon-down-big btn--medium btn--secondary"
+                        ng-click="stripZone(gymId, wallId)">
+                    Strip Zone
+                </button>
+
+            </div>
+
+       </div>
+
+        <div class="row small-collapse large-uncollapse">
+
+            <div class="small-12 columns">
+            <!-- Displays the routes in this zone -->
+                <ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
+                    <!-- Routes Table Inserted Here-->
+                </ng-include>
+
+            </div>
+
+        </div>
 
         <!-- Delete Zone -->
         <section class="row">
@@ -158,20 +166,20 @@
 
     </aside> -->
 
-    <div class="animate" style="position: absolute; right: 0px; top: 0px; width: 85%; background-color: white;" ng-show="isRouteSelected()">
-        <ul
-            class="pt3  off-canvas-list"
-            ng-show="isLoggedIn()"
-            ng-include
-            src=" 'templates/Route.tpl.html' "
-            ng-controller="RouteController">
-          </ul>
-    </div>
-
 </section>
 
 
 
+
+    <off-canvas-modal class="animate" ng-show="offCanvasModalShown" ng-cloak>
+         <div
+            ng-show="isLoggedIn()"
+            ng-include
+            src=" 'templates/Route.tpl.html' "
+            ng-controller="RouteController">
+          </div>
+
+    </off-canvas-modal>
 
 
 <!-- Hidden Form used by Image Upload -->

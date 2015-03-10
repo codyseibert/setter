@@ -1243,6 +1243,15 @@ h6,
   transition: all 0.2s cubic-bezier(0.7, 0, 0.175, 1) 0s;
 }
 
+/* line 8, ../scss/modules/_transitions.scss */
+.offCanvasModal {
+  -moz-transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s;
+  -o-transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s;
+  -webkit-transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1);
+  -webkit-transition-delay: 0s;
+  transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s;
+}
+
 /* line 12, ../scss/partials/_base.scss */
 li,
 ul,
@@ -9085,6 +9094,15 @@ h6,
   transition: all 0.2s cubic-bezier(0.7, 0, 0.175, 1) 0s;
 }
 
+/* line 8, ../scss/modules/_transitions.scss */
+.offCanvasModal {
+  -moz-transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s;
+  -o-transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s;
+  -webkit-transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1);
+  -webkit-transition-delay: 0s;
+  transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s;
+}
+
 /* line 12, ../scss/partials/_base.scss */
 li,
 ul,
@@ -12150,12 +12168,15 @@ ul[data-pie-id] {
 
 /* line 28, ../scss/partials/_modals.scss */
 .offCanvasModal {
+  -moz-transform: translateX(100vw);
+  -ms-transform: translateX(100vw);
+  -webkit-transform: translateX(100vw);
+  transform: translateX(100vw);
   position: fixed;
   width: 90%;
   /* Default */
   top: 0;
   padding-top: 5rem;
-  right: 0;
   background-color: #fff;
   z-index: 5;
   height: 100%;
@@ -12168,9 +12189,18 @@ ul[data-pie-id] {
   }
 }
 
-/* line 56, ../scss/partials/_modals.scss */
+/* line 47, ../scss/partials/_modals.scss */
+.offCanvasModal.showing {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  right: 0;
+}
+
+/* line 61, ../scss/partials/_modals.scss */
 .offCanvasModal-overlay {
-  /* A dark translucent div that covers the whole screen */
+  /* The area that is clickable to close the modal */
   position: absolute;
   z-index: 3;
   top: 0;
@@ -12178,10 +12208,10 @@ ul[data-pie-id] {
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.4;
+  display: none;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 56, ../scss/partials/_modals.scss */
+  /* line 61, ../scss/partials/_modals.scss */
   .offCanvasModal-overlay {
     display: none;
   }

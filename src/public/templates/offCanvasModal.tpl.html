@@ -1,12 +1,12 @@
 
 <div class="offCanvasModal-container" >
 
-    <div class="offCanvasModal-overlay" ng-click="hideOffCanvasModal()" >
+    <div class="offCanvasModal-overlay"  >
         
     </div>
 
-    <div class="offCanvasModal offCanvasModal--right" ng-class="(offCanvasModalShown === true) ? 'showing' : 'hidden' ">
-
+    <div class="offCanvasModal animate" ng-class="isShowing ? 'showing' : 'hidden' ">
+    
          <div class="offCanvasModal-content" ng-transclude="">
         
         </div>   

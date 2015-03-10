@@ -4,7 +4,7 @@ angular.module('SETTER')
     return {
         restrict: 'E', 
         scope: {
-            ngShow: '='
+            isShowing: '='
         },
         replace: true,
         transclude: true, 
@@ -14,7 +14,9 @@ angular.module('SETTER')
             
             scope.hideOffCanvasModal = function() {
                 console.log('this ran for sure');
-                scope.ngShow = false; 
+                scope.isShowing = false; 
+
+
             }; 
         },
         

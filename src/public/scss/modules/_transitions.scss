@@ -5,6 +5,10 @@
 }
 
 
+%transitionForOffCanvas {
+     @include single-transition(all, 0.4s, cubic-bezier(.7, 0, .175, 1), 0s);
+}
+
 // .mainview-animation.ng-enter {
 //     -webkit-transition: .3s linear all; /* Safari/Chrome */
 //     -moz-transition: .3s linear all; /* Firefox */

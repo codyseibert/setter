@@ -168,7 +168,6 @@ angular.module('SETTER')
 
             $scope.toggleModal = function() {
                 console.log('toggling');
-                
                 $scope.offCanvasModalShown = !$scope.offCanvasModalShown; 
 
             }; 

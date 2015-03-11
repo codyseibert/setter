@@ -149,11 +149,7 @@ angular.module('SETTER')
             $scope.selectRoute = function(route) {
                 $scope.routeSelected = route;
                 SelectedRouteService.setSelectedRoute(route);
-                setTimeout(function() {
-                    $scope.offCanvasModalShown = true;  
-
-                    }, 200); 
-
+                  $scope.offCanvasModalShown = true;  
             };
 
             $scope.isRouteSelected = function() {

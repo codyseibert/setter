@@ -34,29 +34,56 @@
     top: 0;
     padding-top: rem-calc(80); 
     background-color: #fff;
-    // box-shadow: 4px 4px 80px #000;
     z-index: 5; 
     height: 100%; 
     overflow-y: scroll; 
 
     @media #{$medium-up} {
-        width: 50%;     }
+        width: 50%;     
+    }
+}
+
+.offCanvasModal-container.right {
+    
+    .offCanvasModal {
+        @include translateX(100vw);   
+        right: 0; 
+        &.showing {
+        
+        @include translateX(0);
+        right: 0;
+
+        }   
+
+    }
 
 }
 
-.offCanvasModal.showing {
-    @include translateX(0);
-    right: 0;
+.offCanvasModal--left {
+    @include translateX(-100vw); 
+
+    &.showing{
+        @include translateX(0);
+        left: 0;
+    }
 }
 
-.offCanvasModal--right.showing {
-    // right: 0px;
-    // top: 0px;
-}
+// .offCanvasModal.showing {
+//     @include translateX(0);
+//     right: 0; 
+// }
 
-.offCanvasModal--right {
-    // right: -999px; 
-}
+// .offCanvasModal--right.showing {
+//     // right: 0px;
+//     // top: 0px;
+// }
+
+// .offCanvasModal--right {
+//     // right: -999px; 
+// }
+
+
+
 
 .offCanvasModal-overlay {
   /* The area that is clickable to close the modal */
@@ -67,8 +94,8 @@
     width:100%;
     height:100%;
     background-color: #000;
+    opacity: 0.4;
     display: none; 
-
     @media #{$medium-up} {
         display: none; 
     }

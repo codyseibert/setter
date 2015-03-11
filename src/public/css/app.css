@@ -12185,11 +12185,17 @@ ul[data-pie-id] {
 @media only screen and (min-width: 40.063em) {
   /* line 28, ../scss/partials/_modals.scss */
   .offCanvasModal {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  /* line 28, ../scss/partials/_modals.scss */
+  .offCanvasModal {
     width: 44%;
   }
 }
 
-/* line 48, ../scss/partials/_modals.scss */
+/* line 52, ../scss/partials/_modals.scss */
 .offCanvasModal-container.right .offCanvasModal {
   -moz-transform: translateX(100vw);
   -ms-transform: translateX(100vw);
@@ -12197,7 +12203,7 @@ ul[data-pie-id] {
   transform: translateX(100vw);
   right: 0;
 }
-/* line 51, ../scss/partials/_modals.scss */
+/* line 55, ../scss/partials/_modals.scss */
 .offCanvasModal-container.right .offCanvasModal.showing {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -12206,14 +12212,14 @@ ul[data-pie-id] {
   right: 0;
 }
 
-/* line 62, ../scss/partials/_modals.scss */
+/* line 66, ../scss/partials/_modals.scss */
 .offCanvasModal--left {
   -moz-transform: translateX(-100vw);
   -ms-transform: translateX(-100vw);
   -webkit-transform: translateX(-100vw);
   transform: translateX(-100vw);
 }
-/* line 65, ../scss/partials/_modals.scss */
+/* line 69, ../scss/partials/_modals.scss */
 .offCanvasModal--left.showing {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -12222,7 +12228,7 @@ ul[data-pie-id] {
   left: 0;
 }
 
-/* line 88, ../scss/partials/_modals.scss */
+/* line 92, ../scss/partials/_modals.scss */
 .offCanvasModal-overlay {
   /* The area that is clickable to close the modal */
   position: absolute;
@@ -12236,7 +12242,7 @@ ul[data-pie-id] {
   display: none;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 88, ../scss/partials/_modals.scss */
+  /* line 92, ../scss/partials/_modals.scss */
   .offCanvasModal-overlay {
     display: none;
   }

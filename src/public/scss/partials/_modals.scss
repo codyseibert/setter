@@ -39,7 +39,11 @@
     overflow-y: scroll; 
 
     @media #{$medium-up} {
-        width: 44%;     
+        width: 50%;     
+    }
+
+    @media #{$large-up} {
+        width: 44%; 
     }
 }
 

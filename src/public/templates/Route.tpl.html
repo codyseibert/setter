@@ -42,37 +42,19 @@
 <section class="row ">
 
     <div class="small-12 columns">
-
-        <div class="display--block row"
-             ng-show="isGymAccount()"
-             data-ui-component="route-actions">
         
-            <div class="small-12 columns">
-                
-                <div class="right">
-    
-
-
-                </div>   
-
-            </div>
-            
-        </div>
+        <div class="row" >
         
-        <div class="row">
-        
-            <div class="small-12 columns">
-        
-                <h1 class="h2 fwb mt0 left">
-                    Route Information
-                </h1>
+            <div class="small-12 columns" >
 
-                <div class="right">
+                <div class="right ng-hide" 
+                     ng-show="isGymAccount()" 
+                     data-ui-component="route-actions">
 
                     <button class="[ btn--secondary  btn--small ] icon-pencil"
                             ng-click="edit()"
                             ng-hide="isEditMode">
-                        Edit Route
+                        Edit
                     </button>
                         
                     <button class="btn--secondary btn--small icon-down-big "
@@ -87,6 +69,7 @@
                 </div>
 
             </div>
+
         
         </div>
         
@@ -124,6 +107,9 @@
 
         </div>
 
+        <h1 class="h3 fwb left">
+            Route Information
+        </h1>
 
         <div class="flag  mb3">
                 <h3 class="h4 flag-image">

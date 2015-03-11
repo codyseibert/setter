@@ -73,7 +73,7 @@
 <!-- NG Repeat Zone List -->
 <div class="row  small-collapse  large-uncollapse">
     <!-- User - Blank State Copy -->
-    <section class="small-12 columns" ng-show="!hasWalls() && getAccountId() !== gymId">
+    <section class="small-12 columns ng-hide" ng-show="!hasWalls() && getAccountId() !== gymId">
 
         <!-- User - Blank State for no Zones Small Only -->
         <div class="row  show-for-small-only">
@@ -110,7 +110,7 @@
     </section>
 
     <!-- Gym - Blank State Copy -->
-    <section class="small-12 columns" ng-show="!hasWalls() && getAccountId() === gymId">
+    <section class="small-12 columns ng-hide" ng-show="!hasWalls() && getAccountId() === gymId">
 
         <!-- Gym - Blank State for no Zones Small Only -->
         <div class="row  show-for-small-only">

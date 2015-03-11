@@ -47,22 +47,14 @@
              ng-show="isGymAccount()"
              data-ui-component="route-actions">
         
-            <div class="right">
+            <div class="small-12 columns">
+                
+                <div class="right">
+    
 
-                <button class="[ btn--secondary  btn--medium ] icon-pencil"
-                        ng-click="edit()"
-                        ng-hide="isEditMode">
-                    Edit Route
-                </button>
-                    
-                <button class="btn--secondary btn--medium icon-down-big "
-                        ng-click="strip()">
-                    Strip Route
-                </button>
 
-                <span class="h3 icon-cancel" ng-click="toggleModal()">
-                    
-                </span>
+                </div>   
+
             </div>
             
         </div>
@@ -75,15 +67,31 @@
                     Route Information
                 </h1>
 
+                <div class="right">
 
-                 <span class=" right h2 icon-cancel" ng-click="closeRoute()">
+                    <button class="[ btn--secondary  btn--small ] icon-pencil"
+                            ng-click="edit()"
+                            ng-hide="isEditMode">
+                        Edit Route
+                    </button>
+                        
+                    <button class="btn--secondary btn--small icon-down-big "
+                            ng-click="strip()">
+                        Strip Route
+                    </button>
                     
-                </span>    
+                     <span class=" right h2 icon-cancel" ng-click="closeRoute()">
+                        
+                    </span>    
+
+                </div>
 
             </div>
         
         </div>
-            <hr>
+        
+        <hr>
+        
     </div>
  
 </section>
@@ -118,7 +126,7 @@
 
 
         <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Avg. Rating
                 </h3>
 
@@ -141,7 +149,7 @@
 
             <div class="flag  mb3">
 
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Name
                 </h3>
 
@@ -156,7 +164,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Grade
                 </h3>
 
@@ -168,7 +176,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Color
                 </h3>
 
@@ -183,7 +191,7 @@
             </div>
 
              <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Zone
                 </h3>
 
@@ -195,7 +203,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Setter
                 </h3>
 
@@ -210,7 +218,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image nowrap">
                     Date Set
                 </h3>
 

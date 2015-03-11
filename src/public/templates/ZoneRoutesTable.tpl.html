@@ -1,39 +1,67 @@
-<ul class="list--tableStyle  list--navElem">
-    <li class="list--tableStyle  ptb2"
-        ng-repeat="route in routes"
-        ng-click="selectRoute(route)">
-        <!-- ng-click="navigateToRoute(gymId, wallId, route.id)"> -->
-        <i class="icon-circle"
-           ng-style="{color: route.value}"> </i>
+<table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+    <tbody >
+        <tr
+            ng-click="selectRoute(route)"
+            ng-repeat="route in routes">
+                
+                <td  class="ptb2">
 
-        <span class="display--inlineBlock  mr2"><!-- Name -->
-            {{route.route_name}}
+                     <span class="hide-for-medium-up">
 
-        <!-- Grade -->
-        {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
-        </span>
+                        <i class="icon-circle display--block "
+                       ng-style="{color: route.value}"> 
+                       </i>
 
-        <!-- Icon -->
-        <i class="icon-right-big  right"> </i>
+                        <!-- Grade -->
+                        {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
 
-        <!-- Sent -->
-        <span class="fwb "
-              ng-show="route.send">
-              Sent
-        </span>
+                    </span>
 
-        <!-- Stars -->
-        <ng-include class="right rating rating--colored"
-                    style="margin-right: 10px;"
-                    ng-controller="StarRatingController"
-                    src=" 'templates/StarRating.tpl.html' ">
-        </ng-include>
+                    <!--Color for Medium Up-->
+                    <span class="show-for-medium-up">
 
-        <!-- Sends -->
-<!--         {{route.send_count}} Send<span bindonce bo-show="{{route.send_count > 1}}">s</span> -->
+                        <i class="icon-circle"
+                       ng-style="{color: route.value}"> 
+                       </i>
+    
+                        <!-- Grade -->
+                        {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
+                    </span>
 
-        <!-- New -->
-        <span class="icon--new label  success  border-radius"
-               ng-show="isUserAccount() && route.isNew">New</span>
-    </li>
-</ul>
+                </td>
+
+            
+                 <!-- Sent -->
+                <td class="fwb "
+                      ng-show="route.send">
+                      Sent
+                </td>
+    
+                <!-- New -->
+                <td>
+                    <span class="icon--new label  success  border-radius"
+                           ng-show="isUserAccount() && route.isNew">New
+                    </span>
+                </td>
+    
+                <!-- Stars -->
+                <td class="ptb2">
+
+    
+                <!-- Icon -->
+                    <i class="icon-right-big right "> 
+                    </i>
+
+                                        <ng-include class="right rating rating--colored "
+                                style="margin-right: 10px;"
+                                ng-controller="StarRatingController"
+                                src=" 'templates/StarRating.tpl.html' ">
+                    </ng-include>
+                </td>
+        </tr>
+    
+    </tbody>
+</table>
+
+            <!-- Sends -->
+    <!--         {{route.send_count}} Send<span bindonce bo-show="{{route.send_count > 1}}">s</span> -->

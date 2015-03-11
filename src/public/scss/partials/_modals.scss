@@ -30,7 +30,7 @@
     @extend %transitionForOffCanvas;
     @include translateX(100vw);
     position: fixed;
-    width: 90%; /* Default */
+    width: 88%; /* Default */
     top: 0;
     padding-top: rem-calc(80); 
     background-color: #fff;
@@ -39,7 +39,7 @@
     overflow-y: scroll; 
 
     @media #{$medium-up} {
-        width: 50%;     
+        width: 44%;     
     }
 }
 

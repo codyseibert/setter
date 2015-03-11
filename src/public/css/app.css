@@ -12173,7 +12173,7 @@ ul[data-pie-id] {
   -webkit-transform: translateX(100vw);
   transform: translateX(100vw);
   position: fixed;
-  width: 90%;
+  width: 88%;
   /* Default */
   top: 0;
   padding-top: 5rem;
@@ -12185,7 +12185,7 @@ ul[data-pie-id] {
 @media only screen and (min-width: 40.063em) {
   /* line 28, ../scss/partials/_modals.scss */
   .offCanvasModal {
-    width: 50%;
+    width: 44%;
   }
 }
 

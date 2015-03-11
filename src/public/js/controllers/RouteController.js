@@ -6,6 +6,7 @@ angular.module('SETTER')
     .controller('RouteController', [
         '$scope',
         '$routeParams',
+        '$q',
         'RoutesService',
         'CommentsService',
         'RatingsService',
@@ -16,6 +17,7 @@ angular.module('SETTER')
         function (
             $scope,
             $routeParams,
+            $q,
             RoutesService,
             CommentsService,
             RatingsService,
@@ -37,9 +39,11 @@ angular.module('SETTER')
              
             $scope.$watch(function () {
                 return SelectedRouteService.getSelectedRoute();
+
             }, function (newValue, oldValue) {
                 if (newValue !== oldValue) {
                     $scope.routeId = newValue.id;
+                    $scope.loading = true; 
                     loadRouteData();
                 }
             });
@@ -59,19 +63,20 @@ angular.module('SETTER')
             }());
 
             var loadRouteData = function () {
-                RoutesService.setRouteAsViewed($scope.routeId)
+
+                var a =  RoutesService.setRouteAsViewed($scope.routeId)
                     .success(function (pData) {
                         WallsService.setWallsDirty($scope.gymId);
                         RoutesService.setRoutesDirty($scope.gymId, $scope.wallId);
                     });
 
-                RoutesService.getRoute($scope.routeId)
+                var b = RoutesService.getRoute($scope.routeId)
                     .success(function (pData) {
                         pData.date = pData.date;
                         $scope.route = pData;
                     });
 
-                CommentsService.getCommentsAboutRoute($scope.routeId)
+                var c = CommentsService.getCommentsAboutRoute($scope.routeId)
                     .success(function (pData) {
                         $scope.comments = pData;
                         for (i = 0; i < pData.length; i += 1) {
@@ -79,16 +84,16 @@ angular.module('SETTER')
                         }
                     });
 
-                loadRouteRating = function () {
-                    RatingsService.getRatingForRoute($scope.routeId)
+                
+                var d = RatingsService.getRatingForRoute($scope.routeId)
                         .success(function (pData) {
                             $scope.rating = Math.round(pData.rating * 10) / 10;
                             $scope.ratingCount = pData.count;
                         });
-                };
-                loadRouteRating();
+        
 
-                RatingsService.hasRated($scope.routeId)
+
+                var e = RatingsService.hasRated($scope.routeId)
                     .success(function (pData) {
                         if (pData.error) {
                             $scope.hasRated = false;
@@ -97,12 +102,12 @@ angular.module('SETTER')
                         }
                     });
 
-                SendsService.getSendsForRoute($scope.routeId)
+                var f = SendsService.getSendsForRoute($scope.routeId)
                     .success(function (pData) {
                         $scope.sends = pData;
                     });
 
-                SendsService.hasSent($scope.routeId)
+                var g = SendsService.hasSent($scope.routeId)
                     .success(function (pData) {
                         if (pData.error) {
                             $scope.hasSent = false;
@@ -110,6 +115,10 @@ angular.module('SETTER')
                             $scope.hasSent = true;
                         }
                     });
+
+                $q.all([a, b, c, d, e, f, g]).then(function() {
+                    $scope.loading = false; 
+                });
             }
 
             $scope.addComment = function () {

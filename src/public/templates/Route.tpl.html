@@ -75,7 +75,8 @@
                     Route Information
                 </h1>
 
-                 <span class=" right h2 icon-cancel" ng-click="toggleModal()">
+
+                 <span class=" right h2 icon-cancel" ng-click="closeRoute()">
                     
                 </span>    
 
@@ -93,7 +94,11 @@
 <section class="row"
          data-ui-component="route-information">
 
-    <div class="small-12 columns  mb2">
+    <div class="center" style="width: 80px; height: 80px; position: relative " ng-show="loading" us-spinner>
+    </div>
+
+    <div class="small-12 columns  mb2 ng-hide" ng-hide="loading">
+
 
         <div ng-show="isUserAccount()" class="mb2">
 
@@ -216,7 +221,7 @@
                 </div>
             </div>
 
-            <div >
+            <div>
 
                 <h3 class="h4 fwb  mb2">
                     Notes
@@ -232,7 +237,7 @@
 </section>
 
 
-<section class="row">
+<section class="row" ng-hide="loading">
     <div class="small-12 columns  ">
         <h2 class="fwl">
             Route Sends ({{sends.length}})
@@ -258,7 +263,7 @@
 </section>
 
 
-<section class="row">
+<section class="row" ng-hide="loading">
 
     <div class="small-12 columns  mb4">
 

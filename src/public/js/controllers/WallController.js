@@ -49,7 +49,15 @@ angular.module('SETTER')
 
             $scope.routeSelected = false;
 
-            $scope.offCanvasModalShown = false; 
+            $scope.$watch(function() {
+
+                return SelectedRouteService.offCanvasModalShown;
+
+            }, function(newValue, oldValue) {
+                console.log(newValue, oldValue);
+                $scope.offCanvasModalShown = newValue; 
+
+            });
 
             /*
                 REST Calls
@@ -149,28 +157,17 @@ angular.module('SETTER')
             $scope.selectRoute = function(route) {
                 $scope.routeSelected = route;
                 SelectedRouteService.setSelectedRoute(route);
-                  $scope.offCanvasModalShown = true;  
+                SelectedRouteService.offCanvasModalShown = true; 
+            };
+
+            $scope.closeRoute = function () {
+                console.log('hey');
+                SelectedRouteService.hideModal(); 
             };
 
             $scope.isRouteSelected = function() {
                 return $scope.routeSelected;
             };
 
-
-            /* 
-
-                Functions to hide/toggle modal on page
-            */
-
-            $scope.toggleModal = function() {
-                console.log('toggling');
-                $scope.offCanvasModalShown = !$scope.offCanvasModalShown; 
-
-            }; 
-
-            $scope.hideModal = function() {
-                $scope.offCanvasModalShown = false;  
-            };
-            
             $scope.authorization = LoginService.getHeader();
         }]);

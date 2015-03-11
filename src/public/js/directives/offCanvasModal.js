@@ -4,21 +4,20 @@ angular.module('SETTER')
     return {
         restrict: 'E', 
         scope: {
-            isShowing: '='
+            isShowing: '=',
+            type: '@'
         },
         replace: true,
         transclude: true, 
         templateUrl: 'templates/offCanvasModal.tpl.html',
 
         link: function(scope, element, attrs)  {
-             
-            var modalType = attrs.type;
-            element.addClass(modalType);
+
+            element.addClass(scope.type);
+
             scope.hideOffCanvasModal = function() {
                 console.log('this ran for sure');
                 scope.isShowing = false; 
-
-
             }; 
         },
         

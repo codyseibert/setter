@@ -8,7 +8,7 @@
         <tr bindonce
             ng-repeat="route in bestBoulder"
             class="list--tableStyle  list--navElem"
-            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)"
+            ng-click="selectRoute(route)"
             ng-include
             src=" 'templates/gym/panels/activity/sections/BestRatedRoutes.tpl.html' ">
         </tr>
@@ -18,3 +18,13 @@
 </table>
 
 
+<off-canvas-modal type="right" is-showing="offCanvasModalShown">
+
+     <div
+        ng-show="isLoggedIn()"
+        ng-include
+        src=" '../../../../templates/Route.tpl.html' "
+        ng-controller="RouteController">
+      </div>
+
+</off-canvas-modal>

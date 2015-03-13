@@ -142,7 +142,7 @@ input[type="submit"] {
 .btn--fixedAction {
     @extend %circle; 
     @extend %fixed; 
-    @extend %dropshadow; 
+    @extend %dropshadow--topLayer; 
     border: 2px solid #fff; 
     width: rem-calc(58);
     height: rem-calc(58); 

@@ -53,12 +53,13 @@
 
                     <button class="[ btn--secondary  btn--small ] icon-pencil"
                             ng-click="edit()"
-                            ng-hide="isEditMode">
+                            ng-hide="isEditMode || !currentPageIsZone()">
                         Edit
                     </button>
 
                     <button class="btn--secondary btn--small icon-down-big "
-                            ng-click="strip()">
+                            ng-click="strip()"
+                            ng-hide="!currentPageIsZone()">
                         Strip Route
                     </button>
 

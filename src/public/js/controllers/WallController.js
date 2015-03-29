@@ -37,7 +37,6 @@ angular.module('SETTER')
                 return;
             }
 
-
             /*
                 Init
             */

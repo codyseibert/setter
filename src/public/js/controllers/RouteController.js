@@ -50,6 +50,7 @@ angular.module('SETTER')
 
             $scope.form = {};
             $scope.stars = [];
+            $scope.comments = []; 
 
             var i;
 
@@ -133,6 +134,11 @@ angular.module('SETTER')
                         $scope.form.message = "";
                     });
             };
+
+            $scope.hasComments = function() {
+                return $scope.comments.length > 0; 
+            };
+
 
             $scope.send = function () {
 

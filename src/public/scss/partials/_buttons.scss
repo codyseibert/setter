@@ -143,16 +143,16 @@ input[type="submit"] {
     @extend %circle; 
     @extend %fixed; 
     @extend %dropshadow--topLayer; 
-    border: 2px solid #fff; 
+    border: 0; 
     width: rem-calc(58);
     height: rem-calc(58); 
-    z-index: 999; 
+    z-index: 4; 
     bottom: 0; 
     right: rem-calc(5); 
 
     .icon {
-      width: rem-calc(35);
-      height: rem-calc(35); 
+      width: rem-calc(30);
+      height: rem-calc(30); 
     }
 
 }

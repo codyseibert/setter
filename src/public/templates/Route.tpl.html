@@ -63,7 +63,7 @@
                         Strip Route
                     </button>
 
-                     <span class=" right h2 icon-cancel" ng-click="closeRouteModal()">
+                     <span class=" right ml2 h2 icon-cancel" ng-click="closeRouteModal()">
 
                     </span>
 
@@ -71,7 +71,7 @@
 
                 <div class="right ng-hide" ng-show="isUserAccount()">
 
-                     <span class=" right h2 icon-cancel" ng-click="closeRouteModal()">
+                     <span class=" right  h2 icon-cancel" ng-click="closeRouteModal()">
 
                     </span>
 
@@ -270,20 +270,31 @@
 
     <div class="small-12 columns  mb4">
 
-        <h2 class='fwl'>
+        <h2 class="fwl">
             Climber Feedback
         </h2>
+
+        <div class="ng-hide  pb5"  ng-show="!hasComments() && isGymAccount()">
+            There are no comments for this route, yet. 
+        </div>
+
+        <div class="ng-hide  fwb  pb2"  ng-show="!hasComments() && isUserAccount()">
+            Be the first to comment on this route below!
+        </div>
 
         <div ng-repeat="comment in comments"
              style="padding: 20px; margin-bottom: 20px; display: inline-block; vertical-align: top; max-height: 160px; width: 300px; text-align: left;">
 
             <div style="height: 60px;">
+
                 <div style="float: left;">
+
                     <div style="width: 60px; height: 60px; margin-right: 20px; cursor: pointer; text-align: center; font-size: 16px;"
                          ng-click="navigateToUser(comment.account_id)">
                         <img ng-src="{{getUserImageSrc(comment)}}"
                              style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
                     </div>
+
                 </div>
 
                 <strong>
@@ -295,6 +306,7 @@
                 <i>
                     Posted: {{comment.date | date : 'MMM dd, yyyy' }}
                 </i>
+
             </div>
 
             <div>
@@ -313,7 +325,7 @@
 
             <textarea class="textarea--small"
                       ng-model="form.message"
-                      placeholder="comment">
+                      placeholder="Say what you thought of this route or share beta with other climbers.">
             </textarea>
 
             <button class=" [ btn--primary  btn--medium btn--expanded ]  icon-plus-squared"

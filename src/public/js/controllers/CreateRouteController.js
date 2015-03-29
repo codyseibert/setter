@@ -163,7 +163,7 @@ angular.module('SETTER')
                           angular.element(".created-modal").foundation('reveal', 'close', {animation: 'fade'});
                         }, 1000);
 
-                        // $rootScope.closeRouteModal();
+                        $rootScope.closeRouteModal();
                         $rootScope.refreshWall = true;
                     });
             };

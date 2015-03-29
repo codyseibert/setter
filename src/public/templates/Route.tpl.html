@@ -42,13 +42,13 @@
 <section class="row ">
 
     <div class="small-12 columns">
-        
+
         <div class="row" >
-        
+
             <div class="small-12 columns" >
 
-                <div class="right ng-hide" 
-                     ng-show="isGymAccount()" 
+                <div class="right ng-hide"
+                     ng-show="isGymAccount()"
                      data-ui-component="route-actions">
 
                     <button class="[ btn--secondary  btn--small ] icon-pencil"
@@ -56,35 +56,35 @@
                             ng-hide="isEditMode">
                         Edit
                     </button>
-                        
+
                     <button class="btn--secondary btn--small icon-down-big "
                             ng-click="strip()">
                         Strip Route
                     </button>
-                    
+
                      <span class=" right h2 icon-cancel" ng-click="closeRoute()">
-                        
-                    </span>    
+
+                    </span>
 
                 </div>
 
                 <div class="right ng-hide" ng-show="isUserAccount()">
-                                        
+
                      <span class=" right h2 icon-cancel" ng-click="closeRoute()">
-                        
-                    </span>    
-                    
+
+                    </span>
+
                 </div>
 
             </div>
 
-        
+
         </div>
-        
+
         <hr>
-        
+
     </div>
- 
+
 </section>
 
 
@@ -181,7 +181,7 @@
                     </h4>
 
                 </div>
-                
+
             </div>
 
              <div class="flag  mb3">
@@ -206,7 +206,7 @@
                 <h4 class="h3  mb0  fwb">
                     {{route.firstname}} {{route.lastname}}
                 </h4>
-                
+
                </div>
 
             </div>
@@ -299,7 +299,7 @@
             <div>
 
                 <div class="mb1">
-                    
+
                 </div>
 
                 {{comment.message}}

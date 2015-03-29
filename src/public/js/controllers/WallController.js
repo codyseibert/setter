@@ -50,13 +50,9 @@ angular.module('SETTER')
             $scope.routeSelected = false;
 
             $scope.$watch(function() {
-
                 return SelectedRouteService.offCanvasModalShown;
-
             }, function(newValue, oldValue) {
-                console.log(newValue, oldValue);
-                $scope.offCanvasModalShown = newValue; 
-
+                $scope.offCanvasModalShown = newValue;
             });
 
             /*
@@ -157,12 +153,12 @@ angular.module('SETTER')
             $scope.selectRoute = function(route) {
                 $scope.routeSelected = route;
                 SelectedRouteService.setSelectedRoute(route);
-                SelectedRouteService.offCanvasModalShown = true; 
+                SelectedRouteService.offCanvasModalShown = true;
             };
 
             $scope.closeRoute = function () {
                 console.log('closed');
-                SelectedRouteService.hideModal(); 
+                SelectedRouteService.hideModal();
             };
 
             $scope.isRouteSelected = function() {

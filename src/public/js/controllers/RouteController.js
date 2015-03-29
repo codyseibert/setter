@@ -36,25 +36,22 @@ angular.module('SETTER')
             $scope.wallId = $routeParams.wallId;
             $scope.routeId = SelectedRouteService.getSelectedRoute();
             $scope.newValue = 0;
-             
+
             $scope.$watch(function () {
                 return SelectedRouteService.getSelectedRoute();
 
             }, function (newValue, oldValue) {
                 if (newValue !== oldValue) {
                     $scope.routeId = newValue.id;
-                    $scope.loading = true; 
+                    $scope.loading = true;
                     loadRouteData();
-                    console.log('loaded route data!');  
-                    console.log($scope.routeId);
                 }
             });
 
             $scope.form = {};
             $scope.stars = [];
 
-            var i,
-                loadRouteRating;
+            var i;
 
             (function createStars() {
                 for (i = 0; i < 5; i += 1) {
@@ -65,7 +62,6 @@ angular.module('SETTER')
             }());
 
             var loadRouteData = function () {
-                console.log("begun loading data");
                 var a =  RoutesService.setRouteAsViewed($scope.routeId)
                     .success(function (pData) {
                         WallsService.setWallsDirty($scope.gymId);
@@ -86,13 +82,13 @@ angular.module('SETTER')
                         }
                     });
 
-                
+
                 var d = RatingsService.getRatingForRoute($scope.routeId)
                         .success(function (pData) {
                             $scope.rating = Math.round(pData.rating * 10) / 10;
                             $scope.ratingCount = pData.count;
                         });
-        
+
 
 
                 var e = RatingsService.hasRated($scope.routeId)
@@ -119,11 +115,8 @@ angular.module('SETTER')
                     });
 
                 $q.all([a, b, c, d, e, f, g]).then(function() {
-                    $scope.loading = false; 
-                    console.log('turned to false b');
+                    $scope.loading = false;
                 });
-                console.log($scope.loading);
-                console.log("ended loading data");
             }
 
             $scope.addComment = function () {
@@ -184,8 +177,6 @@ angular.module('SETTER')
                 RatingsService.updateRating($scope.routeId, pStar.rating)
                     .success(function () {
                         $scope.hasRated = true;
-                        loadRouteRating();
-
                         angular.element(".modal").foundation('reveal', 'close');
                     });
             };

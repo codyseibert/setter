@@ -12,6 +12,7 @@
 angular.module('SETTER')
     .controller('WallController', [
         '$scope',
+        '$rootScope',
         '$interval',
         '$routeParams',
         'RoutesService',
@@ -21,6 +22,7 @@ angular.module('SETTER')
         'SelectedRouteService',
         function (
             $scope,
+            $rootScope,
             $interval,
             $routeParams,
             RoutesService,
@@ -41,6 +43,8 @@ angular.module('SETTER')
             */
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = parseInt($routeParams.wallId, 10);
+            console.log('wall controller', $scope.gymId);
+            $rootScope.gymId = $scope.gymId;
 
             $scope.wall = {};
             $scope.routes = [];
@@ -49,10 +53,24 @@ angular.module('SETTER')
 
             $scope.routeSelected = false;
 
+            var loadRoutes = function () {
+                RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = moment(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.routes = pData;
+                });
+            };
+
             $scope.$watch(function() {
-                return SelectedRouteService.offCanvasModalShown;
+                return $rootScope.refreshWall;
             }, function(newValue, oldValue) {
-                $scope.offCanvasModalShown = newValue;
+                if (newValue === true) {
+                    WallsService.setWallDirty($scope.wallId);
+                    loadRoutes();
+                    $rootScope.refreshWall = false;
+                };
             });
 
             /*
@@ -62,14 +80,7 @@ angular.module('SETTER')
                 $scope.wall = pData;
             });
 
-            RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
-                pData.map(function (pEntry) {
-                    pEntry.date = moment(pEntry.date);
-                    return pEntry;
-                });
-                $scope.routes = pData;
-            });
-
+            loadRoutes();
 
             /*
                 Button Callbacks
@@ -77,6 +88,11 @@ angular.module('SETTER')
             $scope.edit = function () {
                 $scope.isEditMode = !$scope.isEditMode;
                 $scope.form.name = $scope.wall.name;
+            };
+
+            $scope.openCreateRouteModal = function() {
+                $rootScope.openModal();
+                $rootScope.routeModalViewType = 'create';
             };
 
             $scope.delete = function () {

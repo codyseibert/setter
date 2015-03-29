@@ -220,13 +220,21 @@
 
 </div>
 
-<off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isRouteModalOpen()">
+<off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isModalOpen()">
 
      <div
+        ng-show="routeModalViewType === 'view'"
         ng-include
         src=" 'templates/Route.tpl.html' "
         ng-controller="RouteController">
       </div>
+
+    <div
+       ng-show="routeModalViewType !== 'view'"
+       ng-include
+       src=" 'templates/CreateRoute.tpl.html' "
+       ng-controller="CreateRouteController">
+     </div>
 
 </off-canvas-modal>
 

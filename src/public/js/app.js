@@ -73,24 +73,6 @@ angular.module('SETTER', [
                     controller: 'WallController',
                     templateUrl: 'templates/Wall.tpl.html'
                 })
-                .when('/gyms/:gymId/walls/:wallId/routes/create', {
-                    controller: 'CreateRouteController',
-                    templateUrl: 'templates/CreateRoute.tpl.html',
-                    resolve: {
-                        isEditMode: function () {
-                            return false;
-                        }
-                    }
-                })
-                .when('/gyms/:gymId/walls/:wallId/routes/:routeId/edit', {
-                    controller: 'CreateRouteController',
-                    templateUrl: 'templates/CreateRoute.tpl.html',
-                    resolve: {
-                        isEditMode: function () {
-                            return true;
-                        }
-                    }
-                })
                 .when('/gyms/:gymId/walls/:wallId/routes/:routeId', {
                     controller: 'RouteController',
                     templateUrl: 'templates/Route.tpl.html'
@@ -608,20 +590,32 @@ angular.module('SETTER', [
                 }, 1000);
             };
 
-            $rootScope.isRouteModalOpen = function () {
-                return $rootScope.routeSelected;
+            $rootScope.isModalOpen = function () {
+                return $rootScope.displayModal;
+            };
+
+            $rootScope.openModal = function () {
+                $rootScope.displayModal = true;
+            };
+
+            $rootScope.closeModal = function () {
+                $rootScope.displayModal = false;
             };
 
             $rootScope.openRouteModal = function (route) {
+                $rootScope.openModal()
+
                 // Hack needed to fix the activity not containing similar id structure
                 if (route.route_id !== undefined) {
                     route.id = route.route_id;
                 }
                 $rootScope.routeSelected = route;
                 SelectedRouteService.setSelectedRoute(route);
+                $rootScope.routeModalViewType = 'view'
             };
 
             $rootScope.closeRouteModal = function () {
+                $rootScope.closeModal();
                 $rootScope.routeSelected = null;
             };
         }]);

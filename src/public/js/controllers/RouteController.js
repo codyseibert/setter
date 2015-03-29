@@ -5,6 +5,7 @@
 angular.module('SETTER')
     .controller('RouteController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         '$q',
         'RoutesService',
@@ -16,6 +17,7 @@ angular.module('SETTER')
         'SelectedRouteService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             $q,
             RoutesService,
@@ -199,20 +201,7 @@ angular.module('SETTER')
             };
 
             $scope.edit = function () {
-                var route = SelectedRouteService.getSelectedRoute();
-                $scope.navigateToEditRoute(route.gym_id, route.wall_id, route.route_id);
-            };
-
-            $scope.delete = function () {
-                var yes = confirm("Are you sure you want to delete this route?  All sends associated with this route will be lost for users =(");
-                if (!yes) {
-                    return;
-                }
-
-                RoutesService.deleteRoute($scope.gymId, $scope.wallId, $scope.routeId)
-                    .success(function (pData) {
-                        $scope.navigateToWall($scope.gymId, $scope.wallId);
-                    });
+                $rootScope.routeModalViewType = 'edit';
             };
 
             $scope.strip = function () {
@@ -223,7 +212,8 @@ angular.module('SETTER')
 
                 RoutesService.stripRoute($scope.gymId, $scope.wallId, $scope.routeId)
                     .success(function (pData) {
-                        $scope.navigateToWall($scope.gymId, $scope.wallId);
+                        $rootScope.closeRouteModal();
+                        $rootScope.refreshWall = true;
                     });
             };
 

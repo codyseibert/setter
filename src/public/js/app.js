@@ -368,6 +368,7 @@ angular.module('SETTER', [
                 paths.push(currentPath);
                 paths.splice(0, 1);
 
+                $rootScope.closeRouteModal();
 
                 // Always slide right (handles back logic)
                 $rootScope.slideInRight = false;

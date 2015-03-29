@@ -43,7 +43,6 @@ angular.module('SETTER')
             */
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.wallId = parseInt($routeParams.wallId, 10);
-            console.log('wall controller', $scope.gymId);
             $rootScope.gymId = $scope.gymId;
 
             $scope.wall = {};

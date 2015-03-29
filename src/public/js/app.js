@@ -610,12 +610,17 @@ angular.module('SETTER', [
                     route.id = route.route_id;
                 }
                 $rootScope.routeSelected = route;
+                $rootScope.routeModalViewType = 'view';
                 SelectedRouteService.setSelectedRoute(route);
-                $rootScope.routeModalViewType = 'view'
             };
 
             $rootScope.closeRouteModal = function () {
                 $rootScope.closeModal();
                 $rootScope.routeSelected = null;
+            };
+
+            $rootScope.openCreateRouteModal = function () {
+              $rootScope.openModal();
+              $rootScope.routeModalViewType = 'create';
             };
         }]);

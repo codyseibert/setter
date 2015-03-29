@@ -8,23 +8,27 @@ angular.module('SETTER')
         '$rootScope',
         '$routeParams',
         '$q',
+        '$timeout',
         'GradesService',
         'RoutesService',
         'ColorsService',
         'SettersService',
         'LoginService',
         'SelectedRouteService',
+        'WallsService',
         function (
             $scope,
             $rootScope,
             $routeParams,
             $q,
+            $timeout,
             GradesService,
             RoutesService,
             ColorsService,
             SettersService,
             LoginService,
-            SelectedRouteService
+            SelectedRouteService,
+            WallsService
         ) {
             'use strict';
 
@@ -63,9 +67,10 @@ angular.module('SETTER')
             $scope.$watch(function () {
                 return $rootScope.routeModalViewType;
             }, function (newValue, oldValue) {
-                $scope.isEditMode = $rootScope.routeModalViewType === 'edit';
-
-                if ($rootScope.routeModalViewType === 'create') {
+                $scope.isEditMode = false;
+                if (newValue === 'edit') {
+                    $scope.isEditMode = true;
+                } else if (newValue === 'create') {
                     cleanGrades();
                 }
             });
@@ -73,8 +78,10 @@ angular.module('SETTER')
             $scope.$watch(function () {
                 return $rootScope.gymId;
             }, function (newValue, oldValue) {
-                $scope.gymId = newValue;
-                init();
+                if (newValue) {
+                  $scope.gymId = newValue;
+                  init();
+                }
             });
 
             $scope.form = {};
@@ -120,6 +127,7 @@ angular.module('SETTER')
 
             $scope.addClicked = function () {
                 var name = $scope.form.name,
+                    zone = $scope.form.zone.id,
                     type = $scope.form.type.id,
                     boulderGradeId = $scope.form.boulderGrade.id,
                     topRopeGradeId = $scope.form.topRopeGrade.id,
@@ -132,7 +140,7 @@ angular.module('SETTER')
 
                 RoutesService.createRoute(
                     $scope.gymId,
-                    $scope.wallId,
+                    zone,
                     name,
                     colorId,
                     type,
@@ -147,16 +155,22 @@ angular.module('SETTER')
                         $scope.form.topRopeGrade = $scope.ropeGrades[0];
                         $scope.form.leadGrade = $scope.ropeGrades[0];
                         $scope.form.color = $scope.colors[0].id;
-                        $scope.form.setter = $scope.setters[0];
                         $scope.form.note = "";
                         $scope.form.name = "";
-                        $rootScope.closeRouteModal();
+
+                        angular.element(".created-modal").foundation('reveal', 'open', {animation: 'fade'});
+                        $timeout(function () {
+                          angular.element(".created-modal").foundation('reveal', 'close', {animation: 'fade'});
+                        }, 1000);
+
+                        // $rootScope.closeRouteModal();
                         $rootScope.refreshWall = true;
                     });
             };
 
             $scope.saveClicked = function () {
                 var name = $scope.form.name,
+                    zone = $scope.form.zone.id,
                     type = $scope.form.type.id,
                     boulderGradeId = $scope.form.boulderGrade.id,
                     topRopeGradeId = $scope.form.topRopeGrade.id,
@@ -169,7 +183,7 @@ angular.module('SETTER')
 
                 RoutesService.updateRoute(
                     $scope.gymId,
-                    $scope.wallId,
+                    zone,
                     $scope.routeId,
                     name,
                     colorId,
@@ -230,25 +244,31 @@ angular.module('SETTER')
                         $scope.setters = pData;
                         $scope.form.setter = pData[0];
                     });
+
+                WallsService.getWallsInGym($scope.gymId, function (pData) {
+                    $scope.zones = pData;
+                    $scope.form.zone = pData[0];
+                });
+
+                $q.all([
+                  getBoulderGradesPromise,
+                  getRopeGradesPromise,
+                  getColorsPromise,
+                  getSettersPromise
+                ], function () {
+                    loadRouteData();
+                });
             };
 
-            $q.all([
-              getBoulderGradesPromise,
-              getRopeGradesPromise,
-              getColorsPromise,
-              getSettersPromise
-            ], function () {
-                loadRouteData();
-            });
-
             loadRouteData = function () {
-                if (!$scope.isEditMode) {
+                if (!$scope.routeId) {
                     return;
                 }
 
                 RoutesService.getRoute($scope.routeId)
                     .success(function (pData) {
                         $scope.form.type = findEntry(pData.type, $scope.types);
+                        $scope.form.zone = findEntry(pData.zone, $scope.zones);
                         $scope.form.boulderGrade = findEntry(pData.boulder_grade_id, $scope.boulderGrades);
                         $scope.form.topRopeGrade = findEntry(pData.toprope_grade_id, $scope.ropeGrades);
                         $scope.form.leadGrade = findEntry(pData.lead_grade_id, $scope.ropeGrades);

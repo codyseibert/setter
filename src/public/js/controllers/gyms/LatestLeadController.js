@@ -39,9 +39,7 @@ angular.module('SETTER')
                 $rootScope.navigateToWalls($scope.gymId);
             };
 
-            $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
-                $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            };
+            $scope.openRouteModal = $rootScope.openRouteModal;
 
             $scope.latestLeadBlankState = {
                 user: {

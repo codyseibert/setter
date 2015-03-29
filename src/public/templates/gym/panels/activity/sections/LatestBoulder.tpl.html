@@ -7,7 +7,7 @@
 
         <tr bindonce
             ng-repeat="route in latestBoulder"
-            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)"
+            ng-click="openRouteModal(route)"
             ng-include
             src=" 'templates/gym/panels/activity/sections/LatestRoutes.tpl.html' ">
         </tr>

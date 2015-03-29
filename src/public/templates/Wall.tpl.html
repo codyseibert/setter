@@ -8,7 +8,7 @@
             <!-- [] Back to Manage Zones -->
             <button class="[ btn--secondary btn--medium right ] icon-left-big"
                     ng-click="navigateToWalls(gymId)"
-                    ng-click="toggleModal()"; 
+                    ng-click="toggleModal()";
                     >
                 <span ng-show="isGymAccount()">
                     Manage
@@ -86,7 +86,7 @@
 <section class="row">
 
     <div class="columns animate">
-     
+
         <!-- Gyms - Wall Actions for Medium up  -->
         <div class="row"
              ng-show="getAccountId() === gymId"
@@ -120,7 +120,7 @@
        </div>
 
          <div  class="row small-collapse large-uncollapse">
-            
+
             <div class="small-12 columns"  ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
                 <!-- Routes Table Inserted Here-->
 
@@ -152,7 +152,7 @@
 
 
 
-<off-canvas-modal type="right" is-showing="offCanvasModalShown">
+<!-- <off-canvas-modal type="right" is-showing="offCanvasModalShown">
 
      <div
         ng-show="isLoggedIn()"
@@ -161,7 +161,7 @@
         ng-controller="RouteController">
       </div>
 
-</off-canvas-modal>
+</off-canvas-modal> -->
 
 
 <!-- Hidden Form used by Image Upload -->

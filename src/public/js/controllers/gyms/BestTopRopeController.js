@@ -40,9 +40,7 @@ angular.module('SETTER')
                 $scope.navigateToWalls($scope.gymId);
             };
 
-            $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
-                $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            };
+            $scope.openRouteModal = $rootScope.openRouteModal;
 
             $scope.bestTopRopeBlankState = {
                 user: {

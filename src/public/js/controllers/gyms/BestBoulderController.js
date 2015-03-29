@@ -23,18 +23,6 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
 
-            $scope.routeSelected = false;
-            $scope.$watch(function() {
-
-                return SelectedRouteService.offCanvasModalShown;
-
-            }, function(newValue, oldValue) {
-                console.log(newValue, oldValue);
-                $scope.offCanvasModalShown = newValue; 
-
-            });
-
-
             var showForUser = function () {
                 return $scope.bestBoulder !== undefined &&
                     $scope.bestBoulder.length === 0 &&
@@ -55,31 +43,7 @@ angular.module('SETTER')
                 $scope.navigateToWalls($scope.gymId);
             };
 
-            $scope.navigateToRoute = function(pGymId, pWallId, pRouteId) {
-                $rootScope.navigateToRoute(pGymId, pWallId, pRouteId);
-            };
-
-
-            /* 
-
-                Functions to hide/toggle modal on page
-            */
-            $scope.selectRoute = function(route) {
-                $scope.routeSelected = route;
-                SelectedRouteService.setSelectedRoute(route);
-                SelectedRouteService.offCanvasModalShown = true; 
-                console.log($scope.routeSelected);
-            };
-
-            $scope.closeRoute = function () {
-                console.log('hey');
-                SelectedRouteService.hideModal(); 
-            };
-
-            $scope.isRouteSelected = function() {
-                return $scope.routeSelected;
-            };
-
+            $scope.openRouteModal = $rootScope.openRouteModal;
 
             $scope.bestBoulderBlankState = {
                 user: {

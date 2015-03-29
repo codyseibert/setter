@@ -142,6 +142,7 @@ angular.module('SETTER', [
         'RoutesService',
         'LoginService',
         'DateFormatService',
+        'SelectedRouteService',
         function (
             $rootScope,
             $location,
@@ -152,7 +153,8 @@ angular.module('SETTER', [
             WallsService,
             RoutesService,
             LoginService,
-            DateFormatService
+            DateFormatService,
+            SelectedRouteService
         ) {
             'use strict';
 
@@ -603,5 +605,22 @@ angular.module('SETTER', [
                 $timeout(function () {
                     $rootScope.$apply();
                 }, 1000);
+            };
+
+            $rootScope.isRouteModalOpen = function () {
+                return $rootScope.routeSelected;
+            };
+
+            $rootScope.openRouteModal = function (route) {
+                // Hack needed to fix the activity not containing similar id structure
+                if (route.route_id !== undefined) {
+                    route.id = route.route_id;
+                }
+                $rootScope.routeSelected = route;
+                SelectedRouteService.setSelectedRoute(route);
+            };
+
+            $rootScope.closeRouteModal = function () {
+                $rootScope.routeSelected = null;
             };
         }]);

@@ -8,10 +8,10 @@
         <tr bindonce
             ng-repeat="route in bestLead"
             class="list--tableStyle  list--navElem"
-            ng-click="navigateToRoute(route.gym_id, route.wall_id, route.id)"
+            ng-click="openRouteModal(route)"
             ng-include
             src=" 'templates/gym/panels/activity/sections/BestRatedRoutes.tpl.html' ">
-            
+
         </tr>
 
     </tbody>

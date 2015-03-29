@@ -41,24 +41,24 @@
 
 <div class="sticky">
     <nav class="tab-bar hide-for-large-up sticky"  ng-show="isLoggedIn()" ng-cloak >
-    
+
             <div class="left-small">
-    
+
                 <a class="left-off-canvas-toggle menu-icon" >
                     <span></span>
                 </a>
-    
+
             </div>
-    
+
             <div class="right tab-bar-section">
-    
+
                 <img src="images/setter-logo.svg"
                      height="40px"
                      width="40px"
                      alt="Setter"
                      class="text-right  mr2">
             </div>
-    
+
     </nav>
 </div>
         <!-- Menus -->
@@ -79,7 +79,7 @@
 
 
         <!--Topbar for large desktop-->
-       
+
         <div class="sticky  show-for-large-up ng-hide"  ng-show="isLoggedIn()" ng-cloak>
 
             <div class="topBar-stripe section--primary  show-for-large-up"></div>
@@ -87,7 +87,7 @@
             <nav class="top-bar"
                  data-topbar
                  >
-                  
+
                 <div class="row">
                  <!-- Left Nav Section -->
                     <div class="small-9 columns">
@@ -219,6 +219,16 @@
     </div>
 
 </div>
+
+<off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isRouteModalOpen()">
+
+     <div
+        ng-include
+        src=" 'templates/Route.tpl.html' "
+        ng-controller="RouteController">
+      </div>
+
+</off-canvas-modal>
 
 
     <!-- build:remove -->

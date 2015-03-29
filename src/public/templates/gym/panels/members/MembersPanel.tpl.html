@@ -16,7 +16,7 @@
 
         <p class="h3 text-center mt4">
 
-            Currently there are no climbers with your gym set as a home gym, start getting feedback on your routes & problems by <span class="fwb">telling your climbers to sign up</span>! 
+            Currently there are no climbers with your gym set as a home gym, start getting feedback on your routes & problems by <span class="fwb">telling your climbers to sign up</span>!
         </p>
 
         <p class="h5 text-center">- Team at Setter</p>
@@ -24,45 +24,45 @@
 
     </div>
 
-    <div class="small-12 columns">
+    <div class="small-12 columns ng-hide">
 
         <h1 class="fwl h2">Climber Grades</h1>
 
     </div>
 
-    <div class="row  pb4">
+    <div class="row  pb4 ng-hide">
 
         <div class="small-12 medium-4 columns">
-        
+
             <!-- Current Boulderers Graph -->
             <div class="small-12 medium-6 large-4 columns"
                 ng-include
                 src= " 'templates/gym/panels/members/graphs/boulderersDist.tpl.html' "
                 ng-controller="BoulderRoutesGraphController">
             </div>
-        
+
         </div>
-        
+
         <div class="small-12 medium-4 columns">
-             
+
             <!-- Current Top Ropers Graph -->
             <div class="small-12 medium-6 large-4 columns"
                 ng-include
                 src= " 'templates/gym/panels/members/graphs/topRopersDist.tpl.html' "
                 ng-controller="BoulderRoutesGraphController">
             </div>
-        
+
         </div>
-        
+
         <div class="small-12 medium-4 columns">
-            
+
             <!-- Current Leaders Graph -->
             <div class="small-12 medium-6 large-4 columns"
                 ng-include
                 src= " 'templates/gym/panels/members/graphs/leadersDist.tpl.html' "
                 ng-controller="BoulderRoutesGraphController">
             </div>
-        
+
         </div>
 
     </div>

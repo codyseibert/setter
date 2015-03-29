@@ -26,22 +26,20 @@
 
                         <!-- Grade -->
                         {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
+
+                        <!-- New -->
+                        <span class="border-radius  ml2  [ label round  success ] "
+                               ng-show="isUserAccount() && route.isNew">New
+                        </span>
+
+                        <!-- Sent -->
+                        <span class="ml2 fwb" ng-show="route.send">Sent</span>
+
+
                     </span>
 
                 </td>
 
-
-                 <!-- Sent -->
-                <td class="fwb ">
-                      <span ng-show="route.send">Sent</span>
-                </td>
-
-                <!-- New -->
-                <td>
-                    <span class="icon--new label  success  border-radius"
-                           ng-show="isUserAccount() && route.isNew">New
-                    </span>
-                </td>
 
                 <!-- Stars -->
                 <td class="ptb2">

@@ -1,5 +1,5 @@
 
-//Extends from modules/all.scss 
+//Extends from modules/all.scss
 /*------------------------------------*\
     #Typography
 \*------------------------------------*/
@@ -7,7 +7,7 @@
 
 html,
 body {
-  color: $color--text; 
+  color: $color--text;
   font-size: rem-calc(14);
   @media #{$medium-up} {
     font-size: rem-calc(16);
@@ -17,7 +17,7 @@ body {
 
 // .debugging {
 
-//   color: yellow; 
+//   color: yellow;
 // }
 
 //
@@ -41,12 +41,12 @@ hr {
 //
 
 .tdn { text-decoration: none; }
-.fwb { font-weight: $bold; } 
+.fwb { font-weight: $bold; }
 .fwn { font-weight: $normal; }
 .fwl { font-weight: $light; }
 
 .txtc2 {
-  color: $grey--medium; 
+  color: $grey--medium;
 }
 
 
@@ -54,58 +54,58 @@ hr {
 //Defined h and hN sizing through placeholders
 //
 
-h1, 
-.h1 { 
-    @extend %h1; 
+h1,
+.h1 {
+    @extend %h1;
 }
 
-h2, 
-.h2 { 
-    @extend %h2; 
+h2,
+.h2 {
+    @extend %h2;
 }
 
-h3, 
-.h3 { 
-    @extend %h3; 
+h3,
+.h3 {
+    @extend %h3;
 }
 
-h4, 
-.h4 { 
-    @extend %h4; 
+h4,
+.h4 {
+    @extend %h4;
 }
 
-h5, 
-.h5 { 
-    @extend %h5; 
+h5,
+.h5 {
+    @extend %h5;
 }
 
-h6, 
-.h6 { 
-    @extend %h6; 
+h6,
+.h6 {
+    @extend %h6;
 }
 
 
 //
-//Text Bigger Than Headers 
+//Text Bigger Than Headers
 //
 
-.txt--mega { 
-    @extend %text--mega; 
+.txt--mega {
+    @extend %text--mega;
 }
 
 //
-//Samllest Text 
+//Samllest Text
 //
 
-.txt--micro { 
-    @extend %text--micro; 
+.txt--micro {
+    @extend %text--micro;
 }
 
 
 
-a { 
+a {
     @include transition(all .2s ease-in-out);
-    color: $primaryColor; 
+    color: $primaryColor;
 
     &:hover {
         color: darken($primaryColor, 15%);
@@ -113,12 +113,12 @@ a {
 }
 
 
-.title--main { 
-  font-weight: $light; 
+.title--main {
+  font-weight: $light;
 }
 
 .text-left-onMediumDown {
-    
+
 }
 
 
@@ -131,5 +131,5 @@ a {
 
 // .title3 {
 //   color: $primaryColor;
-  
+
 // }

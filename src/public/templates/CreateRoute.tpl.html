@@ -1,3 +1,14 @@
+
+<div class="created-modal reveal-modal small  text-center"
+     data-reveal
+     style="border-radius: 30px;">
+
+    <h1 class="h2">
+        Route Added!
+    </h1>
+
+</div>
+
 <!--
     CONTENT
 -->
@@ -70,6 +81,17 @@
                 Editing Route
             </h1>
 
+            <div class="flag  mb1">
+                <h3 class="h4  flag-image">Zone</h3>
+
+                <div class="flag-body">
+                    <label class="[ select--medium select--secondary ] right">
+                        <select ng-model="form.zone"
+                                ng-options="zone.name for zone in zones">
+                        </select>
+                    </label>
+                </div>
+            </div>
 
             <div class="flag  mb1">
                 <h3 class="h4  flag-image">Type</h3>
@@ -168,7 +190,7 @@
             <flag class="mb1">
 
                 <h3 class="h4  flag-image  nowrap">Route Name</h3>
-                
+
                 <div class="flag-body">
                     <input type="text" ng-model="form.name"
                         placeholder="Enter name if applicable"/>

@@ -150,20 +150,5 @@ angular.module('SETTER')
                 WallsService.setWallDirty($scope.wallId);
             };
 
-            // $scope.selectRoute = function(route) {
-            //     $scope.routeSelected = route;
-            //     SelectedRouteService.setSelectedRoute(route);
-            //     SelectedRouteService.offCanvasModalShown = true;
-            // };
-
-            $scope.closeRoute = function () {
-                console.log('closed');
-                SelectedRouteService.hideModal();
-            };
-
-            $scope.isRouteSelected = function() {
-                return $scope.routeSelected;
-            };
-
             $scope.authorization = LoginService.getHeader();
         }]);

@@ -32,17 +32,15 @@ angular.module('SETTER')
                 return;
             }
 
-            $scope.gymId = parseInt($routeParams.gymId, 10);
-            $scope.wallId = $routeParams.wallId;
-            $scope.routeId = SelectedRouteService.getSelectedRoute();
             $scope.newValue = 0;
 
             $scope.$watch(function () {
                 return SelectedRouteService.getSelectedRoute();
-
             }, function (newValue, oldValue) {
                 if (newValue !== oldValue) {
                     $scope.routeId = newValue.id;
+                    $scope.gymId = newValue.gym_id;
+                    $scope.wallId = newValue.wall_id;
                     $scope.loading = true;
                     loadRouteData();
                 }
@@ -201,7 +199,8 @@ angular.module('SETTER')
             };
 
             $scope.edit = function () {
-                $scope.navigateToEditRoute($scope.gymId, $scope.wallId, $scope.routeId);
+                var route = SelectedRouteService.getSelectedRoute();
+                $scope.navigateToEditRoute(route.gym_id, route.wall_id, route.route_id);
             };
 
             $scope.delete = function () {

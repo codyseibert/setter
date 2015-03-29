@@ -125,6 +125,10 @@
   @include icon($icon--thrash);
 }
 
+.icon-checked {
+    @include icon($icon--check); 
+}
+
 [href*="twitter.com"], [rel="twitter-link"] {
   @include icon($icon--twitter);
 }

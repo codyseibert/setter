@@ -23,6 +23,8 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.walls = [];
 
+            console.log($scope.walls); 
+
             $scope.form = {
                 filter: ''
             };
@@ -32,7 +34,7 @@ angular.module('SETTER')
             });
 
             $scope.hasWalls = function () {
-                return $scope.walls.length > 0;
+                return $scope.walls.length >= 0;
             };
 
             $scope.addClicked = function () {

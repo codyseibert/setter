@@ -13,7 +13,6 @@ angular.module('SETTER')
         'UsersService',
         'LoginService',
         'AlertsService',
-        'SelectedRouteService',
         function (
             $scope,
             $routeParams,
@@ -24,8 +23,8 @@ angular.module('SETTER')
             BarGraphHelperService,
             UsersService,
             LoginService,
-            AlertsService,
-            SelectedRouteService
+            AlertsService
+            
         ) {
             'use strict';
 
@@ -42,6 +41,8 @@ angular.module('SETTER')
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
             $scope.LEAD = 'Lead';
+
+
 
             // Displaying Tab Logic
             $scope.PANEL_ACTIVITY = 'activity';
@@ -308,34 +309,8 @@ angular.module('SETTER')
                 }
             };
 
-            $scope.selectRoute = function(route) {
-                $scope.routeSelected = route;
-                SelectedRouteService.setSelectedRoute(route);
-                setTimeout(function() {
-                    $scope.offCanvasModalShown = true;  
-
-                    }, 200); 
-
-            };
-
-            $scope.isRouteSelected = function() {
-                return $scope.routeSelected;
-            };
 
 
-            /* 
 
-                Functions to hide/toggle modal on page
-            */
 
-            $scope.toggleModal = function() {
-                console.log('toggling');
-                
-                $scope.offCanvasModalShown = !$scope.offCanvasModalShown; 
-
-            }; 
-
-            $scope.hideModal = function() {
-                $scope.offCanvasModalShown = false;  
-            };
         }]);

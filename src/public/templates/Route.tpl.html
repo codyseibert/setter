@@ -42,48 +42,47 @@
 <section class="row ">
 
     <div class="small-12 columns">
-
-        <div class="display--block row"
-             ng-show="isGymAccount()"
-             data-ui-component="route-actions">
         
-            <div class="right">
+        <div class="row" >
+        
+            <div class="small-12 columns" >
 
-                <button class="[ btn--secondary  btn--medium ] icon-pencil"
-                        ng-click="edit()"
-                        ng-hide="isEditMode">
-                    Edit Route
-                </button>
+                <div class="right ng-hide" 
+                     ng-show="isGymAccount()" 
+                     data-ui-component="route-actions">
+
+                    <button class="[ btn--secondary  btn--small ] icon-pencil"
+                            ng-click="edit()"
+                            ng-hide="isEditMode">
+                        Edit
+                    </button>
+                        
+                    <button class="btn--secondary btn--small icon-down-big "
+                            ng-click="strip()">
+                        Strip Route
+                    </button>
                     
-                <button class="btn--secondary btn--medium icon-down-big "
-                        ng-click="strip()">
-                    Strip Route
-                </button>
+                     <span class=" right h2 icon-cancel" ng-click="closeRoute()">
+                        
+                    </span>    
 
-                <span class="h3 icon-cancel" ng-click="toggleModal()">
+                </div>
+
+                <div class="right ng-hide" ng-show="isUserAccount()">
+                                        
+                     <span class=" right h2 icon-cancel" ng-click="closeRoute()">
+                        
+                    </span>    
                     
-                </span>
-            </div>
-            
-        </div>
-        
-        <div class="row">
-        
-            <div class="small-12 columns">
-        
-                <h1 class="h2 fwb mt0 left">
-                    Route Information
-                </h1>
-
-
-                 <span class=" right h2 icon-cancel" ng-click="closeRoute()">
-                    
-                </span>    
+                </div>
 
             </div>
+
         
         </div>
-            <hr>
+        
+        <hr>
+        
     </div>
  
 </section>
@@ -116,9 +115,12 @@
 
         </div>
 
+        <h1 class="h3 fwb left">
+            Route Information
+        </h1>
 
         <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Avg. Rating
                 </h3>
 
@@ -141,7 +143,7 @@
 
             <div class="flag  mb3">
 
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Name
                 </h3>
 
@@ -156,7 +158,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Grade
                 </h3>
 
@@ -168,7 +170,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Color
                 </h3>
 
@@ -183,7 +185,7 @@
             </div>
 
              <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Zone
                 </h3>
 
@@ -195,7 +197,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image">
                     Setter
                 </h3>
 
@@ -210,7 +212,7 @@
             </div>
 
             <div class="flag  mb3">
-                <h3 class="flag-image">
+                <h3 class="h4 flag-image nowrap">
                     Date Set
                 </h3>
 

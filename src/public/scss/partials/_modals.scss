@@ -28,18 +28,24 @@
 .offCanvasModal {
     @extend %dropshadow--middleLayer; 
     @extend %transitionForOffCanvas;
+    @extend %pt4;
     @include translateX(100vw);
     position: fixed;
     width: 90%; /* Default */
     top: 0;
-    padding-top: rem-calc(80); 
     background-color: #fff;
     z-index: 5; 
     height: 100%; 
     overflow-y: scroll; 
+    margin-top: rem-calc(60); /*Height of top-bar on small/medium*/
 
     @media #{$medium-up} {
         width: 50%;     
+    }
+
+    @media #{$large-up} {
+        margin-top: rem-calc(70); /*Height of top-bar on large*/
+        width: 44%; 
     }
 }
 

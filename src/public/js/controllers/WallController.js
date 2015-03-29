@@ -161,7 +161,7 @@ angular.module('SETTER')
             };
 
             $scope.closeRoute = function () {
-                console.log('hey');
+                console.log('closed');
                 SelectedRouteService.hideModal(); 
             };
 

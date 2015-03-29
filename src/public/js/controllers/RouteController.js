@@ -45,6 +45,8 @@ angular.module('SETTER')
                     $scope.routeId = newValue.id;
                     $scope.loading = true; 
                     loadRouteData();
+                    console.log('loaded route data!');  
+                    console.log($scope.routeId);
                 }
             });
 
@@ -63,7 +65,7 @@ angular.module('SETTER')
             }());
 
             var loadRouteData = function () {
-
+                console.log("begun loading data");
                 var a =  RoutesService.setRouteAsViewed($scope.routeId)
                     .success(function (pData) {
                         WallsService.setWallsDirty($scope.gymId);
@@ -118,7 +120,10 @@ angular.module('SETTER')
 
                 $q.all([a, b, c, d, e, f, g]).then(function() {
                     $scope.loading = false; 
+                    console.log('turned to false b');
                 });
+                console.log($scope.loading);
+                console.log("ended loading data");
             }
 
             $scope.addComment = function () {

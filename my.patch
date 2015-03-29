@@ -1,0 +1,24 @@
+diff --git a/src/public/templates/Route.tpl.html b/src/public/templates/Route.tpl.html
+index faac055..54643ec 100755
+--- a/src/public/templates/Route.tpl.html
++++ b/src/public/templates/Route.tpl.html
+@@ -308,7 +308,8 @@
+ 
+         </div>
+ 
+-        <div ng-hide="isGymAccount()">
++        <div class="pb5" ng-hide="isGymAccount()">
++
+             <textarea class="textarea--small"
+                       ng-model="form.message"
+                       placeholder="comment">
+@@ -318,7 +319,9 @@
+                     ng-click="addComment()">
+                 Post Comment
+             </button>
++
+         </div>
++
+     </div>
+ 
+ </section>

@@ -24,7 +24,7 @@ angular.module('SETTER')
             UsersService,
             LoginService,
             AlertsService
-            
+
         ) {
             'use strict';
 
@@ -37,6 +37,7 @@ angular.module('SETTER')
                 createLeadRoutesBarGraph;
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
+            $rootScope.gymId = $scope.gymId;
 
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
@@ -72,7 +73,7 @@ angular.module('SETTER')
             $scope.users = [];
 
             $scope.routeSelected = false;
-            $scope.offCanvasModalShown = false; 
+            $scope.offCanvasModalShown = false;
 
             /*
             *   SECTION - Gym related service calls

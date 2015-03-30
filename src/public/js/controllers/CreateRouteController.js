@@ -32,10 +32,6 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            if (!LoginService.validateLoggedIn()) {
-                return;
-            }
-
             var getBoulderGradesPromise,
                 getRopeGradesPromise,
                 getColorsPromise,
@@ -81,6 +77,15 @@ angular.module('SETTER')
                 if (newValue) {
                   $scope.gymId = newValue;
                   init();
+                }
+            });
+
+            $scope.$watch(function () {
+                return $rootScope.wallId;
+            }, function (newValue, oldValue) {
+                if (newValue) {
+                  $scope.wallId = newValue;
+                  $scope.form.zone = findEntry($scope.wallId, $scope.zones);
                 }
             });
 
@@ -264,11 +269,10 @@ angular.module('SETTER')
                 if (!$scope.routeId) {
                     return;
                 }
-
                 RoutesService.getRoute($scope.routeId)
                     .success(function (pData) {
                         $scope.form.type = findEntry(pData.type, $scope.types);
-                        $scope.form.zone = findEntry(pData.zone, $scope.zones);
+                        $scope.form.zone = findEntry(pData.wall_id, $scope.zones);
                         $scope.form.boulderGrade = findEntry(pData.boulder_grade_id, $scope.boulderGrades);
                         $scope.form.topRopeGrade = findEntry(pData.toprope_grade_id, $scope.ropeGrades);
                         $scope.form.leadGrade = findEntry(pData.lead_grade_id, $scope.ropeGrades);
@@ -294,5 +298,9 @@ angular.module('SETTER')
                 }
                 return pArray[0];
             };
+
+            if ($rootScope.gymId) {
+                init();
+            }
 
         }]);

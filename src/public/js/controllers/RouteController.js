@@ -30,10 +30,6 @@ angular.module('SETTER')
         ) {
             'use strict';
 
-            if (!LoginService.validateLoggedIn()) {
-                return;
-            }
-
             $scope.newValue = 0;
 
             $scope.$watch(function () {
@@ -50,7 +46,7 @@ angular.module('SETTER')
 
             $scope.form = {};
             $scope.stars = [];
-            $scope.comments = []; 
+            $scope.comments = [];
 
             var i;
 
@@ -136,7 +132,7 @@ angular.module('SETTER')
             };
 
             $scope.hasComments = function() {
-                return $scope.comments.length > 0; 
+                return $scope.comments.length > 0;
             };
 
 

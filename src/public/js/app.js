@@ -403,6 +403,12 @@ angular.module('SETTER', [
                     $rootScope.slideInRight = true;
                 }
 
+                if ($rootScope.currentPageIsZone()) {
+                  $rootScope.hideZoneDropDown = true;
+                } else {
+                  $rootScope.hideZoneDropDown = false;
+                }
+
                 // TODO: FIX ME
                 $('.page').removeClass('slide-in-right');
                 $('.page').removeClass('slide-in-left');

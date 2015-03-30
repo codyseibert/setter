@@ -68,16 +68,19 @@ var RoutesController = function () {
         setterId = pReq.body.setterId;
         note = pReq.body.note || '';
 
-        if (boulderGradeId === -1) {
-            boulderGradeId = null;
-        }
-
-        if (topRopeGradeId === -1) {
+        if (type === 0) {
             topRopeGradeId = null;
+            leadGradeId = null;
         }
 
-        if (leadGradeId === -1) {
+        if (type === 1) {
+            boulderGradeId = null;
             leadGradeId = null;
+        }
+
+        if (type === 2) {
+            topRopeGradeId = null;
+            boulderGradeId = null;
         }
 
         callback = theControllerHelper.createDefaultCallback(pRes);
@@ -122,16 +125,19 @@ var RoutesController = function () {
         setterId = pReq.body.setterId;
         note = pReq.body.note || '';
 
-        if (boulderGradeId === -1) {
-            boulderGradeId = null;
-        }
-
-        if (topRopeGradeId === -1) {
+        if (type === 0) {
             topRopeGradeId = null;
+            leadGradeId = null;
         }
 
-        if (leadGradeId === -1) {
+        if (type === 1) {
+            boulderGradeId = null;
             leadGradeId = null;
+        }
+
+        if (type === 2) {
+            topRopeGradeId = null;
+            boulderGradeId = null;
         }
 
         callback = theControllerHelper.createDefaultCallback(pRes);

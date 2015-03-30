@@ -65,7 +65,7 @@
 
 
 
-<section class="row" data-ui-component="route-editInformation">
+<section class="row" ng-show="hasSetters()" data-ui-component="route-editInformation">
 
     <div class="small-12 columns">
 
@@ -81,7 +81,7 @@
                 Editing Route
             </h1>
 
-            <div class="flag  mb1">
+            <div class="flag  mb1" ng-hide="hideZoneDropDown">
                 <h3 class="h4  flag-image">Zone</h3>
 
                 <div class="flag-body">

@@ -12438,6 +12438,12 @@ ul[data-pie-id] {
 #content {
   min-height: 37.5rem;
 }
+@media only screen and (min-width: 64.063em) {
+  /* line 125, ../scss/partials/_sections.scss */
+  #content {
+    margin-top: 4.375rem;
+  }
+}
 
 /*------------------------------------*\
     #Placeholders

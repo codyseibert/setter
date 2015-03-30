@@ -124,6 +124,11 @@
 
 #content {
     min-height: rem-calc(600); 
+
+    @media #{$large-up} {
+        margin-top: rem-calc(70); 
+
+    }
 }
 
 // .background--photo {

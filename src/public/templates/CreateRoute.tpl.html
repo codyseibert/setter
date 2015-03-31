@@ -65,14 +65,13 @@
 
 
 
-<section class="row" ng-show="hasSetters()" data-ui-component="route-editInformation">
+<section class="row  pb5" ng-show="hasSetters()" data-ui-component="route-editInformation">
 
     <div class="small-12 columns">
 
         <div class="fieldwrapper">
 
             <h1 class="h3  fwb" ng-hide="isEditMode">
-                <img src="images/icon--drill--black.svg" alt="" class="mr2">
                 Set Route
             </h1>
 
@@ -203,7 +202,7 @@
             <input type="text"  ng-model="form.note"
                 placeholder="note">
 
-            <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared mb4"
+            <button class="btn--primary  btn--medium  btn--expanded  icon-plus-squared"
                 ng-click="addClicked()"
                 ng-hide="isEditMode">
                 Add Route

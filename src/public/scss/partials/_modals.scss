@@ -37,14 +37,14 @@
     z-index: 5; 
     height: 100%; 
     overflow-y: scroll; 
-    margin-top: rem-calc(60); /*Height of top-bar on small/medium*/
+    margin-top: rem-calc(50); /*Height of top-bar on small/medium*/
 
     @media #{$medium-up} {
         width: 50%;     
     }
 
     @media #{$large-up} {
-        margin-top: rem-calc(70); /*Height of top-bar on large*/
+        margin-top: rem-calc(60); /*Height of top-bar on large*/
         width: 44%; 
     }
 }

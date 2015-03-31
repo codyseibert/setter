@@ -119,15 +119,23 @@
 
 
 /*------------------------------------*\
-    #Container
+    #Containers
 \*------------------------------------*/
 
 #content {
-    min-height: rem-calc(600); 
+    min-height: rem-calc(900); 
+    margin-top: rem-calc(60);
 
     @media #{$large-up} {
         margin-top: rem-calc(70); 
+    }
+}
 
+.splashContainer {
+    margin-top: rem-calc(-60); 
+
+    @media #{$large-up} {
+        margin-top: rem-calc(-70); 
     }
 }
 

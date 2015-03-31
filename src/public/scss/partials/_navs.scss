@@ -89,7 +89,7 @@ body
   // @include background-image(linear-gradient($from 10%, $to 70%));
   background-color: $primaryColor;
   height: rem-calc(60);
-
+  z-index: 6; 
   .tab-bar-link {
     &:hover {
       color: darken($tabbar-bg, 3%);
@@ -97,6 +97,7 @@ body
 
 
   }
+
 }
 
 .tab-bar .menu-icon {
@@ -243,6 +244,9 @@ z-index: 10;
 .side-menu {
     @include transition(transform 200ms cubic-bezier(0,.71,.72,.97));
 
+    margin-top: rem-calc(60); 
+    z-index: 4;
+
     a {
         margin-left: rem-calc(6);
     }
@@ -266,6 +270,7 @@ z-index: 10;
     }
 
     @extend %dropshadow; 
+    @extend %fixed; 
 }
 
 

@@ -26,7 +26,7 @@
 
 
 .offCanvasModal {
-    @extend %dropshadow--middleLayer; 
+    @extend %dropshadow--topLayer; 
     @extend %transitionForOffCanvas;
     @extend %pt4;
     @include translateX(100vw);

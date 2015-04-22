@@ -462,7 +462,7 @@
 
 .header {
   @include grid-column(12);
-  @extend %mt3;
+  @extend %mt4;
   @extend %mb2;
   @extend %clearfix;
   

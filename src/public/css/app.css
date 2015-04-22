@@ -604,12 +604,12 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
 }
 
 /* line 235, ../scss/modules/_generics.scss */
-.header, .mt3 {
+.mt3 {
   margin-top: rem-calc(24) !important;
 }
 
 /* line 239, ../scss/modules/_generics.scss */
-.mt4 {
+.header, .mt4 {
   margin-top: rem-calc(36) !important;
 }
 
@@ -8455,12 +8455,12 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
 }
 
 /* line 235, ../scss/modules/_generics.scss */
-.header, .mt3 {
+.mt3 {
   margin-top: 1.5rem !important;
 }
 
 /* line 239, ../scss/modules/_generics.scss */
-.mt4 {
+.header, .mt4 {
   margin-top: 2.25rem !important;
 }
 

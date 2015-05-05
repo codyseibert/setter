@@ -70,8 +70,16 @@
 
 </section>
 
+<div class="center" style="width: 80px; height: 80px; position: relative " ng-show="loading" 
+us-spinner>
+
+</div>
+
 <!-- NG Repeat Zone List -->
-<div class="row  small-collapse  large-uncollapse">
+<div class="row  small-collapse  large-uncollapse"  ng-hide="loading">
+    
+  
+
     <!-- User - Blank State Copy -->
     <section class="small-12 columns ng-hide" ng-show="!hasWalls() && getAccountId() !== gymId">
 
@@ -197,6 +205,7 @@
     <div class="small-12 columns">
 
         <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList">
+
             <li class="ptb2" ng-repeat="wall in walls"
                     ng-click="navigateToWall(gymId, wall.id)"
                     ng-hide="wall.hide">

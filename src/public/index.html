@@ -148,6 +148,12 @@
                             data-dropdown-content>
                             <!--Show For Gyms Only-->
                             <li ng-show="isGymAccount()"
+                                ng-click="navigateToAlerts(getAccountId())">
+                                <a class="icon-megaphone">
+                                    Gym Announcements</a>
+                            </li>
+
+                            <li ng-show="isGymAccount()"
                             ng-click="navigateToGymSuggestions(getAccountId())">
 
                                 <a class="icon-messaging ">Suggestions

@@ -143,6 +143,7 @@ angular.module('SETTER')
                 SendsService.createSend($scope.routeId)
                     .success(function () {
                         $scope.hasSent = true;
+                        $rootScope.sendRoute = $scope.routeId;
 
                         $scope.sends.push({
                             account_id: $scope.getAccountId(),
@@ -168,6 +169,7 @@ angular.module('SETTER')
                         }
 
                         $scope.hasSent = false;
+                        $rootScope.unsendRoute = $scope.routeId;
                     });
             };
 

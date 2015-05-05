@@ -15,6 +15,7 @@ angular.module('SETTER')
         '$rootScope',
         '$interval',
         '$routeParams',
+        '$filter',
         'RoutesService',
         'WallsService',
         'DateFormatService',
@@ -25,6 +26,7 @@ angular.module('SETTER')
             $rootScope,
             $interval,
             $routeParams,
+            $filter,
             RoutesService,
             WallsService,
             DateFormatService,
@@ -72,6 +74,32 @@ angular.module('SETTER')
                 };
             });
 
+            $scope.$watch(function() {
+                return $rootScope.sendRoute;
+            }, function(newValue, oldValue) {
+                if (newValue !== null) {
+                    var found;
+                    found = $filter('filter')($scope.routes, {id: newValue}, true);
+                    if (found.length) {
+                      found[0].send = true;
+                    }
+                    $rootScope.sendRoute = null;
+                };
+            });
+
+            $scope.$watch(function() {
+                return $rootScope.unsendRoute;
+            }, function(newValue, oldValue) {
+                if (newValue !== null) {
+                    var found;
+                    found = $filter('filter')($scope.routes, {id: newValue}, true);
+                    if (found.length) {
+                      found[0].send = null;
+                    }
+                    $rootScope.unsendRoute = null;
+                };
+            });
+
             /*
                 REST Calls
             */
@@ -84,6 +112,14 @@ angular.module('SETTER')
             /*
                 Button Callbacks
             */
+            $scope.openRouteModal = function (route) {
+                var found;
+                $rootScope.openRouteModal(route);
+
+                found = $filter('filter')($scope.routes, {id: route.id}, true);
+                found[0].isNew = null;
+            };
+
             $scope.edit = function () {
                 $scope.isEditMode = !$scope.isEditMode;
                 $scope.form.name = $scope.wall.name;

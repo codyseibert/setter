@@ -45,8 +45,6 @@ angular.module('SETTER')
                 init;
 
             $scope.gymId = $rootScope.gymId;
-            // $scope.wallId = $routeParams.wallId;
-            // $scope.routeId = $routeParams.routeId;
 
             $scope.$watch(function () {
                 return SelectedRouteService.getSelectedRoute();
@@ -83,9 +81,9 @@ angular.module('SETTER')
             $scope.$watch(function () {
                 return $rootScope.wallId;
             }, function (newValue, oldValue) {
-                if (newValue) {
+                if (newValue && $scope.zones) {
                   $scope.wallId = newValue;
-                  $scope.form.zone = findEntry($scope.wallId, $scope.zones);
+                  init();
                 }
             });
 
@@ -254,6 +252,10 @@ angular.module('SETTER')
                 WallsService.getWallsInGym($scope.gymId, function (pData) {
                     $scope.zones = pData;
                     $scope.form.zone = pData[0];
+
+                    if ($scope.wallId) {
+                      $scope.form.zone = findEntry($scope.wallId, $scope.zones);
+                    }
                 });
 
                 $q.all([

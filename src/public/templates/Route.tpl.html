@@ -198,6 +198,7 @@
             </div>
 
             <div class="flag  mb3">
+
                 <h3 class="h4 flag-image">
                     Setter
                 </h3>
@@ -213,6 +214,7 @@
             </div>
 
             <div class="flag  mb3">
+
                 <h3 class="h4 flag-image nowrap">
                     Date Set
                 </h3>
@@ -241,26 +243,37 @@
 
 
 <section class="row" ng-hide="loading">
-    <div class="small-12 columns  ">
+
+    <div class="small-12 columns ">
+
         <h2 class="fwl">
             Route Sends ({{sends.length}})
         </h2>
+
     </div>
 
     <div class="small-12 columns  mb4">
+
         <div class="flag  mb2"
              ng-repeat="send in sends">
 
-            <div class=" flag-image"
-                 ng-click="navigateToUser(send.account_id)">
-                <img class="avatar--small"
+            <div class="flag-image">
+
+                <img class="avatar--tiny avatar"
                      ng-src="{{getUserImageSrc(send)}}">
+
             </div>
 
             <div class="flag-body">
-                {{send.name}}
+
+                <a ng-click="navigateToUser(send.account_id)">
+                    {{send.name}}
+                </a>
+
             </div>
+
         </div>
+
     </div>
 
 </section>

@@ -170,6 +170,7 @@ angular.module('SETTER')
 
                         $rootScope.closeRouteModal();
                         $rootScope.refreshWall = true;
+                        WallsService.setWallsDirty($scope.gymId);
                     });
             };
 

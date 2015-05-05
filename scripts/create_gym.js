@@ -7,10 +7,10 @@ var randomstring = require('just.randomstring');
 var USER_TYPE = 2;
 var TOKEN = randomstring(20);
 
-var EMAIL = "info@x-tremerock.com";
-var GYM_NAME = "X-Treme";
-var ADDRESS = "13972 SW 139 Court, Miami, FL 33186";
-var PASSWORD = "helloxtreme";
+var EMAIL = "awingo@totalclimbing.com";
+var GYM_NAME = "Boulder Rock Club";
+var ADDRESS = "2829 Mapleton Avenue, Boulder, CO 80301";
+var PASSWORD = "hellobrc";
 
 theCrypt.crypt(PASSWORD, function (err, hash) {
 

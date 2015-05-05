@@ -2,11 +2,16 @@
 
 angular.module('SETTER')
     .directive('starRating', function() {
-
         return {
-            restrict: 'E',
+            restrict: 'A',
+            scope: {
+                rating: '='
+            },
+            replace: true,
+            // transclude: true,
             templateUrl: 'templates/StarRating.tpl.html',
-            replace: true
+            controller: 'StarRatingController',
+            link: function(scope, element, attrs)  {
+            }
         };
-
 });

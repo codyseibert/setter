@@ -100,6 +100,19 @@ angular.module('SETTER')
                 };
             });
 
+            $scope.$watch(function() {
+                return $rootScope.routeRated;
+            }, function(newValue, oldValue) {
+                if (newValue) {
+                    var found;
+                    found = $filter('filter')($scope.routes, {id: newValue[0]}, true);
+                    if (found.length) {
+                      found[0].rating = newValue[1];
+                    }
+                    $rootScope.routeRated = null;
+                };
+            }, true);
+
             /*
                 REST Calls
             */

@@ -58,6 +58,16 @@ angular.module('SETTER')
                 }
             }());
 
+            var loadRating = function () {
+              return RatingsService.getRatingForRoute($scope.routeId)
+                .success(function (pData) {
+                    $scope.rating = Math.round(pData.rating * 10) / 10;
+                    $scope.ratingCount = pData.count;
+
+                    $rootScope.routeRated = [$scope.routeId, $scope.rating]
+                });
+            };
+
             var loadRouteData = function () {
                 var a =  RoutesService.setRouteAsViewed($scope.routeId)
                     .success(function (pData) {
@@ -80,13 +90,7 @@ angular.module('SETTER')
                     });
 
 
-                var d = RatingsService.getRatingForRoute($scope.routeId)
-                        .success(function (pData) {
-                            $scope.rating = Math.round(pData.rating * 10) / 10;
-                            $scope.ratingCount = pData.count;
-                        });
-
-
+                var d = loadRating()
 
                 var e = RatingsService.hasRated($scope.routeId)
                     .success(function (pData) {
@@ -182,6 +186,8 @@ angular.module('SETTER')
                     .success(function () {
                         $scope.hasRated = true;
                         angular.element(".modal").foundation('reveal', 'close');
+
+                        loadRating();
                     });
             };
 

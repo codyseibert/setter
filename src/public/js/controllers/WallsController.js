@@ -42,9 +42,11 @@ angular.module('SETTER')
                     .success(function (pData) {
                         $scope.walls.push({
                             name: wallName,
-                            id: pData.id
+                            id: pData.id,
+                            route_count: 0
                         });
                         $scope.form.wallName = "";
+                        WallsService.setWallsDirty($scope.gymId);
                     });
             };
 

@@ -1,65 +1,68 @@
 <div class="splashContainer">
     <div class="section--primary">
-    
+
     </div>
-    
+
     <div class="section--login">
         <section class="row pt4 ">
-    
+
             <div class="columns small-12 text-center">
                 <img src="images/setter-logo.svg" alt="Setter" class="saddie--small [ center  mb3 ] ">
             </div>
-    
+
         </section>
-    
-    
+
+
         <section class="row">
-    
+
             <div class="columns small-12 medium-6 large-5 medium-centered">
-    
+
                 <div class="fieldWrapper  mb2">
-    
-                    <label for="" class="label--block fwb">Email</label>
-                    <input ng-model="form.email" placeholder="email" type="email"/>
-    
-                    <label for="" class="label--block fwb">Password</label>
-                    <input ng-model="form.password" ng-keydown="down($event)" placeholder="password" type="password" class="mb0"/>
-    
-                    <div class="mb3 txt--micro  fwb">
-                        <a
-                            ng-click="navigateToPasswordReset()">Forgot your Password?
-                        </a>
-                    </div>
-    
-                    <div class="panel warning" ng-show="error">
-    
-                        <div class="flag">
-    
-                            <div class="flag-image pr1">
-                                <h4 class="h2 icon  icon-alert"></h4>
-                            </div>
-    
-                            <div class="flag-body">
-                                <h4 class="title">{{error}}</h4>
-                            </div>
-    
-                        </div>
-    
-                    </div>
-    
-    
-                    <button class="btn--secondary  btn--medium  btn--expanded "
-                            ng-click="login()">
-                        LOGIN
-                    </button>
-    
+                    <form>
+                      <label for="" class="label--block fwb">Email</label>
+                      <input ng-model="form.email" placeholder="email" type="email"/>
+
+                      <label for="" class="label--block fwb">Password</label>
+                      <input ng-model="form.password" placeholder="password" type="password" class="mb0"/>
+
+                      <div class="mb3 txt--micro  fwb">
+                          <a
+                              ng-click="navigateToPasswordReset()">Forgot your Password?
+                          </a>
+                      </div>
+
+                      <div class="panel warning" ng-show="error">
+
+                          <div class="flag">
+
+                              <div class="flag-image pr1">
+                                  <h4 class="h2 icon  icon-alert"></h4>
+                              </div>
+
+                              <div class="flag-body">
+                                  <h4 class="title">{{error}}</h4>
+                              </div>
+
+                          </div>
+
+                      </div>
+
+
+                      <button class="btn--secondary  btn--medium  btn--expanded "
+                              type="submit"
+                              ng-click="login()"
+                              ng-submit="login()">
+                          LOGIN
+                      </button>
+                    </form>
+
                 </div>
             </div>
                 <div class="small-12 medium-6 large-5 columns medium-centered text-center   ">
                     <h1 class="mb2 fwb">Setter</h1>
                     <p class="txt--micro">© 2015 Guillermo Martinez & Cody Seibert </p>
                 </div>
-    
+
         </section>
     </div>
 </div>

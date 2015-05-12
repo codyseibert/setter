@@ -38,7 +38,8 @@
             </li>
 
             <li class="tab-title  [ small-4  columns ] text-center"
-                ng-class="{'active': currentTab === PANEL_CLIMBERS}">
+                ng-class="{'active': currentTab === PANEL_CLIMBERS}"
+                ng-click="refreshCharts()">
 
                 <a ng-click="setCurrentTab(PANEL_CLIMBERS)">
                     <i class="icon-group"></i>
@@ -91,5 +92,3 @@
     <input name="authorization"
         value="{{authorization}}"></input>
 </form>
-
-

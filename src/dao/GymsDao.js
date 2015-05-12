@@ -32,6 +32,15 @@ var GymsDao = function () {
         );
     };
 
+    this.getGymUsersBoulderingGrades = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT ?',
+            [pGymId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
     this.getGyms = function (pCallback) {
         theDaoHelper.executeQuery(
             'SELECT i.url, g.account_id, g.name, g.address FROM gyms g ' +

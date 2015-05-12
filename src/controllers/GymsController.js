@@ -38,6 +38,13 @@ var GymsController = function () {
         theGymsDao.getGymImage(gymId, callback);
     };
 
+    this.getGymUsersBoulderingGrades = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getGymUsersBoulderingGrades(gymId, callback);
+    };
 
 
 

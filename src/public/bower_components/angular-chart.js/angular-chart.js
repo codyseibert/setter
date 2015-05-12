@@ -83,14 +83,10 @@
         colours: '=',
         chartType: '=',
         legend: '@',
-        click: '=',
-        reset: '='
+        click: '='
       },
       link: function (scope, elem, attrs) {
-        var chart,
-            container = document.createElement('div'),
-            theLastChartType = null;
-
+        var chart, container = document.createElement('div');
         container.className = 'chart-container';
         elem.replaceWith(container);
         container.appendChild(elem[0]);
@@ -101,61 +97,80 @@
           }
         }
 
-        scope.$watch('reset', function (newVal, oldVal) {
-            console.log("reset called");
-            if (newVal != oldVal) {
-                chart.destroy();
-                chart = createChart(theLastChartType, scope, elem);
-            }
-        })
-
         scope.$watch('data', function (newVal, oldVal) {
-          if (! newVal || ! newVal.length || (hasDataSets(type) && ! newVal[0].length)) return;
+          if (! newVal || ! newVal.length || (Array.isArray(newVal[0]) && ! newVal[0].length)) return;
           var chartType = type || scope.chartType;
-          theLastChartType = typeType;
           if (! chartType) return;
 
           if (chart) {
-            if (canUpdateChart(chartType, newVal, oldVal)) return updateChart(chart, chartType, newVal, scope);
+            if (canUpdateChart(newVal, oldVal)) return updateChart(chart, newVal, scope);
             chart.destroy();
           }
 
           chart = createChart(chartType, scope, elem);
         }, true);
 
+        scope.$watch('series', resetChart, true);
+        scope.$watch('labels', resetChart, true);
+        scope.$watch('options', resetChart, true);
+
         scope.$watch('chartType', function (newVal, oldVal) {
           if (! newVal) return;
           if (chart) chart.destroy();
           chart = createChart(newVal, scope, elem);
         });
+
+        scope.$on('$destroy', function () {
+          if (chart) chart.destroy();
+        });
+
+        function resetChart (newVal, oldVal) {
+          if (isEmpty(newVal)) return;
+          var chartType = type || scope.chartType;
+          if (! chartType) return;
+
+          // chart.update() doesn't work for series and labels
+          // so we have to re-create the chart entirely
+          if (chart) chart.destroy();
+
+          chart = createChart(chartType, scope, elem);
+        }
       }
     };
   }
 
-  function canUpdateChart(type, newVal, oldVal) {
+  function canUpdateChart(newVal, oldVal) {
     if (newVal && oldVal && newVal.length && oldVal.length) {
-      return hasDataSets(type) ?
+      return Array.isArray(newVal[0]) ?
         newVal.length === oldVal.length && newVal[0].length === oldVal[0].length :
-        newVal.length === oldVal.length;
+        oldVal.reduce(sum, 0) > 0 ? newVal.length === oldVal.length : false;
     }
     return false;
   }
 
+  function sum (carry, val) {
+    return carry + val;
+  }
+
   function createChart (type, scope, elem) {
+    if (! scope.data || ! scope.data.length) return;
     var cvs = elem[0], ctx = cvs.getContext("2d");
-    var data = hasDataSets(type) ?
+    var data = Array.isArray(scope.data[0]) ?
       getDataSets(scope.labels, scope.data, scope.series || [], scope.colours) :
       getData(scope.labels, scope.data, scope.colours);
     var chart = new Chart(ctx)[type](data, scope.options || {});
     if (scope.click) {
       cvs.onclick = function (evt) {
-        if (chart.getPointsAtEvent || chart.getSegmentsAtEvent) {
-          var activePoints = hasDataSets(type) ? chart.getPointsAtEvent(evt) : chart.getSegmentsAtEvent(evt);
+        var click = chart.getPointsAtEvent || chart.getBarsAtEvent || chart.getSegmentsAtEvent;
+
+        if (click) {
+          var activePoints = click.call(chart, evt);
           scope.click(activePoints, evt);
+          scope.$apply();
         }
       };
     }
-    if (scope.legend) setLegend(elem, chart);
+    if (scope.legend && scope.legend !== 'false') setLegend(elem, chart);
     return chart;
   }
 
@@ -167,8 +182,8 @@
     else $parent.append(legend);
   }
 
-  function updateChart (chart, type, values, scope) {
-    if (hasDataSets(type)){
+  function updateChart (chart, values, scope) {
+    if (Array.isArray(scope.data[0])){
         chart.datasets.forEach(function (dataset, i) {
           if (scope.colours) updateColours(dataset, scope.colours[i]);
           (dataset.points || dataset.bars).forEach(function (dataItem, j) {
@@ -192,10 +207,6 @@
     item.pointStrokeColor = colour.pointStrokeColor;
   }
 
-  function hasDataSets (type) {
-    return ['Line', 'Bar', 'Radar'].indexOf(type) > -1;
-  }
-
   function getDataSets (labels, data, series, colours) {
     colours = colours || Chart.defaults.global.colours;
     return {
@@ -212,7 +223,8 @@
   function clone (obj) {
     var newObj = {};
     for (var key in obj) {
-      if (obj.hasOwnProperty(key)) newObj[key] = obj[key];
+      if (obj.hasOwnProperty(key))
+        newObj[key] = obj[key];
     }
     return newObj;
   }
@@ -227,6 +239,12 @@
         highlight: colours[i].pointHighlightStroke
       };
     });
+  }
+
+  function isEmpty (value) {
+    return ! value ||
+      (Array.isArray(value) && ! value.length) ||
+      (typeof value === 'object' && ! Object.keys(value).length);
   }
 
 })();

@@ -83,6 +83,8 @@ angular.module('SETTER')
             });
 
             var loadClimberPanelData = function () {
+
+              
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
                 var i;
                 for (i = 0; i < pData.length; i += 1) {
@@ -92,6 +94,8 @@ angular.module('SETTER')
                 }
                 $scope.users = pData;
               });
+
+
             };
 
 
@@ -301,8 +305,10 @@ angular.module('SETTER')
             $scope.authorization = LoginService.getHeader();
 
             $scope.setCurrentTab = function (pCurrentTab) {
+                // Visually switch between tabs on the UI
                 $scope.currentTab = pCurrentTab;
 
+                // Precache the data
                 if (pCurrentTab === $scope.PANEL_STATS) {
                   loadStatisticsPanelData();
                 } else if (pCurrentTab === $scope.PANEL_CLIMBERS) {

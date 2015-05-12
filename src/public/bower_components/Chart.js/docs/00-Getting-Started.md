@@ -28,7 +28,7 @@ require(['path/to/Chartjs'], function(Chart){
 You can also grab Chart.js using bower:
 
 ```bash
-bower install chartjs --save
+bower install Chart.js --save
 ```
 
 ###Creating a chart
@@ -132,6 +132,9 @@ Chart.defaults.global = {
 	// Boolean - Determines whether to draw tooltips on the canvas or not
 	showTooltips: true,
 
+	// Function - Determines whether to execute the customTooltips function instead of drawing the built in tooltips (See [Advanced - External Tooltips](#advanced-usage-custom-tooltips))
+	customTooltips: false,
+
 	// Array - Array of string names to attach tooltip events
 	tooltipEvents: ["mousemove", "touchstart", "touchmove"],
 
@@ -180,7 +183,7 @@ Chart.defaults.global = {
 	// String - Template string for single tooltips
 	tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
 	{% endraw %}
-	// String - Template string for single tooltips
+	// String - Template string for multiple tooltips
 	multiTooltipTemplate: "<%= value %>",
 
 	// Function - Will fire on animation progression.

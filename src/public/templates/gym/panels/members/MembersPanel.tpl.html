@@ -24,70 +24,62 @@
 
     </div>
 
-    <div class="small-12 columns ng-hide">
+    <div class="small-12 columns">
 
         <h1 class="fwl h2">Climber Grades</h1>
 
     </div>
 
-    <div class="row  pb4 ng-hide">
-
-        <div class="small-12 medium-4 columns">
+    <div class="row  pb4">
 
             <!-- Current Boulderers Graph -->
             <div class="small-12 medium-6 large-4 columns"
                 ng-include
-                src= " 'templates/gym/panels/members/graphs/boulderersDist.tpl.html' "
-                ng-controller="BoulderRoutesGraphController">
+                src= " 'templates/gym/panels/members/graphs/BoulderersDist.tpl.html' "
+                ng-controller="UserBoulderGradeDistController">
             </div>
-
-        </div>
-
-        <div class="small-12 medium-4 columns">
 
             <!-- Current Top Ropers Graph -->
             <div class="small-12 medium-6 large-4 columns"
                 ng-include
-                src= " 'templates/gym/panels/members/graphs/topRopersDist.tpl.html' "
-                ng-controller="BoulderRoutesGraphController">
+                src= " 'templates/gym/panels/members/graphs/BoulderersDist.tpl.html' "
+                ng-controller="UserLeadGradeDistController">
             </div>
-
-        </div>
-
-        <div class="small-12 medium-4 columns">
 
             <!-- Current Leaders Graph -->
             <div class="small-12 medium-6 large-4 columns"
                 ng-include
-                src= " 'templates/gym/panels/members/graphs/leadersDist.tpl.html' "
-                ng-controller="BoulderRoutesGraphController">
+                src= " 'templates/gym/panels/members/graphs/BoulderersDist.tpl.html' "
+                ng-controller="UserTopRopeGradeDistController">
             </div>
-
-        </div>
 
     </div>
 
-    <div class="small-6 medium-3 large-3 columns   pb4"
-        ng-repeat="user in users"
-        ng-click="navigateToUser(user.id)">
+    <div class="row  pb4">
 
-        <div class="flag">
+      <div class="small-6 medium-3 large-3 columns   pb4"
+          ng-repeat="user in users"
+          ng-click="navigateToUser(user.id)">
 
-            <div class="flag-image pr2">
+          <div class="flag">
 
-                <img class="avatar avatar--small  center mb1"
-                ng-src="{{getUserImageSrc(user)}}">
+              <div class="flag-image pr2">
 
-            </div>
+                  <img class="avatar avatar--small  center mb1"
+                  ng-src="{{getUserImageSrc(user)}}">
 
-            <div class="flag-body">
+              </div>
 
-                <a class="h5  display--block  center">{{user.name}}</a>
+              <div class="flag-body">
 
-            </div>
+                  <a class="h5  display--block  center">{{user.name}}</a>
 
-        </div>
+              </div>
 
-    </div>
+          </div>
+
+      </div>
+
+    <div>
 
 </section>

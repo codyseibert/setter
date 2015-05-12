@@ -7,6 +7,7 @@ angular.module('SETTER')
 
         return {
             generateRouteCountGraphData: function (pData) {
+
                 var dataObject = {},
                     i,
                     route,

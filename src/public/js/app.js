@@ -5,6 +5,7 @@ angular.module('SETTER', [
     'ngCookies',
     'ngAnimate',
     'ngUpload',
+    'ngResource',
     'chart.js',
     'pasvaz.bindonce',
     'angularSpinner',

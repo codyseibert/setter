@@ -170,6 +170,10 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GymsController.getHomeGymUsers);
 
+    app.get('/api/gyms/:gymId/users/grades/bouldering',
+        InjectAccountId,
+        GymsController.getGymUsersBoulderingGrades);
+
     app.get('/api/gyms/:gymId/image',
         InjectAccountId,
         GymsController.getGymImage);

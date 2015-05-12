@@ -1,12 +1,17 @@
 # angular-chart.js
 
-Beautiful, reactive, responsive charts for Angular.JS using Chart.js. [Demo](http://jtblin.github.io/angular-chart.js/)
+Beautiful, reactive, responsive charts for Angular.JS using [Chart.js](http://www.chartjs.org/). [Demo](http://jtblin.github.io/angular-chart.js/)
 
 # Installation
 
     bower install angular-chart.js --save
     
-or copy the files from `dist/`.
+or copy the files from `dist/`. Then add the sources to your code (adjust paths as needed):
+
+```html
+<script src="/bower_components/Chart.js/Chart.min.js"></script>
+<script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+```
 
 # Utilisation
 
@@ -71,14 +76,34 @@ angular.module("app", ["chart.js"]).controller("LineCtrl", ['$scope', '$timeout'
 }]);
 ```
 
+## Reactive
+
+angular-chart.js watch updates on data, series, labels and options and will update, or destroy and recreate, 
+the chart on changes.
+
 # Contributing
 
-Open issues in [github](https://github.com/jtblin/angular-chart.js/issues). 
-Preferably add a link to a plunker, jsbin, or equivalent. Pull requests welcome.
+**Issues or feature requests for Chart.js (e.g. new chart type, new axis, etc.) need to be opened on 
+[Chart.js issues tracker](https://github.com/nnnick/Chart.js/issues)**
+ 
+Open issues in [github](https://github.com/jtblin/angular-chart.js/issues). **Please add a link to a plunker, jsbin, 
+or equivalent.** Here is a [jsbin template](http://jsbin.com/dufibi/3/edit?html,js,output) for convenience.
+ 
+Pull requests welcome!
+
+## Contributors
+
+Thank you!
+
+* @ManuelRauber
+* @vad710
+* @JAAulde
+* @offsky
+* @jonathansampson
 
 # Author
 
-Jerome Touffe-Blin, [@jtblin](https://twitter.com/jtlbin), [About me](http://about.me/jtblin)
+Jerome Touffe-Blin, [@jtblin](https://twitter.com/jtblin), [About me](http://about.me/jtblin)
 
 # License
 

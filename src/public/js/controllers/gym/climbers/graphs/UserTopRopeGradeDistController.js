@@ -4,23 +4,22 @@
 angular.module('SETTER')
     .controller('UserTopRopeGradeDistController', [
         '$scope',
-        '$rootScope',
         '$routeParams',
-        'RoutesService',
-        'GymsService',
-        'DateFormatService',
-        'SelectedRouteService',
+        'GymUsersService',
+        'BarGraphHelperService',
         function (
             $scope,
-            $rootScope,
             $routeParams,
-            RoutesService,
-            GymsService,
-            DateFormatService,
-            SelectedRouteService
+            GymUsersService,
+            BarGraphHelperService
+
         ) {
             'use strict';
 
-            $scope.gymId = parseInt($routeParams.gymId, 10);
+            var gymId = parseInt($routeParams.gymId);
+
+            $scope.topRope = GymUsersService.getTopRope().query({gymId: $routeParams.gymId}, function() {
+                $scope.graph = BarGraphHelperService.generateRouteCountGraphData($scope.topRope);
+            });
 
         }]);

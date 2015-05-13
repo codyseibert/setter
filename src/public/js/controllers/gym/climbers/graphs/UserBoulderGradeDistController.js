@@ -7,16 +7,22 @@ angular.module('SETTER')
         '$routeParams',
         'GymUsersService',
         'BarGraphHelperService',
+        'RoutesService',
         function (
             $scope,
             $routeParams,
             GymUsersService,
-            BarGraphHelperService
+            BarGraphHelperService,
+            RoutesService
 
         ) {
             'use strict';
 
             var gymId = parseInt($routeParams.gymId);
-            $scope.data = GymUsersService.query();
+
+            $scope.boulderers = GymUsersService.getBouldering().query({gymId: $routeParams.gymId}, function() {
+                $scope.graph = BarGraphHelperService.generateRouteCountGraphData($scope.boulderers);
+            });
+
 
         }]);

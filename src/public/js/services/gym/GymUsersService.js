@@ -2,8 +2,33 @@
 /*global angular: false, btoa: false, console: false, confirm: false, moment: false */
 
 angular.module('SETTER')
-    .factory('GymUsersService', ['$resource', function ($resource) {
+    .factory('GymUsersService', 
+        ['$resource', function($resource) {
 
-        return $resource('api/gyms/:id/users/grades/bouldering', {id: '@id'}, {});
+        return {
+
+            getBouldering : function() {
+                //GymUsersService.getBouldering().query(); to get all of bouldering
+                return $resource('api/gyms/:gymId/routes/boulder', 
+                        {id: "@gymId"},
+                        {});
+            },
+
+            getTopRope : function() {
+
+                return $resource('api/gyms/:gymId/routes/toprope', 
+                        {id: "@gymId"},
+                        {});
+            },
+
+            getLead : function() {
+                return $resource('api/gyms/:gymId/routes/lead', 
+                        {id: "@gymId"},
+                        {})
+            }
+        } 
 
     }]);
+
+
+

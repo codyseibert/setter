@@ -5,11 +5,13 @@ angular.module('SETTER')
     .controller('BoulderSendsGraphController', [
         '$scope',
         '$routeParams',
+        '$timeout',
         'UsersService',
         'BarGraphHelperService',
         function (
             $scope,
             $routeParams,
+            $timeout,
             UsersService,
             BarGraphHelperService
         ) {
@@ -18,12 +20,27 @@ angular.module('SETTER')
 
             UsersService.getBoulderSends($scope.userId)
                 .success(function (pData) {
+                  console.log(pData);
                     var data;
                     data = BarGraphHelperService.generateRouteCountGraphData(pData);
+
                     $scope.boulderSendsBarGraph = {
                         labels: data.labels,
                         data: data.data,
                         hasData: data.data[0].length > 0
                     };
-                });
-        }]);
+
+
+            });
+
+
+            $scope.graphHasData = function() {
+               if($scope.boulderSendsBarGraph.hasData) {
+                return true
+              } else if (!$scope.boulderSendsBarGraph.hasData) {
+                return false;
+              }
+            };
+
+
+}]);

@@ -20,9 +20,10 @@ angular.module('SETTER')
 
             var gymId = parseInt($routeParams.gymId);
 
-            $scope.boulderers = GymUsersService.getBouldering().query({gymId: $routeParams.gymId}, function() {
-                $scope.graph = BarGraphHelperService.generateRouteCountGraphData($scope.boulderers);
+            GymUsersService.getBouldering().query({gymId: gymId}, function(pData) {
+                pData.$promise.then(function(data) {
+                    $scope.graph = BarGraphHelperService.labelParams(data);
+                });
             });
-
 
         }]);

@@ -19,8 +19,9 @@ angular.module('SETTER')
 
             var gymId = parseInt($routeParams.gymId);
 
-            $scope.leaders = GymUsersService.getLead().query({gymId: $routeParams.gymId}, function() {
-                $scope.graph = BarGraphHelperService.generateRouteCountGraphData($scope.leaders);
+            GymUsersService.getLead().query({gymId: gymId}, function(pData) {
+                pData.$promise.then(function(data) {
+                    $scope.graph = BarGraphHelperService.labelParams(data, true);
+                });
             });
-
         }]);

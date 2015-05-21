@@ -6,6 +6,24 @@ angular.module('SETTER')
         'use strict';
 
         return {
+            labelParams: function (pData, isRope){
+                var i;
+                var labels = [];
+                var dataArray = [];
+                for (i = 0; i < pData.length; i += 1) {
+                  var data = pData[i];
+                  if (!data.grade) continue;
+                  dataArray.push(data.count);
+                  var prefix = 'V'
+                  if (isRope)
+                    prefix = '5.'
+                  labels.push(prefix + data.grade);
+                }
+                return {
+                    labels: labels,
+                    data: [dataArray]
+                };
+            },
             generateRouteCountGraphData: function (pData) {
 
                 var dataObject = {},

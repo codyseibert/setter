@@ -21,10 +21,19 @@ angular.module('SETTER')
                 .success(function (pData) {
                     var data;
                     data = BarGraphHelperService.generateRouteCountGraphData(pData);
-                    $scope.topropeSendsBarGraph = {
+                    $scope.topRopeSendsBarGraph = {
                         labels: data.labels,
                         data: data.data,
                         hasData: data.data[0].length > 0
                     };
                 });
+
+
+                $scope.graphHasData = function() {
+                   if($scope.topRopeSendsBarGraph.hasData) {
+                    return true
+                  } else if (!$scope.topRopeSendsBarGraph.hasData) {
+                    return false;
+                  }
+                };
         }]);

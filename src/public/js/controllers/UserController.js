@@ -29,6 +29,12 @@ angular.module('SETTER')
 
             UsersService.getUser($scope.userId, function (pData) {
                 $scope.user = pData;
+                if (pData.bouldering_grade)
+                  $scope.boulderGrade = 'V' + parseFloat(pData.bouldering_grade).toFixed(0);
+                if (pData.toprope_grade)
+                  $scope.topRopeGrade = '5.' + parseFloat(pData.toprope_grade).toFixed(0);
+                if (pData.lead_grade)
+                  $scope.leadGrade = '5.' + parseFloat(pData.lead_grade).toFixed(0);
             });
 
             UsersService.getUserImage($scope.userId, function (pData) {

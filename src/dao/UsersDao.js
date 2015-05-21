@@ -22,7 +22,7 @@ var UsersDao = function () {
 
     this.getUser = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.account_id, u.firstname, u.lastname, g.account_id AS gym_id, g.name AS gym_name FROM users u ' +
+            'SELECT u.account_id, u.firstname, u.lastname, g.account_id AS gym_id, g.name AS gym_name, bouldering_grade, toprope_grade, lead_grade FROM users u ' +
                 'LEFT JOIN gyms g ON g.account_id = u.gym_id WHERE u.account_id = ?',
             [pUserId],
             theDaoHelper.SINGLE,
@@ -59,6 +59,72 @@ var UsersDao = function () {
             theDaoHelper.INSERT,
             pCallback
         );
+    };
+
+    this.setBoulderGrade = function (pUserId, pBoulderGrade, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE users SET bouldering_grade = ? WHERE account_id = ?',
+            [pBoulderGrade, pUserId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.setTopRopeGrade = function (pUserId, pTopRopeGrade, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE users SET toprope_grade = ? WHERE account_id = ?',
+            [pTopRopeGrade, pUserId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.setLeadGrade = function (pUserId, pLeadGrade, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE users SET lead_grade = ? WHERE account_id = ?',
+            [pLeadGrade, pUserId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
+    this.computeBoulderGrade = function (pUserId, pCallback) {
+      theDaoHelper.executeQuery(
+          'SELECT AVG(g.value) AS grade FROM users u ' +
+            'INNER JOIN sends s ON s.user_id = u.account_id ' +
+            'INNER JOIN routes r ON r.id = s.route_id ' +
+            'INNER JOIN boulder_grades g ON g.id = r.boulder_grade_id ' +
+            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10',
+          [pUserId],
+          theDaoHelper.SINGLE,
+          pCallback
+      );
+    };
+
+    this.computeTopRopeGrade = function (pUserId, pCallback) {
+      theDaoHelper.executeQuery(
+          'SELECT AVG(g.value) AS grade FROM users u ' +
+            'INNER JOIN sends s ON s.user_id = u.account_id ' +
+            'INNER JOIN routes r ON r.id = s.route_id ' +
+            'INNER JOIN rope_grades g ON g.id = r.toprope_grade_id ' +
+            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10',
+          [pUserId],
+          theDaoHelper.SINGLE,
+          pCallback
+      );
+    };
+
+    this.computeLeadGrade = function (pUserId, pCallback) {
+      theDaoHelper.executeQuery(
+          'SELECT AVG(g.value) AS grade FROM users u ' +
+            'INNER JOIN sends s ON s.user_id = u.account_id ' +
+            'INNER JOIN routes r ON r.id = s.route_id ' +
+            'INNER JOIN rope_grades g ON g.id = r.lead_grade_id ' +
+            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10',
+          [pUserId],
+          theDaoHelper.SINGLE,
+          pCallback
+      );
     };
 
     this.getBoulderSends = function (pUserId, pCallback) {

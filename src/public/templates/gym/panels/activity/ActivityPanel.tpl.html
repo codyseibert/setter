@@ -27,7 +27,7 @@
                     <span>
                         {{ typeNewestCurrent }}
                     </span>
-                    
+
                 </label>
 
                 <img role="tooltip"
@@ -165,32 +165,13 @@
 
             <div class="small-12  columns">
 
-                <!-- Best Rated Boulder -->
-                <div
-                    ng-show="typeBest === BOULDERING"
-                    inject-when="true"
-                    inject-template-when-visible
-                    template="templates/gym/panels/activity/sections/BestRatedBoulder.tpl.html"
-                    controller="BestBoulderController">
-                </div>
-
-                <!-- Best Rated Top Rope -->
-                <div
-                    ng-show="typeBest === TOPROPE"
-                    inject-when="true"
-                    inject-template-when-visible
-                    template="templates/gym/panels/activity/sections/BestRatedTopRope.tpl.html"
-                    controller="BestTopRopeController">
-                </div>
-
                 <!-- Best Rated Lead -->
-                <div
-                    ng-show="typeBest === LEAD"
-                    inject-when="true"
-                    inject-template-when-visible
-                    template="templates/gym/panels/activity/sections/BestRatedLead.tpl.html"
-                    controller="BestLeadController">
-                </div>
+                <ss-route-list
+                    ng-show="typeBest === TOPROPE"
+                    type="typeBest"
+                    catagory="best"
+                    limit="5">
+                </ss-route-list>
 
             </div>
 
@@ -204,7 +185,7 @@
 
 
 <section class="row small-collapse large-uncollapse">
-    
+
     <!-- Gym Announcements -->
         <div class="small-12 large-6  columns mb2">
 

@@ -1,0 +1,20 @@
+<div>
+  <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+
+      <tbody>
+
+          <tr bindonce
+              ng-repeat="route in routes | limitTo: limit"
+              class="list--tableStyle  list--navElem"
+              ng-click="openRouteModal(route.id)"
+              ng-include
+              src=" 'templates/gym/panels/activity/sections/BestRatedRoutes.tpl.html' ">
+          </tr>
+
+      </tbody>
+
+  </table>
+
+  <a ng-click="increment()"
+     class="center  h5  text-center">View More +</a>
+</div>

@@ -20,8 +20,8 @@ var theDaoHelper = require('./DaoHelper');
 var GymsDao = function () {
     'use strict';
 
-    var BEST_ROUTES_LIMIT = 5,
-        NEWEST_ROUTES_LIMIT = 5;
+    var BEST_ROUTES_LIMIT = 15,
+        NEWEST_ROUTES_LIMIT = 15;
 
     this.getGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(

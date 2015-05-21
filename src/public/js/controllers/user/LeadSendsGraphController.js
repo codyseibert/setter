@@ -26,4 +26,16 @@ angular.module('SETTER')
                         hasData: data.data[0].length > 0
                     };
                 });
-        }]);
+
+
+
+                            $scope.graphHasData = function() {
+                               if($scope.leadSendsBarGraph.hasData) {
+                                return true
+                              } else if (!$scope.leadSendsBarGraph.hasData) {
+                                return false;
+                              }
+                            };
+
+
+}]);

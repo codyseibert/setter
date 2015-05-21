@@ -12,6 +12,8 @@
 */
 
 var theSendsDao = require('../dao/SendsDao');
+var theRoutesDao = require('../dao/RoutesDao');
+var theUsersDao = require('../dao/UsersDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var SendsController = function () {
@@ -35,6 +37,39 @@ var SendsController = function () {
         theSendsDao.hasSent(userId, routeId, callback);
     };
 
+    var refreshBoulderingGrade = function (pUserId) {
+      theUsersDao.computeBoulderGrade(pUserId, function (pData) {
+        theUsersDao.setBoulderGrade(pUserId, pData.grade, function (pData) {
+        });
+      });
+    };
+
+    var refreshTopRopeGrade = function (pUserId) {
+      theUsersDao.computeTopRopeGrade(pUserId, function (pData) {
+        theUsersDao.setTopRopeGrade(pUserId, pData.grade, function (pData) {
+        });
+      });
+    };
+
+    var refreshLeadGrade = function (pUserId) {
+      theUsersDao.computeLeadGrade(pUserId, function (pData) {
+        theUsersDao.setLeadGrade(pUserId, pData.grade, function (pData) {
+        });
+      });
+    };
+
+    var refreshGrades = function (pUserId, pRouteId) {
+      theRoutesDao.getRoute(pRouteId, function (pData) {
+          if (pData.boulder_grade_id) {
+            refreshBoulderingGrade(pUserId);
+          } else if (pData.toprope_grade_id) {
+            refreshTopRopeGrade(pUserId);
+          } else if (pData.lead_grade_id) {
+            refreshLeadGrade(pUserId);
+          }
+      });
+    };
+
     this.createSend = function (pReq, pRes) {
         var userId,
             routeId,
@@ -42,7 +77,10 @@ var SendsController = function () {
         userId = pReq.user.accountId;
         routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theSendsDao.createSend(userId, routeId, callback);
+        theSendsDao.createSend(userId, routeId, function (pData) {
+          refreshGrades(userId, routeId);
+          callback(pData);
+        });
     };
 
     this.deleteSend = function (pReq, pRes) {
@@ -52,7 +90,10 @@ var SendsController = function () {
         userId = pReq.user.accountId;
         routeId = pReq.params.routeId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theSendsDao.deleteSend(userId, routeId, callback);
+        theSendsDao.deleteSend(userId, routeId, function (pData) {
+          refreshGrades(userId, routeId);
+          callback(pData);
+        });
     };
 };
 

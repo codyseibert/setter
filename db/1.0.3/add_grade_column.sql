@@ -1,0 +1,4 @@
+USE setter;
+ALTER TABLE users ADD COLUMN bouldering_grade FLOAT DEFAULT 0;
+ALTER TABLE users ADD COLUMN toprope_grade FLOAT DEFAULT 0;
+ALTER TABLE users ADD COLUMN lead_grade FLOAT DEFAULT 0;

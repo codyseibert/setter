@@ -148,6 +148,31 @@ angular.module('SETTER')
                         method: 'GET',
                         url: 'api/gyms/' + pGymId + '/routes/lead/new'
                     });
-                }
+                },
+
+
+
+
+                /*
+                *   SECTION - Newest Routes
+                */
+                // getUserTopRopeGrade: function (pGymId) {
+                //     return $http({
+                //         method: 'GET',
+                //         url: 'api/gyms/' + pGymId + '/users/grade/toprope/'
+                //     });
+                // },
+                // getUserTopRopeGrade: function (pGymId) {
+                //     return $http({
+                //         method: 'GET',
+                //         url: 'api/gyms/' + pGymId + '/users/grade/toprope/'
+                //     });
+                // },
+                // getUserTopRopeGrade: function (pGymId) {
+                //     return $http({
+                //         method: 'GET',
+                //         url: 'api/gyms/' + pGymId + '/users/grade/toprope/'
+                //     });
+                // }
             };
         }]);

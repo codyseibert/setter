@@ -32,6 +32,33 @@ var GymsDao = function () {
         );
     };
 
+    this.getGymUsersBoulderingGrades = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT COUNT(*) AS count, ROUND(bouldering_grade) AS grade FROM users u WHERE u.gym_id = ? GROUP BY grade ORDER BY grade ASC',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+    this.getGymUsersTopRopeGrades = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT COUNT(*) AS count, ROUND(toprope_grade) AS grade FROM users u WHERE u.gym_id = ? GROUP BY grade ORDER BY grade ASC',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+    this.getGymUsersLeadGrades = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT COUNT(*) AS count, ROUND(lead_grade) AS grade FROM users u WHERE u.gym_id = ? GROUP BY grade ORDER BY grade ASC',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
     this.getGyms = function (pCallback) {
         theDaoHelper.executeQuery(
             'SELECT i.url, g.account_id, g.name, g.address FROM gyms g ' +

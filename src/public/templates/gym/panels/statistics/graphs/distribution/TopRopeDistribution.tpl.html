@@ -9,7 +9,7 @@
 
             <h3 class='fwl'>
 
-                Not enough routes or problems set yet, <a ng-click="navigateToZones()">go set some</a>!  
+                Not enough routes or problems set yet, <a ng-click="navigateToZones()">go set some</a>!
 
             </h3>
 
@@ -19,7 +19,7 @@
 
             <h3 class='fwl'>
 
-                There are currently no rope routes set, check back later! 
+                There are currently no rope routes set, check back later!
 
             </h3>
 
@@ -32,7 +32,7 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="(zone, grades) in ropeZoneKeys">
+                <tr ng-repeat="zone in ropeZoneKeys">
                     <td>{{zone}}</td>
                     <td ng-repeat="count in ropeCounts[zone] track by $index">{{count || ''}}</td>
                 </tr>

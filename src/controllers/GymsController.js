@@ -38,8 +38,29 @@ var GymsController = function () {
         theGymsDao.getGymImage(gymId, callback);
     };
 
+    this.getGymUsersBoulderingGrades = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getGymUsersBoulderingGrades(gymId, callback);
+    };
 
+    this.getGymUsersTopRopeGrades = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getGymUsersTopRopeGrades(gymId, callback);
+    };
 
+    this.getGymUsersLeadGrades = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getGymUsersLeadGrades(gymId, callback);
+    };
 
     this.getCurrentBoulderRoutes = function (pReq, pRes) {
         var gymId,

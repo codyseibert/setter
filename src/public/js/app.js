@@ -5,6 +5,7 @@ angular.module('SETTER', [
     'ngCookies',
     'ngAnimate',
     'ngUpload',
+    'ngResource',
     'chart.js',
     'pasvaz.bindonce',
     'angularSpinner',
@@ -609,6 +610,8 @@ angular.module('SETTER', [
             };
 
             $rootScope.openRouteModal = function (route) {
+                route = angular.extend({}, route);
+
                 $rootScope.openModal()
 
                 // Hack needed to fix the activity not containing similar id structure

@@ -16,5 +16,14 @@
   </table>
 
   <a ng-click="increment()"
+    ng-hide="incrementLimitReached()"
      class="center  h5  text-center">View More +</a>
+
+       <a ng-click="decrease()"
+    ng-show="incrementLimitReached()"
+     class="center  h5  text-center">Hide Routes - </a>
+
+    
 </div>
+
+

@@ -112,51 +112,9 @@
 
             </div>
 
-            <div class="small-12 columns  text-right">
+            <ss-route-category-selector  active-category="activeCategory">
 
-                <label class="label--inline display--inlineBlock left">
-                    Showing
-                </label>
-
-                <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
-
-                    <span>
-                        {{ typeBestCurrent }}
-                    </span>
-
-                </label>
-
-                <img role="tooltip"
-                     data-tooltip
-                     data-options="disable_for_touch:true"
-                     aria-haspopup="true"
-                     title="Bouldering"
-                     class="opacityHover--lightToDark  mr1  has-tip  tip-top"
-                     ng-class="{'active': typeBest == BOULDERING}"
-                     ng-click="setTypeBest(BOULDERING)"
-                     src="images/icon--bouldering.svg" alt="" height="35px" width="35px">
-
-                <img role="tooltip"
-                     data-tooltip
-                     data-options="disable_for_touch:true"
-                     aria-haspopup="true"
-                     title="Top Rope"
-                     class="opacityHover--lightToDark  mr1  has-tip  tip-top"
-                     ng-class="{'active': typeBest == TOPROPE}"
-                     ng-click="setTypeBest(TOPROPE)"
-                     src="images/icon--topRope.svg" alt="Top Rope" height="35px" width="35px" >
-
-                <img role="tooltip"
-                     data-tooltip
-                     data-options="disable_for_touch:true"
-                     aria-haspopup="true"
-                     title="Lead"
-                     class="opacityHover--lightToDark  mr1  has-tip  tip-top"
-                     ng-class="{'active': typeBest == LEAD}"
-                     ng-click="setTypeBest(LEAD)"
-                     src="images/icon--lead.svg" alt="" height="35px" width="35px">
-
-            </div>
+            </ss-route-category-selector>
 
         </div>
 
@@ -167,9 +125,7 @@
 
                 <!-- Best Rated Lead -->
                 <ss-route-list
-                    ng-show="typeBest === TOPROPE"
-                    type="typeBest"
-                    catagory="best"
+                    active-category="activeCategory"
                     limit="5">
                 </ss-route-list>
 

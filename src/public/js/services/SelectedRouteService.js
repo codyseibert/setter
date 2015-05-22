@@ -14,6 +14,9 @@ angular.module('SETTER')
                 offCanvasModalShown: false,  
 
                 setSelectedRoute: function (route) {
+                        //Checking to see if a route is being received 
+                        //Current no
+                    console.log(route);
                     selectedRoute = route;
                 },
                 getSelectedRoute: function () {

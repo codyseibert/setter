@@ -1,0 +1,55 @@
+<div>
+    <div ng-show="hasData" >
+          <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+
+              <tbody>
+
+                  <tr bindonce
+                      ng-repeat="route in routes | limitTo: limit"
+                      class="list--tableStyle  list--navElem"
+                      ng-click="openRouteModal(route)"
+                      ng-include
+                      src="template">
+                  </tr>
+
+              </tbody>
+
+          </table>
+
+          <a ng-click="clicked()"
+             class="center  h5  text-center"
+             ng-hide="hasLessThanLimit()">{{text}}</a>
+   </div>
+
+
+   <div ng-hide="hasData" class="ng-hide">
+     <div class="relative">
+         <div class="[ placeholder-text  large  ] text-center">
+
+             <div class="vertical-align">
+
+                 <h2 class="h4 fwb mb2">
+                     {{placeholderTitle}}
+                 </h2>
+
+                 <p>
+                     {{placeholderText}}
+                     <br>
+                     <a
+                         ng-click="placeholderClick()"
+                         class="fwb">
+                         {{placeholderLinkTest}}
+                     </a>
+                 </p>
+
+             </div>
+
+         </div>
+
+         <img class="placeholderImage"
+              ng-src="{{placeholderImage}}">
+     </div>
+   </div>
+
+
+</div>

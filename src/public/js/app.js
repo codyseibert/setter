@@ -609,10 +609,7 @@ angular.module('SETTER', [
                 $rootScope.displayModal = false;
             };
 
-                
-
             $rootScope.openRouteModal = function (route) {
-                console.log(route);
                 route = angular.extend({}, route);
 
                 $rootScope.openModal()

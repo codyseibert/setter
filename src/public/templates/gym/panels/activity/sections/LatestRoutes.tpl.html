@@ -13,12 +13,17 @@
 
 </td>
 
+<!-- Rating -->
+<td>
+    <ng-include class="rating  rating--medium  rating--colored"
+    ng-controller="StarRatingController"
+    src=" 'templates/StarRating.tpl.html' ">
+    </ng-include>
+</td>
+
 <!--Date Set-->
 <td >
-    <span class="txt--micro">Set on <br>
-    </span>
     {{route.date | date : 'MMM dd, yyyy'}}
-
 </td>
 
 <td >

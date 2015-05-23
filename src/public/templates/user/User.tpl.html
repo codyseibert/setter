@@ -21,9 +21,38 @@
                     <div class="flag mb2 ">
 
                          <div class="flag-image"
-                              ng-click="getAccountId() === userId && uploadImage()">
+                              ng-click="getAccountId() === userId">
+
+                              <form id="image_form"
+                                  enctype="multipart/form-data"
+                                  action="{{'/api/accounts/image'}}"
+                                  method="post"
+                                  ng-upload="imageUploadComplete(content)">
+
+                                  <input id="image_file"
+                                      class="avatar avatar--big"
+                                      style="position: absolute; top: 28px; opacity: 0"
+                                      type="file"
+                                      name="file"
+                                      onchange="angular.element(this).scope().fileNameChanged()"></input>
+
+                                  <input id="image_submit"
+                                      style="opacity: 0; position: absolute;"
+                                      type="submit"></input>
+
+                                  <input name="authorization"
+                                      style="opacity: 0; position: absolute;"
+                                      value="{{authorization}}"></input>
+                              </form>
+
                              <img class="avatar--big"
+                                  ng-hide="isUploadingImage"
                                   ng-src="{{getUserImageSrc(image)}}">
+
+                              <div class="avatar--big"
+                                   style="position: relative"
+                                   ng-show="isUploadingImage"
+                                   us-spinner></div>
                          </div>
 
                          <div class="flag-body">
@@ -160,21 +189,3 @@
 
 
 </section>
-
-
-
-<!-- hidden -->
-<form id="image_form"
-    style="display: none;"
-    enctype="multipart/form-data"
-    action="{{'/api/accounts/image'}}"
-    method="post"
-    ng-upload="complete(content)">
-    <input id="image_file"
-        type="file"
-        name="file" />
-    <input id="image_submit"
-        type="submit"></input>
-    <input name="authorization"
-        value="{{authorization}}"></input>
-</form>

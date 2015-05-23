@@ -299,6 +299,10 @@ angular.module('SETTER', [
                 return LoginService.getAccountId();
             };
 
+            $rootScope.isGymAdmin = function () {
+                return $rootScope.getAccountId() === gymId
+            };
+
             $rootScope.isLoggedIn = function () {
                 return LoginService.isLoggedIn();
             };

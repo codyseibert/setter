@@ -4,8 +4,8 @@ angular.module('SETTER')
         function() {
 
         return {
-            
-            replace: true, 
+
+            replace: true,
             restrict: 'E',
             require: '^ssRouteCategorySelector',
             templateUrl: 'templates/directives/ssRouteCategoryItem.tpl.html',
@@ -13,7 +13,6 @@ angular.module('SETTER')
                 category: "="
             },
             link: function(scope, element, attrs, ssRouteCategorySelector)  {
-
 
                 scope.makeActive = function() {
                     ssRouteCategorySelector.setActiveCategory(scope.category);
@@ -23,11 +22,8 @@ angular.module('SETTER')
                     return ssRouteCategorySelector.getActiveCategory() === scope.category;
                 };
 
-
             }
 
-
         }
-
 
 }]);

@@ -2,106 +2,47 @@
 
 <section class="row small-collapse  mb2">
 
-    <!-- Newest -->
     <div class="small-12 columns large-6">
 
         <div class="row ">
 
             <div class="small-12  columns">
 
-                <h2 class="fwl  mb2">
-                    Latest Routes & Problems
-                </h2>
+            <h2 class="fwl  mb2">
+                Latest Routes & Problems
+            </h2>
 
             </div>
 
-            <div class="small-12  columns  text-right">
+            <ss-route-category-selector active-category="activeCategoryLatest">
 
-                <label class="label--inline
-                display--inlineBlock left">
-                Showing
-                </label>
-
-                <label class="[ fwb text-right ] label--inline display--inlineBlock mr1">
-
-                    <span>
-                        {{ typeNewestCurrent }}
-                    </span>
-
-                </label>
-
-                <img role="tooltip"
-                     data-tooltip
-                     data-options="disable_for_touch:true"
-
-                     title="Bouldering"
-                     class="opacityHover--lightToDark   mr1  has-tip  tip-top"
-                     ng-click="setTypeNewest(BOULDERING)"
-                     ng-class="{'active': typeNewest == BOULDERING}"
-                     src="images/icon--bouldering.svg" alt="" height="32px" width="32px">
-
-                <img role="tooltip"
-                     data-tooltip
-                     data-options="disable_for_touch:true"
-
-                     title="Top Rope"
-                     class="opacityHover--lightToDark   mr1  has-tip  tip-top"
-                     ng-click="setTypeNewest(TOPROPE)"
-                     ng-class="{'active': typeNewest == TOPROPE}"
-                     src="images/icon--topRope.svg" alt="Top Rope" height="32px" width="32px" >
-
-                <img role="tooltip"
-                     data-tooltip
-                     data-options="disable_for_touch:true"
-
-                     title="Lead"
-                     class="opacityHover--lightToDark   mr1  has-tip  tip-top"
-                     ng-class="{'active': typeNewest == LEAD}"
-                     ng-click="setTypeNewest(LEAD)"
-                     src="images/icon--lead.svg" alt="" height="32px" width="32px">
-            </div>
+            </ss-route-category-selector>
 
         </div>
 
         <div class="row small-collapse large-uncollapse">
 
-            <div class="small-12 columns">
-                <!-- Newest Boulder -->
-                <div
-                    ng-show="typeNewest === BOULDERING"
-                    inject-when="true"
-                    inject-template-when-visible
-                    template="templates/gym/panels/activity/sections/LatestBoulder.tpl.html"
-                    controller="LatestBoulderController">
-                </div>
+          <div class="small-12  columns">
 
-                <!-- Newest Top Rope -->
-                <div
-                    ng-show="typeNewest === TOPROPE"
-                    inject-when="true"
-                    inject-template-when-visible
-                    template="templates/gym/panels/activity/sections/LatestTopRope.tpl.html"
-                    controller="LatestTopRopeController">
-                </div>
+            <ss-route-list
+              active-category="activeCategoryLatest"
+              category="latest"
+              limit="5">
+            </ss-route-list>
 
-                <!-- Newest Lead Routes -->
-                <div
-                    ng-show="typeNewest === LEAD"
-                    inject-when="true"
-                    inject-template-when-visible
-                    template="templates/gym/panels/activity/sections/LatestLead.tpl.html"
-                    controller="LatestLeadController">
-                </div>
-
-            </div>
+          </div>
 
         </div>
-
     </div>
 
+
+
+
+
+
+    <!-- Best -->
     <div class="small-12 large-6 columns">
 
-        <!-- Best -->
         <div class="row ">
 
             <div class="small-12 columns">
@@ -112,20 +53,19 @@
 
             </div>
 
-            <ss-route-category-selector  active-category="activeCategory">
+            <ss-route-category-selector active-category="activeCategoryBest">
 
             </ss-route-category-selector>
 
         </div>
 
-        <!-- Best -->
         <div class="row small-collapse large-uncollapse">
 
             <div class="small-12  columns">
 
-                <!-- Best Rated Lead -->
                 <ss-route-list
-                    active-category="activeCategory"
+                    active-category="activeCategoryBest"
+                    category="best"
                     limit="5">
                 </ss-route-list>
 
@@ -142,24 +82,23 @@
 
 <section class="row small-collapse large-uncollapse">
 
-    <!-- Gym Announcements -->
-        <div class="small-12 large-6  columns mb2">
+      <!-- Gym Announcements -->
+      <div class="small-12 large-6  columns mb2">
 
-            <div class="small-12 columns panel">
+          <div class="small-12 columns panel">
 
-                <ng-include src=" 'templates/gym/panels/activity/sections/GymAnnouncements.tpl.html' ">
-                </ng-include>
+              <ng-include src=" 'templates/gym/panels/activity/sections/GymAnnouncements.tpl.html' ">
+              </ng-include>
 
-            </div>
+          </div>
 
-        </div>
+      </div>
 
 
-<!-- Latest Climber Sends -->
-        <div class="small-12 large-6  columns">
-            <ng-include src=" 'templates/gym/panels/activity/sections/LatestClimberSends.tpl.html' "></ng-include>
-        </div>
-
+      <!-- Latest Climber Sends -->
+      <div class="small-12 large-6  columns">
+          <ng-include src=" 'templates/gym/panels/activity/sections/LatestClimberSends.tpl.html' "></ng-include>
+      </div>
 
 
 </section>

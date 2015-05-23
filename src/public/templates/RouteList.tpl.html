@@ -8,7 +8,7 @@
               class="list--tableStyle  list--navElem"
               ng-click="openRouteModal(route.id)"
               ng-include
-              src=" 'templates/gym/panels/activity/sections/BestRatedRoutes.tpl.html' ">
+              src="template">
           </tr>
 
       </tbody>
@@ -19,11 +19,9 @@
     ng-hide="incrementLimitReached()"
      class="center  h5  text-center">View More +</a>
 
-       <a ng-click="decrease()"
+  <a ng-click="decrease()"
     ng-show="incrementLimitReached()"
-     class="center  h5  text-center">Hide Routes - </a>
+     class="center  h5  text-center">Hide Routes -</a>
 
-    
+
 </div>
-
-

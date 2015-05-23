@@ -84,7 +84,7 @@ angular.module('SETTER')
 
             var loadClimberPanelData = function () {
 
-              
+
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
                 var i;
                 for (i = 0; i < pData.length; i += 1) {
@@ -252,25 +252,24 @@ angular.module('SETTER')
 
 
             /*
-            *   SUBSECTION - Image Upload
+            *   SECTION - Image
             */
-            $scope.uploadImage = function () {
-                angular.element("#image_file").trigger('click');
+            $scope.fileNameChanged = function () {
+              $scope.isUploadingImage = true;
+              angular.element("#image_submit").trigger('click');
             };
 
-            angular.element("#image_file").on('change', function () {
-                angular.element("#image_submit").trigger('click');
-                $scope.image = {
-                    url: 'images/loading.gif'
-                };
-                $scope.$apply();
-            });
-
             $scope.imageUploadComplete = function (content) {
+                $scope.isUploadingImage = false;
                 $scope.image = content;
                 LoginService.setImageUrl(content.url);
                 UsersService.setImageAsDirty(LoginService.getAccountId());
             };
+
+
+
+
+
 
             $scope.setTypeNewest = function (pType) {
                 $scope.typeNewest = pType;

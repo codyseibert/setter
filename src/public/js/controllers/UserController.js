@@ -55,19 +55,13 @@ angular.module('SETTER')
             /*
             *   SECTION - Image
             */
-            $scope.uploadImage = function () {
-                angular.element("#image_file").trigger('click');
+            $scope.fileNameChanged = function () {
+              $scope.isUploadingImage = true;
+              angular.element("#image_submit").trigger('click');
             };
 
-            angular.element("#image_file").on('change', function () {
-                angular.element("#image_submit").trigger('click');
-                $scope.image = {
-                    url: 'images/loading.gif'
-                };
-                $scope.$apply();
-            });
-
-            $scope.complete = function (content) {
+            $scope.imageUploadComplete = function (content) {
+                $scope.isUploadingImage = false;
                 $scope.image = content;
                 LoginService.setImageUrl(content.url);
                 UsersService.setImageAsDirty(LoginService.getAccountId());

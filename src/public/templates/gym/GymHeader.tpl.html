@@ -9,7 +9,7 @@
         <div class="header  text-center">
 
             <div class="small-12 columns"
-                 ng-click="getAccountId() === gymId && uploadImage()">
+                 ng-click="getAccountId() === gymId">
 
                 <div class="center avatar avatar--big  mb2"
                      ng-style="{'background-image': 'url(' + getGymImageSrc(image) + ')'}" >
@@ -58,6 +58,12 @@
 
 
 
+
+
+
+
+
+
 <!-- User - Gym Desktop -->
 <div class="section--secondary">
     <section class="row show-for-medium-up" ng-show="isUserAccount()">
@@ -65,7 +71,7 @@
         <div class="header">
 
             <div class="medium-7 columns"
-                 ng-click="getAccountId() === gymId && uploadImage()">
+                 ng-click="getAccountId() === gymId">
 
                 <div class="flag">
 
@@ -73,7 +79,6 @@
 
                         <img class="avatar avatar--big  mb2"
                              ng-src="{{getGymImageSrc(image)}}">
-
                     </div>
 
                     <div class="flag-body">
@@ -128,6 +133,16 @@
     </section>
 </div>
 
+
+
+
+
+
+
+
+
+
+
 <!-- Gym - Header -->
 <section class="row"  ng-show="isGymAccount()">
 
@@ -142,12 +157,39 @@
                     <div class="flag">
 
                         <div class="flag-image"
-                        ng-click="getAccountId() === gymId && uploadImage()">
+                            ng-click="getAccountId() === gymId && uploadImage()">
 
-                            <div class="avatar avatar--big"  ng-style="{'background-image': getImageUrlString()}">
-
-
+                            <div class="avatar avatar--big"
+                                 ng-hide="isUploadingImage"
+                                 ng-style="{'background-image': getImageUrlString()}">
                             </div>
+
+                            <div class="avatar avatar--big"
+                                 style="position: relative"
+                                 ng-show="isUploadingImage"
+                                 us-spinner></div>
+
+                             <form id="image_form"
+                                 enctype="multipart/form-data"
+                                 action="{{'/api/accounts/image'}}"
+                                 method="post"
+                                 ng-upload="imageUploadComplete(content)">
+
+                                 <input id="image_file"
+                                     class="avatar avatar--big"
+                                     style="position: absolute; top: 28px; opacity: 0"
+                                     type="file"
+                                     name="file"
+                                     onchange="angular.element(this).scope().fileNameChanged()"></input>
+
+                                 <input id="image_submit"
+                                     style="opacity: 0; position: absolute;"
+                                     type="submit"></input>
+
+                                 <input name="authorization"
+                                     style="opacity: 0; position: absolute;"
+                                     value="{{authorization}}"></input>
+                             </form>
 
                         </div>
 

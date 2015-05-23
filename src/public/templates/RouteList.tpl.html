@@ -6,7 +6,7 @@
           <tr bindonce
               ng-repeat="route in routes | limitTo: limit"
               class="list--tableStyle  list--navElem"
-              ng-click="openRouteModal(route.id)"
+              ng-click="openRouteModal(route)"
               ng-include
               src="template">
           </tr>

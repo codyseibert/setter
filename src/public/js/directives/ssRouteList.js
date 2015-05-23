@@ -24,25 +24,10 @@ angular.module('SETTER')
                   SelectedRouteService,
                   GymsService
                 ) {
-                    //TO DO: this open Route modal function should be at a higher lvl so child
-                    //directives can inherit it when needed or have it be a serivce??? idk
-                    $scope.openRouteModal = function (route) {
-                        route = angular.extend({}, route);
 
-                        $rootScope.openModal()
-
-                        // Hack needed to fix the activity not containing similar id structure
-                        if (route.route_id !== undefined) {
-                            route.id = route.route_id;
-                        }
-                        $rootScope.routeSelected = route;
-                        $rootScope.routeModalViewType = 'view';
-                        //For Some reason the setSelectedRoute service can't get access to pRoute
-                        //I believe it is cuz of the isolate scope in this directive
-                        //Find out if u can, Ill try more
-                        SelectedRouteService.setSelectedRoute(route);
-                    };
-
+                  $scope.openRouteModal = function (route) {
+                      $rootScope.openRouteModal(route)
+                  };
 
                   var gymId = parseInt($routeParams.gymId, 10);
 
@@ -57,7 +42,6 @@ angular.module('SETTER')
                                  GymsService.getBestRatedBoulder(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
-                                         console.log(pData);
                                      });
                                  break;
                              case 'Top Rope':
@@ -85,7 +69,6 @@ angular.module('SETTER')
                                  GymsService.getNewestBoulder(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
-                                         console.log(pData);
                                      });
                                  break;
                              case 'Top Rope':

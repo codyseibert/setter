@@ -14,13 +14,19 @@ angular.module('SETTER')
                 templateUrl: 'templates/directives/ssRouteList.tpl.html',
                 replace: true,
                 restrict: 'E',
-                controller: function(
-                  $scope,
-                  $routeParams,
-                  $rootScope,
-                  SelectedRouteService,
-                  GymsService
-                ) {
+                controller: [
+                  '$scope',
+                  '$routeParams',
+                  '$rootScope',
+                  'SelectedRouteService',
+                  'GymsService',
+                  function(
+                    $scope,
+                    $routeParams,
+                    $rootScope,
+                    SelectedRouteService,
+                    GymsService
+                  ) {
 
                   var gymId = parseInt($routeParams.gymId, 10);
                   var that = this;
@@ -138,7 +144,7 @@ angular.module('SETTER')
                       $rootScope.navigateToGymSuggestions(gymId);
                     }
                   }
-                },
+                }],
                 link: function(scope, element, attrs, ctrl)  {
                   scope.clicked = function () {
                     if (!ctrl.incrementLimitReached()) {

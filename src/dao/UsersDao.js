@@ -90,11 +90,11 @@ var UsersDao = function () {
 
     this.computeBoulderGrade = function (pUserId, pCallback) {
       theDaoHelper.executeQuery(
-          'SELECT AVG(g.value) AS grade FROM users u ' +
+          'SELECT AVG(sub.value) AS grade FROM (SELECT g.value FROM users u ' +
             'INNER JOIN sends s ON s.user_id = u.account_id ' +
             'INNER JOIN routes r ON r.id = s.route_id ' +
             'INNER JOIN boulder_grades g ON g.id = r.boulder_grade_id ' +
-            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10',
+            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10) AS sub',
           [pUserId],
           theDaoHelper.SINGLE,
           pCallback
@@ -103,11 +103,11 @@ var UsersDao = function () {
 
     this.computeTopRopeGrade = function (pUserId, pCallback) {
       theDaoHelper.executeQuery(
-          'SELECT AVG(g.value) AS grade FROM users u ' +
+          'SELECT AVG(sub.value) AS grade FROM (SELECT g.value FROM users u ' +
             'INNER JOIN sends s ON s.user_id = u.account_id ' +
             'INNER JOIN routes r ON r.id = s.route_id ' +
             'INNER JOIN rope_grades g ON g.id = r.toprope_grade_id ' +
-            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10',
+            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10) AS sub',
           [pUserId],
           theDaoHelper.SINGLE,
           pCallback
@@ -116,11 +116,11 @@ var UsersDao = function () {
 
     this.computeLeadGrade = function (pUserId, pCallback) {
       theDaoHelper.executeQuery(
-          'SELECT AVG(g.value) AS grade FROM users u ' +
+          'SELECT AVG(sub.value) AS grade FROM (SELECT g.value FROM users u ' +
             'INNER JOIN sends s ON s.user_id = u.account_id ' +
             'INNER JOIN routes r ON r.id = s.route_id ' +
             'INNER JOIN rope_grades g ON g.id = r.lead_grade_id ' +
-            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10',
+            'WHERE u.account_id = ? ORDER BY g.id DESC limit 10) AS sub',
           [pUserId],
           theDaoHelper.SINGLE,
           pCallback

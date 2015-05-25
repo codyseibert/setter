@@ -75,8 +75,15 @@ angular.module('SETTER')
                     });
                 },
 
-
-
+                /*
+                *   SECTION - Current Distribution Data by Type
+                */
+                getDistributions: function (pGymId, pType, pCallback) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/routes/' + pType + '/dist'
+                    });
+                },
 
                 /*
                 *   SECTION - Current Routes by Type

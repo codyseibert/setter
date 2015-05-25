@@ -132,23 +132,23 @@ angular.module('SETTER')
             /*
             *   SECTION - Distribution Graphs
             */
-            createBoulderRoutesBarGraph = function (pData) {
-                var data = BarGraphHelperService
-                    .generateRouteCountGraphData(pData);
-                $scope.boulderRoutesBarGraph = data;
-            };
-
-            createTopRopeRoutesBarGraph = function (pData) {
-                var data = BarGraphHelperService
-                    .generateRouteCountGraphData(pData);
-                $scope.topRopeRoutesBarGraph = data;
-            };
-
-            createLeadRoutesBarGraph = function (pData) {
-                var data = BarGraphHelperService
-                    .generateRouteCountGraphData(pData);
-                $scope.leadRoutesBarGraph = data;
-            };
+            // createBoulderRoutesBarGraph = function (pData) {
+            //     var data = BarGraphHelperService
+            //         .generateRouteCountGraphData(pData);
+            //     $scope.boulderRoutesBarGraph = data;
+            // };
+            //
+            // createTopRopeRoutesBarGraph = function (pData) {
+            //     var data = BarGraphHelperService
+            //         .generateRouteCountGraphData(pData);
+            //     $scope.topRopeRoutesBarGraph = data;
+            // };
+            //
+            // createLeadRoutesBarGraph = function (pData) {
+            //     var data = BarGraphHelperService
+            //         .generateRouteCountGraphData(pData);
+            //     $scope.leadRoutesBarGraph = data;
+            // };
 
             /*
             *   SECTION - Newest Routes
@@ -266,11 +266,6 @@ angular.module('SETTER')
                 UsersService.setImageAsDirty(LoginService.getAccountId());
             };
 
-
-
-
-
-
             $scope.setTypeNewest = function (pType) {
                 $scope.typeNewest = pType;
                 $scope.typeNewestCurrent = pType;
@@ -282,17 +277,20 @@ angular.module('SETTER')
             };
 
             var loadStatisticsPanelData = function () {
-                RoutesService.getCurrentBoulderRoutes($scope.gymId, function (pData) {
-                    createBoulderRoutesBarGraph(pData);
-                });
+                RoutesService.getDistributions($scope.gymId, 'bouldering')
+                  .success(function(data){
+                    $scope.boulderingGraphData = BarGraphHelperService.preprocess(data);
+                  });
 
-                RoutesService.getCurrentTopRopeRoutes($scope.gymId, function (pData) {
-                    createTopRopeRoutesBarGraph(pData);
-                });
+                RoutesService.getDistributions($scope.gymId, 'toprope')
+                  .success(function(data){
+                    $scope.topropeGraphData = BarGraphHelperService.preprocess(data);
+                  });
 
-                RoutesService.getCurrentLeadRoutes($scope.gymId, function (pData) {
-                    createLeadRoutesBarGraph(pData);
-                });
+                RoutesService.getDistributions($scope.gymId, 'lead')
+                  .success(function(data){
+                    $scope.leadGraphData = BarGraphHelperService.preprocess(data);
+                  });
             };
 
 

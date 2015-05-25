@@ -100,8 +100,32 @@ var GymsDao = function () {
         );
     };
 
+    this.getDistributions = function (pGymId, pType, pCallback) {
+        var column = 'boulder_grade_id';
+        var table = 'boulder_grades';
+        switch (pType) {
+            case 'toprope':
+                column = 'toprope_grade_id';
+                table = 'rope_grades';
+                break;
+            case 'lead':
+                column = 'lead_grade_id';
+                table = 'rope_grades';
+                break;
+        }
 
-
+        theDaoHelper.executeQuery(
+            'SELECT col.name, COUNT(col.name) AS count FROM routes r ' +
+              'INNER JOIN walls w ON w.id = r.wall_id ' +
+              'INNER JOIN ' + table + ' col ON r.' + column + ' = col.id ' +
+              'WHERE w.gym_id = ? AND r.active = 1 ' +
+              'GROUP BY col.name ' +
+              'ORDER BY col.name DESC',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
 
     /*
         SECTION - Current

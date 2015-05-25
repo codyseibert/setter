@@ -1,27 +1,59 @@
-<section class="row">
+<section class="row pb4">
     <div class="small-12 columns">
         <h1 class="fwl h2">Current Routes & Problems</h1>
     </div>
 
     <!-- Current Boulder Graph -->
-    <div class="small-12 medium-6 large-4 columns"
-        ng-include
-        src= " 'templates/gym/panels/statistics/graphs/current/BoulderRoutesGraph.tpl.html' "
-        ng-controller="BoulderRoutesGraphController">
+    <div class="small-12 medium-6 large-4 columns">
+
+      <ss-export-bar-graph
+        title="Current Bouldering Routes"
+        canvas-id="boulderingGraph"
+        doc-name="CurrentBoulderingRoutes.pdf">
+      </ss-export-bar-graph>
+
+      <h2 class="h3 clearfix">Bouldering</h2>
+
+      <ss-graph
+        class="prl3"
+        id="boulderingGraph"
+        graph-data="boulderingGraphData">
+      </ss-graph>
+
     </div>
 
-    <!-- Current Top Rope Graph -->
-    <div class="small-12 medium-6 large-4 columns"
-         ng-include
-         src=" 'templates/gym/panels/statistics/graphs/current/TopRopeRoutesGraph.tpl.html' "
-         ng-controller="TopRopeRoutesGraphController">
+    <div class="small-12 medium-6 large-4 columns">
+
+      <ss-export-bar-graph
+        title="Current Top Rope Routes"
+        canvas-id="topropeGraph"
+        doc-name="CurrentTopRopeRoutes.pdf">
+      </ss-export-bar-graph>
+
+      <h2 class="h3 clearfix">Tope Rope</h2>
+
+      <ss-graph
+        class="prl3"
+        id="topropeGraph"
+        graph-data="topropeGraphData">
+      </ss-graph>
     </div>
 
-    <!-- Current Lead Graph -->
-    <div class="small-12 medium-6 large-4 columns"
-         ng-include
-         src=" 'templates/gym/panels/statistics/graphs/current/LeadRoutesGraph.tpl.html' "
-         ng-controller="LeadRoutesGraphController">
+    <div class="small-12 medium-6 large-4 columns">
+
+      <ss-export-bar-graph
+        title="Current Lead Routes"
+        canvas-id="leadGraph"
+        doc-name="CurrentLeadRoutes.pdf">
+      </ss-export-bar-graph>
+
+      <h2 class="h3 clearfix">Lead</h2>
+
+      <ss-graph
+        class="prl3"
+        id="leadGraph"
+        graph-data="leadGraphData">
+      </ss-graph>
     </div>
 
 </section>

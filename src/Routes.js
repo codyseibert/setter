@@ -118,6 +118,9 @@ var RouteToControllerBinder = function () {
         GymsController.getBestRatedLead);
 
 
+    app.get('/api/gyms/:gymId/routes/:type/dist',
+        InjectAccountId,
+        GymsController.getDistributions);
 
 
     /*

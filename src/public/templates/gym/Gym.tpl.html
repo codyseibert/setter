@@ -58,17 +58,13 @@
             </div>
 
             <div class="content"
-                inject-template-when-visible
-                inject-when="currentTab === PANEL_STATS"
-                ng-class="{'active': currentTab === PANEL_STATS}"
-                template="templates/gym/panels/statistics/StatisticsPanel.tpl.html"
-                controller="BlankController">
+                ng-class="{'active': currentTab === PANEL_STATS}">
+                <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' "></ng-include>
             </div>
 
             <div class="content"
                  ng-class="{'active': currentTab === PANEL_CLIMBERS}">
-                <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' " >
-                </ng-include>
+                <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' " ></ng-include>
             </div>
 
         </div>

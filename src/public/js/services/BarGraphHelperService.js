@@ -24,58 +24,38 @@ angular.module('SETTER')
                     data: [dataArray]
                 };
             },
-            generateRouteCountGraphData: function (pData) {
-
-                var dataObject = {},
-                    i,
-                    route,
-                    name,
-                    key,
-                    entry,
-                    labels = [],
-                    dataArray = [],
-                    dataCopy = pData.slice(0),
-                    preData = [];
-
-                // create a mapping between grade name and tally them up
-                for (i = 0; i < dataCopy.length; i += 1) {
-                    route = dataCopy[i];
-                    name = route.name;
-                    if (!dataObject[name]) {
-                        dataObject[name] = {
-                            count: 0,
-                            value: route.value
-                        };
-                    }
-                    dataObject[name].count += 1;
+            preprocess2: function (pData){
+                var i;
+                var labels = [];
+                var dataArray = [];
+                for (i = 0; i < pData.length; i += 1) {
+                  var data = pData[i];
+                  if (!data.name) continue;
+                  dataArray.push(data.count);
+                  labels.push(data.name);
                 }
-
-                // converting the object tally into an array
-                for (key in dataObject) {
-                    if (dataObject.hasOwnProperty(key)) {
-                        entry = dataObject[key];
-                        preData.push({
-                            label: key,
-                            data: entry.count,
-                            value: entry.value
-                        });
-                    }
-                }
-
-                // sort the array by value
-                preData.sort(function (a, b) {
-                    return a.value - b.value;
-                });
-
-                // build up the chart data array
-                for (i = 0; i < preData.length; i += 1) {
-                    labels.push(preData[i].label);
-                    dataArray.push(preData[i].data);
-                }
-
                 return {
                     labels: labels,
-                    data: [dataArray]
+                    datasets: [{
+                      data: dataArray,
+                      fillColor: "rgba(174, 203, 131, 0.4)",
+                      strokeColor: "#A3BF7C"
+                    }]
+                };
+            },
+            preprocess: function (pData){
+                var i;
+                var labels = [];
+                var dataArray = [];
+                for (i = 0; i < pData.length; i += 1) {
+                  var data = pData[i];
+                  if (!data.name) continue;
+                  dataArray.push(data.count);
+                  labels.push(data.name);
+                }
+                return {
+                    labels: labels,
+                    series: [dataArray]
                 };
             }
         };

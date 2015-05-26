@@ -27,8 +27,7 @@
             </li>
 
             <li class="tab-title  [ small-4  columns ] text-center"
-                ng-class="{'active': currentTab === PANEL_STATS}"
-                ng-click="refreshCharts()">
+                ng-class="{'active': currentTab === PANEL_STATS}">
 
                 <a ng-click="setCurrentTab(PANEL_STATS)">
                     <i class="icon-stats"></i>
@@ -38,8 +37,7 @@
             </li>
 
             <li class="tab-title  [ small-4  columns ] text-center"
-                ng-class="{'active': currentTab === PANEL_CLIMBERS}"
-                ng-click="refreshCharts()">
+                ng-class="{'active': currentTab === PANEL_CLIMBERS}">
 
                 <a ng-click="setCurrentTab(PANEL_CLIMBERS)">
                     <i class="icon-group"></i>
@@ -52,23 +50,21 @@
 
         <div class="tabs-content small-12 columns">
 
+            <ss-tabs content-to-show="currentTab"></ss-tabs>
+
             <div class="content"
                 ng-class="{'active': currentTab === PANEL_ACTIVITY}">
                 <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>
             </div>
 
             <div class="content"
-                inject-template-when-visible
-                inject-when="currentTab === PANEL_STATS"
-                ng-class="{'active': currentTab === PANEL_STATS}"
-                template="templates/gym/panels/statistics/StatisticsPanel.tpl.html"
-                controller="BlankController">
+                ng-class="{'active': currentTab === PANEL_STATS}">
+                <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' "></ng-include>
             </div>
 
             <div class="content"
                  ng-class="{'active': currentTab === PANEL_CLIMBERS}">
-                <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' " >
-                </ng-include>
+                <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' " ></ng-include>
             </div>
 
         </div>

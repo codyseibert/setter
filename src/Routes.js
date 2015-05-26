@@ -118,6 +118,9 @@ var RouteToControllerBinder = function () {
         GymsController.getBestRatedLead);
 
 
+    app.get('/api/gyms/:gymId/routes/:type/dist',
+        InjectAccountId,
+        GymsController.getDistributions);
 
 
     /*
@@ -174,18 +177,9 @@ var RouteToControllerBinder = function () {
     /*
     *   SECTION - User Grade Dist Chart
     */
-    app.get('/api/gyms/:gymId/users/grades/bouldering',
+    app.get('/api/gyms/:gymId/users/grades/:type',
         InjectAccountId,
-        GymsController.getGymUsersBoulderingGrades);
-
-    app.get('/api/gyms/:gymId/users/grades/toprope',
-        InjectAccountId,
-        GymsController.getGymUsersTopRopeGrades);
-
-    app.get('/api/gyms/:gymId/users/grades/lead',
-        InjectAccountId,
-        GymsController.getGymUsersLeadGrades);
-
+        GymsController.getGymUsersGrades);
 
 
 
@@ -400,6 +394,10 @@ var RouteToControllerBinder = function () {
 
 
     // USERS
+    app.get('/api/users/:userId/sends/:type',
+        InjectAccountId,
+        UsersController.getUserSendDistributions);
+
     app.get('/api/users/:userId/sends/boulder',
         InjectAccountId,
         UsersController.getBoulderSends);

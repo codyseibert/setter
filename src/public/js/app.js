@@ -157,19 +157,7 @@ angular.module('SETTER', [
 
             FastClick.attach(document.body);
 
-            // Set the global chart colors used throughout the site
-            Chart.defaults.global.colours[0].fillColor = "#AECB83";
-            Chart.defaults.global.colours[0].strokeColor = "#A3BF7C";
-            Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
-            Chart.defaults.global.colours[0].pointColor = "rgba(237, 109, 86, 0.5)";
-            Chart.defaults.global.animation = false;
-
-            $rootScope.chartOptions = {
-                scaleFontColor: "#000",
-                scaleFontSize: 12,
-                animation: false
-            };
-
+            // Set the global cha
             $rootScope.UNRATED_STRING = "Unrated";
 
             $rootScope.navigateToLogin = function () {
@@ -582,23 +570,6 @@ angular.module('SETTER', [
                 for (i = 0, length = pData.length; i < length; i += 1) {
                     pData[i].date_format = DateFormatService.format(pData[i].date);
                 }
-            };
-
-            /*
-                Very nasty hack to get the charts to display...
-            */
-            $rootScope.refreshCharts = function () {
-                $timeout(function () {
-                    $rootScope.$apply();
-                }, 10);
-
-                $timeout(function () {
-                    $rootScope.$apply();
-                }, 100);
-
-                $timeout(function () {
-                    $rootScope.$apply();
-                }, 1000);
             };
 
             $rootScope.isModalOpen = function () {

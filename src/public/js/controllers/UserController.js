@@ -52,6 +52,9 @@ angular.module('SETTER')
                     $scope.hasActivity = pData.length > 0;
                 });
 
+
+
+
             /*
             *   SECTION - Image
             */
@@ -67,22 +70,22 @@ angular.module('SETTER')
                 UsersService.setImageAsDirty(LoginService.getAccountId());
             };
 
+            $scope.loadStatisticsData = function () {
+                UsersService.getBoulderSends($scope.userId, 'bouldering')
+                  .success(function (pData) {
+                      $scope.boulderingSendsGraphData = BarGraphHelperService.preprocess(pData);
+                  });
 
+                UsersService.getTopRopeSends($scope.userId, 'toprope')
+                  .success(function (pData) {
+                      $scope.topropeSendsGraphData = BarGraphHelperService.preprocess(pData);
+                  });
 
-            /*
-            *   SECTION - MISC
-            */
-            $scope.showSendsCharts = function () {
-                angular.element('#charts').css('left', '0px');
-                angular.element('#charts').css('position', 'relative');
+                UsersService.getLeadSends($scope.userId, 'lead')
+                  .success(function (pData) {
+                      $scope.leadSendsGraphData = BarGraphHelperService.preprocess(pData);
+                  });
             };
-
-            $scope.hideSendsCharts = function () {
-                angular.element('#charts').css('left', '9999px');
-                angular.element('#charts').css('position', 'absolute');
-            };
-
-            $scope.hideSendsCharts();
 
             $scope.authorization = LoginService.getHeader();
 

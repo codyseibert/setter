@@ -127,6 +127,33 @@ var UsersDao = function () {
       );
     };
 
+    this.getUserSendDistributions = function (pUserId, pType, pCallback) {
+        var column = 'boulder_grade_id';
+        var table = 'boulder_grades';
+        switch (pType) {
+            case 'toprope':
+                column = 'toprope_grade_id';
+                table = 'rope_grades';
+                break;
+            case 'lead':
+                column = 'lead_grade_id';
+                table = 'rope_grades';
+                break;
+        }
+
+        theDaoHelper.executeQuery(
+            'SELECT col.name, COUNT(col.name) AS count FROM routes r ' +
+              'INNER JOIN sends s ON s.route_id = r.id ' +
+              'INNER JOIN ' + table + ' col ON r.' + column + ' = col.id ' +
+              'WHERE s.user_id = ? ' +
+              'GROUP BY col.name ' +
+              'ORDER BY col.value ASC',
+            [pUserId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
     this.getBoulderSends = function (pUserId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT bg.value, bg.name, s.date FROM sends s ' +

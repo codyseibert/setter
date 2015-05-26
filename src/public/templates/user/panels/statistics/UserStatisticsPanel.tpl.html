@@ -2,21 +2,35 @@
   <h1 class="fwl h2">Total Sends</h1>
 </div>
 
-<div class="small-12 medium-6 large-4 columns"
-     inject-template-when-visibled
-     template="templates/user/panels/statistics/graphs/BoulderingSendsGraph.tpl.html"
-     controller="BoulderSendsGraphController"
-     graph-has-data>
+<div class="small-12 medium-6 large-4 columns">
+
+  <h2 class="h3 clearfix">Bouldering</h2>
+
+  <ss-graph
+    class="prl1"
+    graph-data="boulderingSendsGraphData">
+  </ss-graph>
+
 </div>
 
-<div class="small-12 medium-6 large-4 columns"
-     inject-template-when-visibled
-     template="templates/user/panels/statistics/graphs/TopRopeSendsGraph.tpl.html"
-     controller="TopRopeSendsGraphController">
+<div class="small-12 medium-6 large-4 columns">
+
+  <h2 class="h3 clearfix">Top Rope</h2>
+
+  <ss-graph
+    class="prl1"
+    graph-data="topropeSendsGraphData">
+  </ss-graph>
+
 </div>
 
-<div class="small-12 medium-6 large-4 columns"
-     inject-template-when-visibled
-     template="templates/user/panels/statistics/graphs/LeadSendsGraph.tpl.html"
-     controller="LeadSendsGraphController">
+<div class="small-12 medium-6 large-4 columns">
+
+  <h2 class="h3 clearfix">Lead</h2>
+
+  <ss-graph
+    class="prl1"
+    graph-data="leadSendsGraphData">
+  </ss-graph>
+
 </div>

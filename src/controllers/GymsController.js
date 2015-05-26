@@ -38,28 +38,24 @@ var GymsController = function () {
         theGymsDao.getGymImage(gymId, callback);
     };
 
-    this.getGymUsersBoulderingGrades = function (pReq, pRes) {
+    this.getDistributions = function (pReq, pRes) {
         var gymId,
+            type,
             callback;
         gymId = pReq.params.gymId;
+        type = pReq.params.type;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getGymUsersBoulderingGrades(gymId, callback);
+        theGymsDao.getDistributions(gymId, type, callback);
     };
 
-    this.getGymUsersTopRopeGrades = function (pReq, pRes) {
+    this.getGymUsersGrades = function (pReq, pRes) {
         var gymId,
+            type,
             callback;
         gymId = pReq.params.gymId;
+        type = pReq.params.type;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getGymUsersTopRopeGrades(gymId, callback);
-    };
-
-    this.getGymUsersLeadGrades = function (pReq, pRes) {
-        var gymId,
-            callback;
-        gymId = pReq.params.gymId;
-        callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getGymUsersLeadGrades(gymId, callback);
+        theGymsDao.getGymUsersGrades(gymId, type, callback);
     };
 
     this.getCurrentBoulderRoutes = function (pReq, pRes) {

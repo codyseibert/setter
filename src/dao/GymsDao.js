@@ -33,27 +33,23 @@ var GymsDao = function () {
         );
     };
 
-    this.getGymUsersBoulderingGrades = function (pGymId, pCallback) {
-        theDaoHelper.executeQuery(
-            'SELECT COUNT(*) AS count, ROUND(bouldering_grade) AS grade FROM users u WHERE u.gym_id = ? GROUP BY grade ORDER BY grade ASC',
-            [pGymId],
-            theDaoHelper.MULTIPLE,
-            pCallback
-        );
-    };
+    this.getGymUsersGrades = function (pGymId, pType, pCallback) {
+        var column = 'bouldering_grade';
+        var prefix = 'V';
+        switch (pType) {
+            case 'toprope':
+                column = 'toprope_grade';
+                prefix = "5.";
+                break;
+            case 'lead':
+                column = 'lead_grade';
+                prefix = "5.";
+                break;
+        }
 
-    this.getGymUsersTopRopeGrades = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT COUNT(*) AS count, ROUND(toprope_grade) AS grade FROM users u WHERE u.gym_id = ? GROUP BY grade ORDER BY grade ASC',
-            [pGymId],
-            theDaoHelper.MULTIPLE,
-            pCallback
-        );
-    };
-
-    this.getGymUsersLeadGrades = function (pGymId, pCallback) {
-        theDaoHelper.executeQuery(
-            'SELECT COUNT(*) AS count, ROUND(lead_grade) AS grade FROM users u WHERE u.gym_id = ? GROUP BY grade ORDER BY grade ASC',
+            'SELECT COUNT(*) AS count, CONCAT(\'' + prefix + '\', ROUND(' + column + ')) AS name ' +
+            'FROM users u WHERE u.gym_id = ? GROUP BY name ORDER BY ' + column + ' ASC',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -100,8 +96,32 @@ var GymsDao = function () {
         );
     };
 
+    this.getDistributions = function (pGymId, pType, pCallback) {
+        var column = 'boulder_grade_id';
+        var table = 'boulder_grades';
+        switch (pType) {
+            case 'toprope':
+                column = 'toprope_grade_id';
+                table = 'rope_grades';
+                break;
+            case 'lead':
+                column = 'lead_grade_id';
+                table = 'rope_grades';
+                break;
+        }
 
-
+        theDaoHelper.executeQuery(
+            'SELECT col.name, COUNT(col.name) AS count FROM routes r ' +
+              'INNER JOIN walls w ON w.id = r.wall_id ' +
+              'INNER JOIN ' + table + ' col ON r.' + column + ' = col.id ' +
+              'WHERE w.gym_id = ? AND r.active = 1 ' +
+              'GROUP BY col.name ' +
+              'ORDER BY col.value ASC',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
 
     /*
         SECTION - Current

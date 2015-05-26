@@ -157,7 +157,7 @@
 
 
         <li  class="tab-title  [ small-6  columns ] text-center"
-            ng-click="refreshCharts()"
+            ng-click="loadStatisticsData()"
             ng-class="{'active': userTabs =='panel2'}">
 
 
@@ -175,14 +175,14 @@
 
         <div class="content" ng-class="{'active' : userTabs == 'panel1'}">
 
-            <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' ">
-            </ng-include>
+            <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' "></ng-include>
 
         </div>
 
         <div class="content" ng-class="{'active' : userTabs == 'panel2'}">
-            <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' ">
-            </ng-include>
+
+            <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' "></ng-include>
+
         </div>
 
     </div>

@@ -394,6 +394,10 @@ var RouteToControllerBinder = function () {
 
 
     // USERS
+    app.get('/api/users/:userId/sends/:type',
+        InjectAccountId,
+        UsersController.getUserSendDistributions);
+
     app.get('/api/users/:userId/sends/boulder',
         InjectAccountId,
         UsersController.getBoulderSends);

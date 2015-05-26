@@ -50,6 +50,12 @@ angular.module('SETTER')
             },
 
 
+            getUserSendDistributions:  function (pUserId, pType) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/sends/" + pType
+                });
+            },
 
 
             getBoulderSends: function (pUserId) {

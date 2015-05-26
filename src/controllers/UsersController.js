@@ -40,6 +40,15 @@ var UsersController = function () {
     };
 
 
+    this.getUserSendDistributions = function (pReq, pRes) {
+        var userId,
+            type,
+            callback;
+        userId = pReq.params.userId;
+        type = pReq.params.type;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theUsersDao.getUserSendDistributions(userId, type, callback);
+    };
 
 
     this.getBoulderSends = function (pReq, pRes) {

@@ -572,23 +572,6 @@ angular.module('SETTER', [
                 }
             };
 
-            /*
-                Very nasty hack to get the charts to display...
-            */
-            $rootScope.refreshCharts = function () {
-                $timeout(function () {
-                    $rootScope.$apply();
-                }, 10);
-
-                $timeout(function () {
-                    $rootScope.$apply();
-                }, 100);
-
-                $timeout(function () {
-                    $rootScope.$apply();
-                }, 1000);
-            };
-
             $rootScope.isModalOpen = function () {
                 return $rootScope.displayModal;
             };

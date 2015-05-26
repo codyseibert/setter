@@ -88,43 +88,38 @@
                 </div>
 
                 <div class="large-collapse">
+
                     <div class="show-for-large-up large-6 columns">
+                        <ss-grade class="large-4  columns text-center  "
+                          grade="{{boulderGrade}}"
+                          title="Bouldering"></ss-grade>
 
-                          <ng-include class="large-4  columns text-center  "
-                                      src=" 'templates/user/BoulderGrade.tpl.html' ">
-                         </ng-include >
+                        <ss-grade class="large-4  columns text-center  "
+                          grade="{{topRopeGrade}}"
+                          title="Top Rope"></ss-grade>
 
-
-                         <ng-include class="large-4  columns text-center  "
-                                     src=" 'templates/user/TopRopeGrade.tpl.html' ">
-                         </ng-include >
-
-
-                         <ng-include class="large-4  columns text-center  "
-                                     src=" 'templates/user/LeadGrade.tpl.html' ">
-                         </ng-include>
-
+                        <ss-grade class="large-4  columns text-center  "
+                          grade="{{leadGrade}}"
+                          title="Lead"></ss-grade>
                     </div>
+
                 </div>
             </div>
 
              <div class="row small-collapse hide-for-large-up">
-                 <ng-include class="small-4 medium-4 columns text-center"
-                             ng-controller="BoulderGradeController"
-                             src=" 'templates/user/BoulderGrade.tpl.html' ">
-                 </ng-include >
 
+                 <ss-grade class="small-4 medium-4 columns text-center"
+                   grade="{{boulderGrade}}"
+                   title="Bouldering"></ss-grade>
 
-                 <ng-include class="small-4 medium-4 columns text-center"
-                             ng-controller="TopRopeGradeController"
-                             src=" 'templates/user/TopRopeGrade.tpl.html' ">
-                 </ng-include>
+                 <ss-grade class="small-4 medium-4 columns text-center"
+                   grade="{{topRopeGrade}}"
+                   title="Top Rope"></ss-grade>
 
+                 <ss-grade class="small-4 medium-4 columns text-center"
+                   grade="{{leadGrade}}"
+                   title="Lead"></ss-grade>
 
-                 <ng-include class="small-4 medium-4 columns text-center"
-                             ng-controller="LeadGradeController"
-                             src=" 'templates/user/LeadGrade.tpl.html' ">
-                 </ng-include>
             </div>
 
         </div>

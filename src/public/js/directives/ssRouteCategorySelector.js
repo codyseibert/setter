@@ -12,7 +12,7 @@ angular.module('SETTER')
               replace: true,
               restrict: 'E',
               templateUrl: 'templates/directives/ssRouteCategorySelector.tpl.html',
-              controller: function($scope) {
+              controller: ['$scope', function($scope) {
 
                   $scope.activeCategory = {};
 
@@ -24,11 +24,11 @@ angular.module('SETTER')
                       return $scope.activeCategory;
                   };
 
-              },
+              }],
               link: function(scope, element, attrs, ctrl)  {
                   scope.categories = ['Bouldering', 'Top Rope', 'Lead'];
                   ctrl.setActiveCategory(scope.categories[0]);
               }
           }
-          
+
         }]);

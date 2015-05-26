@@ -13,6 +13,7 @@ angular.module('SETTER')
         'UsersService',
         'LoginService',
         'AlertsService',
+        'GymUsersService',
         function (
             $scope,
             $routeParams,
@@ -23,8 +24,8 @@ angular.module('SETTER')
             BarGraphHelperService,
             UsersService,
             LoginService,
-            AlertsService
-
+            AlertsService,
+            GymUsersService
         ) {
             'use strict';
 
@@ -42,8 +43,6 @@ angular.module('SETTER')
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
             $scope.LEAD = 'Lead';
-
-
 
             // Displaying Tab Logic
             $scope.PANEL_ACTIVITY = 'activity';
@@ -84,7 +83,6 @@ angular.module('SETTER')
 
             var loadClimberPanelData = function () {
 
-
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
                 var i;
                 for (i = 0; i < pData.length; i += 1) {
@@ -95,6 +93,23 @@ angular.module('SETTER')
                 $scope.users = pData;
               });
 
+              GymUsersService.getUserGrades('bouldering').query({gymId: $scope.gymId}, function(pData) {
+                  pData.$promise.then(function(data) {
+                      $scope.boulderingUsersGraphData = BarGraphHelperService.preprocess(data);
+                  });
+              });
+
+              GymUsersService.getUserGrades('toprope').query({gymId: $scope.gymId}, function(pData) {
+                  pData.$promise.then(function(data) {
+                      $scope.topropeUsersGraphData = BarGraphHelperService.preprocess(data);
+                  });
+              });
+
+              GymUsersService.getUserGrades('lead').query({gymId: $scope.gymId}, function(pData) {
+                  pData.$promise.then(function(data) {
+                      $scope.leadUsersGraphData = BarGraphHelperService.preprocess(data);
+                  });
+              });
 
             };
 

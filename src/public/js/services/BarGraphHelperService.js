@@ -30,6 +30,7 @@ angular.module('SETTER')
                 var dataArray = [];
                 for (i = 0; i < pData.length; i += 1) {
                   var data = pData[i];
+                  if (!data.name) continue;
                   dataArray.push(data.count);
                   labels.push(data.name);
                 }

@@ -7,22 +7,10 @@ angular.module('SETTER')
 
         return {
 
-            getBouldering : function() {
-                return $resource('api/gyms/:gymId/users/grades/bouldering',
+            getUserGrades : function(pType) {
+                return $resource('api/gyms/:gymId/users/grades/' + pType,
                         {id: "@gymId"},
                         {});
-            },
-
-            getTopRope : function() {
-                return $resource('api/gyms/:gymId/users/grades/toprope',
-                        {id: "@gymId"},
-                        {});
-            },
-
-            getLead : function() {
-                return $resource('api/gyms/:gymId/users/grades/lead',
-                        {id: "@gymId"},
-                        {})
             }
         }
 

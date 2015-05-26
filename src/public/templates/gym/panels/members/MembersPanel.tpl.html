@@ -31,27 +31,40 @@
     </div>
 
     <div class="small-12 columns">
-      
-      <div class="row">
-        <!-- Current Boulderers Graph -->
-        <div class="small-12 medium-6 large-4 columns"
-            ng-include
-            src= " 'templates/gym/panels/members/graphs/BoulderersDist.tpl.html' "
-            ng-controller="UserBoulderGradeDistController">
+
+      <div class="row pb4">
+
+        <div class="small-12 medium-6 large-4 columns">
+
+          <h2 class="h3 clearfix">Bouldering</h2>
+
+          <ss-graph
+            class="prl3"
+            graph-data="boulderingUsersGraphData">
+          </ss-graph>
+
         </div>
 
-        <!-- Current Top Ropers Graph -->
-        <div class="small-12 medium-6 large-4 columns"
-            ng-include
-            src= " 'templates/gym/panels/members/graphs/LeadersDist.tpl.html' "
-            ng-controller="UserLeadGradeDistController">
+        <div class="small-12 medium-6 large-4 columns">
+
+          <h2 class="h3 clearfix">Top Rope</h2>
+
+          <ss-graph
+            class="prl3"
+            graph-data="topropeUsersGraphData">
+          </ss-graph>
+
         </div>
 
-        <!-- Current Leaders Graph -->
-        <div class="small-12 medium-6 large-4 columns"
-            ng-include
-            src= " 'templates/gym/panels/members/graphs/TopRopersDist.tpl.html' "
-            ng-controller="UserTopRopeGradeDistController">
+        <div class="small-12 medium-6 large-4 columns">
+
+          <h2 class="h3 clearfix">Lead</h2>
+
+          <ss-graph
+            class="prl3"
+            graph-data="leadUsersGraphData">
+          </ss-graph>
+
         </div>
 
       </div>
@@ -61,6 +74,8 @@
     <div class="small-12 columns">
 
       <div class="row">
+
+        <h1 class="h2 clearfix fwl">Climbers</h1>
 
         <div class="small-6 medium-3 large-3 columns   pb4"
             ng-repeat="user in users"

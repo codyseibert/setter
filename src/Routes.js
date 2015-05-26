@@ -177,18 +177,9 @@ var RouteToControllerBinder = function () {
     /*
     *   SECTION - User Grade Dist Chart
     */
-    app.get('/api/gyms/:gymId/users/grades/bouldering',
+    app.get('/api/gyms/:gymId/users/grades/:type',
         InjectAccountId,
-        GymsController.getGymUsersBoulderingGrades);
-
-    app.get('/api/gyms/:gymId/users/grades/toprope',
-        InjectAccountId,
-        GymsController.getGymUsersTopRopeGrades);
-
-    app.get('/api/gyms/:gymId/users/grades/lead',
-        InjectAccountId,
-        GymsController.getGymUsersLeadGrades);
-
+        GymsController.getGymUsersGrades);
 
 
 

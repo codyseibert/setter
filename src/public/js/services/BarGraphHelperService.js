@@ -24,7 +24,7 @@ angular.module('SETTER')
                     data: [dataArray]
                 };
             },
-            preprocess: function (pData){
+            preprocess2: function (pData){
                 var i;
                 var labels = [];
                 var dataArray = [];
@@ -42,8 +42,21 @@ angular.module('SETTER')
                       strokeColor: "#A3BF7C"
                     }]
                 };
-
-
+            },
+            preprocess: function (pData){
+                var i;
+                var labels = [];
+                var dataArray = [];
+                for (i = 0; i < pData.length; i += 1) {
+                  var data = pData[i];
+                  if (!data.name) continue;
+                  dataArray.push(data.count);
+                  labels.push(data.name);
+                }
+                return {
+                    labels: labels,
+                    series: [dataArray]
+                };
             }
         };
     }]);

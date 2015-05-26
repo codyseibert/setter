@@ -50,6 +50,8 @@
 
         <div class="tabs-content small-12 columns">
 
+            <ss-tabs content-to-show="currentTab"></ss-tabs>
+
             <div class="content"
                 ng-class="{'active': currentTab === PANEL_ACTIVITY}">
                 <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>

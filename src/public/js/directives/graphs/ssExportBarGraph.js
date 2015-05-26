@@ -22,7 +22,7 @@ angular.module('SETTER')
                         image,
                         doc,
                         JsPDF = jsPDF;
-                    canvas = $('#' + $scope.canvasId).get(0);
+                    canvas = $('#' + $scope.canvasId).find('canvas').get(0);
                     image = new Image();
                     image.src = canvas.toDataURL("image/png");
                     doc = new JsPDF();

@@ -78,6 +78,7 @@
         <h1 class="h2 clearfix fwl">Climbers</h1>
 
         <div class="small-6 medium-3 large-3 columns   pb4"
+            bindonce
             ng-repeat="user in users"
             ng-click="navigateToUser(user.id)">
 
@@ -86,13 +87,13 @@
                 <div class="flag-image pr2">
 
                     <img class="avatar avatar--small  center mb1"
-                    ng-src="{{getUserImageSrc(user)}}">
+                    bo-src="getUserImageSrc(user)">
 
                 </div>
 
                 <div class="flag-body">
 
-                    <a class="h5  display--block  center">{{user.name}}</a>
+                    <a class="h5  display--block  center" bo-text="user.name"></a>
 
                 </div>
 

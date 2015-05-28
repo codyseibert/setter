@@ -1,20 +1,22 @@
 <!-- Grade -->
-<td bo-text="route.boulder_grade || route.rope_grade|| UNRATED_STRING"></td>
+<td bo-text="route.boulder_grade || route.rope_grade || UNRATED_STRING"></td>
 
 <!-- Color -->
 <td>
     <i class="icon-circle"
-    ng-style="{color: route.value}"> </i>
+    bo-style="{color: route.value}"> </i>
 </td>
 
 <!-- Zone -->
-<td bo-text="route.zone_name"></td>
+<td bo-text="route.zone_name">
+
+</td>
 
 <!-- Rating -->
 <td>
     <ng-include class="rating  rating--medium  rating--colored"
     ng-controller="StarRatingController"
-    src=" 'templates/StarRating.tpl.html' ">
+    src=" 'templates/gym/panels/activity/sections/BOStarRating.tpl.html' ">
     </ng-include>
 </td>
 

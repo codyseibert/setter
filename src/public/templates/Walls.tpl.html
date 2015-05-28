@@ -17,7 +17,7 @@
             <img src="images/icon--drill--black.svg" alt="" height="30px" width="30px">  Manage Zones
         </h1>
 
-        <h1 ng-hide="isGymAccount()" class="fwb"> 
+        <h1 ng-hide="isGymAccount()" class="fwb">
             Gym Zones
         </h1>
 
@@ -70,15 +70,15 @@
 
 </section>
 
-<div class="center" style="width: 80px; height: 80px; position: relative " ng-show="loading" 
+<div class="center" style="width: 80px; height: 80px; position: relative " ng-show="loading"
 us-spinner>
 
 </div>
 
 <!-- NG Repeat Zone List -->
 <div class="row  small-collapse  large-uncollapse"  ng-hide="loading">
-    
-  
+
+
 
     <!-- User - Blank State Copy -->
     <section class="small-12 columns ng-hide" ng-show="!hasWalls() && getAccountId() !== gymId">
@@ -89,24 +89,24 @@ us-spinner>
             <div class="small-12 columns">
 
                 <h2 class="wb  fwb">Bummer, it appears this gym hasn't set any routes yet.</h2>
-                
+
                 <p>
-                    Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>. 
+                    Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>.
                 </p>
-                
+
             </div>
 
         </div>
 
         <!-- User - Blank State for no Zones Medium Up -->
         <div class="placeholder-text  medium  show-for-medium-up">
-            
+
                 <div class="vertical-align  text-center">
 
                     <h2 class="wb  fwb">Bummer, it appears this gym hasn't set any routes yet.</h2>
-                    
+
                     <p>
-                        Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>. 
+                        Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>.
                     </p>
 
                 </div>
@@ -126,20 +126,20 @@ us-spinner>
             <div class="small-12 columns">
 
                 <h2 class="wb  fwb">You have no zones available to set routes on, yet.</h2>
-                
+
                 <p>
                     Before you can start adding awesome routes & problems to your gym you must first create a zone. <span class="fwb">Add your first zone below!  </span>
                 </p>
-                
+
                 <div class="media--fl" ng-show="isGymAccount()">
-                
+
                     <button type="submit"
                                 alt="Add New Zone"
                                 class="btn--primary icon-plus btn--medium mb1 "
                                 ng-click="addClicked()">
                         Add Zone
                     </button>
-                
+
                     <div>
                         <input type="text"
                                 name="name"
@@ -148,10 +148,10 @@ us-spinner>
                                 ng-model="form.wallName"
                                 class="mb1"/>
                     </div>
-                
-                
+
+
                 </div>
-                
+
                 <p class="txt--micro">
                     <i><span class="uc fwb">Note:</span> Zones can serve as walls, climbing areas/sections, or whichever is the preferred method of wall categorization at your gym</i>.
                 </p>
@@ -161,7 +161,7 @@ us-spinner>
 
         <!-- Gym - Blank State for no Zones Medium Up -->
         <div class="placeholder-text  large  show-for-medium-up">
-            
+
                 <div class="vertical-align">
 
                     <h2 class="wb  fwb">
@@ -206,21 +206,18 @@ us-spinner>
 
         <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList">
 
-            <li class="ptb2" ng-repeat="wall in walls"
+            <li class="ptb2"
+                    bindonce
+                    ng-repeat="wall in walls"
                     ng-click="navigateToWall(gymId, wall.id)"
                     ng-hide="wall.hide">
 
-                    {{wall.name}}
-                   <span class="round  label success " ng-show="isUserAccount() && wall.new_count">{{wall.new_count}}</span>
+                    <span bo-text="wall.name"></span>
+                   <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"></span>
 
                     <i class="icon-right-big right"> </i>
 
-                    <span class="right">
-                        {{wall.route_count}} Routes
-                    </span>
-
-
-
+                    <span class="right" bo-text="wall.route_count + ' Routes'"></span>
 
             </li>
 

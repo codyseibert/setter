@@ -4,9 +4,8 @@
 <!-- Color -->
 <td>
     <i class="icon-circle"
-    ng-style="{color: route.value}"> </i>
+    bo-style="{color: route.value}"> </i>
 </td>
-
 
 <!-- Zone -->
 <td bo-text="route.zone_name">
@@ -17,12 +16,12 @@
 <td>
     <ng-include class="rating  rating--medium  rating--colored"
     ng-controller="StarRatingController"
-    src=" 'templates/StarRating.tpl.html' ">
+    src=" 'templates/gym/panels/activity/sections/BOStarRating.tpl.html' ">
     </ng-include>
 </td>
 
 <!--Date Set-->
-<td >
+<td class="show-for-medium-up">
     {{route.date | date : 'MMM dd, yyyy'}}
 </td>
 

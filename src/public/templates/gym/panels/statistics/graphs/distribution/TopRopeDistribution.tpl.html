@@ -28,13 +28,13 @@
         <table ng-show="hasTopRope">
             <thead>
                 <th>Zone</th>
-                <th ng-repeat="grade in ropeGrades">{{grade.name}}</th>
+                <th bindonce ng-repeat="grade in ropeGrades" bo-text="grade.name"></th>
             </thead>
 
             <tbody>
-                <tr ng-repeat="zone in ropeZoneKeys">
-                    <td>{{zone}}</td>
-                    <td ng-repeat="count in ropeCounts[zone] track by $index">{{count || ''}}</td>
+                <tr bindonce ng-repeat="zone in ropeZoneKeys">
+                    <td bo-text="zone"></td>
+                    <td bindonce ng-repeat="count in ropeCounts[zone] track by $index" bo-text="count || ''"></td>
                 </tr>
             </tbody>
         </table>

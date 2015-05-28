@@ -23,19 +23,29 @@ angular.module('SETTER')
                   function svg_to_png_data(target) {
                     var ctx, mycanvas, svg_data, img, child;
 
-                    // Flatten CSS styles into the SVG
-                    for (var i = 0; i < target.childNodes.length; i++) {
-                      child = target.childNodes[i];
-                      var cssStyle = window.getComputedStyle(child);
-                      if(cssStyle){
-                         child.style.cssText = cssStyle.cssText;
+                    var style = function (target) {
+                      try {
+                        var cssStyle = window.getComputedStyle(target);
+                        if (cssStyle){
+                          target.style.cssText = cssStyle.cssText;
+                        }
+                      } catch (err) {
+
                       }
                     }
+
+                    var flattenCss = function (target) {
+                      style(target);
+                      for (var i = 0; i < target.childNodes.length; i++) {
+                        child = target.childNodes[i];
+                        flattenCss(child);
+                      }
+                    };
+                    flattenCss(target);
 
                     // Construct an SVG image
                     svg_data = '<svg xmlns="http://www.w3.org/2000/svg" width="' + target.offsetWidth +
                                '" height="' + target.offsetHeight + '">' + target.innerHTML + '</svg>';
-                    console.log(svg_data);
                     img = new Image();
                     img.src = "data:image/svg+xml," + encodeURIComponent(svg_data);
 
@@ -56,13 +66,17 @@ angular.module('SETTER')
                     data = svg_to_png_data(target);
                     image = new Image();
                     image.src = data;
-                    // var logo = new Image();
-                    // logo.src = 'images/setter_print_logo.png'
-                    var doc = new jsPDF();
-                    doc.text(20, 20, $scope.title);
-                    doc.addImage(image, 'png', 15, 40, 180, 160);
-                    // doc.addImage(logo, 'png', 10, 10, 100, 100);
-                    doc.save($scope.docName);
+                    var logo = new Image();
+                    logo.src = 'images/setter_print_logo.png'
+                    logo.addEventListener('load', function (){
+                      var doc = new jsPDF('p', 'px', [600, 800]);
+                      doc.setFontSize(32);
+                      doc.text(150, 50, $scope.title);
+                      doc.addImage(image, 'png', 15, 90, 500, 440);
+                      doc.text(273, 705, 'Printed on');
+                      doc.addImage(logo, 'png', 400, 660, 150, 70);
+                      doc.save($scope.docName);
+                    });
                   }
 
                   svg_to_png_replace($('#' + $scope.canvasId).find('.ct-chart > svg')[0]);

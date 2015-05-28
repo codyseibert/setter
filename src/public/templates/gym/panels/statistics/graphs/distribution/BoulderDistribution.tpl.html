@@ -9,7 +9,7 @@
 
             <h3 class="fwl">
 
-                Not enough routes or problems set yet, <a ng-click="navigateToZones()">go set some</a>!  
+                Not enough routes or problems set yet, <a ng-click="navigateToZones()">go set some</a>!
 
             </h3>
 
@@ -19,7 +19,7 @@
 
             <h3 class="fwl">
 
-                There are currently no boulder problems set, check back later! 
+                There are currently no boulder problems set, check back later!
 
             </h3>
 
@@ -29,13 +29,13 @@
         <table ng-show="hasBoulder">
             <thead>
                 <th>Zone</th>
-                <th ng-repeat="grade in boulderGrades">{{grade.name}}</th>
+                <th bindonce ng-repeat="grade in boulderGrades" bo-text="grade.name"></th>
             </thead>
 
             <tbody>
-                <tr ng-repeat="(zone, grades) in boulderZones">
-                    <td>{{zone}}</td>
-                    <td ng-repeat="count in boulderCounts[zone] track by $index">{{count || ''}}</td>
+                <tr bindonce ng-repeat="(zone, grades) in boulderZones">
+                    <td bo-text="zone"></td>
+                    <td bindonce ng-repeat="count in boulderCounts[zone] track by $index" bo-text="count || ''"></td>
                 </tr>
             </tbody>
         </table>

@@ -94,7 +94,7 @@
 
             <div class="small-12 columns mb2 show-for-large-up">
 
-                <!-- Gyms  Add Route -->
+                <!-- Gyms Add Route -->
                 <button class="icon-plus btn--medium btn--primary display--inlineBlock "
                         ng-click="openCreateRouteModal()">
                     Add Route
@@ -103,6 +103,7 @@
 
                 <!-- [] - Strip Zone -->
                 <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
+                        ng-show="hasRoutes()"
                         ng-click="stripZone(gymId, wallId)">
                     Strip Zone
                 </button>
@@ -111,6 +112,7 @@
 
             <div class="small-12 columns b2 hide-for-large-up">
                   <button class="icon-down-big btn--medium btn--secondary"
+                        ng-show="hasRoutes()"
                         ng-click="stripZone(gymId, wallId)">
                     Strip Zone
                 </button>
@@ -121,9 +123,16 @@
 
          <div  class="row small-collapse large-uncollapse">
 
-            <div class="small-12 columns"  ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
+            <div class="small-12 columns"
+                ng-show="hasRoutes()"
+                  ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
                 <!-- Routes Table Inserted Here-->
 
+            </div>
+
+            <div ng-show="!hasRoutes()"
+                class="text-center ng-hide">
+                <h1>This zone has no routes!</h1>
             </div>
 
         </section>

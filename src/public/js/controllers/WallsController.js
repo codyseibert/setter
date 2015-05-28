@@ -22,7 +22,7 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.walls = [];
-            $scope.loading = true; 
+            $scope.loading = true;
 
             $scope.form = {
                 filter: ''
@@ -30,7 +30,7 @@ angular.module('SETTER')
 
             WallsService.getWallsInGym($scope.gymId, function (pData) {
                 $scope.walls = pData;
-                $scope.loading = false; 
+                $scope.loading = false;
             });
 
             $scope.hasWalls = function () {

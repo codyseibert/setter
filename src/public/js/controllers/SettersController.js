@@ -44,6 +44,9 @@ angular.module('SETTER')
             $scope.removeSetterClicked = function (pSetter) {
                 SettersService.removeSetterGymAccess($scope.gymId, pSetter.account_id)
                     .success(function () {
+                        var yes = confirm("Are you sure?  (Don't worry, they can easily be added back again)");
+                        if (!yes) return;
+                        
                         var index = $scope.setters.indexOf(pSetter);
                         $scope.setters.splice(index, 1);
                         alert(pSetter.firstname + " " + pSetter.lastname + " removed to your gym's setter list");

@@ -69,6 +69,24 @@ var AccountsDAO = function () {
         );
     };
 
+    this.getSettings = function (pAccountId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT hide_setters FROM gyms WHERE account_id = ?',
+            [pAccountId],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
+    this.updateSettings = function (pAccountId, pSettings, pCallback) {
+        theDaoHelper.executeQuery(
+            'UPDATE gyms SET hide_setters = ? WHERE account_id = ?',
+            [pSettings.hide_setters, pAccountId],
+            theDaoHelper.UPDATE,
+            pCallback
+        );
+    };
+
     this.getAccountType = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT type_id FROM accounts WHERE id = ?',

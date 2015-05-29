@@ -63,6 +63,14 @@ var RouteToControllerBinder = function () {
 
 
 
+    // SETTINGS
+    app.get('/api/account/settings',
+      InjectAccountId,
+      AccountsController.getSettings);
+
+    app.post('/api/account/settings',
+      InjectAccountId,
+      AccountsController.updateSettings);
 
 
     // CHANGE PASSWORD
@@ -81,6 +89,9 @@ var RouteToControllerBinder = function () {
     app.get('/api/gyms/:gymId',
         InjectAccountId,
         GymsController.getGym);
+
+    app.get('/api/gyms/:gymId/settings',
+        GymsController.getGymSettings);
 
 
 
@@ -462,10 +473,6 @@ var RouteToControllerBinder = function () {
     app.post('/api/accounts/image',
         InjectAccountId,
         ImagesController.uploadAccountImage);
-
-
-
-
 
     // BLOG
     app.get('/api/blog',

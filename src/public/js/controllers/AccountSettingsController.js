@@ -10,6 +10,20 @@ angular.module('SETTER')
             AccountsService
         ) {
             'use strict';
+            $scope.settings = {
+              hide_setters: true
+            };
+
+            AccountsService.getSettings()
+              .success(function (pData) {
+                  $scope.settings.hide_setters = pData.hide_setters === 1;
+              });
+
+            $scope.updateSettings = function () {
+              AccountsService.updateSettings($scope.settings)
+                .success(function (pData) {
+                });
+            };
 
             $scope.changePassword = function () {
 
@@ -26,4 +40,5 @@ angular.module('SETTER')
                         $scope.form.repeat = "";
                     });
             };
+
         }]);

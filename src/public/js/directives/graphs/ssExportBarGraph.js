@@ -13,7 +13,8 @@ angular.module('SETTER')
               scope: {
                 title: "@",
                 canvasId: "@",
-                docName: "@"
+                docName: "@",
+                show: "="
               },
               templateUrl: 'templates/graphs/ssExportBarGraph.tpl.html',
               controller: function($scope) {

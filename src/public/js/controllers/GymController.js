@@ -115,7 +115,7 @@ angular.module('SETTER')
 
 
             GymsService.getGymImage($scope.gymId, function (pData) {
-                $scope.image = pData;
+                $scope.image = $rootScope.getGymImageSrc(pData);
             });
 
             GymsService.getNumberOfNewRoutes($scope.gymId)

@@ -38,7 +38,7 @@ angular.module('SETTER')
             });
 
             UsersService.getUserImage($scope.userId, function (pData) {
-                $scope.image = pData;
+                $scope.image = pData.url;
             });
 
             UsersService.getActivityStream($scope.userId)
@@ -53,22 +53,11 @@ angular.module('SETTER')
                 });
 
 
-
-
-            /*
-            *   SECTION - Image
-            */
-            $scope.fileNameChanged = function () {
-              $scope.isUploadingImage = true;
-              angular.element("#image_submit").trigger('click');
-            };
-
-            $scope.imageUploadComplete = function (content) {
-                $scope.isUploadingImage = false;
-                $scope.image = content;
+            $scope.imageUploadCallback = function (content) {
                 LoginService.setImageUrl(content.url);
                 UsersService.setImageAsDirty(LoginService.getAccountId());
             };
+
 
             $scope.loadStatisticsData = function () {
                 UsersService.getBoulderSends($scope.userId, 'bouldering')

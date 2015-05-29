@@ -138,7 +138,7 @@
             </div>
 
 
-            <div class="flag  mb3">
+            <div class="flag  mb3" ng-hide="!route.route_name">
 
                 <h3 class="h4 flag-image">
                     Name
@@ -147,7 +147,7 @@
                <div class="flag-body  text-right">
 
                     <h4 class="h3  mb0">
-                       {{route.route_name || 'N/A'}}
+                       {{route.route_name}}
                     </h4>
 
                </div>
@@ -222,14 +222,14 @@
                 </div>
             </div>
 
-            <div>
+            <div ng-hide="!route.note">
 
                 <h3 class="h4 fwb  mb2">
                     Notes
                 </h3>
 
                 <p>
-                    {{route.note || 'N/A'}}
+                    {{route.note}}
                 </p>
 
             </div>

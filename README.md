@@ -2,14 +2,14 @@
 Route Management Software for Climbing Gyms
 
 # setup
-cd src/public
-bower install
-cd ../..
-npm install
+- cd src/public
+- bower install
+- cd ../..
+- npm install
 
 # running
-cd src
-node Server
+- cd src
+- node Server
 
 # license
 Copyright Cody Seibert & Guillermo Martinez

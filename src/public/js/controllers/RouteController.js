@@ -15,6 +15,7 @@ angular.module('SETTER')
         'WallsService',
         'LoginService',
         'GymsService',
+        'ProjectsService',
         'SelectedRouteService',
         function (
             $scope,
@@ -28,6 +29,7 @@ angular.module('SETTER')
             WallsService,
             LoginService,
             GymsService,
+            ProjectsService,
             SelectedRouteService
         ) {
             'use strict';
@@ -122,7 +124,16 @@ angular.module('SETTER')
                         }
                     });
 
-                $q.all([a, b, c, d, e, f, g]).then(function() {
+                var h = ProjectsService.isProject($scope.routeId)
+                    .success(function (pData) {
+                        if (pData.error) {
+                            $scope.isProject = false;
+                        } else {
+                            $scope.isProject = true;
+                        }
+                    });
+
+                $q.all([a, b, c, d, e, f, g, h]).then(function() {
                     $scope.loading = false;
                 });
             }
@@ -240,5 +251,19 @@ angular.module('SETTER')
                 } else {
                     $scope.back();
                 }
+            };
+
+            $scope.setAsProject = function () {
+                ProjectsService.createProject($scope.routeId)
+                  .success(function (pData) {
+                      $scope.isProject = true;
+                  });
+            };
+
+            $scope.unsetAsProject = function () {
+                ProjectsService.deleteProject($scope.routeId)
+                  .success(function (pData) {
+                      $scope.isProject = false;
+                  });
             };
         }]);

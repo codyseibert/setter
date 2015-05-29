@@ -79,6 +79,12 @@ angular.module('SETTER')
                         pCallback(gym[pGymId]);
                     });
                 },
+                getLatestProjects: function (pGymId, pCallback) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/projects'
+                    });
+                },
                 getHomeGymUsers: function (pGymId, pCallback) {
                     if (homeGymUsers[pGymId]) {
                         pCallback(homeGymUsers[pGymId]);

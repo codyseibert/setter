@@ -112,6 +112,22 @@
 
         </div>
 
+        <div ng-show="isUserAccount()" class="mb2">
+
+            <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
+                    ng-click="setAsProject()"
+                    ng-hide="isProject">
+                Set as Project
+            </button>
+
+            <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
+                    ng-click="unsetAsProject()"
+                    ng-show="isProject">
+                Unset as Project
+            </button>
+
+        </div>
+
         <h1 class="h3 fwb left">
             Route Information
         </h1>

@@ -53,6 +53,16 @@ angular.module('SETTER')
                 });
 
 
+            UsersService.getProjects($scope.userId)
+                .success(function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = DateFormatService.format(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.projects = pData;
+                });
+
+
             $scope.imageUploadCallback = function (content) {
                 LoginService.setImageUrl(content.url);
                 UsersService.setImageAsDirty(LoginService.getAccountId());

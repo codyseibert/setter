@@ -93,6 +93,12 @@ angular.module('SETTER')
                     method: "GET",
                     url: "api/users/" + pUserId + "/activity"
                 });
+            },
+            getProjects: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/projects"
+                });
             }
         };
     }]);

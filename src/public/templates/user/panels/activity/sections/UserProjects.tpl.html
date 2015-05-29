@@ -1,0 +1,31 @@
+
+<div class="small-12 medium-6 columns">
+
+  <h2 class="fwl">Projects</h2>
+
+  <div class="row small-collapse large-uncollapse ">
+
+      <ul class="list list--tableStyle  list--navElem">
+
+          <li class="ptb2    "
+              ng-repeat="proj in projects"
+              ng-click="openRouteModal(proj)">
+
+              <span>
+                  <i class="icon-circle icon--medium"
+                      ng-style="{color: act.value}">
+                  </i>
+                  {{formatGrade(proj.bg, proj.rg, proj.lg)}}
+              </span>
+
+              <span class="right">
+                  on {{proj.date}}
+              </span>
+
+          </li>
+
+      </ul>
+
+  </div>
+
+</div>

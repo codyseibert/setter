@@ -12,6 +12,7 @@
 */
 
 var theGymsDao = require('../dao/GymsDao');
+var theProjectsDao = require('../dao/ProjectsDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var GymsController = function () {
@@ -28,6 +29,14 @@ var GymsController = function () {
     this.getGyms = function (pReq, pRes) {
         var callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getGyms(callback);
+    };
+
+    this.getLatestProjects = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theProjectsDao.getLatestProjectsForGym(gymId, callback);
     };
 
     this.getGymSettings = function (pReq, pRes) {

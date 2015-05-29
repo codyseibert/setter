@@ -9,7 +9,8 @@
       <ss-export-bar-graph
         title="Current Bouldering Routes"
         canvas-id="boulderingGraph"
-        doc-name="CurrentBoulderingRoutes.pdf">
+        doc-name="CurrentBoulderingRoutes.pdf"
+        show="getAccountId() === gymId">
       </ss-export-bar-graph>
 
       <h2 class="h3 clearfix">Bouldering</h2>
@@ -27,7 +28,8 @@
       <ss-export-bar-graph
         title="Current Top Rope Routes"
         canvas-id="topropeGraph"
-        doc-name="CurrentTopRopeRoutes.pdf">
+        doc-name="CurrentTopRopeRoutes.pdf"
+        show="getAccountId() === gymId">
       </ss-export-bar-graph>
 
       <h2 class="h3 clearfix">Tope Rope</h2>
@@ -44,7 +46,8 @@
       <ss-export-bar-graph
         title="Current Lead Routes"
         canvas-id="leadGraph"
-        doc-name="CurrentLeadRoutes.pdf">
+        doc-name="CurrentLeadRoutes.pdf"
+        show="getAccountId() === gymId">
       </ss-export-bar-graph>
 
       <h2 class="h3 clearfix">Lead</h2>

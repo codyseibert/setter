@@ -27,6 +27,22 @@ angular.module('SETTER')
                     url: "api/password/change",
                     data: {password: pPassword}
                 });
-            }
+            },
+
+            getSettings: function () {
+                return $http({
+                    method: "GET",
+                    url: "api/account/settings"
+                });
+            },
+
+            updateSettings: function (pSettings) {
+                return $http({
+                    method: "POST",
+                    url: "api/account/settings",
+                    data: pSettings
+                });
+            },
+
         };
     }]);

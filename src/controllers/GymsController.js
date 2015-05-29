@@ -30,6 +30,14 @@ var GymsController = function () {
         theGymsDao.getGyms(callback);
     };
 
+    this.getGymSettings = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getGymSettings(gymId, callback);
+    };
+
     this.getGymImage = function (pReq, pRes) {
         var gymId,
             callback;

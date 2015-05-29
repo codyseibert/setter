@@ -12,6 +12,7 @@ var theCrypt = require('../Crypt');
 var theAccountsDao = require('../dao/AccountsDao');
 var randomstring = require('just.randomstring');
 var theMailer = require('../Mailer');
+var theControllerHelper = require('./ControllerHelper');
 
 var AccountsController = function () {
     'use strict';
@@ -42,6 +43,24 @@ var AccountsController = function () {
                 pRes.send(pResults);
             });
         });
+    };
+
+    this.getSettings = function (pReq, pRes) {
+        var accountId,
+            callback;
+        accountId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theAccountsDao.getSettings(accountId, callback);
+    };
+
+    this.updateSettings = function (pReq, pRes) {
+        var accountId,
+            settings,
+            callback;
+        accountId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        settings = pReq.body;
+        theAccountsDao.updateSettings(accountId, settings, callback);
     };
 };
 

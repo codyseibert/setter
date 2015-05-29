@@ -59,6 +59,12 @@ angular.module('SETTER')
                         pCallback(image[pGymId]);
                     });
                 },
+                getGymSettings: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/settings'
+                    });
+                },
                 getGym: function (pGymId, pCallback) {
                     if (gym[pGymId]) {
                         pCallback(gym[pGymId]);

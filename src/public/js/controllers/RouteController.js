@@ -14,6 +14,7 @@ angular.module('SETTER')
         'SendsService',
         'WallsService',
         'LoginService',
+        'GymsService',
         'SelectedRouteService',
         function (
             $scope,
@@ -26,6 +27,7 @@ angular.module('SETTER')
             SendsService,
             WallsService,
             LoginService,
+            GymsService,
             SelectedRouteService
         ) {
             'use strict';
@@ -41,6 +43,11 @@ angular.module('SETTER')
                     $scope.wallId = newValue.wall_id;
                     $scope.loading = true;
                     loadRouteData();
+
+                    GymsService.getGymSettings($scope.gymId)
+                      .success(function(pData){
+                          $scope.settings = pData;
+                      });
                 }
             });
 

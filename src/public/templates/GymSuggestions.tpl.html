@@ -8,7 +8,7 @@
         </h1>
 
         <p ng-show="getAccountId() === gymId">
-           Below are suggestions from your climbers. 
+           Below are suggestions from your climbers.
         </p>
 
         <h1 class="icon-mail-alt  fwb" ng-show="getAccountId() !== gymId">
@@ -16,7 +16,7 @@
         </h1>
 
         <p ng-show="getAccountId() !== gymId">
-           Let your gym know of any climbs or additions you'd like to see, or just show them some love.
+           Let <b>{{gym.name}}</b> know of any climbs or additions you'd like to see, or just show them some love.
         </p>
 
         <hr class="header-divider">

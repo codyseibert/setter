@@ -6,12 +6,14 @@ angular.module('SETTER')
         '$scope',
         '$routeParams',
         'GymSuggestionsService',
+        'GymsService',
         'DateFormatService',
         'LoginService',
         function (
             $scope,
             $routeParams,
             GymSuggestionsService,
+            GymsService,
             DateFormatService,
             LoginService
         ) {
@@ -23,6 +25,10 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.form = {};
+            
+            GymsService.getGym($scope.gymId, function (pData) {
+                $scope.gym = pData;
+            });
 
             if ($scope.getAccountId() === $scope.gymId) {
                 GymSuggestionsService.getSuggestionsForGym($scope.gymId)

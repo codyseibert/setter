@@ -194,25 +194,5 @@ angular.module('SETTER')
 
 
 
-            /*
-                Upload Image Logic
-            */
-            $scope.uploadImage = function () {
-                angular.element("#image_file").trigger('click');
-            };
-
-            angular.element("#image_file").on('change', function () {
-                angular.element("#image_submit").trigger('click');
-                $scope.image = {
-                    url: 'images/loading.gif'
-                };
-                $scope.$apply();
-            });
-
-            $scope.complete = function (content) {
-                $scope.image = content;
-                WallsService.setWallDirty($scope.wallId);
-            };
-
             $scope.authorization = LoginService.getHeader();
         }]);

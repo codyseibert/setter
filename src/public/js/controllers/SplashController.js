@@ -18,7 +18,8 @@ angular.module('SETTER')
             'use strict';
 
             if (LoginService.isLoggedIn()) {
-                LoginService.logout();
+                LoginService.navigateToCorrectHomePage();
+                return;
             }
 
             $scope.form = {};

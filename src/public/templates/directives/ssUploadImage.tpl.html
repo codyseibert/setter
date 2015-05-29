@@ -1,0 +1,37 @@
+<div class="flag-image">
+  <form
+      ng-if="active"
+      enctype="multipart/form-data"
+      action="{{action}}"
+      method="post"
+      ng-upload="imageUploadComplete(content)">
+
+      <!-- This is what is clickable -->
+      <input id="image_file"
+          class="avatar avatar--big"
+          style="position: absolute; top: 0px; opacity: 0; z-index: 10"
+          type="file"
+          name="file"
+          onchange="angular.element(this).scope().fileNameChanged()"></input>
+
+      <input class="submit"
+          style="opacity: 0; position: absolute; z-index: -1000;"
+          type="submit"></input>
+
+      <input
+          name="authorization"
+          style="opacity: 0; position: absolute; z-index: -1000;"
+          value="{{authorization}}"></input>
+  </form>
+
+  <img class="avatar--big"
+      ng-class="{noclick: !active}"
+      ng-hide="isUploadingImage"
+      ng-src="{{image}}" />
+
+  <div class="avatar--big"
+       ng-class="{noclick: !active}"
+       style="position: relative"
+       ng-show="isUploadingImage"
+       us-spinner></div>
+</div>

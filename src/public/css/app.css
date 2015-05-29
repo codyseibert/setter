@@ -6628,10 +6628,10 @@ a {
   background-color: #FFEDE9; }
 
 /*------------------------------------*\
-    #Generics 
+    #Generics
 \*------------------------------------*/
 /*------------------------------------*\
-    #Display Types  
+    #Display Types
 \*------------------------------------*/
 .display--block {
   display: block; }
@@ -6653,7 +6653,7 @@ a {
   display: table; }
 
 /*------------------------------------*\
-    #Clearfix 
+    #Clearfix
 \*------------------------------------*/
 .cf {
   overflow: hidden;
@@ -6671,7 +6671,7 @@ a {
   display: block; }
 
 /*------------------------------------*\
-    #Flag Object 
+    #Flag Object
 \*------------------------------------*/
 .flag {
   display: table;
@@ -6696,6 +6696,12 @@ a {
   .flag--rev .flag-image {
     padding-left: 10px;
     padding-right: 0; }
+
+.noclick {
+  cursor: default; }
+
+.behind {
+  z-index: -9999; }
 
 .flag-body {
   width: 100%; }

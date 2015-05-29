@@ -21,7 +21,6 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-
 }
 
 .avatar--big--nowidth {
@@ -465,7 +464,7 @@
   @extend %mt4;
   @extend %mb2;
   @extend %clearfix;
-  
+
   .header-divider {
     @extend %mt2;
     @extend %display--block;
@@ -476,8 +475,6 @@
 
 .splash-message {
     @media #{$large-up} {
-        margin-top: 15%; 
+        margin-top: 15%;
     }
 }
-
-

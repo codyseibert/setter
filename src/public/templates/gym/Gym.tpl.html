@@ -70,25 +70,3 @@
         </div>
 
 </div>
-
-
-
-<!-- hidden -->
-<form id="image_form"
-        style="display: none;"
-        enctype="multipart/form-data"
-        action="{{'/api/accounts/image'}}"
-        method="post"
-        ng-upload="imageUploadComplete(content)">
-
-    <input id="image_file"
-        type="file"
-        name="file"
-        onchange="angular.element(this).scope().fileNameChanged()"></input>
-
-    <input id="image_submit"
-        type="submit"></input>
-
-    <input name="authorization"
-        value="{{authorization}}"></input>
-</form>

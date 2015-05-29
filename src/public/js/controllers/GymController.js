@@ -40,6 +40,7 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $rootScope.gymId = $scope.gymId;
 
+
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
             $scope.LEAD = 'Lead';
@@ -80,6 +81,9 @@ angular.module('SETTER')
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
             });
+
+             $scope.gymName = $scope.gym.name; 
+
 
             var loadClimberPanelData = function () {
 
@@ -252,7 +256,7 @@ angular.module('SETTER')
             *   SECTION - Scope Bindings
             */
             $scope.setHomeGym = function () {
-                var yes = confirm("Are you sure you want to make " + $scope.gym.name + " your new home gym?");
+                var yes = confirm("Are you sure you want to make " + $scope.gymName + " your new home gym?");
                 if (!yes) {
                     return;
                 }
@@ -261,7 +265,7 @@ angular.module('SETTER')
                     .success(function () {
                         $rootScope.homeGymId = $scope.gymId;
                         LoginService.setHomeGymId($scope.gymId);
-                        alert($scope.gym.name + " now set as your home gym!");
+                        alert($scope.gymName + " now set as your home gym!");
                     });
             };
 

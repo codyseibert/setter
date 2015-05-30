@@ -80,9 +80,8 @@ angular.module('SETTER')
             */
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
+                $scope.gymName = $scope.gym.name;
             });
-
-             $scope.gymName = $scope.gym.name; 
 
 
             var loadClimberPanelData = function () {

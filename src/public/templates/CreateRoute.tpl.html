@@ -36,13 +36,13 @@
                         Strip Route
                     </button>
 
-                     <a class=" right ml2  h2 icon-cancel" ng-click="closeRouteModal()"> </a>
+                     <a class=" right ml2  h2 icon-cancel  icon--jumbo" ng-click="closeRouteModal()"> </a>
 
                 </div>
 
                 <div class="right ng-hide" ng-show="isUserAccount()">
 
-                     <a class="right h2 icon-cancel" ng-click="closeRouteModal()"> </a>
+                     <a class="right h2 icon-cancel  icon--jumbo" ng-click="closeRouteModal()"> </a>
 
                 </div>
 
@@ -65,7 +65,7 @@
 
     <div class="small-12 columns">
 
-        <div class="fieldwrapper">
+        <div class="fieldwrapper  pb4">
 
             <h1 class="h3  fwb" ng-hide="isEditMode">
                 Set Route
@@ -215,23 +215,3 @@
     </div>
 
 </section>
-
-<!--     <section class="row" ng-hide="hasSetters()" >
-
-        <div class="small-12 columns"  >
-
-            <h2>This gym has no setters!</h2>
-
-            <p>
-                Have your gym's setters create user accounts so that you may start adding them!
-            </p>
-
-            <button class="btn--primary btn--medium btn--expanded  icon-plus-squared"
-                ng-click="navigateToAddSetters(gymId)"
-                ng-hide="isEditMode">
-                <i class="icon-plus"> </i> Add Setters
-            </button>
-
-        </div>
-
-    </section> -->

@@ -834,12 +834,12 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
 }
 
 /* line 458, ../scss/modules/_generics.scss */
-.pt3, .dropDown--withForm {
+.pt3, .dropDown--withForm, .offCanvasModal-content {
   padding-top: rem-calc(24) !important;
 }
 
 /* line 462, ../scss/modules/_generics.scss */
-.pt4, .offCanvasModal {
+.pt4 {
   padding-top: rem-calc(36) !important;
 }
 
@@ -9016,12 +9016,12 @@ footer, .select--tetriary, .select--primary, .select--secondary, [class*="sectio
 }
 
 /* line 458, ../scss/modules/_generics.scss */
-.pt3, .dropDown--withForm {
+.pt3, .dropDown--withForm, .offCanvasModal-content {
   padding-top: 1.5rem !important;
 }
 
 /* line 462, ../scss/modules/_generics.scss */
-.pt4, .offCanvasModal {
+.pt4 {
   padding-top: 2.25rem !important;
 }
 
@@ -12564,32 +12564,24 @@ ul[data-pie-id] {
   }
 }
 
-/* line 33, ../scss/partials/_modals.scss */
+/* line 37, ../scss/partials/_modals.scss */
 .offCanvasModal {
-  -moz-transform: translateX(100vw);
-  -ms-transform: translateX(100vw);
-  -webkit-transform: translateX(100vw);
-  transform: translateX(100vw);
   top: 0;
   z-index: 100;
   bottom: 0;
   position: fixed;
   background-color: #fff;
   height: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  -moz-overflow-scrolling: touch;
   width: 90%;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 33, ../scss/partials/_modals.scss */
+  /* line 37, ../scss/partials/_modals.scss */
   .offCanvasModal {
     width: 50%;
   }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 33, ../scss/partials/_modals.scss */
+  /* line 37, ../scss/partials/_modals.scss */
   .offCanvasModal {
     z-index: 5;
     margin-top: 3.75rem;
@@ -12598,16 +12590,36 @@ ul[data-pie-id] {
   }
 }
 
-/* line 81, ../scss/partials/_modals.scss */
-.offCanvasModal-container.right .offCanvasModal {
+/* line 60, ../scss/partials/_modals.scss */
+.offCanvasModal-content {
+  z-index: 110;
+  position: relative;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+}
+@media only screen and (min-width: 64.0625em) {
+  /* line 60, ../scss/partials/_modals.scss */
+  .offCanvasModal-content {
+    margin-top: 0.75rem;
+    margin-right: 1rem;
+  }
+}
+
+/* line 86, ../scss/partials/_modals.scss */
+.offCanvasModalContainer.right .offCanvasModal {
   -moz-transform: translateX(100vw);
   -ms-transform: translateX(100vw);
   -webkit-transform: translateX(100vw);
   transform: translateX(100vw);
   right: 0;
 }
-/* line 84, ../scss/partials/_modals.scss */
-.offCanvasModal-container.right .offCanvasModal.is-showing {
+/* line 89, ../scss/partials/_modals.scss */
+.offCanvasModalContainer.right .offCanvasModal.is-showing {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
   -webkit-transform: translateX(0);
@@ -12615,14 +12627,14 @@ ul[data-pie-id] {
   right: 0;
 }
 
-/* line 95, ../scss/partials/_modals.scss */
+/* line 100, ../scss/partials/_modals.scss */
 .offCanvasModal--left {
   -moz-transform: translateX(-100vw);
   -ms-transform: translateX(-100vw);
   -webkit-transform: translateX(-100vw);
   transform: translateX(-100vw);
 }
-/* line 98, ../scss/partials/_modals.scss */
+/* line 103, ../scss/partials/_modals.scss */
 .offCanvasModal--left.showing {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -12631,7 +12643,7 @@ ul[data-pie-id] {
   left: 0;
 }
 
-/* line 121, ../scss/partials/_modals.scss */
+/* line 126, ../scss/partials/_modals.scss */
 .offCanvasModal-overlay {
   /* The area that is clickable to close the modal */
   position: absolute;
@@ -12645,7 +12657,7 @@ ul[data-pie-id] {
   display: none;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 121, ../scss/partials/_modals.scss */
+  /* line 126, ../scss/partials/_modals.scss */
   .offCanvasModal-overlay {
     display: none;
   }

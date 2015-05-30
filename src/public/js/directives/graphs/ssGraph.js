@@ -18,6 +18,7 @@ angular.module('SETTER')
 
               },
               link: function(scope, element, attrs) {
+
                 var options = {};
                 options.height = "300px";
 

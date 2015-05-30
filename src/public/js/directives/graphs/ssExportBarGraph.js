@@ -14,7 +14,8 @@ angular.module('SETTER')
                 title: "@",
                 canvasId: "@",
                 docName: "@",
-                show: "="
+                show: "=",
+                gym: "@"
               },
               templateUrl: 'templates/graphs/ssExportBarGraph.tpl.html',
               controller: function($scope) {
@@ -45,15 +46,16 @@ angular.module('SETTER')
                     flattenCss(target);
 
                     // Construct an SVG image
-                    svg_data = '<svg xmlns="http://www.w3.org/2000/svg" width="' + target.offsetWidth +
-                               '" height="' + target.offsetHeight + '">' + target.innerHTML + '</svg>';
+                    var SCALE = 4; 
+                    svg_data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350" width="' + target.offsetWidth * SCALE +
+                               '" height="' + target.offsetHeight * SCALE + '">' + target.innerHTML + '</svg>';
                     img = new Image();
                     img.src = "data:image/svg+xml," + encodeURIComponent(svg_data);
 
                     // Draw the SVG image to a canvas
                     mycanvas = document.createElement('canvas');
-                    mycanvas.width = target.offsetWidth;
-                    mycanvas.height = target.offsetHeight;
+                    mycanvas.width = target.offsetWidth * SCALE;
+                    mycanvas.height = target.offsetHeight * SCALE;
                     ctx = mycanvas.getContext("2d");
                     ctx.drawImage(img, 0, 0);
 
@@ -71,15 +73,15 @@ angular.module('SETTER')
                     logo.src = 'images/setter_print_logo.png'
                     logo.addEventListener('load', function (){
                       var doc = new jsPDF('p', 'px', [600, 800]);
-                      doc.setFontSize(32);
-                      doc.text(150, 50, $scope.title);
-                      doc.addImage(image, 'png', 15, 90, 500, 440);
-                      doc.text(273, 705, 'Printed on');
-                      doc.addImage(logo, 'png', 400, 660, 150, 70);
+                      doc.setFontStyle('bold');
+                      doc.setFontSize(26); 
+                      doc.text(150, 50, $scope.title + "\nat " + $scope.gym);
+                      doc.addImage(image, 'png', 15, 110, 500, 440);
+                      doc.addImage(logo, 'png', 30, 710, 270, 101);
                       doc.save($scope.docName);
                     });
                   }
-
+                  
                   svg_to_png_replace($('#' + $scope.canvasId).find('.ct-chart > svg')[0]);
 
                 };

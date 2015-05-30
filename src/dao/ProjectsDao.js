@@ -22,7 +22,7 @@ var ProjectsDao = function () {
                 'INNER JOIN accounts a ON a.id = u.account_id ' +
                 'LEFT JOIN sends s ON s.route_id = p.route_id AND s.user_id = p.user_id ' +
                 'LEFT JOIN images i ON a.image_id = i.id ' +
-                'WHERE p.route_id = ? AND s.route_id is null',
+                'WHERE p.route_id = ? AND s.route_id is null ORDER BY p.date DESC ',
             [pRouteId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -41,7 +41,7 @@ var ProjectsDao = function () {
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.toprope_grade_id = rg.id ' +
                 'LEFT JOIN rope_grades lg ON r.lead_grade_id = lg.id ' +
-                'WHERE w.gym_id = ? AND r.active = true LIMIT 15',
+                'WHERE w.gym_id = ? AND r.active = true ORDER BY p.date DESC LIMIT 15',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -58,7 +58,7 @@ var ProjectsDao = function () {
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.toprope_grade_id = rg.id ' +
                 'LEFT JOIN rope_grades lg ON r.lead_grade_id = lg.id ' +
-                'WHERE p.user_id = ? AND r.active = true ',
+                'WHERE p.user_id = ? AND r.active = true ORDER BY p.date DESC',
             [pUserId],
             theDaoHelper.MULTIPLE,
             pCallback

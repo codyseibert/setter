@@ -1,18 +1,20 @@
 
-<div class="small-12 medium-6 columns">
+<div class="small-12 medium-5 large-3 columns panel  panel--dropshadow">
 
-  <h2 class="fwl">Project List</h2>
 
-  <div class="row small-collapse large-uncollapse ">
+  <div class="row  prl3">
 
-      <ul class="list list--tableStyle  list--navElem">
+    <h2 class="fwl mb3">Project List</h2>
 
-          <li class="ptb2    "
+      <ul class="list list--navElem list--tableStyle ">
+
+          <li class="ptb2"
               ng-repeat="project in projects"
               ng-click="openRouteModal(project)">
 
-              <span class="icon-checked" ng-show="project.sent"> </span>
-              <span class="icon-unchecked" ng-hide="project.sent"> </span>
+              <i ng-class="project.sent ? 'icon-checked' : 'icon-unchecked' ">
+
+              </i>
 
               <span>
                   <i class="icon-circle icon--medium"

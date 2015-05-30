@@ -1,4 +1,4 @@
-<div class="small-12 medium-6 columns">
+<div class="small-12 medium-7 large-9 columns  ">
 
   <h2 class="fwl">Latest Sends</h2>
 
@@ -75,9 +75,11 @@
 
   </div>
 
-  <div class="row small-collapse large-uncollapse ">
+  <div class="row   small-collapse large-uncollapse ">
 
-      <ul class="list list--tableStyle  list--navElem">
+    <div class="small-12 columns ">
+
+      <ul class=" list list--tableStyle  list--navElem">
 
           <li class="ptb2    "
               ng-repeat="act in activity"
@@ -90,13 +92,19 @@
                   {{formatGrade(act.bg, act.rg, act.lg)}}
               </span>
 
-              <span class="right">
-                  on {{act.date}}
-              </span>
+                  <div class="icon-right-big right">
+
+                  </div>
+
+                  <span class="right  mr2">
+                      on {{act.date}}
+                  </span>
 
           </li>
 
       </ul>
+
+    </div>
 
   </div>
 

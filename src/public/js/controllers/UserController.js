@@ -75,11 +75,15 @@ angular.module('SETTER')
             });
 
             MessageService.listen('routeSent', 'UserController', function (pData) {
-                $rootScope.find($scope.projects, 'id', pData.id).sent = true;
+                var route = $rootScope.find($scope.projects, 'id', pData.id)
+                if (route)
+                  route.sent = true;
             });
 
             MessageService.listen('routeUnsent', 'UserController', function (pData) {
-                $rootScope.find($scope.projects, 'id', pData.id).sent = false;
+                var route = $rootScope.find($scope.projects, 'id', pData.id)
+                if (route)
+                  route.sent = false;
             });
 
             $scope.imageUploadCallback = function (content) {

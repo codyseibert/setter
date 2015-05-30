@@ -116,6 +116,7 @@ angular.module('SETTER')
             GymsService.getLatestProjects($scope.gymId)
               .success(function (pData) {
                   $scope.projects = pData;
+                  console.log($scope.projects);
               });
 
             GymsService.getGymImage($scope.gymId, function (pData) {

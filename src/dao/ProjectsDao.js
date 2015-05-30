@@ -41,7 +41,7 @@ var ProjectsDao = function () {
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.toprope_grade_id = rg.id ' +
                 'LEFT JOIN rope_grades lg ON r.lead_grade_id = lg.id ' +
-                'WHERE w.gym_id = ? AND r.active = true',
+                'WHERE w.gym_id = ? AND r.active = true LIMIT 15',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -58,7 +58,7 @@ var ProjectsDao = function () {
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.toprope_grade_id = rg.id ' +
                 'LEFT JOIN rope_grades lg ON r.lead_grade_id = lg.id ' +
-                'WHERE p.user_id = ?',
+                'WHERE p.user_id = ? AND r.active = true ',
             [pUserId],
             theDaoHelper.MULTIPLE,
             pCallback

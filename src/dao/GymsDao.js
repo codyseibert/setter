@@ -348,7 +348,7 @@ var GymsDao = function () {
                 'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
                 'LEFT JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
                 'LEFT JOIN rope_grades lg ON lg.id = r.lead_grade_id ' +
-                'WHERE u.gym_id = ? ORDER BY s.date DESC LIMIT 20',
+                'WHERE u.gym_id = ? ORDER BY s.date DESC LIMIT 15',
             [pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

@@ -14,6 +14,7 @@
 var theSendsDao = require('../dao/SendsDao');
 var theRoutesDao = require('../dao/RoutesDao');
 var theUsersDao = require('../dao/UsersDao');
+var theProgressionsDao = require('../dao/ProgressionsDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var SendsController = function () {
@@ -37,24 +38,28 @@ var SendsController = function () {
         theSendsDao.hasSent(userId, routeId, callback);
     };
 
+
     var refreshBoulderingGrade = function (pUserId) {
       theUsersDao.computeBoulderGrade(pUserId, function (pData) {
-        theUsersDao.setBoulderGrade(pUserId, pData.grade, function (pData) {
-        });
+          theUsersDao.setBoulderGrade(pUserId, pData.grade, function (pData) {
+              theProgressionsDao.refreshProgressions(pUserId, function () {});
+          });
       });
     };
 
     var refreshTopRopeGrade = function (pUserId) {
       theUsersDao.computeTopRopeGrade(pUserId, function (pData) {
-        theUsersDao.setTopRopeGrade(pUserId, pData.grade, function (pData) {
-        });
+          theUsersDao.setTopRopeGrade(pUserId, pData.grade, function (pData) {
+              theProgressionsDao.refreshProgressions(pUserId, function () {});
+          });
       });
     };
 
     var refreshLeadGrade = function (pUserId) {
       theUsersDao.computeLeadGrade(pUserId, function (pData) {
-        theUsersDao.setLeadGrade(pUserId, pData.grade, function (pData) {
-        });
+          theUsersDao.setLeadGrade(pUserId, pData.grade, function (pData) {
+              theProgressionsDao.refreshProgressions(pUserId, function () {});
+          });
       });
     };
 

@@ -231,6 +231,29 @@
 
 </div>
 
+
+<!--
+    POP UP MODAL
+-->
+<div class="alert-modal reveal-modal small text-center"
+     data-reveal>
+
+    <h1 class="h2">
+        Gym Announcement!
+    </h1>
+
+    <div style="overflow: auto; height: 200px;">
+        <p ng-repeat="alert in alerts" class="fwb">
+            {{alert.message}} {{alert.date | date : 'MMM dd, yyyy'}}
+        </p>
+    </div>
+
+    <a class="close-reveal-modal">
+        &#215;
+    </a>
+
+</div>
+
 <off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isModalOpen()">
 
      <div

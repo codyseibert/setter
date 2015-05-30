@@ -10,6 +10,7 @@ angular.module('SETTER')
         'GymsService',
         'RoutesService',
         'WallsService',
+        'UsersService',
         function (
             $http,
             $cookies,
@@ -17,7 +18,8 @@ angular.module('SETTER')
             $rootScope,
             GymsService,
             RoutesService,
-            WallsService
+            WallsService,
+            UsersService
         ) {
             'use strict';
 
@@ -28,9 +30,21 @@ angular.module('SETTER')
                 accountId = null,
                 url = null,
                 name = null,
-                gymName = null;
+                gymName = null,
+                initCalled = false;
 
             return {
+                init: function () {
+                    if (initCalled) return;
+
+                    initCalled = true;
+                    UsersService.getAlerts()
+                        .success(function (pData) {
+                            if ($rootScope.isUserAccount() && pData.length > 0) {
+                                $rootScope.showAlerts(pData);
+                            }
+                        });
+                },
                 login: function (pLoginInfo) {
                     return $http({
                         method: "POST",

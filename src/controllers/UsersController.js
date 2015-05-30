@@ -13,6 +13,7 @@
 
 var theUsersDao = require('../dao/UsersDao');
 var theRoutesDao = require('../dao/RoutesDao');
+var theAlertsDao = require('../dao/AlertsDao');
 var theControllerHelper = require('./ControllerHelper');
 
 var UsersController = function () {
@@ -39,6 +40,13 @@ var UsersController = function () {
         theUsersDao.getUsers(callback);
     };
 
+    this.getAlertsForUser = function (pReq, pRes) {
+        var userId,
+            callback;
+        userId = pReq.user.accountId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theAlertsDao.getAlertsForUser(userId, callback);
+    }
 
     this.getUserSendDistributions = function (pReq, pRes) {
         var userId,

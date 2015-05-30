@@ -4,6 +4,11 @@
 \*------------------------------------*/
 
 
+/*------------------------------------*\
+    #Reveal Modals 
+\*------------------------------------*/
+
+
 
 .reveal-modal {
       @media #{$small-up} {
@@ -24,15 +29,10 @@
 }
 
 
-// .offCanvasModal-container {
-//     position: fixed; 
-//     overflow: hidden;  
-// }
+/*------------------------------------*\
+    #Off Canvas Modals 
+\*------------------------------------*/
 
-
-.offCanvasModalContainer{
-
-}
 
 .offCanvasModal {
     @extend %dropshadow--topLayer; 
@@ -64,14 +64,11 @@
     height: 100%;
     bottom: 0; 
     top: 0; 
-    overflow: hidden; 
-    overflow-y: scroll; 
+    overflow-x: hidden; 
     //Fix for smooth scrolling the modal on IOS 
+    overflow-scrolling: touch; 
     -webkit-overflow-scrolling: touch;
     -moz-overflow-scrolling: touch; 
-    //Fix for Scrolling on Some Desktops 
-    //  transform: translateZ(0);
-    // -webkit-transform: translateZ(0);
 
     @media #{$large-up} {
         margin-top: rem-calc(12);
@@ -124,7 +121,7 @@
 
 
 .offCanvasModal-overlay {
-  /* The area that is clickable to close the modal */
+  /* The area that is clickable to close the modal, currently not being used  */
     position:absolute;
     z-index:3;
     top:0;

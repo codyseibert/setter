@@ -12564,39 +12564,41 @@ ul[data-pie-id] {
   }
 }
 
-/* line 28, ../scss/partials/_modals.scss */
+/* line 33, ../scss/partials/_modals.scss */
 .offCanvasModal {
   -moz-transform: translateX(100vw);
   -ms-transform: translateX(100vw);
   -webkit-transform: translateX(100vw);
   transform: translateX(100vw);
-  position: fixed;
-  width: 90%;
-  /* Default */
   top: 0;
+  z-index: 100;
+  bottom: 0;
+  position: fixed;
   background-color: #fff;
-  z-index: 5;
   height: 100%;
+  overflow: hidden;
   overflow-y: scroll;
-  margin-top: 3.125rem;
-  /*Height of top-bar on small/medium*/
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  width: 90%;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 28, ../scss/partials/_modals.scss */
+  /* line 33, ../scss/partials/_modals.scss */
   .offCanvasModal {
     width: 50%;
   }
 }
 @media only screen and (min-width: 64.0625em) {
-  /* line 28, ../scss/partials/_modals.scss */
+  /* line 33, ../scss/partials/_modals.scss */
   .offCanvasModal {
+    z-index: 5;
     margin-top: 3.75rem;
     /*Height of top-bar on large*/
     width: 44%;
   }
 }
 
-/* line 54, ../scss/partials/_modals.scss */
+/* line 81, ../scss/partials/_modals.scss */
 .offCanvasModal-container.right .offCanvasModal {
   -moz-transform: translateX(100vw);
   -ms-transform: translateX(100vw);
@@ -12604,8 +12606,8 @@ ul[data-pie-id] {
   transform: translateX(100vw);
   right: 0;
 }
-/* line 57, ../scss/partials/_modals.scss */
-.offCanvasModal-container.right .offCanvasModal.showing {
+/* line 84, ../scss/partials/_modals.scss */
+.offCanvasModal-container.right .offCanvasModal.is-showing {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
   -webkit-transform: translateX(0);
@@ -12613,14 +12615,14 @@ ul[data-pie-id] {
   right: 0;
 }
 
-/* line 68, ../scss/partials/_modals.scss */
+/* line 95, ../scss/partials/_modals.scss */
 .offCanvasModal--left {
   -moz-transform: translateX(-100vw);
   -ms-transform: translateX(-100vw);
   -webkit-transform: translateX(-100vw);
   transform: translateX(-100vw);
 }
-/* line 71, ../scss/partials/_modals.scss */
+/* line 98, ../scss/partials/_modals.scss */
 .offCanvasModal--left.showing {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -12629,7 +12631,7 @@ ul[data-pie-id] {
   left: 0;
 }
 
-/* line 94, ../scss/partials/_modals.scss */
+/* line 121, ../scss/partials/_modals.scss */
 .offCanvasModal-overlay {
   /* The area that is clickable to close the modal */
   position: absolute;
@@ -12643,7 +12645,7 @@ ul[data-pie-id] {
   display: none;
 }
 @media only screen and (min-width: 40.0625em) {
-  /* line 94, ../scss/partials/_modals.scss */
+  /* line 121, ../scss/partials/_modals.scss */
   .offCanvasModal-overlay {
     display: none;
   }

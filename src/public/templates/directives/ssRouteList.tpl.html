@@ -1,5 +1,17 @@
+
+
+
 <div>
+
+  <div class="center" style="width: 80px; height: 80px; position: relative "
+  us-spinner ng-show="loading">
+
+  </div>
+
+  <div ng-hide="loading">
+
     <div ng-show="hasData" >
+
           <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
 
               <tbody>
@@ -16,6 +28,15 @@
 
           </table>
 
+          <div class="small-12 columns">
+
+            <div class="center display--block" style="width: 80px; height: 80px;"
+            us-spinner ng-show="loadingMore">
+
+          </div>
+
+          </div>
+
           <a ng-click="clicked()"
              class="center  h5  text-center pb4"
              ng-hide="hasLessThanLimit()">{{text}}</a>
@@ -23,6 +44,7 @@
 
 
    <div ng-hide="hasData" class="ng-hide">
+
      <div class="relative">
          <div class="[ placeholder-text  large  ] text-center">
 
@@ -49,7 +71,10 @@
          <img class="placeholderImage"
               ng-src="{{placeholderImage}}">
      </div>
+
    </div>
+
+  </div>
 
 
 </div>

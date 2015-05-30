@@ -449,6 +449,9 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ProjectsController.getProjectsForUser);
 
+    app.get('/api/users/alerts',
+        InjectAccountId,
+        UsersController.getAlertsForUser);
 
 
     app.get('/api/users/:userId',

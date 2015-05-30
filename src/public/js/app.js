@@ -158,6 +158,7 @@ angular.module('SETTER', [
             }
 
             FastClick.attach(document.body);
+            $rootScope.alerts = [];
 
             // Set the global cha
             $rootScope.UNRATED_STRING = "Unrated";
@@ -299,6 +300,11 @@ angular.module('SETTER', [
 
             $rootScope.getHomeGymId = function () {
                 return LoginService.getHomeGymId();
+            };
+
+            $rootScope.showAlerts = function (pAlerts) {
+                angular.element(".alert-modal").foundation('reveal', 'open');
+                $rootScope.alerts = pAlerts;
             };
 
             if (LoginService.hasTokenInCookie()) {
@@ -553,6 +559,8 @@ angular.module('SETTER', [
                 Used for forcing the data to be loaded directly up front and cached.
             */
             if (LoginService.isLoggedIn()) {
+                LoginService.init();
+
                 gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
                 nothing = function () {
                     return undefined;

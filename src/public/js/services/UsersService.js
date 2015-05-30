@@ -100,6 +100,12 @@ angular.module('SETTER')
                     method: "GET",
                     url: "api/users/" + pUserId + "/projects"
                 });
+            },
+            getAlerts: function () {
+                return $http({
+                    method: 'GET',
+                    url: 'api/users/alerts'
+                });
             }
         };
     }]);

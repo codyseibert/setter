@@ -1,109 +1,111 @@
+<div class="small-12 medium-7 large-9 columns  ">
+
+  <h2 class="fwl">Latest Sends</h2>
+
+  <div class="ng-hide"  ng-show="!hasActivity && getAccountId() === userId" ng-cloak>
+
+          <!-- Small Blank State -->
+          <div class="show-for-small-only">
+              <h2 class="h2 fwb mb2">
+                  Looks like you haven't sent any routes or problems!
+              </h2>
+
+              <p>
+                  Why don't you <a ng-click="navigateToGym(user.gym_id)" class="fwb">find a gym to send at</a> or send some at <a ng-click="navigateToGym(user.gym_id)" class="fwb">your home gym</a>?
+              </p>
+          </div>
+
+          <!-- Medium Up Blank State-->
+          <div class="relative  show-for-medium-up">
+
+          <div class="placeholder-text  medium  text-center">
+
+              <div class="vertical-align">
+
+                  <h2 class="h2 fwb mb2">
+                      Looks like you haven't sent any routes or problems!
+
+                  </h2>
+
+                  <p>
+                      Why don't you <a ng-click="navigateToGyms()" class="fwb">find a gym to send at</a> or send some at <a ng-click="navigateToGym(user.gym_id)" class="fwb">your home gym</a>?
+                  </p>
+
+              </div>
+
+          </div>
 
 
-<div class="small-12 columns">
+          <img class="placeholderImage" src="images/placeholder--noSends.jpg" alt="placeholder graph" height="612"  width="1235">
 
-    <h2 class="fwl">Latest Sends</h2>
+      </div>
 
-</div>
+  </div>
 
-<div class="ng-hide"  ng-show="!hasActivity && getAccountId() === userId" ng-cloak>
+  <div class="ng-hide"  ng-show="!hasActivity && getAccountId() !== userId" ng-cloak>
 
-        <!-- Small Blank State -->
-        <div class="show-for-small-only">
-            <h2 class="h2 fwb mb2">
-                Looks like you haven't sent any routes or problems!
-            </h2>
+          <!-- Small Blank State -->
+          <div class="show-for-small-only">
 
-            <p>
-                Why don't you <a ng-click="navigateToGym(user.gym_id)" class="fwb">find a gym to send at</a> or send some at <a ng-click="navigateToGym(user.gym_id)" class="fwb">your home gym</a>?
-            </p>
-        </div>
-
-        <!-- Medium Up Blank State-->
-        <div class="relative  show-for-medium-up">
-
-        <div class="placeholder-text  medium  text-center">
-
-            <div class="vertical-align">
-
-                <h2 class="h2 fwb mb2">
-                    Looks like you haven't sent any routes or problems!
-
-                </h2>
-
-                <p>
-                    Why don't you <a ng-click="navigateToGyms()" class="fwb">find a gym to send at</a> or send some at <a ng-click="navigateToGym(user.gym_id)" class="fwb">your home gym</a>?
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <img class="placeholderImage" src="images/placeholder--noSends.jpg" alt="placeholder graph" height="612"  width="1235">
-
-    </div>
-
-</div>
-
-<div class="ng-hide"  ng-show="!hasActivity && getAccountId() !== userId" ng-cloak>
-
-        <!-- Small Blank State -->
-        <div class="show-for-small-only">
-
-            <h2 class="h2 fwb mb2">
-                Looks like {{user.firstname}} hasn't sent any routes or problems!
-            </h2>
-
-        </div>
-
-        <!-- Medium Up Blank State-->
-        <div class="relative  show-for-medium-up">
-
-        <div class="placeholder-text  small  text-center">
-
-            <div class="vertical-align">
-
-                <h2 class="h2 fwb mb2">
+              <h2 class="h2 fwb mb2">
                   Looks like {{user.firstname}} hasn't sent any routes or problems!
-                </h2>
+              </h2>
 
-            </div>
+          </div>
 
-        </div>
+          <!-- Medium Up Blank State-->
+          <div class="relative  show-for-medium-up">
+
+          <div class="placeholder-text  small  text-center">
+
+              <div class="vertical-align">
+
+                  <h2 class="h2 fwb mb2">
+                    Looks like {{user.firstname}} hasn't sent any routes or problems!
+                  </h2>
+
+              </div>
+
+          </div>
 
 
-        <img class="placeholderImage" src="images/placeholder--noSends.jpg" alt="placeholder graph" height="612"  width="1235">
+          <img class="placeholderImage" src="images/placeholder--noSends.jpg" alt="placeholder graph" height="612"  width="1235">
+
+      </div>
+
+  </div>
+
+  <div class="row   small-collapse large-uncollapse ">
+
+    <div class="small-12 columns ">
+
+      <ul class=" list list--tableStyle  list--navElem">
+
+          <li class="ptb2    "
+              ng-repeat="act in activity"
+              ng-click="openRouteModal(act)">
+
+              <span>
+                  <i class="icon-circle icon--medium"
+                      ng-style="{color: act.value}">
+                  </i>
+                  {{formatGrade(act.bg, act.rg, act.lg)}}
+              </span>
+
+                  <div class="icon-right-big right">
+
+                  </div>
+
+                  <span class="right  mr2">
+                      on {{act.date}}
+                  </span>
+
+          </li>
+
+      </ul>
 
     </div>
 
-</div>
-
-<div class="row small-collapse large-uncollapse ">
-
-    <div class="small-12  columns  mb4">
-
-        <ul class="list list--tableStyle  list--navElem">
-
-            <li class="ptb2    "
-                ng-repeat="act in activity"
-                ng-click="openRouteModal(act)">
-
-                <span>
-                    <i class="icon-circle icon--medium"
-                        ng-style="{color: act.value}">
-                    </i>
-                    {{formatGrade(act.bg, act.rg, act.lg)}}
-                </span>
-
-                <span class="right">
-                    on {{act.date}}
-                </span>
-                
-            </li>
-
-        </ul>
-
-    </div>
+  </div>
 
 </div>

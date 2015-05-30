@@ -4,8 +4,10 @@
 angular.module('SETTER')
     .factory('WallsService', [
         '$http',
+        '$q',
         function (
-            $http
+            $http,
+            $q
         ) {
             'use strict';
 
@@ -29,9 +31,12 @@ angular.module('SETTER')
                 },
 
                 getWallsInGym: function (pGymId, pCallback) {
+                    var deferred = $q.defer();
+
                     if (walls[pGymId]) {
                         pCallback(walls[pGymId]);
-                        return;
+                        deferred.resolve();
+                        return deferred;
                     }
 
                     $http({
@@ -40,7 +45,10 @@ angular.module('SETTER')
                     }).success(function (pData) {
                         walls[pGymId] = pData;
                         pCallback(walls[pGymId]);
+                        deferred.resolve();
                     });
+
+                    return deferred;
                 },
 
                 getWall: function (pGymId, pWallId, pCallback) {

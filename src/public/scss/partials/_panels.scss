@@ -4,28 +4,32 @@
 \*------------------------------------*/
 
 
-.panel.warning, 
+.panel.warning,
 .panel.success {
     .title,
     .icon {
-      color: #FFF;  
+      color: #FFF;
   }
 }
 
 .panel.warning {
-  background-color: $warning; 
+  background-color: $warning;
 }
 
 .panel.success {
-  background-color: $success; 
+  background-color: $success;
 }
 
 
 
-.panel--dropShadow {
-     @include box-shadow(0 1px 2px rgba(0, 0, 0, .2));
+.panel--dropshadow {
+     @include box-shadow(0 2px 3px rgba(0, 0, 0, .4));
 }
 
 .panel--standOut {
     background-color: #fff;
+}
+
+.panel--card {
+    background-color: $grey--medium;
 }

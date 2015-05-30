@@ -93,22 +93,50 @@
     <div class="center" style="width: 80px; height: 80px; position: relative " ng-show="loading" us-spinner>
     </div>
 
+
     <div class="small-12 columns  mb2 ng-hide" ng-hide="loading">
 
+        <div ng-show="isUserAccount()" class="mb2 row ">
 
-        <div ng-show="isUserAccount()" class="mb2">
+            <div class="small-12 large-6  columns"  ng-hide="hasSent">
 
-            <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
-                    ng-click="send()"
-                    ng-hide="hasSent">
-                Send Route
-            </button>
+              <button class="[ btn--primary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
+                      ng-click="send()"
+                      >
+                  Send Route
+              </button>
 
-            <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
-                    ng-click="unsend()"
-                    ng-show="hasSent">
-                Unsend Route
-            </button>
+            </div>
+
+            <div class="small-12 large-6 columns"  ng-show="hasSent">
+
+              <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
+                      ng-click="unsend()"
+                      >
+                  Unsend Route
+              </button>
+
+            </div>
+
+
+            <div class="small-12 large-6 columns" ng-hide="isProject">
+
+              <button class="[ btn--secondary  btn--medium  btn--expanded ] center icon-paper-plane-empty"
+                      ng-click="setAsProject()"
+                      ng-hide="isProject">
+                  Set as Project
+              </button>
+
+            </div>
+
+            <div class="small-12 large-6  columns"   ng-show="isProject">
+
+              <button class=" [ btn--tetriary  btn--medium  btn--expanded ]  icon-paper-plane center enabled"
+                      ng-click="unsetAsProject()">
+                  Unset as Project
+              </button>
+
+            </div>
 
         </div>
 
@@ -233,6 +261,45 @@
                 </p>
 
             </div>
+    </div>
+
+</section>
+
+
+
+
+<section class="row" ng-hide="loading">
+
+    <div class="small-12 columns ">
+
+        <h2 class="fwl">
+            Projecting ({{projects.length}})
+        </h2>
+
+    </div>
+
+    <div class="small-12 columns  mb4">
+
+        <div class="flag  mb2"
+             ng-repeat="project in projects">
+
+            <div class="flag-image">
+
+                <img class="avatar--tiny avatar"
+                     ng-src="{{getUserImageSrc(project)}}">
+
+            </div>
+
+            <div class="flag-body">
+
+                <a ng-click="navigateToUser(project.account_id)">
+                    {{project.name}}
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>

@@ -18,7 +18,9 @@ angular.module('SETTER')
 
                 currentBoulderRoutes = {},
                 currentTopRopeRoutes = {},
-                currentLeadRoutes = {};
+                currentLeadRoutes = {},
+
+                allRoutes = {};
 
             return {
 
@@ -54,6 +56,25 @@ angular.module('SETTER')
                         pCallback(gymRoutes[pGymId]);
                     });
                 },
+                // loadAllGymRoutes: function (pGymId) {
+                //     return $http({
+                //         method: 'GET',
+                //         url: 'api/gyms/' + pGymId + '/routes/all'
+                //     }).success(function (pData) {
+                //         for (var i = 0; i < pData.length; i++) {
+                //             var route = pData[i];
+                //             allRoutes[route.id] = route;
+                //         };
+                //         // allRoutes = pData;
+                //
+                //         setTimeout(function () {
+                //             for (var key in allRoutes) {
+                //                 allRoutes[key].boulder_grade = "omg";
+                //             };
+                //             console.log(allRoutes);
+                //         }, 2000);
+                //     });
+                // },
                 getRoutesOnWall: function (pWallId, pCallback) {
                     if (routes[pWallId]) {
                         pCallback(routes[pWallId]);

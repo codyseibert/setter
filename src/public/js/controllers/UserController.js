@@ -5,18 +5,22 @@
 angular.module('SETTER')
     .controller('UserController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         'LoginService',
         'UsersService',
         'BarGraphHelperService',
         'DateFormatService',
+        'MessageService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             LoginService,
             UsersService,
             BarGraphHelperService,
-            DateFormatService
+            DateFormatService,
+            MessageService
         ) {
             'use strict';
 
@@ -52,6 +56,35 @@ angular.module('SETTER')
                     $scope.hasActivity = pData.length > 0;
                 });
 
+
+            UsersService.getProjects($scope.userId)
+                .success(function (pData) {
+                    pData.map(function (pEntry) {
+                        pEntry.date = DateFormatService.format(pEntry.date);
+                        return pEntry;
+                    });
+                    $scope.projects = pData;
+                });
+
+            MessageService.listen('projectSet', 'UserController', function (pData) {
+                $scope.projects.push(pData);
+            });
+
+            MessageService.listen('projectUnset', 'UserController', function (pData) {
+                $rootScope.splice($scope.projects, 'id', pData.id);
+            });
+
+            MessageService.listen('routeSent', 'UserController', function (pData) {
+                var route = $rootScope.find($scope.projects, 'id', pData.id)
+                if (route)
+                  route.sent = true;
+            });
+
+            MessageService.listen('routeUnsent', 'UserController', function (pData) {
+                var route = $rootScope.find($scope.projects, 'id', pData.id)
+                if (route)
+                  route.sent = false;
+            });
 
             $scope.imageUploadCallback = function (content) {
                 LoginService.setImageUrl(content.url);

@@ -16,6 +16,7 @@ angular.module('SETTER')
         'LoginService',
         'SelectedRouteService',
         'WallsService',
+        'MessageService',
         function (
             $scope,
             $rootScope,
@@ -28,7 +29,8 @@ angular.module('SETTER')
             SettersService,
             LoginService,
             SelectedRouteService,
-            WallsService
+            WallsService,
+            MessageService
         ) {
             'use strict';
 
@@ -66,16 +68,23 @@ angular.module('SETTER')
                     $scope.isEditMode = true;
                 } else if (newValue === 'create') {
                     cleanGrades();
+                    $scope.gymId = $rootScope.gymId;
+                    init();
                 }
             });
 
             $scope.$watch(function () {
-                return $rootScope.gymId;
+                return $scope.gymId;
             }, function (newValue, oldValue) {
                 if (newValue) {
                   $scope.gymId = newValue;
                   init();
                 }
+            });
+
+            MessageService.listen('gymId', 'CreateRouteController', function (pData) {
+                $scope.gymId = pData;
+                  init();
             });
 
             $scope.$watch(function () {
@@ -249,7 +258,7 @@ angular.module('SETTER')
                         $scope.form.setter = pData[0];
                     });
 
-                WallsService.getWallsInGym($scope.gymId, function (pData) {
+                var getZonesPromise = WallsService.getWallsInGym($scope.gymId, function (pData) {
                     $scope.zones = pData;
                     $scope.form.zone = pData[0];
 
@@ -262,7 +271,8 @@ angular.module('SETTER')
                   getBoulderGradesPromise,
                   getRopeGradesPromise,
                   getColorsPromise,
-                  getSettersPromise
+                  getSettersPromise,
+                  getZonesPromise
                 ], function () {
                     loadRouteData();
                 });
@@ -301,9 +311,5 @@ angular.module('SETTER')
                 }
                 return pArray[0];
             };
-
-            if ($rootScope.gymId) {
-                init();
-            }
 
         }]);

@@ -28,6 +28,7 @@ var BlogController = require('./controllers/BlogController');
 var GymSuggestionsController = require('./controllers/GymSuggestionsController');
 var AlertsController = require('./controllers/AlertsController');
 var GymAccountRequestsController = require('./controllers/GymAccountRequestsController');
+var ProjectsController = require('./controllers/ProjectsController');
 
 var InjectAccountId = require('./middleware/InjectAccountId');
 var InjectAccountIdUsingEmail = require('./middleware/InjectAccountIdUsingEmail');
@@ -177,12 +178,13 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         GymsController.getNumberOfNewRoutes);
 
-
-
-
     app.get('/api/gyms/:gymId/users',
         InjectAccountId,
         GymsController.getHomeGymUsers);
+
+    app.get('/api/gyms/:gymId/projects',
+        InjectAccountId,
+        GymsController.getLatestProjects);
 
 
     /*
@@ -274,6 +276,10 @@ var RouteToControllerBinder = function () {
         ValidateGymAdmin,
         RoutesController.getRoutesInGym);
 
+    app.get('/api/gyms/:gymId/routes/all',
+        InjectAccountId,
+        RoutesController.getRoutesInGym2);
+
     app.post('/api/gyms/:gymId/walls/:wallId/routes',
         InjectAccountId,
         ValidateGymAdmin,
@@ -355,6 +361,24 @@ var RouteToControllerBinder = function () {
 
 
 
+    // PROJECTS
+    app.get('/api/routes/:routeId/projects',
+        ProjectsController.getProjectsForRoute);
+
+    app.get('/api/routes/:routeId/isProject',
+        InjectAccountId,
+        ProjectsController.isProject);
+
+    app.post('/api/routes/:routeId/projects',
+        InjectAccountId,
+        ProjectsController.createProject);
+
+    app.delete('/api/routes/:routeId/projects',
+        InjectAccountId,
+        ProjectsController.deleteProject);
+
+
+
 
 
 
@@ -421,6 +445,9 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         UsersController.getLeadSends);
 
+    app.get('/api/users/:userId/projects',
+        InjectAccountId,
+        ProjectsController.getProjectsForUser);
 
 
 

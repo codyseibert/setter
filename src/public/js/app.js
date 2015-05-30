@@ -126,6 +126,7 @@ angular.module('SETTER', [
         'LoginService',
         'DateFormatService',
         'SelectedRouteService',
+        'MessageService',
         function (
             $rootScope,
             $location,
@@ -137,7 +138,8 @@ angular.module('SETTER', [
             RoutesService,
             LoginService,
             DateFormatService,
-            SelectedRouteService
+            SelectedRouteService,
+            MessageService
         ) {
             'use strict';
 
@@ -316,6 +318,22 @@ angular.module('SETTER', [
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
                 return pBoulderGrade || pTopRopeGrade || pLeadGrade || 'Not Rated';
+            };
+
+            $rootScope.splice = function (pArray, pKey, pValue) {
+              for (var i = pArray.length - 1; i >= 0; i--){
+                    if (pArray[i][pKey] === pValue){
+                      pArray.splice(i, 1);
+                  }
+              }
+            };
+
+            $rootScope.find = function (pArray, pKey, pValue) {
+              for (var i = pArray.length - 1; i >= 0; i--){
+                    if (pArray[i][pKey] === pValue){
+                      return pArray[i]
+                  }
+              }
             };
 
             var paths = ['/'],
@@ -604,6 +622,8 @@ angular.module('SETTER', [
             };
 
             $rootScope.openCreateRouteModal = function () {
+              $rootScope.gymId = $rootScope.getAccountId();
+              MessageService.send('gymId', $rootScope.gymId);
               $rootScope.openModal();
               $rootScope.routeModalViewType = 'create';
             };

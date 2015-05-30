@@ -1,0 +1,57 @@
+
+<div class="small-12 columns">
+    <h2 class="fwl">
+
+        Current Climber Projects
+
+    </h2>
+</div>
+
+<table class=" [ small-12  columns ] [  table--unStyled  table--list table--clickableElem ]">
+
+    <tbody ng-show="projects.length > 0">
+
+        <tr
+            bindonce
+            ng-repeat="project in projects"
+            ng-click="openRouteModal(project)"
+            data-equalizer-watch>
+
+
+            <td>
+
+              <img class="avatar avatar--tiny "
+                  ng-click="navigateToUser(project.id)"
+                  bo-src="getUserImageSrc(project)">
+
+              <a class="title mr2 display--inlineBlock"
+                  ng-click="navigateToUser(project.account_id)"
+                  bo-text="project.name">
+              </a>
+
+            </td>
+
+
+            <td>
+                is projecting the
+                <i class="icon-circle icon--medium"
+                    bo-style="{color: project.value}">
+                </i>
+
+                <span bo-text="formatGrade(project.boulder_grade, project.toprope_grade, project.lead_grade)"></span>
+
+                on {{project.wall_name}}
+            </td>
+
+
+            <td>
+                <span class="icon-right-big  right">
+
+                </span>
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>

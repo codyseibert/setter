@@ -82,7 +82,7 @@
 
 
 .icon-globe {
-  @include icon($icon--globe); 
+  @include icon($icon--globe);
 }
 
 
@@ -126,7 +126,11 @@
 }
 
 .icon-checked {
-    @include icon($icon--check); 
+    @include icon($icon--check);
+}
+
+.icon-unchecked {
+   @include icon($icon--unchecked); 
 }
 
 [href*="twitter.com"], [rel="twitter-link"] {
@@ -190,9 +194,9 @@
 }
 
 .icon-pyramidUp {
-  @include icon($icon--pyramidUp); 
+  @include icon($icon--pyramidUp);
 }
- 
+
 
 .icon-circle {
   @include icon($icon--circle);
@@ -224,7 +228,7 @@
 }
 
 .icon-cancel {
- @include icon($icon--cancelCircle); 
+ @include icon($icon--cancelCircle);
 }
 
 
@@ -301,13 +305,13 @@
   @include transition(opacity, .6s, ease-in-out);
 
   &:hover {
-    opacity: 1; 
+    opacity: 1;
   }
 }
 
 
 .icon--colored {
-    color: $primaryColor; 
+    color: $primaryColor;
 }
 
 //
@@ -315,7 +319,7 @@
 //
 
 .active {
-  opacity: 1; 
+  opacity: 1;
 }
 
 //
@@ -323,7 +327,7 @@
 //
 
 .icon--tiny {
-  font-size: rem-calc(10); 
+  font-size: rem-calc(10);
 }
 
 .icon--medium {
@@ -335,5 +339,5 @@
 }
 
 .icon--jumbo {
- @extend %icon--jumbo; 
+ @extend %icon--jumbo;
 }

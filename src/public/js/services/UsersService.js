@@ -6,7 +6,8 @@ angular.module('SETTER')
         'use strict';
 
         var user = {},
-            image = {};
+            image = {},
+            projects = [];
 
         return {
             setImageAsDirty: function (pUserId) {
@@ -92,6 +93,12 @@ angular.module('SETTER')
                 return $http({
                     method: "GET",
                     url: "api/users/" + pUserId + "/activity"
+                });
+            },
+            getProjects: function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/projects"
                 });
             }
         };

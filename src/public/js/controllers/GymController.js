@@ -113,9 +113,10 @@ angular.module('SETTER')
 
             };
 
-            GymsService.getLatestProjects($scope.gymId, function (pData) {
-                $scope.projects = pData;
-            });
+            GymsService.getLatestProjects($scope.gymId)
+              .success(function (pData) {
+                  $scope.projects = pData;
+              });
 
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = $rootScope.getGymImageSrc(pData);
@@ -330,8 +331,6 @@ angular.module('SETTER')
                   loadClimberPanelData();
                 }
             };
-
-
 
 
 

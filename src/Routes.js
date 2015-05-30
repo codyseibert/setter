@@ -276,6 +276,10 @@ var RouteToControllerBinder = function () {
         ValidateGymAdmin,
         RoutesController.getRoutesInGym);
 
+    app.get('/api/gyms/:gymId/routes/all',
+        InjectAccountId,
+        RoutesController.getRoutesInGym2);
+
     app.post('/api/gyms/:gymId/walls/:wallId/routes',
         InjectAccountId,
         ValidateGymAdmin,

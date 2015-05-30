@@ -7415,6 +7415,20 @@ input[type="submit"] {
   font-variant: normal;
   text-transform: none; }
 
+.icon-unchecked:before {
+  content: "";
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.75rem;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none; }
+
 [href*="twitter.com"]:before, [rel="twitter-link"]:before {
   content: "";
   font-family: 'fontello';

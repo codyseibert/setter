@@ -5,18 +5,22 @@
 angular.module('SETTER')
     .controller('UserController', [
         '$scope',
+        '$rootScope',
         '$routeParams',
         'LoginService',
         'UsersService',
         'BarGraphHelperService',
         'DateFormatService',
+        'MessageService',
         function (
             $scope,
+            $rootScope,
             $routeParams,
             LoginService,
             UsersService,
             BarGraphHelperService,
-            DateFormatService
+            DateFormatService,
+            MessageService
         ) {
             'use strict';
 
@@ -62,6 +66,21 @@ angular.module('SETTER')
                     $scope.projects = pData;
                 });
 
+            MessageService.listen('projectSet', 'UserController', function (pData) {
+                $scope.projects.push(pData);
+            });
+
+            MessageService.listen('projectUnset', 'UserController', function (pData) {
+                $rootScope.splice($scope.projects, 'id', pData.id);
+            });
+
+            MessageService.listen('routeSent', 'UserController', function (pData) {
+                $rootScope.find($scope.projects, 'id', pData.id).sent = true;
+            });
+
+            MessageService.listen('routeUnsent', 'UserController', function (pData) {
+                $rootScope.find($scope.projects, 'id', pData.id).sent = false;
+            });
 
             $scope.imageUploadCallback = function (content) {
                 LoginService.setImageUrl(content.url);

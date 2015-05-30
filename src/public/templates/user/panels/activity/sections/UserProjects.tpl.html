@@ -1,25 +1,28 @@
 
 <div class="small-12 medium-6 columns">
 
-  <h2 class="fwl">Projects</h2>
+  <h2 class="fwl">Project List</h2>
 
   <div class="row small-collapse large-uncollapse ">
 
       <ul class="list list--tableStyle  list--navElem">
 
           <li class="ptb2    "
-              ng-repeat="proj in projects"
-              ng-click="openRouteModal(proj)">
+              ng-repeat="project in projects"
+              ng-click="openRouteModal(project)">
+
+              <span class="icon-checked" ng-show="project.sent"> </span>
+              <span class="icon-unchecked" ng-hide="project.sent"> </span>
 
               <span>
                   <i class="icon-circle icon--medium"
-                      ng-style="{color: act.value}">
+                      ng-style="{color: project.value}">
                   </i>
-                  {{formatGrade(proj.bg, proj.rg, proj.lg)}}
+                  {{formatGrade(project.boulder_grade, project.rope_grade, project.lead_grade)}}
               </span>
 
-              <span class="right">
-                  on {{proj.date}}
+              <span>
+                set on {{project.wall_name}}
               </span>
 
           </li>

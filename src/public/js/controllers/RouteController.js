@@ -17,6 +17,7 @@ angular.module('SETTER')
         'GymsService',
         'ProjectsService',
         'SelectedRouteService',
+        'MessageService',
         function (
             $scope,
             $rootScope,
@@ -30,7 +31,8 @@ angular.module('SETTER')
             LoginService,
             GymsService,
             ProjectsService,
-            SelectedRouteService
+            SelectedRouteService,
+            MessageService
         ) {
             'use strict';
 
@@ -133,8 +135,14 @@ angular.module('SETTER')
                         }
                     });
 
-                $q.all([a, b, c, d, e, f, g, h]).then(function() {
+                var i = ProjectsService.getProjectsForRoute($scope.routeId)
+                    .success(function (pData) {
+                        $scope.projects = pData;
+                    });
+
+                $q.all([a, b, c, d, e, f, g, h, i]).then(function() {
                     $scope.loading = false;
+                    $scope.route.sent = $scope.hasSent;
                 });
             }
 
@@ -164,6 +172,7 @@ angular.module('SETTER')
 
                 SendsService.createSend($scope.routeId)
                     .success(function () {
+                        MessageService.send('routeSent', $scope.route);
                         $scope.hasSent = true;
                         $rootScope.sendRoute = $scope.routeId;
 
@@ -180,6 +189,7 @@ angular.module('SETTER')
                 SendsService.deleteSend($scope.routeId)
                     .success(function () {
                         var accountId;
+                        MessageService.send('routeUnsent', $scope.route);
 
                         accountId = $scope.getAccountId();
 
@@ -257,6 +267,11 @@ angular.module('SETTER')
                 ProjectsService.createProject($scope.routeId)
                   .success(function (pData) {
                       $scope.isProject = true;
+                      MessageService.send('projectSet', $scope.route);
+                      $scope.projects.push({
+                          url: LoginService.getImageUrl(),
+                          name: LoginService.getName()
+                      });
                   });
             };
 
@@ -264,6 +279,8 @@ angular.module('SETTER')
                 ProjectsService.deleteProject($scope.routeId)
                   .success(function (pData) {
                       $scope.isProject = false;
+                      MessageService.send('projectUnset', $scope.route);
+                      $rootScope.splice($scope.projects, 'name', LoginService.getName());
                   });
             };
         }]);

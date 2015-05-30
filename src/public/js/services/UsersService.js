@@ -6,7 +6,8 @@ angular.module('SETTER')
         'use strict';
 
         var user = {},
-            image = {};
+            image = {},
+            projects = [];
 
         return {
             setImageAsDirty: function (pUserId) {

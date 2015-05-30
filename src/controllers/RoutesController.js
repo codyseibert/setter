@@ -35,6 +35,16 @@ var RoutesController = function () {
         theRoutesDao.getRoutesInGym(gymId, callback);
     };
 
+    this.getRoutesInGym2 = function (pReq, pRes) {
+        var gymId,
+            accountId,
+            callback;
+        accountId = pReq.user.accountId;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theRoutesDao.getRoutesInGym2(accountId, gymId, callback);
+    };
+
     this.getRoutesOnWall = function (pReq, pRes) {
         var wallId,
             accountId,

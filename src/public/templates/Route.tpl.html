@@ -254,6 +254,45 @@
 </section>
 
 
+
+
+<section class="row" ng-hide="loading">
+
+    <div class="small-12 columns ">
+
+        <h2 class="fwl">
+            Projecting ({{projects.length}})
+        </h2>
+
+    </div>
+
+    <div class="small-12 columns  mb4">
+
+        <div class="flag  mb2"
+             ng-repeat="project in projects">
+
+            <div class="flag-image">
+
+                <img class="avatar--tiny avatar"
+                     ng-src="{{getUserImageSrc(project)}}">
+
+            </div>
+
+            <div class="flag-body">
+
+                <a ng-click="navigateToUser(project.account_id)">
+                    {{project.name}}
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <section class="row" ng-hide="loading">
 
     <div class="small-12 columns ">

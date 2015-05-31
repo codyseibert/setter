@@ -1,0 +1,65 @@
+
+<div class="small-12 columns">
+    <h2 class="fwl">
+
+        Latest Comments
+
+    </h2>
+</div>
+
+<table class=" [ small-12  columns ] [  table--unStyled  table--list table--clickableElem ]">
+
+    <tbody ng-show="projects.length > 0">
+
+      <div bindonce ng-repeat="comment in comments"
+           style="padding: 20px; margin-bottom: 20px; display: inline-block; vertical-align: top; max-height: 200px; width: 300px; text-align: left;">
+
+          <div style="height: 80px;">
+
+              <div style="float: left;">
+
+                  <div style="width: 60px; height: 60px; margin-right: 20px; cursor: pointer; text-align: center; font-size: 16px;"
+                       ng-click="navigateToUser(comment.account_id)">
+                      <img ng-src="{{getUserImageSrc(comment)}}"
+                           style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
+                  </div>
+
+              </div>
+
+              <strong>
+                  {{comment.name}}
+              </strong>
+
+              <br>
+
+              <i>
+                  Posted: {{comment.date | date : 'MMM dd, yyyy' }}
+              </i>
+
+              <div ng-click="openRouteModal(comment)" style="display: inline-block; ">
+                  <i class="icon-circle icon--medium"
+                      bo-style="{color: comment.value}">
+                  </i>
+
+                  <span bo-text="formatGrade(comment.bg, comment.rg, comment.lg)"></span>
+
+                  {{comment.wall_name}}
+              </div>
+
+          </div>
+
+          <div>
+
+              <div class="mb1">
+
+              </div>
+
+              {{comment.message}}
+
+          </div>
+
+      </div>
+
+    </tbody>
+
+</table>

@@ -42,16 +42,22 @@
 
 
     <nav class="tab-bar hide-for-large-up  fixed"  ng-show="isLoggedIn()" ng-cloak >
+        
+            
+            <ss-back-button>
+            </ss-back-button> 
 
-            <div class="left-small">
+            <div class="left-small  ng-hide  nav-menuIcon" 
 
+                 ng-show="!backButtonActive">
+            
                 <a class="left-off-canvas-toggle menu-icon" >
                     <span></span>
                 </a>
 
             </div>
 
-            <div class="right tab-bar-section">
+            <div class="right">
 
                 <img src="images/setter-logo.svg"
                      height="40px"
@@ -231,6 +237,36 @@
 
 </div>
 
+
+<!--
+    POP UP MODAL
+-->
+<div class="reveal-modal small text-center"
+     data-reveal>
+
+    <h1 class="h4  fwl  text-left">
+        Hi, <span class="fwb">{{userName}}</span>
+    </h1>
+
+
+    <h2  class="h5  text-left">
+        Your home gym says: 
+    </h2>
+
+    <ul>
+        <li ng-repeat="alert in alerts" class="fwb">
+            {{alert.message}} {{alert.date | date : 'MMM dd, yyyy'}}
+        </li>
+    </ul>
+
+    <p class="fwl text-left">Have fun climbing :)</p>
+
+    <a class="close-reveal-modal  mt2  [ icon--jumbo icon-cancel ]">
+     
+    </a>
+
+</div>
+
 <off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isModalOpen()">
 
      <div
@@ -323,6 +359,7 @@
         <script type="text/javascript" src="js/directives/user/ssGrade.js"></script>
         <script type="text/javascript" src="js/directives/graphs/ssExportBarGraph.js"></script>
         <script type="text/javascript" src="js/directives/graphs/ssGraph.js"></script>
+        <script type="text/javascript" src="js/directives/graphs/ssLineGraph.js"></script>
         <script type="text/javascript" src="js/directives/onFinishRender.js"></script>
         <script type="text/javascript" src="js/directives/injectTemplateWhenVisible.js"></script>
         <script type="text/javascript" src="js/directives/injectTemplateWhenVisible2.js"></script>
@@ -334,7 +371,7 @@
         <script type="text/javascript" src="js/directives/ssRouteCategorySelector.js"></script>
         <script type="text/javascript" src="js/directives/ssRouteCategoryItem.js"></script>
         <script type="text/javascript" src="js/directives/ssUploadImage.js"></script>
-
+        <script type="text/javascript" src="js/directives/navigation/ssBackButton.js"></script>
 
 
         <!-- Services -->

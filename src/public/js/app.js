@@ -119,6 +119,7 @@ angular.module('SETTER', [
         '$location',
         '$window',
         '$timeout',
+        '$routeParams',
         'UsersService',
         'GymsService',
         'WallsService',
@@ -131,6 +132,7 @@ angular.module('SETTER', [
             $rootScope,
             $location,
             $window,
+            $routeParams,
             $timeout,
             UsersService,
             GymsService,
@@ -158,6 +160,9 @@ angular.module('SETTER', [
             }
 
             FastClick.attach(document.body);
+            $rootScope.alerts = [];
+
+
 
             // Set the global cha
             $rootScope.UNRATED_STRING = "Unrated";
@@ -301,6 +306,11 @@ angular.module('SETTER', [
                 return LoginService.getHomeGymId();
             };
 
+            $rootScope.showAlerts = function (pAlerts) {
+                angular.element(".alert-modal").foundation('reveal', 'open');
+                $rootScope.alerts = pAlerts;
+            };
+
             if (LoginService.hasTokenInCookie()) {
                 LoginService.setHeaderFromCookie();
                 LoginService.setTypeFromCookie();
@@ -315,6 +325,8 @@ angular.module('SETTER', [
             $rootScope.getAccountName = function () {
                 return LoginService.getName();
             };
+
+
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
                 return pBoulderGrade || pTopRopeGrade || pLeadGrade || 'Not Rated';
@@ -482,6 +494,10 @@ angular.module('SETTER', [
             };
 
 
+            $rootScope.currentPageIsOtherUser = function(pRouteUserId) {
+                return $rootScope.getAccountId() !== parseInt(pRouteUserId);
+            };
+
 
 
             // Last Page Check Logic
@@ -526,6 +542,10 @@ angular.module('SETTER', [
             };
 
 
+            // Back Button Variables to hide/show menu and back button
+            //Begins set to false
+            $rootScope.backButtonActive = false;
+
 
 
 
@@ -548,11 +568,16 @@ angular.module('SETTER', [
                 return "url(" + LoginService.getImageUrl() + ")";
             };
 
+            if ($rootScope.isUserAccount()) {
+                $rootScope.userName =  $rootScope.getAccountName();
+            }
 
             /*
                 Used for forcing the data to be loaded directly up front and cached.
             */
             if (LoginService.isLoggedIn()) {
+                LoginService.init();
+
                 gymId = LoginService.getHomeGymId() || LoginService.getAccountId();
                 nothing = function () {
                     return undefined;

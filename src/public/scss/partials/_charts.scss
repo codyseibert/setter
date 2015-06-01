@@ -9,3 +9,11 @@
 .ct-chart .ct-label.ct-horizontal {
   text-align: center;
 }
+
+.ct-chart .ct-series.ct-series-a .ct-line{
+  stroke: rgba(174, 203, 131, 0.6);
+}
+
+.ct-chart .ct-series.ct-series-a .ct-point{
+  stroke: rgba(174, 203, 131, 1.0);
+}

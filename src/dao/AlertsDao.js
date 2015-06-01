@@ -25,11 +25,31 @@ var AlertsDao = function () {
     };
 
     this.createAlert = function (pGymId, pMessage, pCallback) {
+
         theDaoHelper.executeQuery(
             "INSERT INTO alerts (gym_id, message, date) VALUES (?, ?, NOW())",
             [pGymId, pMessage],
             theDaoHelper.INSERT,
-            pCallback
+            function (pAlert) {
+                theDaoHelper.executeQuery(
+                    "SELECT * FROM users WHERE gym_id = ?",
+                    [pGymId],
+                    theDaoHelper.MULTIPLE,
+                    function (pUsers) {
+                        for (var i = 0; i < pUsers.length; i++) {
+                            var user = pUsers[i];
+                            theDaoHelper.executeQuery(
+                                "INSERT INTO alerts_users (user_id, alert_id) VALUES (?, ?)",
+                                [user.account_id, pAlert.id],
+                                theDaoHelper.INSERT,
+                                function () {}
+                            );
+                        }
+                    }
+                );
+
+                pCallback(pAlert);
+            }
         );
     };
 
@@ -39,6 +59,27 @@ var AlertsDao = function () {
             [pAlertId],
             theDaoHelper.DELETE,
             pCallback
+        );
+    };
+
+    this.getAlertsForUser = function (pUserId, pCallback) {
+        console.log(pUserId);
+        theDaoHelper.executeQuery(
+            "SELECT a.message, a.date FROM alerts_users au " +
+            "INNER JOIN alerts a ON au.alert_id = a.id " +
+            "WHERE au.user_id = ?",
+            [pUserId],
+            theDaoHelper.MULTIPLE,
+            function (pData) {
+                console.log(pData);
+                theDaoHelper.executeQuery(
+                    "DELETE FROM alerts_users WHERE user_id = ?",
+                    [pUserId],
+                    theDaoHelper.DELETE,
+                    function () {}
+                );
+                pCallback(pData);
+            }
         );
     };
 };

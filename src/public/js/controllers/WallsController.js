@@ -24,6 +24,8 @@ angular.module('SETTER')
             $scope.walls = [];
             $scope.loading = true;
 
+            $scope.backButtonActive = true;
+
             $scope.form = {
                 filter: ''
             };

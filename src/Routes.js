@@ -95,6 +95,10 @@ var RouteToControllerBinder = function () {
         GymsController.getGymSettings);
 
 
+    app.get('/api/gyms/:gymId/comments',
+        GymsController.getLatestComments);
+
+
 
     /*
     *   SECTION - Distribution Chart

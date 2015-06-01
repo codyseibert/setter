@@ -162,6 +162,12 @@ angular.module('SETTER')
                     });
                 },
 
+                getLatestComments: function (pGymId) {
+                    return $http({
+                        method: 'GET',
+                        url: 'api/gyms/' + pGymId + '/comments'
+                    });
+                }
 
 
 

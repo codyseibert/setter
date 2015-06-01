@@ -363,6 +363,24 @@ var GymsDao = function () {
             pCallback
         );
     };
+
+    this.getLatestComments = function (pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT u.account_id, c.message, lg.name AS lg, co.value, u.gym_id, r.id AS route_id, r.wall_id, c.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM comments c ' +
+            'INNER JOIN users u ON u.account_id = c.user_id ' +
+            'INNER JOIN accounts a ON u.account_id = a.id ' +
+            'INNER JOIN routes r on r.id = c.route_id ' +
+            'INNER JOIN colors co ON co.id = r.color_id ' +
+            'LEFT JOIN images i ON a.image_id = i.id ' +
+            'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +
+            'LEFT JOIN rope_grades rg ON rg.id = r.toprope_grade_id ' +
+            'LEFT JOIN rope_grades lg ON lg.id = r.lead_grade_id ' +
+            'WHERE u.gym_id = ? ORDER BY c.date DESC LIMIT 15',
+            [pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
 };
 
 module.exports = new GymsDao();

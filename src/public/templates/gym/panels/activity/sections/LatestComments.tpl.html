@@ -12,44 +12,45 @@
 <div  ng-show="projects.length > 0">
 
   <div bindonce ng-repeat="comment in comments | limitTo:4"
-       class="small-12  medium-6  columns">
+       class="small-12  medium-6  columns  mb3">
+
+        <div class="flag  mb1">
+
+            <div class="flag-image pr1">
+                <img  class="avatar avatar--tiny"  ng-src="{{getUserImageSrc(comment)}}">
+            </div>
+
+            <div class="flag-body">
+
+                <a class="fwb" ng-click="navigateToUser(comment.account_id)">
+                    {{comment.name}}
+                </a>
+
+                <small class="display--block right">
+                {{comment.date | date : 'MMM dd, yyyy' }}
+                </small>
 
 
-    <div class="flag mb2">
-
-        <div  class="flag-image"  ng-click="navigateToUser(comment.account_id)">
-
-            <img  class="avatar avatar--medium"  ng-src="{{getUserImageSrc(comment)}}">
+            </div>
 
         </div>
 
-
-        <div class="flag-body">
-
-            <h1 class="h5 mb0  fwb">
-                {{comment.name}}
-            </h1>
-
-            <small class="display--block">
-                {{comment.date | date : 'MMM dd, yyyy' }}
-            </small>
-
-
-            <div ng-click="openRouteModal(comment)" style="display: inline-block; ">
-                <i class="icon-circle icon--medium" bo-style="{color: comment.value}">
-                </i>
-
-            <span bo-text="formatGrade(comment.bg, comment.rg, comment.lg)"></span>
-
-                on {{comment.zone}}
-            </div>
-
-            <p class="h6">
+        <p class="mb0">
             {{comment.message}}
-            </p>
+        </p>
+        
 
-            </div>
+        <div ng-click="openRouteModal(comment)">
+        
+            <i class="icon-circle icon--medium" bo-style="{color: comment.value}">
+            </i>
+        
+            <span class="fwb" bo-text="formatGrade(comment.bg, comment.rg, comment.lg)">
+                
 
+            </span>
+        
+            on {{comment.zone}}
 
         </div>
 

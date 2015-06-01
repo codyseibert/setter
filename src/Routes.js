@@ -95,6 +95,10 @@ var RouteToControllerBinder = function () {
         GymsController.getGymSettings);
 
 
+    app.get('/api/gyms/:gymId/comments',
+        GymsController.getLatestComments);
+
+
 
     /*
     *   SECTION - Distribution Chart
@@ -449,6 +453,9 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         ProjectsController.getProjectsForUser);
 
+    app.get('/api/users/alerts',
+        InjectAccountId,
+        UsersController.getAlertsForUser);
 
 
     app.get('/api/users/:userId',

@@ -231,6 +231,36 @@
 
 </div>
 
+
+<!--
+    POP UP MODAL
+-->
+<div class="reveal-modal small text-center"
+     data-reveal>
+
+    <h1 class="h4  fwl  text-left">
+        Hi, <span class="fwb">{{userName}}</span>
+    </h1>
+
+
+    <h2  class="h5  text-left">
+        Your home gym says: 
+    </h2>
+
+    <ul>
+        <li ng-repeat="alert in alerts" class="fwb">
+            {{alert.message}} {{alert.date | date : 'MMM dd, yyyy'}}
+        </li>
+    </ul>
+
+    <p class="fwl text-left">Have fun climbing :)</p>
+
+    <a class="close-reveal-modal  mt2  [ icon--jumbo icon-cancel ]">
+     
+    </a>
+
+</div>
+
 <off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isModalOpen()">
 
      <div

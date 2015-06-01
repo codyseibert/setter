@@ -2,7 +2,8 @@
 
 angular.module('SETTER')
     .directive('ssRouteList', [
-        function () {
+          '$timeout',
+        function ($timeout) {
             'use strict';
 
             return {
@@ -34,6 +35,7 @@ angular.module('SETTER')
                   $scope.routes = [];
                   $scope.text = MORE;
                   $scope.hasData = false;
+                  $scope.loading = true;
 
                   if ($scope.category === 'best') {
                     $scope.template = 'templates/gym/panels/activity/sections/BestRatedRoutes.tpl.html';
@@ -47,6 +49,7 @@ angular.module('SETTER')
                                      .success(function (pData) {
                                          $scope.routes = pData;
                                          $scope.hasData = pData.length > 0;
+                                         $scope.loading = false;
                                      });
                                  break;
                              case 'Top Rope':
@@ -54,6 +57,7 @@ angular.module('SETTER')
                                      .success(function (pData) {
                                          $scope.routes = pData;
                                          $scope.hasData = pData.length > 0;
+                                       $scope.loading = false;
                                      });
                                  break;
                              case 'Lead':
@@ -61,6 +65,7 @@ angular.module('SETTER')
                                      .success(function (pData) {
                                          $scope.routes = pData;
                                          $scope.hasData = pData.length > 0;
+                                         $scope.loading = false;
                                      });
                                  break;
                              default:
@@ -80,6 +85,7 @@ angular.module('SETTER')
                                      .success(function (pData) {
                                          $scope.routes = pData;
                                          $scope.hasData = pData.length > 0;
+                                         $scope.loading = false;
                                      });
                                  break;
                              case 'Top Rope':
@@ -87,6 +93,7 @@ angular.module('SETTER')
                                      .success(function (pData) {
                                          $scope.routes = pData;
                                          $scope.hasData = pData.length > 0;
+                                         $scope.loading = false;
                                      });
                                  break;
                              case 'Lead':
@@ -94,6 +101,7 @@ angular.module('SETTER')
                                      .success(function (pData) {
                                          $scope.routes = pData;
                                          $scope.hasData = pData.length > 0;
+                                         $scope.loading = false;
                                      });
                                  break;
                              default:
@@ -141,12 +149,22 @@ angular.module('SETTER')
                 },
                 link: function(scope, element, attrs, ctrl)  {
                   scope.clicked = function () {
+
                     if (!ctrl.incrementLimitReached()) {
-                      scope.limit += scope.step;
+                      scope.loadingMore = true;
+                      $timeout(function() {
+                        scope.limit += scope.step;
+                        scope.loadingMore = false;
+                        ctrl.refreshText();
+                      }, 200);
+
                     } else {
-                      scope.limit = scope.initial;
+
+                        scope.limit = scope.initial;
+                        ctrl.refreshText();
+
                     }
-                    ctrl.refreshText();
+
                   }
 
                   scope.$watch('activeCategory', function () {

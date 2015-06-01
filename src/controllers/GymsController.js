@@ -182,9 +182,13 @@ var GymsController = function () {
     };
 
 
-
-
-
+    this.getLatestComments = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getLatestComments(gymId, callback);
+    };
 
 
     this.getHomeGymUsers = function (pReq, pRes) {

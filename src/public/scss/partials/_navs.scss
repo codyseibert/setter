@@ -183,6 +183,39 @@ z-index: 10;
 
 }
 
+.nav-menuIcon {
+    @include single-transition(all, 0.2s, linear);
+    @include transform(translateX(-100px));
+    background-color: $primaryColor; 
+
+    &.is-showing {
+       @include transform(translateX(0));
+    }
+
+    &.is-hidden {
+        @include transform(translateX(-100px));
+    }
+
+}
+
+.nav-backBtn {
+    @extend %vertical-align; 
+    @extend %left; 
+    @extend %ml2; 
+    @include single-transition(all, 0.2s, linear);
+    @include transform(translateX(-100px)  translateY(-50%));
+    color: #fff; 
+
+    &.is-showing {
+       @include transform(translateX(0)  translateY(-50%));
+    }
+
+    &.is-hidden {
+        @include transform(translateX(-100px)  translateY(-50%));
+    }
+
+}
+
 .nav-account {
   background-color: $grey--light;
   left: $primaryNav-width;

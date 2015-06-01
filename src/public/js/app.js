@@ -119,6 +119,7 @@ angular.module('SETTER', [
         '$location',
         '$window',
         '$timeout',
+        '$routeParams',
         'UsersService',
         'GymsService',
         'WallsService',
@@ -131,6 +132,7 @@ angular.module('SETTER', [
             $rootScope,
             $location,
             $window,
+            $routeParams,
             $timeout,
             UsersService,
             GymsService,
@@ -492,6 +494,11 @@ angular.module('SETTER', [
             };
 
 
+            $rootScope.currentPageIsOtherUser = function(pRouteUserId) {
+                console.log("this page is id of" +  parseInt(pRouteUserId));
+                return $rootScope.getAccountId() !== parseInt(pRouteUserId); 
+            };
+
 
 
             // Last Page Check Logic
@@ -535,6 +542,10 @@ angular.module('SETTER', [
                 return $rootScope.lastPath.match(settersReg) !== null;
             };
 
+
+            // Back Button Variables to hide/show menu and back button
+            //Begins set to false 
+            $rootScope.backButtonActive = false; 
 
 
 

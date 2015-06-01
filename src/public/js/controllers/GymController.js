@@ -124,7 +124,6 @@ angular.module('SETTER')
             GymsService.getLatestComments($scope.gymId)
               .success(function (pData) {
                   $scope.comments = pData;
-                  console.log($scope.comments);
               });
 
             GymsService.getGymImage($scope.gymId, function (pData) {

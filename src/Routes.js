@@ -474,6 +474,9 @@ var RouteToControllerBinder = function () {
         InjectAccountId,
         UsersController.getActivityStream);
 
+    app.get('/api/users/:userId/progressions',
+        UsersController.getProgressions);
+
 
 
 

@@ -2,7 +2,11 @@
 /*global angular: false */
 
 angular.module('SETTER')
-    .factory('BarGraphHelperService', [function () {
+    .factory('BarGraphHelperService', [
+        'DateFormatService',
+        function (
+          DateFormatService
+        ) {
         'use strict';
 
         return {
@@ -53,6 +57,37 @@ angular.module('SETTER')
                   dataArray.push(data.count);
                   labels.push(data.name);
                 }
+                return {
+                    labels: labels,
+                    series: [dataArray]
+                };
+            },
+            preprocessProgress: function (pData, pType) {
+                var i;
+                var labels = [];
+                var dataArray = [];
+
+                if (pData.length === 0) {
+                    pData.push({
+                        date: "2015-01-01T05:00:00.000Z",
+                        bouldering_grade: 0,
+                        lead_grade: 6,
+                        toprope_grade: 6
+                    });
+                }
+
+                for (i = 0; i < pData.length; i += 1) {
+                  var data = pData[i];
+                  dataArray.push(data[pType]);
+                  labels.push(DateFormatService.formatMonth(data.date));
+                }
+
+                for (var i = dataArray.length - 1; i >= 1; i--) {
+                    if (dataArray[i] < dataArray[i-1]) {
+                      dataArray[i - 1] = dataArray[i];
+                    }
+                }
+
                 return {
                     labels: labels,
                     series: [dataArray]

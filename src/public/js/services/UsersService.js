@@ -101,6 +101,12 @@ angular.module('SETTER')
                     url: "api/users/" + pUserId + "/projects"
                 });
             },
+            getProgressions:  function (pUserId) {
+                return $http({
+                    method: "GET",
+                    url: "api/users/" + pUserId + "/progressions"
+                });
+            },
             getAlerts: function () {
                 return $http({
                     method: 'GET',

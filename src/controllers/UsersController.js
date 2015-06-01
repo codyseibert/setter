@@ -13,6 +13,7 @@
 
 var theUsersDao = require('../dao/UsersDao');
 var theRoutesDao = require('../dao/RoutesDao');
+var theProgressionsDao = require('../dao/ProgressionsDao');
 var theAlertsDao = require('../dao/AlertsDao');
 var theControllerHelper = require('./ControllerHelper');
 
@@ -58,6 +59,13 @@ var UsersController = function () {
         theUsersDao.getUserSendDistributions(userId, type, callback);
     };
 
+    this.getProgressions = function (pReq, pRes) {
+        var userId,
+            callback;
+        userId = pReq.params.userId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theProgressionsDao.getProgressions(userId, callback);
+    };
 
     this.getBoulderSends = function (pReq, pRes) {
         var userId,

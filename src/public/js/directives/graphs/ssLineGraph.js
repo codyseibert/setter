@@ -1,5 +1,5 @@
 angular.module('SETTER')
-    .directive('ssGraph', [
+    .directive('ssLineGraph', [
         '$timeout',
         function (
           $timeout
@@ -11,21 +11,30 @@ angular.module('SETTER')
               restrict: 'E',
               replace: true,
               scope: {
-                graphData: "="
+                graphData: "=",
+                type: "@"
               },
-              templateUrl: 'templates/graphs/barGraph.tpl.html',
+              templateUrl: 'templates/graphs/lineGraph.tpl.html',
               controller: function($scope) {
 
               },
               link: function(scope, element, attrs) {
-
                 var options = {};
                 options.height = "300px";
+                options.axisY = {
+                  labelInterpolationFnc: function(value) {
+                    if (scope.type === 'bouldering') {
+                      return 'V' + Math.round(value);
+                    } else {
+                      return '5.' + Math.round(value);
+                    }
+                  }
+                }
 
                 var render = function () {
                     $timeout(function() {
                         if (scope.graphData) {
-                            new Chartist.Bar(element.find('.ct-chart')[0], scope.graphData, options);
+                            new Chartist.Line(element.find('.ct-chart')[0], scope.graphData, options);
                             scope.hideSpinner = true;
                         }
                     });

@@ -235,21 +235,28 @@
 <!--
     POP UP MODAL
 -->
-<div class="alert-modal reveal-modal small text-center"
+<div class="reveal-modal small text-center"
      data-reveal>
 
-    <h1 class="h2">
-        Gym Announcement!
+    <h1 class="h4  fwl  text-left">
+        Hi, <span class="fwb">{{userName}}</span>
     </h1>
 
-    <div style="overflow: auto; height: 200px;">
-        <p ng-repeat="alert in alerts" class="fwb">
-            {{alert.message}} {{alert.date | date : 'MMM dd, yyyy'}}
-        </p>
-    </div>
 
-    <a class="close-reveal-modal">
-        &#215;
+    <h2  class="h5  text-left">
+        Your home gym says: 
+    </h2>
+
+    <ul>
+        <li ng-repeat="alert in alerts" class="fwb">
+            {{alert.message}} {{alert.date | date : 'MMM dd, yyyy'}}
+        </li>
+    </ul>
+
+    <p class="fwl text-left">Have fun climbing :)</p>
+
+    <a class="close-reveal-modal  mt2  [ icon--jumbo icon-cancel ]">
+     
     </a>
 
 </div>

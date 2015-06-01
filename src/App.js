@@ -15,6 +15,7 @@ var cookieParser = require('cookie-parser');
 var multer = require('multer');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var cors = require('cors');
 
 var App = function () {
     'use strict';
@@ -25,6 +26,7 @@ var App = function () {
     app.use(cookieParser());
     app.use(multer({dest: __dirname + '/public/images/uploads'}));
     app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+    app.use(cors());
 
     if (process.env.SETTER_PRODUCTION) {
         app.use(express.static(__dirname + '/public', {maxAge: days2}));

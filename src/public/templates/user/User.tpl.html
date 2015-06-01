@@ -4,15 +4,6 @@
 
         <div class="header">
 
-            <div class="clearfix" >
-
-                <button class="[ btn--secondary  btn--medium ] left mb3 icon-left-big hide-for-medium-up"
-                        ng-show="lastPageWasGym() || lastPageWasRoute() || lastPageWasSetters()"
-                        ng-click="back()" >
-                   Back
-                </button>
-
-            </div>
 
             <div class="row">
 
@@ -139,21 +130,22 @@
     </ul>
 
 
-    <div class="tabs-content small-12 columns">
+</section>
 
-        <div class="content row" ng-class="{'active' : userTabs == 'panel1'}">
 
+    <div class="tabs-content   row  small-collapse  medium-uncollapse">
+
+        <div class="content small-12  columns" ng-class="{'active' : userTabs == 'panel1'}">
+        
             <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' "></ng-include>
-
+        
         </div>
-
-        <div class="content row" ng-class="{'active' : userTabs == 'panel2'}">
-
+        
+        <div class="content small-12  columns" ng-class="{'active' : userTabs == 'panel2'}">
+        
             <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' "></ng-include>
-
+        
         </div>
-
     </div>
 
 
-</section>

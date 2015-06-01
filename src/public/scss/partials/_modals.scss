@@ -7,21 +7,21 @@
 
 .reveal-modal {
       @media #{$small-up} {
-    top: rem-calc(30);
+    top: rem-calc(20);
   }
 
   @media #{$medium-up} {
-    top: rem-calc(120); 
+    top: rem-calc(40); 
   }
 }
 
 
-.reveal-modal,
-.reveal-modal-bg {
-  @media #{$medium-up} {
-    position: fixed; 
-  }
-}
+// .reveal-modal,
+// .reveal-modal-bg {
+//   @media #{$medium-up} {
+//     position: fixed; 
+//   }
+// }
 
 
 

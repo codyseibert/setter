@@ -160,6 +160,8 @@ angular.module('SETTER', [
             FastClick.attach(document.body);
             $rootScope.alerts = [];
 
+
+            
             // Set the global cha
             $rootScope.UNRATED_STRING = "Unrated";
 
@@ -321,6 +323,8 @@ angular.module('SETTER', [
             $rootScope.getAccountName = function () {
                 return LoginService.getName();
             };
+
+
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
                 return pBoulderGrade || pTopRopeGrade || pLeadGrade || 'Not Rated';
@@ -554,6 +558,10 @@ angular.module('SETTER', [
                 return "url(" + LoginService.getImageUrl() + ")";
             };
 
+                if($rootScope.isUserAccount()) {
+                $rootScope.userName =  $rootScope.getAccountName();
+                console.log($rootScope.userName);
+            }
 
             /*
                 Used for forcing the data to be loaded directly up front and cached.

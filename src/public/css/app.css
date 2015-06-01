@@ -5534,7 +5534,7 @@ ul.pagination li {
 }
 /* line 206, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
 .reveal-modal .close-reveal-modal {
-  color: #AAAAAA;
+  color: #ed6d56;
   cursor: pointer;
   font-size: 2.5rem;
   font-weight: bold;
@@ -12546,21 +12546,13 @@ ul[data-pie-id] {
 @media only screen {
   /* line 8, ../scss/partials/_modals.scss */
   .reveal-modal {
-    top: 1.875rem;
+    top: 1.25rem;
   }
 }
 @media only screen and (min-width: 40.0625em) {
   /* line 8, ../scss/partials/_modals.scss */
   .reveal-modal {
-    top: 7.5rem;
-  }
-}
-
-@media only screen and (min-width: 40.0625em) {
-  /* line 19, ../scss/partials/_modals.scss */
-  .reveal-modal,
-  .reveal-modal-bg {
-    position: fixed;
+    top: 2.5rem;
   }
 }
 

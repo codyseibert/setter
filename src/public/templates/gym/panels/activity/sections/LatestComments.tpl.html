@@ -15,11 +15,11 @@
        class="small-12  medium-6  columns">
 
 
-    <div class="flag mb4">
+    <div class="flag mb2">
 
         <div  class="flag-image"  ng-click="navigateToUser(comment.account_id)">
         
-            <img  class="avatar avatar--medium  mr2"  ng-src="{{getUserImageSrc(comment)}}">
+            <img  class="avatar avatar--medium"  ng-src="{{getUserImageSrc(comment)}}">
         
         </div>
     
@@ -41,11 +41,14 @@
                 </i>
             
             <span bo-text="formatGrade(comment.bg, comment.rg, comment.lg)"></span>
-                {{comment.}}
+
                 {{comment.wall_name}}
             </div>
             
-            <p>{{comment.message}}</p>
+            <p class="h6">
+            {{comment.message}}
+            </p>
+            
             </div>
     
         

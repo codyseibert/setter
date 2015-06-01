@@ -18,43 +18,41 @@
     <div class="flag mb2">
 
         <div  class="flag-image"  ng-click="navigateToUser(comment.account_id)">
-        
+
             <img  class="avatar avatar--medium"  ng-src="{{getUserImageSrc(comment)}}">
-        
+
         </div>
-    
-    
+
+
         <div class="flag-body">
 
             <h1 class="h5 mb0  fwb">
                 {{comment.name}}
             </h1>
-            
+
             <small class="display--block">
                 {{comment.date | date : 'MMM dd, yyyy' }}
             </small>
 
-            
+
             <div ng-click="openRouteModal(comment)" style="display: inline-block; ">
-                <i class="icon-circle icon--medium"
-          bo-style="{color: comment.value}">
+                <i class="icon-circle icon--medium" bo-style="{color: comment.value}">
                 </i>
-            
+
             <span bo-text="formatGrade(comment.bg, comment.rg, comment.lg)"></span>
 
-                {{comment.wall_name}}
+                on {{comment.zone}}
             </div>
-            
+
             <p class="h6">
             {{comment.message}}
             </p>
-            
+
             </div>
-    
-        
+
+
         </div>
 
     </div>
 
 </div>
-

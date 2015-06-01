@@ -38,6 +38,8 @@ angular.module('SETTER')
                         LoginService.setName(pData.fullname);
                         LoginService.setGymName(pData.gymName);
                         LoginService.navigateToCorrectHomePage();
+
+                        LoginService.init();
                     })
                     .error(function () {
                         $scope.error = 'Yikes! Email or password entered are incorrect.';

@@ -119,7 +119,6 @@ angular.module('SETTER')
             GymsService.getLatestProjects($scope.gymId)
               .success(function (pData) {
                   $scope.projects = pData;
-                  console.log($scope.projects);
               });
 
             GymsService.getLatestComments($scope.gymId)
@@ -154,30 +153,6 @@ angular.module('SETTER')
                     });
                     $scope.alerts = pData;
                 });
-
-
-
-
-            /*
-            *   SECTION - Distribution Graphs
-            */
-            // createBoulderRoutesBarGraph = function (pData) {
-            //     var data = BarGraphHelperService
-            //         .generateRouteCountGraphData(pData);
-            //     $scope.boulderRoutesBarGraph = data;
-            // };
-            //
-            // createTopRopeRoutesBarGraph = function (pData) {
-            //     var data = BarGraphHelperService
-            //         .generateRouteCountGraphData(pData);
-            //     $scope.topRopeRoutesBarGraph = data;
-            // };
-            //
-            // createLeadRoutesBarGraph = function (pData) {
-            //     var data = BarGraphHelperService
-            //         .generateRouteCountGraphData(pData);
-            //     $scope.leadRoutesBarGraph = data;
-            // };
 
             /*
             *   SECTION - Newest Routes

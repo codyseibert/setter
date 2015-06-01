@@ -366,10 +366,11 @@ var GymsDao = function () {
 
     this.getLatestComments = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT u.account_id, c.message, lg.name AS lg, co.value, u.gym_id, r.id AS route_id, r.wall_id, c.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM comments c ' +
+            'SELECT u.account_id, c.message, lg.name AS lg, w.name AS zone, co.value, u.gym_id, r.id AS route_id, r.wall_id, c.date, bg.name AS bg, rg.name AS rg, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM comments c ' +
             'INNER JOIN users u ON u.account_id = c.user_id ' +
             'INNER JOIN accounts a ON u.account_id = a.id ' +
             'INNER JOIN routes r on r.id = c.route_id ' +
+            'INNER JOIN walls w on r.wall_id = w.id ' +
             'INNER JOIN colors co ON co.id = r.color_id ' +
             'LEFT JOIN images i ON a.image_id = i.id ' +
             'LEFT JOIN boulder_grades bg ON bg.id = r.boulder_grade_id ' +

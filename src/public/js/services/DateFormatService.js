@@ -6,6 +6,9 @@ angular.module('SETTER')
         'use strict';
 
         return {
+            formatMonth: function (pDateString) {
+                return moment(pDateString).format("MMM");
+            },
             format: function (pDateString) {
                 return moment(pDateString).format("MMM Do YYYY");
             },

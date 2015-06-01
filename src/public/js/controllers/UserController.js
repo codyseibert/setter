@@ -66,6 +66,13 @@ angular.module('SETTER')
                     $scope.projects = pData;
                 });
 
+            UsersService.getProgressions($scope.userId)
+                .success(function (pData) {
+                    $scope.boulderingProgressionGraphData = BarGraphHelperService.preprocessProgress(pData, 'bouldering_grade');
+                    $scope.topropeProgressionGraphData = BarGraphHelperService.preprocessProgress(pData, 'toprope_grade');
+                    $scope.leadProgressionGraphData = BarGraphHelperService.preprocessProgress(pData, 'lead_grade');
+                });
+
             MessageService.listen('projectSet', 'UserController', function (pData) {
                 $scope.projects.push(pData);
             });

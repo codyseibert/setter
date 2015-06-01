@@ -30,7 +30,7 @@ var ProjectsController = function () {
     this.getProjectsForUser = function (pReq, pRes) {
         var userId,
             callback;
-        userId = pReq.user.accountId;
+        userId = pReq.params.userId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theProjectsDao.getProjectsForUser(userId, callback);
     };

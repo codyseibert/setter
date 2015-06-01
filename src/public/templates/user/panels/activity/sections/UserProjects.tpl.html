@@ -1,8 +1,4 @@
 
-<div class="small-12 medium-5 large-3 columns panel  panel--dropshadow">
-
-
-  <div class="row  prl3">
 
     <h2 class="fwl mb3">Project List</h2>
 
@@ -12,11 +8,11 @@
               ng-repeat="project in projects"
               ng-click="openRouteModal(project)">
 
-              <i ng-class="project.sent ? 'icon-checked' : 'icon-unchecked' ">
+              <i class="icon--big"  ng-class="project.sent ? 'icon-checked' : 'icon-unchecked' ">
 
               </i>
 
-              <span>
+              <span class="mr2">
                   <i class="icon-circle icon--medium"
                       ng-style="{color: project.value}">
                   </i>
@@ -24,13 +20,12 @@
               </span>
 
               <span>
-                set on {{project.wall_name}}
+                    {{project.wall_name}}
               </span>
+
 
           </li>
 
       </ul>
 
-  </div>
 
-</div>

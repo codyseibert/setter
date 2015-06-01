@@ -42,15 +42,15 @@
 
 
     <nav class="tab-bar hide-for-large-up  fixed"  ng-show="isLoggedIn()" ng-cloak >
-        
-            
-            <ss-back-button>
-            </ss-back-button> 
 
-            <div class="left-small  ng-hide  nav-menuIcon" 
+
+            <ss-back-button>
+            </ss-back-button>
+
+            <div class="left-small  ng-hide  nav-menuIcon"
 
                  ng-show="!backButtonActive">
-            
+
                 <a class="left-off-canvas-toggle menu-icon" >
                     <span></span>
                 </a>
@@ -241,7 +241,7 @@
 <!--
     POP UP MODAL
 -->
-<div class="reveal-modal small text-center"
+<div class="reveal-modal small text-center alert-modal"
      data-reveal>
 
     <h1 class="h4  fwl  text-left">
@@ -250,19 +250,19 @@
 
 
     <h2  class="h5  text-left">
-        Your home gym says: 
+        Your home gym says:
     </h2>
 
     <ul>
-        <li ng-repeat="alert in alerts" class="fwb">
-            {{alert.message}} {{alert.date | date : 'MMM dd, yyyy'}}
+        <li ng-repeat="alert in alerts" class="text-left mb2">
+            {{alert.message}} <small class="display--block">{{alert.date | date : 'MMM dd, yyyy'}}</small>
         </li>
     </ul>
 
-    <p class="fwl text-left">Have fun climbing :)</p>
+    <p class="fwl text-left">Have fun climbing <b>=)</b></p>
 
     <a class="close-reveal-modal  mt2  [ icon--jumbo icon-cancel ]">
-     
+
     </a>
 
 </div>

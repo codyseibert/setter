@@ -43,19 +43,21 @@
 
     <nav class="tab-bar hide-for-large-up  fixed"  ng-show="isLoggedIn()" ng-cloak >
         
-
-            <div class="left-small">
-    
+            
             <ss-back-button>
-            </ss-back-button>
+            </ss-back-button> 
 
-            <a class="left-off-canvas-toggle menu-icon" >
-                <span></span>
-            </a>
+            <div class="left-small  ng-hide  nav-menuIcon" 
+
+                 ng-show="!backButtonActive">
+            
+                <a class="left-off-canvas-toggle menu-icon" >
+                    <span></span>
+                </a>
 
             </div>
 
-            <div class="right tab-bar-section">
+            <div class="right">
 
                 <img src="images/setter-logo.svg"
                      height="40px"

@@ -2,6 +2,7 @@ build/
 node_modules/
 src/public/.sass-cache
 src/public/css/app.css
+src/public/css/app.css.map
 src/public/bower_components
 src/public/images/uploads/
 coverage/

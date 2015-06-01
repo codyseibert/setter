@@ -163,7 +163,7 @@ angular.module('SETTER', [
             $rootScope.alerts = [];
 
 
-            
+
             // Set the global cha
             $rootScope.UNRATED_STRING = "Unrated";
 
@@ -495,8 +495,7 @@ angular.module('SETTER', [
 
 
             $rootScope.currentPageIsOtherUser = function(pRouteUserId) {
-                console.log("this page is id of" +  parseInt(pRouteUserId));
-                return $rootScope.getAccountId() !== parseInt(pRouteUserId); 
+                return $rootScope.getAccountId() !== parseInt(pRouteUserId);
             };
 
 
@@ -544,8 +543,8 @@ angular.module('SETTER', [
 
 
             // Back Button Variables to hide/show menu and back button
-            //Begins set to false 
-            $rootScope.backButtonActive = false; 
+            //Begins set to false
+            $rootScope.backButtonActive = false;
 
 
 
@@ -569,9 +568,8 @@ angular.module('SETTER', [
                 return "url(" + LoginService.getImageUrl() + ")";
             };
 
-                if($rootScope.isUserAccount()) {
+            if ($rootScope.isUserAccount()) {
                 $rootScope.userName =  $rootScope.getAccountName();
-                console.log($rootScope.userName);
             }
 
             /*

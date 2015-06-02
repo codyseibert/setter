@@ -77,12 +77,15 @@ angular.module('SETTER')
 
 
             //Variables for Placeholders on gym's template 
+            //TO:DO These neeed to be refactored into functions? 
             $scope.hasNoBoulderRoutes = false; 
             $scope.hasNoTopRopeRoutes = false; 
             $scope.hasNoLeadRoutes = false; 
 
             $scope.hasNoBoulderers = false;
             $scope.hasNoComments = false; 
+            $scope.hasNoProjects = false; 
+            $scope.hasNoClimberActivity = false; 
 
             /*
             *   SECTION - Gym related service calls
@@ -142,6 +145,9 @@ angular.module('SETTER')
             GymsService.getLatestProjects($scope.gymId)
               .success(function (pData) {
                   $scope.projects = pData;
+                  if($scope.projects.length === 0) {
+                     $scope.hasNoProjects = true; 
+                  }
               });
 
             GymsService.getLatestComments($scope.gymId)
@@ -164,8 +170,10 @@ angular.module('SETTER')
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {
                     $scope.activity = pData;
+                    if($scope.activity.length === 0) {
+                        $scope.hasNoClimberActivity = true;  
+                    }
                 });
-
 
             /*
             *   SECTION - Alerts

@@ -10,6 +10,8 @@
 
 .placeholderImage {
     opacity: .4; 
+    width: 100%; 
+    min-height: rem-calc(250);
 }
 
 
@@ -22,7 +24,7 @@
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
-  z-index: 40; 
+  z-index: 4; 
   background-color: #fff; 
   @extend %dropshadow; 
   @extend %radius--boxes; 

@@ -267,7 +267,6 @@ angular.module('SETTER', [
             };
 
             $rootScope.navigateToGymSuggestions = function (pGymId) {
-                console.log("navigate");
                 $location.path('gyms/' + pGymId + '/suggestions');
             };
 

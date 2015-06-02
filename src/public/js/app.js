@@ -496,6 +496,7 @@ angular.module('SETTER', [
 
 
             $rootScope.currentPageIsOtherUser = function(pRouteUserId) {
+                console.log(pRouteUserId);
                 return $rootScope.getAccountId() !== parseInt(pRouteUserId);
             };
 

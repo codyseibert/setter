@@ -8,6 +8,31 @@
     graph-data="boulderingProgressionGraphData">
   </ss-line-graph>
 
+  <ss-placeholder
+    class="ng-hide"
+    size="large"
+    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['bouldering']"
+    no-data="{{hasRoutes['bouldering']}}"
+    title="You haven't sent any bouldering routes yet."
+    paragraph="Start sending some at"
+    image="images/placeholder--BoulderingGraph.jpg"
+    link-text="your home gym."
+    ng-click="navigateToGym(getHomeGymId())">
+  </ss-placeholder>
+
+<ss-placeholder
+    class="ng-hide"
+    size="large"
+    ng-show="currentPageIsOtherUser(userId) &&   hasRoutes['bouldering']"
+    no-data="{{hasRoutes['bouldering']}}"
+    title="{{user.firstname}} hasn't sent any boulder routes yet."
+    paragraph=""
+    image="images/placeholder--BoulderingGraph.jpg"
+    link-text=""
+    ng-click="">
+  </ss-placeholder>
+
+
 </div>
 
 <div class="small-12 medium-6 large-4 columns">
@@ -19,6 +44,31 @@
     graph-data="topropeProgressionGraphData">
   </ss-line-graph>
 
+  <ss-placeholder
+   class="ng-hide"
+   size="large"
+   ng-show="!currentPageIsOtherUser(userId) && hasRoutes['toprope']"
+   no-data="{{hasRoutes['toprope']}}"
+    title="You haven't sent any top rope routes yet."
+    paragraph="Start sending some at"
+    image="images/placeholder--TopRopeGraph.jpg"
+    link-text="your home gym."
+    ng-click="navigateToGym(getHomeGymId())">
+  </ss-placeholder>
+
+
+   <ss-placeholder
+   class="ng-hide"
+   size="large"
+   ng-show="currentPageIsOtherUser(userId) &&   hasRoutes['toprope']"
+   no-data="{{hasRoutes['toprope']}}"
+    title="{{user.firstname}} hasn't sent any top rope routes yet."
+    paragraph=""
+    image="images/placeholder--TopRopeGraph.jpg"
+    link-text=""
+    ng-click="">
+  </ss-placeholder>
+
 </div>
 
 <div class="small-12 medium-6 large-4 columns">
@@ -29,5 +79,29 @@
     class="prl1"
     graph-data="leadProgressionGraphData">
   </ss-line-graph>
+
+  <ss-placeholder
+   class="ng-hide"
+   size="large"
+   ng-show="!currentPageIsOtherUser(userId) && hasRoutes['lead']"
+   no-data="{{hasRoutes['lead']}}"
+    title="You haven't sent any lead routes yet."
+    paragraph="Start sending some at"
+    image="images/placeholder--BoulderingGraph.jpg"
+    link-text="your home gym."
+    ng-click="navigateToGym(getHomeGymId())">
+  </ss-placeholder>
+
+  <ss-placeholder
+   class="ng-hide"
+   size="large"
+   ng-show="currentPageIsOtherUser(userId) && hasRoutes['lead']"
+   no-data="{{hasRoutes['lead']}}"
+    title="{{user.firstname}} hasn't sent any lead routes yet."
+    paragraph=""
+    image="images/placeholder--LeadGraph.jpg"
+    link-text=""
+    ng-click="">
+  </ss-placeholder>
 
 </div>

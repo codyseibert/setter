@@ -167,6 +167,8 @@ angular.module('SETTER')
 
                   }
 
+                  //TO:DO Separate this function from the route list 
+                  //by using ss-placeholder directive 
                   scope.$watch('activeCategory', function () {
                     if (scope.activeCategory) {
                       scope.placeholderImage = 'images/placeholder--' + scope.category + scope.activeCategory.replace(' ', '') +'.jpg'

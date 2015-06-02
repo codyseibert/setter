@@ -77,7 +77,9 @@ angular.module('SETTER')
 
 
             //Variables for Placeholders on gym's template 
-            //TO:DO These neeed to be refactored into functions? 
+            //TO:DO These neeed to be refactored like the user controller
+            //where it is one single function and an object contains the properties
+            //SEE: UserController line 37 and 160
             $scope.hasNoBoulderRoutes = false; 
             $scope.hasNoTopRopeRoutes = false; 
             $scope.hasNoLeadRoutes = false; 

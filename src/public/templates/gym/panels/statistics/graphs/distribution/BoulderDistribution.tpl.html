@@ -1,11 +1,12 @@
-<div>
+<div  ng-show="hasBoulder">
     <a ng-click="export()"
             ng-show="getAccountId() === gymId" class="right">Export Data</a>
 
     <div id="boulderDistribution" class="mb2">
-        <h2>Bouldering Distribution</h2>
 
-        <div ng-show="!hasBoulder && getAccountId() !== gymId">
+        <h2 class="fwl">Bouldering Distribution</h2>
+
+<!--         <div ng-show="!hasBoulder && getAccountId() !== gymId">
 
             <h3 class="fwl">
 
@@ -24,7 +25,7 @@
             </h3>
 
         </div>
-
+ -->
 
         <table ng-show="hasBoulder">
             <thead>

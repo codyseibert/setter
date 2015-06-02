@@ -21,6 +21,13 @@ angular.module('SETTER')
               link: function(scope, element, attrs) {
                 var options = {};
                 options.height = "300px";
+                if (scope.type === 'bouldering') {
+                  options.low = 0;
+                  options.high = 10;
+                } else {
+                  options.low = 7;
+                  options.high = 14;
+                }
                 options.axisY = {
                   labelInterpolationFnc: function(value) {
                     if (scope.type === 'bouldering') {

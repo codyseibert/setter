@@ -75,11 +75,14 @@ angular.module('SETTER')
             $scope.routeSelected = false;
             $scope.offCanvasModalShown = false;
 
+
+            //Variables for Placeholders on gym's template 
             $scope.hasNoBoulderRoutes = false; 
             $scope.hasNoTopRopeRoutes = false; 
             $scope.hasNoLeadRoutes = false; 
 
             $scope.hasNoBoulderers = false;
+            $scope.hasNoComments = false; 
 
             /*
             *   SECTION - Gym related service calls
@@ -144,6 +147,9 @@ angular.module('SETTER')
             GymsService.getLatestComments($scope.gymId)
               .success(function (pData) {
                   $scope.comments = pData;
+                  if($scope.comments.length === 0) {
+                     $scope.hasNoComments = true; 
+                  }
               });
 
             GymsService.getGymImage($scope.gymId, function (pData) {

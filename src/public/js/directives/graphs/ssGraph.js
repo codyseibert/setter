@@ -30,7 +30,9 @@ angular.module('SETTER')
                 $scope.$watch('graphData', function() {
                         $scope.loading = true;
                     //Prevents graph from loading even with zero values 
-                    if($scope.graphData.labels.length === 0 ) {
+                    if($scope.graphData === undefined) {
+                        return; 
+                    }else if($scope.graphData.labels.length === 0 ) {
                         $scope.noData = true;
                         $scope.loading = false;
                     }

@@ -55,4 +55,16 @@
 
     </div>
 
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="hasNoComments"
+        no-data = "{{hasNoComments}}"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--BoulderingGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
+
 </div>

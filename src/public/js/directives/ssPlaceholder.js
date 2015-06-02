@@ -11,19 +11,15 @@ angular.module('SETTER')
               restrict: 'E',
               replace: true,
               scope: {
-                noData: "="
+                noData: "=",
+                image: "@"
               },
               templateUrl: 'templates/directives/ssPlaceholder.tpl.html',
               controller: function($scope) {
-                $scope.noData = false; 
-
               },
               link: function(scope, element, attrs) {
-
                 scope.title = attrs.title;
-                scope.par = attrs.par;
-                scope.noData = scope.noData;
-
+                scope.paragraph = attrs.paragraph;
               }
 
             };

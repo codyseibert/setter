@@ -1,16 +1,5 @@
 <section class="row">
 
-    <div class="text-center"
-         ng-show="!hasUsers() && getAccountId() !== gymId">
-
-        <h2>
-
-            This gym has no users!
-
-        </h2>
-
-    </div>
-
     <div class="small-12  medium-8 columns medium-centered"
          ng-show="!hasUsers() && getAccountId() === gymId">
 
@@ -76,6 +65,17 @@
       <div class="row">
 
         <h1 class="h2 clearfix fwl">Climbers</h1>
+
+        <div class="text-center"
+             ng-show="!hasUsers() && getAccountId() !== gymId">
+
+            <h2>
+
+                This gym has no users!
+
+            </h2>
+
+        </div>
 
         <div class="small-6 medium-3 large-3 columns   pb4"
             bindonce

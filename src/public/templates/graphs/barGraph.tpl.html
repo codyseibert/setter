@@ -1,13 +1,15 @@
 <div>
 
-  <ss-placeholder  no-data="noData"  class="ng-hide" ng-show="noData"
- title="HEY WAT"
-  par="LOLOLOLOLOL">
-</ss-placeholder>
-
+  <ss-placeholder
+    class="ng-hide"
+    no-data="noData"
+    title="Not enough data to show this graph"
+    paragraph="Set some more routes"
+    image="images/placeholder--BoulderingGraph.jpg">
+  </ss-placeholder>
 
   <div ng-hide="noData" class="ct-chart"></div>
-    
+
   <div us-spinner
     ng-show="loading"
     style="position: relative; width: 100%; height: 300px;">

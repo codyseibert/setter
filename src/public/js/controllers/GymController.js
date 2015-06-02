@@ -76,18 +76,18 @@ angular.module('SETTER')
             $scope.offCanvasModalShown = false;
 
 
-            //Variables for Placeholders on gym's template 
+            //Variables for Placeholders on gym's template
             //TO:DO These neeed to be refactored like the user controller
             //where it is one single function and an object contains the properties
             //SEE: UserController line 37 and 160
-            $scope.hasNoBoulderRoutes = false; 
-            $scope.hasNoTopRopeRoutes = false; 
-            $scope.hasNoLeadRoutes = false; 
+            $scope.hasNoBoulderRoutes = false;
+            $scope.hasNoTopRopeRoutes = false;
+            $scope.hasNoLeadRoutes = false;
 
             $scope.hasNoBoulderers = false;
-            $scope.hasNoComments = false; 
-            $scope.hasNoProjects = false; 
-            $scope.hasNoClimberActivity = false; 
+            $scope.hasNoComments = false;
+            $scope.hasNoProjects = false;
+            $scope.hasNoClimberActivity = false;
 
             /*
             *   SECTION - Gym related service calls
@@ -114,7 +114,7 @@ angular.module('SETTER')
                   pData.$promise.then(function(data) {
                       $scope.boulderingUsersGraphData = BarGraphHelperService.preprocess(data);
                         if($scope.boulderingUsersGraphData.labels.length === 0) {
-                            $scope.hasNoBoulderers = true; 
+                            $scope.hasNoBoulderers = true;
                         }
                   });
               });
@@ -122,9 +122,9 @@ angular.module('SETTER')
               GymUsersService.getUserGrades('toprope').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.topropeUsersGraphData = BarGraphHelperService.preprocess(data);
-                  
+
                         if($scope.boulderingUsersGraphData.labels.length === 0) {
-                            $scope.hasNoTopRopers = true; 
+                            $scope.hasNoTopRopers = true;
                         }
                   });
               });
@@ -134,7 +134,7 @@ angular.module('SETTER')
                       $scope.leadUsersGraphData = BarGraphHelperService.preprocess(data);
 
                         if($scope.boulderingUsersGraphData.labels.length === 0) {
-                            $scope.hasNoLeaders = true; 
+                            $scope.hasNoLeaders = true;
                         }
                   });
               });
@@ -148,7 +148,7 @@ angular.module('SETTER')
               .success(function (pData) {
                   $scope.projects = pData;
                   if($scope.projects.length === 0) {
-                     $scope.hasNoProjects = true; 
+                     $scope.hasNoProjects = true;
                   }
               });
 
@@ -156,7 +156,7 @@ angular.module('SETTER')
               .success(function (pData) {
                   $scope.comments = pData;
                   if($scope.comments.length === 0) {
-                     $scope.hasNoComments = true; 
+                     $scope.hasNoComments = true;
                   }
               });
 
@@ -173,7 +173,7 @@ angular.module('SETTER')
                 .success(function (pData) {
                     $scope.activity = pData;
                     if($scope.activity.length === 0) {
-                        $scope.hasNoClimberActivity = true;  
+                        $scope.hasNoClimberActivity = true;
                     }
                 });
 
@@ -320,7 +320,7 @@ angular.module('SETTER')
                   .success(function(data){
                     $scope.boulderingGraphData = BarGraphHelperService.preprocess(data);
                     if($scope.boulderingGraphData.labels.length === 0) {
-                        $scope.hasNoBoulderRoutes = true; 
+                        $scope.hasNoBoulderRoutes = true;
                     }
                   });
 
@@ -328,7 +328,7 @@ angular.module('SETTER')
                   .success(function(data){
                     $scope.topropeGraphData = BarGraphHelperService.preprocess(data);
                     if($scope.topropeGraphData.labels.length === 0) {
-                        $scope.hasNoTopRopeRoutes = true; 
+                        $scope.hasNoTopRopeRoutes = true;
                     }
                   });
 
@@ -336,7 +336,7 @@ angular.module('SETTER')
                   .success(function(data){
                     $scope.leadGraphData = BarGraphHelperService.preprocess(data);
                     if($scope.leadGraphData.labels.length === 0) {
-                        $scope.hasNoLeadRoutes = true; 
+                        $scope.hasNoLeadRoutes = true;
                     }
                   });
             };

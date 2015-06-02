@@ -9,14 +9,14 @@
   </ss-line-graph>
 
   <ss-placeholder
-    class="ng-hide"
-    size="large"
-    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['bouldering']"
-    no-data="{{hasRoutes['bouldering']}}"
-    title="You haven't sent any bouldering routes yet."
-    paragraph="Start sending some at"
+   class="ng-hide"
+   size="large"
+   ng-show="!currentPageIsOtherUser(userId) && hasRoutes['bouldering']"
+   no-data="{{hasRoutes['bouldering']}}"
+    title="Oops! These are not your bouldering stats."
+    paragraph="Why don't you send some over at"
     image="images/placeholder--BoulderingGraph.jpg"
-    link-text="your home gym."
+    link-text="your your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
 
@@ -49,10 +49,10 @@
    size="large"
    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['toprope']"
    no-data="{{hasRoutes['toprope']}}"
-    title="You haven't sent any top rope routes yet."
-    paragraph="Start sending some at"
+    title="Oops! These are not your top rope stats."
+    paragraph="Why don't you send some over at"
     image="images/placeholder--TopRopeGraph.jpg"
-    link-text="your home gym."
+    link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
 
@@ -85,10 +85,10 @@
    size="large"
    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['lead']"
    no-data="{{hasRoutes['lead']}}"
-    title="You haven't sent any lead routes yet."
-    paragraph="Start sending some at"
+    title="Oops! These are not your lead stats."
+    paragraph="Why don't you send some at"
     image="images/placeholder--BoulderingGraph.jpg"
-    link-text="your home gym."
+    link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
 

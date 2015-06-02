@@ -31,7 +31,6 @@ angular.module('SETTER')
             $scope.userId = parseInt($routeParams.userId, 10);
             $scope.hasActivity = true;
 
-
             UsersService.getUser($scope.userId, function (pData) {
                 $scope.user = pData;
                 if (pData.bouldering_grade)
@@ -68,7 +67,7 @@ angular.module('SETTER')
 
                     if($scope.projects.length === 0) {
 
-                        $scope.hasNoProjects = true; 
+                        $scope.hasNoProjects = true;
                     }
                 });
 
@@ -80,17 +79,16 @@ angular.module('SETTER')
                 });
 
             MessageService.listen('projectSet', 'UserController', function (pData) {
-                $scope.hasNoProjects = false; 
+                $scope.hasNoProjects = false;
                 $scope.projects.push(pData);
             });
 
             MessageService.listen('projectUnset', 'UserController', function (pData) {
-
                 $rootScope.splice($scope.projects, 'id', pData.id);
 
                 if($scope.checkForProjects() === false) {
                     $scope.hasNoProjects = false;
-                } 
+                }
             });
 
             MessageService.listen('routeSent', 'UserController', function (pData) {
@@ -132,15 +130,15 @@ angular.module('SETTER')
 
                 if($scope.projects.length === 0) {
 
-                    $scope.hasNoProjects = true; 
+                    $scope.hasNoProjects = true;
                     return $scope.projects;
 
                 } else {
 
-                    $scope.hasNoProjects = false; 
+                    $scope.hasNoProjects = false;
                     return $scope.projects;
                 }
-                
+
             };
 
             $scope.authorization = LoginService.getHeader();

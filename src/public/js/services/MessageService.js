@@ -21,9 +21,7 @@ angular.module('SETTER')
                     listeners[pKey] = {};
                   }
 
-                  if (!listeners[pKey][pEvent]) {
-                    listeners[pKey][pEvent] = new Listener(pEvent, pKey, pCallback);
-                  }
+                  listeners[pKey][pEvent] = new Listener(pEvent, pKey, pCallback);
 
                   for (var i = 0; i < queue.length; i++) {
                       var event = queue[i];

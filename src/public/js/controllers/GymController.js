@@ -75,6 +75,12 @@ angular.module('SETTER')
             $scope.routeSelected = false;
             $scope.offCanvasModalShown = false;
 
+            $scope.hasNoBoulderRoutes = false; 
+            $scope.hasNoTopRopeRoutes = false; 
+            $scope.hasNoLeadRoutes = false; 
+
+            $scope.hasNoBoulderers = false;
+
             /*
             *   SECTION - Gym related service calls
             */
@@ -99,22 +105,36 @@ angular.module('SETTER')
               GymUsersService.getUserGrades('bouldering').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.boulderingUsersGraphData = BarGraphHelperService.preprocess(data);
+                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                            $scope.hasNoBoulderers = true; 
+                        }
                   });
               });
 
               GymUsersService.getUserGrades('toprope').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.topropeUsersGraphData = BarGraphHelperService.preprocess(data);
+                  
+                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                            $scope.hasNoTopRopers = true; 
+                        }
                   });
               });
 
               GymUsersService.getUserGrades('lead').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.leadUsersGraphData = BarGraphHelperService.preprocess(data);
+
+                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                            $scope.hasNoLeaders = true; 
+                        }
                   });
               });
 
             };
+
+
+
 
             GymsService.getLatestProjects($scope.gymId)
               .success(function (pData) {
@@ -283,18 +303,29 @@ angular.module('SETTER')
                 RoutesService.getDistributions($scope.gymId, 'bouldering')
                   .success(function(data){
                     $scope.boulderingGraphData = BarGraphHelperService.preprocess(data);
+                    if($scope.boulderingGraphData.labels.length === 0) {
+                        $scope.hasNoBoulderRoutes = true; 
+                    }
                   });
 
                 RoutesService.getDistributions($scope.gymId, 'toprope')
                   .success(function(data){
                     $scope.topropeGraphData = BarGraphHelperService.preprocess(data);
+                    if($scope.topropeGraphData.labels.length === 0) {
+                        $scope.hasNoTopRopeRoutes = true; 
+                    }
                   });
 
                 RoutesService.getDistributions($scope.gymId, 'lead')
                   .success(function(data){
                     $scope.leadGraphData = BarGraphHelperService.preprocess(data);
+                    if($scope.leadGraphData.labels.length === 0) {
+                        $scope.hasNoLeadRoutes = true; 
+                    }
                   });
             };
+
+
 
 
             /*

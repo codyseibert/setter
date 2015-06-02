@@ -15,14 +15,34 @@
       </ss-export-bar-graph>
 
       <h2 class="h3 clearfix">Bouldering</h2>
-      
+
       <ss-graph
         class="prl1"
         id="boulderingGraph"
         graph-data="boulderingGraphData">
       </ss-graph>
 
-    
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isUserAccount() &&  hasNoBoulderRoutes"
+        title="This gym has no bouldering routes, yet."
+        paragraph="If you'd like to climb some, let them know over at their"
+        image="images/placeholder--BoulderingGraph.jpg"
+        link-text="Suggestions Board"
+        ng-click="navigateToGymSuggestions(gymId)">
+      </ss-placeholder>
+
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isGymAccount() &&  hasNoBoulderRoutes"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--BoulderingGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
 
 
     </div>
@@ -44,6 +64,29 @@
         id="topropeGraph"
         graph-data="topropeGraphData">
       </ss-graph>
+
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isUserAccount() && hasNoTopRopeRoutes"
+        title="This gym has no top rope routes, yet."
+        paragraph="If you'd like to climb some, let them know over at their"
+        image="images/placeholder--TopRopeGraph.jpg"
+        link-text="Suggestions Board"
+        ng-click="navigateToGymSuggestions(gymId)">
+      </ss-placeholder>
+
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isGymAccount() &&  hasNoTopRopeRoutes"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--TopRopeGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
+
     </div>
 
     <div class="small-12 medium-6 large-4 columns">
@@ -63,6 +106,31 @@
         id="leadGraph"
         graph-data="leadGraphData">
       </ss-graph>
+
+
+
+        <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isGymAccount() &&  hasNoLeadRoutes"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--TopRopeGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
+      
+       <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isUserAccount() && hasNoLeadRoutes"
+        title="This gym has no lead routes, yet."
+        paragraph="If you'd like to climb some, let them know over at their"
+        image="images/placeholder--LeadGraph.jpg"
+        link-text="Suggestions Board"
+        ng-click="navigateToGymSuggestions(gymId)">
+      </ss-placeholder>
+
     </div>
 
 </section>

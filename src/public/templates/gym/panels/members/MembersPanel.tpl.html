@@ -32,6 +32,17 @@
             graph-data="boulderingUsersGraphData">
           </ss-graph>
 
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoBoulderers"
+            title="No boulderers here..."
+            paragraph="" 
+            image="images/placeholder--BoulderingGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
         </div>
 
         <div class="small-12 medium-6 large-4 columns">
@@ -43,6 +54,17 @@
             graph-data="topropeUsersGraphData">
           </ss-graph>
 
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoTopRopers"
+            title="No top ropers here..."
+            paragraph="" 
+            image="images/placeholder--TopRopeGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
         </div>
 
         <div class="small-12 medium-6 large-4 columns">
@@ -53,6 +75,17 @@
             class="prl1"
             graph-data="leadUsersGraphData">
           </ss-graph>
+
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoLeaders"
+            title="No leaders, yet."
+            paragraph="" 
+            image="images/placeholder--TopRopeGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
 
         </div>
 
@@ -69,9 +102,9 @@
         <div class="text-center"
              ng-show="!hasUsers() && getAccountId() !== gymId">
 
-            <h2>
+            <h2 class="h3">
 
-                This gym has no users!
+               It appears no users have set this gym as their home gym.
 
             </h2>
 

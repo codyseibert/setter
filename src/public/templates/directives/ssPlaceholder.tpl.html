@@ -1,8 +1,8 @@
-<div class="ng-hide" ng-show="noData">
+<div>
 
-    <img class='placeholder-image' ng-src="{{image}}">
+    <img class='placeholderImage' ng-src="{{image}}">
 
-    <div class="[ placeholder-text  large  ] text-center">
+    <div class="[ placeholder-text  {{placeholderSize}}  ] text-center">
 
 
         <div class="vertical-align">
@@ -14,6 +14,11 @@
             <p>
                 {{paragraph}}
             </p>
+
+            <a ng-click="{{linkDestination}}" class="fwb  h4">
+                {{linkText}}
+
+            </a>
 
         </div>
 

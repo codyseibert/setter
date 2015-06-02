@@ -27,15 +27,15 @@ angular.module('SETTER')
 
                 };
 
-
                 $scope.$watch('graphData', function() {
                         $scope.loading = true;
-
+                    //Prevents graph from loading even with zero values 
                     if($scope.graphData.labels.length === 0 ) {
                         $scope.noData = true;
                         $scope.loading = false;
                     }
                     else {
+                        $scope.loading = true;
                         $scope.noData = false;
                         $scope.render();
                     }

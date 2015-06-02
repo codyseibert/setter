@@ -1,55 +1,62 @@
 
-<div class="small-12 columns">
 
-    <h2 class="fwl">
+<div class="row medium-collapse" ng-show="projects.length > 0">
 
-        Latest Comments
+    <div class="small-12 columns">
 
-    </h2>
+        <h2 class="fwl">
+        
+            Latest Route Comments
+        
+        </h2>
 
-</div>
+    </div>
 
-<div  ng-show="projects.length > 0">
+    <div bindonce ng-repeat="comment in comments | limitTo:4"
+       class=" small-12  medium-6  columns  mb4">
 
-  <div bindonce ng-repeat="comment in comments | limitTo:4"
-       class="small-12  medium-6  columns">
+        <div class="flag  mb1"  
+              >
 
+            <div class="flag-image pr2">
+                <img  class="avatar avatar--tiny"  
+                      ng-click="navigateToUser(comment.account_id)"
+                      ng-src="{{getUserImageSrc(comment)}}">
+            </div>
 
-    <div class="flag mb2">
+            <div class="flag-body">
 
-        <div  class="flag-image"  ng-click="navigateToUser(comment.account_id)">
-
-            <img  class="avatar avatar--medium"  ng-src="{{getUserImageSrc(comment)}}">
-
+                <a class="fwb"
+                    ng-click="navigateToUser(comment.account_id)">
+                    {{comment.name}}
+                </a>
+            </div>
+            
         </div>
 
-
-        <div class="flag-body">
-
-            <h1 class="h5 mb0  fwb">
-                {{comment.name}}
-            </h1>
-
-            <small class="display--block">
-                {{comment.date | date : 'MMM dd, yyyy' }}
-            </small>
+        <small class="display--block mb0">
+            Posted {{comment.date | date : 'MMM dd, yyyy' }}
+        </small>
 
 
-            <div ng-click="openRouteModal(comment)" style="display: inline-block; ">
-                <i class="icon-circle icon--medium" bo-style="{color: comment.value}">
-                </i>
+        <p class="mb1">
+            {{comment.message}}  
+        </p>
+        
 
-            <span bo-text="formatGrade(comment.bg, comment.rg, comment.lg)"></span>
+        <div class="h6" ng-click="openRouteModal(comment)">
+        
+            <i class="icon-circle icon--small" bo-style="{color: comment.value}">
+            </i>
+        
+            <span class="fwl" bo-text="formatGrade(comment.bg, comment.rg, comment.lg)">
+                
 
+            </span>
+        
+            <span class="fwl">
                 on {{comment.zone}}
-            </div>
-
-            <p class="h6">
-            {{comment.message}}
-            </p>
-
-            </div>
-
+            </span>
 
         </div>
 

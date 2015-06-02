@@ -1,11 +1,11 @@
-<div>
+<div  ng-show="hasTopRope">
     <a class="right" ng-click="export()"
             ng-show="getAccountId() === gymId">Export Data</a>
 
     <div id="ropeDistribution">
         <h2>Top Rope Distribution</h2>
 
-        <div ng-show="!hasTopRope && getAccountId() !== gymId">
+<!--         <div ng-show="!hasTopRope && getAccountId() !== gymId">
 
             <h3 class='fwl'>
 
@@ -23,9 +23,9 @@
 
             </h3>
 
-        </div>
+        </div> -->
 
-        <table ng-show="hasTopRope">
+        <table>
             <thead>
                 <th>Zone</th>
                 <th bindonce ng-repeat="grade in ropeGrades" bo-text="grade.name"></th>

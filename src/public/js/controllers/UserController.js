@@ -31,6 +31,17 @@ angular.module('SETTER')
             $scope.userId = parseInt($routeParams.userId, 10);
             $scope.hasActivity = true;
 
+            //Used an object that contains the properties to say if they user has
+            //each type of climbing
+            //TO:DO Implement this same approach to the gym controller
+            $scope.hasRoutes = {
+
+                'bouldering' : false, 
+                'toprope' : false,
+                'lead': false
+            };
+
+
             UsersService.getUser($scope.userId, function (pData) {
                 $scope.user = pData;
                 if (pData.bouldering_grade)
@@ -64,6 +75,11 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.projects = pData;
+
+                    if($scope.projects.length === 0) {
+
+                        $scope.hasNoProjects = true;
+                    }
                 });
 
             UsersService.getProgressions($scope.userId)
@@ -74,11 +90,16 @@ angular.module('SETTER')
                 });
 
             MessageService.listen('projectSet', 'UserController', function (pData) {
+                $scope.hasNoProjects = false;
                 $scope.projects.push(pData);
             });
 
             MessageService.listen('projectUnset', 'UserController', function (pData) {
                 $rootScope.splice($scope.projects, 'id', pData.id);
+
+                if($scope.checkForProjects() === false) {
+                    $scope.hasNoProjects = false;
+                }
             });
 
             MessageService.listen('routeSent', 'UserController', function (pData) {
@@ -103,17 +124,51 @@ angular.module('SETTER')
                 UsersService.getBoulderSends($scope.userId, 'bouldering')
                   .success(function (pData) {
                       $scope.boulderingSendsGraphData = BarGraphHelperService.preprocess(pData);
+                      $scope.checkForRoutes($scope.boulderingSendsGraphData, 'bouldering');
                   });
 
                 UsersService.getTopRopeSends($scope.userId, 'toprope')
                   .success(function (pData) {
                       $scope.topropeSendsGraphData = BarGraphHelperService.preprocess(pData);
+                       $scope.checkForRoutes($scope.topropeSendsGraphData, 'toprope');
                   });
 
                 UsersService.getLeadSends($scope.userId, 'lead')
                   .success(function (pData) {
                       $scope.leadSendsGraphData = BarGraphHelperService.preprocess(pData);
+                       $scope.checkForRoutes($scope.leadSendsGraphData, 'lead');
                   });
+            };
+
+            $scope.checkForProjects = function() {
+
+                if($scope.projects.length === 0) {
+
+                    $scope.hasNoProjects = true;
+                    return $scope.hasNoProjects;
+
+                } else {
+
+                    $scope.hasNoProjects = false;
+                    return $scope.hasNoProjects;
+                }
+
+            };
+
+            //TO:DO Implement this same approach for the gym controller
+            //to check for data for placeholders 
+            $scope.checkForRoutes = function(pData, pRouteType) {
+
+                if(pData.labels.length === 0) {
+                    $scope.hasRoutes[pRouteType] = true; 
+                    return $scope.hasRoutes[pRouteType]; 
+                }
+                else {
+                    $scope.hasRoutes[pRouteType] = false; 
+                    return $scope.hasRoutes[pRouteType]; 
+                }
+
+                
             };
 
             $scope.authorization = LoginService.getHeader();

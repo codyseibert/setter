@@ -38,6 +38,11 @@ angular.module('SETTER')
                   }
                 }
 
+                ///**** TO DO 
+                // Change the structure of graph generation
+                //to be like the ssGraph directive to avoid rendering
+                //of Graph when there is no data 
+
                 var render = function () {
                     $timeout(function() {
                         if (scope.graphData) {

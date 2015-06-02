@@ -1,16 +1,5 @@
 <section class="row">
 
-    <div class="text-center"
-         ng-show="!hasUsers() && getAccountId() !== gymId">
-
-        <h2>
-
-            This gym has no users!
-
-        </h2>
-
-    </div>
-
     <div class="small-12  medium-8 columns medium-centered"
          ng-show="!hasUsers() && getAccountId() === gymId">
 
@@ -43,6 +32,18 @@
             graph-data="boulderingUsersGraphData">
           </ss-graph>
 
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoBoulderers"
+           no-data="{{hasNoBoulderers}}"
+            title="No boulderers here..."
+            paragraph=""
+            image="images/placeholder--BoulderingGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
         </div>
 
         <div class="small-12 medium-6 large-4 columns">
@@ -53,6 +54,18 @@
             class="prl1"
             graph-data="topropeUsersGraphData">
           </ss-graph>
+
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoTopRopers"
+           no-data="{{hasNoTopRopers}}"
+            title="No top ropers here..."
+            paragraph=""
+            image="images/placeholder--topRopeGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
 
         </div>
 
@@ -65,6 +78,18 @@
             graph-data="leadUsersGraphData">
           </ss-graph>
 
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoLeaders"
+           no-data="{{hasNoLeaders}}"
+            title="No leaders, yet."
+            paragraph=""
+            image="images/placeholder--leadGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
         </div>
 
       </div>
@@ -76,6 +101,17 @@
       <div class="row">
 
         <h1 class="h2 clearfix fwl">Climbers</h1>
+
+        <div class="text-center"
+             ng-show="!hasUsers() && getAccountId() !== gymId">
+
+            <h2 class="h3">
+
+               It appears no users have set this gym as their home gym.
+
+            </h2>
+
+        </div>
 
         <div class="small-6 medium-3 large-3 columns   pb4"
             bindonce

@@ -75,6 +75,20 @@ angular.module('SETTER')
             $scope.routeSelected = false;
             $scope.offCanvasModalShown = false;
 
+
+            //Variables for Placeholders on gym's template
+            //TO:DO These neeed to be refactored like the user controller
+            //where it is one single function and an object contains the properties
+            //SEE: UserController line 37 and 160
+            $scope.hasNoBoulderRoutes = false;
+            $scope.hasNoTopRopeRoutes = false;
+            $scope.hasNoLeadRoutes = false;
+
+            $scope.hasNoBoulderers = false;
+            $scope.hasNoComments = false;
+            $scope.hasNoProjects = false;
+            $scope.hasNoClimberActivity = false;
+
             /*
             *   SECTION - Gym related service calls
             */
@@ -99,32 +113,51 @@ angular.module('SETTER')
               GymUsersService.getUserGrades('bouldering').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.boulderingUsersGraphData = BarGraphHelperService.preprocess(data);
+                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                            $scope.hasNoBoulderers = true;
+                        }
                   });
               });
 
               GymUsersService.getUserGrades('toprope').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.topropeUsersGraphData = BarGraphHelperService.preprocess(data);
+
+                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                            $scope.hasNoTopRopers = true;
+                        }
                   });
               });
 
               GymUsersService.getUserGrades('lead').query({gymId: $scope.gymId}, function(pData) {
                   pData.$promise.then(function(data) {
                       $scope.leadUsersGraphData = BarGraphHelperService.preprocess(data);
+
+                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                            $scope.hasNoLeaders = true;
+                        }
                   });
               });
 
             };
 
+
+
+
             GymsService.getLatestProjects($scope.gymId)
               .success(function (pData) {
                   $scope.projects = pData;
+                  if($scope.projects.length === 0) {
+                     $scope.hasNoProjects = true;
+                  }
               });
 
             GymsService.getLatestComments($scope.gymId)
               .success(function (pData) {
                   $scope.comments = pData;
-                  console.log($scope.comments);
+                  if($scope.comments.length === 0) {
+                     $scope.hasNoComments = true;
+                  }
               });
 
             GymsService.getGymImage($scope.gymId, function (pData) {
@@ -139,8 +172,10 @@ angular.module('SETTER')
             GymsService.getActivityStream($scope.gymId)
                 .success(function (pData) {
                     $scope.activity = pData;
+                    if($scope.activity.length === 0) {
+                        $scope.hasNoClimberActivity = true;
+                    }
                 });
-
 
             /*
             *   SECTION - Alerts
@@ -284,18 +319,29 @@ angular.module('SETTER')
                 RoutesService.getDistributions($scope.gymId, 'bouldering')
                   .success(function(data){
                     $scope.boulderingGraphData = BarGraphHelperService.preprocess(data);
+                    if($scope.boulderingGraphData.labels.length === 0) {
+                        $scope.hasNoBoulderRoutes = true;
+                    }
                   });
 
                 RoutesService.getDistributions($scope.gymId, 'toprope')
                   .success(function(data){
                     $scope.topropeGraphData = BarGraphHelperService.preprocess(data);
+                    if($scope.topropeGraphData.labels.length === 0) {
+                        $scope.hasNoTopRopeRoutes = true;
+                    }
                   });
 
                 RoutesService.getDistributions($scope.gymId, 'lead')
                   .success(function(data){
                     $scope.leadGraphData = BarGraphHelperService.preprocess(data);
+                    if($scope.leadGraphData.labels.length === 0) {
+                        $scope.hasNoLeadRoutes = true;
+                    }
                   });
             };
+
+
 
 
             /*

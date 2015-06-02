@@ -1,6 +1,9 @@
 <section class="row pb4">
+
     <div class="small-12 columns">
+
         <h1 class="fwl h2">Current Routes & Problems</h1>
+
     </div>
 
     <!-- Current Boulder Graph -->
@@ -22,6 +25,31 @@
         graph-data="boulderingGraphData">
       </ss-graph>
 
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isUserAccount() &&  hasNoBoulderRoutes"
+       no-data="{{hasNoBoulderRoutes}}"
+        title="This gym has no bouldering routes, yet."
+        paragraph="If you'd like to climb some, let them know over at their"
+        image="images/placeholder--BoulderingGraph.jpg"
+        link-text="Suggestions Board"
+        ng-click="navigateToGymSuggestions(gymId)">
+      </ss-placeholder>
+
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isGymAccount() &&  hasNoBoulderRoutes"
+       no-data="{{hasNoBoulderRoutes}}"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--BoulderingGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
+
+
     </div>
 
     <div class="small-12 medium-6 large-4 columns">
@@ -41,6 +69,31 @@
         id="topropeGraph"
         graph-data="topropeGraphData">
       </ss-graph>
+
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isUserAccount() && hasNoTopRopeRoutes"
+       no-data="{{hasNoTopRopeRoutes}}"
+        title="This gym has no top rope routes, yet."
+        paragraph="If you'd like to climb some, let them know over at their"
+        image="images/placeholder--topRopeGraph.jpg"
+        link-text="Suggestions Board"
+        ng-click="navigateToGymSuggestions(gymId)">
+      </ss-placeholder>
+
+      <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isGymAccount() &&  hasNoTopRopeRoutes"
+       no-data="{{hasNoTopRopeRoutes}}"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--topRopeGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
+
     </div>
 
     <div class="small-12 medium-6 large-4 columns">
@@ -60,6 +113,33 @@
         id="leadGraph"
         graph-data="leadGraphData">
       </ss-graph>
+
+
+
+        <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isGymAccount() &&  hasNoLeadRoutes"
+       no-data = "{{hasNoLeadRoutes}}"
+        title="You haven't set any Top Rope routes, yet."
+        paragraph="Why not set some at the"
+        image="images/placeholder--leadGraph.jpg"
+        link-text="Manage Zones Page"
+        ng-click="navigateToWalls(gymId)">
+      </ss-placeholder>
+
+       <ss-placeholder
+       class="ng-hide"
+       size="large"
+       ng-show="isUserAccount() && hasNoLeadRoutes"
+       no-data = "{{hasNoLeadRoutes}}"
+        title="This gym has no lead routes, yet."
+        paragraph="If you'd like to climb some, let them know over at their"
+        image="images/placeholder--leadGraph.jpg"
+        link-text="Suggestions Board"
+        ng-click="navigateToGymSuggestions(gymId)">
+      </ss-placeholder>
+
     </div>
 
 </section>

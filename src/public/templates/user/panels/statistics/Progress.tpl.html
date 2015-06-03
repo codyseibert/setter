@@ -5,29 +5,30 @@
   <ss-line-graph
     class="prl1"
     type="bouldering"
-    graph-data="boulderingProgressionGraphData">
+    graph-data="boulderingProgressionGraphData"
+    ng-show="boulderGrade">
   </ss-line-graph>
 
   <ss-placeholder
-   class="ng-hide"
-   size="large"
-   ng-show="!currentPageIsOtherUser(userId) && hasRoutes['bouldering']"
-   no-data="{{hasRoutes['bouldering']}}"
+    class="ng-hide"
+    size="large"
+    ng-show="!currentPageIsOtherUser(userId) && !boulderGrade"
+    no-data="!boulderGrade"
     title="Oops! These are not your bouldering stats."
     paragraph="Why don't you send some over at"
-    image="images/placeholder--BoulderingGraph.jpg"
-    link-text="your your home gym?"
+    image="images/placeholder--progBoulder.png"
+    link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
 
 <ss-placeholder
     class="ng-hide"
     size="large"
-    ng-show="currentPageIsOtherUser(userId) &&   hasRoutes['bouldering']"
-    no-data="{{hasRoutes['bouldering']}}"
+    ng-show="currentPageIsOtherUser(userId) && !boulderGrade"
+    no-data="!boulderGrade"
     title="{{user.firstname}} hasn't sent any boulder routes yet."
     paragraph=""
-    image="images/placeholder--BoulderingGraph.jpg"
+    image="images/placeholder--progBoulder.png"
     link-text=""
     ng-click="">
   </ss-placeholder>
@@ -38,33 +39,33 @@
 <div class="small-12 medium-6 large-4 columns">
 
   <h2 class="h3 clearfix">Top Rope</h2>
-
   <ss-line-graph
     class="prl1"
-    graph-data="topropeProgressionGraphData">
+    graph-data="topropeProgressionGraphData"
+    ng-show="topRopeGrade">
   </ss-line-graph>
 
   <ss-placeholder
-   class="ng-hide"
-   size="large"
-   ng-show="!currentPageIsOtherUser(userId) && hasRoutes['toprope']"
-   no-data="{{hasRoutes['toprope']}}"
+    class="ng-hide"
+    size="large"
+    ng-show="!currentPageIsOtherUser(userId) && !topRopeGrade"
+    no-data="!topRopeGrade"
     title="Oops! These are not your top rope stats."
     paragraph="Why don't you send some over at"
-    image="images/placeholder--TopRopeGraph.jpg"
+    image="images/placeholder--progRope.png"
     link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
 
 
    <ss-placeholder
-   class="ng-hide"
-   size="large"
-   ng-show="currentPageIsOtherUser(userId) &&   hasRoutes['toprope']"
-   no-data="{{hasRoutes['toprope']}}"
+    class="ng-hide"
+    size="large"
+    ng-show="currentPageIsOtherUser(userId) && !topRopeGrade"
+    no-data="!topRopeGrade"
     title="{{user.firstname}} hasn't sent any top rope routes yet."
     paragraph=""
-    image="images/placeholder--TopRopeGraph.jpg"
+    image="images/placeholder--progRope.png"
     link-text=""
     ng-click="">
   </ss-placeholder>
@@ -77,29 +78,30 @@
 
   <ss-line-graph
     class="prl1"
-    graph-data="leadProgressionGraphData">
+    graph-data="leadProgressionGraphData"
+    ng-show="leadGrade">
   </ss-line-graph>
 
   <ss-placeholder
-   class="ng-hide"
-   size="large"
-   ng-show="!currentPageIsOtherUser(userId) && hasRoutes['lead']"
-   no-data="{{hasRoutes['lead']}}"
+    class="ng-hide"
+    size="large"
+    ng-show="!currentPageIsOtherUser(userId) && !leadGrade"
+    no-data="leadGrade"
     title="Oops! These are not your lead stats."
     paragraph="Why don't you send some at"
-    image="images/placeholder--BoulderingGraph.jpg"
+    image="images/placeholder--progRope.png"
     link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
 
   <ss-placeholder
-   class="ng-hide"
-   size="large"
-   ng-show="currentPageIsOtherUser(userId) && hasRoutes['lead']"
-   no-data="{{hasRoutes['lead']}}"
+    class="ng-hide"
+    size="large"
+    ng-show="currentPageIsOtherUser(userId) && !leadGrade"
+    no-data="!leadGrade"
     title="{{user.firstname}} hasn't sent any lead routes yet."
     paragraph=""
-    image="images/placeholder--LeadGraph.jpg"
+    image="images/placeholder--progRope.png"
     link-text=""
     ng-click="">
   </ss-placeholder>

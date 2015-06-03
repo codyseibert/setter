@@ -1,8 +1,10 @@
 angular.module('SETTER')
     .directive('ssGraph', [
         '$timeout',
+        '$interval',
         function (
-          $timeout
+          $timeout,
+          $interval
         ) {
             'use strict';
 
@@ -11,7 +13,8 @@ angular.module('SETTER')
               restrict: 'E',
               replace: true,
               scope: {
-                graphData: "="
+                graphData: "=",
+                type: "@"
               },
               templateUrl: 'templates/graphs/barGraph.tpl.html',
               controller: function($scope) {
@@ -22,16 +25,15 @@ angular.module('SETTER')
                     $timeout(function() {
                         $scope.createGraph();
                         $scope.loading = false;
-
                     });
 
                 };
 
                 $scope.$watch('graphData', function() {
-                        $scope.loading = true;
-                    //Prevents graph from loading even with zero values 
+                    $scope.loading = true;
+                    //Prevents graph from loading even with zero values
                     if($scope.graphData === undefined) {
-                        return; 
+                        return;
                     }else if($scope.graphData.labels.length === 0 ) {
                         $scope.noData = true;
                         $scope.loading = false;
@@ -50,10 +52,19 @@ angular.module('SETTER')
                 scope.noData = true;
                 var options = {};
                 options.height = "300px";
+                options.axisY = {
+                  labelInterpolationFnc: function(value) {
+                    return Math.round(value);
+                  }
+                }
+
 
                 scope.createGraph = function() {
-                    scope.hiddeSpinner = true;
                     new Chartist.Bar(element.find('.ct-chart')[0], scope.graphData, options);
+                    $interval(function (){
+                      if (element.find('.ct-chart')[0])
+                        element.find('.ct-chart')[0].__chartist__.update();
+                    }, 200);
                 };
               }
 

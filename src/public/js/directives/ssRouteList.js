@@ -15,7 +15,13 @@ angular.module('SETTER')
                 templateUrl: 'templates/directives/ssRouteList.tpl.html',
                 replace: true,
                 restrict: 'E',
-                controller: function(
+                controller: [
+                  '$scope',
+                  '$routeParams',
+                  '$rootScope',
+                  'SelectedRouteService',
+                  'GymsService',
+                function(
                   $scope,
                   $routeParams,
                   $rootScope,
@@ -146,7 +152,7 @@ angular.module('SETTER')
                       $rootScope.navigateToGymSuggestions(gymId);
                     }
                   }
-                },
+                }],
                 link: function(scope, element, attrs, ctrl)  {
                   scope.clicked = function () {
 
@@ -167,8 +173,8 @@ angular.module('SETTER')
 
                   }
 
-                  //TO:DO Separate this function from the route list 
-                  //by using ss-placeholder directive 
+                  //TO:DO Separate this function from the route list
+                  //by using ss-placeholder directive
                   scope.$watch('activeCategory', function () {
                     if (scope.activeCategory) {
                       scope.placeholderImage = 'images/placeholder--' + scope.category + scope.activeCategory.replace(' ', '') +'.jpg'

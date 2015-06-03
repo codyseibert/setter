@@ -18,7 +18,7 @@ angular.module('SETTER')
                 gym: "@"
               },
               templateUrl: 'templates/graphs/ssExportBarGraph.tpl.html',
-              controller: function($scope) {
+              controller: ['$scope', function($scope) {
                 $scope.export = function () {
 
                   // Takes an SVG element as target
@@ -46,7 +46,7 @@ angular.module('SETTER')
                     flattenCss(target);
 
                     // Construct an SVG image
-                    var SCALE = 4; 
+                    var SCALE = 4;
                     svg_data = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350" width="' + target.offsetWidth * SCALE +
                                '" height="' + target.offsetHeight * SCALE + '">' + target.innerHTML + '</svg>';
                     img = new Image();
@@ -74,18 +74,18 @@ angular.module('SETTER')
                     logo.addEventListener('load', function (){
                       var doc = new jsPDF('p', 'px', [600, 800]);
                       doc.setFontStyle('bold');
-                      doc.setFontSize(26); 
+                      doc.setFontSize(26);
                       doc.text(150, 50, $scope.title + "\nat " + $scope.gym);
                       doc.addImage(image, 'png', 15, 110, 500, 440);
                       doc.addImage(logo, 'png', 30, 710, 270, 101);
                       doc.save($scope.docName);
                     });
                   }
-                  
+
                   svg_to_png_replace($('#' + $scope.canvasId).find('.ct-chart > svg')[0]);
 
                 };
-              },
+              }],
               link: function(scope, element, attrs) {
 
               }

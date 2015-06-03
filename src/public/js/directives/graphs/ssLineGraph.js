@@ -17,7 +17,7 @@ angular.module('SETTER')
                 type: "@"
               },
               templateUrl: 'templates/graphs/lineGraph.tpl.html',
-              controller: function($scope) {
+              controller: ['$scope', function($scope) {
                 $scope.noData = true;
 
                 $scope.render = function () {
@@ -45,7 +45,7 @@ angular.module('SETTER')
                     }
                 });
 
-              },
+              }],
               link: function(scope, element, attrs) {
                 scope.noData = true;
 

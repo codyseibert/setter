@@ -77,7 +77,8 @@ module.exports = function(grunt) {
                     return _.map(mainFiles, function(filepath) {
                         // Use minified files if available
                         var min = filepath.replace(/\.js$/, '.min.js');
-                        return grunt.file.exists(min) ? min : filepath;
+                        // return grunt.file.exists(min) ? min : filepath;
+                        return filepath;
                     });
                 }
             }

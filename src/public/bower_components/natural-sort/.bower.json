@@ -27,6 +27,5 @@
   },
   "_source": "git://github.com/studio-b12/natural-sort.git",
   "_target": "~0.1.0",
-  "_originalSource": "natural-sort",
-  "_direct": true
+  "_originalSource": "natural-sort"
 }

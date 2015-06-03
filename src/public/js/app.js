@@ -6,7 +6,6 @@ angular.module('SETTER', [
     'ngAnimate',
     'ngUpload',
     'ngResource',
-    'chart.js',
     'pasvaz.bindonce',
     'angularSpinner',
     'smoothScroll'])

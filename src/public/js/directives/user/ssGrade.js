@@ -13,7 +13,7 @@ angular.module('SETTER')
                 grade: "@"
               },
               templateUrl: 'templates/directives/ssGrade.tpl.html',
-              controller: function($scope) {
+              controller: function() {
 
               },
               link: function(scope, element, attrs) {

@@ -66,9 +66,11 @@ angular.module('SETTER')
                 var i;
                 var labels = [];
                 var dataArray = [];
+                var hasData = true;
 
                 if (pData.length === 0) {
-                    pData.push({
+                    hasData = false;
+                    dataArray.push({
                         date: "2015-01-01T05:00:00.000Z",
                         bouldering_grade: 0,
                         lead_grade: 6,
@@ -90,7 +92,8 @@ angular.module('SETTER')
 
                 return {
                     labels: labels,
-                    series: [dataArray]
+                    series: [dataArray],
+                    hasData: hasData
                 };
             }
         };

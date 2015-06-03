@@ -13,7 +13,7 @@ angular.module('SETTER')
               restrict: 'E',
               replace: true,
               scope: {
-                noData : "@"
+                noData : "="
               },
               templateUrl: 'templates/directives/ssPlaceholder.tpl.html',
               link: function(scope, element, attrs) {
@@ -21,8 +21,8 @@ angular.module('SETTER')
                 scope.$watch('noData', function() {
                     //Prevents the images and data from the placeholders to load
                     //if they are hidden on init
-                    if(scope.noData === "true" || scope.noData === true){
-                        if(attrs.title === "") {
+                    if (scope.noData === "true" || scope.noData === true){
+                        if (attrs.title === "") {
                             element.find('h2').hide();
                         }
 
@@ -32,9 +32,6 @@ angular.module('SETTER')
                         scope.linkText = attrs.linkText;
                         scope.linkDestination = attrs.page;
                         scope.image = attrs.image;
-                    }
-                    else {
-                        return;
                     }
 
                 });

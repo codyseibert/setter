@@ -493,9 +493,7 @@ angular.module('SETTER', [
                 return $location.$$path.match(addSettersReg);
             };
 
-
             $rootScope.currentPageIsOtherUser = function(pRouteUserId) {
-                console.log(pRouteUserId);
                 return $rootScope.getAccountId() !== parseInt(pRouteUserId);
             };
 

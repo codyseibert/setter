@@ -25,7 +25,7 @@
    class="ng-hide"
    size="large"
    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['bouldering']"
-   no-data="{{hasRoutes['bouldering']}}"
+   no-data="hasRoutes['bouldering']"
     title="Oops! These are not your bouldering stats."
     paragraph="Why don't you send some over at"
     image="images/placeholder--BoulderingGraph.jpg"
@@ -37,7 +37,7 @@
    class="ng-hide"
    size="large"
    ng-show="currentPageIsOtherUser(userId) &&   hasRoutes['bouldering']"
-   no-data="{{hasRoutes['bouldering']}}"
+   no-data="hasRoutes['bouldering']"
     title="{{user.firstname}} hasn't sent any boulder routes yet."
     paragraph=""
     image="images/placeholder--BoulderingGraph.jpg"
@@ -61,10 +61,10 @@
    class="ng-hide"
    size="large"
    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['toprope']"
-   no-data="{{hasRoutes['toprope']}}"
+   no-data="hasRoutes['toprope']"
     title="Oops! These are not your top rope stats."
     paragraph="Why don't you send some over at"
-    image="images/placeholder--TopRopeGraph.jpg"
+    image="images/placeholder--topRopeGraph.jpg"
     link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
@@ -73,10 +73,10 @@
    class="ng-hide"
    size="large"
    ng-show="currentPageIsOtherUser(userId) &&   hasRoutes['toprope']"
-   no-data="{{hasRoutes['toprope']}}"
+   no-data="hasRoutes['toprope']"
     title="{{user.firstname}} hasn't sent any top rope routes yet."
     paragraph=""
-    image="images/placeholder--TopRopeGraph.jpg"
+    image="images/placeholder--topRopeGraph.jpg"
     link-text=""
     ng-click="">
   </ss-placeholder>
@@ -97,10 +97,10 @@
    class="ng-hide"
    size="large"
    ng-show="!currentPageIsOtherUser(userId) && hasRoutes['lead']"
-   no-data="{{hasRoutes['lead']}}"
+   no-data="hasRoutes['lead']"
     title="Oops! These are not your lead stats."
     paragraph="Why don't you send some at"
-    image="images/placeholder--BoulderingGraph.jpg"
+    image="images/placeholder--leadGraph.jpg"
     link-text="your home gym?"
     ng-click="navigateToGym(getHomeGymId())">
   </ss-placeholder>
@@ -109,10 +109,10 @@
    class="ng-hide"
    size="large"
    ng-show="currentPageIsOtherUser(userId) && hasRoutes['lead']"
-   no-data="{{hasRoutes['lead']}}"
+   no-data="hasRoutes['lead']"
     title="{{user.firstname}} hasn't sent any lead routes yet."
     paragraph=""
-    image="images/placeholder--BoulderingGraph.jpg"
+    image="images/placeholder--leadGraph.jpg"
     link-text=""
     ng-click="">
   </ss-placeholder>

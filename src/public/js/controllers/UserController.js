@@ -35,8 +35,7 @@ angular.module('SETTER')
             //each type of climbing
             //TO:DO Implement this same approach to the gym controller
             $scope.hasRoutes = {
-
-                'bouldering' : false, 
+                'bouldering' : false,
                 'toprope' : false,
                 'lead': false
             };
@@ -156,19 +155,19 @@ angular.module('SETTER')
             };
 
             //TO:DO Implement this same approach for the gym controller
-            //to check for data for placeholders 
+            //to check for data for placeholders
             $scope.checkForRoutes = function(pData, pRouteType) {
 
                 if(pData.labels.length === 0) {
-                    $scope.hasRoutes[pRouteType] = true; 
-                    return $scope.hasRoutes[pRouteType]; 
+                    $scope.hasRoutes[pRouteType] = true;
+                    return $scope.hasRoutes[pRouteType];
                 }
                 else {
-                    $scope.hasRoutes[pRouteType] = false; 
-                    return $scope.hasRoutes[pRouteType]; 
+                    $scope.hasRoutes[pRouteType] = false;
+                    return $scope.hasRoutes[pRouteType];
                 }
 
-                
+
             };
 
             $scope.authorization = LoginService.getHeader();

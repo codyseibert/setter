@@ -327,7 +327,7 @@ var GymsDao = function () {
 
     this.getHomeGymUsers = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT a.id, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url FROM users u ' +
+            'SELECT a.id, CONCAT(u.firstname, \' \', u.lastname) AS name, i.url, EXISTS(SELECT s.user_id FROM sends s WHERE s.date > DATE_SUB(NOW(), INTERVAL 30 DAY) AND s.user_id = a.id LIMIT 1) AS active FROM users u ' +
                 'INNER JOIN accounts a ON u.account_id = a.id ' +
                 'LEFT JOIN images i ON a.image_id = i.id ' +
                 'WHERE u.gym_id = ?',

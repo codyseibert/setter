@@ -75,10 +75,11 @@
 
       <div class="row">
 
-        <h1 class="h2 clearfix fwl">Climbers</h1>
+        <h1 class="h2 clearfix fwl">Active Climbers</h1>
 
         <div class="small-6 medium-3 large-3 columns   pb4"
             bindonce
+            ng-hide="!user.active && showOnlyActive"
             ng-repeat="user in users"
             ng-click="navigateToUser(user.id)">
 

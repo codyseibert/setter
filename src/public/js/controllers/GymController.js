@@ -39,6 +39,7 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $rootScope.gymId = $scope.gymId;
+            $scope.showOnlyActive = true;
 
 
             $scope.BOULDERING = 'Bouldering';
@@ -87,41 +88,7 @@ angular.module('SETTER')
             var loadClimberPanelData = function () {
 
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
-                // var i;
-                // for (i = 0; i < pData.length; i += 1) {
-                //   if (pData[i].name === 'Guest Setter') {
-                //     pData.splice(i, 1);
-                //   }
-                // }
-
-                //TO:DO Have the back end show climber's past 10 climbs
-                //if any of those 10 are within the last two weeks, show em
-                //And incorporate Guest Setter Removal 
-                $scope.removeUnActiveClimbers = function(pArray) {
-
-                    var newArray = []; 
-
-                    for (var b = 0; b < pArray.length; b += 1) {
-
-                       if(pArray[b].url == null) {
-                            console.log(pArray[b]);
-                            pArray.splice(b, 1);
-
-                      }
-                      else {
-                        newArray.push(pArray[b]); 
-                      }
-                    }
-
-                    return newArray; 
-
-                }
-
-
-
-                $scope.users = $scope.removeUnActiveClimbers(pData);
-                console.log($scope.users); 
-
+                $scope.users = pData
               });
 
               GymUsersService.getUserGrades('bouldering').query({gymId: $scope.gymId}, function(pData) {

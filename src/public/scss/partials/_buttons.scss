@@ -165,8 +165,22 @@ input[type="submit"] {
     z-index: 1;
     padding-right: 36px;
     background-color: $primaryColor; 
-    font-size: rem-calc(14); 
+    font-size: rem-calc(12); 
     @extend %ptrbl1; 
+    z-index: 2000; 
+    
+    .feedback-close {
+        font-size: rem-calc(20); 
+    }
+
+    @media #{$medium-up} {
+        font-size: rem-calc(14); 
+
+        .feedback-close {
+            font-size: rem-calc(14); 
+        }
+
+    }
 
     a {
         color: #fff; 

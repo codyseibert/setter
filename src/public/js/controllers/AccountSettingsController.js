@@ -22,6 +22,8 @@ angular.module('SETTER')
             $scope.updateSettings = function () {
               AccountsService.updateSettings($scope.settings)
                 .success(function (pData) {
+
+                    alert("Your settings were succesfully updated.");
                 });
             };
 

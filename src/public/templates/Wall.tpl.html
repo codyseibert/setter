@@ -1,146 +1,163 @@
-<!-- T - Wall Template -->
-<section class="row">
 
-    <!-- S - Back Button -->
-    <div class="header" ng-click="hideModal()" >
+<!-- Loader --> 
+<div class="row">
 
-        <!-- S Zone Title -->
-        <div class="row">
+    <div class="center  pt5  mt5" style="width: 80px; height: 80px; position: relative " ng-show="loading"
+    us-spinner>
+    
+    </div>
 
-            <div class="small-12 columns">
+</div>
 
-                <div class="media--fl"
-                     ng-show="isEditMode">
-
-                    <input ng-model="form.name"
-                           type="text">
-                    </input>
-
-                    <!-- [] Save Route -->
-                    <button class="btn--medium  btn--primary "
-                            ng-click="save()">
-                        Save
+<div ng-hide="loading">
+    <!-- T - Wall Template -->
+    <section class="row" ng-hide="loading">
+    
+        <!-- S - Back Button -->
+        <div class="header" ng-click="hideModal()" >
+    
+            <!-- S Zone Title -->
+            <div class="row">
+    
+                <div class="small-12 columns">
+    
+                    <div class="media--fl"
+                         ng-show="isEditMode">
+    
+                        <input ng-model="form.name"
+                               type="text">
+                        </input>
+    
+                        <!-- [] Save Route -->
+                        <button class="btn--medium  btn--primary "
+                                ng-click="save()">
+                            Save
+                        </button>
+                    </div>
+    
+                    <h1 class="fwb"
+                        ng-hide="isEditMode"
+                        ng-click="selectRoute()">
+                        {{wall.name}}
+    
+                        <!-- [] Edit Route -->
+                        <a class="icon-pencil"
+                           ng-click="edit()"
+                           ng-hide="isUserAccount() || isEditMode">
+                        </a>
+                    </h1>
+    
+                </div>
+    
+            </div>
+    
+            <hr class="header-divider  hide-for-small-only">
+    
+        </div>
+    
+        <!-- Gyms - Zone Image -->
+    
+        <div class="small-12 columns  text-center" ng-show="false && shouldShowWallImage()">
+    
+            <img class="mb4"  style="height: 160px; overflow: hidden; cursor: pointer;"
+                 ng-click="getAccountId() === gymId && uploadImage()"
+                 ng-src="{{getGymImageSrc(wall)}}">
+    
+        </div>
+    
+        <!-- [] - Drill Icon Button -->
+        <button ng-show="isGymAccount()"
+                class="btn--primary btn--fixedAction  show-for-small-only"
+                ng-click="openCreateRouteModal()">
+    
+            <!-- I - Drill -->
+            <img src="images/icon--drill.svg"
+                 alt=""
+                 class="icon">
+        </button>
+    
+    </section>
+    
+    <!-- Routes List & Delete Button -->
+    <section class="row">
+    
+    
+        <div class="small-12  columns animate" >
+    
+            <!-- Gyms - Wall Actions for Medium up  -->
+            <div class="row"
+                 ng-show="getAccountId() === gymId"
+                 data-ui-component="routeActions">
+    
+                <div class="small-12 columns mb2 show-for-large-up">
+    
+                    <!-- Gyms Add Route -->
+                    <button class="icon-plus btn--medium btn--primary display--inlineBlock "
+                            ng-click="openCreateRouteModal()">
+                        Add Route
                     </button>
+    
+    
+                    <!-- [] - Strip Zone -->
+                    <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
+                            ng-show="hasRoutes()"
+                            ng-click="stripZone(gymId, wallId)">
+                        Strip Zone
+                    </button>
+    
+                </div>
+    
+                <div class="small-12 columns b2 hide-for-large-up">
+                      <button class="icon-down-big btn--medium btn--secondary"
+                            ng-show="hasRoutes()"
+                            ng-click="stripZone(gymId, wallId)">
+                        Strip Zone
+                    </button>
+    
+                </div>
+    
+           </div>
+    
+             <div  class="row small-collapse large-uncollapse">
+                
+                <div class="small-12 columns  ng-hide"
+                    ng-show="!hasNoRoutes"
+                      ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
+                    <!-- Routes Table Inserted Here-->
+    
+                </div>
+    
+                <div ng-show="hasNoRoutes && isUserAccount()"
+                    class="text-center ng-hide">
+                    <h2 class="fwl">This zone has no routes for you to climb yet.</h2>
                 </div>
 
-                <h1 class="fwb"
-                    ng-hide="isEditMode"
-                    ng-click="selectRoute()">
-                    {{wall.name}}
-
-                    <!-- [] Edit Route -->
-                    <a class="icon-pencil"
-                       ng-click="edit()"
-                       ng-hide="isUserAccount() || isEditMode">
+                <div ng-show="hasNoRoutes && isGymAccount()"
+                    class="text-center ng-hide">
+                    <h2 class="fwl">There are no routes set at this zone. </h2>
+                </div>
+    
+            </div>
+    
+            <!-- Delete Zone -->
+            <section class="row">
+    
+                <div class="small-12 columns  text-center mb4"
+                     ng-show="isGymAccount()"
+                     data-ui-component="routeSubActions">
+                     <!-- [] - Delete Zone -->
+                    <a class="icon-trash"
+                       ng-click="delete()">
+                    Delete Zone Permanently
                     </a>
-                </h1>
-
-            </div>
-
+                </div>
+    
+            </section>
+    
         </div>
-
-        <hr class="header-divider  hide-for-small-only">
-
-    </div>
-
-    <!-- Gyms - Zone Image -->
-
-    <div class="small-12 columns  text-center" ng-show="false && shouldShowWallImage()">
-
-        <img class="mb4"  style="height: 160px; overflow: hidden; cursor: pointer;"
-             ng-click="getAccountId() === gymId && uploadImage()"
-             ng-src="{{getGymImageSrc(wall)}}">
-
-    </div>
-
-    <!-- [] - Drill Icon Button -->
-    <button ng-show="isGymAccount()"
-            class="btn--primary btn--fixedAction  show-for-small-only"
-            ng-click="openCreateRouteModal()">
-
-        <!-- I - Drill -->
-        <img src="images/icon--drill.svg"
-             alt=""
-             class="icon">
-    </button>
-
-</section>
-
-<!-- Routes List & Delete Button -->
-<section class="row">
-
-    <div class="columns animate">
-
-        <!-- Gyms - Wall Actions for Medium up  -->
-        <div class="row"
-             ng-show="getAccountId() === gymId"
-             data-ui-component="routeActions">
-
-            <div class="small-12 columns mb2 show-for-large-up">
-
-                <!-- Gyms Add Route -->
-                <button class="icon-plus btn--medium btn--primary display--inlineBlock "
-                        ng-click="openCreateRouteModal()">
-                    Add Route
-                </button>
-
-
-                <!-- [] - Strip Zone -->
-                <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
-                        ng-show="hasRoutes()"
-                        ng-click="stripZone(gymId, wallId)">
-                    Strip Zone
-                </button>
-
-            </div>
-
-            <div class="small-12 columns b2 hide-for-large-up">
-                  <button class="icon-down-big btn--medium btn--secondary"
-                        ng-show="hasRoutes()"
-                        ng-click="stripZone(gymId, wallId)">
-                    Strip Zone
-                </button>
-
-            </div>
-
-       </div>
-
-         <div  class="row small-collapse large-uncollapse">
-
-            <div class="small-12 columns  ng-hide"
-                ng-show="!hasNoRoutes"
-                  ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
-                <!-- Routes Table Inserted Here-->
-
-            </div>
-
-            <div ng-show="hasNoRoutes"
-                class="text-center ng-hide">
-                <h2 class="fwl">This zone has no routes for you to climb yet.</h2>
-            </div>
-
-        </section>
-
-
-
-        <!-- Delete Zone -->
-        <section class="row">
-
-            <div class="small-12 columns  text-center mb4"
-                 ng-show="isGymAccount()"
-                 data-ui-component="routeSubActions">
-                 <!-- [] - Delete Zone -->
-                <a class="icon-trash"
-                   ng-click="delete()">
-                Delete Zone Permanently
-                </a>
-            </div>
-
-        </section>
-
-    </div>
-
-</section>
+    
+    </section>
+</div>
 
 
 <!-- TODO: Use this for uploading a wall image -->

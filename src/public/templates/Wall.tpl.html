@@ -107,16 +107,16 @@
 
          <div  class="row small-collapse large-uncollapse">
 
-            <div class="small-12 columns"
-                ng-show="hasRoutes()"
+            <div class="small-12 columns  ng-hide"
+                ng-show="!hasNoRoutes"
                   ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
                 <!-- Routes Table Inserted Here-->
 
             </div>
 
-            <div ng-show="!hasRoutes()"
+            <div ng-show="hasNoRoutes"
                 class="text-center ng-hide">
-                <h1>This zone has no routes!</h1>
+                <h2 class="fwl">This zone has no routes for you to climb yet.</h2>
             </div>
 
         </section>

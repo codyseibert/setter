@@ -52,6 +52,8 @@ angular.module('SETTER')
             $scope.form = {};
             $scope.image = null;
 
+            $scope.hasNoRoutes = false; 
+
             $scope.routeSelected = false;
 
             var loadRoutes = function () {
@@ -61,6 +63,7 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.routes = pData;
+                    $scope.checkForRoutes($scope.routes); 
                 });
             };
 
@@ -179,8 +182,14 @@ angular.module('SETTER')
             /*
                 Hide / Show Logic Logic
             */
-            $scope.hasRoutes = function () {
-                return $scope.routes.length > 0;
+            $scope.checkForRoutes = function (pRoutes) {
+                if(pRoutes.length === 0) {
+                    $scope.hasNoRoutes = true; 
+                }
+                else {
+                    return 
+                }
+                
             };
 
             $scope.shouldShowWallImage = function () {

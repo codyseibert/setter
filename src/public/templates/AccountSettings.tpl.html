@@ -16,20 +16,32 @@
 
 
 <section class="row" ng-show="isGymAccount()">
-
+    
     <div class="small-12 small-centered large-6 large-uncentered columns">
-        <input type="checkbox"
-               ng-model="settings.hide_setters"
-               ng-change="updateSettings()"></input>Hide Setters
+
+
+        <div class="fieldwrapper  pb5">
+            
+            <h2 class="fwl">Gym Privacy Settings</h2>
+            
+            <input id="privacy-setters"
+                   type="checkbox"
+                   ng-model="settings.hide_setters"
+                   ng-change="updateSettings()">
+            </input>
+
+            <label for="privacy-setters" class="h5">Prevent users from seeing setters on routes</label>
+        </div>
 
     </div>
 
-</div>
+</section>
 
 <!-- S - New Password -->
 <section class="row">
 
   <div class="small-12 small-centered large-6 large-uncentered columns">
+    <h2 class="fwl">Password Settings</h2>
 
     <div class="fieldwrapper">
       <!-- I - Password -->

@@ -52,8 +52,25 @@ angular.module('SETTER')
             $scope.form = {};
             $scope.image = null;
 
-            $scope.routeSelected = false;
+            $scope.hasNoRoutes = false; 
 
+            $scope.routeSelected = false;
+            $scope.loading = true; 
+
+
+                        /*
+                Hide / Show Logic Logic
+            */
+            $scope.checkForRoutes = function (pRoutes) {
+                if(pRoutes.length === 0) {
+                    $scope.hasNoRoutes = true; 
+                }
+                else {
+                    return 
+                }
+                
+            };
+            
             var loadRoutes = function () {
                 RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
                     pData.map(function (pEntry) {
@@ -61,6 +78,8 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.routes = pData;
+                    $scope.checkForRoutes($scope.routes); 
+                    $scope.loading = false; 
                 });
             };
 
@@ -176,12 +195,7 @@ angular.module('SETTER')
             };
 
 
-            /*
-                Hide / Show Logic Logic
-            */
-            $scope.hasRoutes = function () {
-                return $scope.routes.length > 0;
-            };
+
 
             $scope.shouldShowWallImage = function () {
                 return ($scope.image && $scope.image.url && $scope.isUserAccount()) ||

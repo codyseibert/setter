@@ -43,6 +43,13 @@
   }
 }
 
+.dropDown--linkList.large {
+    li {
+        padding-top: rem-calc(12);
+        padding-bottom: rem-calc(12); 
+    }
+}
+
 .linkList--separators {
   li {
     border-bottom: 1px solid $grey--medlight;

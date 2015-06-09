@@ -39,6 +39,7 @@ angular.module('SETTER')
 
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $rootScope.gymId = $scope.gymId;
+            $scope.showOnlyActive = true;
 
 
             $scope.BOULDERING = 'Bouldering';
@@ -84,7 +85,6 @@ angular.module('SETTER')
             $scope.hasNoTopRopeRoutes = false;
             $scope.hasNoLeadRoutes = false;
 
-            $scope.hasNoBoulderers = false;
             $scope.hasNoComments = false;
             $scope.hasNoProjects = false;
             $scope.hasNoClimberActivity = false;
@@ -101,13 +101,7 @@ angular.module('SETTER')
             var loadClimberPanelData = function () {
 
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
-                var i;
-                for (i = 0; i < pData.length; i += 1) {
-                  if (pData[i].name === 'Guest Setter') {
-                    pData.splice(i, 1);
-                  }
-                }
-                $scope.users = pData;
+                $scope.users = pData
               });
 
               GymUsersService.getUserGrades('bouldering').query({gymId: $scope.gymId}, function(pData) {
@@ -123,7 +117,7 @@ angular.module('SETTER')
                   pData.$promise.then(function(data) {
                       $scope.topropeUsersGraphData = BarGraphHelperService.preprocess(data);
 
-                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                        if($scope.topRopeRoutesBarGraph.labels.length === 0) {
                             $scope.hasNoTopRopers = true;
                         }
                   });

@@ -33,7 +33,7 @@ angular.module('SETTER')
 
             //Used an object that contains the properties to say if they user has
             //each type of climbing
-            //TO:DO Implement this same approach to the gym controller
+            //TODO: Implement this same approach to the gym controller
             $scope.hasRoutes = {
                 'bouldering' : false,
                 'toprope' : false,

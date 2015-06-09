@@ -23,6 +23,7 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.walls = [];
             $scope.loading = true;
+            $scope.hasNoWalls = false; 
 
             $scope.backButtonActive = true;
 
@@ -30,14 +31,25 @@ angular.module('SETTER')
                 filter: ''
             };
 
-            WallsService.getWallsInGym($scope.gymId, function (pData) {
+            $scope.checkForWalls = function (pWalls) {
+                if(pWalls.length === 0) {
+                    $scope.hasNoWalls = true; 
+
+                    console.log($scope.hasNowalls); 
+                }
+                else {
+                    return; 
+                }
+            };
+
+
+                        WallsService.getWallsInGym($scope.gymId, function (pData) {
                 $scope.walls = pData;
+                $scope.checkForWalls($scope.walls); 
                 $scope.loading = false;
+                
             });
 
-            $scope.hasWalls = function () {
-                return $scope.walls.length > 0;
-            };
 
             $scope.addClicked = function () {
                 var wallName = $scope.form.wallName;

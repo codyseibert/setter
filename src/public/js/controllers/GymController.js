@@ -85,7 +85,6 @@ angular.module('SETTER')
             $scope.hasNoTopRopeRoutes = false;
             $scope.hasNoLeadRoutes = false;
 
-            $scope.hasNoBoulderers = false;
             $scope.hasNoComments = false;
             $scope.hasNoProjects = false;
             $scope.hasNoClimberActivity = false;
@@ -118,7 +117,7 @@ angular.module('SETTER')
                   pData.$promise.then(function(data) {
                       $scope.topropeUsersGraphData = BarGraphHelperService.preprocess(data);
 
-                        if($scope.boulderingUsersGraphData.labels.length === 0) {
+                        if($scope.topRopeRoutesBarGraph.labels.length === 0) {
                             $scope.hasNoTopRopers = true;
                         }
                   });

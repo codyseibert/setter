@@ -160,17 +160,6 @@
                                     Gym Announcements</a>
                             </li>
 
-                            <li ng-show="isGymAccount()"
-                            ng-click="navigateToGymSuggestions(getAccountId())">
-
-                                <a class="icon-messaging ">Suggestions
-
-                                <span class="label ng-hide">5</span>
-
-                                </a>
-
-                            </li>
-
                             <li ng-show="isUserAccount()"
                                 ng-click="navigateToUser(getAccountId())">
                                 <a class="">
@@ -182,10 +171,11 @@
 
                             </li>
                             <!--Show For User Only-->
-                            <li ng-show="isUserAccount()"
+                            <li 
                             ng-click="navigateToSettings()">
                                 <a class=" icon-settings"> Settings</a>
                             </li>
+
 
                             <li ng-click="navigateToSuggestionsPage()">
                                 <a class=" icon-messaging-alt"> Give Feedback</a>

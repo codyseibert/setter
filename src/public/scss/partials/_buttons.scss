@@ -164,7 +164,7 @@ input[type="submit"] {
     bottom: 0px;
     z-index: 1;
     padding-right: 36px;
-    // background-color: $primaryColor; 
+    background-color: $primaryColor; 
     font-size: rem-calc(12); 
     @extend %ptrbl1; 
     z-index: 2000; 

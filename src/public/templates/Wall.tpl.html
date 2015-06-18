@@ -100,7 +100,7 @@
     
                     <!-- [] - Strip Zone -->
                     <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
-                            ng-show="hasRoutes()"
+                            ng-show="!hasNoRoutes"
                             ng-click="stripZone(gymId, wallId)">
                         Strip Zone
                     </button>
@@ -109,7 +109,7 @@
     
                 <div class="small-12 columns b2 hide-for-large-up">
                       <button class="icon-down-big btn--medium btn--secondary"
-                            ng-show="hasRoutes()"
+                            ng-show="!hasNoRoutes"
                             ng-click="stripZone(gymId, wallId)">
                         Strip Zone
                     </button>

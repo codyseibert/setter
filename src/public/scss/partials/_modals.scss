@@ -71,6 +71,7 @@
     -moz-overflow-scrolling: touch; 
 
     @media #{$large-up} {
+        overflow-y: scroll; 
         margin-top: rem-calc(12);
         margin-right: rem-calc(16);
     }

@@ -144,7 +144,7 @@ angular.module('SETTER')
                   if($scope.projects.length === 0) {
                      $scope.hasNoProjects = true;
                   }
-              });
+            });
 
             GymsService.getLatestComments($scope.gymId)
               .success(function (pData) {
@@ -152,7 +152,7 @@ angular.module('SETTER')
                   if($scope.comments.length === 0) {
                      $scope.hasNoComments = true;
                   }
-              });
+            });
 
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = $rootScope.getGymImageSrc(pData);
@@ -186,7 +186,7 @@ angular.module('SETTER')
             /*
             *   SECTION - Newest Routes
             */
-            GymsService.getNewestBoulder($scope.gymId)
+            GymsService.getNewestBoulder($scope.gymId, $scope.gymId)
                 .success(function (pData) {
                     $scope.newestBoulder = pData;
                 });
@@ -201,12 +201,12 @@ angular.module('SETTER')
 
             setTimeout(function () {
 
-                GymsService.getNewestTopRope($scope.gymId)
+                GymsService.getNewestTopRope($scope.gymId, $scope.gymId)
                     .success(function (pData) {
                         $scope.newestTopRope = pData;
                     });
 
-                GymsService.getNewestLead($scope.gymId)
+                GymsService.getNewestLead($scope.gymId, $scope.gymId)
                     .success(function (pData) {
                         $scope.newestLead = pData;
                     });

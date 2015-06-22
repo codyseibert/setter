@@ -176,7 +176,7 @@ var RouteToControllerBinder = function () {
 
 
     /*
-    *   SECTION - Newest Routes by Type
+    *   SECTION - Newest Projects by Type
     */
     app.get('/api/gyms/:gymId/routes/new',
         InjectAccountId,

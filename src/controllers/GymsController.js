@@ -159,26 +159,32 @@ var GymsController = function () {
 
     this.getNewestBoulder = function (pReq, pRes) {
         var gymId,
+            limit,
             callback;
         gymId = pReq.params.gymId;
+        limit = pReq.body.limit;  
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestBoulder(gymId, callback);
+        theGymsDao.getNewestBoulder(gymId, limit, callback);
     };
 
     this.getNewestTopRope = function (pReq, pRes) {
         var gymId,
+            limit,
             callback;
         gymId = pReq.params.gymId;
+        limit = pReq.body.limit; 
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestTopRope(gymId, callback);
+        theGymsDao.getNewestTopRope(gymId, limit, callback);
     };
 
     this.getNewestLead = function (pReq, pRes) {
         var gymId,
+            limit,
             callback;
         gymId = pReq.params.gymId;
+        limit = pReq.body.limit;  
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestLead(gymId, callback);
+        theGymsDao.getNewestLead(gymId, limit, callback);
     };
 
 

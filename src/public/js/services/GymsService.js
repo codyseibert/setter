@@ -143,22 +143,31 @@ angular.module('SETTER')
                 /*
                 *   SECTION - Newest Routes
                 */
-                getNewestBoulder: function (pGymId) {
+                getNewestBoulder: function (pGymId, pLimit) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/boulder/new'
+                        url: 'api/gyms/' + pGymId + '/routes/boulder/new',
+                        data: {
+                            limit: pLimit
+                        }
                     });
                 },
-                getNewestTopRope: function (pGymId) {
+                getNewestTopRope: function (pGymId, pLimit) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/toprope/new'
+                        url: 'api/gyms/' + pGymId + '/routes/toprope/new',
+                        data: {
+                            limit: pLimit
+                        }
                     });
                 },
-                getNewestLead: function (pGymId) {
+                getNewestLead: function (pGymId, pLimit) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/lead/new'
+                        url: 'api/gyms/' + pGymId + '/routes/lead/new',
+                        data: {
+                            limit: pLimit
+                        }
                     });
                 },
 

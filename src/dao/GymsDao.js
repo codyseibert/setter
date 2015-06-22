@@ -21,7 +21,7 @@ var GymsDao = function () {
     'use strict';
 
     var BEST_ROUTES_LIMIT = 15,
-        NEWEST_ROUTES_LIMIT = 15,
+        // NEWEST_ROUTES_LIMIT = 15,
         COUNT_THRESH = 4;
 
     this.getGym = function (pGymId, pCallback) {
@@ -174,7 +174,7 @@ var GymsDao = function () {
     /*
         SECTION - Newest
     */
-    this.getNewestBoulder = function (pGymId, pCallback) {
+    this.getNewestBoulder = function (pGymId, pNewestRoutesLimit, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT ro.id, c.value, w.name AS zone_name, AVG(IFNULL(ra.rating, 0)) AS rating, w.id AS wall_id, w.gym_id AS gym_id, ro.date, bg.name AS boulder_grade ' +
                 'FROM routes ro ' +
@@ -184,14 +184,14 @@ var GymsDao = function () {
                 'LEFT JOIN ratings ra ON ra.route_id = ro.id ' +
                 'WHERE ro.active = true AND w.gym_id = ? ' +
                 'GROUP BY ro.id ' +
-                'ORDER BY date DESC LIMIT ' + NEWEST_ROUTES_LIMIT,
-            [pGymId],
+                'ORDER BY date DESC LIMIT ' + 'pNewestRoutesLimit', 
+            [pGymId, pLimit],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
 
-    this.getNewestTopRope = function (pGymId, pCallback) {
+    this.getNewestTopRope = function (pGymId, pNewestRoutesLimit, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT ro.id, c.value, w.name AS zone_name, AVG(IFNULL(ra.rating, 0)) AS rating, w.id AS wall_id, w.gym_id AS gym_id, ro.date, rg.name AS rope_grade ' +
                 'FROM routes ro ' +
@@ -201,14 +201,14 @@ var GymsDao = function () {
                 'LEFT JOIN ratings ra ON ra.route_id = ro.id ' +
                 'WHERE ro.active = true AND w.gym_id = ? ' +
                 'GROUP BY ro.id ' +
-                'ORDER BY date DESC LIMIT ' + NEWEST_ROUTES_LIMIT,
-            [pGymId],
+                'ORDER BY date DESC LIMIT ' + 'pNewestRoutesLimit', 
+            [pGymId, pLimit],
             theDaoHelper.MULTIPLE,
             pCallback
         );
     };
 
-    this.getNewestLead = function (pGymId, pCallback) {
+    this.getNewestLead = function (pGymId, pNewestRoutesLimit, pCallback) {
         theDaoHelper.executeQuery(
             'SELECT ro.id, c.value, w.name AS zone_name, AVG(IFNULL(ra.rating, 0)) AS rating, w.id AS wall_id, w.gym_id AS gym_id, ro.date, ro.date, rg.name AS rope_grade ' +
                 'FROM routes ro ' +
@@ -218,8 +218,8 @@ var GymsDao = function () {
                 'LEFT JOIN ratings ra ON ra.route_id = ro.id ' +
                 'WHERE ro.active = true AND w.gym_id = ? ' +
                 'GROUP BY ro.id ' +
-                'ORDER BY date DESC LIMIT ' + NEWEST_ROUTES_LIMIT,
-            [pGymId],
+                'ORDER BY date DESC LIMIT ' + 'pNewestRoutesLimit', 
+            [pGymId, pLimit],
             theDaoHelper.MULTIPLE,
             pCallback
         );

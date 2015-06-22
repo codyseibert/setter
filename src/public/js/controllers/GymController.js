@@ -98,6 +98,8 @@ angular.module('SETTER')
             });
 
 
+
+
             var loadClimberPanelData = function () {
 
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
@@ -181,6 +183,17 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.alerts = pData;
+                });
+
+
+            /*
+            *   SECTION - TESTING ALL ROUTES GET REQUEST 
+            */
+
+            GymsService.getAllCurrentRoutes($scope.gymId)
+                .success(function (pData) {
+                    $scope.allRoutes = pData; 
+                    console.log(pData); 
                 });
 
             /*

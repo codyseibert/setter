@@ -75,6 +75,15 @@ var GymsController = function () {
         theGymsDao.getGymUsersGrades(gymId, type, callback);
     };
 
+
+    this.getAllCurrentRoutes = function (pReq, pRes) {
+        var gymId,
+            callback;
+        gymId = pReq.params.gymId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theGymsDao.getAllCurrentRoutes(gymId, callback);
+    }; 
+
     this.getCurrentBoulderRoutes = function (pReq, pRes) {
         var gymId,
             callback;

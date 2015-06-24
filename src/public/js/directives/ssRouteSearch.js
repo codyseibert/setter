@@ -3,7 +3,7 @@
 angular.module('SETTER')
     .directive('ssRouteSearch', function() {
         return {
-            restrict: 'A',
+            restrict: 'EA',
             scope: {},
             replace: true,
             // transclude: true,
@@ -11,7 +11,6 @@ angular.module('SETTER')
             controller: 'ssRouteSearch',
             controllerAS: 'ssRouteSearch',
             link: function(scope, element, attrs)  {
-
 
             }
         };

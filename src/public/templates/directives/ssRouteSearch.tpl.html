@@ -1,36 +1,36 @@
+<div>
+  <h1>Route Search</h1>
 
-<h1>Route Searcher</h1>
+  <section class="row">
 
-<section class="row">
+      <div class="small-12 columns">
 
-    <div class="small-12 columns">
+          <div class="media--fl  ng-hige" ng-show="hasNoWalls">
 
-        <div class="media--fl  ng-hige" ng-show="hasNoWalls">
+              <div>
+                  <label for="searchTerm" class="icon--label icon-search inline"></label>
+              </div>
 
-            <div>
-                <label for="searchTerm" class="icon--label icon-search inline"></label>
-            </div>
+              <div>
+                  <input name=""
+                          type="search"
+                          id="searchTerm"
+                          ng-model="form.filter"
+                          ng-change="applyFilter()"
+                          placeholder="Search by Wall Name">
+              </div>
 
-            <div>
-                <input name=""
-                        type="search"
-                        id="searchTerm"
-                        ng-model="form.filter"
-                        ng-change="applyFilter()"
-                        placeholder="Search by Wall Name">
-            </div>
+          </div>
 
-        </div>
+      </div>
 
-    </div>
-
-</section>
+  </section>
 
 
-<div class="small-12 columns  ng-hide"
-    ng-show="!hasNoRoutes"
-      ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
-    <!-- Routes Table Inserted Here-->
+  <div class="small-12 columns  ng-hide"
+      ng-show="!hasNoRoutes"
+        ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
+      <!-- Routes Table Inserted Here-->
 
+  </div>
 </div>
-

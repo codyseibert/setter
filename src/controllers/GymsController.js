@@ -82,7 +82,7 @@ var GymsController = function () {
         gymId = pReq.params.gymId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getAllCurrentRoutes(gymId, callback);
-    }; 
+    };
 
     this.getCurrentBoulderRoutes = function (pReq, pRes) {
         var gymId,
@@ -168,32 +168,26 @@ var GymsController = function () {
 
     this.getNewestBoulder = function (pReq, pRes) {
         var gymId,
-            limit,
             callback;
         gymId = pReq.params.gymId;
-        limit = pReq.body.limit;  
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestBoulder(gymId, limit, callback);
+        theGymsDao.getNewestBoulder(gymId, callback);
     };
 
     this.getNewestTopRope = function (pReq, pRes) {
         var gymId,
-            limit,
             callback;
         gymId = pReq.params.gymId;
-        limit = pReq.body.limit; 
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestTopRope(gymId, limit, callback);
+        theGymsDao.getNewestTopRope(gymId, callback);
     };
 
     this.getNewestLead = function (pReq, pRes) {
         var gymId,
-            limit,
             callback;
         gymId = pReq.params.gymId;
-        limit = pReq.body.limit;  
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getNewestLead(gymId, limit, callback);
+        theGymsDao.getNewestLead(gymId, callback);
     };
 
 

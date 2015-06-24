@@ -113,10 +113,11 @@ angular.module('SETTER')
                 },
 
                 getAllCurrentRoutes: function(pGymId) {
+                    pGymId = pGymId || 2
+
                     return $http({
                         method: "GET",
                         url: 'api/gyms/' + pGymId + '/routes'
-
                     });
                 },
 
@@ -149,31 +150,22 @@ angular.module('SETTER')
                 /*
                 *   SECTION - Newest Routes
                 */
-                getNewestBoulder: function (pGymId, pLimit) {
+                getNewestBoulder: function (pGymId) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/boulder/new',
-                        data: {
-                            limit: pLimit
-                        }
+                        url: 'api/gyms/' + pGymId + '/routes/boulder/new'
                     });
                 },
-                getNewestTopRope: function (pGymId, pLimit) {
+                getNewestTopRope: function (pGymId) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/toprope/new',
-                        data: {
-                            limit: pLimit
-                        }
+                        url: 'api/gyms/' + pGymId + '/routes/toprope/new'
                     });
                 },
-                getNewestLead: function (pGymId, pLimit) {
+                getNewestLead: function (pGymId) {
                     return $http({
                         method: 'GET',
-                        url: 'api/gyms/' + pGymId + '/routes/lead/new',
-                        data: {
-                            limit: pLimit
-                        }
+                        url: 'api/gyms/' + pGymId + '/routes/lead/new'
                     });
                 },
 

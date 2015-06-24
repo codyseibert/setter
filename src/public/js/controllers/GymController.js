@@ -187,19 +187,17 @@ angular.module('SETTER')
 
 
             /*
-            *   SECTION - TESTING ALL ROUTES GET REQUEST 
+            *   SECTION - TESTING ALL ROUTES GET REQUEST
             */
-
             GymsService.getAllCurrentRoutes($scope.gymId)
                 .success(function (pData) {
-                    $scope.allRoutes = pData; 
-                    console.log(pData); 
+                    $scope.allRoutes = pData;
                 });
 
             /*
             *   SECTION - Newest Routes
             */
-            GymsService.getNewestBoulder($scope.gymId, $scope.gymId)
+            GymsService.getNewestBoulder($scope.gymId)
                 .success(function (pData) {
                     $scope.newestBoulder = pData;
                 });
@@ -214,17 +212,15 @@ angular.module('SETTER')
 
             setTimeout(function () {
 
-                GymsService.getNewestTopRope($scope.gymId, $scope.gymId)
+                GymsService.getNewestTopRope($scope.gymId)
                     .success(function (pData) {
                         $scope.newestTopRope = pData;
                     });
 
-                GymsService.getNewestLead($scope.gymId, $scope.gymId)
+                GymsService.getNewestLead($scope.gymId)
                     .success(function (pData) {
                         $scope.newestLead = pData;
                     });
-
-
 
                 GymsService.getBestRatedTopRope($scope.gymId)
                     .success(function (pData) {

@@ -80,6 +80,7 @@ var GymsController = function () {
         var gymId,
             callback;
         gymId = pReq.params.gymId;
+
         callback = theControllerHelper.createDefaultCallback(pRes);
         theGymsDao.getAllCurrentRoutes(gymId, callback);
     };

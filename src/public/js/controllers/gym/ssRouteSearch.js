@@ -28,10 +28,11 @@ angular.module('SETTER')
             GymUsersService
         ) {
             'use strict';
-            $scope.gymId = parseInt($routeParams.gymID)
+            $scope.gymId = parseInt($routeParams.gymId)
 
             GymsService.getAllCurrentRoutes($scope.gymId)
-              .success(function (data) {
-                  console.log('data', data);
+              .success(function (pData) {
+                  $scope.routes = pData; 
               });
+
     }]);

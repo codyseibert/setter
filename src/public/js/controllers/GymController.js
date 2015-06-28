@@ -189,10 +189,7 @@ angular.module('SETTER')
             /*
             *   SECTION - TESTING ALL ROUTES GET REQUEST
             */
-            GymsService.getAllCurrentRoutes($scope.gymId)
-                .success(function (pData) {
-                    $scope.allRoutes = pData;
-                });
+
 
             /*
             *   SECTION - Newest Routes

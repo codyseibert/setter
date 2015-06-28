@@ -4,7 +4,6 @@ angular.module('SETTER')
     .directive('ssRouteSearch', function() {
         return {
             restrict: 'EA',
-            scope: {},
             replace: true,
             // transclude: true,
             templateUrl: 'templates/directives/ssRouteSearch.tpl.html',

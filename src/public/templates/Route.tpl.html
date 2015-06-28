@@ -13,7 +13,7 @@
     </p>
 
     <div class="center"
-            ng-mouseleave="setHoverRating(-1)">
+            ng-mouseleave="setHoverRating()">
 
         <h4 class="mb0 h2 display--inlineBlock "
             ng-class="{rated: hasRated}"
@@ -151,7 +151,7 @@
 
                <div class="flag-body  text-right"
                     ng-class="{'rating--colored': isGymAccount()}"
-                    ng-mouseleave="setHoverRating(-1)">
+                    ng-mouseleave="setHoverRating()">
                     <h4 class="mb0 h2 display--inlineBlock"
                             ng-class="{rated: hasRated}"
                             ng-repeat="star in stars"

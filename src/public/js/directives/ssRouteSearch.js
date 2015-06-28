@@ -8,7 +8,7 @@ angular.module('SETTER')
             replace: true,
             // transclude: true,
             templateUrl: 'templates/directives/ssRouteSearch.tpl.html',
-            controller: 'ssRouteSearch',
+            controller: 'ssRouteSearchController',
             controllerAS: 'ssRouteSearch',
             link: function(scope, element, attrs)  {
 

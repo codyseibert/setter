@@ -70,7 +70,9 @@ angular.module('SETTER', [
                     templateUrl: 'templates/Walls.tpl.html'
                 })
                 .when('/gyms/:gymId/routesearch', {
-                    templateUrl: 'templates/gym/routeSearch.tpl.html'
+                    templateUrl: 'templates/gym/routeSearch.tpl.html',
+                    controller: 'routeSearchController',
+                    controllerAs: 'routeSearch'
                 })
                 .when('/gyms/:gymId/walls/:wallId', {
                     controller: 'WallController',

@@ -2,7 +2,7 @@
 /*global angular: false, btoa: false, console: false, alert: false, Chart: false, confirm: false */
 
 angular.module('SETTER')
-    .controller('ssRouteSearchController', [
+    .controller('routeSearchController', [
         '$scope',
         '$routeParams',
         '$rootScope',
@@ -29,10 +29,14 @@ angular.module('SETTER')
         ) {
             'use strict';
             $scope.gymId = parseInt($routeParams.gymId)
+            $scope.loading = true; 
 
             GymsService.getAllCurrentRoutes($scope.gymId)
               .success(function (pData) {
                   $scope.routes = pData; 
+                  $scope.loading = false; 
+              }).error(function() {
+                $scope.loading = false; 
               });
 
     }]);

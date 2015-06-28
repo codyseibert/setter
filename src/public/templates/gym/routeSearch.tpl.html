@@ -1,16 +1,123 @@
 
-
 <section class="row">
 
     <div class="header">
 
-        <h1 class="fwb">Route Searcher</h1>
+        <h1 class="fwb">Search Gym Routes</h1>
         <h2>{{gym.name}}</h2>
 
     </div>
 
 </section>
 
-<ss-route-search>
 
-</ss-route-search>
+<section class="row">
+
+    <div class="center" style="width: 80px; height: 80px; position: relative" ng-show="loading"
+    us-spinner>
+
+    </div>
+
+  <div class="small-12 columns ng-hide" ng-show="!loading">
+
+      <div class="media--fl">
+
+          <div>
+              <label for="searchInput" class="icon--label icon-search inline"></label>
+          </div>
+
+          <div>
+              <input name=""
+                      type="search"
+                      id="searchInput"
+                      ng-model="search.input.$"
+                      placeholder="Search all routes by grade, wall, or color">
+          </div>
+
+      </div>
+
+  </div>
+    
+
+    <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem ng-hide"
+           ng-show="!loading">
+
+        <tbody >
+            <tr
+                ng-click="openRouteModal(route)"
+                ng-repeat="route in routes | filter: search.input ">
+    
+                    <td  class="pl2     ptb2">
+    
+                         <span class="hide-for-medium-up">
+    
+                            <i class="icon-circle display--block "
+                           ng-style="{color: route.value}">
+                           </i>
+    
+                            <!-- Grade -->
+                            {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
+    
+                        </span>
+    
+                        <!--Color for Medium Up-->
+                        <span class="show-for-medium-up">
+    
+                            <i class="icon-circle"
+                           ng-style="{color: route.value}">
+                           </i>
+    
+                            <!-- Grade -->
+                            {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
+    
+                            <!-- New -->
+                            <span class="border-radius  ml2  [ label round  success ] "
+                                   ng-show="isUserAccount() && route.isNew">New
+                            </span>
+    
+                            <!-- Sent -->
+                            <span class="ml2 fwb" ng-show="route.send">Sent</span>
+    
+    
+                        </span>
+    
+                    </td>
+    
+    
+                    <td>
+    
+                        <span class="hide-for-medium-up">
+                            <!-- New -->
+                            <span class="border-radius  ml2  [ label round  success ] "
+                               ng-show="isUserAccount() && route.isNew">New
+                            </span>
+    
+                            <!-- Sent -->
+                            <span class="ml2 fwb" ng-show="route.send">Sent</span>
+    
+                        </span>
+    
+                    </td>
+    
+    
+                    <!-- Stars -->
+                    <td class="ptb2">
+    
+    
+                    <!-- Icon -->
+                        <i class="icon-right-big right ">
+                        </i>
+    
+                        <ng-include class="right rating rating--colored "
+                                    style="margin-right: 10px;"
+                                    ng-controller="StarRatingController"
+                                    src=" 'templates/StarRating.tpl.html' ">
+                        </ng-include>
+                    </td>
+            </tr>
+    
+        </tbody>
+
+    </table>
+    
+</section>

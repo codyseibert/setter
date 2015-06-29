@@ -31,6 +31,13 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId)
             $scope.loading = true; 
 
+
+            GymsService.getGym($scope.gymId, function (pData) {
+                $scope.gym = pData;
+                $scope.gymName = $scope.gym.name;
+            });
+
+
             GymsService.getAllCurrentRoutes($scope.gymId)
               .success(function (pData) {
                   $scope.routes = pData; 

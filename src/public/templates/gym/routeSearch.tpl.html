@@ -3,8 +3,8 @@
 
     <div class="header">
 
-        <h1 class="fwb">Search Gym Routes</h1>
-        <h2>{{gym.name}}</h2>
+        <h1 class="fwb  mb2">Search Routes</h1>
+        <h2 class="h3  fwl">{{gym.name}}</h2>
 
     </div>
 
@@ -30,22 +30,32 @@
               <input name=""
                       type="search"
                       id="searchInput"
+                      ng-change="clearFilters()"
                       ng-model="search.input.$"
-                      placeholder="Search all routes by grade, wall, or color">
+                      placeholder="Search all routes by grade or wall name">
           </div>
 
       </div>
 
   </div>
-    
+
 
     <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem ng-hide"
            ng-show="!loading">
 
         <tbody >
+
+            <tr class="fwb  table-header">
+                <td>Grade/Color</td>
+                <td></td>
+                <td>Zone</td>
+
+                <td class='right  mr4'>Rating</td>
+            </tr>
+
             <tr
                 ng-click="openRouteModal(route)"
-                ng-repeat="route in routes | filter: search.input ">
+                ng-repeat="route in routes | filter: search.input | filter: search.activeCategory">
     
                     <td  class="pl2     ptb2">
     
@@ -60,7 +70,7 @@
     
                         </span>
     
-                        <!--Color for Medium Up-->
+                        <!--Color and sent or new for Medium Up-->
                         <span class="show-for-medium-up">
     
                             <i class="icon-circle"
@@ -69,7 +79,7 @@
     
                             <!-- Grade -->
                             {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
-    
+
                             <!-- New -->
                             <span class="border-radius  ml2  [ label round  success ] "
                                    ng-show="isUserAccount() && route.isNew">New
@@ -80,10 +90,10 @@
     
     
                         </span>
-    
+
                     </td>
     
-    
+                    <!-- Sent or new for small -->
                     <td>
     
                         <span class="hide-for-medium-up">
@@ -98,11 +108,16 @@
                         </span>
     
                     </td>
-    
+                    
+                    <!-- Zone Name -->
+                    <td>
+                        <span class="pr4">                      
+                        {{route.zone_name}}
+                        </span>
+                    </td>
     
                     <!-- Stars -->
                     <td class="ptb2">
-    
     
                     <!-- Icon -->
                         <i class="icon-right-big right ">

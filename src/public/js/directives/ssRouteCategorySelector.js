@@ -1,5 +1,4 @@
 
-
 angular.module('SETTER')
     .directive('ssRouteCategorySelector', [
 
@@ -18,6 +17,23 @@ angular.module('SETTER')
 
                   this.setActiveCategory = function(pCategory) {
                       $scope.activeCategory = pCategory;
+                      console.log($scope.activeCategory); 
+                      
+                         switch ($scope.activeCategory) {
+                             case 'boulder':
+                                $scope.activeCategoryText = "Bouldering"; 
+                                 break;
+                             case 'toprope':
+                                $scope.activeCategoryText = "Top Rope"; 
+
+                                 break;
+                             case 'lead':
+                                $scope.activeCategoryText = "Lead"; 
+
+                                 break;
+                             default:
+
+                         }
                   };
 
                   this.getActiveCategory = function(pCategory) {
@@ -26,7 +42,8 @@ angular.module('SETTER')
 
               }],
               link: function(scope, element, attrs, ctrl)  {
-                  scope.categories = ['Bouldering', 'Top Rope', 'Lead'];
+                  scope.categories = ['boulder', 'toprope', 'lead'];
+
                   ctrl.setActiveCategory(scope.categories[0]);
               }
           }

@@ -50,7 +50,7 @@ angular.module('SETTER')
                         $scope.text = MORE;
 
                          switch ($scope.activeCategory) {
-                             case 'Bouldering':
+                             case 'boulder':
                                  GymsService.getBestRatedBoulder(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -58,7 +58,7 @@ angular.module('SETTER')
                                          $scope.loading = false;
                                      });
                                  break;
-                             case 'Top Rope':
+                             case 'toprope':
                                  GymsService.getBestRatedTopRope(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -66,7 +66,7 @@ angular.module('SETTER')
                                        $scope.loading = false;
                                      });
                                  break;
-                             case 'Lead':
+                             case 'lead':
                                  GymsService.getBestRatedLead(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -86,7 +86,7 @@ angular.module('SETTER')
                         $scope.text = MORE;
 
                          switch ($scope.activeCategory) {
-                             case 'Bouldering':
+                             case 'boulder':
                                  GymsService.getNewestBoulder(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -94,7 +94,7 @@ angular.module('SETTER')
                                          $scope.loading = false;
                                      });
                                  break;
-                             case 'Top Rope':
+                             case 'toprope':
                                  GymsService.getNewestTopRope(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -102,7 +102,7 @@ angular.module('SETTER')
                                          $scope.loading = false;
                                      });
                                  break;
-                             case 'Lead':
+                             case 'lead':
                                  GymsService.getNewestLead(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;

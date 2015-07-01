@@ -24,7 +24,6 @@ angular.module('SETTER')
 
                 } else if(this.lead) {
                     this.routeType = 'lead'; 
-
                 }
 
               }],

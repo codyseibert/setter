@@ -7,6 +7,7 @@ angular.module('SETTER')
         '$routeParams',
         '$rootScope',
         '$interval',
+        '$filter',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -19,6 +20,7 @@ angular.module('SETTER')
             $routeParams,
             $rootScope,
             $interval,
+            $filter,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -43,7 +45,35 @@ angular.module('SETTER')
                   $scope.routes = pData; 
                   $scope.loading = false; 
               }).error(function() {
+                console.log("Call has failed"); 
                 $scope.loading = false; 
               });
+
+            //Wathces for user sending/unsending routes 
+            $scope.$watch(function() {
+                return $rootScope.sendRoute;
+            }, function(newValue, oldValue) {
+                if (newValue !== null) {
+                    var found;
+                    found = $filter('filter')($scope.routes, {id: newValue}, true);
+                    if (found.length) {
+                      found[0].send = true;
+                    }
+                    $rootScope.sendRoute = null;
+                };
+            });
+            
+            $scope.$watch(function() {
+                return $rootScope.unsendRoute;
+            }, function(newValue, oldValue) {
+                if (newValue !== null) {
+                    var found;
+                    found = $filter('filter')($scope.routes, {id: newValue}, true);
+                    if (found.length) {
+                      found[0].send = null;
+                    }
+                    $rootScope.unsendRoute = null;
+                };
+            });
 
     }]);

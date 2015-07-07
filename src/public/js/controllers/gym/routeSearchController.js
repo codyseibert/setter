@@ -46,6 +46,14 @@ angular.module('SETTER')
                 $scope.loading = false;
               });
 
+            $scope.openRouteModal = function (route) {
+                var found;
+                $rootScope.openRouteModal(route);
+
+                found = $filter('filter')($scope.routes, {id: route.id}, true);
+                found[0].isNew = null;
+            };
+
             //Wathces for user sending/unsending routes
             $scope.$watch(function() {
                 return $rootScope.sendRoute;
@@ -73,12 +81,5 @@ angular.module('SETTER')
                 };
             });
 
-            $scope.openRouteModal = function (route) {
-                var found;
-                $rootScope.openRouteModal(route);
-
-                found = $filter('filter')($scope.routes, {id: route.id}, true);
-                found[0].isNew = null;
-            };
 
     }]);

@@ -299,17 +299,17 @@ angular.module('SETTER')
                     });
             };
 
-            findEntry = function (pLookingFor, pArray) {
-                var i,
-                    entry;
-                for (i = 0; i < pArray.length; i += 1) {
-                    entry = pArray[i];
+            // findEntry = function (pLookingFor, pArray) {
+            //     var i,
+            //         entry;
+            //     for (i = 0; i < pArray.length; i += 1) {
+            //         entry = pArray[i];
 
-                    if (entry.id === pLookingFor || entry.account_id === pLookingFor) {
-                        return entry;
-                    }
-                }
-                return pArray[0];
-            };
+            //         if (entry.id === pLookingFor || entry.account_id === pLookingFor) {
+            //             return entry;
+            //         }
+            //     }
+            //     return pArray[0];
+            // };
 
         }]);

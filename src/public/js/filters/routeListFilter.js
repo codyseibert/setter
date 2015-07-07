@@ -2,8 +2,6 @@ angular.module('SETTER')
   .filter('routeFilter', function() {
     return function (routes, input) {
 
-        console.log(input); 
-
         if (input === undefined || input === '') {
           return routes
         }

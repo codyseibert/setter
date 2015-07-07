@@ -78,11 +78,12 @@ var GymsController = function () {
 
     this.getAllCurrentRoutes = function (pReq, pRes) {
         var gymId,
+            accountId,
             callback;
         gymId = pReq.params.gymId;
-
+        accountId = pReq.user.accountId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theGymsDao.getAllCurrentRoutes(gymId, callback);
+        theGymsDao.getAllCurrentRoutes(accountId, gymId, callback);
     };
 
     this.getCurrentBoulderRoutes = function (pReq, pRes) {

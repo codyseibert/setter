@@ -6,9 +6,9 @@
         <h1 class="fwb  mb2">Search Routes</h1>
 
         <h2 class="h3  fwl">{{gym.name}}</h2>
-    
+
         <hr class="header-divider  hide-for-small-only">
-        
+
     </div>
 
 </section>
@@ -26,6 +26,7 @@
       <div class="media--fl">
 
           <div>
+            {{search.input.$}}
               <label for="searchInput" class="icon--label icon-search inline"></label>
           </div>
 
@@ -33,8 +34,7 @@
               <input name=""
                       type="search"
                       id="searchInput"
-                      ng-change="clearFilters()"
-                      ng-model="search.input.$"
+                      ng-model="search.input.toprope_grade"
                       placeholder="Search all routes by grade or wall name">
           </div>
 
@@ -58,28 +58,28 @@
 
             <tr
                 ng-click="openRouteModal(route)"
-                ng-repeat="route in routes | filter: search.input | filter: search.activeCategory">
-    
+                ng-repeat="route in routes | routeFilter: search.input">
+
                     <td  class="pl2     ptb2">
-    
+
                          <span class="hide-for-medium-up">
-    
+
                             <i class="icon-circle display--block "
                            ng-style="{color: route.value}">
                            </i>
-    
+
                             <!-- Grade -->
                             {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
-    
+
                         </span>
-    
+
                         <!--Color and sent or new for Medium Up-->
                         <span class="show-for-medium-up">
-    
+
                             <i class="icon-circle"
                            ng-style="{color: route.value}">
                            </i>
-    
+
                             <!-- Grade -->
                             {{route.boulder_grade || route.toprope_grade || route.lead_grade || UNRATED_STRING}}
 
@@ -87,45 +87,45 @@
                             <span class="border-radius  ml2  [ label round  success ] "
                                    ng-show="isUserAccount() && route.isNew">New
                             </span>
-    
+
                             <!-- Sent -->
                             <span class="ml2 fwb" ng-show="route.send">Sent</span>
-    
-    
+
+
                         </span>
 
                     </td>
-    
+
                     <!-- Sent or new for small -->
                     <td>
-    
+
                         <span class="hide-for-medium-up">
                             <!-- New -->
                             <span class="border-radius  ml2  [ label round  success ] "
                                ng-show="route.isNew">New
                             </span>
-    
+
                             <!-- Sent -->
                             <span class="ml2 fwb" ng-show="route.send">Sent</span>
-    
+
                         </span>
-    
+
                     </td>
-                    
+
                     <!-- Zone Name -->
                     <td>
-                        <span class="pr4">                      
+                        <span class="pr4">
                         {{route.zone_name}}
                         </span>
                     </td>
-    
+
                     <!-- Stars -->
                     <td class="ptb2">
-    
+
                     <!-- Icon -->
                         <i class="icon-right-big right ">
                         </i>
-    
+
                         <ng-include class="right rating rating--colored "
                                     style="margin-right: 10px;"
                                     ng-controller="StarRatingController"
@@ -133,9 +133,9 @@
                         </ng-include>
                     </td>
             </tr>
-    
+
         </tbody>
 
     </table>
-    
+
 </section>

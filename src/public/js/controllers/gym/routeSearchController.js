@@ -33,6 +33,10 @@ angular.module('SETTER')
             $scope.gymId = parseInt($routeParams.gymId)
             $scope.loading = true;
 
+            $scope.routes = []; 
+            $scope.routeSelected = false;
+            
+
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
                 $scope.gymName = $scope.gym.name;
@@ -45,14 +49,6 @@ angular.module('SETTER')
               }).error(function() {
                 $scope.loading = false;
               });
-
-            $scope.openRouteModal = function (route) {
-                var found;
-                $rootScope.openRouteModal(route);
-
-                found = $filter('filter')($scope.routes, {id: route.id}, true);
-                found[0].isNew = null;
-            };
 
             //Wathces for user sending/unsending routes
             $scope.$watch(function() {
@@ -80,6 +76,28 @@ angular.module('SETTER')
                     $rootScope.unsendRoute = null;
                 };
             });
+
+            $scope.$watch(function() {
+                return $rootScope.routeRated;
+            }, function(newValue, oldValue) {
+                if (newValue) {
+                    var found;
+                    found = $filter('filter')($scope.routes, {id: newValue[0]}, true);
+                    if (found.length) {
+                      found[0].rating = newValue[1];
+                    }
+                    $rootScope.routeRated = null;
+                };
+            }, true);
+
+
+            $scope.openRouteModal = function (route) {
+                var found;
+                $rootScope.openRouteModal(route);
+
+                found = $filter('filter')($scope.routes, {id: route.id}, true);
+                found[0].isNew = null;
+            };
 
 
     }]);

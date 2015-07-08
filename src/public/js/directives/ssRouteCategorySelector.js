@@ -17,7 +17,6 @@ angular.module('SETTER')
 
                   this.setActiveCategory = function(pCategory) {
                       $scope.activeCategory = pCategory;
-                      console.log($scope.activeCategory); 
                       
                          switch ($scope.activeCategory) {
                              case 'boulder':

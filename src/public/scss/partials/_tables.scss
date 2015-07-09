@@ -36,7 +36,8 @@
 
 .table--clickableElem {
 
-  & tr {
+  & tr,
+  & tr:not(.table-header) {
 
     &:hover,
     &:focus {
@@ -44,6 +45,7 @@
     }
 
   }
+
 
 }
 

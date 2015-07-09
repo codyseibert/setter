@@ -112,7 +112,12 @@ angular.module('SETTER')
                     });
                 },
 
-
+                getAllCurrentRoutes: function(pGymId) {
+                    return $http({
+                        method: "GET",
+                        url: 'api/gyms/' + pGymId + '/routes'
+                    });
+                },
 
 
                 /*

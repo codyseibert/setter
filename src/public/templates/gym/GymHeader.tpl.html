@@ -42,6 +42,16 @@
 
         <div class="small-12 columns  mb2">
 
+            <button class="[ btn--tetriary  btn--medium  btn--expanded ]  icon-search "
+                    ng-click="navigateToGymRouteSearch(gymId)"
+                    ng-show="isUserAccount()" >
+                Search Routes
+            </button>
+
+        </div>
+
+<!--         <div class="small-12 columns  mb2">
+
             <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
                     ng-click="navigateToGymSuggestions(gymId)"
                     ng-show="isUserAccount()" >
@@ -49,8 +59,9 @@
             </button>
 
         </div>
-
+ -->
     </section>
+    
 </div>
 
 
@@ -116,13 +127,23 @@
 
                 <div class="small-12 columns  mb2">
 
+                    <button class="[ btn--tetriary  btn--medium  btn--expanded ]  icon-search "
+                            ng-click="navigateToGymRouteSearch(gymId)"
+                            ng-show="isUserAccount()" >
+                        Search Routes
+                    </button>
+
+                </div>
+
+<!--                 <div class="small-12 columns  mb2">
+
                     <button class="[ btn--secondary  btn--medium  btn--expanded ]  icon-messaging "
                             ng-click="navigateToGymSuggestions(gymId)"
                             ng-show="isUserAccount()" >
                         Post Suggestion
                     </button>
 
-                </div>
+                </div> -->
 
             </div>
 

@@ -140,6 +140,14 @@ var RouteToControllerBinder = function () {
 
 
     /*
+    *   SECTION - All Routes
+    */
+    app.get('/api/gyms/:gymId/routes',
+        InjectAccountId,
+        GymsController.getAllCurrentRoutes);
+
+
+    /*
     *   SECTION - Routes by Type
     */
     app.get('/api/gyms/:gymId/routes/boulder',
@@ -176,7 +184,7 @@ var RouteToControllerBinder = function () {
 
 
     /*
-    *   SECTION - Newest Routes by Type
+    *   SECTION - Newest Projects by Type
     */
     app.get('/api/gyms/:gymId/routes/new',
         InjectAccountId,

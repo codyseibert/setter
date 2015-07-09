@@ -6,32 +6,30 @@ angular.module('SETTER')
           return routes
         }
 
+        input = input.toUpperCase();
+
         var newCollection = []
 
         for (var i in routes) {
           var route = routes[i];
+          var zoneName = '';
+          var boulderGrade = '';
 
-          //Converts to upper case if bouldering route in order to account for v and V 
-          if(route.boulder_grade) {
-            var boulderGrade = route.boulder_grade.toUpperCase(); 
-            input = input.toUpperCase(); 
+          if (route.boulder_grade) {
+            boulderGrade = route.boulder_grade.toUpperCase();
           }
 
-          if(route.toprope_grade === input 
-             ||  route.lead_grade  === input
+          if (route.zone_name) {
+            zoneName = route.zone_name.toUpperCase();
+          }
+
+          if (route.toprope_grade === input
+             || route.lead_grade  === input
+             || zoneName  === input
              || boulderGrade === input) {
             newCollection.push(route)
           }
 
-          //Old Code 
-          // try {
-          //   if (route.toprope_grade.indexOf(input) !== -1
-          //     || route.boulder_grade.indexOf(input) !== -1
-          //     || route.lead_grade.indexOf(input) !== -1
-          //     || route.zone_name.indexOf(input) !== -1) {
-          //     newCollection.push(route);
-          //   }
-          // } catch (err) {}
         }
 
         return newCollection;

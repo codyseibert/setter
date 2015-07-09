@@ -78,6 +78,7 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.routes = pData;
+                    console.log($scope.routes); 
                     $scope.checkForRoutes($scope.routes); 
                     $scope.loading = false; 
                 });

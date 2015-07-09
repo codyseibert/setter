@@ -67,9 +67,9 @@ angular.module('SETTER')
                 if (newValue === 'edit') {
                     $scope.isEditMode = true;
                 } else if (newValue === 'create') {
-                    cleanGrades();
                     $scope.gymId = $rootScope.gymId;
                     init();
+                    cleanGrades();
                 }
             });
 

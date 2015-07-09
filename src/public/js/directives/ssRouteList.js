@@ -9,8 +9,7 @@ angular.module('SETTER')
             return {
                 scope: {
                   'activeCategory': '=',
-                  'category': '@',
-                  'limit': '='
+                  'category': '@'
                 },
                 templateUrl: 'templates/directives/ssRouteList.tpl.html',
                 replace: true,
@@ -36,8 +35,8 @@ angular.module('SETTER')
 
                   $scope.gymId = gymId;
                   $scope.accountId = $rootScope.getAccountId();
-                  $scope.step = $scope.limit;
-                  $scope.initial = $scope.limit;
+                  $scope.step = 5;
+                  $scope.initial = 5;
                   $scope.routes = [];
                   $scope.text = MORE;
                   $scope.hasData = false;

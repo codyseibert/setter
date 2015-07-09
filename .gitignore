@@ -1,4 +1,5 @@
 build/
+notes/
 node_modules/
 src/public/.sass-cache
 src/public/css/app.css

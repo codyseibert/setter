@@ -180,7 +180,7 @@ angular.module('SETTER')
                     }
 
                     if (scope.accountId === scope.gymId) {
-                      scope.placeholderTitle = "Oops! These aren't your newest lead routes.";
+                      scope.placeholderTitle = "Oops! These aren't your " + scope.activeCategory + " routes.";
                       scope.placeholderText = "There aren't any here right now, but you can set new ones on the";
                       scope.placeholderLinkTest = " Manage Zones page";
                     } else {

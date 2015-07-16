@@ -15,7 +15,8 @@
 
 </section>
 
-<div class="row" ng-show="!isLoading && !hasRoutes()">
+<!-- Placeholders for No Routes-->
+<!-- <div class="row" >
 
 <div class="small-12 columns show-for-small-only">
 
@@ -47,21 +48,24 @@
 
 </div>
 
-</div>
+</div> -->
 
-<div class="row" ng-hide="!isLoading || finishedRendering">
+
+<!-- Spinner -->
+<div class="row">
 
     <div class="small-12 columns">
-
+<!-- 
         <div style="width: 150px; height: 150px; position: relative" us-spinner>
         </div>
-
+ -->
     </div>
 
 </div>
 
+
 <!-- Section - Filters -->
-<div ng-show="finishedRendering">
+<div >
 
     <section class="row">
 
@@ -184,8 +188,6 @@
 
 
 
-
-
     <!-- Section - Routes -->
     <section class="row">
 
@@ -198,7 +200,6 @@
                     <thead>
                         <!-- Loop through all the headers from the controller and render them -->
                         <th ng-repeat="filter in filters"
-                            ng-hide="hideHeader(filter)"
                             ng-click="sortIconClicked(filter)">
                             <a>
                                 {{filter.label}}
@@ -279,7 +280,8 @@
 
                 </table>
             </div>
-
+            
+            <!-- Load More button--> 
             <div class="center display--block" ng-click="loadMore()">
 
                 <h3 class="h5  hoverAnim2 text-center" >
@@ -302,9 +304,8 @@
 
             </div>
 
-
-
         </div>
+        
     </section>
 
 </div>

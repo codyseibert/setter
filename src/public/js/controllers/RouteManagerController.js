@@ -131,6 +131,7 @@ angular.module('SETTER')
             addFilter('Date Set', 'date_value');
 
             getUniqueSet = function (pData, pKey, pExtra) {
+
                 var value,
                     set,
                     seen,
@@ -141,6 +142,7 @@ angular.module('SETTER')
                 for (i = 0; i < pData.length; i += 1) {
                     value = pData[i][pKey];
 
+                    console.log(value); 
                     if (value !== null) {
                         if (seen.indexOf(value) === -1) {
                             extra = null;
@@ -203,6 +205,7 @@ angular.module('SETTER')
 
 
             processRoutes = function (pData) {
+
                 var clone;
 
                 $scope.isLoading = false;
@@ -267,6 +270,7 @@ angular.module('SETTER')
             };
 
             $scope.refreshFilters = function () {
+
                 var i,
                     route;
 
@@ -299,13 +303,16 @@ angular.module('SETTER')
                 $scope.displayCount = $scope.DISPLAY_COUNT;
 
                 $scope.visibleRoutes = [];
+
                 for (i = 0; i < $scope.routes.length; i += 1) {
                     route = $scope.routes[i];
                     if (route.show) {
                         $scope.visibleRoutes.push(route);
                     }
                 }
+
                 $scope.isOneVisible = $scope.getVisibleRouteCount() > 0;
+
             };
 
             $scope.refreshView = function () {
@@ -398,4 +405,5 @@ angular.module('SETTER')
                         }, 500);
                     });
                 });
+
         }]);

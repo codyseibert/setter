@@ -142,7 +142,7 @@ var RouteToControllerBinder = function () {
     /*
     *   SECTION - All Routes
     */
-    app.get('/api/gyms/:gymId/routes',
+    app.get('/api/gyms/:gymId/routes/current',
         InjectAccountId,
         GymsController.getAllCurrentRoutes);
 

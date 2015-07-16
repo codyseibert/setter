@@ -228,8 +228,9 @@ angular.module('SETTER')
                     return pEntry;
                 });
 
+
                 // Creates the data needed by the select elements
-                $scope.zoneInputs = getUniqueSet(pData, 'wall_name');
+                $scope.zoneInputs = getUniqueSet(pData, 'zone_name');
                 $scope.colorInputs = getUniqueSet(pData, 'color', 'value');
                 $scope.setterInputs = getUniqueSet(pData, 'setter');
 
@@ -305,6 +306,7 @@ angular.module('SETTER')
                         $scope.visibleRoutes.push(route);
                     }
                 }
+
                 $scope.isOneVisible = $scope.getVisibleRouteCount() > 0;
             };
 

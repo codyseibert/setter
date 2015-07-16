@@ -115,7 +115,7 @@ angular.module('SETTER')
                 getAllCurrentRoutes: function(pGymId) {
                     return $http({
                         method: "GET",
-                        url: 'api/gyms/' + pGymId + '/routes'
+                        url: 'api/gyms/' + pGymId + '/routes/current'
                     });
                 },
 

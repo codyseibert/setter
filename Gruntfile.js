@@ -27,9 +27,9 @@ module.exports = function(grunt) {
                 separator: ';',
             },
             client: {
-                src: ['src/public/js/**/*.js'],
+                src: ['src/public/js/**/*.js', '!src/public/js/run.js'],
                 dest: 'build/tmp/app.js',
-            },
+            }
         },
 
         jshint: {
@@ -61,6 +61,18 @@ module.exports = function(grunt) {
             dev: {
 
             }
+        },
+
+        ngtemplates: {
+          app: {
+            cwd: 'src/public/templates',
+            src: ['**/*.html'],
+            dest: 'build/app/public/js/templates.js',
+            options: {
+              module: 'SETTER',
+              prefix: 'templates/'
+            }
+          }
         },
 
         bower_concat: {
@@ -208,21 +220,31 @@ module.exports = function(grunt) {
 
             client: {
                 files: [
-                {
-                    expand: true,
-                    flatten: false,
-                    cwd: 'src',
-                    src: [
-                        'public/font/**',
-                        'public/fonts/**',
-                        'public/images/**',
-                        'public/templates/**',
-                        'public/css/fontello.css',
-                        'public/bower_components/**'
-                    ],
-                    dest: 'build/app',
-                    filter: 'isFile'
-                },
+                  {
+                      expand: true,
+                      flatten: false,
+                      cwd: 'src',
+                      src: [
+                          'public/font/**',
+                          'public/fonts/**',
+                          'public/images/**',
+                          'public/css/fontello.css',
+                          'public/bower_components/**'
+                      ],
+                      dest: 'build/app',
+                      filter: 'isFile'
+                  },
+                  {
+                      expand: true,
+                      flatten: false,
+                      cwd: 'src/public/templates',
+                      src: [
+                        'Navigation.tpl.html',
+                        'NavigationLarge.tpl.html'
+                      ],
+                      dest: 'build/app/public/templates',
+                      filter: 'isFile'
+                  }
                 ],
             },
 
@@ -446,6 +468,7 @@ module.exports = function(grunt) {
     ]);
     grunt.registerTask('build:client', [
         'check:client',
+        'sass',
         'newer:concat:client',
         'newer:uglify:client',
         'newer:htmlmin:dev',
@@ -468,6 +491,7 @@ module.exports = function(grunt) {
         'replace:port',
         'replace:css',
         'processhtml:prod',
+        'ngtemplates',
         'bower_concat'
     ]);
 

@@ -63,7 +63,6 @@ var AlertsDao = function () {
     };
 
     this.getAlertsForUser = function (pUserId, pCallback) {
-        console.log(pUserId);
         theDaoHelper.executeQuery(
             "SELECT a.message, a.date FROM alerts_users au " +
             "INNER JOIN alerts a ON au.alert_id = a.id " +
@@ -71,7 +70,6 @@ var AlertsDao = function () {
             [pUserId],
             theDaoHelper.MULTIPLE,
             function (pData) {
-                console.log(pData);
                 theDaoHelper.executeQuery(
                     "DELETE FROM alerts_users WHERE user_id = ?",
                     [pUserId],

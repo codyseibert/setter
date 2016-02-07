@@ -132,6 +132,33 @@ var GymsDao = function () {
         );
     };
 
+
+    /*
+        SECTION - All Current
+    */
+    this.getAllCurrentRoutes = function (pUserId, pGymId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT ro.id, w.name AS zone_name, AVG(ra.rating) AS rating, ' +
+              '(SELECT true FROM sends s WHERE s.route_id = ro.id AND s.user_id = ?) AS send, ' +
+              '(SELECT rntu.id FROM route_new_to_user rntu WHERE rntu.route_id = ro.id AND rntu.user_id = ?) AS isNew, ' +
+              '(SELECT COUNT(*) FROM ratings r WHERE r.route_id = ro.id) AS count, ' +
+              'c.value, w.id AS wall_id, w.gym_id AS gym_id, ro.date, bg.name AS boulder_grade, rg1.name AS toprope_grade, rg2.name AS lead_grade ' +
+                'FROM routes ro ' +
+                'INNER JOIN colors c ON ro.color_id = c.id ' +
+                'INNER JOIN walls w ON w.id = ro.wall_id ' +
+                'LEFT JOIN ratings ra ON ra.route_id = ro.id ' +
+                'LEFT JOIN rope_grades rg1 ON ro.toprope_grade_id = rg1.id ' +
+                'LEFT JOIN rope_grades rg2 ON ro.lead_grade_id = rg2.id ' +
+                'LEFT JOIN boulder_grades bg ON ro.boulder_grade_id = bg.id ' +
+                'WHERE ro.active = true AND w.gym_id = ?' +
+                'GROUP BY ro.id',
+            [pUserId, pUserId, pGymId],
+            theDaoHelper.MULTIPLE,
+            pCallback
+        );
+    };
+
+
     /*
         SECTION - Current
     */
@@ -167,7 +194,6 @@ var GymsDao = function () {
             pCallback
         );
     };
-
 
 
 

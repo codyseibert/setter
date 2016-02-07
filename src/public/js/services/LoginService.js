@@ -11,6 +11,7 @@ angular.module('SETTER')
         'RoutesService',
         'WallsService',
         'UsersService',
+        'localStorageService',
         function (
             $http,
             $cookies,
@@ -19,7 +20,8 @@ angular.module('SETTER')
             GymsService,
             RoutesService,
             WallsService,
-            UsersService
+            UsersService,
+            localStorageService
         ) {
             'use strict';
 
@@ -107,6 +109,8 @@ angular.module('SETTER')
                     delete $cookies.name;
                     delete $cookies.gymName;
                     delete $http.defaults.headers.common.Authorization;
+
+                    localStorageService.remove('cookies');
 
                     WallsService.clearCache();
                     GymsService.clearCache();

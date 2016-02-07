@@ -1,7 +1,7 @@
-SETTER_VERSION="1.1.2"
-LOCAL_SETTER_DIR="/home/cseibert/Workspace/setter"
+SETTER_VERSION="1.2.0"
+LOCAL_SETTER_DIR="/home/cody/Workspace/setter"
 LOCAL_SETTER_APP_DIR="$LOCAL_SETTER_DIR/build/app"
-LOCAL_SETTER_BUILD_DIR="/home/cseibert/Workspace/setter/artifacts"
+LOCAL_SETTER_BUILD_DIR="/home/cody/Workspace/setter/artifacts"
 
 SETTER_TAR_NAME="setter_v$SETTER_VERSION.tar"
 LOCAL_SETTER_TAR_PATH="$LOCAL_SETTER_BUILD_DIR/$SETTER_TAR_NAME"

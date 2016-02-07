@@ -1,4 +1,17 @@
-<div class="flag-image">
+
+<div style="display: inline-block;">
+
+  <img class="{{class}}"
+        ng-class="{noclick: !active}"
+        ng-hide="isUploadingImage"
+        ng-src="{{image}}" />
+
+  <div class="{{class}}"
+       ng-class="{noclick: !active}"
+       style="position: relative"
+       ng-show="isUploadingImage"
+       us-spinner></div>
+
   <form
       ng-if="active"
       enctype="multipart/form-data"
@@ -8,10 +21,9 @@
 
       <!-- This is what is clickable -->
       <input id="image_file"
-          class="avatar avatar--big"
-          style="position: absolute; top: 0px; opacity: 0; z-index: 10"
           type="file"
           name="file"
+          value="Upload new Image"
           onchange="angular.element(this).scope().fileNameChanged()"></input>
 
       <input class="submit"
@@ -24,14 +36,4 @@
           value="{{authorization}}"></input>
   </form>
 
-  <img class="avatar--big"
-      ng-class="{noclick: !active}"
-      ng-hide="isUploadingImage"
-      ng-src="{{image}}" />
-
-  <div class="avatar--big"
-       ng-class="{noclick: !active}"
-       style="position: relative"
-       ng-show="isUploadingImage"
-       us-spinner></div>
 </div>

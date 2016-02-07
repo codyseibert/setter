@@ -8,11 +8,13 @@ angular.module('SETTER')
         '$location',
         '$cookies',
         'LoginService',
+        'localStorageService',
         function (
             $scope,
             $location,
             $cookies,
-            LoginService
+            LoginService,
+            localStorageService
         ) {
             'use strict';
 
@@ -38,6 +40,8 @@ angular.module('SETTER')
                         LoginService.setName(pData.fullname);
                         LoginService.setGymName(pData.gymName);
                         LoginService.navigateToCorrectHomePage();
+
+                        localStorageService.set('cookies', $cookies);
 
                         LoginService.init();
                     })

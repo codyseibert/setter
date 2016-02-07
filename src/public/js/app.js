@@ -6,15 +6,22 @@ angular.module('SETTER', [
     'ngAnimate',
     'ngUpload',
     'ngResource',
+    'LocalStorageModule',
     'pasvaz.bindonce',
     'angularSpinner',
     'smoothScroll'])
     .config([
         '$routeProvider',
+        'localStorageServiceProvider',
         function (
-            $routeProvider
+            $routeProvider,
+            localStorageServiceProvider
         ) {
             'use strict';
+
+            localStorageServiceProvider
+              .setPrefix('SETTER')
+              .setStorageType('localStorage');
 
             $routeProvider
                 .when('/', {
@@ -123,6 +130,7 @@ angular.module('SETTER', [
         '$location',
         '$window',
         '$timeout',
+        '$cookies',
         '$routeParams',
         'UsersService',
         'GymsService',
@@ -132,12 +140,14 @@ angular.module('SETTER', [
         'DateFormatService',
         'SelectedRouteService',
         'MessageService',
+        'localStorageService',
         function (
             $rootScope,
             $location,
             $window,
             $routeParams,
             $timeout,
+            $cookies,
             UsersService,
             GymsService,
             WallsService,
@@ -145,7 +155,8 @@ angular.module('SETTER', [
             LoginService,
             DateFormatService,
             SelectedRouteService,
-            MessageService
+            MessageService,
+            localStorageService
         ) {
             'use strict';
 
@@ -319,6 +330,10 @@ angular.module('SETTER', [
                 $rootScope.alerts = pAlerts;
             };
 
+            if (localStorageService.get('cookies')) {
+                $cookies = localStorageService.get('cookies');
+            }
+
             if (LoginService.hasTokenInCookie()) {
                 LoginService.setHeaderFromCookie();
                 LoginService.setTypeFromCookie();
@@ -333,7 +348,6 @@ angular.module('SETTER', [
             $rootScope.getAccountName = function () {
                 return LoginService.getName();
             };
-
 
 
             $rootScope.formatGrade = function (pBoulderGrade, pTopRopeGrade, pLeadGrade) {
@@ -554,10 +568,14 @@ angular.module('SETTER', [
             $rootScope.backButtonActive = false;
 
 
-
-
-
             $rootScope.getGymImageSrc = function (pData) {
+                if (!pData || !pData.url || pData.url === '') {
+                    return 'images/no_gym_image.png';
+                }
+                return pData.url;
+            };
+
+            $rootScope.getWallImageSrc = function (pData) {
                 if (!pData || !pData.url || pData.url === '') {
                     return 'images/no_gym_image.png';
                 }

@@ -9,6 +9,8 @@ angular.module('SETTER')
               restrict: 'E',
               replace: true,
               scope: {
+                class: '@',
+                clickableClass: '@',
                 action: '@',
                 authorization: '@',
                 image: '@',
@@ -17,6 +19,15 @@ angular.module('SETTER')
               },
               templateUrl: 'templates/directives/ssUploadImage.tpl.html',
               link: function(scope, element, attrs) {
+
+                if (scope.class === undefined) {
+                  scope.class = 'avatar--big'
+                }
+
+                if (scope.clickableClass === undefined) {
+                  scope.class = 'avatar avatar--big'
+                }
+
                 if (!scope.image || !scope.image || scope.image === '') {
                     scope.image = 'images/no_image.png';
                 }

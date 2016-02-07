@@ -52,10 +52,10 @@ angular.module('SETTER')
             $scope.form = {};
             $scope.image = null;
 
-            $scope.hasNoRoutes = false; 
+            $scope.hasNoRoutes = false;
 
             $scope.routeSelected = false;
-            $scope.loading = true; 
+            $scope.loading = true;
 
 
                         /*
@@ -63,14 +63,14 @@ angular.module('SETTER')
             */
             $scope.checkForRoutes = function (pRoutes) {
                 if(pRoutes.length === 0) {
-                    $scope.hasNoRoutes = true; 
+                    $scope.hasNoRoutes = true;
                 }
                 else {
-                    return 
+                    return
                 }
-                
+
             };
-            
+
             var loadRoutes = function () {
                 RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
                     pData.map(function (pEntry) {
@@ -78,9 +78,8 @@ angular.module('SETTER')
                         return pEntry;
                     });
                     $scope.routes = pData;
-                    console.log($scope.routes); 
-                    $scope.checkForRoutes($scope.routes); 
-                    $scope.loading = false; 
+                    $scope.checkForRoutes($scope.routes);
+                    $scope.loading = false;
                 });
             };
 
@@ -138,6 +137,7 @@ angular.module('SETTER')
             */
             WallsService.getWall($scope.gymId, $scope.wallId, function (pData) {
                 $scope.wall = pData;
+                $scope.image = $rootScope.getWallImageSrc(pData);
             });
 
             loadRoutes();
@@ -195,19 +195,29 @@ angular.module('SETTER')
                     });
             };
 
-
-
-
             $scope.shouldShowWallImage = function () {
-                return ($scope.image && $scope.image.url && $scope.isUserAccount()) ||
-                    $scope.getAccountId() === $scope.gymId;
+                return true;
+                //
+                // return ($scope.image && $scope.image.url && $scope.isUserAccount()) ||
+                    // $scope.getAccountId() === $scope.gymId;
             };
 
             $scope.isNew = function (pRoute) {
                 return pRoute.date > moment().subtract(7, 'days');
             };
 
+            /*
+            *   SECTION - Image
+            */
+            $scope.fileNameChanged = function () {
+              $scope.isUploadingImage = true;
+              angular.element("#image_submit").trigger('click');
+            };
 
+            $scope.imageUploadComplete = function (content) {
+                $scope.isUploadingImage = false;
+                $scope.image = content;
+            };
 
             $scope.authorization = LoginService.getHeader();
         }]);

@@ -76,6 +76,11 @@ angular.module('SETTER', [
                     controller: 'WallsController',
                     templateUrl: 'templates/Walls.tpl.html'
                 })
+                .when('/gyms/:gymId/routesearch', {
+                    templateUrl: 'templates/gym/routeSearch.tpl.html',
+                    controller: 'routeSearchController',
+                    controllerAs: 'routeSearch'
+                })
                 .when('/gyms/:gymId/walls/:wallId', {
                     controller: 'WallController',
                     templateUrl: 'templates/Wall.tpl.html'
@@ -226,6 +231,10 @@ angular.module('SETTER', [
 
             $rootScope.navigateToWall = function (pGymId, pWallId) {
                 $location.path('gyms/' + pGymId + '/walls/' + pWallId);
+            };
+
+            $rootScope.navigateToGymRouteSearch = function(pGymId) {
+                $location.path('gyms/' + pGymId + '/routesearch'); 
             };
 
             $rootScope.navigateToGyms = function () {

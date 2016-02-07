@@ -9,8 +9,7 @@ angular.module('SETTER')
             return {
                 scope: {
                   'activeCategory': '=',
-                  'category': '@',
-                  'limit': '='
+                  'category': '@'
                 },
                 templateUrl: 'templates/directives/ssRouteList.tpl.html',
                 replace: true,
@@ -36,8 +35,8 @@ angular.module('SETTER')
 
                   $scope.gymId = gymId;
                   $scope.accountId = $rootScope.getAccountId();
-                  $scope.step = $scope.limit;
-                  $scope.initial = $scope.limit;
+                  $scope.step = 5;
+                  $scope.initial = 5;
                   $scope.routes = [];
                   $scope.text = MORE;
                   $scope.hasData = false;
@@ -50,7 +49,7 @@ angular.module('SETTER')
                         $scope.text = MORE;
 
                          switch ($scope.activeCategory) {
-                             case 'Bouldering':
+                             case 'boulder':
                                  GymsService.getBestRatedBoulder(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -58,7 +57,7 @@ angular.module('SETTER')
                                          $scope.loading = false;
                                      });
                                  break;
-                             case 'Top Rope':
+                             case 'toprope':
                                  GymsService.getBestRatedTopRope(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -66,7 +65,7 @@ angular.module('SETTER')
                                        $scope.loading = false;
                                      });
                                  break;
-                             case 'Lead':
+                             case 'lead':
                                  GymsService.getBestRatedLead(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -86,7 +85,7 @@ angular.module('SETTER')
                         $scope.text = MORE;
 
                          switch ($scope.activeCategory) {
-                             case 'Bouldering':
+                             case 'boulder':
                                  GymsService.getNewestBoulder(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -94,7 +93,7 @@ angular.module('SETTER')
                                          $scope.loading = false;
                                      });
                                  break;
-                             case 'Top Rope':
+                             case 'toprope':
                                  GymsService.getNewestTopRope(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -102,7 +101,7 @@ angular.module('SETTER')
                                          $scope.loading = false;
                                      });
                                  break;
-                             case 'Lead':
+                             case 'lead':
                                  GymsService.getNewestLead(gymId)
                                      .success(function (pData) {
                                          $scope.routes = pData;
@@ -181,7 +180,7 @@ angular.module('SETTER')
                     }
 
                     if (scope.accountId === scope.gymId) {
-                      scope.placeholderTitle = "Oops! These aren't your newest lead routes.";
+                      scope.placeholderTitle = "Oops! These aren't your " + scope.activeCategory + " routes.";
                       scope.placeholderText = "There aren't any here right now, but you can set new ones on the";
                       scope.placeholderLinkTest = " Manage Zones page";
                     } else {

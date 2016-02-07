@@ -98,6 +98,8 @@ angular.module('SETTER')
             });
 
 
+
+
             var loadClimberPanelData = function () {
 
               GymsService.getHomeGymUsers($scope.gymId, function (pData) {
@@ -144,7 +146,7 @@ angular.module('SETTER')
                   if($scope.projects.length === 0) {
                      $scope.hasNoProjects = true;
                   }
-              });
+            });
 
             GymsService.getLatestComments($scope.gymId)
               .success(function (pData) {
@@ -152,7 +154,7 @@ angular.module('SETTER')
                   if($scope.comments.length === 0) {
                      $scope.hasNoComments = true;
                   }
-              });
+            });
 
             GymsService.getGymImage($scope.gymId, function (pData) {
                 $scope.image = $rootScope.getGymImageSrc(pData);
@@ -183,6 +185,12 @@ angular.module('SETTER')
                     $scope.alerts = pData;
                 });
 
+
+            /*
+            *   SECTION - TESTING ALL ROUTES GET REQUEST
+            */
+
+
             /*
             *   SECTION - Newest Routes
             */
@@ -210,8 +218,6 @@ angular.module('SETTER')
                     .success(function (pData) {
                         $scope.newestLead = pData;
                     });
-
-
 
                 GymsService.getBestRatedTopRope($scope.gymId)
                     .success(function (pData) {

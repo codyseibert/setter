@@ -1,4 +1,4 @@
-SETTER_VERSION="1.2.0"
+SETTER_VERSION="1.2.2"
 LOCAL_SETTER_DIR="/home/cody/Workspace/setter"
 LOCAL_SETTER_APP_DIR="$LOCAL_SETTER_DIR/build/app"
 LOCAL_SETTER_BUILD_DIR="/home/cody/Workspace/setter/artifacts"

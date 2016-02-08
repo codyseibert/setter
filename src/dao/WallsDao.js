@@ -23,10 +23,12 @@ var WallsDao = function () {
 
     this.getWallsInGym = function (pGymId, pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT w.id, w.name, w.last_update, ' +
+            'SELECT w.id, w.name, w.last_update, i.url, ' +
                 '(SELECT COUNT(*) FROM route_new_to_user rntu WHERE rntu.wall_id = w.id AND rntu.user_id = ?) AS new_count, ' +
                 '(SELECT COUNT(*) FROM routes r WHERE r.wall_id = w.id AND r.active = 1) AS route_count ' +
-                'FROM walls w WHERE w.gym_id = ?',
+                'FROM walls w ' +
+                'LEFT JOIN images i ON i.id = w.image_id ' +
+                'WHERE w.gym_id = ?',
             [pAccountId, pGymId],
             theDaoHelper.MULTIPLE,
             pCallback

@@ -67,29 +67,37 @@
         </button>
     </section>
 
-    <section class="medium-6 small-12 columns">
-        <!-- Gyms - Zone Image -->
-        <div class="small-12 columns">
-            <h1 class="fwl h2">Zone Image</h1>
+    <section class="row">
+
+      <section class="medium-6 small-12 columns">
+        <div class="panel  panel--dropshadow">
+          <!-- Gyms - Zone Image -->
+          <div class="small-12 columns">
+              <h1 class="fwl h2">Zone Image</h1>
+          </div>
+
+          <div style="text-align: center;" class="text-center" ng-show="shouldShowWallImage()">
+
+              <ss-upload-image
+                  clickable-class="wall_image"
+                  class="wall_image"
+                  image="{{getWallImageSrc(wall)}}"
+                  authorization="{{authorization}}"
+                  action="{{'/api/gyms/' + gymId + '/walls/' + wallId + '/image'}}"
+                  callback="imageUploadCallback"
+                  active="getAccountId() === gymId">
+              </ss-upload-image>
+
+          </div>
+
         </div>
+        <div style="height: 100px; width: 1px;"></div>
 
-        <div style="text-align: center;" class="text-center" ng-show="shouldShowWallImage()">
+      </section>
 
-            <ss-upload-image
-                clickable-class="wall_image"
-                class="wall_image"
-                image="{{getWallImageSrc(wall)}}"
-                authorization="{{authorization}}"
-                action="{{'/api/gyms/' + gymId + '/walls/' + wallId + '/image'}}"
-                callback="imageUploadCallback"
-                active="getAccountId() === gymId">
-            </ss-upload-image>
-
-        </div>
-    </section>
-
-    <!-- Routes List & Delete Button -->
-    <div class="medium-6  small-12  columns animate" >
+      <!-- Routes List & Delete Button -->
+      <div class="medium-6  small-12  columns animate" >
+      <div class="panel  panel--dropshadow">
 
         <div class="small-12 columns">
             <h1 class="fwl h2">Routes</h1>
@@ -164,7 +172,9 @@
             </div>
 
         </section>
+      </div>
     </div>
+  </section>
 </div>
 
 

@@ -22,7 +22,7 @@
 
     <div class="small-12 columns">
 
-        <div class="media--fl  ng-hige" ng-show="hasNoWalls">
+        <div class="media--fl">
 
             <div>
                 <label for="searchTerm" class="icon--label icon-search inline"></label>
@@ -175,28 +175,32 @@ us-spinner>
     </section>
 
 
-    <div class="small-12 columns">
 
-        <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList">
+        <!-- <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList"> -->
 
-            <li class="ptb2"
-                    bindonce
-                    ng-repeat="wall in walls"
-                    ng-click="navigateToWall(gymId, wall.id)"
-                    ng-hide="wall.hide">
+    <div class="ptb2 medium-6 columns"
+        bindonce
+        ng-repeat="wall in walls"
+        ng-hide="wall.hide">
+      <div class="panel  panel--dropshadow"
+          ng-click="navigateToWall(gymId, wall.id)">
 
-                    <span bo-text="wall.name"></span>
-                   <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"></span>
+          <div class="flag-image">
+            <img ng-src="{{getWallImageSrc(wall)}}" width="200px" style="padding-right: 20px;">
+          </div>
 
-                    <i class="icon-right-big right"> </i>
-
-                    <span class="right" bo-text="wall.route_count + ' Routes'"></span>
-
-            </li>
-
-        </ul>
-
+          <div class="flag-body">
+            <h2 class="fwb" bo-text="wall.name"></h2>
+            <h2><span class="round label" style="font-size: 20px">{{wall.route_count}}</span>  Routes</h2>
+            <h2 ng-show="isUserAccount() && wall.route_count"><span class="round label success" style="font-size: 20px">{{wall.new_count}}</span>  New Routes</h2>
+            <!-- <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"> New Routes</span> -->
+            <!-- <span class="round  label success " ng-show="isUserAccount() && wall.route_count" bo-text="wall.route_count"> Total Routes</span> -->
+          </div>
+      </div>
     </div>
+
+        <!-- </ul> -->
+
 
     <div class="small-12  columns" ng-show="isGymAccount() && !hasNoWalls">
 
@@ -210,7 +214,7 @@ us-spinner>
                         placeholder="New zone Name"
                         ng-model="form.wallName"/>
             </div>
-            
+
             <div class="small-12 medium-4  large-2  columns  last">
 
                 <button type="submit"

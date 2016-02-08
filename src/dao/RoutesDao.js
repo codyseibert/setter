@@ -22,13 +22,14 @@ var RoutesDao = function () {
 
     this.getRoute = function (pRouteId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT r.id, r.type, r.id AS route_id, r.wall_id, w.gym_id, r.name AS route_name, r.setter_id, w.name AS wall_name, r.boulder_grade_id, lg.name AS lead_grade, r.lead_grade_id, r.toprope_grade_id, r.color_id, lg.name AS lead_grade, bg.name AS boulder_grade, rg.name AS toprope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date, r.note FROM routes r ' +
+            'SELECT r.id, r.type, r.id AS route_id, r.wall_id, i.url, w.gym_id, r.name AS route_name, r.setter_id, w.name AS wall_name, r.boulder_grade_id, lg.name AS lead_grade, r.lead_grade_id, r.toprope_grade_id, r.color_id, lg.name AS lead_grade, bg.name AS boulder_grade, rg.name AS toprope_grade, c.name AS color, c.value AS value, u.firstname, u.lastname, r.date, r.note FROM routes r ' +
                 'INNER JOIN users u ON r.setter_id = u.account_id ' +
                 'INNER JOIN colors c ON r.color_id = c.id ' +
                 'INNER JOIN walls w ON w.id = r.wall_id ' +
                 'LEFT JOIN boulder_grades bg ON r.boulder_grade_id = bg.id ' +
                 'LEFT JOIN rope_grades rg ON r.toprope_grade_id = rg.id ' +
                 'LEFT JOIN rope_grades lg ON r.lead_grade_id = lg.id ' +
+                'LEFT JOIN images i ON w.image_id = i.id ' +
                 'WHERE r.id = ?',
             [pRouteId],
             theDaoHelper.SINGLE,

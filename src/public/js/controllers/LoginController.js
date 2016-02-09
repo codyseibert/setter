@@ -39,6 +39,7 @@ angular.module('SETTER')
                         LoginService.setImageUrl(pData.url);
                         LoginService.setName(pData.fullname);
                         LoginService.setGymName(pData.gymName);
+                        LoginService.setAccessList(pData.gyms);
                         LoginService.navigateToCorrectHomePage();
 
                         localStorageService.set('cookies', $cookies);

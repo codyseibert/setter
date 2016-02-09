@@ -74,6 +74,16 @@ var WallsController = function () {
         callback = theControllerHelper.createDefaultCallback(pRes);
         theWallsDao.stripZone(wallId, callback);
     };
+
+    this.stripColor = function (pReq, pRes) {
+        var wallId,
+            colorId,
+            callback;
+        colorId = pReq.params.colorId;
+        wallId = pReq.params.wallId;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theWallsDao.stripColor(wallId, colorId, callback);
+    };
 };
 
 module.exports = new WallsController();

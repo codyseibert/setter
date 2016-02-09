@@ -71,7 +71,7 @@ var AccountsDAO = function () {
 
     this.getSettings = function (pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT hide_setters FROM gyms WHERE account_id = ?',
+            'SELECT hide_setters, facebook FROM gyms WHERE account_id = ?',
             [pAccountId],
             theDaoHelper.SINGLE,
             pCallback
@@ -80,8 +80,8 @@ var AccountsDAO = function () {
 
     this.updateSettings = function (pAccountId, pSettings, pCallback) {
         theDaoHelper.executeQuery(
-            'UPDATE gyms SET hide_setters = ? WHERE account_id = ?',
-            [pSettings.hide_setters, pAccountId],
+            'UPDATE gyms SET hide_setters = ?, facebook = ? WHERE account_id = ?',
+            [pSettings.hide_setters, pSettings.facebook, pAccountId],
             theDaoHelper.UPDATE,
             pCallback
         );
@@ -97,6 +97,7 @@ var AccountsDAO = function () {
     };
 
     this.getAccountInfo = function (pAccountId, pCallback) {
+        var that = this;
         theDaoHelper.executeQuery(
             'SELECT i.url, CONCAT(u.firstname, \' \', u.lastname) AS fullname, a.email, u.gym_id, a.id, u.firstname, u.lastname, g.name, g.address, a.type_id, a.token FROM accounts a ' +
                 'LEFT JOIN users u ON u.account_id = a.id ' +
@@ -105,6 +106,23 @@ var AccountsDAO = function () {
                 'WHERE a.id = ?',
             [pAccountId],
             theDaoHelper.SINGLE,
+            function (info) {
+                that.getGymAccessList(pAccountId, function (gyms) {
+                    info.gyms = gyms.map(function(gym) { return gym.account_id; });
+                    pCallback(info)
+                });
+            }
+        );
+
+    };
+
+    this.getGymAccessList = function (pAccountId, pCallback) {
+        theDaoHelper.executeQuery(
+            'SELECT g.account_id FROM gyms g ' +
+                'INNER JOIN setters_gyms_access sga ON sga.gym_id = g.account_id ' +
+                'WHERE sga.setter_id = ?',
+            [pAccountId],
+            theDaoHelper.MULTIPLE,
             pCallback
         );
     };

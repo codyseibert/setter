@@ -10,6 +10,6 @@
 */
 require('./Routes');
 
-require('./App').listen(process.env.SETTER_PORT || 5000);
+require('./App').listen(process.env.SETTER_PORT || 8080);
 
 console.log("Server Started!");

@@ -66,14 +66,15 @@ angular.module('SETTER')
                     });
                 },
 
-                createWall: function (pGymId, pWallName) {
+                createWall: function (pGymId, pWallName, pZoneType) {
                     this.setWallsDirty(pGymId);
 
                     return $http({
                         method: "POST",
                         url: 'api/gyms/' + pGymId + '/walls',
                         data: {
-                            wallName: pWallName
+                            wallName: pWallName,
+                            zoneType: pZoneType
                         }
                     });
                 },

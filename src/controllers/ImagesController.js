@@ -52,19 +52,19 @@ var ImagesController = function () {
                 height = file.height;
                 ratio = width / height;
 
-                extension = image.extension;
+                extension = "." + image.extension;
                 new_width = MAX_WIDTH;
                 new_height = MAX_WIDTH / ratio;
                 easyimage.resize({
                     width: new_width,
                     height: new_height,
                     src: image.path,
-                    dst: base + '/public/images/uploads/' + image.name.replace(extension, '_scaled.' + extension)
+                    dst: base + '/public/images/uploads/' + image.name.replace(extension, '_scaled' + extension)
                 }).then(function () {
-                    theImagesDao.insertImage('images/uploads/' + image.name, function (pResults) {
+                    theImagesDao.insertImage('images/uploads/' + image.name.replace(extension, '_scaled' + extension), function (pResults) {
                         var ret = {
                             id: pResults.id,
-                            url: 'images/uploads/' + image.name.replace(extension, '_scaled.' + extension)
+                            url: 'images/uploads/' + image.name.replace(extension, '_scaled' + extension)
                         };
                         pCallback(ret);
                     });

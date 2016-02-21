@@ -8,11 +8,13 @@ angular.module('SETTER')
         '$routeParams',
         'WallsService',
         'LoginService',
+        'GymsService',
         function (
             $scope,
             $routeParams,
             WallsService,
-            LoginService
+            LoginService,
+            GymsService
         ) {
             'use strict';
 
@@ -20,15 +22,32 @@ angular.module('SETTER')
                 return;
             }
 
+
             $scope.gymId = parseInt($routeParams.gymId, 10);
             $scope.walls = [];
             $scope.loading = true;
             $scope.hasNoWalls = false;
 
+            $scope.types = [{
+              name: 'Bouldering',
+              value: 0
+            },{
+              name: 'Top Rope',
+              value: 1
+            },{
+              name: 'Lead',
+              value: 2
+            }];
+
+            // GymsService.getGymSettings($scope.gymId)
+            //   .success(function(settings) {
+            //   });
+
             $scope.backButtonActive = true;
 
             $scope.form = {
-                filter: ''
+                filter: '',
+                zoneType: $scope.types[0]
             };
 
             $scope.checkForWalls = function (pWalls) {
@@ -40,23 +59,23 @@ angular.module('SETTER')
                 }
             };
 
-
             WallsService.getWallsInGym($scope.gymId, function (pData) {
                 $scope.walls = pData;
                 $scope.checkForWalls($scope.walls);
                 $scope.loading = false;
             });
 
-
             $scope.addClicked = function () {
                 var wallName = $scope.form.wallName;
+                var zoneType = $scope.form.zoneType.value;
 
-                WallsService.createWall($scope.gymId, wallName)
+                WallsService.createWall($scope.gymId, wallName, zoneType)
                     .success(function (pData) {
                         $scope.walls.push({
                             name: wallName,
                             id: pData.id,
-                            route_count: 0
+                            route_count: 0,
+                            type: zoneType
                         });
                         $scope.form.wallName = "";
                         WallsService.setWallsDirty($scope.gymId);

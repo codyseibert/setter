@@ -1,0 +1,2 @@
+USE setter;
+ALTER TABLE walls ADD COLUMN type INT DEFAULT 0;

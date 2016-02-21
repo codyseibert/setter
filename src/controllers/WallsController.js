@@ -38,11 +38,13 @@ var WallsController = function () {
     this.createWall = function (pReq, pRes) {
         var wallName,
             gymId,
+            zoneType,
             callback;
+        zoneType = pReq.body.zoneType;
         wallName = pReq.body.wallName;
         gymId = pReq.user.accountId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theWallsDao.createWall(wallName, gymId, callback);
+        theWallsDao.createWall(wallName, zoneType, gymId, callback);
     };
 
     this.updateWall = function (pReq, pRes) {

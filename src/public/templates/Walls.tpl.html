@@ -17,6 +17,32 @@
 
 </section>
 
+<section style="margin-bottom: 20px;">
+  <ul class="tabs row small-collapse"
+      ng-init="showRope = false"
+      role="tablist">
+
+      <li class="tab-title  [ small-6  columns ] text-center"
+          ng-class="{'active': showRope === false}" >
+
+          <a ng-click="showRope = false; form.zoneType = types[0]">
+              <img src="images/icon--bouldering.svg" height="30px" width="30px"></img>
+              Bouldering&nbsp;&nbsp;&nbsp;
+          </a>
+
+      </li>
+
+      <li class="tab-title  [ small-6  columns ] text-center"
+          ng-class="{'active': showRope === true}" >
+
+          <a ng-click="showRope = true; form.zoneType = types[1]">
+              <img src="images/icon--toprope.svg" height="30px" width="30px"></img>
+              Rope&nbsp;&nbsp;&nbsp;
+          </a>
+      </li>
+  </ul>
+</section>
+
 <!-- Zone Actions -->
 <section class="row " ng-hide="loading">
 
@@ -178,24 +204,27 @@ us-spinner>
 
         <!-- <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList"> -->
 
-    <div class="ptb2 medium-6 columns"
+    <div class="ptb2 medium-4 columns"
         bindonce
         ng-repeat="wall in walls"
-        ng-hide="wall.hide">
-      <div class="panel  panel--dropshadow"
+        ng-hide="wall.hide || (wall.type === 0 && showRope === true) || (wall.type === 1 && showRope === false) || (wall.type === 2 && showRope === false)">
+      <div class="panel--dropshadow" style="background-color: white; width: 380px; height: 189px;"
           ng-click="navigateToWall(gymId, wall.id)">
+        <div class="section--primary" style="height: 10px;"></div>
 
-          <div class="flag-image">
-            <img ng-src="{{getWallImageSrc(wall)}}" width="200px" style="padding-right: 20px;">
+        <div style="padding: 10px;">
+          <div class="flag-image" style="padding-right: 0px;">
+            <img ng-src="{{getWallImageSrc(wall)}}" max-width="200px" style="height: 135px; padding-right: 20px;">
           </div>
 
           <div class="flag-body">
-            <h2 class="fwb" bo-text="wall.name"></h2>
-            <h2><span class="round label" style="font-size: 20px">{{wall.route_count}}</span>  Routes</h2>
-            <h2 ng-show="isUserAccount() && wall.route_count"><span class="round label success" style="font-size: 20px">{{wall.new_count}}</span>  New Routes</h2>
+            <h2 class="fwl" bo-text="wall.name"></h2>
+            <h3 class="fwl"><span class="round label" style="font-size: 20px">{{wall.route_count}}</span>  Routes</h3>
+            <h3 class="fwl" ng-show="isUserAccount() && wall.route_count"><span class="round label success" style="font-size: 20px">{{wall.new_count}}</span>  New Routes</h3>
             <!-- <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"> New Routes</span> -->
             <!-- <span class="round  label success " ng-show="isUserAccount() && wall.route_count" bo-text="wall.route_count"> Total Routes</span> -->
           </div>
+        </div>
       </div>
     </div>
 

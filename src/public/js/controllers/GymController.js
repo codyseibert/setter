@@ -43,7 +43,6 @@ angular.module('SETTER')
             $rootScope.gymId = $scope.gymId;
             $scope.showOnlyActive = true;
 
-
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
             $scope.LEAD = 'Lead';
@@ -66,6 +65,8 @@ angular.module('SETTER')
             $scope.typeNewestCurrent = $scope.BOULDERING;
             $scope.typeBest = $scope.BOULDERING;
             $scope.typeBestCurrent = $scope.BOULDERING;
+
+            $scope.paddingRight = '0px';
 
             $scope.activity = [];
             $scope.newRoutes = [];
@@ -99,6 +100,10 @@ angular.module('SETTER')
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
                 $scope.gymName = $scope.gym.name;
+
+                if ($scope.gym.facebook === '' || $scope.gym.facebook === undefined) {
+                  $scope.paddingRight = '20px';
+                }
             });
 
 
@@ -294,20 +299,6 @@ angular.module('SETTER')
             };
 
 
-            /*
-            *   SECTION - Image
-            */
-            $scope.fileNameChanged = function () {
-              $scope.isUploadingImage = true;
-              angular.element("#image_submit").trigger('click');
-            };
-
-            $scope.imageUploadComplete = function (content) {
-                $scope.isUploadingImage = false;
-                $scope.image = content;
-                LoginService.setImageUrl(content.url);
-                UsersService.setImageAsDirty(LoginService.getAccountId());
-            };
 
             $scope.setTypeNewest = function (pType) {
                 $scope.typeNewest = pType;
@@ -354,6 +345,10 @@ angular.module('SETTER')
 
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
+
+            $scope.imageUploadCompleted = function(pData) {
+                LoginService.setImageUrl(pData.url);
+            };
 
             $scope.setCurrentTab = function (pCurrentTab) {
                 // Visually switch between tabs on the UI

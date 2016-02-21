@@ -23,7 +23,7 @@ var WallsDao = function () {
 
     this.getWallsInGym = function (pGymId, pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT w.id, w.name, w.last_update, i.url, ' +
+            'SELECT w.id, w.name, w.type, w.last_update, i.url, ' +
                 '(SELECT COUNT(*) FROM route_new_to_user rntu WHERE rntu.wall_id = w.id AND rntu.user_id = ?) AS new_count, ' +
                 '(SELECT COUNT(*) FROM routes r WHERE r.wall_id = w.id AND r.active = 1) AS route_count ' +
                 'FROM walls w ' +
@@ -45,10 +45,10 @@ var WallsDao = function () {
         );
     };
 
-    this.createWall = function (pWallName, pGymId, pCallback) {
+    this.createWall = function (pWallName, zoneType, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO walls (name, gym_id) VALUES (?, ?)',
-            [pWallName, pGymId],
+            'INSERT INTO walls (name, gym_id, type) VALUES (?, ?, ?)',
+            [pWallName, pGymId, zoneType],
             theDaoHelper.INSERT,
             pCallback
         );

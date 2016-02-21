@@ -39,10 +39,9 @@ angular.module('SETTER')
               value: 2
             }];
 
-            GymsService.getGymSettings($scope.gymId)
-              .success(function(settings) {
-                  console.log(settings);
-              });
+            // GymsService.getGymSettings($scope.gymId)
+            //   .success(function(settings) {
+            //   });
 
             $scope.backButtonActive = true;
 

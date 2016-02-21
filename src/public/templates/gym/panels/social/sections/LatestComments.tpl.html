@@ -1,18 +1,16 @@
 
+<div class="panel--dropshadow">
 
-<div class="row medium-collapse">
-    <div class="small-12 columns">
+  <div class="section--primary" style="height: 10px;"></div>
 
-        <h2 class="fwl">
+  <div style="padding: 20px;">
 
-            Latest Route Comments
-
-        </h2>
-
-    </div>
+    <h2 class="fwl">
+        Latest Route Comments
+    </h2>
 
     <div bindonce ng-repeat="comment in comments | limitTo:10"
-       class=" small-12 columns  mb4">
+       class="mb4">
 
         <div class="flag  mb1"
               >
@@ -72,5 +70,6 @@
       ng-click="">
     </ss-placeholder>
 
+  </div>
 
 </div>

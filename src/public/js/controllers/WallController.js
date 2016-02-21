@@ -253,15 +253,9 @@ angular.module('SETTER')
             /*
             *   SECTION - Image
             */
-            $scope.fileNameChanged = function () {
-              $scope.isUploadingImage = true;
-              angular.element("#image_submit").trigger('click');
-            };
-
-            $scope.imageUploadComplete = function (content) {
-                $scope.isUploadingImage = false;
-                $scope.image = content;
-            };
+            $scope.uploadImageComplete = function () {
+              WallsService.setWallsDirty($scope.gymId)
+            }
 
             $scope.authorization = LoginService.getHeader();
         }]);

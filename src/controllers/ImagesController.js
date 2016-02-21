@@ -59,12 +59,12 @@ var ImagesController = function () {
                     width: new_width,
                     height: new_height,
                     src: image.path,
-                    dst: base + '/public/images/uploads/' + image.name.replace(extension, '_scaled.' + extension)
+                    dst: base + '/public/images/uploads/' + image.name
                 }).then(function () {
                     theImagesDao.insertImage('images/uploads/' + image.name, function (pResults) {
                         var ret = {
                             id: pResults.id,
-                            url: 'images/uploads/' + image.name.replace(extension, '_scaled.' + extension)
+                            url: 'images/uploads/' + image.name
                         };
                         pCallback(ret);
                     });

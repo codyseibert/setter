@@ -66,6 +66,8 @@ angular.module('SETTER')
             $scope.typeBest = $scope.BOULDERING;
             $scope.typeBestCurrent = $scope.BOULDERING;
 
+            $scope.paddingRight = '0px';
+
             $scope.activity = [];
             $scope.newRoutes = [];
             $scope.alerts = [];
@@ -98,6 +100,10 @@ angular.module('SETTER')
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
                 $scope.gymName = $scope.gym.name;
+
+                if ($scope.gym.facebook === '' || $scope.gym.facebook === undefined) {
+                  $scope.paddingRight = '20px';
+                }
             });
 
 
@@ -293,20 +299,6 @@ angular.module('SETTER')
             };
 
 
-            /*
-            *   SECTION - Image
-            */
-            $scope.fileNameChanged = function () {
-              $scope.isUploadingImage = true;
-              angular.element("#image_submit").trigger('click');
-            };
-
-            $scope.imageUploadComplete = function (content) {
-                $scope.isUploadingImage = false;
-                $scope.image = content;
-                LoginService.setImageUrl(content.url);
-                UsersService.setImageAsDirty(LoginService.getAccountId());
-            };
 
             $scope.setTypeNewest = function (pType) {
                 $scope.typeNewest = pType;

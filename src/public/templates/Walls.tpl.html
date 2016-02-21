@@ -208,7 +208,7 @@ us-spinner>
         bindonce
         ng-repeat="wall in walls"
         ng-hide="wall.hide || (wall.type === 0 && showRope === true) || (wall.type === 1 && showRope === false) || (wall.type === 2 && showRope === false)">
-      <div class="panel--dropshadow" style="background-color: white;"
+      <div class="panel--dropshadow" style="background-color: white; width: 380px; height: 189px;"
           ng-click="navigateToWall(gymId, wall.id)">
         <div class="section--primary" style="height: 10px;"></div>
 
@@ -220,7 +220,7 @@ us-spinner>
           <div class="flag-body">
             <h2 class="fwl" bo-text="wall.name"></h2>
             <h3 class="fwl"><span class="round label" style="font-size: 20px">{{wall.route_count}}</span>  Routes</h3>
-            <h2 ng-show="isUserAccount() && wall.route_count"><span class="round label success" style="font-size: 20px">{{wall.new_count}}</span>  New Routes</h2>
+            <h3 class="fwl" ng-show="isUserAccount() && wall.route_count"><span class="round label success" style="font-size: 20px">{{wall.new_count}}</span>  New Routes</h3>
             <!-- <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"> New Routes</span> -->
             <!-- <span class="round  label success " ng-show="isUserAccount() && wall.route_count" bo-text="wall.route_count"> Total Routes</span> -->
           </div>

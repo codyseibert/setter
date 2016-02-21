@@ -113,7 +113,7 @@ angular.module('SETTER')
                   route.sent = false;
             });
 
-            $scope.imageUploadCallback = function (content) {
+            $scope.imageUploadCompleted = function (content) {
                 LoginService.setImageUrl(content.url);
                 UsersService.setImageAsDirty(LoginService.getAccountId());
             };

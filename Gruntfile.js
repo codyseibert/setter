@@ -480,8 +480,8 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean',
         'mkdir:bower_components',
-        'check',
-        'test',
+        // 'check',
+        // 'test',
         'bowerInstall',
         'build:server',
         'build:client',

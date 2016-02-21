@@ -346,6 +346,10 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
+            $scope.imageUploadCompleted = function(pData) {
+                LoginService.setImageUrl(pData.url);
+            };
+
             $scope.setCurrentTab = function (pCurrentTab) {
                 // Visually switch between tabs on the UI
                 $scope.currentTab = pCurrentTab;

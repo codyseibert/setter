@@ -11,4 +11,4 @@ results.txt
 .sass-cache/
 artifacts/
 bower_components/
-
+.vagrant/

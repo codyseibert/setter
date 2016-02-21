@@ -48,8 +48,12 @@
                 style="height: 100%; width: 100%; border-radius: 50%; border: 2px solid #ed6d56;">
             </div>
             <h3 style="display: inline-block;">
-                {{user.firstname}} {{user.lastname}}
-                <i class="icon-plus" style="cursor: pointer;" ng-click="addSetterClicked(user)"> </i>
+                <div style="display: inline-block; padding-top: 40px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width: 150px">
+                    {{user.firstname}} {{user.lastname}}
+                </div>
+                <div style="display: inline-block; padding-top: 40px;">
+                  <i class="icon-plus" style="cursor: pointer;" ng-click="addSetterClicked(user)"> </i>
+                </div>
             </h3>
         </div>
     </div>

@@ -43,7 +43,7 @@
                         <!-- [] Edit Route -->
                         <a class="icon-pencil"
                            ng-click="edit()"
-                           ng-hide="isUserAccount() || isEditMode">
+                           ng-hide="!(isGymAccount() || isSetter()) || isEditMode">
                         </a>
                     </h1>
 
@@ -56,7 +56,7 @@
         </div>
 
         <!-- [] - Drill Icon Button -->
-        <button ng-show="isGymAccount()"
+        <button ng-show="isGymAccount() || isSetter()"
                 class="btn--primary btn--fixedAction  show-for-small-only"
                 ng-click="openCreateRouteModal()">
 
@@ -67,104 +67,145 @@
         </button>
     </section>
 
-    <section class="medium-6 small-12 columns">
-        <!-- Gyms - Zone Image -->
-        <div class="small-12 columns">
-            <h1 class="fwl h2">Zone Image</h1>
-        </div>
+    <section class="row">
 
-        <div style="text-align: center;" class="text-center" ng-show="shouldShowWallImage()">
+      <section class="medium-6 small-12 columns">
+        <div class="panel--dropshadow">
 
-            <ss-upload-image
-                clickable-class="wall_image"
-                class="wall_image"
-                image="{{getWallImageSrc(wall)}}"
-                authorization="{{authorization}}"
-                action="{{'/api/gyms/' + gymId + '/walls/' + wallId + '/image'}}"
-                callback="imageUploadCallback"
-                active="getAccountId() === gymId">
-            </ss-upload-image>
+          <div class="section--primary" style="height: 10px;"></div>
 
-        </div>
-    </section>
+          <div  style="padding: 20px;">
+              <h1 class="fwl h2">Zone Image</h1>
 
-    <!-- Routes List & Delete Button -->
-    <div class="medium-6  small-12  columns animate" >
+              <div style="text-align: center;" class="text-center" ng-show="shouldShowWallImage()">
 
-        <div class="small-12 columns">
-            <h1 class="fwl h2">Routes</h1>
-        </div>
+                  <ss-upload-image
+                      clickable-class="wall_image"
+                      class="wall_image"
+                      image="{{image}}"
+                      authorization="{{authorization}}"
+                      callback="uploadImageComplete"
+                      action="{{'/api/gyms/' + gymId + '/walls/' + wallId + '/image'}}"
+                      active="isGymAccount() || isSetter()">
+                  </ss-upload-image>
 
-        <!-- Gyms - Wall Actions for Medium up  -->
-        <div class="row"
-             ng-show="getAccountId() === gymId"
-             data-ui-component="routeActions">
-
-            <div class="small-12 columns mb2 show-for-large-up">
-
-                <!-- Gyms Add Route -->
-                <button class="icon-plus btn--medium btn--primary display--inlineBlock "
-                        ng-click="openCreateRouteModal()">
-                    Add Route
-                </button>
-
-
-                <!-- [] - Strip Zone -->
-                <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
-                        ng-show="!hasNoRoutes"
-                        ng-click="stripZone(gymId, wallId)">
-                    Strip Zone
-                </button>
-
-            </div>
-
-            <div class="small-12 columns b2 hide-for-large-up">
-                  <button class="icon-down-big btn--medium btn--secondary"
-                        ng-show="!hasNoRoutes"
-                        ng-click="stripZone(gymId, wallId)">
-                    Strip Zone
-                </button>
-
-            </div>
-
-       </div>
-
-         <div  class="row small-collapse large-uncollapse">
-
-            <div class="small-12 columns  ng-hide"
-                ng-show="!hasNoRoutes"
-                  ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
-                <!-- Routes Table Inserted Here-->
-
-            </div>
-
-            <div ng-show="hasNoRoutes && isUserAccount()"
-                class="text-center ng-hide">
-                <h2 class="fwl">This zone has no routes for you to climb yet.</h2>
-            </div>
-
-            <div ng-show="hasNoRoutes && isGymAccount()"
-                class="text-center ng-hide">
-                <h2 class="fwl">There are no routes set at this zone. </h2>
-            </div>
+              </div>
+          </div>
 
         </div>
+        <div style="height: 100px; width: 1px;"></div>
 
-        <!-- Delete Zone -->
-        <section class="row">
+      </section>
 
-            <div class="small-12 columns  text-center mb4"
-                 ng-show="isGymAccount()"
-                 data-ui-component="routeSubActions">
-                 <!-- [] - Delete Zone -->
-                <a class="icon-trash"
-                   ng-click="delete()">
-                Delete Zone Permanently
-                </a>
+      <!-- Routes List & Delete Button -->
+      <div class="medium-6  small-12  columns animate" >
+      <div class="panel--dropshadow" style="margin-bottom: 50px;">
+
+        <div class="section--primary" style="height: 10px;"></div>
+
+        <div style="padding: 20px;">
+          <h1 class="fwl h2">Routes</h1>
+
+          <!-- Gyms - Wall Actions for Medium up  -->
+          <div data-ui-component="routeActions">
+
+              <div class="small-12 mb2 show-for-large-up" ng-show="isGymAccount() || isSetter()">
+
+                  <!-- Gyms Add Route -->
+                  <button class="icon-plus btn--medium btn--primary display--inlineBlock "
+                          ng-click="openCreateRouteModal()">
+                      Add Route
+                  </button>
+
+
+                  <!-- [] - Strip Zone -->
+                  <button class="icon-down-big btn--medium btn--secondary display--inlineBlock right"
+                          ng-show="hasRoutes()"
+                          ng-click="stripZone(gymId, wallId)">
+                      Strip Zone
+                  </button>
+
+                  <br>
+                  <div class="right" ng-show="hasRoutes()">
+                    <!-- [] - Strip Color -->
+                    <label class="[ select--medium select--secondary ] left">
+                        <select ng-model="colorToStrip"
+                                ng-options="color.value as color.name for color in colors">
+                        </select>
+                    </label>
+                    <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
+                            ng-click="stripColor(gymId, wallId, colorToStrip)">
+                        Strip Color
+                    </button>
+                  </div>
+
+              </div>
+
+              <div class="small-12 columns b2 hide-for-large-up"
+                    ng-show="isGymAccount() || isSetter()">
+                    <button class="icon-down-big btn--medium btn--secondary right"
+                           ng-show="hasRoutes()"
+                          ng-click="stripZone(gymId, wallId)">
+                      Strip Zone
+                  </button>
+
+                  <br>
+                  <div class="right"  ng-show="hasRoutes()">
+                    <!-- [] - Strip Color -->
+                    <label class="[ select--medium select--secondary ] left">
+                        <select ng-model="colorToStrip"
+                                ng-options="color.value as color.name for color in colors">
+                        </select>
+                    </label>
+                    <button class="icon-down-big btn--medium btn--secondary display--inlineBlock"
+                            ng-click="stripColor(gymId, wallId, colorToStrip)">
+                        Strip Color
+                    </button>
+              </div>
+
             </div>
 
-        </section>
+           <div  class="row small-collapse large-uncollapse">
+
+              <div class="small-12 columns  ng-hide"
+                    ng-show="hasRoutes()"
+                    ng-include src=" 'templates/ZoneRoutesTable.tpl.html' ">
+                  <!-- Routes Table Inserted Here-->
+
+              </div>
+
+              <div ng-show="!hasRoutes() && !(isGymAccount() || isSetter())"
+                  class="text-center ng-hide">
+                  <h2 class="fwl">This zone has no routes for you to climb yet.</h2>
+              </div>
+
+              <div ng-show="!hasRoutes() && (isGymAccount() || isSetter())"
+                  class="text-center ng-hide">
+                  <h2 class="fwl">There are no routes set at this zone. </h2>
+              </div>
+
+          </div>
+
+          <!-- Delete Zone -->
+          <section class="row">
+
+              <div class="small-12 columns  text-center mb4"
+                   ng-show="isGymAccount()"
+                   data-ui-component="routeSubActions">
+                   <!-- [] - Delete Zone -->
+                  <a class="icon-trash"
+                     ng-click="delete()">
+                  Delete Zone Permanently
+                  </a>
+              </div>
+
+          </section>
+
+        </div>
+
+      </div>
     </div>
+  </section>
 </div>
 
 

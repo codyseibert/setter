@@ -16,28 +16,37 @@ angular.module('SETTER')
         '$interval',
         '$routeParams',
         '$filter',
+        '$timeout',
         'RoutesService',
         'WallsService',
         'DateFormatService',
         'LoginService',
         'SelectedRouteService',
+        'ColorsService',
         function (
             $scope,
             $rootScope,
             $interval,
             $routeParams,
             $filter,
+            $timeout,
             RoutesService,
             WallsService,
             DateFormatService,
             LoginService,
-            SelectedRouteService
+            SelectedRouteService,
+            ColorsService
         ) {
             'use strict';
 
             if (!LoginService.validateLoggedIn()) {
                 return;
             }
+
+
+            var knownColors = {}
+            $scope.colors = [];
+            $scope.colorToStrip = '';
 
             /*
                 Init
@@ -58,7 +67,7 @@ angular.module('SETTER')
             $scope.loading = true;
 
 
-                        /*
+            /*
                 Hide / Show Logic Logic
             */
             $scope.checkForRoutes = function (pRoutes) {
@@ -71,16 +80,51 @@ angular.module('SETTER')
 
             };
 
+
             var loadRoutes = function () {
                 RoutesService.getRoutesOnWall($scope.wallId, function (pData) {
                     pData.map(function (pEntry) {
                         pEntry.date = moment(pEntry.date);
                         return pEntry;
                     });
-                    $scope.routes = pData;
+                    $scope.routes.splice(0, $scope.routes.length)
+                    Array.prototype.push.apply($scope.routes, pData);
                     $scope.checkForRoutes($scope.routes);
                     $scope.loading = false;
+
+                    knownColors = {}
+                    $scope.colors.splice(0, $scope.colors.length)
+                    for (var i in pData) {
+                      var route = pData[i];
+                      if (knownColors[route.color_id]) continue;
+                      knownColors[route.color_id] = true
+                      $scope.colors.push({
+                        name: route.color,
+                        value: route.color_id
+                      });
+                    }
                 });
+            };
+
+            $scope.hasRoutes = function () {
+                return $scope.routes.length > 0
+            }
+
+            $scope.stripColor = function (gymId, wallId, colorId) {
+
+                var yes = confirm('Are you sure you want to strip this color?');
+                if (!yes) {
+                    return;
+                }
+
+                WallsService.stripColor(gymId, wallId, colorId)
+                    .success(function () {
+                        for (var i = $scope.routes.length - 1; i >= 0; i--) {
+                          if ($scope.routes[i].color_id === $scope.colorToStrip) {
+                            $scope.routes.splice(i, 1);
+                          }
+                        }
+                    });
             };
 
             $scope.$watch(function() {
@@ -209,15 +253,9 @@ angular.module('SETTER')
             /*
             *   SECTION - Image
             */
-            $scope.fileNameChanged = function () {
-              $scope.isUploadingImage = true;
-              angular.element("#image_submit").trigger('click');
-            };
-
-            $scope.imageUploadComplete = function (content) {
-                $scope.isUploadingImage = false;
-                $scope.image = content;
-            };
+            $scope.uploadImageComplete = function () {
+              WallsService.setWallsDirty($scope.gymId)
+            }
 
             $scope.authorization = LoginService.getHeader();
         }]);

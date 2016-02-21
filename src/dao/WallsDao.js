@@ -23,10 +23,12 @@ var WallsDao = function () {
 
     this.getWallsInGym = function (pGymId, pAccountId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT w.id, w.name, w.last_update, ' +
+            'SELECT w.id, w.name, w.type, w.last_update, i.url, ' +
                 '(SELECT COUNT(*) FROM route_new_to_user rntu WHERE rntu.wall_id = w.id AND rntu.user_id = ?) AS new_count, ' +
                 '(SELECT COUNT(*) FROM routes r WHERE r.wall_id = w.id AND r.active = 1) AS route_count ' +
-                'FROM walls w WHERE w.gym_id = ?',
+                'FROM walls w ' +
+                'LEFT JOIN images i ON i.id = w.image_id ' +
+                'WHERE w.gym_id = ?',
             [pAccountId, pGymId],
             theDaoHelper.MULTIPLE,
             pCallback
@@ -43,10 +45,10 @@ var WallsDao = function () {
         );
     };
 
-    this.createWall = function (pWallName, pGymId, pCallback) {
+    this.createWall = function (pWallName, zoneType, pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'INSERT INTO walls (name, gym_id) VALUES (?, ?)',
-            [pWallName, pGymId],
+            'INSERT INTO walls (name, gym_id, type) VALUES (?, ?, ?)',
+            [pWallName, pGymId, zoneType],
             theDaoHelper.INSERT,
             pCallback
         );
@@ -98,8 +100,25 @@ var WallsDao = function () {
         };
 
         theDaoHelper.executeQuery(
-            'UPDATE routes SET active = 0 WHERE wall_id = ?',
+            'UPDATE routes SET active = 0 WHERE wall_id = ? AND active = 1',
             [pZoneId],
+            theDaoHelper.UPDATE,
+            deleteAlerts
+        );
+    };
+
+    this.stripColor = function (pZoneId, pColorId, pCallback) {
+
+        var deleteAlerts = function (pResults) {
+            theRouteNewToUserDao
+                .deleteAllNewRouteToUserAlertForZoneColor(pZoneId, pColorId, function () {
+                    pCallback(pResults);
+                });
+        };
+
+        theDaoHelper.executeQuery(
+            'UPDATE routes SET active = 0 WHERE wall_id = ? AND color_id = ? AND active = 1',
+            [pZoneId, pColorId],
             theDaoHelper.UPDATE,
             deleteAlerts
         );

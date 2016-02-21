@@ -1,0 +1,46 @@
+<section class="row collapse">
+
+    <div ng-if="gym.facebook" class="medium-4 small-12 columns hide-for-small mb4" style="padding-right: 20px;">
+
+      <div class="panel--dropshadow">
+
+        <div class="section--primary" style="height: 10px;"></div>
+
+        <div style="padding: 20px;">
+          <h2 class="fwl">
+              News Feed
+          </h2>
+
+          <div
+            class="fb-page"
+            data-height="800"
+            data-href="{{gym.facebook}}"
+            data-tabs="timeline"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="true">
+            <div class="fb-xfbml-parse-ignore">
+              <blockquote cite="{{gym.facebook}}">
+                <a href="{{gym.facebook}}">{{gym.name}}</a>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-4 small-12 columns mb4" style="padding-right: 20px;">
+        <ng-include src=" 'templates/gym/panels/social/sections/LatestComments.tpl.html' "></ng-include>
+    </div>
+
+    <!-- Latest Climber Sends -->
+    <div class="medium-4 small-12 columns mb4" ng-style="{'padding-right': paddingRight}">
+        <ng-include src=" 'templates/gym/panels/social/sections/LatestClimberSends.tpl.html' "></ng-include>
+    </div>
+
+    <div ng-if="!gym.facebook" class="medium-4 small-12 columns mb4">
+      <ng-include src=" 'templates/gym/panels/social/sections/LatestProjects.tpl.html' "></ng-include>
+    </div>
+
+</section>

@@ -36,7 +36,7 @@ angular.module('SETTER')
                   $scope.gymId = gymId;
                   $scope.accountId = $rootScope.getAccountId();
                   $scope.step = 5;
-                  $scope.initial = 5;
+                  $scope.initial = 10;
                   $scope.routes = [];
                   $scope.text = MORE;
                   $scope.hasData = false;

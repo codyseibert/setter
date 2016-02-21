@@ -66,14 +66,15 @@ angular.module('SETTER')
                     });
                 },
 
-                createWall: function (pGymId, pWallName) {
+                createWall: function (pGymId, pWallName, pZoneType) {
                     this.setWallsDirty(pGymId);
 
                     return $http({
                         method: "POST",
                         url: 'api/gyms/' + pGymId + '/walls',
                         data: {
-                            wallName: pWallName
+                            wallName: pWallName,
+                            zoneType: pZoneType
                         }
                     });
                 },
@@ -107,6 +108,16 @@ angular.module('SETTER')
                     return $http({
                         method: "POST",
                         url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/strip'
+                    });
+                },
+
+                stripColor: function (pGymId, pWallId, colorId) {
+                    this.setWallDirty(pWallId);
+                    this.setWallsDirty(pGymId);
+
+                    return $http({
+                        method: "POST",
+                        url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/strip/color/' + colorId
                     });
                 }
             };

@@ -1,0 +1,77 @@
+
+<div class="panel--dropshadow">
+
+  <div class="section--primary" style="height: 10px;"></div>
+
+  <div style="padding: 20px;">
+
+    <h2 class="fwl">
+        Latest Sends
+    </h2>
+
+    <div>
+      <table class=" [  table--unStyled  table--list table--clickableElem ]">
+
+          <tbody ng-show="hasActivity()">
+
+              <tr
+                  bindonce
+                  ng-repeat="act in activity"
+                  ng-click="openRouteModal(act)"
+                  data-equalizer-watch>
+
+                  <td>
+
+                      <i class="icon-circle icon--medium"
+                          bo-style="{color: act.value}">
+                      </i>
+
+                      <span bo-text="formatGrade(act.bg, act.rg, act.lg)"></span>
+                  </td>
+
+                  <td>
+
+                    <img class="avatar avatar--tiny "
+                        ng-click="navigateToUser(act.id)"
+                        bo-src="getUserImageSrc(act)">
+
+                    <a class="title mr2 display--inlineBlock"
+                        ng-click="navigateToUser(act.id)"
+                        bo-text="act.name">
+                    </a>
+
+                  </td>
+
+                  <td>
+
+                      <span class="display--block" bo-text="act.date | date : 'MMM dd, yyyy'">
+                      </span>
+
+                  </td>
+
+                  <td>
+                      <span class="icon-right-big  right">
+
+                      </span>
+                  </td>
+
+              </tr>
+
+          </tbody>
+
+           <ss-placeholder
+             size="small"
+             ng-show="hasNoClimberActivity"
+              no-data = "hasNoClimberActivity"
+              title="No sends, yet."
+              paragraph="Here you'll soon find this gym's climber's latest sends."
+              image="images/placeholder--NoLatestSends.jpg"
+              link-text=""
+              ng-click="">
+          </ss-placeholder>
+
+
+      </table>
+    </div>
+  </div>
+</div>

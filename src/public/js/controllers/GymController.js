@@ -7,6 +7,7 @@ angular.module('SETTER')
         '$routeParams',
         '$rootScope',
         '$interval',
+        '$timeout',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -19,6 +20,7 @@ angular.module('SETTER')
             $routeParams,
             $rootScope,
             $interval,
+            $timeout,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -41,27 +43,30 @@ angular.module('SETTER')
             $rootScope.gymId = $scope.gymId;
             $scope.showOnlyActive = true;
 
-
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
             $scope.LEAD = 'Lead';
 
             // Displaying Tab Logic
+            $scope.PANEL_SOCIAL = 'social';
             $scope.PANEL_ACTIVITY = 'activity';
             $scope.PANEL_STATS = 'stats';
             $scope.PANEL_CLIMBERS = 'climbers';
-            $scope.currentTab = $scope.PANEL_ACTIVITY;
+            $scope.currentTab = $scope.PANEL_SOCIAL;
 
+            $scope.PANEL_SOCIAL = 'SOCIAL';
             $scope.PANEL_ACTIVITY = 'ACTIVITY';
             $scope.PANEL_STATS = 'STATS';
             $scope.PANEL_CLIMBERS = 'CLIMBERS';
-            $scope.panel = $scope.PANEL_ACTIVITY;
+            $scope.panel = $scope.PANEL_SOCIAL;
             $scope.options = {};
             $scope.form = {};
             $scope.typeNewest = $scope.BOULDERING;
             $scope.typeNewestCurrent = $scope.BOULDERING;
             $scope.typeBest = $scope.BOULDERING;
             $scope.typeBestCurrent = $scope.BOULDERING;
+
+            $scope.paddingRight = '0px';
 
             $scope.activity = [];
             $scope.newRoutes = [];
@@ -95,6 +100,10 @@ angular.module('SETTER')
             GymsService.getGym($scope.gymId, function (pData) {
                 $scope.gym = pData;
                 $scope.gymName = $scope.gym.name;
+
+                if ($scope.gym.facebook === '' || $scope.gym.facebook === undefined) {
+                  $scope.paddingRight = '20px';
+                }
             });
 
 
@@ -290,20 +299,6 @@ angular.module('SETTER')
             };
 
 
-            /*
-            *   SECTION - Image
-            */
-            $scope.fileNameChanged = function () {
-              $scope.isUploadingImage = true;
-              angular.element("#image_submit").trigger('click');
-            };
-
-            $scope.imageUploadComplete = function (content) {
-                $scope.isUploadingImage = false;
-                $scope.image = content;
-                LoginService.setImageUrl(content.url);
-                UsersService.setImageAsDirty(LoginService.getAccountId());
-            };
 
             $scope.setTypeNewest = function (pType) {
                 $scope.typeNewest = pType;
@@ -351,6 +346,10 @@ angular.module('SETTER')
             // We need to set authorization for the 'upload image' functionality
             $scope.authorization = LoginService.getHeader();
 
+            $scope.imageUploadCompleted = function(pData) {
+                LoginService.setImageUrl(pData.url);
+            };
+
             $scope.setCurrentTab = function (pCurrentTab) {
                 // Visually switch between tabs on the UI
                 $scope.currentTab = pCurrentTab;
@@ -360,6 +359,12 @@ angular.module('SETTER')
                   loadStatisticsPanelData();
                 } else if (pCurrentTab === $scope.PANEL_CLIMBERS) {
                   loadClimberPanelData();
+                } else if (pCurrentTab === $scope.PANEL_SOCIAL) {
+                      $timeout(function(){
+                          if ($(".fb-page iframe").length === 0) {
+                              FB.XFBML.parse();
+                          }
+                      }, 500)
                 }
             };
 

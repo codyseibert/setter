@@ -15,7 +15,7 @@
                             image="{{image}}"
                             authorization="{{authorization}}"
                             action="/api/accounts/image"
-                            callback="imageUploadCallback"
+                            callback="imageUploadCompleted"
                             active="getAccountId() === userId">
                           </ss-upload-image>
 
@@ -136,16 +136,14 @@
     <div class="tabs-content   row  small-collapse  medium-uncollapse">
 
         <div class="content small-12  columns" ng-class="{'active' : userTabs == 'panel1'}">
-        
+
             <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' "></ng-include>
-        
+
         </div>
-        
+
         <div class="content small-12  columns" ng-class="{'active' : userTabs == 'panel2'}">
-        
+
             <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' "></ng-include>
-        
+
         </div>
     </div>
-
-

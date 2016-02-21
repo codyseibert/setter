@@ -14,7 +14,7 @@ angular.module('SETTER')
                 action: '@',
                 authorization: '@',
                 image: '@',
-                callback: '=',
+                callback: '=?',
                 active: '='
               },
               templateUrl: 'templates/directives/ssUploadImage.tpl.html',
@@ -42,7 +42,9 @@ angular.module('SETTER')
                 scope.imageUploadComplete = function (content) {
                   scope.isUploadingImage = false;
                   scope.image = content.url;
-                  scope.callback(content);
+                  if (scope.callback) {
+                    scope.callback(content);
+                  }
                 };
               }
 

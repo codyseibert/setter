@@ -100,8 +100,25 @@ var WallsDao = function () {
         };
 
         theDaoHelper.executeQuery(
-            'UPDATE routes SET active = 0 WHERE wall_id = ?',
+            'UPDATE routes SET active = 0 WHERE wall_id = ? AND active = 1',
             [pZoneId],
+            theDaoHelper.UPDATE,
+            deleteAlerts
+        );
+    };
+
+    this.stripColor = function (pZoneId, pColorId, pCallback) {
+
+        var deleteAlerts = function (pResults) {
+            theRouteNewToUserDao
+                .deleteAllNewRouteToUserAlertForZoneColor(pZoneId, pColorId, function () {
+                    pCallback(pResults);
+                });
+        };
+
+        theDaoHelper.executeQuery(
+            'UPDATE routes SET active = 0 WHERE wall_id = ? AND color_id = ? AND active = 1',
+            [pZoneId, pColorId],
             theDaoHelper.UPDATE,
             deleteAlerts
         );

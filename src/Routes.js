@@ -33,6 +33,7 @@ var ProjectsController = require('./controllers/ProjectsController');
 var InjectAccountId = require('./middleware/InjectAccountId');
 var InjectAccountIdUsingEmail = require('./middleware/InjectAccountIdUsingEmail');
 var ValidateGymAdmin = require('./middleware/ValidateGymAdmin');
+var ValidateGymSetter = require('./middleware/ValidateGymSetter');
 
 var RouteToControllerBinder = function () {
     'use strict';
@@ -93,7 +94,6 @@ var RouteToControllerBinder = function () {
 
     app.get('/api/gyms/:gymId/settings',
         GymsController.getGymSettings);
-
 
     app.get('/api/gyms/:gymId/comments',
         GymsController.getLatestComments);
@@ -261,7 +261,7 @@ var RouteToControllerBinder = function () {
 
     app.post('/api/gyms/:gymId/walls/:wallId/image',
         InjectAccountId,
-        ValidateGymAdmin,
+        ValidateGymSetter,
         ImagesController.uploadWallImage);
 
     app.delete('/api/gyms/:gymId/walls/:wallId',
@@ -271,8 +271,13 @@ var RouteToControllerBinder = function () {
 
     app.post('/api/gyms/:gymId/walls/:wallId/strip',
         InjectAccountId,
-        ValidateGymAdmin,
+        ValidateGymSetter,
         WallsController.stripZone);
+
+    app.post('/api/gyms/:gymId/walls/:wallId/strip/color/:colorId',
+        InjectAccountId,
+        ValidateGymSetter,
+        WallsController.stripColor);
 
 
 
@@ -294,7 +299,7 @@ var RouteToControllerBinder = function () {
 
     app.post('/api/gyms/:gymId/walls/:wallId/routes',
         InjectAccountId,
-        ValidateGymAdmin,
+        ValidateGymSetter,
         RoutesController.createRoute);
 
     app.delete('/api/routes/:routeId/setAsViewed',
@@ -419,7 +424,7 @@ var RouteToControllerBinder = function () {
     // SETTERS
     app.get('/api/gyms/:gymId/setters',
         InjectAccountId,
-        ValidateGymAdmin,
+        ValidateGymSetter,
         SettersController.getSettersAtGym);
 
     app.get('/api/setters',

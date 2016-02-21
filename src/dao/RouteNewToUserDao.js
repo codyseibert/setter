@@ -64,6 +64,21 @@ var RouteNewToUserDao = function () {
             pCallback
         );
     };
+
+
+    /**
+        Used when a zone is stripped by removing all 'new' alerts for zone.
+    */
+    this.deleteAllNewRouteToUserAlertForZoneColor = function (pZoneId, pColorId, pCallback) {
+        theDaoHelper.executeQuery(
+            'DELETE FROM route_new_to_user rntu ' +
+            'INNER JOIN routes r ON r.id = rntu.route_id ' +
+            'WHERE r.wall_id = ? AND r.color_id = ?',
+            [pZoneId, pColorId],
+            theDaoHelper.DELETE,
+            pCallback
+        );
+    };
 };
 
 module.exports = new RouteNewToUserDao();

@@ -7,6 +7,7 @@ angular.module('SETTER')
         '$routeParams',
         '$rootScope',
         '$interval',
+        '$timeout',
         'GymsService',
         'RoutesService',
         'BarGraphHelperService',
@@ -19,6 +20,7 @@ angular.module('SETTER')
             $routeParams,
             $rootScope,
             $interval,
+            $timeout,
             GymsService,
             RoutesService,
             BarGraphHelperService,
@@ -47,15 +49,17 @@ angular.module('SETTER')
             $scope.LEAD = 'Lead';
 
             // Displaying Tab Logic
+            $scope.PANEL_SOCIAL = 'social';
             $scope.PANEL_ACTIVITY = 'activity';
             $scope.PANEL_STATS = 'stats';
             $scope.PANEL_CLIMBERS = 'climbers';
-            $scope.currentTab = $scope.PANEL_ACTIVITY;
+            $scope.currentTab = $scope.PANEL_SOCIAL;
 
+            $scope.PANEL_SOCIAL = 'SOCIAL';
             $scope.PANEL_ACTIVITY = 'ACTIVITY';
             $scope.PANEL_STATS = 'STATS';
             $scope.PANEL_CLIMBERS = 'CLIMBERS';
-            $scope.panel = $scope.PANEL_ACTIVITY;
+            $scope.panel = $scope.PANEL_SOCIAL;
             $scope.options = {};
             $scope.form = {};
             $scope.typeNewest = $scope.BOULDERING;
@@ -360,6 +364,12 @@ angular.module('SETTER')
                   loadStatisticsPanelData();
                 } else if (pCurrentTab === $scope.PANEL_CLIMBERS) {
                   loadClimberPanelData();
+                } else if (pCurrentTab === $scope.PANEL_SOCIAL) {
+                      $timeout(function(){
+                          if ($(".fb-page iframe").length === 0) {
+                              FB.XFBML.parse();
+                          }
+                      }, 500)
                 }
             };
 

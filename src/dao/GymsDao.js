@@ -26,7 +26,7 @@ var GymsDao = function () {
 
     this.getGym = function (pGymId, pCallback) {
         theDaoHelper.executeQuery(
-            'SELECT account_id, name, address FROM gyms WHERE account_id = ?',
+            'SELECT account_id, name, address, facebook FROM gyms WHERE account_id = ?',
             [pGymId],
             theDaoHelper.SINGLE,
             pCallback

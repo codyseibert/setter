@@ -37,7 +37,8 @@ var LoginHelper = function () {
                 homeGymId: pResults.gym_id,
                 gymName: pResults.name,
                 url: pResults.url,
-                fullname: pResults.fullname
+                fullname: pResults.fullname,
+                gyms: pResults.gyms
             });
         });
     };

@@ -1,6 +1,6 @@
 {
   "name": "SETTER",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Gym Route Management Software!",
   "main": "js/app.js",
   "dependencies": {

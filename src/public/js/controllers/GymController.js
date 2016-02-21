@@ -41,7 +41,6 @@ angular.module('SETTER')
             $rootScope.gymId = $scope.gymId;
             $scope.showOnlyActive = true;
 
-
             $scope.BOULDERING = 'Bouldering';
             $scope.TOPROPE = 'Top Rope';
             $scope.LEAD = 'Lead';

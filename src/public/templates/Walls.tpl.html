@@ -17,6 +17,32 @@
 
 </section>
 
+<section style="margin-bottom: 20px;">
+  <ul class="tabs row small-collapse"
+      ng-init="showRope = false"
+      role="tablist">
+
+      <li class="tab-title  [ small-6  columns ] text-center"
+          ng-class="{'active': showRope === false}" >
+
+          <a ng-click="showRope = false; form.zoneType = types[0]">
+              <i class="icon-globe"></i>
+              Bouldering&nbsp;&nbsp;&nbsp;
+          </a>
+
+      </li>
+
+      <li class="tab-title  [ small-6  columns ] text-center"
+          ng-class="{'active': showRope === true}" >
+
+          <a ng-click="showRope = true; form.zoneType = types[1]">
+              <i class="icon-globe"></i>
+              Rope&nbsp;&nbsp;&nbsp;
+          </a>
+      </li>
+  </ul>
+</section>
+
 <!-- Zone Actions -->
 <section class="row " ng-hide="loading">
 
@@ -178,15 +204,17 @@ us-spinner>
 
         <!-- <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList"> -->
 
-    <div class="ptb2 medium-6 columns"
+    <div class="ptb2 medium-4 columns"
         bindonce
         ng-repeat="wall in walls"
-        ng-hide="wall.hide">
-      <div class="panel  panel--dropshadow"
+        ng-hide="wall.hide || (wall.type === 0 && showRope === true) || (wall.type === 1 && showRope === false) || (wall.type === 2 && showRope === false)">
+      <div class="panel--dropshadow" style="background-color: white;"
           ng-click="navigateToWall(gymId, wall.id)">
+        <div class="section--primary" style="height: 10px;"></div>
 
+        <div style="padding: 10px;">
           <div class="flag-image">
-            <img ng-src="{{getWallImageSrc(wall)}}" width="200px" style="padding-right: 20px;">
+            <img ng-src="{{getWallImageSrc(wall)}}" max-width="200px" style="height: 135px; padding-right: 20px;">
           </div>
 
           <div class="flag-body">
@@ -196,6 +224,7 @@ us-spinner>
             <!-- <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"> New Routes</span> -->
             <!-- <span class="round  label success " ng-show="isUserAccount() && wall.route_count" bo-text="wall.route_count"> Total Routes</span> -->
           </div>
+        </div>
       </div>
     </div>
 

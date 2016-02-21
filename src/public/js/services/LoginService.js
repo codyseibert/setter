@@ -33,6 +33,7 @@ angular.module('SETTER')
                 url = null,
                 name = null,
                 gymName = null,
+                accessList = [],
                 initCalled = false;
 
             return {
@@ -47,12 +48,19 @@ angular.module('SETTER')
                             }
                         });
                 },
+                getAccessList: function () {
+                    return accessList;
+                },
+                setAccessList: function (gyms) {
+                    accessList = gyms;
+                    $cookies.accessList = gyms;
+                },
                 login: function (pLoginInfo) {
                     return $http({
                         method: "POST",
                         url: "api/login",
                         data: pLoginInfo
-                    });
+                    })
                 },
                 setHeader: function (pToken) {
                     $http.defaults.headers.common.Authorization = 'Bearer ' + pToken;
@@ -97,6 +105,9 @@ angular.module('SETTER')
                 setNameFromCookie: function () {
                     name = $cookies.name;
                 },
+                setAccessListFromCookie: function () {
+                    accessList = $cookies.accessList;
+                },
                 hasTokenInCookie: function () {
                     return $cookies.token !== undefined;
                 },
@@ -108,6 +119,7 @@ angular.module('SETTER')
                     delete $cookies.url;
                     delete $cookies.name;
                     delete $cookies.gymName;
+                    delete $cookies.accessList;
                     delete $http.defaults.headers.common.Authorization;
 
                     localStorageService.remove('cookies');

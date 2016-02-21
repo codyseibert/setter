@@ -109,6 +109,16 @@ angular.module('SETTER')
                         method: "POST",
                         url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/strip'
                     });
+                },
+
+                stripColor: function (pGymId, pWallId, colorId) {
+                    this.setWallDirty(pWallId);
+                    this.setWallsDirty(pGymId);
+
+                    return $http({
+                        method: "POST",
+                        url: 'api/gyms/' + pGymId + '/walls/' + pWallId + '/strip/color/' + colorId
+                    });
                 }
             };
         }]);

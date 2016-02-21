@@ -54,7 +54,6 @@ angular.module('SETTER')
             $scope.checkForWalls = function (pWalls) {
                 if(pWalls.length === 0) {
                     $scope.hasNoWalls = true;
-                    console.log($scope.hasNowalls);
                 }
                 else {
                     return;
@@ -62,7 +61,6 @@ angular.module('SETTER')
             };
 
             WallsService.getWallsInGym($scope.gymId, function (pData) {
-                console.log(pData);
                 $scope.walls = pData;
                 $scope.checkForWalls($scope.walls);
                 $scope.loading = false;

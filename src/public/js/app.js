@@ -145,9 +145,9 @@ angular.module('SETTER', [
             $rootScope,
             $location,
             $window,
-            $routeParams,
             $timeout,
             $cookies,
+            $routeParams,
             UsersService,
             GymsService,
             WallsService,
@@ -234,7 +234,7 @@ angular.module('SETTER', [
             };
 
             $rootScope.navigateToGymRouteSearch = function(pGymId) {
-                $location.path('gyms/' + pGymId + '/routesearch'); 
+                $location.path('gyms/' + pGymId + '/routesearch');
             };
 
             $rootScope.navigateToGyms = function () {
@@ -305,6 +305,10 @@ angular.module('SETTER', [
                 return LoginService.isGymAccount();
             };
 
+            $rootScope.isSetter = function () {
+                return LoginService.getAccessList().indexOf(gymId) >= 0
+            };
+
             $rootScope.isUserAccount = function () {
                 return LoginService.isUserAccount();
             };
@@ -342,6 +346,7 @@ angular.module('SETTER', [
                 LoginService.setImageUrlFromCookie();
                 LoginService.setNameFromCookie();
                 LoginService.setGymNameFromCookie();
+                LoginService.setAccessListFromCookie()
                 $rootScope.imageUrl = LoginService.getImageUrl();
             }
 
@@ -396,6 +401,7 @@ angular.module('SETTER', [
                 paths.splice(0, 1);
 
                 $rootScope.closeRouteModal();
+
 
                 // Always slide right (handles back logic)
                 $rootScope.slideInRight = false;
@@ -664,6 +670,12 @@ angular.module('SETTER', [
                 $rootScope.routeSelected = route;
                 $rootScope.routeModalViewType = 'view';
                 SelectedRouteService.setSelectedRoute(route);
+
+                $timeout(function() {
+                    debugger
+                    $('#modal_focus_me').focus()
+                    $('#modal_focus_me').click()
+                }, 500);
             };
 
             $rootScope.closeRouteModal = function () {

@@ -16,14 +16,14 @@
 
 
 <section class="row" ng-show="isGymAccount()">
-    
+
     <div class="small-12 small-centered large-6 large-uncentered columns">
 
 
         <div class="fieldwrapper  pb5">
-            
+
             <h2 class="fwl">Gym Privacy Settings</h2>
-            
+
             <input id="privacy-setters"
                    type="checkbox"
                    ng-model="settings.hide_setters"
@@ -31,6 +31,23 @@
             </input>
 
             <label for="privacy-setters" class="h5">Prevent users from seeing setters on routes</label>
+        </div>
+
+        <div class="fieldwrapper  pb5">
+
+            <h2 class="fwl">Facebook URL</h2>
+
+            <input
+                   type="input"
+                   ng-model="settings.facebook"
+                   placeholder="e.g. https://www.facebook.com/yourpage/"
+                   style="width: 400px; padding: 10px; margin-bottom: 20px;">
+            </input>
+
+            <button class="[ btn--secondary  btn--medium  btn--expanded ] center"
+                    ng-click="updateSettings()">
+                Save
+            </button>
         </div>
 
     </div>

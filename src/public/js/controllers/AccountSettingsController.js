@@ -16,6 +16,7 @@ angular.module('SETTER')
 
             AccountsService.getSettings()
               .success(function (pData) {
+                  $scope.settings.facebook = pData.facebook;
                   $scope.settings.hide_setters = pData.hide_setters === 1;
               });
 

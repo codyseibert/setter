@@ -22,7 +22,7 @@ var path = require('path');
 var ImagesController = function () {
     'use strict';
 
-    var handleImage = function (req, res, pCallback) {
+    var handleImage = function (req, res, scaled, pCallback) {
         var MAX_WIDTH = 400,
             image,
             width,
@@ -31,6 +31,7 @@ var ImagesController = function () {
             new_height,
             ratio,
             extension,
+            scaledString,
             base;
 
 
@@ -40,6 +41,8 @@ var ImagesController = function () {
             res.send("error");
             return;
         }
+
+        scaledString = '';
 
         image = req.files.file;
         base = process.env.PWD;
@@ -55,16 +58,24 @@ var ImagesController = function () {
                 extension = "." + image.extension;
                 new_width = MAX_WIDTH;
                 new_height = MAX_WIDTH / ratio;
+
+                if (scaled === true) {
+                  scaledString = '_scaled';
+                } else {
+                  new_width = file.width;
+                  new_height = file.height;
+                }
+
                 easyimage.resize({
                     width: new_width,
                     height: new_height,
                     src: image.path,
-                    dst: base + '/public/images/uploads/' + image.name.replace(extension, '_scaled' + extension)
+                    dst: base + '/public/images/uploads/' + image.name.replace(extension, scaledString + extension)
                 }).then(function () {
-                    theImagesDao.insertImage('images/uploads/' + image.name.replace(extension, '_scaled' + extension), function (pResults) {
+                    theImagesDao.insertImage('images/uploads/' + image.name.replace(extension, scaledString + extension), function (pResults) {
                         var ret = {
                             id: pResults.id,
-                            url: 'images/uploads/' + image.name.replace(extension, '_scaled' + extension)
+                            url: 'images/uploads/' + image.name.replace(extension, scaledString + extension)
                         };
                         pCallback(ret);
                     });
@@ -75,7 +86,7 @@ var ImagesController = function () {
     this.uploadAccountImage = function (pReq, pRes) {
         var accountId = pReq.user.accountId;
 
-        handleImage(pReq, pRes, function (pRet) {
+        handleImage(pReq, pRes, true, function (pRet) {
             theAccountsDao.updateImage(pRet.id, accountId, function (pResults) {
                 pRes.send(pRet);
             });
@@ -85,7 +96,7 @@ var ImagesController = function () {
     this.uploadWallImage = function (pReq, pRes) {
         var wallId = pReq.params.wallId;
 
-        handleImage(pReq, pRes, function (pRet) {
+        handleImage(pReq, pRes, false, function (pRet) {
             theWallsDao.updateImage(pRet.id, wallId, function (pResults) {
                 pRes.send(pRet);
             });

@@ -1,2 +1,0 @@
-USE setter;
-ALTER TABLE walls ADD COLUMN last_update DATETIME NOT NULL;

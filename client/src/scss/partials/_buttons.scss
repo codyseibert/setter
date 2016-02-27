@@ -1,0 +1,309 @@
+
+/*------------------------------------*\
+    #Buttons
+\*------------------------------------*/
+
+
+button,
+button[type="submit"],
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  font-family: $body-font-family;
+  outline: 0;
+}
+
+
+
+
+/*------------------------------------*\
+    #Universal Button Classes
+\*------------------------------------*/
+
+
+[class*="btn--"] {
+  @include border-radius(8px);
+  color: #fff;
+  font-weight: $bold;
+
+  i:before {
+    @extend %mr0;
+  }
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #Button Types
+\*------------------------------------*/
+
+
+.btn--primary {
+  @include button($primaryColor);
+}
+
+.btn--secondary {
+  @include button($grey--medium) {
+    &,
+    &:hover {
+      color: $grey--dark; 
+    }
+  }
+}
+
+
+.btn--tetriary {
+  @include button($brown--dark) {
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.btn--warning {
+  @include button($warning);
+}
+
+
+
+
+/*------------------------------------*\
+    #Button Groups
+\*------------------------------------*/
+
+.btnGroup--primary {
+  @include button-group($primaryColor) {
+    a {
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+.btnGroup--secondary {
+  @include button-group($grey--medium) {
+    [class*="btn--"] {
+      color: $grey--medium;
+    }
+  }
+}
+
+.btnGroup--even2 {
+  @include button-group--even(2);
+}
+
+.btnGroup--even3 {
+  @include button-group--even(3);
+}
+
+.btnGroup--event4 {
+  @include button-group--even(4);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Special Button Types
+\*------------------------------------*/
+
+
+
+
+
+.btn--split {
+  padding-right: rem-calc(32) !important;
+
+  span {
+    @extend %arrow--down;
+    border-left: 1px solid $grey--dark;
+    display: block;
+    height: 100%;
+    margin-right: rem-calc(12);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: rem-calc(16);
+  }
+}
+
+
+
+.btn--fixedAction {
+    @extend %circle; 
+    @extend %fixed; 
+    @extend %dropshadow--topLayer; 
+    border: 0; 
+    width: rem-calc(58);
+    height: rem-calc(58); 
+    z-index: 4; 
+    bottom: 0; 
+    right: rem-calc(5); 
+
+    .icon {
+      width: rem-calc(30);
+      height: rem-calc(30); 
+    }
+
+}
+
+.feedback {
+    color: #fff; 
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+    padding-right: 36px;
+    background-color: $primaryColor; 
+    font-size: rem-calc(12); 
+    @extend %ptrbl1; 
+    z-index: 2000; 
+    
+    .feedback-close {
+        font-size: rem-calc(20); 
+    }
+
+    @media #{$medium-up} {
+        font-size: rem-calc(14); 
+
+        .feedback-close {
+            font-size: rem-calc(14); 
+        }
+
+    }
+
+    a {
+        color: #fff; 
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none; 
+        }
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Button Options
+\*------------------------------------*/
+
+
+.btn--expanded {
+  width: 100%;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Button Sizes
+\*------------------------------------*/
+
+
+.btn--tiny {
+  padding: rem-calc(6);
+  padding-right: rem-calc(8);
+  padding-left: rem-calc(8);
+  font-size: rem-calc(10);
+}
+
+.btn--small {
+  padding: rem-calc(8);
+  padding-right: rem-calc(16);
+  padding-left: rem-calc(16);
+  font-size: rem-calc(12);
+
+  i:before {
+    font-size: rem-calc(14);
+  }
+
+}
+
+.btn--medium {
+  padding: rem-calc(10);
+  padding-right: rem-calc(20);
+  padding-left: rem-calc(20);
+  font-size: rem-calc(14);
+
+  i:before {
+    font-size: rem-calc(16);
+  }
+}
+
+.btn--big {
+  padding: rem-calc(10);
+  padding-right: rem-calc(40);
+  padding-left: rem-calc(40);
+  font-size: rem-calc(18);
+}
+
+.btn--jumbo {
+  padding: rem-calc(12);
+  padding-right: rem-calc(60);
+  padding-left: rem-calc(60);
+  font-size: rem-calc(22);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Custom Suggestions Thumbs Up
+\*------------------------------------*/
+.suggestion {
+    display: inline-block;
+    color: #54487f;
+    cursor: pointer;
+}
+
+.suggestion:hover{
+    color: #e78724;
+}
+
+.suggestion.disabled{
+    color: #aed850;
+    cursor: default;
+}
+
+.suggestion.disabled:hover{
+    color: #aed850;
+}
+
+/*------------------------------------*\
+    # Custom Stars
+\*------------------------------------*/
+.star{
+    cursor: pointer;
+    color: #333;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+
+.star:hover{
+    color: #888;
+}
+
+.star.rated:hover{
+    color: white;
+}
+
+.star.rated{
+    color: orange;
+}

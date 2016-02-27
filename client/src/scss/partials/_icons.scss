@@ -1,0 +1,343 @@
+
+/*------------------------------------*\
+    #Icons
+\*------------------------------------*/
+
+
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  // margin-left: .08em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+
+
+[class*="comments"], [rel*="comments"] {
+  @include icon($icon--comments);
+}
+
+.icon-star {
+    @include icon($icon--star) {
+        color: $grey--medium;
+    }
+}
+
+.rated .icon-star {
+    @include icon($icon--star) {
+        color: $color--rating;
+    }
+}
+
+.icon-star.hovered {
+    @include icon($icon--star) {
+        color: $color--rating--hovered;
+    }
+}
+
+// .rating {
+//   cursor: pointer;
+// }
+
+[class*="icon-star-empty"] {
+  @include icon($icon--star--empty) {
+    color: $grey--medlight;
+  }
+}
+
+.icon-dashboard {
+  @include icon($icon--gauge);
+}
+
+.icon-profile {
+  @include icon($icon--person);
+}
+
+.icon-home {
+  @include icon($icon--house);
+}
+
+
+.icon-globe {
+  @include icon($icon--globe);
+}
+
+
+.icon-stats {
+  @include icon($icon--chart--graph);
+}
+
+
+[href*="topo"],
+.icon-topo,
+.icon-map {
+  @include icon($icon--map);
+}
+
+[href*="insights"],
+.icon-insights {
+  @include icon($icon--insights);
+}
+
+[href*="logout"],
+.icon-logout {
+  @include icon($icon--logout);
+}
+
+[href*="settings"],
+.icon-settings {
+  @include icon($icon--cog);
+}
+
+[href*="setters"],
+.icon-group {
+  @include icon($icon--group);
+}
+
+.icon-alert {
+    @include icon($icon--alert);
+}
+
+.icon-trash {
+  @include icon($icon--thrash);
+}
+
+.icon-checked {
+    @include icon($icon--check);
+}
+
+.icon-unchecked {
+   @include icon($icon--unchecked); 
+}
+
+[href*="twitter.com"], [rel="twitter-link"] {
+  @include icon($icon--twitter);
+}
+
+[href*="facebook.com"], [rel="facebook-link"] {
+    @include icon($icon--facebook);
+}
+
+[rel*="website-link"] {
+    @include icon($icon--website);
+}
+
+[rel*="address"] {
+    @include icon($icon--location);
+}
+
+[rel*="email"],
+.icon-envelope {
+    @include icon($icon--mail);
+}
+
+[rel*="tel"] {
+  @include icon($icon--phone);
+}
+
+[rel="archive"], [href*="routeArchive"],
+.icon-archive {
+  @include icon($icon--book);
+}
+
+
+.icon-search {
+  @include icon($icon--search);
+}
+
+.icon-right-big {
+  @include icon($icon--arrowR) ;
+}
+
+.icon-left-big {
+  @include icon($icon--arrowL);
+}
+
+.icon-down-big {
+  @include icon($icon--arrowD);
+
+}
+
+.icon-menuDropdown {
+  @include icon($icon--arrowD, after);
+}
+
+.icon-up-big {
+   @include icon($icon--arrowU);
+}
+
+.icon-pyramidDown {
+  @include icon($icon--pyramidDown);
+}
+
+.icon-pyramidUp {
+  @include icon($icon--pyramidUp);
+}
+
+
+.icon-circle {
+  @include icon($icon--circle);
+}
+
+.icon-megaphone {
+  @include icon($icon--megaphone);
+}
+
+.icon-pencil {
+  @include icon($icon--pencil);
+}
+
+
+.icon-blog {
+  @include icon($icon--rss);
+}
+
+.icon-plus {
+  @include icon($icon--plus);
+}
+
+.icon-minus {
+  @include icon($icon--minus);
+}
+
+.icon-thumbsUp {
+  @include icon($icon--thumbsUp);
+}
+
+.icon-cancel {
+ @include icon($icon--cancelCircle);
+}
+
+
+.icon--wrench--small {
+    width: rem-calc(36);
+  height: rem-calc(36);
+}
+
+.icon-key {
+  @include icon($icon--key);
+}
+
+// .icon--wrench {
+
+// }
+
+
+//
+//Climbing Types Icons
+//
+
+
+.icon--bouldering,
+.icon--topRope,
+.icon--leadClimbing {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: rem-calc(30);
+  width: rem-calc(30);
+}
+
+.icon--bouldering {
+  background-image: url('../images/icon--bouldering.svg')
+}
+
+.icon--leadClimbing {
+  background-image:  url('../images/icon--leadClimbing.svg');
+}
+
+.icon--topRope {
+  background-image: url('../images/icon--topRope.svg');
+}
+
+
+//Communication
+
+
+.icon-messaging {
+  @include icon($icon--speachBubble);
+}
+
+.icon-messaging-alt {
+   @include icon($icon--speachBubble-alt);
+}
+
+//
+//Icon Types
+//
+
+.icon--label {
+  @extend %mt2;
+  display: inline-block;
+  margin-right: 0;
+  &:before {
+    margin-right: 0;
+  }
+}
+
+
+.opacityHover--lightToDark {
+  opacity: .5;
+  @include transition(opacity, .6s, ease-in-out);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+
+.icon--colored {
+    color: $primaryColor;
+}
+
+//
+//Icon States
+//
+
+.active {
+  opacity: 1;
+}
+
+//
+//Icon Sizes
+//
+
+.icon--tiny {
+  font-size: rem-calc(10);
+}
+
+.icon--medium {
+  @extend %icon--medium;
+}
+
+.icon--big {
+  @extend %icon--big;
+}
+
+.icon--jumbo {
+ @extend %icon--jumbo;
+}

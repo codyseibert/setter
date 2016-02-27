@@ -1,0 +1,29 @@
+
+/*------------------------------------*\
+    #Footer
+\*------------------------------------*/
+
+
+footer {
+  @extend %pt2;
+  @extend %relative;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Dividers
+\*------------------------------------*/
+
+
+.dividerLeftRight--alt {
+    border: 0; 
+
+   @media #{$medium-up} { 
+        border-right: 2px solid darken($brown, 10%); 
+        border-left: 2px solid darken($brown, 10%);  
+   }
+}
+

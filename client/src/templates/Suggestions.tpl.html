@@ -1,0 +1,47 @@
+
+
+<section class="row">
+
+    <div class="header">
+
+        <h1 class=" fwb  mb2 icon-messaging-alt"> Feedback
+        </h1>
+        <p class="dwl">Let us know of any features or changes you'd like to see so we may improve Setter.</p>
+        <hr class="header-divider  hide-for-small-only">
+    </div>
+
+</section>
+
+
+
+<section class="row">
+
+    <div class="small-12 medium-6  columns  mb4">
+        <h2 class="fwl">Posted Feedback</h2>
+        <ul class="list--tableStyle">
+            <li ng-repeat="suggestion in suggestions" class="list--tableStyle  ptb2">
+                {{suggestion.suggestion}}
+                <br>
+                <i class="icon-thumbsUp  suggestion"
+                    ng-class="{disabled: suggestion.disabled}"
+                    ng-style="{'font-size': getFontSize(suggestion) + 'px'}"
+                    ng-click="upvote(suggestion)"> </i>{{suggestion.upvotes}}
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="small-12   medium-6  columns">
+        <textarea class="textarea--small"
+            ng-model="form.suggestion"
+            type="text"
+            placeholder="Type your suggestion here">
+        </textarea>
+
+        <button class="btn--medium btn--primary icon-plus  btn--expanded"
+                ng-click="postClicked()">
+            Post Feedback
+        </button>
+    </div>
+
+</section>

@@ -1,0 +1,87 @@
+<!-- Header -->
+<ng-include src=" 'templates/gym/GymHeader.tpl.html' " >
+</ng-include>
+
+
+
+<!-- Tabs-->
+<div class="row">
+
+        <!--
+
+            SECTION - Tabs
+
+        -->
+        <ul class="tabs row small-collapse"
+            ng-init="setCurrentTab(PANEL_SOCIAL)"
+            role="tablist">
+
+            <li class="tab-title  [ small-3  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_SOCIAL}" >
+
+                <a ng-click="setCurrentTab(PANEL_SOCIAL)">
+                    <i class="icon-messaging-alt"></i>
+                    Social
+                </a>
+
+            </li>
+
+            <li class="tab-title  [ small-3  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_ACTIVITY}" >
+
+                <a ng-click="setCurrentTab(PANEL_ACTIVITY)">
+                    <i class="icon-globe"></i>
+                    Top Rated
+                </a>
+
+            </li>
+
+            <li class="tab-title  [ small-3  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_STATS}">
+
+                <a ng-click="setCurrentTab(PANEL_STATS)">
+                    <i class="icon-stats"></i>
+                    Statistics
+                </a>
+
+            </li>
+
+            <li class="tab-title  [ small-3  columns ] text-center"
+                ng-class="{'active': currentTab === PANEL_CLIMBERS}">
+
+                <a ng-click="setCurrentTab(PANEL_CLIMBERS)">
+                    <i class="icon-group"></i>
+                    Climbers
+                </a>
+
+            </li>
+
+        </ul>
+
+        <div class="tabs-content small-12 columns">
+
+            <ss-tabs content-to-show="currentTab"></ss-tabs>
+
+            <div class="content"
+                ng-class="{'active': currentTab === PANEL_SOCIAL}">
+                <ng-include src=" 'templates/gym/panels/social/SocialPanel.tpl.html' "></ng-include>
+            </div>
+
+            <div class="content"
+                ng-class="{'active': currentTab === PANEL_ACTIVITY}">
+                <ng-include src=" 'templates/gym/panels/activity/ActivityPanel.tpl.html' "></ng-include>
+            </div>
+
+            <div class="content"
+                ng-class="{'active': currentTab === PANEL_STATS}">
+                <ng-include src=" 'templates/gym/panels/statistics/StatisticsPanel.tpl.html' "></ng-include>
+            </div>
+
+            <div class="content"
+                 ng-class="{'active': currentTab === PANEL_CLIMBERS}">
+                <ng-include src=" 'templates/gym/panels/members/MembersPanel.tpl.html' " ></ng-include>
+            </div>
+
+        </div>
+
+</div>

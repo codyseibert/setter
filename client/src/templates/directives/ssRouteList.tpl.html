@@ -1,0 +1,80 @@
+
+
+
+<div>
+
+  <div class="center" style="width: 80px; height: 80px; position: relative "
+  us-spinner ng-show="loading">
+
+  </div>
+
+  <div ng-hide="loading">
+
+    <div ng-show="hasData" >
+
+          <table class="[ small-12 columns ]  table--unStyled table--list table--clickableElem">
+
+              <tbody>
+
+                  <tr bindonce
+                      ng-repeat="route in routes | limitTo: limit"
+                      class="list--tableStyle  list--navElem"
+                      ng-click="openRouteModal(route)"
+                      ng-include
+                      src="template">
+                  </tr>
+
+              </tbody>
+
+          </table>
+
+          <div class="small-12 columns">
+
+            <div class="center display--block" style="width: 80px; height: 80px;"
+            us-spinner ng-show="loadingMore">
+
+          </div>
+
+          </div>
+
+          <a ng-click="clicked()"
+             class="center  h5  text-center pb4"
+             ng-hide="hasLessThanLimit()">{{text}}</a>
+   </div>
+
+
+   <div ng-hide="hasData" class="ng-hide">
+
+     <div class="relative">
+         <div class="[ placeholder-text  large  ] text-center">
+
+             <div class="vertical-align">
+
+                 <h2 class="h4 fwb mb2">
+                     {{placeholderTitle}}
+                 </h2>
+
+                 <p>
+                     {{placeholderText}}
+                     <br>
+                     <a
+                         ng-click="placeholderClick()"
+                         class="fwb">
+                         {{placeholderLinkTest}}
+                     </a>
+                 </p>
+
+             </div>
+
+         </div>
+
+         <img class="placeholderImage"
+              ng-src="{{placeholderImage}}">
+     </div>
+
+   </div>
+
+  </div>
+
+
+</div>

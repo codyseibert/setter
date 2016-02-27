@@ -1,0 +1,104 @@
+
+
+/*------------------------------------*\
+    #Brand Colors
+\*------------------------------------*/
+
+
+$brown--light: #F7F0E3;
+$brown: #EBE4D7;
+$brown--dark:  #6B6862;
+
+$orange--light: #F2715B;
+$orange: #ed6d56; 
+$orange--dark: #AC4F3F; 
+
+$green: #A3BF7C; 
+
+
+$primaryColor: $orange;
+$primaryColor--light: #FFEDE9;
+$primaryColor--dark: darken($primaryColor, 30%); 
+
+
+$color--dropDownLinks: $primaryColor--light;
+
+
+
+
+
+/*------------------------------------*\
+    #Ui Colors 
+\*------------------------------------*/
+
+
+$color--text: #484848;
+
+$color--rating: #f3db54;
+$color--rating--hovered: #f3fb54;
+
+
+$grey--dark: #333333;
+$grey--medium: #E0E0DF;
+$grey--medlight: rgba(195, 195, 195, 1);
+$grey--light:  #F2F2F2;
+
+$listBorderColor: #ddd; 
+
+
+
+
+/*------------------------------------*\
+    #Alert Colors
+\*------------------------------------*/
+
+
+$warning: #E9AB54;
+$success: #A3BF7C; 
+$hint: $orange--light; 
+
+
+
+
+
+/*------------------------------------*\
+    #Route Colors
+\*------------------------------------*/
+
+$routeColors:
+(darkBlue, #2B63AF),
+(blue, #1771B9),
+(lightBlue, #66A4D2),
+(purple, #523E94),
+(lightPurple, #9E80C7),
+(pink, #F182B3),
+(orange, #F05B24),
+(yellow, #F6EB2C),
+(red, #E6232E),
+(green, #349F47),
+(soIllGreen, #88AF3E),
+(black, #181718),
+(grey, #98989D),
+(blanco, #F3F3F4),
+(brown, #995B50),
+(tan, #D0A364);
+
+//Old Colors
+// $routeColors:
+// (brown, #5D4636),
+// (lightbrown, #CAA16D),
+// (blue, #4d77cb),
+// (lightBlue, #6491ed),
+// (teal, rgba(32, 210, 248, 1)),
+// (pink, #c93d98),
+// (red, #c51038),
+// (green, #34b27d),
+// (darkgreen, #6caa4f),
+// (limeGreen, #88AE2C),
+// (yellow, #faf038),
+// (orange, #de923c),
+// (purple, #7F5E93),
+// (lightpurple, #9e80c7),
+// (white, #f1f1f1),
+// (grey, #97969c),
+// (black, #1A1A1A);

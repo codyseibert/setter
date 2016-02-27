@@ -1,0 +1,18 @@
+[Service]
+WorkingDirectory=/home/linkr/server
+ExecStart=/usr/bin/pm2 start --name linkr -e /var/log/linkr/error.log -o /var/log/linkr/app.log --merge-logs server.js
+ExecStop=/usr/bin/pm2 stop linkr
+ExecReload=/usr/bin/pm2 restart linkr
+Type=forking
+RemainAfterExit=true
+Restart=no
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=linkr
+User=linkr
+Group=linkr
+Environment='NODE_ENV=production'
+Environment='PATH=$PATH:/usr/bin'
+
+[Install]
+WantedBy=multi-user.target

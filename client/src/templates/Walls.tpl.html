@@ -1,0 +1,233 @@
+<!-- Header -->
+<section class="row">
+
+    <div class="header">
+
+        <h1 ng-show="isGymAccount()" class="fwb">
+            <img src="images/icon--drill--black.svg" alt="" height="30px" width="30px">  Manage Zones
+        </h1>
+
+        <h1 ng-hide="isGymAccount()" class="fwb">
+            Gym Zones
+        </h1>
+
+        <hr class="header-divider  hide-for-small-only">
+
+    </div>
+
+</section>
+
+<!-- Zone Actions -->
+<section class="row " ng-hide="loading">
+
+    <div class="small-12 columns">
+
+        <div class="media--fl">
+
+            <div>
+                <label for="searchTerm" class="icon--label icon-search inline"></label>
+            </div>
+
+            <div>
+                <input name=""
+                        type="search"
+                        id="searchTerm"
+                        ng-model="form.filter"
+                        ng-change="applyFilter()"
+                        placeholder="Search by Wall Name">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="center" style="width: 80px; height: 80px; position: relative " ng-show="loading"
+us-spinner>
+
+</div>
+
+<!-- NG Repeat Zone List -->
+<div class="row  small-collapse  large-uncollapse"  ng-hide="loading">
+
+
+    <!-- User - Blank State Copy -->
+    <section class="small-12 columns ng-hide" ng-show="hasNoWalls && isUserAccount()">
+
+        <!-- User - Blank State for no Zones Small Only -->
+        <div class="row  show-for-small-only">
+
+            <div class="small-12 columns">
+
+                <h2 class="wb  fwb">Bummer, it appears this gym hasn't set any routes yet.</h2>
+
+                <p>
+                    Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- User - Blank State for no Zones Medium Up -->
+        <div class="placeholder-text  medium  show-for-medium-up">
+
+                <div class="vertical-align  text-center">
+
+                    <h2 class="wb  fwb">Bummer, it appears this gym hasn't set any routes yet.</h2>
+
+                    <p>
+                        Let them know you'd like to climb some over at their <a class="fwb" ng-click="navigateToGymSuggestions(gymId)">Suggestion Board</a>.
+                    </p>
+
+                </div>
+
+        </div>
+
+        <img class="placeholderImage  show-for-medium-up" src="images/placeholder--zones.jpg" alt="Walls Placeholder"   width="1126"  height="414">
+
+    </section>
+
+    <!-- Gym - Blank State Copy -->
+    <section class="small-12 columns ng-hide" ng-show="hasNoWalls && getAccountId() === gymId">
+
+        <!-- Gym - Blank State for no Zones Small Only -->
+        <div class="row  show-for-small-only">
+
+            <div class="small-12 columns">
+
+                <h2 class="wb  fwb">You have no zones available to set routes on, yet.</h2>
+
+                <p>
+                    Before you can start adding awesome routes & problems to your gym you must first create a zone. <span class="fwb">Add your first zone below!  </span>
+                </p>
+
+                <div class="media--fl" ng-show="isGymAccount()">
+
+                    <button type="submit"
+                                alt="Add New Zone"
+                                class="btn--primary icon-plus btn--medium mb1 "
+                                ng-click="addClicked()">
+                        Add Zone
+                    </button>
+
+                    <div>
+                        <input type="text"
+                                name="name"
+                                id="wallName"
+                                placeholder="New zone Name"
+                                ng-model="form.wallName"
+                                class="mb1"/>
+                    </div>
+
+
+                </div>
+
+                <p class="txt--micro">
+                    <i><span class="uc fwb">Note:</span> Zones can serve as walls, climbing areas/sections, or whichever is the preferred method of wall categorization at your gym</i>.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Gym - Blank State for no Zones Medium Up -->
+        <div class="placeholder-text  large  show-for-medium-up">
+
+                <div class="vertical-align">
+
+                    <h2 class="wb  fwb">
+                        Bummer, your gym has no zones yet.
+                    </h2>
+
+                    <p>
+                        Before you can start adding awesome routes & problems, you must first create zones to set them on. <span class="fwb">Add your first zone below!  </span>
+                    </p>
+
+                    <div class="media--fl" ng-show="isGymAccount()">
+
+                        <button type="submit"
+                                    alt="Add New Zone"
+                                    class="btn--primary icon-plus btn--medium mb1 "
+                                    ng-click="addClicked()">
+                            Add Zone
+                        </button>
+
+                        <div>
+                            <input type="text"
+                                    name="name"
+                                    id="wallName"
+                                    placeholder="New zone Name"
+                                    ng-model="form.wallName"
+                                    class="mb1"/>
+                        </div>
+
+
+                    </div>
+                    <p class="txt--micro">
+                        <i><span class="uc fwb">Note:</span> Zones can serve as walls, climbing areas/sections, or whichever is the preferred method of wall categorization at your gym</i>.
+                    </p>
+                </div>
+        </div>
+
+        <img class="placeholderImage  show-for-medium-up" src="images/placeholder--zones.jpg" alt="Walls Placeholder"   width="1126"  height="414">
+
+    </section>
+
+
+
+        <!-- <ul class="list--tableStyle  list--navElem"  data-ui-component="gymZoneList"> -->
+
+    <div class="ptb2 medium-6 columns"
+        bindonce
+        ng-repeat="wall in walls"
+        ng-hide="wall.hide">
+      <div class="panel  panel--dropshadow"
+          ng-click="navigateToWall(gymId, wall.id)">
+
+          <div class="flag-image">
+            <img ng-src="{{getWallImageSrc(wall)}}" width="200px" style="padding-right: 20px;">
+          </div>
+
+          <div class="flag-body">
+            <h2 class="fwb" bo-text="wall.name"></h2>
+            <h2><span class="round label" style="font-size: 20px">{{wall.route_count}}</span>  Routes</h2>
+            <h2 ng-show="isUserAccount() && wall.route_count"><span class="round label success" style="font-size: 20px">{{wall.new_count}}</span>  New Routes</h2>
+            <!-- <span class="round  label success " ng-show="isUserAccount() && wall.new_count" bo-text="wall.new_count"> New Routes</span> -->
+            <!-- <span class="round  label success " ng-show="isUserAccount() && wall.route_count" bo-text="wall.route_count"> Total Routes</span> -->
+          </div>
+      </div>
+    </div>
+
+        <!-- </ul> -->
+
+
+    <div class="small-12  columns" ng-show="isGymAccount() && !hasNoWalls">
+
+        <div class="row pb4 large-collapse">
+
+            <div class="small-12  medium-8  large-9  columns">
+                <input class="expanded"
+                       type="text"
+                        name="name"
+                        id="wallName"
+                        placeholder="New zone Name"
+                        ng-model="form.wallName"/>
+            </div>
+
+            <div class="small-12 medium-4  large-2  columns  last">
+
+                <button type="submit"
+                            alt="Add New Zone"
+                            class="[ btn--primary  btn--medium  btn--expanded ]   icon-plus   right "
+                            ng-click="addClicked()">
+                    Create Zone
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

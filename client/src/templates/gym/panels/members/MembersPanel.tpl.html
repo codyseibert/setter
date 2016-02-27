@@ -1,0 +1,145 @@
+<section class="row">
+
+    <div class="small-12  medium-8 columns medium-centered"
+         ng-show="!hasUsers() && getAccountId() === gymId">
+
+        <p class="h3 text-center mt4">
+
+            Currently there are no climbers with your gym set as a home gym, start getting feedback on your routes & problems by <span class="fwb">telling your climbers to sign up</span>!
+        </p>
+
+        <p class="h5 text-center">- Team at Setter</p>
+
+
+    </div>
+
+    <div class="small-12 columns">
+
+        <h1 class="fwl h2">Climber Grades</h1>
+
+    </div>
+
+    <div class="small-12 columns">
+
+      <div class="row pb4">
+
+        <div class="small-12 medium-6 large-4 columns">
+
+          <h2 class="h3 clearfix">Bouldering</h2>
+
+          <ss-graph
+            class="prl1"
+            graph-data="boulderingUsersGraphData">
+          </ss-graph>
+
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoBoulderers"
+           no-data="hasNoBoulderers"
+            title="No boulderers here..."
+            paragraph=""
+            image="images/placeholder--BoulderingGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
+        </div>
+
+        <div class="small-12 medium-6 large-4 columns">
+
+          <h2 class="h3 clearfix">Top Rope</h2>
+
+          <ss-graph
+            class="prl1"
+            graph-data="topropeUsersGraphData">
+          </ss-graph>
+
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoTopRopers"
+           no-data="hasNoTopRopers"
+            title="No top ropers here..."
+            paragraph=""
+            image="images/placeholder--topRopeGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
+        </div>
+
+        <div class="small-12 medium-6 large-4 columns">
+
+          <h2 class="h3 clearfix">Lead</h2>
+
+          <ss-graph
+            class="prl1"
+            graph-data="leadUsersGraphData">
+          </ss-graph>
+
+          <ss-placeholder
+           class="ng-hide"
+           size="large"
+           ng-show="hasNoLeaders"
+           no-data="hasNoLeaders"
+            title="No leaders, yet."
+            paragraph=""
+            image="images/placeholder--leadGraph.jpg"
+            link-text=""
+            ng-click="">
+          </ss-placeholder>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="small-12 columns">
+
+      <div class="row">
+
+        <h1 class="h2 clearfix fwl">Active Climbers</h1>
+
+        <div class="text-center"
+             ng-show="!hasUsers() && getAccountId() !== gymId">
+
+            <h2 class="h3">
+
+               It appears no users have set this gym as their home gym.
+
+            </h2>
+
+        </div>
+
+        <div class="small-6 medium-3 large-3 columns   pb4"
+            bindonce
+            ng-hide="!user.active && showOnlyActive"
+            ng-repeat="user in users"
+            ng-click="navigateToUser(user.id)">
+
+            <div class="flag">
+
+                <div class="flag-image pr2">
+
+                    <img class="avatar avatar--small  center mb1"
+                    bo-src="getUserImageSrc(user)">
+
+                </div>
+
+                <div class="flag-body">
+
+                    <a class="h5  display--block  center" bo-text="user.name"></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+      </div>
+
+    <div>
+
+</section>

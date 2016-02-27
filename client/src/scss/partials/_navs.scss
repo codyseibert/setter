@@ -1,0 +1,325 @@
+
+/*------------------------------------*\
+    #Navigation
+\*------------------------------------*/
+
+
+html,
+body {
+  height: 100%;
+}
+
+body
+{
+  height: inherit;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.off-canvas-wrap {
+  min-height: 100%;
+}
+
+.main-wrap {
+  @extend %transition--moving;
+  height: inherit;
+  margin-left: 0;
+  padding: 0;
+  width: auto;
+
+  @include breakpoint(mama-bear) {
+    margin-left: $primaryNav-width;
+  }
+
+  &.is-open {
+    @include translate(240px, 0);
+  }
+}
+
+.main {
+  background-color: inherit;
+}
+
+
+.main-section {
+  @extend %transition--moving;
+  @extend %prl2;
+  background-color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: 0;
+
+  @include breakpoint(onlyMobile) {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+
+/*------------------------------------*\
+    #Top Bars
+\*------------------------------------*/
+
+
+.topBar--splash {
+    height: rem-calc(65); 
+
+    .links a {
+        color: $grey--dark; 
+
+        &:hover {
+            color: $primaryColor; 
+        }
+    }   
+
+    @media #{$medium-up} {
+        height: rem-calc(100); 
+    }
+}
+
+
+
+//
+//Side Menu Object
+//
+.sticky {z-index: 10;}
+.tab-bar {
+  // $from: $primaryColor;
+  // $to: darken($primaryColor, 8%);
+  // @include background-image(linear-gradient($from 10%, $to 70%));
+  background-color: $primaryColor;
+  height: rem-calc(60);
+  z-index: 6; 
+  .tab-bar-link {
+    &:hover {
+      color: darken($tabbar-bg, 3%);
+    }
+
+
+  }
+
+}
+
+.tab-bar .menu-icon {
+    height: rem-calc(60); 
+}
+
+.tab-bar, 
+.top-bar {
+    z-index: 10;
+    @include box-shadow(0px 4px 8px rgba(0, 0, 0, 0.28));
+}
+
+.top-bar {
+    height: rem-calc(70); 
+    background-color: #fff;
+}
+
+.topBar-stripe {
+z-index: 10;
+}
+
+.dropShadow {
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, .2));
+}
+
+.setterLogo--nav {
+  height: rem-calc(175);
+  width: 100%;
+  background-color: $primaryColor;
+
+  img {
+    @extend %center;
+    width: 65%;
+    height: rem-calc(175);
+  }
+}
+
+.nav-primary {
+  background-color: red;
+}
+
+.nav-primary,
+.nav-account {
+  @extend %left;
+  width: $primaryNav-width;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: auto;
+  z-index: 4;
+}
+
+.top-bar {
+
+    ul.top-bar-links {
+
+     li {
+        @include transition(background-color .4s ease-in-out);
+        @extend %display--inline;
+        @extend %prl2;
+        font-size: rem-calc(16);
+        height: rem-calc(70);
+
+        a {
+            color: $brown--dark;
+            height: rem-calc(70);
+            line-height:rem-calc(70);
+        }
+
+        &:hover {
+          background-color: $primaryColor;
+          a { color: #fff; }
+
+        }
+
+    }
+
+  }
+
+  .avatar {
+    vertical-align: middle;
+  }
+
+}
+
+.nav-menuIcon {
+    @include single-transition(all, 0.2s, linear);
+    @include transform(translateX(-100px));
+    background-color: $primaryColor; 
+
+    &.is-showing {
+       @include transform(translateX(0));
+    }
+
+    &.is-hidden {
+        @include transform(translateX(-100px));
+    }
+
+}
+
+.nav-backBtn {
+    @extend %vertical-align; 
+    @extend %left; 
+    @extend %ml2; 
+    @include single-transition(all, 0.2s, linear);
+    @include transform(translateX(-100px)  translateY(-50%));
+    color: #fff; 
+
+    &.is-showing {
+       @include transform(translateX(0)  translateY(-50%));
+    }
+
+    &.is-hidden {
+        @include transform(translateX(-100px)  translateY(-50%));
+    }
+
+}
+
+.nav-account {
+  background-color: $grey--light;
+  left: $primaryNav-width;
+
+  li, label {
+    color: #fff;
+    display: block;
+    width: 100%;
+  }
+
+  a,
+  label {
+    @extend %pl2;
+    @extend %ptb3;
+  }
+
+  label {
+    background-color: $grey--medium;
+  }
+
+  li a {
+    @extend %pl2;
+    display: block;
+    color: $grey--medium;
+    width: 100%;
+
+    &:hover {
+      background-color: $grey--medlight;
+      color: $grey--dark;
+
+    }
+  }
+
+  .copyright {
+    @extend %ptb1;
+    color: $grey--dark;
+    font-size: rem-calc(13);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+  }
+}
+
+
+
+.nav-avatar {
+  @include border-radius(100%);
+  height: rem-calc(36);
+  width: rem-calc(36);
+  background-color: #fff;
+}
+
+
+
+//
+//Side Menu Styles
+//
+
+.side-menu {
+    @include transition(transform 200ms cubic-bezier(0,.71,.72,.97));
+
+    margin-top: rem-calc(60); 
+    z-index: 4;
+
+    a {
+        margin-left: rem-calc(6);
+    }
+
+    a:before {
+    
+        @extend %h2;
+        padding: rem-calc(6);
+        margin-right: rem-calc(24);
+    }
+    a > img {
+        padding: rem-calc(6);
+        margin-right: rem-calc(16);
+        opacity: .8;
+    }
+
+    background-color: $off-canvas-bg;
+
+    @media #{$large-up} {
+        height: 100vh;
+    }
+
+    @extend %dropshadow; 
+    @extend %fixed; 
+}
+
+
+//
+//Overrides Foundation Off Canvas Styles for Hovering Buttons
+//
+
+ul.off-canvas-list li a:hover,
+.nav-primary ul li a:hover {
+    & img {
+      opacity: 1;
+    }
+
+    background-color: #fff;
+}
+
+//
+//Off-Canvas
+//

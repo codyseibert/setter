@@ -1,0 +1,36 @@
+
+/*------------------------------------*\
+    #Route Colors (Extends from colors.scss module)
+\*------------------------------------*/
+
+.route-color {
+  @include border-radius(100%);
+  display: block;
+  width: rem-calc(34);
+  height: rem-calc(34);
+  border: 1px solid $grey--medlight;
+cursor: pointer; 
+    &:hover {
+        border: 4px solid $grey--medium;
+    }
+
+    &.selected {
+        border: 4px solid $grey--dark;
+    }
+}
+
+
+
+@each $val in $routeColors {
+
+    $colorName: nth($val, 1);
+    $code: nth($val, 2);
+
+    .route-color--#{$colorName} {
+      background-color: $code;
+
+      &:hover {
+        background-color: $code !important;
+      }
+    }
+}

@@ -1,3 +1,0 @@
-USE setter;
-ALTER TABLE accounts ADD COLUMN image_id INT DEFAULT NULL;
-ALTER TABLE accounts ADD FOREIGN KEY (image_id) REFERENCES images(id) ON DELETE CASCADE;

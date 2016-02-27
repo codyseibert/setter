@@ -1,0 +1,310 @@
+
+
+
+<section class="row">
+
+    <div class="header">
+
+        <h1 class="fwb  icon-archive">
+            Route Archive
+        </h1>
+
+        <hr class="header-divider">
+
+    </div>
+
+</section>
+
+<div class="row" ng-show="!isLoading && !hasRoutes()">
+
+<div class="small-12 columns show-for-small-only">
+
+    <h2>
+        You haven't set any routes or problems yet.
+    </h2>
+
+    <h3>
+        Start setting over at the <a class="fwb" ng-click="navigateToManageZone()"> Manage Zones page</a> to get feedback from your climbers.
+    </h3>
+
+</div>
+
+<div class="small-12 columns  show-for-medium-up">
+
+    <div class="placeholder-text  small">
+
+        <div class="vertical-align  text-center">
+
+            <h2 class="fwb">This is the route archive, but nothing's here.</h2>
+            <h3>You haven't set any routes or problems yet. Start setting over at the <a class="fwb" ng-click="navigateToWalls(gymId)">Manage Zones page</a> to get feedback from your climbers.
+            </h3>
+
+        </div>
+
+    </div>
+
+    <img class="placeholderImage" src="images/placeholder--routeArchive.jpg" alt="Route Archive Placeholder" width="1133"  height="636">
+
+</div>
+
+</div>
+
+<div class="row" ng-hide="!isLoading || finishedRendering">
+
+    <div class="small-12 columns">
+
+        <div style="width: 150px; height: 150px; position: relative" us-spinner>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Section - Filters -->
+<div ng-show="finishedRendering">
+
+    <section class="row">
+
+        <div class="small-12 columns">
+
+            <label class="fwb [ inline label--inline ] ">Show Type</label>
+
+            <label class="[ select--small select--primary ] display--inlineBlock">
+
+                <select ng-model="form.view"
+                        ng-options="view.name for view in views"
+                        ng-change="refreshView()">
+                </select>
+
+            </label>
+
+        </div>
+
+    </section>
+
+    <section class="row">
+
+        <div class="small-12  columns">
+
+            <div class="fieldwrapper  panel">
+
+                <div class="row">
+
+                    <div class="small-12 columns">
+
+                        <h2 class="fwl mb4 display--block ">
+                            Filter Routes By
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="row small-collapse  medium-uncollapse">
+                    <!-- Filters -->
+                    <div class="small-12 columns mb2">
+
+                        <div class="small-12  medium-6 large-5 columns">
+                            <!-- Setter Grade filter dropdown -->
+                            <label class="fwb [ label--inline inline ]">Setter</label>
+
+                            <label class="select--small select--secondary">
+                                <select ng-model="form.setterFilter"
+                                    ng-options="setter.value for setter in setterInputs"
+                                    ng-change="refreshFilters()">
+                                </select>
+                            </label>
+
+                        </div>
+
+                        <div class="small-12  medium-6 large-4 end columns">
+                            <!-- Color filter dropdown -->
+                            <label class="fwb [ label--inline  inline ] ">Route Color</label>
+
+                            <div class="select--small select--secondary">
+
+                                <select ng-model="form.colorFilter"
+                                    ng-options="color.value for color in colorInputs"
+                                    ng-style="{color: input.extra}"
+                                    ng-change="refreshFilters()">
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="small-12 columns">
+
+                        <div class="small-12  medium-6 large-5 columns">
+                            <!-- Grade filter dropdown -->
+                            <label class="fwb [ label--inline  inline ] ">Grade</label>
+
+                            <div class="select--small select--secondary">
+                                <select ng-model="form.boulderGrade"
+                                        ng-show="form.view.name === BOULDERING_VIEW"
+                                        ng-options="grade.name for grade in boulderGradeInputs"
+                                        ng-change="refreshFilters()">
+                                </select>
+
+                                <select ng-model="form.ropeGrade"
+                                        ng-show="form.view.name === TOPROPE_VIEW || form.view.name === LEAD_VIEW"
+                                        ng-options="grade.name for grade in ropeGradeInputs"
+                                        ng-change="refreshFilters()">
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="small-12  medium-6 large-5 end  columns">
+                            <!-- Zone filter dropdown -->
+                            <label class="fwb [ label--inline inline ] ">Zone</label>
+
+                            <div class="select--small  select--secondary">
+
+                                <select ng-model="form.zoneFilter"
+                                        ng-options="zone.value for zone in zoneInputs"
+                                        ng-change="refreshFilters()">
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- Section - Routes -->
+    <section class="row">
+
+        <div class="small-12 columns">
+
+            <div class="row">
+
+                <table class="small-12 columns">
+
+                    <thead>
+                        <!-- Loop through all the headers from the controller and render them -->
+                        <th ng-repeat="filter in filters"
+                            ng-hide="hideHeader(filter)"
+                            ng-click="sortIconClicked(filter)">
+                            <a>
+                                {{filter.label}}
+                                <i>
+                                    <span ng-show="filter.sort === 0"></span>
+                                    <span class="icon-pyramidDown" ng-show="filter.sort === 1"></span>
+                                    <span class="icon-pyramidUp" ng-show="filter.sort === 2"></span>
+                                </i>
+                            </a>
+                        </th>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-show="getVisibleRouteCount() === 0">
+
+                            <td class="text-center" colspan="7" style="padding-top: 50px;">
+
+                                <h2 class="h3 fwl">
+                                    There are no {{form.view.name}} routes with your selected filters.
+                                </h2>
+
+                            </td>
+
+                        </tr>
+
+                        <!-- Loop through all the routes from the controller and render them -->
+                        <tr bindonce ng-repeat="route in visibleRoutes | limitTo: displayCount track by route.id "
+                            class="list--tableStyle  list--navElem"
+                            ng-show="route.show"
+                            on-finish-render
+                            ng-click="openRouteModal(route)">
+
+                            <!-- Zone -->
+                            <td bo-text="route.wall_name || '-'"></td>
+
+                            <!-- Color -->
+                            <td>
+                                <i class="icon-circle" bo-style="{color: route.value}"> </i>
+                            </td>
+
+
+
+
+                            <!-- Boulder Grade -->
+                            <td ng-show="form.view.name === BOULDERING_VIEW"
+                                bo-text="route.boulder_grade || '-'"></td>
+
+                            <!-- Top Rope Grade -->
+                            <td ng-show="form.view.name === TOPROPE_VIEW"
+                                bo-text="route.toprope_grade || '-'"></td>
+
+                            <!-- Lead Grade -->
+                            <td ng-show="form.view.name === LEAD_VIEW"
+                                bo-text="route.lead_grade || '-'"></td>
+
+
+
+                            <!-- Setter -->
+                            <td bo-text="route.setter || '-'"></td>
+
+                            <!-- Rating -->
+                            <td class="rating rating--colored rating--small">
+                                <i bindonce
+                                   ng-repeat="star in stars"
+                                   bo-class="{'icon-star': isFilled(star, route.rating), 'icon-star-empty': !isFilled(star, route.rating)}">
+                                </i>
+                            </td>
+
+                            <!-- Sends -->
+                            <td bo-text="route.sends"></td>
+
+                            <!-- Date Set -->
+                            <td bo-text="route.date_format"></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div class="center display--block" ng-click="loadMore()">
+
+                <h3 class="h5  hoverAnim2 text-center" >
+
+                    <span ng-show="shouldShowLoadMoreButton()">
+
+                        <a ng-click="loadMore()">
+
+                        {{displayCount}} / {{getVisibleRouteCount()}}
+                        <br>
+                        Click to load more
+
+                        <div class="display--block  icon--large icon-down-big" rel="down"></div>
+
+                        </a>
+
+                    </span>
+
+                </h3>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+</div>

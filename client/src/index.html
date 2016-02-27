@@ -1,0 +1,444 @@
+<!doctype html>
+
+<html lang="en" data-framework="angularjs">
+    <head>
+        <meta charset="utf-8" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+
+        <link href="images/setter_icon.png" rel="apple-touch-icon" />
+        <link href="images/setter_icon.png" rel="icon" sizes="192x192" />
+        <link href="images/setter_icon.png" rel="icon" sizes="128x128" />
+
+        <title>Setter</title>
+        <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css" />
+        <link rel="stylesheet" href="css/app.css" />
+
+        <!--Google Web Font
+        ================================================== -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
+
+        <!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- Favicons
+        ================================================== -->
+        <!--
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png">
+        -->
+        <style>[ng-cloak] { display: none !important;}</style>
+
+    </head>
+
+<body ng-app="SETTER">
+
+    <div class="off-canvas-wrap" data-offcanvas >
+
+        <!-- Top Nav Bar -->
+
+
+    <nav class="tab-bar hide-for-large-up  fixed"  ng-show="isLoggedIn()" ng-cloak >
+
+
+            <ss-back-button>
+            </ss-back-button>
+
+            <div class="left-small  ng-hide  nav-menuIcon"
+
+                 ng-show="!backButtonActive">
+
+                <a class="left-off-canvas-toggle menu-icon" >
+                    <span></span>
+                </a>
+
+            </div>
+
+            <div class="right">
+
+                <img src="images/setter-logo.svg"
+                     height="40px"
+                     width="40px"
+                     alt="Setter"
+                     class="text-right  mr2">
+            </div>
+
+    </nav>
+
+        <!-- Menus -->
+        <div class="inner-wrap">
+
+
+            <!-- Left Pull Out Menu -->
+            <aside class="left-off-canvas-menu  side-menu ">
+
+                <ul class="pt3  off-canvas-list"
+                    ng-show="isLoggedIn()"
+                    ng-include
+                    src=" ' templates/Navigation.tpl.html ' ">
+                </ul>
+
+            </aside>
+
+
+
+        <!--Topbar for large desktop-->
+
+        <div class="fixed  show-for-large-up ng-hide"  ng-show="isLoggedIn()" ng-cloak>
+
+            <div class="topBar-stripe section--primary  show-for-large-up"></div>
+
+            <nav class="top-bar"
+                 data-topbar
+                 >
+
+                <div class="row">
+                 <!-- Left Nav Section -->
+                    <div class="small-9 columns">
+
+                        <ul class="logo list--inline display--inline">
+
+                           <li>
+                                 <img src="images/setter-logo.svg"
+                                      height="35px"
+                                      width="35px"
+                                      alt="Setter"
+                                      class="text-right mr1 mb1">
+
+                           </li>
+
+                        </ul>
+
+                         <ul class="top-bar-links list--inline display--inline "
+                             ng-show="isLoggedIn()"
+                             ng-include
+                             src=" ' templates/NavigationLarge.tpl.html ' ">
+                         </ul>
+
+                    </div>
+
+                     <!-- Right Nav Section -->
+                    <div class="small-3 columns">
+
+                        <ul class="list--inline right top-bar-links">
+
+                            <li data-dropdown="account-dropdown">
+
+                                <a class="display--inlineBlock">
+
+                                    <div
+                                        class="display--inlineBlock  avatar avatar--tiny mr1"
+                                        ng-style="{'background-image': getImageUrlString()}">
+                                        </div>
+
+                                    <span
+                                        class="txt--micro" >
+                                        {{getAccountName() | limitTo: 20}}{{getAccountName().length > 20 ? '...' : ''}}
+                                    </span>
+
+
+                                    <span class="ml1  icon-menuDropdown  icon--tiny">
+
+                                    </span>
+
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                        <ul id="account-dropdown" class="mt1 f-dropdown  dropDown--linkList linkList--separators  large"
+                            data-dropdown-content>
+                            <!--Show For Gyms Only-->
+                            <li ng-show="isGymAccount()"
+                                ng-click="navigateToAlerts(getAccountId())">
+                                <a class="icon-megaphone">
+                                    Gym Announcements</a>
+                            </li>
+
+                            <li ng-show="isUserAccount()"
+                                ng-click="navigateToUser(getAccountId())">
+                                <a class="">
+                                <span class="fwb">
+                                  {{getAccountName() | limitTo: 20 }}</span>
+                                  <br>
+                                  View Profile
+                                </a>
+
+                            </li>
+                            <!--Show For User Only-->
+                            <li
+                            ng-click="navigateToSettings()">
+                                <a class=" icon-settings"> Settings</a>
+                            </li>
+
+
+                            <li ng-click="navigateToSuggestionsPage()">
+                                <a class=" icon-messaging-alt"> Give Feedback</a>
+                            </li>
+
+                            <li ng-click="navigateToTOS()">
+                                <a class=" icon-alert"> Terms of Service</a>
+                            </li>
+
+                            <li ng-click="navigateToLogout()">
+                                <a class=" icon-logout">Log Out</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+
+        <!-- The Main Content -->
+
+        <div id="content"
+             class="relative display--block">
+
+            <div
+                 ng-view
+                 autoscroll="true"
+                 class="page"
+                 ng-class="{'slide-in-right': slideInRight, 'slide-in-left': !slideInRight}">
+
+            </div>
+
+        </div>
+
+
+<!--                  ng-class="{'mainview-animation-slide-left': slideLeft, 'mainview-animation-slide-right': !slideLeft}"
+ -->
+
+          <!-- close the off-canvas menu -->
+        <a class="exit-off-canvas"></a>
+
+
+
+    </div>
+
+</div>
+
+
+<!--
+    POP UP MODAL
+-->
+<div class="reveal-modal small text-center alert-modal"
+     data-reveal>
+
+    <h1 class="h4  fwl  text-left">
+        Hi, <span class="fwb">{{userName}}</span>
+    </h1>
+
+
+    <h2  class="h5  text-left">
+        Your home gym says:
+    </h2>
+
+    <ul>
+        <li ng-repeat="alert in alerts" class="text-left mb2">
+            {{alert.message}} <small class="display--block">{{alert.date | date : 'MMM dd, yyyy'}}</small>
+        </li>
+    </ul>
+
+    <p class="fwl text-left">Have fun climbing <b>=)</b></p>
+
+    <a class="close-reveal-modal  mt2  [ icon--jumbo icon-cancel ]">
+
+    </a>
+
+</div>
+
+
+<ss-feedback-button>
+</ss-feedback-button>
+
+<off-canvas-modal ng-show="isLoggedIn()" type="right" is-showing="isModalOpen()">
+
+     <div
+        ng-show="routeModalViewType === 'view'"
+        ng-include
+        src=" 'templates/Route.tpl.html' "
+        ng-controller="RouteController">
+      </div>
+
+    <div
+       ng-show="routeModalViewType !== 'view'"
+       ng-include
+       src=" 'templates/CreateRoute.tpl.html' "
+       ng-controller="CreateRouteController">
+     </div>
+
+</off-canvas-modal>
+
+<div id="fb-root"></div>
+
+
+
+    <!-- build:remove -->
+      <!-- bower:js -->
+      <script src="bower_components/modernizr/modernizr.js"></script>
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-bindonce/bindonce.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="bower_components/spin.js/spin.js"></script>
+      <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+      <script src="bower_components/chartist/dist/chartist.min.js"></script>
+      <script src="bower_components/fastclick/lib/fastclick.js"></script>
+      <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
+      <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
+      <script src="bower_components/foundation/js/foundation.js"></script>
+      <script src="bower_components/jspdf/dist/jspdf.min.js"></script>
+      <script src="bower_components/in-viewport/in-viewport.js"></script>
+      <script src="bower_components/lazyload/lazyload.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/natural-sort/dist/natural-sort.js"></script>
+      <script src="bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
+      <script src="bower_components/ngUpload/ng-upload.js"></script>
+      <!-- endbower -->
+    <!-- /build -->
+    
+    <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5"></script>
+    <script src="js/_bower.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/templates.js"></script>
+
+    <!-- build:remove -->
+        <!-- Controllers -->
+        <script type="text/javascript" src="js/controllers/SplashController.js"></script>
+        <script type="text/javascript" src="js/controllers/LoginController.js"></script>
+        <script type="text/javascript" src="js/controllers/LandingController.js"></script>
+        <script type="text/javascript" src="js/controllers/LogoutController.js"></script>
+        <script type="text/javascript" src="js/controllers/RegisterGymController.js"></script>
+        <script type="text/javascript" src="js/controllers/RegisterUserController.js"></script>
+        <script type="text/javascript" src="js/controllers/GymsController.js"></script>
+        <script type="text/javascript" src="js/controllers/GymController.js"></script>
+        <script type="text/javascript" src="js/controllers/WallsController.js"></script>
+        <script type="text/javascript" src="js/controllers/WallController.js"></script>
+        <script type="text/javascript" src="js/controllers/CreateRouteController.js"></script>
+        <script type="text/javascript" src="js/controllers/SettersController.js"></script>
+        <script type="text/javascript" src="js/controllers/RouteController.js"></script>
+        <script type="text/javascript" src="js/controllers/UserController.js"></script>
+        <script type="text/javascript" src="js/controllers/SuggestionsController.js"></script>
+        <script type="text/javascript" src="js/controllers/TOSController.js"></script>
+        <script type="text/javascript" src="js/controllers/ContactController.js"></script>
+        <script type="text/javascript" src="js/controllers/RouteManagerController.js"></script>
+        <script type="text/javascript" src="js/controllers/BlogController.js"></script>
+        <script type="text/javascript" src="js/controllers/GymSuggestionsController.js"></script>
+        <script type="text/javascript" src="js/controllers/AlertsController.js"></script>
+        <script type="text/javascript" src="js/controllers/AddSetterController.js"></script>
+        <script type="text/javascript" src="js/controllers/PasswordResetController.js"></script>
+        <script type="text/javascript" src="js/controllers/AccountSettingsController.js"></script>
+
+        <script type="text/javascript" src="js/controllers/BoulderDistributionController.js"></script>
+        <script type="text/javascript" src="js/controllers/TopRopeDistributionController.js"></script>
+
+        <script type="text/javascript" src="js/controllers/StarRatingController.js"></script>
+        <script type="text/javascript" src="js/controllers/BlankController.js"></script>
+        <script type="text/javascript" src="js/controllers/gym/routeSearchController.js"></script>
+
+
+        <!-- Directives -->
+        <script type="text/javascript" src="js/directives/ssRouteList.js"></script>
+        <script type="text/javascript" src="js/directives/user/ssGrade.js"></script>
+        <script type="text/javascript" src="js/directives/graphs/ssExportBarGraph.js"></script>
+        <script type="text/javascript" src="js/directives/graphs/ssGraph.js"></script>
+        <script type="text/javascript" src="js/directives/graphs/ssLineGraph.js"></script>
+        <script type="text/javascript" src="js/directives/onFinishRender.js"></script>
+        <script type="text/javascript" src="js/directives/injectTemplateWhenVisible.js"></script>
+        <script type="text/javascript" src="js/directives/injectTemplateWhenVisible2.js"></script>
+        <script type="text/javascript" src="js/directives/onRenderRefreshTooltip.js"></script>
+        <script type="text/javascript" src="js/directives/refreshFoundation.js"></script>
+        <script type="text/javascript" src="js/directives/BlankStatePlaceHolderDirective.js"></script>
+        <script type="text/javascript" src="js/directives/offCanvasModal.js"></script>
+        <script type="text/javascript" src="js/directives/starRating.js"></script>
+        <script type="text/javascript" src="js/directives/ssRouteCategorySelector.js"></script>
+        <script type="text/javascript" src="js/directives/ssRouteCategoryItem.js"></script>
+        <script type="text/javascript" src="js/directives/ssUploadImage.js"></script>
+        <script type="text/javascript" src="js/directives/navigation/ssBackButton.js"></script>
+        <script type="text/javascript" src="js/directives/ssFeedbackButton.js"></script>
+        <script type="text/javascript" src="js/directives/ssPlaceholder.js"></script>
+        <script type="text/javascript" src="js/directives/ssRouteTypeIcon.js"></script>
+
+        <!-- Services -->
+        <script type="text/javascript" src="js/services/AccountsService.js"></script>
+        <script type="text/javascript" src="js/services/GymsService.js"></script>
+        <script type="text/javascript" src="js/services/SettersService.js"></script>
+        <script type="text/javascript" src="js/services/UsersService.js"></script>
+        <script type="text/javascript" src="js/services/LoginService.js"></script>
+        <script type="text/javascript" src="js/services/WallsService.js"></script>
+        <script type="text/javascript" src="js/services/RoutesService.js"></script>
+        <script type="text/javascript" src="js/services/GradesService.js"></script>
+        <script type="text/javascript" src="js/services/ColorsService.js"></script>
+        <script type="text/javascript" src="js/services/SendsService.js"></script>
+        <script type="text/javascript" src="js/services/ProjectsService.js"></script>
+        <script type="text/javascript" src="js/services/RatingsService.js"></script>
+        <script type="text/javascript" src="js/services/CommentsService.js"></script>
+        <script type="text/javascript" src="js/services/SuggestionsService.js"></script>
+        <script type="text/javascript" src="js/services/FeedbackService.js"></script>
+        <script type="text/javascript" src="js/services/DateFormatService.js"></script>
+        <script type="text/javascript" src="js/services/BarGraphHelperService.js"></script>
+        <script type="text/javascript" src="js/services/BlogService.js"></script>
+        <script type="text/javascript" src="js/services/GymSuggestionsService.js"></script>
+        <script type="text/javascript" src="js/services/AlertsService.js"></script>
+        <script type="text/javascript" src="js/services/GymAccountRequestsService.js"></script>
+        <script type="text/javascript" src="js/services/HttpStubService.js"></script>
+        <script type="text/javascript" src="js/services/SelectedRouteService.js"></script>
+        <script type="text/javascript" src="js/services/gym/GymUsersService.js"></script>
+        <script type="text/javascript" src="js/services/MessageService.js"></script>
+
+        <!-- Other -->
+        <script type="text/javascript" src="js/other/naturalSort.js"></script>
+        <script type="text/javascript" src="js/filters/routeListFilter.js"></script>
+
+      <!-- /build -->
+
+        <script async type="text/javascript">
+            $(document).foundation({
+                 offcanvas : {
+                    // Sets method in which offcanvas opens.
+                    // [ move | overlap_single | overlap ]
+                    open_method: 'overlap',
+                    // Should the menu close when a menu link is clicked?
+                    // [ true | false ]
+                    close_on_click : true
+                },
+                  equalizer : {
+                    // Specify if Equalizer should make elements equal height once they become stacked.
+                    equalize_on_stack: true
+                  }
+            });
+
+            /*
+            $(window).load(function () {
+                $.prototype.lazyload = window['lazyload'];
+                $("img").lazyload({
+                    effect: 'fadeIn'
+                });
+            });
+            */
+
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-58169926-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>

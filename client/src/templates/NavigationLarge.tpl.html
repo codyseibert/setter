@@ -1,0 +1,45 @@
+<!-- User Specific -->
+<li ng-show="isUserAccount()"
+    ng-click="navigateToUser(getAccountId())">
+    <a class="icon-profile">
+        View Profile</a>
+</li>
+
+<li ng-show="isUserAccount()"
+    ng-click="navigateToGyms()">
+    <a class="icon-search">
+        Search Gyms</a>
+</li>
+
+<li ng-show="isUserAccount()"
+    ng-click="navigateToGym(getHomeGymId())">
+    <a class="icon-home">
+        Home Gym</a>
+</li>
+
+<!-- Gym Specific -->
+<li ng-show="isGymAccount()"
+    ng-click="navigateToGym(getAccountId())">
+    <a class="icon-dashboard">
+        Dashboard</a>
+</li>
+
+<li ng-show="isGymAccount()"
+    ng-click="navigateToWalls(getAccountId())">
+    <a class="icon-map"> 
+        Zones</a>
+</li>
+
+<li ng-show="isGymAccount()"
+    ng-click="navigateToRouteManager(getAccountId())">
+    <a class="icon-archive">
+        Route Archive</a>
+</li>
+
+<li ng-show="isGymAccount()"
+    ng-click="navigateToSetters(getAccountId())">
+    <a class="icon-group">
+        Setters</a>
+</li>
+
+

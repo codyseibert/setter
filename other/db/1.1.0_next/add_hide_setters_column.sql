@@ -1,0 +1,2 @@
+USE setter;
+ALTER TABLE gyms ADD COLUMN hide_setters BOOLEAN DEFAULT 1;

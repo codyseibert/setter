@@ -1,0 +1,35 @@
+
+/*------------------------------------*\
+    #Panels
+\*------------------------------------*/
+
+
+.panel.warning,
+.panel.success {
+    .title,
+    .icon {
+      color: #FFF;
+  }
+}
+
+.panel.warning {
+  background-color: $warning;
+}
+
+.panel.success {
+  background-color: $success;
+}
+
+
+
+.panel--dropshadow {
+     @include box-shadow(0 2px 3px rgba(0, 0, 0, .4));
+}
+
+.panel--standOut {
+    background-color: #fff;
+}
+
+.panel--card {
+    background-color: $grey--medium;
+}

@@ -1,0 +1,43 @@
+<section class="row">
+
+
+  <div class="row medium-collapse">
+
+    <div ng-if="gym.facebook" class="medium-4 small-12 columns hide-for-small">
+
+        <h2 class="fwl">
+            News Feed
+        </h2>
+
+      <div
+        class="fb-page"
+        data-height="800"
+        data-href="{{gym.facebook}}"
+        data-tabs="timeline"
+        data-small-header="false"
+        data-adapt-container-width="true"
+        data-hide-cover="false"
+        data-show-facepile="true">
+        <div class="fb-xfbml-parse-ignore">
+          <blockquote cite="{{gym.facebook}}">
+            <a href="{{gym.facebook}}">{{gym.name}}</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-4 small-12 columns mb4">
+        <ng-include src=" 'templates/gym/panels/social/sections/LatestComments.tpl.html' "></ng-include>
+    </div>
+
+    <!-- Latest Climber Sends -->
+    <div class="medium-4 small-12  columns">
+        <ng-include src=" 'templates/gym/panels/social/sections/LatestClimberSends.tpl.html' "></ng-include>
+    </div>
+
+    <div ng-if="!gym.facebook" class="medium-4 small-12 columns">
+      <ng-include src=" 'templates/gym/panels/social/sections/LatestProjects.tpl.html' "></ng-include>
+    </div>
+
+
+</section>

@@ -1,0 +1,322 @@
+
+//Need For Input with an icon next to it
+
+//Need for input that appears normal, until clicked.
+
+
+//Styling for form inputs showing validation while typing
+//Get validation on appropriate inputs.
+
+// input:invalid {
+//   outline: 2px solid red;
+// }
+// input:focus:invalid {
+//   color: red;
+// }
+
+//
+//Errors & Validation
+//
+
+//
+//Field Wrappers
+//
+
+.fieldWrapper {
+  @extend %clearfix;
+  @extend %display--block;
+  position: relative;
+}
+
+
+label, label.inline {
+  margin-right: rem-calc(12);
+  font-size: rem-calc(14);
+}
+
+
+
+.label--block {
+  @extend %display--block;
+  font-size: rem-calc(16);
+  padding-bottom: rem-calc(12);
+}
+
+.label--inline {
+  @extend %display--inlineBlock;
+  margin: 0 0 1rem;
+  padding: 0.5625rem 0;
+  vertical-align: top; 
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #Forms Textareas
+\*------------------------------------*/
+
+[class*="textarea--"] {
+  max-width: 100%;
+}
+
+.textarea--small {
+  min-height: rem-calc(150);
+  max-height: rem-calc(200);
+}
+
+.textarea--large {
+  @extend %mb5;
+  min-height: rem-calc(400);
+  max-height: rem-calc(500);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Selects
+\*------------------------------------*/
+
+
+select {
+  width: auto;
+  outline: none;
+}
+
+[class^="select--"] {
+  display: inline-block;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Select Types
+\*------------------------------------*/
+
+
+.select--tetriary {
+
+  @include select($brown--dark) {
+    color: #fff; 
+
+  }
+}
+
+.select--primary {
+
+ @include select($primaryColor) {
+
+    color: #fff; 
+
+    select {
+      color: #fff; 
+    }
+  }
+}
+
+.select--secondary {
+  @include select($grey--medium)
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Select Sizes
+\*------------------------------------*/
+
+
+.select--small {
+  height: rem-calc(38);
+  padding-left: rem-calc(16);
+
+  @include icon($icon--arrowD, after) {
+    font-size: rem-calc(14);
+    margin-left: rem-calc(-20);
+    right: rem-calc(2);
+    top: rem-calc(7);
+    position:absolute;
+    pointer-events:none;
+  }
+
+  select {
+    padding-right: rem-calc(38);
+    padding-left: rem-calc(16);
+    margin-right: rem-calc(-8);
+    margin-left: rem-calc(-16);
+    height: 100%;
+
+    //Fixes Chrome/webkit Bug with padding-right
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      padding-right: rem-calc(60);
+    }
+
+  }
+}
+
+.select--medium {
+  height: rem-calc(44);
+  padding-right: rem-calc(6);
+  padding-left: rem-calc(20);
+
+    @include icon($icon--arrowD, after) {
+    font-size: rem-calc(14);
+    margin-left: rem-calc(-20);
+    right: rem-calc(2);
+    top: rem-calc(7);
+    position:absolute;
+    pointer-events:none;
+  }
+
+  select {
+    padding-right: rem-calc(38);
+    padding-left: rem-calc(16);
+    margin-right: rem-calc(-8);
+    margin-left: rem-calc(-16);
+    height: 100%;
+
+    //Fixes Chrome/webkit Bug with padding-right
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      padding-right: rem-calc(60);
+    }
+
+  }
+  //Trying to get arrow to point up, not needed for now.
+  // &:focus {
+  //   @include icon($icon--arrowU, after);
+  // }
+
+}
+
+
+
+
+/*------------------------------------*\
+    #Inputs
+\*------------------------------------*/
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include border-radius(4px);
+  -webkit-appearance: none;
+  background-color: #fff;
+  font-family: inherit;
+  border: 2px solid #ccc;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+  color: rgba(0, 0, 0, .75);
+  display: block;
+  font-size: 0.875rem;
+  margin: 0 0 rem-calc(24);
+  padding: 0.4rem;
+  outline: 0;
+  height: 3rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: box-shadow .45s, border-color .45s ease-in-out;
+
+  &:hover {
+    border: 2px solid $grey--medium;
+  }
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="time"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  box-shadow: none;
+  border-color: $primaryColor;
+  background-color: #fff;
+}
+
+
+//
+//Image Uploading Forms
+//
+
+
+.img-overlay {
+  @include border-radius(12px);
+  @extend %display--block;
+
+  height: rem-calc(120);
+  border: 1px solid  $grey--dark;
+  width: rem-calc(120);
+}
+
+//
+//Search Input
+//
+
+input[type="search"] {
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Radio Buttons
+\*------------------------------------*/
+
+
+
+/*------------------------------------*\
+    #Route Color Radio Buttons
+\*------------------------------------*/
+
+input[type="radio"].radio--routeColor {
+    display: none;
+
+    & + label {
+        cursor: pointer;
+        margin-right: 0;
+    }
+
+    & + label:hover {
+        border: 4px solid $grey--medium;
+    }
+
+    &:checked + label {
+        border: 4px solid $grey--dark;
+    }
+}
+//**check bug on this not working**//
+.label---counter {
+    @extend %circle; 
+    min-height: 18px;
+    min-width: 18px;
+    border: 1px solid yellow; 
+}

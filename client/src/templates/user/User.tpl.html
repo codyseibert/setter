@@ -1,0 +1,151 @@
+<div class="section--secondary">
+
+    <section class="row ">
+
+        <div class="header">
+
+
+            <div class="row">
+
+                <div class="small-12 large-6 columns">
+
+                    <div class="flag mb2 ">
+
+                          <ss-upload-image
+                            image="{{image}}"
+                            authorization="{{authorization}}"
+                            action="/api/accounts/image"
+                            callback="imageUploadCallback"
+                            active="getAccountId() === userId">
+                          </ss-upload-image>
+
+                         <div class="flag-body">
+                            <ul>
+                                <li>
+                                     <h1 class="h2  mb0  fwb"
+                                         ng-show="getAccountId() === userId">
+                                         {{user.firstname}} {{user.lastname}}
+                                     </h1>
+                                </li>
+
+                                <li>
+
+                                     <h1 class="h2  mb0  fwb"
+                                         ng-hide="getAccountId() === userId">
+                                         {{user.firstname}} {{user.lastname}}
+                                     </h1>
+                                </li>
+
+                                <li>
+                                    <h2 class="h4  icon-home "
+                                 ng-click="navigateToGym(user.gym_id)">
+                                 {{user.gym_name}}
+                                    </h2>
+
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="large-collapse">
+
+                    <div class="show-for-large-up large-6 columns">
+                        <ss-grade class="large-4  columns text-center  "
+                          grade="{{boulderGrade}}"
+                          title="Bouldering"></ss-grade>
+
+                        <ss-grade class="large-4  columns text-center  "
+                          grade="{{topRopeGrade}}"
+                          title="Top Rope"></ss-grade>
+
+                        <ss-grade class="large-4  columns text-center  "
+                          grade="{{leadGrade}}"
+                          title="Lead"></ss-grade>
+                    </div>
+
+                </div>
+            </div>
+
+             <div class="row small-collapse hide-for-large-up">
+
+                 <ss-grade class="small-4 medium-4 columns text-center"
+                   grade="{{boulderGrade}}"
+                   title="Bouldering"></ss-grade>
+
+                 <ss-grade class="small-4 medium-4 columns text-center"
+                   grade="{{topRopeGrade}}"
+                   title="Top Rope"></ss-grade>
+
+                 <ss-grade class="small-4 medium-4 columns text-center"
+                   grade="{{leadGrade}}"
+                   title="Lead"></ss-grade>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<section class="row">
+
+    <ul
+        ng-model="userTabs"
+        ng-init="userTabs = 'panel1'"
+        class="tabs row small-collapse" data-tab
+        role="tablist">
+
+        <li class="tab-title  [ small-6  columns ]
+        text-center" ng-class="{'active': userTabs =='panel1'}">
+
+            <a ng-click="userTabs  = 'panel1' ">
+
+                <i class="icon-globe"> </i>
+                Activity
+
+            </a>
+
+        </li>
+
+
+        <li  class="tab-title  [ small-6  columns ] text-center"
+            ng-click="loadStatisticsData()"
+            ng-class="{'active': userTabs =='panel2'}">
+
+
+            <a ng-click="userTabs = 'panel2'">
+                <i class="icon-stats"> </i>
+                Statistics
+            </a>
+
+        </li>
+
+    </ul>
+
+
+</section>
+
+
+    <div class="tabs-content   row  small-collapse  medium-uncollapse">
+
+        <div class="content small-12  columns" ng-class="{'active' : userTabs == 'panel1'}">
+        
+            <ng-include src=" 'templates/user/panels/activity/UserActivityPanel.tpl.html' "></ng-include>
+        
+        </div>
+        
+        <div class="content small-12  columns" ng-class="{'active' : userTabs == 'panel2'}">
+        
+            <ng-include src=" 'templates/user/panels/statistics/UserStatisticsPanel.tpl.html' "></ng-include>
+        
+        </div>
+    </div>
+
+

@@ -1,0 +1,54 @@
+
+/*------------------------------------*\
+    #Tabs
+\*------------------------------------*/
+
+
+
+// .tabs--simple {
+
+//     .tab-title a {
+//         background-color: transparent;
+        
+
+//         &:hover {
+//             background-color: transparent; 
+
+//         }  
+//     }
+// }
+
+
+// .tabs--primary {
+//         border-bottom: 2px $brown--light solid;
+
+//        .tab-title a {
+//             color: $primaryColor--dark;
+
+//         }
+        
+//         .tab-title:hover {
+//             border-bottom: 2px $brown--dark solid;
+
+//         } 
+// }
+
+
+.tab-title > a {
+    background-color: $grey--medlight; 
+}
+
+.tabs-title--big > a {
+    
+    @media #{$medium-up} {
+        font-size: rem-calc(26) !important; 
+    }
+
+}
+
+
+.tabs-content--standAlone {
+    background-color: #fff;
+    color: $color--text;  
+}
+

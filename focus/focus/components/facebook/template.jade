@@ -1,0 +1,10 @@
+.panel
+  h2 Facebook Feed
+  hr
+  .row.scroll
+    .col-md-6(
+      ng-repeat="article in articles"
+    )
+      article(
+        model="article"
+      )

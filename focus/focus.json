@@ -1,0 +1,10 @@
+{
+  "name": "setter",
+  "puppetName": "setter",
+  "database": {
+    "name": "setter",
+    "host": "localhost",
+    "username": "setter",
+    "password": "testing"
+  }
+}

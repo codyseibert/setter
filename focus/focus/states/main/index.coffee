@@ -10,6 +10,6 @@ module.exports =
       middle: 6
       right: 4
     banner: 'banner'
-    left: 'facebook'
+    left: 'navigation'
     middle: 'comments'
     right: 'sends'

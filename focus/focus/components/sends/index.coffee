@@ -9,6 +9,11 @@ module.exports = [
     restrict: 'E'
 
     link: (scope, elem, attr) ->
+      # TEMP
+      scope.sends = [
+
+      ]
+
       RouteSendService.find()
         .then (sends) ->
           scope.sends = sends

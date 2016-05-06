@@ -6,8 +6,8 @@ module.exports =
   components:
     title: 'Your Home Gym'
     cols:
-      left: 4
-      middle: 4
+      left: 2
+      middle: 6
       right: 4
     banner: 'banner'
     left: 'facebook'

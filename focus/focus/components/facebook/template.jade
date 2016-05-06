@@ -1,10 +1,16 @@
-.panel
-  h2 Facebook Feed
-  hr
-  .row.scroll
-    .col-md-6(
-      ng-repeat="article in articles"
+.panel.top
+  h2 News Feed
+
+  div(style="text-align: center;")
+    .fb-page(
+      data-height='800'
+      data-href='https://www.facebook.com/aiguilleclimbing'
+      data-tabs='timeline'
+      data-small-header='false'
+      data-adapt-container-width='true'
+      data-hide-cover='false'
+      data-show-facepile='true'
     )
-      article(
-        model="article"
-      )
+      .fb-xfbml-parse-ignore
+        blockquote(cite='https://www.facebook.com/aiguilleclimbing')
+          a(href='https://www.facebook.com/aiguilleclimbing') Aiguille Rock Climbing Center

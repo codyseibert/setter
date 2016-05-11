@@ -9,22 +9,25 @@
   
   .links
     .link(
-      ng-if="isUserAccount()"
     )
       i.fa.fa-user
       | View Profile
   
     .link(
-      ng-if="isGymAccount()"
     )
       i.fa.fa-tachometer
       | Dashboard
       
     .link(
-      ng-if="isUserAccount()"
     )
       | Home
       i.fa.fa-home
+      
+    .link(
+      ui-sref="gyms.setters({gymId: gymId})"
+    )
+      i.fa.fa-users
+      | Setters
       
     .link
       i.fa.fa-search

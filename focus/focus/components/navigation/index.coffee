@@ -14,6 +14,6 @@ module.exports = [
       #     }
       # }, 500)
 
-    templateUrl: 'components/facebook/template.html'
+    templateUrl: 'components/navigation/template.html'
 
 ]

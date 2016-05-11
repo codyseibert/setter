@@ -1,18 +1,18 @@
 module.exports = [
   '$rootScope'
+  '$stateParams'
   (
     $rootScope
+    $stateParams
   ) ->
 
     restrict: 'E'
 
     link: (scope, elem, attr) ->
-
-      # $timeout(function(){
-      #     if ($(".fb-page iframe").length === 0) {
-      #         FB.XFBML.parse();
-      #     }
-      # }, 500)
+      scope.$watch ->
+        $stateParams.gymId
+      , (newValue) ->
+        scope.gymId = newValue
 
     templateUrl: 'components/navigation/template.html'
 

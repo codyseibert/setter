@@ -1,14 +1,18 @@
 .panel
   ul
-    li 
+    li(
+      ui-sref="gyms.news({gymId: gymId})"
+    )
       i.fa.fa-newspaper-o
       | News
-    li 
+    li(
+      ui-sref="gyms.zones({gymId: gymId})"
+    )
       i.fa.fa-map-o
-      | View Zones
-    li 
+      | Zones
+    li
       i.fa.fa-search
-      | Search Routes
+      | Routes
     li 
       i.fa.fa-commenting-o
       | Community

@@ -17,7 +17,7 @@ module.exports = [
       scope.registerGym = ->
         GymService.create scope.gym
           .then (gym) ->
-            $state.go 'gyms', id: gym.id
+            $state.go 'gyms.news', gymId: gym.id
 
     templateUrl: 'components/landing/template.html'
 

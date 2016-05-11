@@ -3,6 +3,3 @@ module.exports =
     name:
       type: 'STRING'
       allowNull: false
-    value:
-      type: 'INTEGER'
-      allowNull: false

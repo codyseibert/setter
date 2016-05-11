@@ -2,9 +2,7 @@ module.exports =
   attributes:
     name:
       type: 'STRING'
-    boulderGradeId:
-      type: 'INTEGER'
-    topropeGradeId:
+    gradeId:
       type: 'INTEGER'
     colorId:
       type: 'INTEGER'
@@ -17,8 +15,6 @@ module.exports =
     active:
       type: 'BOOLEAN'
     zoneId:
-      type: 'INTEGER'
-    leadGradeId:
       type: 'INTEGER'
     type:
       type: 'INTEGER'

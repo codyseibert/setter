@@ -7,7 +7,7 @@
     ) Edit
     
     button(
-      
+      ng-click="strip()"
     ) Strip
 
     button(
@@ -18,8 +18,8 @@
   
   .center
     img(
-      src="assets/images/splash1.png"
-      width="450px"
+      src="{{zone.image}}"
+      width="100%"
     )
 
   hr
@@ -29,39 +29,53 @@
     
     .row
       .col-md-6.left
+        span Name
+      .col-md-6.right
+        span {{route.name}}
+
+    .row
+      .col-md-6.left
+        span Note
+      .col-md-6.right
+        span {{route.note}}
+        
+    .row
+      .col-md-6.left
         span Avg. Rating
       .col-md-6.right
-        span *****
+        span {{rating}}
     
     .row
       .col-md-6.left
         span Grade
       .col-md-6.right
-        span V1
+        span {{grade.name}}
         
     .row
       .col-md-6.left
         span Color
       .col-md-6.right
-        span 0
+        .color(
+          ng-style="{'background-color': color.value}"
+        )
         
     .row
       .col-md-6.left
         span Zone
       .col-md-6.right
-        span Right Gray
+        span {{zone.name}}
         
     .row
       .col-md-6.left
         span Setter
       .col-md-6.right
-        span Moe Corbett
+        span {{setter.firstname}} {{setter.lastname}}
         
     .row
       .col-md-6.left
         span Date Set
       .col-md-6.right
-        span Apr 29, 2016
+        span {{route.createdAt}}
         
   .projecting
     

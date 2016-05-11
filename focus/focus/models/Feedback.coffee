@@ -1,8 +1,11 @@
 module.exports =
   attributes:
-    name:
-      type: 'STRING'
+    accountId:
+      type: 'INTEGER'
       allowNull: false
-    message:
+      references:
+        model: 'accounts'
+        key: 'id'
+    suggestion:
       type: 'TEXT'
       allowNull: false

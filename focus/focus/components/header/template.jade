@@ -6,16 +6,36 @@
     alt="Setter" 
     class="text-right mr1 mb1"
   )
-
+  
   .links
-    .link
+    .link(
+      ng-if="isUserAccount()"
+    )
       i.fa.fa-user
       | View Profile
+  
+    .link(
+      ng-if="isGymAccount()"
+    )
+      i.fa.fa-tachometer
+      | Dashboard
+      
+    .link(
+      ng-if="isUserAccount()"
+    )
+      | Home
+      i.fa.fa-home
       
     .link
       i.fa.fa-search
-      | Search Gyms
+      | Gyms
       
     .link
-      i.fa.fa-home
-      | Search Gyms
+      i.fa.fa-users
+      | Users
+            
+    .link(
+      ui-sref="settings"
+    )
+      i.fa.fa-gear
+      | Settings

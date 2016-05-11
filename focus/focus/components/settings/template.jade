@@ -1,0 +1,45 @@
+.panel.top
+  h2 Account Settings
+  
+  form(
+    ng-submit="changePassword()"
+  )
+    .form-group
+      label Change Password
+      input.form-control(
+        ng-model="gym.password"
+        placeholder="password"
+      )
+      
+    .form-group
+      label Confirm Password
+      input.form-control(
+        ng-model="confirm"
+        placeholder="confirm password"
+      )
+      
+    button(
+      type="submit"
+    ) Change
+      
+  form(
+    ng-submit="submit()"
+  )
+    .form-group
+      label Gym Address
+      input.form-control(
+        ng-model="gym.address"
+        placeholder="gym address"
+      )
+      
+    .form-group
+      label Gym Name
+      input.form-control(
+        ng-model="gym.name"
+        placeholder="gym name"
+      )
+    
+    button(
+      type="submit"
+    ) Save
+  

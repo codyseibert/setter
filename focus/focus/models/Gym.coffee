@@ -6,18 +6,22 @@ module.exports =
       type: 'STRING'
     token:
       type: 'STRING'
+    logo:
+      type: 'STRING'
+    banner:
+      type: 'STRING'
     name:
       type: 'STRING'
-      allowNull: false
     address:
       type: 'STRING'
-      allowNull: false
     facebook:
       type: 'STRING'
       allowNull: true
     twitter:
       type: 'STRING'
       allowNull: true
+    hideFacebook:
+      type: 'BOOLEAN'
     hideSetters:
       type: 'BOOLEAN'
       allowNull: true

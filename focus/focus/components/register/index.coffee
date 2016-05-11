@@ -8,6 +8,6 @@ module.exports = [
 
     link: (scope, elem, attr) ->
 
-    templateUrl: 'components/register-form/template.html'
+    templateUrl: 'components/register/template.html'
 
 ]

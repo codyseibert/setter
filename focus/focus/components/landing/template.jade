@@ -1,0 +1,176 @@
+.section.section-main
+  .background-photo
+  .container
+    .row
+      .col-md-5
+        .row
+          .col-md-4
+            img.logo(
+              src="assets/images/setter-logo.svg"
+            )
+          .col-md-12
+            h1 Setter
+        .row
+          h2
+            | The indoor climbing manager for 
+            br 
+            |setters, climbers, and gyms.
+            
+          button(
+            
+          ) Get Started >
+        
+      .col-md-5      
+        img(
+          src="assets/images/splash1.png"
+        )
+
+.section.section-for-gyms
+  .container
+    .row
+      .col-md-12.center
+        h2 Setter for Climbing Gyms
+        
+      .col-md-6
+        .snippit
+          i.fa.fa-stats
+          h3 Gain insight on your gym's climbers
+          p Find out what grades they climb, what they’re diggin’, and how often they're climbing.
+          
+        .snippit
+          i.fa.fa-stats
+          h3 Manage your gym's setters
+          p Track their bouldering, lead, and top rope sets and their awesome peformance.      
+      .col-md-6
+        .snippit
+          i.fa.fa-stats
+          h3 Archive your routes and problems
+          p Keep track of your past top rope, and lead sets for future reference, such as when scheduling setters.
+          
+        .snippit
+          i.fa.fa-stats
+          h3 Send alerts to your climbers
+          p Let them know of new routes, upcoming competitions, events or special hours.
+
+.section.section-for-climbers
+  .container
+    .row
+      .col-md-12.center
+        h2 Setter for Climbers
+        
+      .col-md-6
+        .snippit
+          i.fa.fa-stats
+          h3 Log your sends, track your progress
+          p Get feedback on your performance, keep track of your send history, or look up past routes you and your friends have sent
+          
+        .snippit
+          i.fa.fa-stats
+          h3 Connect with your community
+          p Know what your friends and fellow climbers are sending, and share your beta with your gym
+          
+      .col-md-6
+        .snippit
+          i.fa.fa-stats
+          h3 Leave gyms feedback on routes & problems
+          p Rate your gym's routes and problems to help them better serve you and your community
+          
+        .snippit
+          i.fa.fa-stats
+          h3 Search through gyms
+          p Find the newest and most popular routes at your gym, or find your next project
+
+
+.section.section-signup
+  .container
+    .row
+      .col-md-12.center
+        h1 Get started today!
+        
+      .col-md-6
+        h2 Gym Registration
+        
+        form(
+          name="registerGymForm"
+          ng-submit="registerGym()"
+        )
+          .form-group
+            label Gym Email
+            input.form-control(
+              ng-model="gym.email"
+              placeholder="email"
+              type="email"
+              required
+            )
+            
+          .form-group
+            label Gym Name
+            input.form-control(
+              ng-model="gym.name"
+              placeholder="gym name"
+              required
+            )
+            
+          .form-group
+            label Gym Address
+            input.form-control(
+              ng-model="gym.address"
+              placeholder="gym address"
+              required
+            )
+          
+          button(
+            type="submit"
+            ng-disabled="registerGymForm.$invalid"
+          ) Register
+          
+      .col-md-6
+        h2 User Registration
+        
+        form(
+          ng-submit="registerUser()"
+        )
+          .form-group
+            label User Email
+            input.form-control(
+              ng-model="user.email"
+              placeholder="email"
+            )
+            
+          .form-group
+            label User Password
+            input.form-control(
+              ng-model="user.password"
+              placeholder="password"
+            )
+            
+          .form-group
+            label User First Name
+            input.form-control(
+              ng-model="user.firstname"
+              placeholder="first name"
+            )
+            
+          .form-group
+            label User Last Name
+            input.form-control(
+              ng-model="user.lastname"
+              placeholder="last name"
+            )
+          
+          button(
+            type="submit"
+          ) Register
+              
+.section.section-footer
+  .container
+    .row
+      .col-md-4.center
+        h4 Connect with us
+        
+      .col-md-4.center
+        h4 Join our mailing list
+        
+      .col-md-4.center
+        h4 Site info
+      

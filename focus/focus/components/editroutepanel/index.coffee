@@ -28,7 +28,7 @@ module.exports = [
 
       scope.route = {}
 
-      $rootScope.$on 'editroutepanel.show', ->
+      $rootScope.$on 'editroutepanel.show', (route) ->
         scope.show = true
 
         ZoneService.get $stateParams.zoneId

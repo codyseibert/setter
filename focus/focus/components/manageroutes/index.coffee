@@ -28,11 +28,21 @@ module.exports = [
 
     link: (scope, elem, attr) ->
 
+      gridApi = null
       zoneMap = {}
       setterMap = {}
       boulderGradeMap = {}
       ropeGradeMap = {}
       colorMap = {}
+
+      scope.stripSelected = (routes) ->
+        rows = gridApi.selection.getSelectedRows()
+        d = scope.gridOptions.data
+        for row in rows
+          console.log row
+          RouteService.delete row
+            .then ->
+              d.splice d.indexOf(row), 1
 
       scope.openEditRoutePanel = (route) ->
         $rootScope.$broadcast 'editroutepanel.show', route
@@ -42,6 +52,8 @@ module.exports = [
         enableColumnMenus: false
         enableRowSelection: true
         enableSelectAll: true
+        onRegisterApi: (api) ->
+          gridApi = api
         data: []
         columnDefs: [
           displayName: 'Zone'

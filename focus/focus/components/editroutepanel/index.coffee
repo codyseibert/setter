@@ -35,38 +35,38 @@ module.exports = [
           .then (zone) ->
             scope.zone = zone
 
-      scope.types = [
-        name: 'Bouldering'
-        id: 0
-      ,
-        name: 'Top Rope'
-        id: 1
-      ,
-        name: 'Lead'
-        id: 2
-      ]
-      scope.route.type = scope.types[0]
+        scope.types = [
+          name: 'Bouldering'
+          id: 0
+        ,
+          name: 'Top Rope'
+          id: 1
+        ,
+          name: 'Lead'
+          id: 2
+        ]
+        scope.route.type = scope.types[0]
 
-      ColorService.find()
-        .then (colors) ->
-          scope.colors = colors
-          scope.route.colorId = colors[0].id
+        ColorService.find()
+          .then (colors) ->
+            scope.colors = colors
+            scope.route.colorId = colors[0].id
 
-      BoulderGradesService.find()
-        .then (grades) ->
-          scope.boulderGrades = grades
-          scope.route.grade = scope.boulderGrades[0] if scope.route.type.id is 0
+        BoulderGradesService.find()
+          .then (grades) ->
+            scope.boulderGrades = grades
+            scope.route.grade = scope.boulderGrades[0] if scope.route.type.id is 0
 
-      RopeGradesService.find()
-        .then (grades) ->
-          scope.ropeGrades = grades
-          scope.route.grade = scope.ropeGrades[0] if scope.route.type.id isnt 0
+        RopeGradesService.find()
+          .then (grades) ->
+            scope.ropeGrades = grades
+            scope.route.grade = scope.ropeGrades[0] if scope.route.type.id isnt 0
 
-      SetterService.find gymId: $stateParams.gymId
-        .then (setters) ->
-          setters.forEach (setter) -> setter.name = "#{setter.firstname} #{setter.lastname}"
-          scope.setters = setters
-          scope.route.setter = scope.setters[0]
+        SetterService.find gymId: $stateParams.gymId
+          .then (setters) ->
+            setters.forEach (setter) -> setter.name = "#{setter.firstname} #{setter.lastname}"
+            scope.setters = setters
+            scope.route.setter = scope.setters[0]
 
       scope.submit = ->
         scope.route.type = scope.route.type.id

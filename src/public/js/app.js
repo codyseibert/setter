@@ -72,6 +72,10 @@ angular.module('SETTER', [
                     controller: 'AlertsController',
                     templateUrl: 'templates/Alerts.tpl.html'
                 })
+                .when('/gyms/:gymId/latest', {
+                    controller: 'GymLatestController',
+                    templateUrl: 'templates/GymLatest.tpl.html'
+                })
                 .when('/gyms/:gymId/walls', {
                     controller: 'WallsController',
                     templateUrl: 'templates/Walls.tpl.html'
@@ -176,7 +180,7 @@ angular.module('SETTER', [
 
             FastClick.attach(document.body);
             $rootScope.alerts = [];
-
+            $rootScope.hideTopNav = false;
 
 
             // Set the global cha

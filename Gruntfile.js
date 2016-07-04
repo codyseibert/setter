@@ -100,7 +100,7 @@ module.exports = function(grunt) {
                 src: [
                     'src/public/index.html'
                 ],
-                cwd: 'src/public',
+                cwd: '.',
                 dependencies: true,
                 exclude: [],
                 fileTypes: {},

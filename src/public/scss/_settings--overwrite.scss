@@ -10,7 +10,7 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "foundation/functions";
+@import "foundation/_functions";
 
 // $experimental: true;
 
@@ -120,7 +120,7 @@ $column-gutter: rem-calc(46);
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-$header-font-family: "Open Sans", Helvetica, sans-serif; 
+$header-font-family: "Open Sans", Helvetica, sans-serif;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
 $header-font-color: $color--text;
@@ -226,7 +226,7 @@ $anchor-font-color: $primaryColor;
 
 // Accordion
 
-//$include-html-accordion-classes: false; 
+//$include-html-accordion-classes: false;
 
 // $accordion-navigation-padding: rem-calc(16);
 // $accordion-navigation-bg-color: #efefef  ;
@@ -328,7 +328,7 @@ $anchor-font-color: $primaryColor;
 // BUTTONS
 //
 
-$include-html-button-classes: false; 
+$include-html-button-classes: false;
 
 // We use these to build padding for buttons.
 // $button-tny: rem-calc(10);
@@ -686,7 +686,7 @@ $tabbar-left-section-border: 0;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-$off-canvas-bg: $brown--light; 
+$off-canvas-bg: $brown--light;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
@@ -702,8 +702,8 @@ $off-canvas-link-color: $brown--dark;
 $off-canvas-link-border-bottom: 0;
 
 // Off Canvas Menu Icon Variables
-$tabbar-menu-icon-color: #fff; 
-//$tabbar-menu-icon-hover: $primaryColor; 
+$tabbar-menu-icon-color: #fff;
+//$tabbar-menu-icon-hover: $primaryColor;
 
 // $tabbar-menu-icon-text-indent: rem-calc(35);
 $tabbar-menu-icon-width: $tabbar-height;
@@ -722,14 +722,14 @@ $tapbar-hamburger-icon-thickness: 4px;
 // $off-canvas-overlay-cursor: pointer;
 $off-canvas-overlay-box-shadow: 0;
 $off-canvas-overlay-background: 0;
-$off-canvas-overlay-background-hover: 0; 
+$off-canvas-overlay-background-hover: 0;
 
 // Transition Variables
 //$menu-slide: "transform 100ms";
 
 // Orbit
 
-$include-html-orbit-classes: false; 
+$include-html-orbit-classes: false;
 
 // We use these to control the caption styles
 // $orbit-container-bg: none;
@@ -907,7 +907,7 @@ $panel-border-size: 0;
 
 // Reveal
 
-// $include-html-reveal-classes: false; 
+// $include-html-reveal-classes: false;
 
 // We use these to control the style of the reveal overlay.
 // $reveal-overlay-bg: rgba(#000, .45);
@@ -1178,7 +1178,7 @@ $has-tip-cursor-type: pointer;
 //$include-html-top-bar-classes: false;
 
 // Background color for the top bar
-$topbar-bg-color: rgba( 255, 255, 255, .0); 
+$topbar-bg-color: rgba( 255, 255, 255, .0);
 //$topbar-bg: $topbar-bg-color;
 
 // Height and margin

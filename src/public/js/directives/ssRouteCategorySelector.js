@@ -17,17 +17,17 @@ angular.module('SETTER')
 
                   this.setActiveCategory = function(pCategory) {
                       $scope.activeCategory = pCategory;
-                      
+
                          switch ($scope.activeCategory) {
                              case 'boulder':
-                                $scope.activeCategoryText = "Bouldering"; 
+                                $scope.activeCategoryText = "Bouldering";
                                  break;
                              case 'toprope':
-                                $scope.activeCategoryText = "Top Rope"; 
+                                $scope.activeCategoryText = "Top Rope";
 
                                  break;
                              case 'lead':
-                                $scope.activeCategoryText = "Lead"; 
+                                $scope.activeCategoryText = "Lead";
 
                                  break;
                              default:
@@ -42,7 +42,6 @@ angular.module('SETTER')
               }],
               link: function(scope, element, attrs, ctrl)  {
                   scope.categories = ['boulder', 'toprope', 'lead'];
-
                   ctrl.setActiveCategory(scope.categories[0]);
               }
           }

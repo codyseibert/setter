@@ -18,12 +18,14 @@ angular.module('SETTER')
                   '$scope',
                   '$routeParams',
                   '$rootScope',
+                  '$window',
                   'SelectedRouteService',
                   'GymsService',
                 function(
                   $scope,
                   $routeParams,
                   $rootScope,
+                  $window,
                   SelectedRouteService,
                   GymsService
                 ) {
@@ -141,6 +143,10 @@ angular.module('SETTER')
                   };
 
                   $scope.openRouteModal = function (route) {
+                      if ($rootScope.hideTopNav === true) {
+                        $window.open('http://setter.rocks/#/gyms/' + gymId, "_blank");
+                        return;
+                      }
                       $rootScope.openRouteModal(route)
                   };
 

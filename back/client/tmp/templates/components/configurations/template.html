@@ -1,0 +1,37 @@
+
+<div class="panel top">
+  <h2>Gym Configurations</h2>
+  <form ng-submit="submit()">
+    <div class="form-group">
+      <label>Hide setter names from users</label><br/>
+      <toggle-switch ng-model="gym.hideSetters"></toggle-switch>
+    </div>
+    <div class="form-group">
+      <label>Combine top rope routes with lead on zones page</label><br/>
+      <toggle-switch ng-model="gym.combineRope"></toggle-switch>
+    </div>
+    <div class="form-group">
+      <label>Hide facebook news feed</label><br/>
+      <toggle-switch ng-model="gym.hideFacebook"></toggle-switch>
+    </div>
+    <div class="form-group">
+      <label>Twitter URL</label>
+      <input ng-model="gym.twitter" placeholder="http://twitter.com/yourgymhandle" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label>Facebook URL</label>
+      <input ng-model="gym.facebook" placeholder="http://facebook.com/yourgymhandle" class="form-control"/>
+    </div>
+    <div class="form-group"><img ng-src="{{gym.banner}}" height="200"/><br/>
+      <label>Banner Image URL</label>
+      <input ng-model="gym.banner" placeholder="http://google.com/your_image_location" class="form-control"/>
+      <button type="button" ngf-select="upload($file, 'banner')" ng-model="file" name="file" ngf-max-size="2MB">Upload Banner Image</button>
+    </div>
+    <div class="form-group"><img ng-src="{{gym.logo}}" height="200"/><br/>
+      <label>Logo Image URL</label>
+      <input ng-model="gym.logo" placeholder="http://google.com/your_image_location" class="form-control"/>
+      <button type="button" ngf-select="upload($file, 'logo')" ng-model="file" name="file" ngf-max-size="2MB">Upload Logo Image</button>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</div>

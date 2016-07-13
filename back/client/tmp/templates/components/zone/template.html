@@ -1,0 +1,8 @@
+
+<div class="panel top">
+  <h2>{{zone.name}}</h2>
+  <div class="add">
+    <button ng-click="openEditRoutePanel()">Add Route</button>
+  </div>
+  <div ng-repeat="route in routes" ng-click="openRoutePanel(route)" class="route">{{route.name}}</div>
+</div>

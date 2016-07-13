@@ -1,0 +1,13 @@
+.panel.top
+  h2 Zone Image
+  
+  button(
+    type="button"
+    ngf-select="upload($file, 'image')"
+    ngf-max-size="2MB"
+  ) Upload Zone Image
+
+  img(
+    ng-src="{{zone.image}}"
+    width="100%"
+  )

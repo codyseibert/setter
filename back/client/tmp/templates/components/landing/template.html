@@ -1,0 +1,143 @@
+
+<div class="section section-main">
+  <div class="background-photo"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-md-4"><img src="assets/images/setter-logo.svg" class="logo"/></div>
+          <div class="col-md-12">
+            <h1>Setter</h1>
+          </div>
+        </div>
+        <div class="row">
+          <h2>The indoor climbing manager for <br/>setters, climbers, and gyms.</h2>
+          <button>Get Started ></button>
+        </div>
+      </div>
+      <div class="col-md-5">     <img src="assets/images/splash1.png"/></div>
+    </div>
+  </div>
+</div>
+<div class="section section-for-gyms">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center">
+        <h2>Setter for Climbing Gyms</h2>
+      </div>
+      <div class="col-md-6">
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Gain insight on your gym's climbers</h3>
+          <p>Find out what grades they climb, what they’re diggin’, and how often they're climbing.</p>
+        </div>
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Manage your gym's setters</h3>
+          <p>Track their bouldering, lead, and top rope sets and their awesome peformance.      </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Archive your routes and problems</h3>
+          <p>Keep track of your past top rope, and lead sets for future reference, such as when scheduling setters.</p>
+        </div>
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Send alerts to your climbers</h3>
+          <p>Let them know of new routes, upcoming competitions, events or special hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section-for-climbers">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center">
+        <h2>Setter for Climbers</h2>
+      </div>
+      <div class="col-md-6">
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Log your sends, track your progress</h3>
+          <p>Get feedback on your performance, keep track of your send history, or look up past routes you and your friends have sent</p>
+        </div>
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Connect with your community</h3>
+          <p>Know what your friends and fellow climbers are sending, and share your beta with your gym</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Leave gyms feedback on routes & problems</h3>
+          <p>Rate your gym's routes and problems to help them better serve you and your community</p>
+        </div>
+        <div class="snippit"><i class="fa fa-stats"></i>
+          <h3>Search through gyms</h3>
+          <p>Find the newest and most popular routes at your gym, or find your next project</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section-signup">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 center">
+        <h1>Get started today!</h1>
+      </div>
+      <div class="col-md-6">
+        <h2>Gym Registration</h2>
+        <form name="registerGymForm" ng-submit="registerGym()">
+          <div class="form-group">
+            <label>Gym Email</label>
+            <input ng-model="gym.email" placeholder="email" type="email" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>Gym Name</label>
+            <input ng-model="gym.name" placeholder="gym name" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>Gym Address</label>
+            <input ng-model="gym.address" placeholder="gym address" required="required" class="form-control"/>
+          </div>
+          <button type="submit" ng-disabled="registerGymForm.$invalid">Register</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2>User Registration</h2>
+        <form ng-submit="registerUser()">
+          <div class="form-group">
+            <label>User Email</label>
+            <input ng-model="user.email" placeholder="email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>User Password</label>
+            <input ng-model="user.password" placeholder="password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>User First Name</label>
+            <input ng-model="user.firstname" placeholder="first name" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>User Last Name</label>
+            <input ng-model="user.lastname" placeholder="last name" class="form-control"/>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 center">
+        <h4>Connect with us</h4>
+      </div>
+      <div class="col-md-4 center">
+        <h4>Join our mailing list</h4>
+      </div>
+      <div class="col-md-4 center">
+        <h4>Site info</h4>
+      </div>
+    </div>
+  </div>
+</div>

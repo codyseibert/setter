@@ -1,0 +1,50 @@
+.top
+  img.logo(
+    src="assets/images/setter-logo.svg" 
+    height="35px" 
+    width="35px" 
+    alt="Setter" 
+    class="text-right mr1 mb1"
+  )
+  
+  .links
+    .link(
+    )
+      i.fa.fa-user
+      | View Profile
+  
+    .link(
+    )
+      i.fa.fa-tachometer
+      | Dashboard
+      
+    .link(
+    )
+      i.fa.fa-home
+      | Home
+      
+    .link(
+      ui-sref="gyms.setters({gymId: gymId})"
+    )
+      i.fa.fa-users
+      | Setters
+      
+    .link(
+      ui-sref="gyms.manageroutes({gymId: gymId})"
+    )
+      i.fa.fa-book
+      | Routes
+      
+    .link
+      i.fa.fa-search
+      | Gyms
+      
+    .link
+      i.fa.fa-users
+      | Users
+            
+    .link(
+      ui-sref="settings"
+    )
+      i.fa.fa-gear
+      | Settings

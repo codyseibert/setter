@@ -1,0 +1,29 @@
+.panel.top
+  h2 Setters
+  
+  .add
+    form(
+      ng-submit="submit()"
+    )
+      .form-group
+        label First Name
+        input.form-control(
+          ng-model="form.firstname"
+          placeholder="First Name"
+        )
+      .form-group
+        label Last Name
+        input.form-control(
+          ng-model="form.lastname"
+          placeholder="Last Name"
+        )
+      button(
+        type="submit"
+      ) Add Setter
+  
+  .setter(
+    ng-repeat="setter in setters"
+  )
+    div {{setter.firstname}}
+    div {{setter.lastname}}
+  

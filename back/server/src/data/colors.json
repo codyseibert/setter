@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Red",
+    "value": "#E6232E"
+  },
+  {
+    "id": 3,
+    "name": "Blue",
+    "value": "#1771B9"
+  },
+  {
+    "id": 6,
+    "name": "Light Blue",
+    "value": "#66A4D2"
+  },
+  {
+    "id": 7,
+    "name": "Green",
+    "value": "#349F47"
+  },
+  {
+    "id": 8,
+    "name": "Pink",
+    "value": "#F182B3"
+  },
+  {
+    "id": 9,
+    "name": "Yellow",
+    "value": "#F6EB2C"
+  },
+  {
+    "id": 10,
+    "name": "Purple",
+    "value": "#865FBF"
+  },
+  {
+    "id": 11,
+    "name": "Orange",
+    "value": "#FE7B34"
+  },
+  {
+    "id": 12,
+    "name": "Lime Green",
+    "value": "#00C925"
+  },
+  {
+    "id": 13,
+    "name": "Black",
+    "value": "#181718"
+  },
+  {
+    "id": 14,
+    "name": "Brown",
+    "value": "#995B50"
+  },
+  {
+    "id": 15,
+    "name": "White",
+    "value": "#F7F7F9"
+  },
+  {
+    "id": 16,
+    "name": "Tan",
+    "value": "#D0A364"
+  },
+  {
+    "id": 18,
+    "name": "Grey",
+    "value": "#98989D"
+  },
+  {
+    "id": 19,
+    "name": "So Ill Green",
+    "value": "#88AF3E"
+  },
+  {
+    "id": 20,
+    "name": "Teal",
+    "value": "#7FE5EA"
+  }
+]

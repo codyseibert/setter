@@ -1,0 +1,21 @@
+
+<div class="panel top">
+  <h2>Setters</h2>
+  <div class="add">
+    <form ng-submit="submit()">
+      <div class="form-group">
+        <label>First Name</label>
+        <input ng-model="form.firstname" placeholder="First Name" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input ng-model="form.lastname" placeholder="Last Name" class="form-control"/>
+      </div>
+      <button type="submit">Add Setter</button>
+    </form>
+  </div>
+  <div ng-repeat="setter in setters" class="setter">
+    <div>{{setter.firstname}}</div>
+    <div>{{setter.lastname}}</div>
+  </div>
+</div>

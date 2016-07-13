@@ -1,0 +1,57 @@
+
+<div ng-show="show" class="route-panel"> 
+  <div class="right">
+    <button ng-click="show = false;">X</button>
+  </div>
+  <hr/>
+  <div class="left">
+    <h3>Set Route</h3>
+    <form ng-submit="submit()">
+      <div class="row">
+        <div class="col-md-6 left"><span>Type</span></div>
+        <div class="col-md-6 right">
+          <select ng-model="route.type" ng-options="type as type.name for type in types track by type.id"></select>
+        </div>
+      </div>
+      <div ng-if="route.type.id === 0" class="row">
+        <div class="col-md-6 left"><span>Grade</span></div>
+        <div class="col-md-6 right">
+          <select ng-model="route.grade" ng-options="grade as grade.name for grade in boulderGrades track by grade.id"></select>
+        </div>
+      </div>
+      <div ng-if="route.type.id !== 0" class="row">
+        <div class="col-md-6 left"><span>Grade</span></div>
+        <div class="col-md-6 right">
+          <select ng-model="route.grade" ng-options="grade as grade.name for grade in ropeGrades track by grade.id"></select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 left"><span>Color</span></div>
+        <div class="col-md-8 right">
+          <div ng-repeat="color in colors" ng-style="{'background-color': color.value}" ng-click="route.colorId = color.id" ng-class="{'selected': route.colorId === color.id}" class="color"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 left"><span>Setter</span></div>
+        <div class="col-md-6 right">
+          <select ng-model="route.setter" ng-options="setter as setter.name for setter in setters track by setter.id"></select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 left"><span>Name</span></div>
+        <div class="col-md-6 right">
+          <input placeholder="My Super Awesome Route!" ng-model="route.name"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 left"><span>Note</span></div>
+        <div class="col-md-6 right">
+          <input placeholder="Side Wall Off!" ng-model="route.note"/>
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit">Create Route</button>
+      </div>
+    </form>
+  </div>
+</div>

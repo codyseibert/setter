@@ -4,7 +4,7 @@
   "database": {
     "name": "setter",
     "host": "localhost",
-    "username": "setter",
-    "password": "testing"
+    "username": "root",
+    "password": ""
   }
 }

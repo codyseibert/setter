@@ -40,6 +40,8 @@ require('./gyms');
 
 require('./findgym');
 
+require('./finduser');
+
 require('./community');
 
 require('./info');

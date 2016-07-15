@@ -1,0 +1,25 @@
+.col-2-fluid
+  header
+    .logo myApp
+    .right.link Articles
+
+  .container-fluid.content
+    .row
+      .col-md-8.col-md-push-2
+        .panel.top
+          h2 User Search
+          
+          input(
+            ng-model="search"
+          )
+          
+          .gym(
+            ng-repeat="user in users | filter : myFilter"
+          )
+            .flag.member 
+              img(
+                ng-src="{{user.image}}"
+              )
+              .text {{user.name}}
+
+  footer

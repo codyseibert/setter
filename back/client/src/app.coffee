@@ -42,6 +42,7 @@ app.config [
 
 require './gyms'
 require './findgym'
+require './finduser'
 require './community'
 require './info'
 require './routes'

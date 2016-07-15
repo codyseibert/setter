@@ -89,6 +89,14 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'setters/setters.html'
       }
     }
+  }).state('findgym', {
+    url: '/findgym',
+    views: {
+      'main': {
+        controller: 'findGymController',
+        templateUrl: 'findgym/findGym.html'
+      }
+    }
   }).state('settings', {
     url: '/settings',
     views: {

@@ -1,0 +1,26 @@
+.col-2-fluid
+  header
+    .logo myApp
+    .right.link Articles
+
+  .container-fluid.content
+    .row
+      .col-md-8.col-md-push-2
+        .panel.top
+          h2 Gym Search
+          
+          input(
+            ng-model="search"
+          )
+          
+          .gym(
+            ng-repeat="gym in gyms | filter : myFilter"
+          )
+            .flag.member 
+              img(
+                ng-src="{{gym.image}}"
+              )
+              .text {{gym.name}}
+              .text {{gym.address}}
+
+  footer

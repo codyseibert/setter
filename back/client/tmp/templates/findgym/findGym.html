@@ -1,0 +1,24 @@
+
+<div class="col-2-fluid">
+  <header>
+    <div class="logo">myApp</div>
+    <div class="right link">Articles</div>
+  </header>
+  <div class="container-fluid content">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        <div class="panel top">
+          <h2>Gym Search</h2>
+          <input ng-model="search"/>
+          <div ng-repeat="gym in gyms | filter : myFilter" class="gym">
+            <div class="flag member"> <img ng-src="{{gym.image}}"/>
+              <div class="text">{{gym.name}}</div>
+              <div class="text">{{gym.address}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer></footer>
+</div>

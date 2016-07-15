@@ -1,13 +1,76 @@
 .row
   .col-md-8
     .panel.top
+      .btn-group
+        .btn-circle(
+          ng-if="!creating"
+          uib-tooltip='create'
+          ng-click="createNews()"
+        ) +
+        
+        .btn-circle.green(
+          ng-if="creating"
+          uib-tooltip='save'
+          ng-click="save()"
+        ) &#10003;
+        
+        .btn-circle.gray(
+          ng-if="creating"
+          uib-tooltip='cancel'
+          ng-click="cancel()"
+        ) &times;
+        
       h2 Gym News
-      hr
-      div The gym will be closed next Monday
-      .date Feb 6th, 2016
-      hr
-      div The gym will be closed next Monday
-      .date Feb 6th, 2016
+      
+      div(
+        ng-if="creating"
+      )
+        .form-group
+          label Text
+          textarea.form-control(
+            ng-model="news.text"
+            placeholder="Enter your news here"
+          )
+          
+      .news(
+        ng-repeat="entry in entries"
+      )
+        hr
+        div(
+          ng-if="!entry.editing"
+        ) {{entry.text}}
+        .form-group(
+          ng-if="entry.editing"
+        )
+          label Text
+          textarea.form-control(
+            ng-model="entry.text"
+          )
+        div {{entry.date}}
+        .btn-group
+          .btn-circle(
+            uib-tooltip='delete'
+            ng-click="delete(entry)"
+          ) 
+            i.glyphicon.glyphicon-trash
+            
+          .btn-circle(
+            ng-if="!entry.editing"
+            uib-tooltip='edit'
+            ng-click="edit(entry)"
+          ) &#9998;
+          
+          .btn-circle.green(
+            ng-if="entry.editing"
+            uib-tooltip='save'
+            ng-click="save(entry)"
+          ) &#10003;
+          
+          .btn-circle.gray(
+            ng-if="entry.editing"
+            uib-tooltip='cancel'
+            ng-click="cancelEntry(entry)"
+          ) &times;
       
   .col-md-4
     .panel.top

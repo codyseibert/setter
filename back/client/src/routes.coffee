@@ -36,12 +36,24 @@ module.exports = (
         'content':
           controller: 'newsController'
           templateUrl: 'news/news.html'
+    .state 'gyms.info',
+      url: '/:gymId/info'
+      views:
+        'content':
+          controller: 'infoController'
+          templateUrl: 'info/info.html'
     .state 'gyms.community',
       url: '/:gymId/community'
       views:
         'content':
           controller: 'communityController'
           templateUrl: 'community/community.html'
+    .state 'gyms.routes',
+      url: '/:gymId/routes'
+      views:
+        'content':
+          controller: 'routesController'
+          templateUrl: 'routes/routes.html'
     .state 'gyms.members',
       url: '/:gymId/members'
       views:

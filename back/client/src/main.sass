@@ -15,6 +15,43 @@ $COLOR_DEFAULT: #DBC8AA
     background-color: rgba(0,0,0,.5)
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5)
 
+.btn-group
+  position: absolute
+  right: 30px
+  top: 20px
+
+.btn-circle
+  z-index: 1
+  width: 70px
+  height: 70px
+  text-align: center
+  background-color: #ed6d56
+  border-color: white
+  box-shadow: 1px 1px 1px #AAA
+  border-radius: 50%
+  color: white
+  position: relative
+  float: right
+  font-size: 40px
+  line-height: 70px
+  font-weight: bold
+  cursor: pointer
+
+.tooltip + .btn-circle
+  margin-right: 14px
+
+.btn-circle + .btn-circle
+  margin-right: 14px
+
+.btn-circle:hover
+  background-color: #ffb3a5
+
+.btn-circle.green
+  background-color: green
+
+.btn-circle.gray
+  background-color: gray
+
 .col-2-fluid
   .content > .row
     padding-top: 100px
@@ -98,7 +135,11 @@ header
   border: 1px solid #DDD
   background-color: white
 
-.top
+header
+  .top
+    border-top: 8px solid #ed6d56
+  
+.panel.top
   border-top: 8px solid #ed6d56
 
 .center

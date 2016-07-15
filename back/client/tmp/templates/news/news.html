@@ -2,13 +2,33 @@
 <div class="row">
   <div class="col-md-8">
     <div class="panel top">
+      <div class="btn-group">
+        <div ng-if="!creating" uib-tooltip="create" ng-click="createNews()" class="btn-circle">+</div>
+        <div ng-if="creating" uib-tooltip="save" ng-click="save()" class="btn-circle green">&#10003;</div>
+        <div ng-if="creating" uib-tooltip="cancel" ng-click="cancel()" class="btn-circle gray">&times;</div>
+      </div>
       <h2>Gym News</h2>
-      <hr/>
-      <div>The gym will be closed next Monday</div>
-      <div class="date">Feb 6th, 2016</div>
-      <hr/>
-      <div>The gym will be closed next Monday</div>
-      <div class="date">Feb 6th, 2016</div>
+      <div ng-if="creating">
+        <div class="form-group">
+          <label>Text</label>
+          <textarea ng-model="news.text" placeholder="Enter your news here" class="form-control"></textarea>
+        </div>
+      </div>
+      <div ng-repeat="entry in entries" class="news">
+        <hr/>
+        <div ng-if="!entry.editing">{{entry.text}}</div>
+        <div ng-if="entry.editing" class="form-group">
+          <label>Text</label>
+          <textarea ng-model="entry.text" class="form-control"></textarea>
+        </div>
+        <div>{{entry.date}}</div>
+        <div class="btn-group">
+          <div uib-tooltip="delete" ng-click="delete(entry)" class="btn-circle"> <i class="glyphicon glyphicon-trash"></i></div>
+          <div ng-if="!entry.editing" uib-tooltip="edit" ng-click="edit(entry)" class="btn-circle">&#9998;</div>
+          <div ng-if="entry.editing" uib-tooltip="save" ng-click="save(entry)" class="btn-circle green">&#10003;</div>
+          <div ng-if="entry.editing" uib-tooltip="cancel" ng-click="cancelEntry(entry)" class="btn-circle gray">&times;</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-4">

@@ -40,6 +40,10 @@ require('./gyms');
 
 require('./community');
 
+require('./info');
+
+require('./routes');
+
 require('./analytics');
 
 require('./members');

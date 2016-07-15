@@ -10,7 +10,9 @@
     )
       i.fa.fa-map-o
       | Zones
-    li
+    li(
+      ui-sref="gyms.routes({gymId: gymId})"
+    )
       i.fa.fa-search
       | Routes
     li(
@@ -28,7 +30,9 @@
     )
       i.fa.fa-bar-chart
       | Analytics
-    li
+    li(
+      ui-sref="gyms.info({gymId: gymId})"
+    )
       i.fa.fa-info
       | Info
     

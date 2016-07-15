@@ -96822,6 +96822,10 @@ require('./gyms');
 
 require('./community');
 
+require('./info');
+
+require('./routes');
+
 require('./analytics');
 
 require('./members');
@@ -96850,7 +96854,7 @@ require('./components');
 
 app.run(['$rootScope', '$http', function($rootScope, $http) {}]);
 
-},{"../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls":14,"../../node_modules/angular-ui-grid/ui-grid":15,"./analytics":24,"./community":26,"./components":32,"./gyms":46,"./landing":47,"./manageroutes":49,"./members":51,"./models":72,"./news":73,"./register":75,"./routes":77,"./services":79,"./setters":80,"./settings":82,"./zone":84,"./zones":86,"angular":18,"angular-animate":2,"angular-filter":3,"angular-local-storage":4,"angular-moment":6,"angular-resource":8,"angular-sanitize":10,"angular-scroll":12,"angular-toggle-switch":13,"angular-ui-router":16,"ng-file-upload":21,"ng-lodash":22}],45:[function(require,module,exports){
+},{"../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls":14,"../../node_modules/angular-ui-grid/ui-grid":15,"./analytics":24,"./community":26,"./components":32,"./gyms":46,"./info":47,"./landing":49,"./manageroutes":51,"./members":53,"./models":74,"./news":75,"./register":77,"./routes":79,"./services":81,"./setters":82,"./settings":84,"./zone":86,"./zones":88,"angular":18,"angular-animate":2,"angular-filter":3,"angular-local-storage":4,"angular-moment":6,"angular-resource":8,"angular-sanitize":10,"angular-scroll":12,"angular-toggle-switch":13,"angular-ui-router":16,"ng-file-upload":21,"ng-lodash":22}],45:[function(require,module,exports){
 module.exports=require(23)
 },{}],46:[function(require,module,exports){
 var app;
@@ -96864,29 +96868,38 @@ var app;
 
 app = require('angular').module('setter');
 
-app.controller('landingController', require('./landingController'));
+app.controller('infoController', require('./infoController'));
 
-},{"./landingController":48,"angular":18}],48:[function(require,module,exports){
+},{"./infoController":48,"angular":18}],48:[function(require,module,exports){
 module.exports=require(23)
 },{}],49:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
-app.controller('manageroutesController', require('./manageroutesController'));
+app.controller('landingController', require('./landingController'));
 
-},{"./manageroutesController":50,"angular":18}],50:[function(require,module,exports){
+},{"./landingController":50,"angular":18}],50:[function(require,module,exports){
 module.exports=require(23)
 },{}],51:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
-app.controller('membersController', require('./membersController'));
+app.controller('manageroutesController', require('./manageroutesController'));
 
-},{"./membersController":52,"angular":18}],52:[function(require,module,exports){
+},{"./manageroutesController":52,"angular":18}],52:[function(require,module,exports){
 module.exports=require(23)
 },{}],53:[function(require,module,exports){
+var app;
+
+app = require('angular').module('setter');
+
+app.controller('membersController', require('./membersController'));
+
+},{"./membersController":54,"angular":18}],54:[function(require,module,exports){
+module.exports=require(23)
+},{}],55:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -96940,7 +96953,7 @@ module.exports = [
   }
 ];
 
-},{}],54:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -96994,7 +97007,7 @@ module.exports = [
   }
 ];
 
-},{}],55:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97048,7 +97061,7 @@ module.exports = [
   }
 ];
 
-},{}],56:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97102,7 +97115,7 @@ module.exports = [
   }
 ];
 
-},{}],57:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97156,7 +97169,7 @@ module.exports = [
   }
 ];
 
-},{}],58:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97210,7 +97223,7 @@ module.exports = [
   }
 ];
 
-},{}],59:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97264,7 +97277,7 @@ module.exports = [
   }
 ];
 
-},{}],60:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97318,7 +97331,7 @@ module.exports = [
   }
 ];
 
-},{}],61:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97372,7 +97385,7 @@ module.exports = [
   }
 ];
 
-},{}],62:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97426,7 +97439,7 @@ module.exports = [
   }
 ];
 
-},{}],63:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97480,7 +97493,7 @@ module.exports = [
   }
 ];
 
-},{}],64:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97534,7 +97547,7 @@ module.exports = [
   }
 ];
 
-},{}],65:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97588,7 +97601,7 @@ module.exports = [
   }
 ];
 
-},{}],66:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97642,7 +97655,7 @@ module.exports = [
   }
 ];
 
-},{}],67:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97696,7 +97709,7 @@ module.exports = [
   }
 ];
 
-},{}],68:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97750,7 +97763,7 @@ module.exports = [
   }
 ];
 
-},{}],69:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97804,7 +97817,7 @@ module.exports = [
   }
 ];
 
-},{}],70:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97858,7 +97871,7 @@ module.exports = [
   }
 ];
 
-},{}],71:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -97912,7 +97925,7 @@ module.exports = [
   }
 ];
 
-},{}],72:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
@@ -97955,25 +97968,64 @@ app.service('UserService', require('./UserService'));
 
 app.service('ZoneService', require('./ZoneService'));
 
-},{"./AccountService":53,"./AlertService":54,"./BoulderGradesService":55,"./ColorService":56,"./CommentService":57,"./FeedbackService":58,"./FeedbackVoteService":59,"./GymService":60,"./ProjectService":61,"./RatingService":62,"./RolesService":63,"./RopeGradesService":64,"./RouteNewToUserService":65,"./RouteService":66,"./SendService":67,"./SetterService":68,"./SuggestionService":69,"./UserService":70,"./ZoneService":71,"angular":18}],73:[function(require,module,exports){
+},{"./AccountService":55,"./AlertService":56,"./BoulderGradesService":57,"./ColorService":58,"./CommentService":59,"./FeedbackService":60,"./FeedbackVoteService":61,"./GymService":62,"./ProjectService":63,"./RatingService":64,"./RolesService":65,"./RopeGradesService":66,"./RouteNewToUserService":67,"./RouteService":68,"./SendService":69,"./SetterService":70,"./SuggestionService":71,"./UserService":72,"./ZoneService":73,"angular":18}],75:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('newsController', require('./newsController'));
 
-},{"./newsController":74,"angular":18}],74:[function(require,module,exports){
-module.exports=require(23)
-},{}],75:[function(require,module,exports){
+},{"./newsController":76,"angular":18}],76:[function(require,module,exports){
+module.exports = [
+  '$scope', function($scope) {
+    $scope.creating = false;
+    $scope.entries = [
+      {
+        text: 'the gym will be close sunday',
+        date: 'January 12th, 2016'
+      }, {
+        text: 'the gym will be close sunday',
+        date: 'January 12th, 2016'
+      }, {
+        text: 'the gym will be close sunday',
+        date: 'January 12th, 2016'
+      }
+    ];
+    $scope.createNews = function() {
+      return $scope.creating = !$scope.creating;
+    };
+    $scope.cancel = function() {
+      return $scope.creating = false;
+    };
+    $scope.edit = function(entry) {
+      return entry.editing = true;
+    };
+    $scope.cancelEntry = function(entry) {
+      return entry.editing = false;
+    };
+    $scope.save = function(entry) {
+      return entry.editing = false;
+    };
+    return $scope["delete"] = function(entry) {
+      var isYes;
+      isYes = confirm('Are you sure you want to delete this news entry?');
+      if (isYes) {
+        return $scope.entries.splice($scope.entries.indexOf(entry), 1);
+      }
+    };
+  }
+];
+
+},{}],77:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('registerController', require('./registerController'));
 
-},{"./registerController":76,"angular":18}],76:[function(require,module,exports){
+},{"./registerController":78,"angular":18}],78:[function(require,module,exports){
 module.exports=require(23)
-},{}],77:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 module.exports = function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider.state('gyms', {
@@ -98017,12 +98069,28 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'news/news.html'
       }
     }
+  }).state('gyms.info', {
+    url: '/:gymId/info',
+    views: {
+      'content': {
+        controller: 'infoController',
+        templateUrl: 'info/info.html'
+      }
+    }
   }).state('gyms.community', {
     url: '/:gymId/community',
     views: {
       'content': {
         controller: 'communityController',
         templateUrl: 'community/community.html'
+      }
+    }
+  }).state('gyms.routes', {
+    url: '/:gymId/routes',
+    views: {
+      'content': {
+        controller: 'routesController',
+        templateUrl: 'routes/routes.html'
       }
     }
   }).state('gyms.members', {
@@ -98077,7 +98145,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
   return this;
 };
 
-},{}],78:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', 'Upload', function($http, $q, BASE_URL, Upload) {
     return {
@@ -98097,47 +98165,47 @@ module.exports = [
   }
 ];
 
-},{}],79:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.service('FileService', require('./FileService'));
 
-},{"./FileService":78,"angular":18}],80:[function(require,module,exports){
+},{"./FileService":80,"angular":18}],82:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('settersController', require('./settersController'));
 
-},{"./settersController":81,"angular":18}],81:[function(require,module,exports){
-module.exports=require(23)
-},{}],82:[function(require,module,exports){
-var app;
-
-app = require('angular').module('setter');
-
-app.controller('settingsController', require('./settingsController'));
-
-},{"./settingsController":83,"angular":18}],83:[function(require,module,exports){
+},{"./settersController":83,"angular":18}],83:[function(require,module,exports){
 module.exports=require(23)
 },{}],84:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
-app.controller('zoneController', require('./zoneController'));
+app.controller('settingsController', require('./settingsController'));
 
-},{"./zoneController":85,"angular":18}],85:[function(require,module,exports){
+},{"./settingsController":85,"angular":18}],85:[function(require,module,exports){
 module.exports=require(23)
 },{}],86:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
+app.controller('zoneController', require('./zoneController'));
+
+},{"./zoneController":87,"angular":18}],87:[function(require,module,exports){
+module.exports=require(23)
+},{}],88:[function(require,module,exports){
+var app;
+
+app = require('angular').module('setter');
+
 app.controller('zonesController', require('./zonesController'));
 
-},{"./zonesController":87,"angular":18}],87:[function(require,module,exports){
+},{"./zonesController":89,"angular":18}],89:[function(require,module,exports){
 module.exports=require(23)
 },{}]},{},[44])

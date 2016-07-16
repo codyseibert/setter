@@ -9,18 +9,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.3.4",
     "bcrypt": "^0.8.5",
     "bluebird": "^2.10.1",
     "body-parser": "^1.14.1",
     "cors": "^2.7.1",
     "express": "^4.13.3",
-    "multer": "~1.1.0",
+    "jsonwebtoken": "^7.1.6",
     "morgan": "^1.7.0",
+    "multer": "~1.1.0",
     "mysql": "^2.9.0",
-    "sequelize": "^3.10.0",
-    "underscore": "^1.8.3",
     "node-uuid": "^1.4.7",
-    "aws-sdk": "^2.3.4"
+    "sequelize": "^3.10.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",

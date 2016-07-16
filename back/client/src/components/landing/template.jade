@@ -51,6 +51,58 @@
           i.fa.fa-stats
           h3 Send alerts to your climbers
           p Let them know of new routes, upcoming competitions, events or special hours.
+          
+    .row        
+      .col-md-6
+        h1 Are you a climbing gym looking to manage your routes?  
+        br
+        h2 Start your 30 day free trial today!
+      
+        h2 Gym Registration
+        
+        form(
+          name="registerGymForm"
+          ng-submit="registerGym()"
+        )
+          .form-group
+            label Gym's Email
+            input.form-control(
+              ng-model="gym.email"
+              placeholder="email"
+              type="email"
+              required
+            )
+            
+          .form-group
+            label Gym's Password
+            input.form-control(
+              ng-model="gym.password"
+              placeholder="password"
+              type="password"
+              required
+            )
+            
+          .form-group
+            label Gym's Name
+            input.form-control(
+              ng-model="gym.name"
+              placeholder="gym name"
+              required
+            )
+            
+          .form-group
+            label Gym's Address
+            input.form-control(
+              ng-model="gym.address"
+              placeholder="gym address"
+              required
+            )
+          
+          button(
+            type="submit"
+            ng-disabled="registerGymForm.$invalid"
+          ) Register
+
 
 .section.section-for-climbers
   .container
@@ -79,80 +131,39 @@
           i.fa.fa-stats
           h3 Search through gyms
           p Find the newest and most popular routes at your gym, or find your next project
-
-
-.section.section-signup
-  .container
+          
     .row
-      .col-md-12.center
-        h1 Get started today!
+      .col-md-6.col-md-push-6
+        h2 Create your free account now and join the community!
         
-      .col-md-6
-        h2 Gym Registration
-        
-        form(
-          name="registerGymForm"
-          ng-submit="registerGym()"
-        )
-          .form-group
-            label Gym Email
-            input.form-control(
-              ng-model="gym.email"
-              placeholder="email"
-              type="email"
-              required
-            )
-            
-          .form-group
-            label Gym Name
-            input.form-control(
-              ng-model="gym.name"
-              placeholder="gym name"
-              required
-            )
-            
-          .form-group
-            label Gym Address
-            input.form-control(
-              ng-model="gym.address"
-              placeholder="gym address"
-              required
-            )
-          
-          button(
-            type="submit"
-            ng-disabled="registerGymForm.$invalid"
-          ) Register
-          
-      .col-md-6
-        h2 User Registration
+        h2 Climber Registration
         
         form(
           ng-submit="registerUser()"
         )
           .form-group
-            label User Email
+            label Climber's Email
             input.form-control(
               ng-model="user.email"
               placeholder="email"
             )
             
           .form-group
-            label User Password
+            label Climber's Password
             input.form-control(
               ng-model="user.password"
               placeholder="password"
             )
             
           .form-group
-            label User First Name
+            label Climber's First Name
             input.form-control(
               ng-model="user.firstname"
               placeholder="first name"
             )
             
           .form-group
-            label User Last Name
+            label Climber's Last Name
             input.form-control(
               ng-model="user.lastname"
               placeholder="last name"
@@ -161,7 +172,7 @@
           button(
             type="submit"
           ) Register
-              
+
 .section.section-footer
   .container
     .row

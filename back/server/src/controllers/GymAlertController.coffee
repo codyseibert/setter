@@ -24,29 +24,20 @@ module.exports = do ->
         res.send GymAlert
 
   update = (req, res) ->
-    GymAlert.findById req.params.id
-      .then (GymAlert) ->
-        if not GymAlert?
-          res.status 400
-          res.send 'GymAlert not found'
-        else
-          GymAlert.destroy()
-            .then (GymAlert) ->
-              res.status 200
-              res.send GymAlert
+    GymAlert.update req.body,
+      where:
+        id: req.params.id
+    .then ->
+      res.status 200
+      res.send req.body
 
   destroy = (req, res) ->
-    GymAlert.findById req.params.id
-      .then (GymAlert) ->
-        if not GymAlert?
-          res.status 400
-          res.send 'GymAlert not found'
-        else
-          GymAlert.destroy()
-            .then (GymAlert) ->
-              res.status 200
-              res.send GymAlert
-
+    GymAlert.destroy
+      where:
+        id: req.params.id
+    .then ->
+      res.status 200
+      res.send 'success'
 
   find: find
   get: get

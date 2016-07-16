@@ -18,6 +18,10 @@ module.exports = do ->
         res.send Gyms
 
   create = (req, res) ->
+    endOn = new Date();
+    endOn.setDate endOn.getDate() + 30
+    req.body.trialEndsOn = endOn
+    req.body.active = false
     Gym.create req.body
       .then (Gym) ->
         res.status 200

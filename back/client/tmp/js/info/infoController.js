@@ -1,1 +1,1 @@
-module.exports = ['$scope', function($scope) {}];
+module.exports = ['$scope', 'GymService', function($scope, GymService) {}];

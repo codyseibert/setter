@@ -1,24 +1,10 @@
 .row
   .col-md-8
     .panel.top
-      .btn-group
-        .btn-circle(
-          ng-if="!creating"
-          uib-tooltip='create'
-          ng-click="createNews()"
-        ) +
-        
-        .btn-circle.green(
-          ng-if="creating"
-          uib-tooltip='save'
-          ng-click="save()"
-        ) &#10003;
-        
-        .btn-circle.gray(
-          ng-if="creating"
-          uib-tooltip='cancel'
-          ng-click="cancel()"
-        ) &times;
+      btncreate(
+        save="createNews"
+        creating="creating"
+      )
         
       h2 Gym News
       
@@ -28,7 +14,7 @@
         .form-group
           label Text
           textarea.form-control(
-            ng-model="news.text"
+            ng-model="alert.message"
             placeholder="Enter your news here"
           )
           
@@ -36,15 +22,17 @@
         ng-repeat="entry in entries"
       )
         hr
+        
         div(
           ng-if="!entry.editing"
-        ) {{entry.text}}
+        ) {{entry.message}}
+        
         .form-group(
           ng-if="entry.editing"
         )
           label Text
           textarea.form-control(
-            ng-model="entry.text"
+            ng-model="entry.message"
           )
         div {{entry.date}}
         .btn-group

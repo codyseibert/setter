@@ -5,6 +5,7 @@ require 'angular-local-storage'
 require 'angular-animate'
 require 'angular-chart.js'
 require 'ng-lodash'
+require 'angular-jwt'
 require 'angular-toggle-switch'
 require '../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls'
 require '../../node_modules/angular-ui-grid/ui-grid'
@@ -27,6 +28,7 @@ app = require('angular').module('setter', [
   'toggle-switch'
   'duScroll'
   'chart.js'
+  'angular-jwt'
 ])
 app.constant 'BASE_URL', "#{location.protocol}//#{location.host}/api"
 app.value('duScrollDuration', 500)
@@ -34,13 +36,18 @@ app.value('duScrollOffset', 80)
 app.config require './routes'
 app.config [
   'localStorageServiceProvider'
+  '$httpProvider'
   (
     localStorageServiceProvider
+    $httpProvider
   ) ->
+
+    $httpProvider.interceptors.push 'APIInterceptor'
 
     localStorageServiceProvider
       .setPrefix 'setter'
 ]
+
 
 require './gyms'
 require './findgym'
@@ -67,9 +74,14 @@ require './components'
 app.run [
   '$rootScope'
   '$http'
+  '$state'
+  'LoginService'
   (
     $rootScope
     $http
+    $state
+    LoginService
   ) ->
-
+    if LoginService.token?
+      $state.go 'gyms.news', gymId: LoginService.user.id
 ]

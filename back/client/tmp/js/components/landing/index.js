@@ -1,5 +1,5 @@
 module.exports = [
-  '$rootScope', '$state', 'GymService', function($rootScope, $state, GymService) {
+  '$rootScope', '$state', 'GymService', 'LoginService', 'jwtHelper', function($rootScope, $state, GymService, LoginService, jwtHelper) {
     return {
       restrict: 'E',
       link: function(scope, elem, attr) {
@@ -7,8 +7,10 @@ module.exports = [
         scope.user = {};
         return scope.registerGym = function() {
           return GymService.create(scope.gym).then(function(gym) {
+            return LoginService.login(scope.gym.email, scope.gym.password);
+          }).then(function() {
             return $state.go('gyms.news', {
-              gymId: gym.id
+              gymId: LoginService.user.id
             });
           });
         };

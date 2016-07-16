@@ -27,8 +27,8 @@ module.exports = [
     @create = (GymAlert) ->
       $q (resolve, reject) ->
         $http.post "#{BASE_URL}/GymAlerts", GymAlert
-          .then (GymAlert) ->
-            resolve GymAlert.data
+          .then (alert) ->
+            resolve alert.data
           .catch (err) ->
             reject (err)
 

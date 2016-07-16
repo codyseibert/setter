@@ -1,20 +1,20 @@
 module.exports = [
-  '$scope', function($scope) {
+  '$scope', '$stateParams', 'GymAlertService', function($scope, $stateParams, GymAlertService) {
     $scope.creating = false;
-    $scope.entries = [
-      {
-        text: 'the gym will be close sunday',
-        date: 'January 12th, 2016'
-      }, {
-        text: 'the gym will be close sunday',
-        date: 'January 12th, 2016'
-      }, {
-        text: 'the gym will be close sunday',
-        date: 'January 12th, 2016'
-      }
-    ];
+    $scope.alert = {};
+    GymAlertService.find({
+      gymId: $stateParams.gymId
+    }).then(function(alerts) {
+      return $scope.entries = alerts;
+    });
     $scope.createNews = function() {
-      return $scope.creating = !$scope.creating;
+      $scope.creating = !$scope.creating;
+      return GymAlertService.create({
+        message: $scope.alert.message,
+        gymId: $stateParams.gymId
+      }).then(function(alert) {
+        return $scope.entries.unshift(alert);
+      });
     };
     $scope.cancel = function() {
       return $scope.creating = false;
@@ -26,14 +26,18 @@ module.exports = [
       return entry.editing = false;
     };
     $scope.save = function(entry) {
-      return entry.editing = false;
+      return GymAlertService.update(entry).then(function() {
+        return entry.editing = false;
+      });
     };
     return $scope["delete"] = function(entry) {
       var isYes;
       isYes = confirm('Are you sure you want to delete this news entry?');
-      if (isYes) {
-        return $scope.entries.splice($scope.entries.indexOf(entry), 1);
-      }
+      return GymAlertService["delete"](entry).then(function() {
+        if (isYes) {
+          return $scope.entries.splice($scope.entries.indexOf(entry), 1);
+        }
+      });
     };
   }
 ];

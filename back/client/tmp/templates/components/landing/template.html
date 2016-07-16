@@ -46,6 +46,32 @@
         </div>
       </div>
     </div>
+    <div class="row">       
+      <div class="col-md-6">
+        <h1>Are you a climbing gym looking to manage your routes?  </h1><br/>
+        <h2>Start your 30 day free trial today!</h2>
+        <h2>Gym Registration</h2>
+        <form name="registerGymForm" ng-submit="registerGym()">
+          <div class="form-group">
+            <label>Gym's Email</label>
+            <input ng-model="gym.email" placeholder="email" type="email" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>Gym's Password</label>
+            <input ng-model="gym.password" placeholder="password" type="password" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>Gym's Name</label>
+            <input ng-model="gym.name" placeholder="gym name" required="required" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label>Gym's Address</label>
+            <input ng-model="gym.address" placeholder="gym address" required="required" class="form-control"/>
+          </div>
+          <button type="submit" ng-disabled="registerGymForm.$invalid">Register</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 <div class="section section-for-climbers">
@@ -75,49 +101,25 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="section section-signup">
-  <div class="container">
     <div class="row">
-      <div class="col-md-12 center">
-        <h1>Get started today!</h1>
-      </div>
-      <div class="col-md-6">
-        <h2>Gym Registration</h2>
-        <form name="registerGymForm" ng-submit="registerGym()">
-          <div class="form-group">
-            <label>Gym Email</label>
-            <input ng-model="gym.email" placeholder="email" type="email" required="required" class="form-control"/>
-          </div>
-          <div class="form-group">
-            <label>Gym Name</label>
-            <input ng-model="gym.name" placeholder="gym name" required="required" class="form-control"/>
-          </div>
-          <div class="form-group">
-            <label>Gym Address</label>
-            <input ng-model="gym.address" placeholder="gym address" required="required" class="form-control"/>
-          </div>
-          <button type="submit" ng-disabled="registerGymForm.$invalid">Register</button>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h2>User Registration</h2>
+      <div class="col-md-6 col-md-push-6">
+        <h2>Create your free account now and join the community!</h2>
+        <h2>Climber Registration</h2>
         <form ng-submit="registerUser()">
           <div class="form-group">
-            <label>User Email</label>
+            <label>Climber's Email</label>
             <input ng-model="user.email" placeholder="email" class="form-control"/>
           </div>
           <div class="form-group">
-            <label>User Password</label>
+            <label>Climber's Password</label>
             <input ng-model="user.password" placeholder="password" class="form-control"/>
           </div>
           <div class="form-group">
-            <label>User First Name</label>
+            <label>Climber's First Name</label>
             <input ng-model="user.firstname" placeholder="first name" class="form-control"/>
           </div>
           <div class="form-group">
-            <label>User Last Name</label>
+            <label>Climber's Last Name</label>
             <input ng-model="user.lastname" placeholder="last name" class="form-control"/>
           </div>
           <button type="submit">Register</button>

@@ -1,24 +1,26 @@
 module.exports = [
   '$scope'
+  '$stateParams',
+  'GymAlertService'
   (
     $scope
+    $stateParams
+    GymAlertService
   ) ->
 
     $scope.creating = false
-
-    $scope.entries = [
-      text: 'the gym will be close sunday'
-      date: 'January 12th, 2016'
-    ,
-      text: 'the gym will be close sunday'
-      date: 'January 12th, 2016'
-    ,
-      text: 'the gym will be close sunday'
-      date: 'January 12th, 2016'
-    ]
+    $scope.alert = {}
+    GymAlertService.find gymId: $stateParams.gymId
+      .then (alerts) ->
+        $scope.entries = alerts
 
     $scope.createNews = ->
       $scope.creating = !$scope.creating
+      GymAlertService.create
+        message: $scope.alert.message
+        gymId: $stateParams.gymId
+      .then (alert) ->
+        $scope.entries.unshift alert
 
     $scope.cancel = ->
       $scope.creating = false
@@ -30,9 +32,13 @@ module.exports = [
       entry.editing = false
 
     $scope.save = (entry) ->
-      entry.editing = false
+      GymAlertService.update entry
+        .then ->
+          entry.editing = false
 
     $scope.delete = (entry) ->
       isYes = confirm 'Are you sure you want to delete this news entry?'
-      $scope.entries.splice $scope.entries.indexOf(entry), 1 if isYes
+      GymAlertService.delete entry
+        .then ->
+          $scope.entries.splice $scope.entries.indexOf(entry), 1 if isYes
 ]

@@ -2,24 +2,20 @@
 <div class="row">
   <div class="col-md-8">
     <div class="panel top">
-      <div class="btn-group">
-        <div ng-if="!creating" uib-tooltip="create" ng-click="createNews()" class="btn-circle">+</div>
-        <div ng-if="creating" uib-tooltip="save" ng-click="save()" class="btn-circle green">&#10003;</div>
-        <div ng-if="creating" uib-tooltip="cancel" ng-click="cancel()" class="btn-circle gray">&times;</div>
-      </div>
+      <btncreate save="createNews" creating="creating"></btncreate>
       <h2>Gym News</h2>
       <div ng-if="creating">
         <div class="form-group">
           <label>Text</label>
-          <textarea ng-model="news.text" placeholder="Enter your news here" class="form-control"></textarea>
+          <textarea ng-model="alert.message" placeholder="Enter your news here" class="form-control"></textarea>
         </div>
       </div>
       <div ng-repeat="entry in entries" class="news">
         <hr/>
-        <div ng-if="!entry.editing">{{entry.text}}</div>
+        <div ng-if="!entry.editing">{{entry.message}}</div>
         <div ng-if="entry.editing" class="form-group">
           <label>Text</label>
-          <textarea ng-model="entry.text" class="form-control"></textarea>
+          <textarea ng-model="entry.message" class="form-control"></textarea>
         </div>
         <div>{{entry.date}}</div>
         <div class="btn-group">

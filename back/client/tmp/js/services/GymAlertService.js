@@ -22,8 +22,8 @@ module.exports = [
     };
     this.create = function(GymAlert) {
       return $q(function(resolve, reject) {
-        return $http.post(BASE_URL + "/GymAlerts", GymAlert).then(function(GymAlert) {
-          return resolve(GymAlert.data);
+        return $http.post(BASE_URL + "/GymAlerts", GymAlert).then(function(alert) {
+          return resolve(alert.data);
         })["catch"](function(err) {
           return reject(err);
         });

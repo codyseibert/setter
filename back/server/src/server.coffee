@@ -19,5 +19,5 @@ require './models/Setter'
 require './models/Suggestion'
 require './models/User'
 require './models/Zone'
-require('./sequelize').sync().then ->
+require('./sequelize').sync(force: false).then ->
   require('./app').listen 8081

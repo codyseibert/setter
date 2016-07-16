@@ -1,11 +1,16 @@
-.panel.top
-  div(
-    ui-grid="gridOptions"
-    ui-grid-selection
-  )
-  
-  button(
-    ng-click="stripSelected()"
-  ) 
-    i.fa.fa-trash
-    | Strip Selected
+div(
+  style="padding-left: 30px; padding-right: 30px;"
+)
+  .panel.top
+    h2 Manage Routes
+    
+    div(
+      ui-grid="gridOptions"
+      ui-grid-selection
+    )
+    
+    button(
+      ng-click="stripSelected()"
+    ) 
+      i.fa.fa-trash
+      | Strip Selected

@@ -96683,20 +96683,32 @@ module.exports = [
 
 },{}],40:[function(require,module,exports){
 module.exports = [
-  '$rootScope', '$state', '$stateParams', 'SetterService', function($rootScope, $state, $stateParams, SetterService) {
+  '$rootScope', '$state', '$stateParams', 'SetterService', 'User', function($rootScope, $state, $stateParams, SetterService, User) {
     return {
       restrict: 'E',
       link: function(scope, elem, attr) {
+        scope.creating = false;
+        scope.form = {};
         SetterService.find({
-          gymId: $stateParams.gymId
+          gymId: User.gymId
         }).then(function(setters) {
-          return scope.setters = setters;
+          scope.setters = setters;
+          return scope.setters.forEach(function(setter) {
+            return setter.image = 'assets/images/me.jpeg';
+          });
         });
-        return scope.submit = function() {
-          scope.form.gymId = $stateParams.gymId;
+        scope.submit = function() {
+          scope.creating = false;
+          scope.form.gymId = User.gymId;
           return SetterService.create(scope.form).then(function(setter) {
             return scope.setters.push(setter);
           });
+        };
+        scope["new"] = function() {
+          return scope.creating = !scope.creating;
+        };
+        return scope.cancel = function() {
+          return scope.creating = false;
         };
       },
       templateUrl: 'components/setters/template.html'
@@ -96828,7 +96840,7 @@ require('./community');
 
 require('./info');
 
-require('./routes');
+require('./viewroutes');
 
 require('./analytics');
 
@@ -96841,6 +96853,8 @@ require('./manageroutes');
 require('./register');
 
 require('./news');
+
+require('./profile');
 
 require('./setters');
 
@@ -96858,7 +96872,7 @@ require('./components');
 
 app.run(['$rootScope', '$http', function($rootScope, $http) {}]);
 
-},{"../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls":14,"../../node_modules/angular-ui-grid/ui-grid":15,"./analytics":24,"./community":26,"./components":32,"./findgym":46,"./finduser":48,"./gyms":50,"./info":51,"./landing":53,"./manageroutes":55,"./members":57,"./models":78,"./news":79,"./register":81,"./routes":83,"./services":85,"./setters":86,"./settings":88,"./zone":90,"./zones":92,"angular":18,"angular-animate":2,"angular-filter":3,"angular-local-storage":4,"angular-moment":6,"angular-resource":8,"angular-sanitize":10,"angular-scroll":12,"angular-toggle-switch":13,"angular-ui-router":16,"ng-file-upload":21,"ng-lodash":22}],45:[function(require,module,exports){
+},{"../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls":14,"../../node_modules/angular-ui-grid/ui-grid":15,"./analytics":24,"./community":26,"./components":32,"./findgym":46,"./finduser":48,"./gyms":50,"./info":51,"./landing":53,"./manageroutes":55,"./members":57,"./models":78,"./news":79,"./profile":81,"./register":83,"./routes":85,"./services":88,"./setters":89,"./settings":91,"./viewroutes":93,"./zone":95,"./zones":97,"angular":18,"angular-animate":2,"angular-filter":3,"angular-local-storage":4,"angular-moment":6,"angular-resource":8,"angular-sanitize":10,"angular-scroll":12,"angular-toggle-switch":13,"angular-ui-router":16,"ng-file-upload":21,"ng-lodash":22}],45:[function(require,module,exports){
 module.exports = [
   '$scope', function($scope) {
     $scope.gyms = [
@@ -98090,11 +98104,20 @@ var app;
 
 app = require('angular').module('setter');
 
-app.controller('registerController', require('./registerController'));
+app.controller('profileController', require('./profileController'));
 
-},{"./registerController":82,"angular":18}],82:[function(require,module,exports){
+},{"./profileController":82,"angular":18}],82:[function(require,module,exports){
 module.exports=require(23)
 },{}],83:[function(require,module,exports){
+var app;
+
+app = require('angular').module('setter');
+
+app.controller('registerController', require('./registerController'));
+
+},{"./registerController":84,"angular":18}],84:[function(require,module,exports){
+module.exports=require(23)
+},{}],85:[function(require,module,exports){
 module.exports = function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider.state('gyms', {
@@ -98114,10 +98137,10 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'landing/landing.html'
       }
     }
-  }).state('gyms.manageroutes', {
-    url: '/:gymId/manageroutes',
+  }).state('manageroutes', {
+    url: '/manageroutes',
     views: {
-      'content': {
+      'main': {
         controller: 'manageroutesController',
         templateUrl: 'manageroutes/manageroutes.html'
       }
@@ -98128,6 +98151,14 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       'main': {
         controller: 'registerController',
         templateUrl: 'register/register.html'
+      }
+    }
+  }).state('profile', {
+    url: '/users/:userId',
+    views: {
+      'main': {
+        controller: 'profileController',
+        templateUrl: 'profile/profile.html'
       }
     }
   }).state('gyms.news', {
@@ -98158,8 +98189,8 @@ module.exports = function($stateProvider, $urlRouterProvider) {
     url: '/:gymId/routes',
     views: {
       'content': {
-        controller: 'routesController',
-        templateUrl: 'routes/routes.html'
+        controller: 'viewroutesController',
+        templateUrl: 'viewroutes/viewroutes.html'
       }
     }
   }).state('gyms.members', {
@@ -98178,10 +98209,10 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'analytics/analytics.html'
       }
     }
-  }).state('gyms.setters', {
-    url: '/:gymId/setters',
+  }).state('setters', {
+    url: '/setters',
     views: {
-      'content': {
+      'main': {
         controller: 'settersController',
         templateUrl: 'setters/setters.html'
       }
@@ -98230,7 +98261,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
   return this;
 };
 
-},{}],84:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', 'Upload', function($http, $q, BASE_URL, Upload) {
     return {
@@ -98250,47 +98281,179 @@ module.exports = [
   }
 ];
 
-},{}],85:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
+module.exports = [
+  '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
+    this.gymId = 1;
+    return this;
+  }
+];
+
+},{}],88:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.service('FileService', require('./FileService'));
 
-},{"./FileService":84,"angular":18}],86:[function(require,module,exports){
+app.service('User', require('./User'));
+
+},{"./FileService":86,"./User":87,"angular":18}],89:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('settersController', require('./settersController'));
 
-},{"./settersController":87,"angular":18}],87:[function(require,module,exports){
+},{"./settersController":90,"angular":18}],90:[function(require,module,exports){
 module.exports=require(23)
-},{}],88:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('settingsController', require('./settingsController'));
 
-},{"./settingsController":89,"angular":18}],89:[function(require,module,exports){
+},{"./settingsController":92,"angular":18}],92:[function(require,module,exports){
 module.exports=require(23)
-},{}],90:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
+var app;
+
+app = require('angular').module('setter');
+
+app.controller('viewroutesController', require('./viewroutesController'));
+
+},{"./viewroutesController":94,"angular":18}],94:[function(require,module,exports){
+module.exports = [
+  '$scope', '$rootScope', '$q', '$stateParams', 'RouteService', 'SetterService', 'ColorService', 'BoulderGradesService', 'RopeGradesService', 'RatingService', 'ZoneService', function($scope, $rootScope, $q, $stateParams, RouteService, SetterService, ColorService, BoulderGradesService, RopeGradesService, RatingService, ZoneService) {
+    var boulderGradeMap, colorMap, gridApi, ropeGradeMap, setterMap, zoneMap;
+    gridApi = null;
+    zoneMap = {};
+    setterMap = {};
+    boulderGradeMap = {};
+    ropeGradeMap = {};
+    colorMap = {};
+    $scope.stripSelected = function(routes) {
+      var d, i, len, results, row, rows;
+      rows = gridApi.selection.getSelectedRows();
+      d = $scope.gridOptions.data;
+      results = [];
+      for (i = 0, len = rows.length; i < len; i++) {
+        row = rows[i];
+        console.log(row);
+        results.push(RouteService["delete"](row).then(function() {
+          return d.splice(d.indexOf(row), 1);
+        }));
+      }
+      return results;
+    };
+    $scope.openEditRoutePanel = function(route) {
+      return $rootScope.$broadcast('editroutepanel.show', route);
+    };
+    $scope.gridOptions = {
+      enableFiltering: true,
+      enableColumnMenus: false,
+      enableRowSelection: true,
+      enableSelectAll: true,
+      onRegisterApi: function(api) {
+        return gridApi = api;
+      },
+      data: [],
+      columnDefs: [
+        {
+          displayName: 'Zone',
+          field: 'zone'
+        }, {
+          displayName: 'Color',
+          field: 'color'
+        }, {
+          displayName: 'Grade',
+          field: 'grade'
+        }, {
+          displayName: 'Setter',
+          field: 'setter'
+        }, {
+          displayName: 'Type',
+          field: 'type'
+        }, {
+          displayName: 'Date Set',
+          field: 'createdAt'
+        }, {
+          displayName: 'Edit',
+          field: 'edit',
+          enableSorting: false,
+          enableFiltering: false,
+          cellTemplate: '<a ng-click="grid.app$scope.openEditRoutePanel(row.entity)">Edit</a>'
+        }
+      ]
+    };
+    return $q.all([
+      SetterService.find({
+        gymId: $stateParams.gymId
+      }), ZoneService.find({
+        gymId: $stateParams.gymId
+      }), BoulderGradesService.find(), RopeGradesService.find(), ColorService.find()
+    ]).then(function(res) {
+      var boulderGrades, color, colors, grade, i, j, k, l, len, len1, len2, len3, len4, m, ropeGrades, setter, setters, zone, zones;
+      setters = res[0];
+      zones = res[1];
+      boulderGrades = res[2];
+      ropeGrades = res[3];
+      colors = res[4];
+      for (i = 0, len = setters.length; i < len; i++) {
+        setter = setters[i];
+        setterMap[setter.id] = setter.firstname + " " + setter.lastname;
+      }
+      for (j = 0, len1 = boulderGrades.length; j < len1; j++) {
+        grade = boulderGrades[j];
+        boulderGradeMap[grade.id] = grade.name;
+      }
+      for (k = 0, len2 = ropeGrades.length; k < len2; k++) {
+        grade = ropeGrades[k];
+        ropeGradeMap[grade.id] = grade.name;
+      }
+      for (l = 0, len3 = colors.length; l < len3; l++) {
+        color = colors[l];
+        colorMap[color.id] = color;
+      }
+      for (m = 0, len4 = zones.length; m < len4; m++) {
+        zone = zones[m];
+        zoneMap[zone.id] = zone.name;
+      }
+      return RouteService.find({
+        'zoneId~in': (zones.map(function(zone) {
+          return zone.id;
+        })).join(',')
+      }).then(function(routes) {
+        return routes.forEach(function(route) {
+          route.zone = zoneMap[route.zoneId];
+          route.setter = zoneMap[route.setterId];
+          route.color = colorMap[route.colorId].name;
+          route.colorValue = colorMap[route.colorId].value;
+          route.grade = route.type === 0 ? boulderGradeMap[route.gradeId] : ropeGradeMap[route.gradeId];
+          return $scope.gridOptions.data.push(route);
+        });
+      });
+    });
+  }
+];
+
+},{}],95:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('zoneController', require('./zoneController'));
 
-},{"./zoneController":91,"angular":18}],91:[function(require,module,exports){
+},{"./zoneController":96,"angular":18}],96:[function(require,module,exports){
 module.exports=require(23)
-},{}],92:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('zonesController', require('./zonesController'));
 
-},{"./zonesController":93,"angular":18}],93:[function(require,module,exports){
+},{"./zonesController":98,"angular":18}],98:[function(require,module,exports){
 module.exports=require(23)
 },{}]},{},[44])

@@ -9,31 +9,28 @@
   
   .links
     .link(
-    )
-      i.fa.fa-user
-      | View Profile
-  
-    .link(
-    )
-      i.fa.fa-tachometer
-      | Dashboard
-      
-    .link(
+      ui-sref="gyms.news({gymId: gymId})"
     )
       i.fa.fa-home
       | Home
       
     .link(
-      ui-sref="gyms.setters({gymId: gymId})"
+      ui-sref="profile"
+    )
+      i.fa.fa-user
+      | Profile
+      
+    .link(
+      ui-sref="setters({gymId: gymId})"
     )
       i.fa.fa-users
       | Setters
       
     .link(
-      ui-sref="gyms.manageroutes({gymId: gymId})"
+      ui-sref="manageroutes"
     )
       i.fa.fa-book
-      | Routes
+      | Manage Routes
       
     .link(
       ui-sref="findgym"
@@ -48,6 +45,7 @@
       | Users
             
     .link(
+      style="float: right"
       ui-sref="settings"
     )
       i.fa.fa-gear

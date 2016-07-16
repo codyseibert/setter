@@ -46,7 +46,7 @@ require('./community');
 
 require('./info');
 
-require('./routes');
+require('./viewroutes');
 
 require('./analytics');
 
@@ -59,6 +59,8 @@ require('./manageroutes');
 require('./register');
 
 require('./news');
+
+require('./profile');
 
 require('./setters');
 

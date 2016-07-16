@@ -1,8 +1,13 @@
 
 <div class="panel top">
+  <div class="btn-group">
+    <div ng-if="!creating" uib-tooltip="create" ng-click="new()" class="btn-circle">+</div>
+    <div ng-if="creating" uib-tooltip="save" ng-click="submit()" class="btn-circle green">&#10003;</div>
+    <div ng-if="creating" uib-tooltip="cancel" ng-click="cancel()" class="btn-circle gray">&times;</div>
+  </div>
   <h2>Setters</h2>
-  <div class="add">
-    <form ng-submit="submit()">
+  <div ng-if="creating">
+    <div class="add">
       <div class="form-group">
         <label>First Name</label>
         <input ng-model="form.firstname" placeholder="First Name" class="form-control"/>
@@ -11,11 +16,11 @@
         <label>Last Name</label>
         <input ng-model="form.lastname" placeholder="Last Name" class="form-control"/>
       </div>
-      <button type="submit">Add Setter</button>
-    </form>
+    </div>
   </div>
-  <div ng-repeat="setter in setters" class="setter">
-    <div>{{setter.firstname}}</div>
-    <div>{{setter.lastname}}</div>
+  <div ng-repeat="setter in setters" class="setters">
+    <div class="flag member"> <img ng-src="{{setter.image}}"/>
+      <div class="text">{{setter.firstname}} {{setter.lastname}}</div>
+    </div>
   </div>
 </div>

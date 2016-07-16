@@ -1,10 +1,29 @@
 .panel.top
+  .btn-group
+    .btn-circle(
+      ng-if="!creating"
+      uib-tooltip='create'
+      ng-click="new()"
+    ) +
+    
+    .btn-circle.green(
+      ng-if="creating"
+      uib-tooltip='save'
+      ng-click="submit()"
+    ) &#10003;
+    
+    .btn-circle.gray(
+      ng-if="creating"
+      uib-tooltip='cancel'
+      ng-click="cancel()"
+    ) &times;
+
   h2 Setters
   
-  .add
-    form(
-      ng-submit="submit()"
-    )
+  div(
+    ng-if="creating"
+  )
+    .add
       .form-group
         label First Name
         input.form-control(
@@ -17,13 +36,13 @@
           ng-model="form.lastname"
           placeholder="Last Name"
         )
-      button(
-        type="submit"
-      ) Add Setter
-  
-  .setter(
+      
+  .setters(
     ng-repeat="setter in setters"
   )
-    div {{setter.firstname}}
-    div {{setter.lastname}}
+    .flag.member 
+      img(
+        ng-src="{{setter.image}}"
+      )
+      .text {{setter.firstname}} {{setter.lastname}}
   

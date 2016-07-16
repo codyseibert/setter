@@ -18,10 +18,10 @@ module.exports = (
         'main':
           controller: 'landingController'
           templateUrl: 'landing/landing.html'
-    .state 'gyms.manageroutes',
-      url: '/:gymId/manageroutes'
+    .state 'manageroutes',
+      url: '/manageroutes'
       views:
-        'content':
+        'main':
           controller: 'manageroutesController'
           templateUrl: 'manageroutes/manageroutes.html'
     .state 'register',
@@ -30,6 +30,12 @@ module.exports = (
         'main':
           controller: 'registerController'
           templateUrl: 'register/register.html'
+    .state 'profile',
+      url: '/users/:userId'
+      views:
+        'main':
+          controller: 'profileController'
+          templateUrl: 'profile/profile.html'
     .state 'gyms.news',
       url: '/:gymId/news'
       views:
@@ -52,8 +58,8 @@ module.exports = (
       url: '/:gymId/routes'
       views:
         'content':
-          controller: 'routesController'
-          templateUrl: 'routes/routes.html'
+          controller: 'viewroutesController'
+          templateUrl: 'viewroutes/viewroutes.html'
     .state 'gyms.members',
       url: '/:gymId/members'
       views:
@@ -66,10 +72,10 @@ module.exports = (
         'content':
           controller: 'analyticsController'
           templateUrl: 'analytics/analytics.html'
-    .state 'gyms.setters',
-      url: '/:gymId/setters'
+    .state 'setters',
+      url: '/setters'
       views:
-        'content':
+        'main':
           controller: 'settersController'
           templateUrl: 'setters/setters.html'
     .state 'findgym',

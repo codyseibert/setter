@@ -17,10 +17,10 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'landing/landing.html'
       }
     }
-  }).state('gyms.manageroutes', {
-    url: '/:gymId/manageroutes',
+  }).state('manageroutes', {
+    url: '/manageroutes',
     views: {
-      'content': {
+      'main': {
         controller: 'manageroutesController',
         templateUrl: 'manageroutes/manageroutes.html'
       }
@@ -31,6 +31,14 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       'main': {
         controller: 'registerController',
         templateUrl: 'register/register.html'
+      }
+    }
+  }).state('profile', {
+    url: '/users/:userId',
+    views: {
+      'main': {
+        controller: 'profileController',
+        templateUrl: 'profile/profile.html'
       }
     }
   }).state('gyms.news', {
@@ -61,8 +69,8 @@ module.exports = function($stateProvider, $urlRouterProvider) {
     url: '/:gymId/routes',
     views: {
       'content': {
-        controller: 'routesController',
-        templateUrl: 'routes/routes.html'
+        controller: 'viewroutesController',
+        templateUrl: 'viewroutes/viewroutes.html'
       }
     }
   }).state('gyms.members', {
@@ -81,10 +89,10 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'analytics/analytics.html'
       }
     }
-  }).state('gyms.setters', {
-    url: '/:gymId/setters',
+  }).state('setters', {
+    url: '/setters',
     views: {
-      'content': {
+      'main': {
         controller: 'settersController',
         templateUrl: 'setters/setters.html'
       }

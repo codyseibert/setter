@@ -1,16 +1,15 @@
 
 <div class="panel top">
+  <btncreate save="submit" creating="creating"></btncreate>
   <h2>Zones</h2>
-  <div class="add">
-    <form ng-submit="submit()">
-      <div class="form-group">
-        <label>Zone Name</label>
-        <input ng-model="form.name" placeholder="Zone Name" class="form-control"/>
-        <button type="submit">Create Zone</button>
-      </div>
-    </form>
+  <div ng-if="creating" class="add">
+    <div class="form-group">
+      <label>Zone Name</label>
+      <input ng-model="form.name" placeholder="Zone Name" class="form-control"/>
+    </div>
   </div>
-  <div ng-repeat="zone in zones" class="zone">{{zone.name}}
+  <div ng-repeat="zone in zones" style="position: relative; width: 30%; height: 200px; display: inline-block;" class="zone"><img style="width: 100%;" ng-src="{{zone.image}}"/>
+    <div style="width: 90%; position: absolute; top: 20px; background-color: white; border-radius: 10px; padding: 10px;" class="name">{{zone.name}}</div>
     <button ui-sref="gyms.zone({gymId: gymId, zoneId: zone.id})">Edit</button>
   </div>
 </div>

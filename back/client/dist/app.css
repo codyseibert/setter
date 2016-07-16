@@ -2082,7 +2082,7 @@ div.ui-grid-cell-contents.invalid {
 .btn-circle.gray {
   background-color: gray; }
 
-.col-2-fluid .content > .row {
+.col-2-fluid .container-fluid.content .row:first-child {
   padding-top: 100px; }
 
 .fluid-wrapper {

@@ -1,24 +1,33 @@
 .panel.top
+  btncreate(
+    save="submit"
+    creating="creating"
+  )
+  
   h2 Zones
   
-  .add
-    form(
-      ng-submit="submit()"
-    )
-      .form-group
-        label Zone Name
-        input.form-control(
-          ng-model="form.name"
-          placeholder="Zone Name"
-        )
-        button(
-          type="submit"
-        ) Create Zone
+  .add(
+    ng-if="creating"
+  )
+    .form-group
+      label Zone Name
+      input.form-control(
+        ng-model="form.name"
+        placeholder="Zone Name"
+      )
   
   .zone(
     ng-repeat="zone in zones"
+    style="position: relative; width: 30%; height: 200px; display: inline-block;"
   )
-    {{zone.name}}
+    img(
+      style="width: 100%;"
+      ng-src="{{zone.image}}"
+    )
+    .name(
+      style="width: 90%; position: absolute; top: 20px; background-color: white; border-radius: 10px; padding: 10px;"
+    ) {{zone.name}}
+    
     button(
       ui-sref="gyms.zone({gymId: gymId, zoneId: zone.id})"
     ) Edit

@@ -33,3 +33,5 @@ app.directive('settings', require('./settings'));
 app.directive('zone', require('./zone'));
 
 app.directive('zones', require('./zones'));
+
+app.directive('btncreate', require('./btncreate'));

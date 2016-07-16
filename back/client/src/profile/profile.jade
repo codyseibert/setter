@@ -5,10 +5,74 @@
 
   .container-fluid.content
     .row
-      .col-md-6.left
-        configurations
+      .col-md-12
+        .panel.top
+          img(
+            style="width: 200px;"
+            src="assets/images/me.jpeg"
+          )
+          .name Cody Seibert
+    .row
+      .col-md-12
+        .panel.top 
+          h2 Activity
+          
+    .row
+      .col-md-4
+        .panel.top
+          h2 Boulder
+          canvas#line.chart.chart-line(
+            chart-data="linedata"
+            chart-labels="linelabels" 
+            chart-series="lineseries"
+          )
+          canvas#bar.chart.chart-bar(
+            chart-data="data"
+            chart-labels="labels" 
+            chart-series="series"
+          )
+          canvas#pie.chart.chart-pie(
+            chart-data="piedata"
+            chart-labels="labels" 
+            chart-series="series"
+          )
 
-      .col-md-6.right
-        settings
+      .col-md-4
+        .panel.top
+          h2 Top Rope
+          canvas#line.chart.chart-line(
+            chart-data="linedata"
+            chart-labels="linelabels" 
+            chart-series="lineseries"
+          )
+          canvas#bar.chart.chart-bar(
+            chart-data="data"
+            chart-labels="labels" 
+            chart-series="series"
+          )
+          canvas#pie.chart.chart-pie(
+            chart-data="piedata"
+            chart-labels="labels" 
+            chart-series="series"
+          )
+          
+      .col-md-4
+        .panel.top
+          h2 Lead
+          canvas#line.chart.chart-line(
+            chart-data="linedata"
+            chart-labels="linelabels" 
+            chart-series="lineseries"
+          )
+          canvas#bar.chart.chart-bar(
+            chart-data="data"
+            chart-labels="labels" 
+            chart-series="series"
+          )
+          canvas#pie.chart.chart-pie(
+            chart-data="piedata"
+            chart-labels="labels" 
+            chart-series="series"
+          )
 
   footer

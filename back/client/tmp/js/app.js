@@ -10,6 +10,8 @@ require('angular-local-storage');
 
 require('angular-animate');
 
+require('angular-chart.js');
+
 require('ng-lodash');
 
 require('angular-toggle-switch');
@@ -20,7 +22,7 @@ require('../../node_modules/angular-ui-grid/ui-grid');
 
 require('angular-scroll');
 
-app = require('angular').module('setter', [require('angular-ui-router'), require('angular-resource'), require('angular-sanitize'), require('angular-moment'), require('ng-file-upload'), 'ngAnimate', 'duScroll', 'angular.filter', 'LocalStorageModule', 'ngLodash', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap', 'toggle-switch', 'duScroll']);
+app = require('angular').module('setter', [require('angular-ui-router'), require('angular-resource'), require('angular-sanitize'), require('angular-moment'), require('ng-file-upload'), 'ngAnimate', 'duScroll', 'angular.filter', 'LocalStorageModule', 'ngLodash', 'ui.grid', 'ui.grid.selection', 'ui.bootstrap', 'toggle-switch', 'duScroll', 'chart.js']);
 
 app.constant('BASE_URL', location.protocol + "//" + location.host + "/api");
 

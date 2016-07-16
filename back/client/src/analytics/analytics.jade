@@ -1,9 +1,43 @@
 .row
   .col-md-4
     .panel.top
+      h2 Boulder Problems
+      canvas#bar.chart.chart-bar(
+        chart-data="data"
+        chart-labels="labels" 
+        chart-series="series"
+      )
+      canvas#pie.chart.chart-pie(
+        chart-data="piedata"
+        chart-labels="labels" 
+        chart-series="series"
+      )
       
   .col-md-4
     .panel.top
-    
+      h2 Top Rope Routes
+      canvas#bar.chart.chart-bar(
+        chart-data="data"
+        chart-labels="labels" 
+        chart-series="series"
+      )
+      canvas#pie.chart.chart-pie(
+        chart-data="piedata"
+        chart-labels="labels" 
+        chart-series="series"
+      )
+      
   .col-md-4
     .panel.top
+      h2 Lead Routes
+      canvas#bar.chart.chart-bar(
+        chart-data="data"
+        chart-labels="labels" 
+        chart-series="series"
+      )
+      canvas#pie.chart.chart-pie(
+        chart-data="piedata"
+        chart-labels="labels" 
+        chart-series="series"
+      )
+      

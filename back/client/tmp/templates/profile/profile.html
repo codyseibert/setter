@@ -6,11 +6,43 @@
   </header>
   <div class="container-fluid content">
     <div class="row">
-      <div class="col-md-6 left">
-        <configurations></configurations>
+      <div class="col-md-12">
+        <div class="panel top"><img style="width: 200px;" src="assets/images/me.jpeg"/>
+          <div class="name">Cody Seibert</div>
+        </div>
       </div>
-      <div class="col-md-6 right">
-        <settings></settings>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel top"> 
+          <h2>Activity</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel top">
+          <h2>Boulder</h2>
+          <canvas id="line" chart-data="linedata" chart-labels="linelabels" chart-series="lineseries" class="chart chart-line"></canvas>
+          <canvas id="bar" chart-data="data" chart-labels="labels" chart-series="series" class="chart chart-bar"></canvas>
+          <canvas id="pie" chart-data="piedata" chart-labels="labels" chart-series="series" class="chart chart-pie"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel top">
+          <h2>Top Rope</h2>
+          <canvas id="line" chart-data="linedata" chart-labels="linelabels" chart-series="lineseries" class="chart chart-line"></canvas>
+          <canvas id="bar" chart-data="data" chart-labels="labels" chart-series="series" class="chart chart-bar"></canvas>
+          <canvas id="pie" chart-data="piedata" chart-labels="labels" chart-series="series" class="chart chart-pie"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel top">
+          <h2>Lead</h2>
+          <canvas id="line" chart-data="linedata" chart-labels="linelabels" chart-series="lineseries" class="chart chart-line"></canvas>
+          <canvas id="bar" chart-data="data" chart-labels="labels" chart-series="series" class="chart chart-bar"></canvas>
+          <canvas id="pie" chart-data="piedata" chart-labels="labels" chart-series="series" class="chart chart-pie"></canvas>
+        </div>
       </div>
     </div>
   </div>

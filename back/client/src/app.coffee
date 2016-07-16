@@ -3,6 +3,7 @@ require 'angular-scroll'
 require 'angular-filter'
 require 'angular-local-storage'
 require 'angular-animate'
+require 'angular-chart.js'
 require 'ng-lodash'
 require 'angular-toggle-switch'
 require '../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls'
@@ -25,6 +26,7 @@ app = require('angular').module('setter', [
   'ui.bootstrap'
   'toggle-switch'
   'duScroll'
+  'chart.js'
 ])
 app.constant 'BASE_URL', "#{location.protocol}//#{location.host}/api"
 app.value('duScrollDuration', 500)

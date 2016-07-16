@@ -1,0 +1,18 @@
+.btn-group
+  .btn-circle(
+    ng-if="!creating"
+    uib-tooltip='create'
+    ng-click="create()"
+  ) +
+  
+  .btn-circle.green(
+    ng-if="creating"
+    uib-tooltip='save'
+    ng-click="preSave()"
+  ) &#10003;
+  
+  .btn-circle.gray(
+    ng-if="creating"
+    uib-tooltip='cancel'
+    ng-click="cancel()"
+  ) &times;

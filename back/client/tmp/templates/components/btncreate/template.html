@@ -1,0 +1,6 @@
+
+<div class="btn-group">
+  <div ng-if="!creating" uib-tooltip="create" ng-click="create()" class="btn-circle">+</div>
+  <div ng-if="creating" uib-tooltip="save" ng-click="preSave()" class="btn-circle green">&#10003;</div>
+  <div ng-if="creating" uib-tooltip="cancel" ng-click="cancel()" class="btn-circle gray">&times;</div>
+</div>

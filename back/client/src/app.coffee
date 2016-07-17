@@ -53,6 +53,8 @@ require './gyms'
 require './findgym'
 require './finduser'
 require './community'
+require './login'
+require './logout'
 require './info'
 require './viewroutes'
 require './analytics'
@@ -75,13 +77,30 @@ app.run [
   '$rootScope'
   '$http'
   '$state'
+  '$stateParams'
   'LoginService'
   (
     $rootScope
     $http
     $state
+    $stateParams
     LoginService
   ) ->
     if LoginService.token?
       $state.go 'gyms.news', gymId: LoginService.user.id
+
+    $rootScope.isLoggedIn = ->
+      LoginService.user?
+
+    $rootScope.accountId = ->
+      LoginService.user?.id
+
+    $rootScope.getHomeGymId = ->
+      LoginService.user?.homeGymId
+
+    $rootScope.isGymAccount = ->
+      !!LoginService.user?.isGymAccount
+
+    $rootScope.isGymAdmin = ->
+      $rootScope.isGymAccount() and $stateParams.gymId is "#{LoginService.user.id}"
 ]

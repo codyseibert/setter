@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-8">
     <div class="panel top">
-      <btncreate save="createNews" creating="creating"></btncreate>
+      <btncreate ng-if="isGymAdmin()" save="createNews" creating="creating"></btncreate>
       <h2>Gym News</h2>
       <div ng-if="creating">
         <div class="form-group">
@@ -18,7 +18,7 @@
           <textarea ng-model="entry.message" class="form-control"></textarea>
         </div>
         <div>{{entry.date}}</div>
-        <div class="btn-group">
+        <div ng-if="isGymAdmin()" class="btn-group">
           <div uib-tooltip="delete" ng-click="delete(entry)" class="btn-circle"> <i class="glyphicon glyphicon-trash"></i></div>
           <div ng-if="!entry.editing" uib-tooltip="edit" ng-click="edit(entry)" class="btn-circle">&#9998;</div>
           <div ng-if="entry.editing" uib-tooltip="save" ng-click="save(entry)" class="btn-circle green">&#10003;</div>

@@ -1,0 +1,27 @@
+.col-2-fluid
+  header
+    .logo myApp
+    .right.link Login
+
+  .container-fluid.content
+    .row
+      .col-md-6.left
+        .form-group
+          label Email
+          input.form-control(
+            ng-model="login.email"
+            type="email"
+          )    
+          
+        .form-group
+          label Password
+          input.form-control(
+            ng-model="login.password"
+            type="password"
+          )    
+          
+        button(
+          ng-click="login()"
+        ) Login
+
+  footer

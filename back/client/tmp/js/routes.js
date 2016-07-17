@@ -9,6 +9,22 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'gyms/gyms.html'
       }
     }
+  }).state('login', {
+    url: '/login',
+    views: {
+      'main': {
+        controller: 'loginController',
+        templateUrl: 'login/login.html'
+      }
+    }
+  }).state('logout', {
+    url: '/logout',
+    views: {
+      'main': {
+        controller: 'logoutController',
+        templateUrl: 'logout/logout.html'
+      }
+    }
   }).state('landing', {
     url: '/',
     views: {

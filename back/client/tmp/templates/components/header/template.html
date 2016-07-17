@@ -1,12 +1,13 @@
 
 <div class="top"><img src="assets/images/setter-logo.svg" height="35px" width="35px" alt="Setter" class="logo text-right mr1 mb1"/>
   <div class="links">
-    <div ui-sref="gyms.news({gymId: gymId})" class="link"><i class="fa fa-home"></i>Home</div>
-    <div ui-sref="profile" class="link"><i class="fa fa-user"></i>Profile</div>
-    <div ui-sref="setters({gymId: gymId})" class="link"><i class="fa fa-users"></i>Setters</div>
-    <div ui-sref="manageroutes" class="link"><i class="fa fa-book"></i>Manage Routes</div>
-    <div ui-sref="findgym" class="link"><i class="fa fa-search"></i>Gyms</div>
-    <div ui-sref="finduser" class="link"><i class="fa fa-users"></i>Users</div>
+    <div ng-if="$root.isGymAccount()" ui-sref="gyms.news({gymId: $root.accountId()})" class="link"><i class="fa fa-home"></i>Home</div>
+    <div ng-if="!$root.isGymAccount()" ui-sref="gyms.news({gymId: $root.getHomeGymId()})" class="link"><i class="fa fa-home"></i>Home</div>
+    <div ui-sref="profile" ng-if="$root.isLoggedIn() &amp;&amp; !$root.isGymAccount()" class="link"><i class="fa fa-user"></i>Profile</div>
+    <div ui-sref="setters({gymId: gymId})" ng-if="$root.isGymAccount()" class="link"><i class="fa fa-users"></i>Setters</div>
+    <div ui-sref="manageroutes" ng-if="$root.isGymAccount()" class="link"><i class="fa fa-book"></i>Manage Routes</div>
+    <div ui-sref="findgym" ng-if="!$root.isGymAccount()" class="link"><i class="fa fa-search"></i>Gyms</div>
+    <div ui-sref="finduser" ng-if="!$root.isGymAccount()" class="link"><i class="fa fa-users"></i>Users</div>
     <div style="float: right" ui-sref="settings" class="link"><i class="fa fa-gear"></i>Settings</div>
   </div>
 </div>

@@ -49,6 +49,10 @@ require('./finduser');
 
 require('./community');
 
+require('./login');
+
+require('./logout');
+
 require('./info');
 
 require('./viewroutes');
@@ -82,11 +86,29 @@ require('./services');
 require('./components');
 
 app.run([
-  '$rootScope', '$http', '$state', 'LoginService', function($rootScope, $http, $state, LoginService) {
+  '$rootScope', '$http', '$state', '$stateParams', 'LoginService', function($rootScope, $http, $state, $stateParams, LoginService) {
     if (LoginService.token != null) {
-      return $state.go('gyms.news', {
+      $state.go('gyms.news', {
         gymId: LoginService.user.id
       });
     }
+    $rootScope.isLoggedIn = function() {
+      return LoginService.user != null;
+    };
+    $rootScope.accountId = function() {
+      var ref;
+      return (ref = LoginService.user) != null ? ref.id : void 0;
+    };
+    $rootScope.getHomeGymId = function() {
+      var ref;
+      return (ref = LoginService.user) != null ? ref.homeGymId : void 0;
+    };
+    $rootScope.isGymAccount = function() {
+      var ref;
+      return !!((ref = LoginService.user) != null ? ref.isGymAccount : void 0);
+    };
+    return $rootScope.isGymAdmin = function() {
+      return $rootScope.isGymAccount() && $stateParams.gymId === ("" + LoginService.user.id);
+    };
   }
 ]);

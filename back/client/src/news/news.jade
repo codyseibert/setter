@@ -2,6 +2,7 @@
   .col-md-8
     .panel.top
       btncreate(
+        ng-if="isGymAdmin()"
         save="createNews"
         creating="creating"
       )
@@ -34,8 +35,11 @@
           textarea.form-control(
             ng-model="entry.message"
           )
+          
         div {{entry.date}}
-        .btn-group
+        .btn-group(
+          ng-if="isGymAdmin()"
+        )
           .btn-circle(
             uib-tooltip='delete'
             ng-click="delete(entry)"

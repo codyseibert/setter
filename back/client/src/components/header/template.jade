@@ -9,37 +9,50 @@
   
   .links
     .link(
-      ui-sref="gyms.news({gymId: gymId})"
+      ng-if="$root.isGymAccount()"
+      ui-sref="gyms.news({gymId: $root.accountId()})"
+    )
+      i.fa.fa-home
+      | Home
+      
+    .link(
+      ng-if="!$root.isGymAccount()"
+      ui-sref="gyms.news({gymId: $root.getHomeGymId()})"
     )
       i.fa.fa-home
       | Home
       
     .link(
       ui-sref="profile"
+      ng-if="$root.isLoggedIn() && !$root.isGymAccount()"
     )
       i.fa.fa-user
       | Profile
       
     .link(
       ui-sref="setters({gymId: gymId})"
+      ng-if="$root.isGymAccount()"
     )
       i.fa.fa-users
       | Setters
       
     .link(
       ui-sref="manageroutes"
+      ng-if="$root.isGymAccount()"
     )
       i.fa.fa-book
       | Manage Routes
       
     .link(
       ui-sref="findgym"
+      ng-if="!$root.isGymAccount()"
     )
       i.fa.fa-search
       | Gyms
       
     .link(
       ui-sref="finduser"
+      ng-if="!$root.isGymAccount()"
     )
       i.fa.fa-users
       | Users

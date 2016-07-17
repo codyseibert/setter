@@ -2,7 +2,7 @@
   .col-md-8
     .panel.top
       btncreate(
-        ng-if="isGymAdmin()"
+        ng-show="isGymAdmin()"
         save="createNews"
         creating="creating"
       )
@@ -13,10 +13,10 @@
         ng-if="creating"
       )
         .form-group
-          label Text
+          label Message
           textarea.form-control(
             ng-model="alert.message"
-            placeholder="Enter your news here"
+            placeholder="Enter your message for your members here and click save"
           )
           
       .news(
@@ -31,12 +31,12 @@
         .form-group(
           ng-if="entry.editing"
         )
-          label Text
+          label Message
           textarea.form-control(
             ng-model="entry.message"
           )
           
-        div {{entry.date}}
+        div {{entry.createdAt | amCalendar:referenceTime:formats}}
         .btn-group(
           ng-if="isGymAdmin()"
         )
@@ -69,13 +69,10 @@
       div(style="text-align: center;")
         .fb-page(
           data-height='800'
-          data-href='https://www.facebook.com/aiguilleclimbing'
+          data-href='{{gym.facebook}}'
           data-tabs='timeline'
           data-small-header='false'
           data-adapt-container-width='true'
           data-hide-cover='false'
           data-show-facepile='true'
         )
-          .fb-xfbml-parse-ignore
-            blockquote(cite='https://www.facebook.com/aiguilleclimbing')
-              a(href='https://www.facebook.com/aiguilleclimbing') Aiguille Rock Climbing Center

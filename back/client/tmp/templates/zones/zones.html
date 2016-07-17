@@ -1,6 +1,19 @@
 
 <div class="row">
   <div class="col-md-12">
-    <zones></zones>
+    <div class="panel top">
+      <btncreate save="submit" creating="creating"></btncreate>
+      <h2>Zones</h2>
+      <div ng-if="creating" class="add">
+        <div class="form-group">
+          <label>Zone Name</label>
+          <input ng-model="form.name" placeholder="Zone Name" class="form-control"/>
+        </div>
+      </div>
+      <div ng-repeat="zone in zones" style="position: relative; width: 30%; height: 200px; display: inline-block;" ui-sref="gyms.zone({gymId: zone.gymId, zoneId: zone.id})" class="zone"><img style="width: 100%;" ng-src="{{zone.image}}"/>
+        <div style="width: 90%; position: absolute; top: 20px; background-color: white; border-radius: 10px; padding: 10px;" class="name">{{zone.name}}</div>
+        <button ui-sref="gyms.zone({gymId: gymId, zoneId: zone.id})">Edit</button>
+      </div>
+    </div>
   </div>
 </div>

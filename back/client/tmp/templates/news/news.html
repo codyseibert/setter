@@ -2,22 +2,22 @@
 <div class="row">
   <div class="col-md-8">
     <div class="panel top">
-      <btncreate ng-if="isGymAdmin()" save="createNews" creating="creating"></btncreate>
+      <btncreate ng-show="isGymAdmin()" save="createNews" creating="creating"></btncreate>
       <h2>Gym News</h2>
       <div ng-if="creating">
         <div class="form-group">
-          <label>Text</label>
-          <textarea ng-model="alert.message" placeholder="Enter your news here" class="form-control"></textarea>
+          <label>Message</label>
+          <textarea ng-model="alert.message" placeholder="Enter your message for your members here and click save" class="form-control"></textarea>
         </div>
       </div>
       <div ng-repeat="entry in entries" class="news">
         <hr/>
         <div ng-if="!entry.editing">{{entry.message}}</div>
         <div ng-if="entry.editing" class="form-group">
-          <label>Text</label>
+          <label>Message</label>
           <textarea ng-model="entry.message" class="form-control"></textarea>
         </div>
-        <div>{{entry.date}}</div>
+        <div>{{entry.createdAt | amCalendar:referenceTime:formats}}</div>
         <div ng-if="isGymAdmin()" class="btn-group">
           <div uib-tooltip="delete" ng-click="delete(entry)" class="btn-circle"> <i class="glyphicon glyphicon-trash"></i></div>
           <div ng-if="!entry.editing" uib-tooltip="edit" ng-click="edit(entry)" class="btn-circle">&#9998;</div>
@@ -30,11 +30,7 @@
   <div class="col-md-4">
     <div class="panel top">
       <div style="text-align: center;">
-        <div data-height="800" data-href="https://www.facebook.com/aiguilleclimbing" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" class="fb-page">
-          <div class="fb-xfbml-parse-ignore">
-            <blockquote cite="https://www.facebook.com/aiguilleclimbing"><a href="https://www.facebook.com/aiguilleclimbing">Aiguille Rock Climbing Center</a></blockquote>
-          </div>
-        </div>
+        <div data-height="800" data-href="{{gym.facebook}}" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" class="fb-page"></div>
       </div>
     </div>
   </div>

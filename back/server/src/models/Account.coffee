@@ -6,5 +6,7 @@ module.exports = do ->
     email: Sequelize.STRING
     password: Sequelize.STRING
     image: Sequelize.STRING
+    firstname: Sequelize.STRING
+    lastname: Sequelize.STRING
 
   Account

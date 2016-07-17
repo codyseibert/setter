@@ -1,9 +1,20 @@
 
 <div class="row">
   <div class="col-md-7">
-    <zone></zone>
+    <div class="panel top">
+      <h2>{{zone.name}}</h2>
+      <div class="btn-group">
+        <div ng-if="isGymAdmin()" uib-tooltip="add new route" ng-click="openEditRoutePanel()" class="btn-circle">+</div>
+      </div>
+      <div ng-repeat="route in routes" ng-click="openRoutePanel(route)" class="route">{{route.name}}</div>
+    </div>
   </div>
   <div class="col-md-5">
-    <preview></preview>
+    <div class="panel top">
+      <h2>Zone Image</h2>
+      <div class="btn-group">
+        <div type="button" ngf-select="upload($file, 'image')" ngf-max-size="2MB" ng-if="isGymAdmin()" class="btn-circle"><i class="glyphicon glyphicon-picture"></i></div>
+      </div><img ng-src="{{zone.image}}" width="100%"/>
+    </div>
   </div>
 </div>

@@ -1,11 +1,15 @@
 module.exports = [
   '$scope'
-  '$stateParams',
+  '$stateParams'
+  '$timeout'
   'GymAlertService'
+  'GymService'
   (
     $scope
     $stateParams
+    $timeout
     GymAlertService
+    GymService
   ) ->
 
     $scope.creating = false
@@ -13,6 +17,12 @@ module.exports = [
     GymAlertService.find gymId: $stateParams.gymId
       .then (alerts) ->
         $scope.entries = alerts
+
+    GymService.get $stateParams.gymId
+      .then (gym) ->
+        $scope.gym = gym
+        $timeout ->
+          FB.XFBML.parse()
 
     $scope.createNews = ->
       $scope.creating = !$scope.creating
@@ -41,4 +51,5 @@ module.exports = [
       GymAlertService.delete entry
         .then ->
           $scope.entries.splice $scope.entries.indexOf(entry), 1 if isYes
+
 ]

@@ -140,6 +140,7 @@
         
         form(
           ng-submit="registerUser()"
+          name="registerUserForm"
         )
           .form-group
             label Climber's Email
@@ -153,6 +154,7 @@
             input.form-control(
               ng-model="user.password"
               placeholder="password"
+              type="password"
             )
             
           .form-group

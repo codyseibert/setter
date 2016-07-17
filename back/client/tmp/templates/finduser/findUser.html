@@ -10,7 +10,7 @@
         <div class="panel top">
           <h2>User Search</h2>
           <input ng-model="search"/>
-          <div ng-repeat="user in users | filter : myFilter" class="gym">
+          <div ng-repeat="user in users | filter : myFilter" ui-sref="profile({userId: user.id})" class="user">
             <div class="flag member"> <img ng-src="{{user.image}}"/>
               <div class="text">{{user.name}}</div>
             </div>

@@ -16,14 +16,14 @@
       | Home
       
     .link(
-      ng-if="!$root.isGymAccount()"
+      ng-if="$root.hasHomeGymId()"
       ui-sref="gyms.news({gymId: $root.getHomeGymId()})"
     )
       i.fa.fa-home
       | Home
       
     .link(
-      ui-sref="profile"
+      ui-sref="profile({userId: $root.accountId()})"
       ng-if="$root.isLoggedIn() && !$root.isGymAccount()"
     )
       i.fa.fa-user
@@ -37,7 +37,7 @@
       | Setters
       
     .link(
-      ui-sref="manageroutes"
+      ui-sref="manageroutes({gymId: gymId})"
       ng-if="$root.isGymAccount()"
     )
       i.fa.fa-book
@@ -59,7 +59,52 @@
             
     .link(
       style="float: right"
-      ui-sref="settings"
+      ng-if="$root.isGymAccount()"
+      ui-sref="gymsettings({gymId: $root.accountId()})"
     )
       i.fa.fa-gear
       | Settings
+      
+  .subnav
+    .link(
+      ui-sref="gyms.news({gymId: gymId})"
+    )
+      i.fa.fa-newspaper-o
+      | News
+      
+    .link(
+      ui-sref="gyms.zones({gymId: gymId})"
+    )
+      i.fa.fa-map-o
+      | Zones
+      
+    .link(
+      ui-sref="gyms.routes({gymId: gymId})"
+    )
+      i.fa.fa-search
+      | Routes
+      
+    .link(
+      ui-sref="gyms.community({gymId: gymId})"
+    )
+      i.fa.fa-commenting-o
+      | Community
+      
+    .link(
+      ui-sref="gyms.members({gymId: gymId})"
+    )
+      i.fa.fa-users
+      | Members
+      
+    .link(
+      ui-sref="gyms.analytics({gymId: gymId})"
+    )
+      i.fa.fa-bar-chart
+      | Analytics
+      
+    .link(
+      ui-sref="gyms.info({gymId: gymId})"
+    )
+      i.fa.fa-info
+      | Info
+      

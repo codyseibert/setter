@@ -1,17 +1,8 @@
 module.exports = [
-  '$scope', function($scope) {
-    $scope.users = [
-      {
-        name: 'Cody Seibert',
-        image: 'assets/images/aiguille.gif'
-      }, {
-        name: 'Cody Seibert',
-        image: 'assets/images/aiguille.gif'
-      }, {
-        name: 'Cody Seibert',
-        image: 'assets/images/aiguille.gif'
-      }
-    ];
+  '$scope', 'AccountService', function($scope, AccountService) {
+    AccountService.find().then(function(users) {
+      return $scope.users = users;
+    });
     return $scope.myFilter = function(user) {
       if ($scope.search === '' || ($scope.search == null)) {
         return true;

@@ -75,7 +75,7 @@
       .col-md-6.left
         span Date Set
       .col-md-6.right
-        span {{route.createdAt}}
+        span {{route.createdAt | amCalendar:referenceTime:formats}}
         
   .projecting
     

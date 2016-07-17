@@ -1,6 +1,35 @@
 .row
   .col-md-7
-    zone
+    .panel.top
+      h2 {{zone.name}}
+      
+      .btn-group
+        .btn-circle(
+          ng-if="isGymAdmin()"
+          uib-tooltip='add new route'
+          ng-click="openEditRoutePanel()"
+        ) +
+      
+      .route(
+        ng-repeat="route in routes"
+        ng-click="openRoutePanel(route)"
+      )
+        {{route.name}}
   
   .col-md-5
-    preview
+    .panel.top
+      h2 Zone Image
+      
+      .btn-group
+        .btn-circle(
+          type="button"
+          ngf-select="upload($file, 'image')"
+          ngf-max-size="2MB"
+          ng-if="isGymAdmin()"
+        )
+          i.glyphicon.glyphicon-picture
+
+      img(
+        ng-src="{{zone.image}}"
+        width="100%"
+      )

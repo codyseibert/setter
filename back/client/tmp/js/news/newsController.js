@@ -1,11 +1,17 @@
 module.exports = [
-  '$scope', '$stateParams', 'GymAlertService', function($scope, $stateParams, GymAlertService) {
+  '$scope', '$stateParams', '$timeout', 'GymAlertService', 'GymService', function($scope, $stateParams, $timeout, GymAlertService, GymService) {
     $scope.creating = false;
     $scope.alert = {};
     GymAlertService.find({
       gymId: $stateParams.gymId
     }).then(function(alerts) {
       return $scope.entries = alerts;
+    });
+    GymService.get($stateParams.gymId).then(function(gym) {
+      $scope.gym = gym;
+      return $timeout(function() {
+        return FB.XFBML.parse();
+      });
     });
     $scope.createNews = function() {
       $scope.creating = !$scope.creating;

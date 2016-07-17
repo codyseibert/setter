@@ -34,7 +34,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       }
     }
   }).state('manageroutes', {
-    url: '/manageroutes',
+    url: '/gyms/:gymId/manageroutes',
     views: {
       'main': {
         controller: 'manageroutesController',
@@ -106,7 +106,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       }
     }
   }).state('setters', {
-    url: '/setters',
+    url: '/gyms/:gymId/setters',
     views: {
       'main': {
         controller: 'settersController',
@@ -129,8 +129,8 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'finduser/findUser.html'
       }
     }
-  }).state('settings', {
-    url: '/settings',
+  }).state('gymsettings', {
+    url: '/gyms/:gymId/settings',
     views: {
       'main': {
         controller: 'settingsController',

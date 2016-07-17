@@ -77,23 +77,31 @@ app.run [
   '$rootScope'
   '$http'
   '$state'
+  '$location'
   '$stateParams'
   'LoginService'
+  'localStorageService'
   (
     $rootScope
     $http
     $state
+    $location
     $stateParams
     LoginService
+    localStorageService
   ) ->
-    if LoginService.token?
-      $state.go 'gyms.news', gymId: LoginService.user.id
+
+    $rootScope.$on "$locationChangeSuccess", (event, absNewUrl, absOldUrl) ->
+      localStorageService.set 'lastPath', $location.path()
 
     $rootScope.isLoggedIn = ->
       LoginService.user?
 
     $rootScope.accountId = ->
       LoginService.user?.id
+
+    $rootScope.hasHomeGymId = ->
+      LoginService.user?.homeGymId?
 
     $rootScope.getHomeGymId = ->
       LoginService.user?.homeGymId
@@ -103,4 +111,14 @@ app.run [
 
     $rootScope.isGymAdmin = ->
       $rootScope.isGymAccount() and $stateParams.gymId is "#{LoginService.user.id}"
+
+    if $rootScope.isLoggedIn()
+      last = localStorageService.get 'lastPath'
+      if last?
+        $location.path last
+      else
+        if $rootScope.isGymAccount()
+          $state.go 'gyms.news', gymId: LoginService.user.id
+        else
+          $state.go 'profile', userId: LoginService.user.id
 ]

@@ -1,3 +1,7 @@
-.panel
-  .logo
-  .name Aiguille Rock Climbing Center
+.panel(
+  ng-style="{'background-image': 'url(' + gym.banner + ')'}"
+)
+  .logo(
+    ng-style="{'background-image': 'url(' + gym.logo + ')'}"
+  )
+  .name {{gym.name}}

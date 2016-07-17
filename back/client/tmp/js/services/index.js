@@ -10,4 +10,6 @@ app.service('GymAlertService', require('./GymAlertService'));
 
 app.service('LoginService', require('./LoginService'));
 
+app.service('AccountService', require('./AccountService'));
+
 app.factory('APIInterceptor', require('./APIInterceptor'));

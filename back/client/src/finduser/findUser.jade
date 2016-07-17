@@ -13,8 +13,9 @@
             ng-model="search"
           )
           
-          .gym(
+          .user(
             ng-repeat="user in users | filter : myFilter"
+            ui-sref="profile({userId: user.id})"
           )
             .flag.member 
               img(

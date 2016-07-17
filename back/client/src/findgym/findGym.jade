@@ -15,10 +15,11 @@
           
           .gym(
             ng-repeat="gym in gyms | filter : myFilter"
+            ui-sref="gyms.news({gymId: gym.id})"
           )
             .flag.member 
               img(
-                ng-src="{{gym.image}}"
+                ng-src="{{gym.logo}}"
               )
               .text {{gym.name}}
               .text {{gym.address}}

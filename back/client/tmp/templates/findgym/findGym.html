@@ -10,8 +10,8 @@
         <div class="panel top">
           <h2>Gym Search</h2>
           <input ng-model="search"/>
-          <div ng-repeat="gym in gyms | filter : myFilter" class="gym">
-            <div class="flag member"> <img ng-src="{{gym.image}}"/>
+          <div ng-repeat="gym in gyms | filter : myFilter" ui-sref="gyms.news({gymId: gym.id})" class="gym">
+            <div class="flag member"> <img ng-src="{{gym.logo}}"/>
               <div class="text">{{gym.name}}</div>
               <div class="text">{{gym.address}}</div>
             </div>

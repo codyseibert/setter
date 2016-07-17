@@ -31,7 +31,7 @@ module.exports = (
           controller: 'landingController'
           templateUrl: 'landing/landing.html'
     .state 'manageroutes',
-      url: '/manageroutes'
+      url: '/gyms/:gymId/manageroutes'
       views:
         'main':
           controller: 'manageroutesController'
@@ -85,7 +85,7 @@ module.exports = (
           controller: 'analyticsController'
           templateUrl: 'analytics/analytics.html'
     .state 'setters',
-      url: '/setters'
+      url: '/gyms/:gymId/setters'
       views:
         'main':
           controller: 'settersController'
@@ -102,8 +102,8 @@ module.exports = (
         'main':
           controller: 'findUserController'
           templateUrl: 'finduser/findUser.html'
-    .state 'settings',
-      url: '/settings'
+    .state 'gymsettings',
+      url: '/gyms/:gymId/settings'
       views:
         'main':
           controller: 'settingsController'

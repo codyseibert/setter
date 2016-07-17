@@ -2,12 +2,21 @@
 <div class="top"><img src="assets/images/setter-logo.svg" height="35px" width="35px" alt="Setter" class="logo text-right mr1 mb1"/>
   <div class="links">
     <div ng-if="$root.isGymAccount()" ui-sref="gyms.news({gymId: $root.accountId()})" class="link"><i class="fa fa-home"></i>Home</div>
-    <div ng-if="!$root.isGymAccount()" ui-sref="gyms.news({gymId: $root.getHomeGymId()})" class="link"><i class="fa fa-home"></i>Home</div>
-    <div ui-sref="profile" ng-if="$root.isLoggedIn() &amp;&amp; !$root.isGymAccount()" class="link"><i class="fa fa-user"></i>Profile</div>
+    <div ng-if="$root.hasHomeGymId()" ui-sref="gyms.news({gymId: $root.getHomeGymId()})" class="link"><i class="fa fa-home"></i>Home</div>
+    <div ui-sref="profile({userId: $root.accountId()})" ng-if="$root.isLoggedIn() &amp;&amp; !$root.isGymAccount()" class="link"><i class="fa fa-user"></i>Profile</div>
     <div ui-sref="setters({gymId: gymId})" ng-if="$root.isGymAccount()" class="link"><i class="fa fa-users"></i>Setters</div>
-    <div ui-sref="manageroutes" ng-if="$root.isGymAccount()" class="link"><i class="fa fa-book"></i>Manage Routes</div>
+    <div ui-sref="manageroutes({gymId: gymId})" ng-if="$root.isGymAccount()" class="link"><i class="fa fa-book"></i>Manage Routes</div>
     <div ui-sref="findgym" ng-if="!$root.isGymAccount()" class="link"><i class="fa fa-search"></i>Gyms</div>
     <div ui-sref="finduser" ng-if="!$root.isGymAccount()" class="link"><i class="fa fa-users"></i>Users</div>
-    <div style="float: right" ui-sref="settings" class="link"><i class="fa fa-gear"></i>Settings</div>
+    <div style="float: right" ng-if="$root.isGymAccount()" ui-sref="gymsettings({gymId: $root.accountId()})" class="link"><i class="fa fa-gear"></i>Settings</div>
+  </div>
+  <div class="subnav">
+    <div ui-sref="gyms.news({gymId: gymId})" class="link"><i class="fa fa-newspaper-o"></i>News</div>
+    <div ui-sref="gyms.zones({gymId: gymId})" class="link"><i class="fa fa-map-o"></i>Zones</div>
+    <div ui-sref="gyms.routes({gymId: gymId})" class="link"><i class="fa fa-search"></i>Routes</div>
+    <div ui-sref="gyms.community({gymId: gymId})" class="link"><i class="fa fa-commenting-o"></i>Community</div>
+    <div ui-sref="gyms.members({gymId: gymId})" class="link"><i class="fa fa-users"></i>Members</div>
+    <div ui-sref="gyms.analytics({gymId: gymId})" class="link"><i class="fa fa-bar-chart"></i>Analytics</div>
+    <div ui-sref="gyms.info({gymId: gymId})" class="link"><i class="fa fa-info"></i>Info</div>
   </div>
 </div>

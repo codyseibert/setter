@@ -1,20 +1,15 @@
 module.exports = [
   '$scope'
+  'AccountService'
   (
     $scope
+    AccountService
   ) ->
 
-    $scope.users = [
-      name: 'Cody Seibert'
-      image: 'assets/images/aiguille.gif'
-    ,
-      name: 'Cody Seibert'
-      image: 'assets/images/aiguille.gif'
-    ,
-      name: 'Cody Seibert'
-      image: 'assets/images/aiguille.gif'
-    ]
-
+    AccountService.find()
+      .then (users) ->
+        $scope.users = users
+        
     $scope.myFilter = (user) ->
       return true if $scope.search is '' or not $scope.search?
       user.name.indexOf($scope.search) isnt -1

@@ -100615,13 +100615,17 @@ app.controller('communityController', require('./communityController'));
 
 },{"./communityController":29,"angular":21}],31:[function(require,module,exports){
 module.exports = [
-  '$rootScope', function($rootScope) {
+  '$rootScope', '$stateParams', 'GymService', function($rootScope, $stateParams, GymService) {
     return {
       restrict: 'E',
       scope: {
         model: '='
       },
-      link: function(scope, elem, attr) {},
+      link: function(scope, elem, attr) {
+        return GymService.get($stateParams.gymId).then(function(gym) {
+          return scope.gym = gym;
+        });
+      },
       templateUrl: 'components/banner/template.html'
     };
   }
@@ -100665,30 +100669,6 @@ module.exports = [
 ];
 
 },{}],34:[function(require,module,exports){
-module.exports = [
-  '$rootScope', 'lodash', 'GymService', 'FileService', function($rootScope, _, GymService, FileService) {
-    return {
-      restrict: 'E',
-      link: function(scope, elem, attr) {
-        GymService.get(2).then(function(gym) {
-          scope.gym = gym;
-          return scope.gym.hideSetters = !!gym.hideSetters;
-        });
-        scope.submit = function() {
-          return GymService.update(scope.gym).then(function(gym) {});
-        };
-        return scope.upload = function(file, key) {
-          return FileService.upload(file).then(function(data) {
-            return scope.gym[key] = data;
-          });
-        };
-      },
-      templateUrl: 'components/configurations/template.html'
-    };
-  }
-];
-
-},{}],35:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$state', '$stateParams', 'ColorService', 'RouteService', 'ZoneService', 'BoulderGradesService', 'RopeGradesService', 'SetterService', function($rootScope, $state, $stateParams, ColorService, RouteService, ZoneService, BoulderGradesService, RopeGradesService, SetterService) {
     return {
@@ -100756,7 +100736,7 @@ module.exports = [
   }
 ];
 
-},{}],36:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$stateParams', function($rootScope, $stateParams) {
     return {
@@ -100776,7 +100756,7 @@ module.exports = [
   }
 ];
 
-},{}],37:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
@@ -100784,8 +100764,6 @@ app = require('angular').module('setter');
 app.directive('banner', require('./banner'));
 
 app.directive('comments', require('./comments'));
-
-app.directive('configurations', require('./configurations'));
 
 app.directive('editroutepanel', require('./editroutepanel'));
 
@@ -100807,29 +100785,32 @@ app.directive('sends', require('./sends'));
 
 app.directive('setters', require('./setters'));
 
-app.directive('settings', require('./settings'));
-
 app.directive('zone', require('./zone'));
-
-app.directive('zones', require('./zones'));
 
 app.directive('btncreate', require('./btncreate'));
 
-},{"./banner":31,"./btncreate":32,"./comments":33,"./configurations":34,"./editroutepanel":35,"./header":36,"./landing":38,"./manageroutes":39,"./navigation":40,"./preview":41,"./register":42,"./routepanel":43,"./sends":44,"./setters":45,"./settings":46,"./zone":47,"./zones":48,"angular":21}],38:[function(require,module,exports){
+},{"./banner":31,"./btncreate":32,"./comments":33,"./editroutepanel":34,"./header":35,"./landing":37,"./manageroutes":38,"./navigation":39,"./preview":40,"./register":41,"./routepanel":42,"./sends":43,"./setters":44,"./zone":45,"angular":21}],37:[function(require,module,exports){
 module.exports = [
-  '$rootScope', '$state', 'GymService', 'LoginService', 'jwtHelper', function($rootScope, $state, GymService, LoginService, jwtHelper) {
+  '$rootScope', '$state', 'GymService', 'AccountService', 'LoginService', 'jwtHelper', function($rootScope, $state, GymService, AccountService, LoginService, jwtHelper) {
     return {
       restrict: 'E',
       link: function(scope, elem, attr) {
         scope.gym = {};
         scope.user = {};
-        return scope.registerGym = function() {
-          return GymService.create(scope.gym).then(function(gym) {
+        scope.registerGym = function() {
+          return GymService.create(scope.gym).then(function() {
             return LoginService.login(scope.gym.email, scope.gym.password);
           }).then(function() {
             return $state.go('gyms.news', {
               gymId: LoginService.user.id
             });
+          });
+        };
+        return scope.registerUser = function() {
+          return AccountService.create(scope.user).then(function() {
+            return LoginService.login(scope.user.email, scope.user.password);
+          }).then(function() {
+            return $state.go('findgym');
           });
         };
       },
@@ -100838,7 +100819,7 @@ module.exports = [
   }
 ];
 
-},{}],39:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$q', '$stateParams', 'RouteService', 'SetterService', 'ColorService', 'BoulderGradesService', 'RopeGradesService', 'RatingService', 'ZoneService', function($rootScope, $q, $stateParams, RouteService, SetterService, ColorService, BoulderGradesService, RopeGradesService, RatingService, ZoneService) {
     return {
@@ -100960,7 +100941,7 @@ module.exports = [
   }
 ];
 
-},{}],40:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$stateParams', function($rootScope, $stateParams) {
     return {
@@ -100977,7 +100958,7 @@ module.exports = [
   }
 ];
 
-},{}],41:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$state', '$stateParams', 'ZoneService', 'FileService', function($rootScope, $state, $stateParams, ZoneService, FileService) {
     return {
@@ -100998,7 +100979,7 @@ module.exports = [
   }
 ];
 
-},{}],42:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 module.exports = [
   '$rootScope', function($rootScope) {
     return {
@@ -101009,7 +100990,7 @@ module.exports = [
   }
 ];
 
-},{}],43:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$state', '$stateParams', 'ColorService', 'RouteService', 'ZoneService', 'SetterService', 'BoulderGradesService', 'RopeGradesService', function($rootScope, $state, $stateParams, ColorService, RouteService, ZoneService, SetterService, BoulderGradesService, RopeGradesService) {
     return {
@@ -101058,7 +101039,7 @@ module.exports = [
   }
 ];
 
-},{}],44:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module.exports = [
   '$rootScope', function($rootScope) {
     return {
@@ -101069,7 +101050,7 @@ module.exports = [
   }
 ];
 
-},{}],45:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$state', '$stateParams', 'SetterService', 'User', function($rootScope, $state, $stateParams, SetterService, User) {
     return {
@@ -101104,25 +101085,7 @@ module.exports = [
   }
 ];
 
-},{}],46:[function(require,module,exports){
-module.exports = [
-  '$rootScope', '$state', 'GymService', function($rootScope, $state, GymService) {
-    return {
-      restrict: 'E',
-      link: function(scope, elem, attr) {
-        GymService.get(2).then(function(gym) {
-          return scope.gym = gym;
-        });
-        return scope.submit = function() {
-          return GymService.update(scope.gym).then(function(gym) {});
-        };
-      },
-      templateUrl: 'components/settings/template.html'
-    };
-  }
-];
-
-},{}],47:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 module.exports = [
   '$rootScope', '$state', '$stateParams', 'ZoneService', 'RouteService', function($rootScope, $state, $stateParams, ZoneService, RouteService) {
     return {
@@ -101155,31 +101118,7 @@ module.exports = [
   }
 ];
 
-},{}],48:[function(require,module,exports){
-module.exports = [
-  '$rootScope', '$state', '$stateParams', 'ZoneService', function($rootScope, $state, $stateParams, ZoneService) {
-    return {
-      restrict: 'E',
-      link: function(scope, elem, attr) {
-        scope.form = {};
-        scope.form.gymId = $stateParams.gymId;
-        ZoneService.find({
-          gymId: $stateParams.gymId
-        }).then(function(zones) {
-          return scope.zones = zones;
-        });
-        return scope.submit = function() {
-          return ZoneService.create(scope.form).then(function(zone) {
-            return scope.zones.push(zone);
-          });
-        };
-      },
-      templateUrl: 'components/zones/template.html'
-    };
-  }
-];
-
-},{}],49:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 var angular, app;
 
 angular = require('angular');
@@ -101268,18 +101207,21 @@ require('./services');
 require('./components');
 
 app.run([
-  '$rootScope', '$http', '$state', '$stateParams', 'LoginService', function($rootScope, $http, $state, $stateParams, LoginService) {
-    if (LoginService.token != null) {
-      $state.go('gyms.news', {
-        gymId: LoginService.user.id
-      });
-    }
+  '$rootScope', '$http', '$state', '$location', '$stateParams', 'LoginService', 'localStorageService', function($rootScope, $http, $state, $location, $stateParams, LoginService, localStorageService) {
+    var last;
+    $rootScope.$on("$locationChangeSuccess", function(event, absNewUrl, absOldUrl) {
+      return localStorageService.set('lastPath', $location.path());
+    });
     $rootScope.isLoggedIn = function() {
       return LoginService.user != null;
     };
     $rootScope.accountId = function() {
       var ref;
       return (ref = LoginService.user) != null ? ref.id : void 0;
+    };
+    $rootScope.hasHomeGymId = function() {
+      var ref;
+      return ((ref = LoginService.user) != null ? ref.homeGymId : void 0) != null;
     };
     $rootScope.getHomeGymId = function() {
       var ref;
@@ -101289,30 +101231,34 @@ app.run([
       var ref;
       return !!((ref = LoginService.user) != null ? ref.isGymAccount : void 0);
     };
-    return $rootScope.isGymAdmin = function() {
+    $rootScope.isGymAdmin = function() {
       return $rootScope.isGymAccount() && $stateParams.gymId === ("" + LoginService.user.id);
     };
+    if ($rootScope.isLoggedIn()) {
+      last = localStorageService.get('lastPath');
+      if (last != null) {
+        return $location.path(last);
+      } else {
+        if ($rootScope.isGymAccount()) {
+          return $state.go('gyms.news', {
+            gymId: LoginService.user.id
+          });
+        } else {
+          return $state.go('profile', {
+            userId: LoginService.user.id
+          });
+        }
+      }
+    }
   }
 ]);
 
-},{"../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls":17,"../../node_modules/angular-ui-grid/ui-grid":18,"./analytics":28,"./community":30,"./components":37,"./findgym":51,"./finduser":53,"./gyms":55,"./info":56,"./landing":58,"./login":60,"./logout":62,"./manageroutes":64,"./members":66,"./models":87,"./news":88,"./profile":90,"./register":92,"./routes":94,"./services":100,"./setters":101,"./settings":103,"./viewroutes":105,"./zone":107,"./zones":109,"angular":21,"angular-animate":2,"angular-chart.js":3,"angular-filter":4,"angular-jwt":6,"angular-local-storage":7,"angular-moment":9,"angular-resource":11,"angular-sanitize":13,"angular-scroll":15,"angular-toggle-switch":16,"angular-ui-router":19,"ng-file-upload":25,"ng-lodash":26}],50:[function(require,module,exports){
+},{"../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls":17,"../../node_modules/angular-ui-grid/ui-grid":18,"./analytics":28,"./community":30,"./components":36,"./findgym":48,"./finduser":50,"./gyms":52,"./info":53,"./landing":55,"./login":57,"./logout":59,"./manageroutes":61,"./members":63,"./models":84,"./news":85,"./profile":87,"./register":89,"./routes":91,"./services":98,"./setters":99,"./settings":101,"./viewroutes":103,"./zone":105,"./zones":107,"angular":21,"angular-animate":2,"angular-chart.js":3,"angular-filter":4,"angular-jwt":6,"angular-local-storage":7,"angular-moment":9,"angular-resource":11,"angular-sanitize":13,"angular-scroll":15,"angular-toggle-switch":16,"angular-ui-router":19,"ng-file-upload":25,"ng-lodash":26}],47:[function(require,module,exports){
 module.exports = [
-  '$scope', function($scope) {
-    $scope.gyms = [
-      {
-        name: 'Aiguille Rock Climbing Center',
-        address: '999 Charles Street',
-        image: 'assets/images/aiguille.gif'
-      }, {
-        name: 'Aiguille Rock Climbing Center',
-        address: '999 Charles Street',
-        image: 'assets/images/aiguille.gif'
-      }, {
-        name: 'Aiguille Rock Climbing Center',
-        address: '999 Charles Street',
-        image: 'assets/images/aiguille.gif'
-      }
-    ];
+  '$scope', 'GymService', function($scope, GymService) {
+    GymService.find().then(function(gyms) {
+      return $scope.gyms = gyms;
+    });
     return $scope.myFilter = function(gym) {
       if ($scope.search === '' || ($scope.search == null)) {
         return true;
@@ -101322,28 +101268,19 @@ module.exports = [
   }
 ];
 
-},{}],51:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('findGymController', require('./findGymController'));
 
-},{"./findGymController":50,"angular":21}],52:[function(require,module,exports){
+},{"./findGymController":47,"angular":21}],49:[function(require,module,exports){
 module.exports = [
-  '$scope', function($scope) {
-    $scope.users = [
-      {
-        name: 'Cody Seibert',
-        image: 'assets/images/aiguille.gif'
-      }, {
-        name: 'Cody Seibert',
-        image: 'assets/images/aiguille.gif'
-      }, {
-        name: 'Cody Seibert',
-        image: 'assets/images/aiguille.gif'
-      }
-    ];
+  '$scope', 'AccountService', function($scope, AccountService) {
+    AccountService.find().then(function(users) {
+      return $scope.users = users;
+    });
     return $scope.myFilter = function(user) {
       if ($scope.search === '' || ($scope.search == null)) {
         return true;
@@ -101353,49 +101290,49 @@ module.exports = [
   }
 ];
 
-},{}],53:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('findUserController', require('./findUserController'));
 
-},{"./findUserController":52,"angular":21}],54:[function(require,module,exports){
-module.exports=require(29)
-},{}],55:[function(require,module,exports){
+},{"./findUserController":49,"angular":21}],51:[function(require,module,exports){
+module.exports = ['$scope', 'GymService', function($scope, GymService) {}];
+
+},{}],52:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('gymsController', require('./gymsController'));
 
-},{"./gymsController":54,"angular":21}],56:[function(require,module,exports){
+},{"./gymsController":51,"angular":21}],53:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('infoController', require('./infoController'));
 
-},{"./infoController":57,"angular":21}],57:[function(require,module,exports){
-module.exports = ['$scope', 'GymService', function($scope, GymService) {}];
-
-},{}],58:[function(require,module,exports){
+},{"./infoController":54,"angular":21}],54:[function(require,module,exports){
+module.exports=require(51)
+},{}],55:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('landingController', require('./landingController'));
 
-},{"./landingController":59,"angular":21}],59:[function(require,module,exports){
+},{"./landingController":56,"angular":21}],56:[function(require,module,exports){
 module.exports=require(29)
-},{}],60:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('loginController', require('./loginController'));
 
-},{"./loginController":61,"angular":21}],61:[function(require,module,exports){
+},{"./loginController":58,"angular":21}],58:[function(require,module,exports){
 module.exports = [
   '$scope', '$state', 'LoginService', function($scope, $state, LoginService) {
     return $scope.login = function() {
@@ -101408,14 +101345,14 @@ module.exports = [
   }
 ];
 
-},{}],62:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('logoutController', require('./logoutController'));
 
-},{"./logoutController":63,"angular":21}],63:[function(require,module,exports){
+},{"./logoutController":60,"angular":21}],60:[function(require,module,exports){
 module.exports = [
   '$scope', '$state', 'LoginService', function($scope, $state, LoginService) {
     LoginService.logout();
@@ -101423,25 +101360,25 @@ module.exports = [
   }
 ];
 
-},{}],64:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('manageroutesController', require('./manageroutesController'));
 
-},{"./manageroutesController":65,"angular":21}],65:[function(require,module,exports){
+},{"./manageroutesController":62,"angular":21}],62:[function(require,module,exports){
 module.exports=require(29)
-},{}],66:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('membersController', require('./membersController'));
 
-},{"./membersController":67,"angular":21}],67:[function(require,module,exports){
+},{"./membersController":64,"angular":21}],64:[function(require,module,exports){
 module.exports=require(29)
-},{}],68:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101495,7 +101432,7 @@ module.exports = [
   }
 ];
 
-},{}],69:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101549,7 +101486,7 @@ module.exports = [
   }
 ];
 
-},{}],70:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101603,7 +101540,7 @@ module.exports = [
   }
 ];
 
-},{}],71:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101657,7 +101594,7 @@ module.exports = [
   }
 ];
 
-},{}],72:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101711,7 +101648,7 @@ module.exports = [
   }
 ];
 
-},{}],73:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101765,7 +101702,7 @@ module.exports = [
   }
 ];
 
-},{}],74:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101819,7 +101756,7 @@ module.exports = [
   }
 ];
 
-},{}],75:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101873,7 +101810,7 @@ module.exports = [
   }
 ];
 
-},{}],76:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101927,7 +101864,7 @@ module.exports = [
   }
 ];
 
-},{}],77:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -101981,7 +101918,7 @@ module.exports = [
   }
 ];
 
-},{}],78:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102035,7 +101972,7 @@ module.exports = [
   }
 ];
 
-},{}],79:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102089,7 +102026,7 @@ module.exports = [
   }
 ];
 
-},{}],80:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102143,7 +102080,7 @@ module.exports = [
   }
 ];
 
-},{}],81:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102197,7 +102134,7 @@ module.exports = [
   }
 ];
 
-},{}],82:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102251,7 +102188,7 @@ module.exports = [
   }
 ];
 
-},{}],83:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102305,7 +102242,7 @@ module.exports = [
   }
 ];
 
-},{}],84:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102359,7 +102296,7 @@ module.exports = [
   }
 ];
 
-},{}],85:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102413,7 +102350,7 @@ module.exports = [
   }
 ];
 
-},{}],86:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102467,7 +102404,7 @@ module.exports = [
   }
 ];
 
-},{}],87:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
@@ -102510,22 +102447,28 @@ app.service('UserService', require('./UserService'));
 
 app.service('ZoneService', require('./ZoneService'));
 
-},{"./AccountService":68,"./AlertService":69,"./BoulderGradesService":70,"./ColorService":71,"./CommentService":72,"./FeedbackService":73,"./FeedbackVoteService":74,"./GymService":75,"./ProjectService":76,"./RatingService":77,"./RolesService":78,"./RopeGradesService":79,"./RouteNewToUserService":80,"./RouteService":81,"./SendService":82,"./SetterService":83,"./SuggestionService":84,"./UserService":85,"./ZoneService":86,"angular":21}],88:[function(require,module,exports){
+},{"./AccountService":65,"./AlertService":66,"./BoulderGradesService":67,"./ColorService":68,"./CommentService":69,"./FeedbackService":70,"./FeedbackVoteService":71,"./GymService":72,"./ProjectService":73,"./RatingService":74,"./RolesService":75,"./RopeGradesService":76,"./RouteNewToUserService":77,"./RouteService":78,"./SendService":79,"./SetterService":80,"./SuggestionService":81,"./UserService":82,"./ZoneService":83,"angular":21}],85:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('newsController', require('./newsController'));
 
-},{"./newsController":89,"angular":21}],89:[function(require,module,exports){
+},{"./newsController":86,"angular":21}],86:[function(require,module,exports){
 module.exports = [
-  '$scope', '$stateParams', 'GymAlertService', function($scope, $stateParams, GymAlertService) {
+  '$scope', '$stateParams', '$timeout', 'GymAlertService', 'GymService', function($scope, $stateParams, $timeout, GymAlertService, GymService) {
     $scope.creating = false;
     $scope.alert = {};
     GymAlertService.find({
       gymId: $stateParams.gymId
     }).then(function(alerts) {
       return $scope.entries = alerts;
+    });
+    GymService.get($stateParams.gymId).then(function(gym) {
+      $scope.gym = gym;
+      return $timeout(function() {
+        return FB.XFBML.parse();
+      });
     });
     $scope.createNews = function() {
       $scope.creating = !$scope.creating;
@@ -102562,14 +102505,14 @@ module.exports = [
   }
 ];
 
-},{}],90:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('profileController', require('./profileController'));
 
-},{"./profileController":91,"angular":21}],91:[function(require,module,exports){
+},{"./profileController":88,"angular":21}],88:[function(require,module,exports){
 module.exports = [
   '$scope', function($scope) {
     $scope.labels = ['v0', 'v1', 'v2', 'v3', 'v4', 'v5', 'v8'];
@@ -102582,16 +102525,16 @@ module.exports = [
   }
 ];
 
-},{}],92:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('registerController', require('./registerController'));
 
-},{"./registerController":93,"angular":21}],93:[function(require,module,exports){
+},{"./registerController":90,"angular":21}],90:[function(require,module,exports){
 module.exports=require(29)
-},{}],94:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 module.exports = function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider.state('gyms', {
@@ -102628,7 +102571,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       }
     }
   }).state('manageroutes', {
-    url: '/manageroutes',
+    url: '/gyms/:gymId/manageroutes',
     views: {
       'main': {
         controller: 'manageroutesController',
@@ -102700,7 +102643,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       }
     }
   }).state('setters', {
-    url: '/setters',
+    url: '/gyms/:gymId/setters',
     views: {
       'main': {
         controller: 'settersController',
@@ -102723,8 +102666,8 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         templateUrl: 'finduser/findUser.html'
       }
     }
-  }).state('settings', {
-    url: '/settings',
+  }).state('gymsettings', {
+    url: '/gyms/:gymId/settings',
     views: {
       'main': {
         controller: 'settingsController',
@@ -102751,7 +102694,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
   return this;
 };
 
-},{}],95:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports = [
   '$injector', function($injector) {
     return {
@@ -102768,7 +102711,9 @@ module.exports = [
   }
 ];
 
-},{}],96:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
+module.exports=require(65)
+},{}],94:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', 'Upload', function($http, $q, BASE_URL, Upload) {
     return {
@@ -102788,7 +102733,7 @@ module.exports = [
   }
 ];
 
-},{}],97:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.find = function(searchParams) {
@@ -102842,7 +102787,7 @@ module.exports = [
   }
 ];
 
-},{}],98:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', 'jwtHelper', 'localStorageService', function($http, $q, BASE_URL, jwtHelper, localStorageService) {
     this.token = localStorageService.get('token');
@@ -102875,7 +102820,7 @@ module.exports = [
   }
 ];
 
-},{}],99:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 module.exports = [
   '$http', '$q', 'BASE_URL', function($http, $q, BASE_URL) {
     this.gymId = 1;
@@ -102883,7 +102828,7 @@ module.exports = [
   }
 ];
 
-},{}],100:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
@@ -102896,34 +102841,52 @@ app.service('GymAlertService', require('./GymAlertService'));
 
 app.service('LoginService', require('./LoginService'));
 
+app.service('AccountService', require('./AccountService'));
+
 app.factory('APIInterceptor', require('./APIInterceptor'));
 
-},{"./APIInterceptor":95,"./FileService":96,"./GymAlertService":97,"./LoginService":98,"./User":99,"angular":21}],101:[function(require,module,exports){
+},{"./APIInterceptor":92,"./AccountService":93,"./FileService":94,"./GymAlertService":95,"./LoginService":96,"./User":97,"angular":21}],99:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('settersController', require('./settersController'));
 
-},{"./settersController":102,"angular":21}],102:[function(require,module,exports){
+},{"./settersController":100,"angular":21}],100:[function(require,module,exports){
 module.exports=require(29)
-},{}],103:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('settingsController', require('./settingsController'));
 
-},{"./settingsController":104,"angular":21}],104:[function(require,module,exports){
-module.exports=require(29)
-},{}],105:[function(require,module,exports){
+},{"./settingsController":102,"angular":21}],102:[function(require,module,exports){
+module.exports = [
+  '$scope', '$stateParams', 'GymService', 'FileService', function($scope, $stateParams, GymService, FileService) {
+    GymService.get($stateParams.gymId).then(function(gym) {
+      $scope.gym = gym;
+      return $scope.gym.hideSetters = !!gym.hideSetters;
+    });
+    $scope.submit = function() {
+      return GymService.update($scope.gym).then(function(gym) {});
+    };
+    return $scope.upload = function(file, key) {
+      return FileService.upload(file).then(function(data) {
+        return $scope.gym[key] = data;
+      });
+    };
+  }
+];
+
+},{}],103:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('viewroutesController', require('./viewroutesController'));
 
-},{"./viewroutesController":106,"angular":21}],106:[function(require,module,exports){
+},{"./viewroutesController":104,"angular":21}],104:[function(require,module,exports){
 module.exports = [
   '$scope', '$rootScope', '$q', '$stateParams', 'RouteService', 'SetterService', 'ColorService', 'BoulderGradesService', 'RopeGradesService', 'RatingService', 'ZoneService', function($scope, $rootScope, $q, $stateParams, RouteService, SetterService, ColorService, BoulderGradesService, RopeGradesService, RatingService, ZoneService) {
     var boulderGradeMap, colorMap, gridApi, ropeGradeMap, setterMap, zoneMap;
@@ -103038,22 +103001,68 @@ module.exports = [
   }
 ];
 
-},{}],107:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('zoneController', require('./zoneController'));
 
-},{"./zoneController":108,"angular":21}],108:[function(require,module,exports){
-module.exports=require(29)
-},{}],109:[function(require,module,exports){
+},{"./zoneController":106,"angular":21}],106:[function(require,module,exports){
+module.exports = [
+  '$scope', '$rootScope', '$stateParams', 'ZoneService', 'FileService', 'RouteService', function($scope, $rootScope, $stateParams, ZoneService, FileService, RouteService) {
+    ZoneService.get($stateParams.zoneId).then(function(zone) {
+      return $scope.zone = zone;
+    });
+    $scope.upload = function(file, key) {
+      return FileService.upload(file).then(function(data) {
+        $scope.zone[key] = data;
+        return ZoneService.update($scope.zone);
+      });
+    };
+    RouteService.find({
+      zoneId: $stateParams.zoneId
+    }).then(function(routes) {
+      return $scope.routes = routes;
+    });
+    $rootScope.$on('route.created', function(evt, route) {
+      return $scope.routes.push(route);
+    });
+    $rootScope.$on('route.deleted', function(evt, route) {
+      return $scope.routes.splice($scope.routes.indexOf(route), 1);
+    });
+    $scope.openEditRoutePanel = function() {
+      return $rootScope.$broadcast('editroutepanel.show');
+    };
+    return $scope.openRoutePanel = function(route) {
+      return $rootScope.$broadcast('routepanel.show', route);
+    };
+  }
+];
+
+},{}],107:[function(require,module,exports){
 var app;
 
 app = require('angular').module('setter');
 
 app.controller('zonesController', require('./zonesController'));
 
-},{"./zonesController":110,"angular":21}],110:[function(require,module,exports){
-module.exports=require(29)
-},{}]},{},[49])
+},{"./zonesController":108,"angular":21}],108:[function(require,module,exports){
+module.exports = [
+  '$scope', '$state', '$stateParams', 'ZoneService', function($scope, $state, $stateParams, ZoneService) {
+    $scope.form = {};
+    $scope.form.gymId = $stateParams.gymId;
+    ZoneService.find({
+      gymId: $stateParams.gymId
+    }).then(function(zones) {
+      return $scope.zones = zones;
+    });
+    return $scope.submit = function() {
+      return ZoneService.create($scope.form).then(function(zone) {
+        return $scope.zones.push(zone);
+      });
+    };
+  }
+];
+
+},{}]},{},[46])

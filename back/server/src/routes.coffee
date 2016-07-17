@@ -24,6 +24,7 @@ LoginController = require './controllers/LoginController'
 isGym = require './auth/isGym'
 parseJwt = require './auth/parseJwt'
 ownsGymAlert = require './auth/ownsGymAlert'
+ownsZone = require './auth/ownsZone'
 
 module.exports = do ->
   app.post '/Login', LoginController.login
@@ -73,7 +74,7 @@ module.exports = do ->
   app.get '/Gyms', GymController.find
   app.get '/Gyms/:id', GymController.get
   app.post '/Gyms', GymController.create
-  app.put '/Gyms/:id', GymController.update
+  app.put '/Gyms/:id', parseJwt, isGym, GymController.update
   app.delete '/Gyms/:id', GymController.destroy
 
   app.get '/Ratings', RatingController.find
@@ -120,7 +121,7 @@ module.exports = do ->
 
   app.get '/Setters', SetterController.find
   app.get '/Setters/:id', SetterController.get
-  app.post '/Setters', SetterController.create
+  app.post '/Setters', parseJwt, isGym, SetterController.create
   app.put '/Setters/:id', SetterController.update
   app.delete '/Setters/:id', SetterController.destroy
 
@@ -138,6 +139,6 @@ module.exports = do ->
 
   app.get '/Zones', ZoneController.find
   app.get '/Zones/:id', ZoneController.get
-  app.post '/Zones', ZoneController.create
-  app.put '/Zones/:id', ZoneController.update
+  app.post '/Zones', parseJwt, isGym, ZoneController.create
+  app.put '/Zones/:id', parseJwt, ownsZone, ZoneController.update
   app.delete '/Zones/:id', ZoneController.destroy

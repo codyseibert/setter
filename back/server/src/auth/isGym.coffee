@@ -1,5 +1,5 @@
 module.exports = (req, res, next) ->
-  if "#{req.user.id}" in [req.params.gymId, req.body.gymId]
+  if "#{req.user.id}" in [req.params.id, req.body.gymId]
     next()
   else
     res.status 403

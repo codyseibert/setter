@@ -6,8 +6,6 @@ app.directive('banner', require('./banner'));
 
 app.directive('comments', require('./comments'));
 
-app.directive('configurations', require('./configurations'));
-
 app.directive('editroutepanel', require('./editroutepanel'));
 
 app.directive('header', require('./header'));
@@ -28,10 +26,6 @@ app.directive('sends', require('./sends'));
 
 app.directive('setters', require('./setters'));
 
-app.directive('settings', require('./settings'));
-
 app.directive('zone', require('./zone'));
-
-app.directive('zones', require('./zones'));
 
 app.directive('btncreate', require('./btncreate'));

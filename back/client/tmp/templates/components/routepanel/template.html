@@ -42,7 +42,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 left"><span>Date Set</span></div>
-      <div class="col-md-6 right"><span>{{route.createdAt}}</span></div>
+      <div class="col-md-6 right"><span>{{route.createdAt | amCalendar:referenceTime:formats}}</span></div>
     </div>
   </div>
   <div class="projecting"></div>

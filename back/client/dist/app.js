@@ -101330,7 +101330,6 @@ module.exports = [
         });
       }).then(function(latLon) {
         var infowindow, map, marker, myOptions;
-        console.log(latLon);
         myOptions = {
           zoom: 12,
           center: new google.maps.LatLng(latLon.lat(), latLon.lng()),

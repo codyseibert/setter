@@ -50,15 +50,12 @@ module.exports = [
             scope.setter = setter
 
         if route.type is 0
-          console.log 'route', route
           BoulderGradesService.get route.gradeId
             .then (grade) ->
-              console.log grade
               scope.grade = grade
         else
           RopeGradesService.get route.gradeId
             .then (grade) ->
-              console.log 'rope', grade
               scope.grade = grade
 
         ColorService.get route.colorId

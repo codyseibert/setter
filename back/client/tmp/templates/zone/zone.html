@@ -6,7 +6,7 @@
       <div class="btn-group">
         <div ng-if="isGymAdmin()" uib-tooltip="add new route" ng-click="openEditRoutePanel()" class="btn-circle">+</div>
       </div>
-      <div ng-repeat="route in routes" ng-click="openRoutePanel(route)" class="route">{{route.name}}</div>
+      <div ui-grid="gridOptions" ui-grid-selection="ui-grid-selection"></div>
     </div>
   </div>
   <div class="col-md-5">

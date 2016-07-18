@@ -25,14 +25,11 @@ module.exports = [
             return scope.setter = setter;
           });
           if (route.type === 0) {
-            console.log('route', route);
             BoulderGradesService.get(route.gradeId).then(function(grade) {
-              console.log(grade);
               return scope.grade = grade;
             });
           } else {
             RopeGradesService.get(route.gradeId).then(function(grade) {
-              console.log('rope', grade);
               return scope.grade = grade;
             });
           }

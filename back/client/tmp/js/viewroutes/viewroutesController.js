@@ -14,7 +14,6 @@ module.exports = [
       results = [];
       for (i = 0, len = rows.length; i < len; i++) {
         row = rows[i];
-        console.log(row);
         results.push(RouteService["delete"](row).then(function() {
           return d.splice(d.indexOf(row), 1);
         }));

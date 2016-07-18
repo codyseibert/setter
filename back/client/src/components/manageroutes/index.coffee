@@ -39,7 +39,6 @@ module.exports = [
         rows = gridApi.selection.getSelectedRows()
         d = scope.gridOptions.data
         for row in rows
-          console.log row
           RouteService.delete row
             .then ->
               d.splice d.indexOf(row), 1

@@ -1,11 +1,17 @@
 module.exports = [
-  '$scope', '$q', 'GymService', function($scope, $q, GymService) {
+  '$scope', '$stateParams', '$q', 'GymService', function($scope, $stateParams, $q, GymService) {
     var init_map;
-    init_map = function() {
+    GymService.get($stateParams.gymId).then(function(gym) {
+      $scope.gym = gym;
+      return init_map(gym.name, gym.address);
+    });
+    $scope.save = function() {
+      return GymService.update($scope.gym).then(function(gym) {});
+    };
+    return init_map = function(name, address) {
       return $q(function(resolve, reject) {
-        var address, geocoder;
+        var geocoder;
         geocoder = new google.maps.Geocoder();
-        address = "999 Charles St, Longwood, FL 32750";
         return geocoder.geocode({
           'address': address
         }, function(results, status) {
@@ -28,7 +34,7 @@ module.exports = [
           position: new google.maps.LatLng(latLon.lat(), latLon.lng())
         });
         infowindow = new google.maps.InfoWindow({
-          content: '<strong>Aiguille Rock Climbing Center</strong><br>Address<br>999 Charles St, Longwood, FL 32750<br>'
+          content: '<strong>' + name + '</strong><br>Address<br>' + address + '<br>'
         });
         google.maps.event.addListener(marker, 'click', function() {
           return infowindow.open(map, marker);
@@ -37,6 +43,5 @@ module.exports = [
         return document.getElementById('gmap_canvas').style.visibility = "inherit";
       });
     };
-    return init_map();
   }
 ];

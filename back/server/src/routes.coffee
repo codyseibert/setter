@@ -20,11 +20,13 @@ SuggestionController = require './controllers/SuggestionController'
 UserController = require './controllers/UserController'
 ZoneController = require './controllers/ZoneController'
 LoginController = require './controllers/LoginController'
+DiscussionController = require './controllers/DiscussionController'
 
 isGym = require './auth/isGym'
 parseJwt = require './auth/parseJwt'
 ownsGymAlert = require './auth/ownsGymAlert'
 ownsZone = require './auth/ownsZone'
+ownsDiscussion = require './auth/ownsDiscussion'
 
 module.exports = do ->
   app.post '/Login', LoginController.login
@@ -142,3 +144,9 @@ module.exports = do ->
   app.post '/Zones', parseJwt, isGym, ZoneController.create
   app.put '/Zones/:id', parseJwt, ownsZone, ZoneController.update
   app.delete '/Zones/:id', ZoneController.destroy
+
+  app.get '/Discussions', DiscussionController.find
+  app.get '/Discussions/:id', DiscussionController.get
+  app.post '/Discussions', DiscussionController.create
+  app.put '/Discussions/:id', parseJwt, ownsDiscussion, DiscussionController.update
+  app.delete '/Discussions/:id', parseJwt, ownsDiscussion, DiscussionController.destroy

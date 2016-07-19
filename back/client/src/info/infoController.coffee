@@ -1,17 +1,27 @@
 module.exports = [
   '$scope'
+  '$stateParams'
   '$q'
   'GymService'
   (
     $scope
+    $stateParams
     $q
     GymService
   ) ->
 
-    init_map = ->
+    GymService.get $stateParams.gymId
+      .then (gym) ->
+        $scope.gym = gym
+        init_map gym.name, gym.address
+
+    $scope.save = ->
+      GymService.update $scope.gym
+        .then (gym) ->
+
+    init_map = (name, address) ->
       $q (resolve, reject) ->
         geocoder = new google.maps.Geocoder()
-        address = "999 Charles St, Longwood, FL 32750"
         geocoder.geocode { 'address': address }, (results, status) ->
           if status == google.maps.GeocoderStatus.OK
             resolve results[0].geometry.location
@@ -26,12 +36,10 @@ module.exports = [
         marker = new (google.maps.Marker)(
           map: map
           position: new (google.maps.LatLng)(latLon.lat(), latLon.lng()))
-        infowindow = new (google.maps.InfoWindow)(content: '<strong>Aiguille Rock Climbing Center</strong><br>Address<br>999 Charles St, Longwood, FL 32750<br>')
+        infowindow = new (google.maps.InfoWindow)(content: '<strong>' + name + '</strong><br>Address<br>' + address + '<br>')
         google.maps.event.addListener marker, 'click', ->
           infowindow.open map, marker
         infowindow.open map, marker
         document.getElementById('gmap_canvas').style.visibility = "inherit"
-
-    init_map()
 
 ]

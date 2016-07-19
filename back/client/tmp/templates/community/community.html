@@ -2,25 +2,52 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel top">
-      <h2>Discussion Boards</h2>
-      <div class="flag"> <img src="assets/images/me.jpeg"/>
-        <div class="text">Anyone want to climb tonight? some other stuff. blah blah blah blah</div>
-        <div class="date">Feb 6th, 2016</div>
-        <hr/>
+      <h2>Notification Board</h2>
+      <btncreate ng-show="!isGymAdmin()" save="saveDiscussion()" creating="creatingDiscussion"></btncreate>
+      <div ng-if="creatingDiscussion">
+        <div class="form-group">
+          <label>Message</label>
+          <textarea ng-model="discussion.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+        </div>
       </div>
-      <div class="flag"> <img src="assets/images/me.jpeg"/>
-        <div class="text">Anyone want to climb tonight?</div>
-        <div class="date">Feb 6th, 2016</div>
+      <div ng-repeat="dis in discussions" style="clear: left; position: relative;"><img src="assets/images/me.jpeg" style="float: left; width: 100px; height; 100px; border-radius: 50%;"/>
+        <div style="min-height: 100px;">
+          <btnedit ng-show="!isGymAdmin() &amp;&amp; ownsDiscussion(dis)" save="updateDiscussion(dis)" editing="dis.editing" delete="deleteDiscussion(dis)"></btnedit>
+          <div ng-if="dis.editing">
+            <div class="form-group">
+              <label>Message</label>
+              <textarea ng-model="dis.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+            </div>
+          </div>
+          <div ng-if="!dis.editing" class="text">{{dis.message}}</div>
+          <div class="date">{{dis.createdAt | amCalendar:referenceTime:formats}}</div>
+        </div>
+        <hr/>
       </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="panel top">
       <h2>Gear Board</h2>
-      <hr/>
-      <div class="flag"> <img src="assets/images/me.jpeg"/>
-        <div class="text">Looking to sell a size 10 US male La Sportiva Solution for $80 OBO.  Contact me at 444-444-4444</div>
-        <div class="date">Feb 6th, 2016</div>
+      <btncreate ng-show="!isGymAdmin()" save="saveGear()" creating="creatingGear"></btncreate>
+      <div ng-if="creatingGear">
+        <div class="form-group">
+          <label>Message</label>
+          <textarea ng-model="gear.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+        </div>
+      </div>
+      <div ng-repeat="gear in gears" style="clear: left; position: relative;"><img src="assets/images/me.jpeg" style="float: left; width: 100px; height; 100px; border-radius: 50%;"/>
+        <div style="min-height: 100px;">
+          <btnedit ng-show="!isGymAdmin() &amp;&amp; ownsDiscussion(gear)" save="updateGear(gear)" editing="gear.editing" delete="deleteGear(gear)"></btnedit>
+          <div ng-if="gear.editing">
+            <div class="form-group">
+              <label>Message</label>
+              <textarea ng-model="gear.message" placeholder="Post the gear you are looking to sell here" class="form-control"></textarea>
+            </div>
+          </div>
+          <div ng-if="!gear.editing" class="text">{{gear.message}}</div>
+          <div class="date">{{gear.createdAt | amCalendar:referenceTime:formats}}</div>
+        </div>
         <hr/>
       </div>
     </div>

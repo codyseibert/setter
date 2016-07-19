@@ -1,20 +1,59 @@
 .row
   .col-md-6
     .panel.top
+    
+      btncreate(
+        ng-show="isGymAdmin()"
+        save="save"
+        creating="creating"
+      )
+      
       h2 Gym Info
-      p This gym is awesome
+      
       h3 Address
-      h3 Phone Number
-      h3 Fax
-      h3 Web Site
+      input(
+        ng-model="gym.address"
+        placeholder="Your gym address"
+        ng-show="creating"
+      )
+      span(
+        ng-show="!creating"
+      ) {{gym.address}}
+      
+      h3 Phone
+      input(
+        ng-model="gym.phone"
+        placeholder="your gym phone number"
+        ng-show="creating"
+      )
+      span(
+        ng-show="!creating"
+      ) {{gym.phone}}
+      
+      h3 Website
+      input(
+        ng-model="gym.website"
+        placeholder="your gym website url"
+        ng-show="creating"
+      )
+      a(
+        ng-show="!creating"
+        href="{{gym.website}}"
+      ) {{gym.website}}
+      
       h3 Hours of Operation
+      input(
+        ng-model="gym.hours"
+        placeholder="your gym hours of operation"
+        ng-show="creating"
+      )
+      span(
+        ng-show="!creating"
+      ) {{gym.hours}}
       
   .col-md-6
     .panel.top
       h2 Location
-      //- div(
-      //-   style='overflow:hidden;height:400px;width:520px;'
-      //- )
       #gmap_canvas(
         style='height:400px;width:520px;'
       )

@@ -28,17 +28,13 @@ module.exports = do ->
         res.send Gym
 
   update = (req, res) ->
-    Gym.findById req.params.id
-      .then (Gym) ->
-        if not Gym?
-          res.status 400
-          res.send 'Gym not found'
-        else
-          _.extend Gym, req.body
-          Gym.save()
-            .then (Gym) ->
-              res.status 200
-              res.send Gym
+    console.log 'update called'
+    Gym.update req.body,
+      where:
+        id: req.params.id
+    .then ->
+      res.status 200
+      res.send req.body
 
   destroy = (req, res) ->
     Gym.findById req.params.id

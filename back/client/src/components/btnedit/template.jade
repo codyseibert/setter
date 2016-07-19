@@ -1,0 +1,24 @@
+.btn-group
+  .btn-circle(
+    uib-tooltip='delete'
+    ng-click="delete()"
+  ) 
+    i.glyphicon.glyphicon-trash
+    
+  .btn-circle(
+    ng-if="!editing"
+    uib-tooltip='edit'
+    ng-click="edit()"
+  ) &#9998;
+  
+  .btn-circle.green(
+    ng-if="editing"
+    uib-tooltip='save'
+    ng-click="preSave()"
+  ) &#10003;
+  
+  .btn-circle.gray(
+    ng-if="editing"
+    uib-tooltip='cancel'
+    ng-click="cancel()"
+  ) &times;

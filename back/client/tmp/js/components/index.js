@@ -29,3 +29,5 @@ app.directive('setters', require('./setters'));
 app.directive('zone', require('./zone'));
 
 app.directive('btncreate', require('./btncreate'));
+
+app.directive('btnedit', require('./btnedit'));

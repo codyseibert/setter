@@ -8,20 +8,21 @@ module.exports = [
 
     scope:
       save: '&'
-      creating: '='
+      delete: '&'
+      editing: '='
 
     link: (scope, elem, attr) ->
 
-      scope.create = ->
-        scope.creating = !scope.creating
+      scope.edit = ->
+        scope.editing = !scope.editing
 
       scope.cancel = ->
-        scope.creating = false
+        scope.editing = false
 
       scope.preSave = ->
-        scope.creating = false
+        scope.editing = false
         scope.save()
 
-    templateUrl: 'components/btncreate/template.html'
+    templateUrl: 'components/btnedit/template.html'
 
 ]

@@ -2,13 +2,16 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel top">
+      <btncreate ng-show="isGymAdmin()" save="save" creating="creating"></btncreate>
       <h2>Gym Info</h2>
-      <p>This gym is awesome</p>
       <h3>Address</h3>
-      <h3>Phone Number</h3>
-      <h3>Fax</h3>
-      <h3>Web Site</h3>
+      <input ng-model="gym.address" placeholder="Your gym address" ng-show="creating"/><span ng-show="!creating">{{gym.address}}</span>
+      <h3>Phone</h3>
+      <input ng-model="gym.phone" placeholder="your gym phone number" ng-show="creating"/><span ng-show="!creating">{{gym.phone}}</span>
+      <h3>Website</h3>
+      <input ng-model="gym.website" placeholder="your gym website url" ng-show="creating"/><a ng-show="!creating" href="{{gym.website}}">{{gym.website}}</a>
       <h3>Hours of Operation</h3>
+      <input ng-model="gym.hours" placeholder="your gym hours of operation" ng-show="creating"/><span ng-show="!creating">{{gym.hours}}</span>
     </div>
   </div>
   <div class="col-md-6">

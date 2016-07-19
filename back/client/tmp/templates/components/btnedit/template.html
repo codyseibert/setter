@@ -1,0 +1,7 @@
+
+<div class="btn-group">
+  <div uib-tooltip="delete" ng-click="delete()" class="btn-circle"> <i class="glyphicon glyphicon-trash"></i></div>
+  <div ng-if="!editing" uib-tooltip="edit" ng-click="edit()" class="btn-circle">&#9998;</div>
+  <div ng-if="editing" uib-tooltip="save" ng-click="preSave()" class="btn-circle green">&#10003;</div>
+  <div ng-if="editing" uib-tooltip="cancel" ng-click="cancel()" class="btn-circle gray">&times;</div>
+</div>

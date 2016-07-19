@@ -4,21 +4,22 @@ module.exports = [
       restrict: 'E',
       scope: {
         save: '&',
-        creating: '='
+        "delete": '&',
+        editing: '='
       },
       link: function(scope, elem, attr) {
-        scope.create = function() {
-          return scope.creating = !scope.creating;
+        scope.edit = function() {
+          return scope.editing = !scope.editing;
         };
         scope.cancel = function() {
-          return scope.creating = false;
+          return scope.editing = false;
         };
         return scope.preSave = function() {
-          scope.creating = false;
+          scope.editing = false;
           return scope.save();
         };
       },
-      templateUrl: 'components/btncreate/template.html'
+      templateUrl: 'components/btnedit/template.html'
     };
   }
 ];

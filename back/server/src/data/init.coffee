@@ -1,6 +1,8 @@
 Color = require '../models/Color'
 BoulderGrades = require '../models/BoulderGrades'
 RopeGrades = require '../models/RopeGrades'
+Gym = require '../models/Gym'
+_ = require 'lodash'
 
 require('../sequelize').sync().then ->
   for color in require './colors.json'
@@ -17,4 +19,9 @@ require('../sequelize').sync().then ->
   for grade in require './ropeGrades.json'
     RopeGrades.create(
       name: grade.name
+    )
+
+  for gym in require './gyms.json'
+    Gym.create(
+      name: grade
     )

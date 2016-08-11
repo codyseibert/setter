@@ -20,5 +20,5 @@ require './models/Suggestion'
 require './models/User'
 require './models/Zone'
 require './models/Discussion'
-require('./sequelize').sync(force: true).then ->
+require('./sequelize').sync(force: false).then ->
   require('./app').listen 8081

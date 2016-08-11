@@ -3,53 +3,15 @@
   <div class="col-md-6">
     <div class="panel top">
       <h2>Notification Board</h2>
-      <btncreate ng-show="!isGymAdmin()" save="saveDiscussion()" creating="creatingDiscussion"></btncreate>
-      <div ng-if="creatingDiscussion">
-        <div class="form-group">
-          <label>Message</label>
-          <textarea ng-model="discussion.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
-        </div>
-      </div>
-      <div ng-repeat="dis in discussions" style="clear: left; position: relative;"><img src="assets/images/me.jpeg" style="float: left; width: 100px; height; 100px; border-radius: 50%;"/>
-        <div style="min-height: 100px;">
-          <btnedit ng-show="!isGymAdmin() &amp;&amp; ownsDiscussion(dis)" save="updateDiscussion(dis)" editing="dis.editing" delete="deleteDiscussion(dis)"></btnedit>
-          <div ng-if="dis.editing">
-            <div class="form-group">
-              <label>Message</label>
-              <textarea ng-model="dis.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
-            </div>
-          </div>
-          <div ng-if="!dis.editing" class="text">{{dis.message}}</div>
-          <div class="date">{{dis.createdAt | amCalendar:referenceTime:formats}}</div>
-        </div>
-        <hr/>
-      </div>
+      <notifications-blank-state ng-if="!discussions.length" discussions="discussions"></notifications-blank-state>
+      <notifications ng-if="discussions.length" discussions="discussions"></notifications>
     </div>
   </div>
   <div class="col-md-6">
     <div class="panel top">
       <h2>Gear Board</h2>
-      <btncreate ng-show="!isGymAdmin()" save="saveGear()" creating="creatingGear"></btncreate>
-      <div ng-if="creatingGear">
-        <div class="form-group">
-          <label>Message</label>
-          <textarea ng-model="gear.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
-        </div>
-      </div>
-      <div ng-repeat="gear in gears" style="clear: left; position: relative;"><img src="assets/images/me.jpeg" style="float: left; width: 100px; height; 100px; border-radius: 50%;"/>
-        <div style="min-height: 100px;">
-          <btnedit ng-show="!isGymAdmin() &amp;&amp; ownsDiscussion(gear)" save="updateGear(gear)" editing="gear.editing" delete="deleteGear(gear)"></btnedit>
-          <div ng-if="gear.editing">
-            <div class="form-group">
-              <label>Message</label>
-              <textarea ng-model="gear.message" placeholder="Post the gear you are looking to sell here" class="form-control"></textarea>
-            </div>
-          </div>
-          <div ng-if="!gear.editing" class="text">{{gear.message}}</div>
-          <div class="date">{{gear.createdAt | amCalendar:referenceTime:formats}}</div>
-        </div>
-        <hr/>
-      </div>
+      <gears-blank-state ng-if="!gears.length" gears="gears"></gears-blank-state>
+      <gears ng-if="gears.length" gears="gears"></gears>
     </div>
   </div>
 </div>

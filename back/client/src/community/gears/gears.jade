@@ -1,0 +1,47 @@
+btncreate(
+  ng-show="!isGymAdmin()"
+  save="save()"
+  creating="creating"
+)
+
+div(
+  ng-if="creating"
+)
+  .form-group
+    label Message
+    textarea.form-control(
+      ng-model="gear.message"
+      placeholder="Post here to find climbing partners, trips, etc"
+    )
+    
+div(
+  ng-repeat="gear in gears | orderBy: '-createdAt'"
+  style="clear: left; position: relative;"
+)
+  img(
+    src="assets/images/me.jpeg"
+    style="float: left; width: 100px; height; 100px; border-radius: 50%;"
+  )
+  div(
+    style="min-height: 100px;"
+  )
+    btnedit(
+      ng-show="!isGymAdmin() && owns(gear)"
+      save="update(gear)"
+      editing="gear.editing"
+      delete="delete(gear)"
+    )
+    div(
+      ng-if="gear.editing"
+    )
+      .form-group
+        label Message
+        textarea.form-control(
+          ng-model="gear.message"
+          placeholder="Post here to find climbing partners, trips, etc"
+        )
+    .text(
+      ng-if="!gear.editing"
+    ) {{gear.message}}
+    .date {{gear.createdAt | amCalendar:referenceTime:formats}}
+  hr

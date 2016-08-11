@@ -1,0 +1,41 @@
+
+div(
+  ng-if="!gears.length"
+)
+
+h4 This gym has no message posted. 
+h4 Post a message here for anyone at your gym to read, such as an upcoming climbing trips, looking for climbing partners, etc.
+h5 Be the first to post a message.
+
+.row(
+  ng-show="!isGymAdmin()"
+)
+  
+  .col-md-12.center
+    .btn-circle.dib(
+      ng-show="!creating"
+      uib-tooltip='Post a Message'
+      ng-click="create()"
+    ) +
+    
+  .col-md-8
+    textarea(
+      style="width: 100%; height: 200px;"
+      ng-model="gear.message"
+      ng-show="creating"
+    )
+  
+  .col-md-4
+    .btn-circle.gray.dib(
+      ng-if="creating"
+      uib-tooltip='Cancel'
+      ng-click="cancel()"
+    ) &times;
+
+    .btn-circle.green.dib(
+      ng-if="creating"
+      uib-tooltip='Post Your Message'
+      ng-click="save()"
+    ) &#10003;
+    
+  

@@ -1,0 +1,22 @@
+
+<btncreate ng-show="discussions.length &amp;&amp; !isGymAdmin()" save="saveDiscussion()" creating="creatingDiscussion"></btncreate>
+<div ng-if="creatingDiscussion">
+  <div class="form-group">
+    <label>Message</label>
+    <textarea ng-model="discussion.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+  </div>
+</div>
+<div ng-repeat="dis in discussions | orderBy: '-createdAt'" style="clear: left; position: relative;"><img src="assets/images/me.jpeg" style="float: left; width: 100px; height; 100px; border-radius: 50%;"/>
+  <div style="min-height: 100px;">
+    <btnedit ng-show="!isGymAdmin() &amp;&amp; ownsDiscussion(dis)" save="updateDiscussion(dis)" editing="dis.editing" delete="deleteDiscussion(dis)"></btnedit>
+    <div ng-if="dis.editing">
+      <div class="form-group">
+        <label>Message</label>
+        <textarea ng-model="dis.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+      </div>
+    </div>
+    <div ng-if="!dis.editing" class="text">{{dis.message}}</div>
+    <div class="date">{{dis.createdAt | amCalendar:referenceTime:formats}}</div>
+  </div>
+  <hr/>
+</div>

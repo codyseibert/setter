@@ -1,0 +1,47 @@
+btncreate(
+  ng-show="discussions.length && !isGymAdmin()"
+  save="saveDiscussion()"
+  creating="creatingDiscussion"
+)
+
+div(
+  ng-if="creatingDiscussion"
+)
+  .form-group
+    label Message
+    textarea.form-control(
+      ng-model="discussion.message"
+      placeholder="Post here to find climbing partners, trips, etc"
+    )
+    
+div(
+  ng-repeat="dis in discussions | orderBy: '-createdAt'"
+  style="clear: left; position: relative;"
+)
+  img(
+    src="assets/images/me.jpeg"
+    style="float: left; width: 100px; height; 100px; border-radius: 50%;"
+  )
+  div(
+    style="min-height: 100px;"
+  )
+    btnedit(
+      ng-show="!isGymAdmin() && ownsDiscussion(dis)"
+      save="updateDiscussion(dis)"
+      editing="dis.editing"
+      delete="deleteDiscussion(dis)"
+    )
+    div(
+      ng-if="dis.editing"
+    )
+      .form-group
+        label Message
+        textarea.form-control(
+          ng-model="dis.message"
+          placeholder="Post here to find climbing partners, trips, etc"
+        )
+    .text(
+      ng-if="!dis.editing"
+    ) {{dis.message}}
+    .date {{dis.createdAt | amCalendar:referenceTime:formats}}
+  hr

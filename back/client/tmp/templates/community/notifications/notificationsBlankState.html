@@ -1,0 +1,17 @@
+
+<div ng-if="!discussions.length"></div>
+<h4>This gym has no message posted. </h4>
+<h4>Post a message here for anyone at your gym to read, such as an upcoming climbing trips, looking for climbing partners, etc.</h4>
+<h5>Be the first to post a message.</h5>
+<div ng-show="!isGymAdmin()" class="row">
+  <div class="col-md-12 center">
+    <div ng-show="!creating" uib-tooltip="Post a Message" ng-click="create()" class="btn-circle dib">+</div>
+  </div>
+  <div class="col-md-8">
+    <textarea style="width: 100%; height: 200px;" ng-model="discussion.message" ng-show="creating"></textarea>
+  </div>
+  <div class="col-md-4">
+    <div ng-if="creating" uib-tooltip="Cancel" ng-click="cancel()" class="btn-circle gray dib">&times;</div>
+    <div ng-if="creating" uib-tooltip="Post Your Message" ng-click="save()" class="btn-circle green dib">&#10003;</div>
+  </div>
+</div>

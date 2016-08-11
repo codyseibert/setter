@@ -1,0 +1,22 @@
+
+<btncreate ng-show="!isGymAdmin()" save="save()" creating="creating"></btncreate>
+<div ng-if="creating">
+  <div class="form-group">
+    <label>Message</label>
+    <textarea ng-model="gear.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+  </div>
+</div>
+<div ng-repeat="gear in gears | orderBy: '-createdAt'" style="clear: left; position: relative;"><img src="assets/images/me.jpeg" style="float: left; width: 100px; height; 100px; border-radius: 50%;"/>
+  <div style="min-height: 100px;">
+    <btnedit ng-show="!isGymAdmin() &amp;&amp; owns(gear)" save="update(gear)" editing="gear.editing" delete="delete(gear)"></btnedit>
+    <div ng-if="gear.editing">
+      <div class="form-group">
+        <label>Message</label>
+        <textarea ng-model="gear.message" placeholder="Post here to find climbing partners, trips, etc" class="form-control"></textarea>
+      </div>
+    </div>
+    <div ng-if="!gear.editing" class="text">{{gear.message}}</div>
+    <div class="date">{{gear.createdAt | amCalendar:referenceTime:formats}}</div>
+  </div>
+  <hr/>
+</div>

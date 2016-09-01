@@ -1,2 +1,0 @@
-USE setter;
-ALTER TABLE gyms ADD COLUMN combined_rope BOOLEAN DEFAULT 1;

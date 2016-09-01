@@ -1,2 +1,0 @@
-USE setter;
-ALTER TABLE walls ADD COLUMN angle VARCHAR(255) DEFAULT '';

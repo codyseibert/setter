@@ -1,25 +1,6 @@
-# setter
-Route Management Software for Climbing Gyms
-
-# setup
-
-sudo apt-get install ruby ruby-dev
-sudo gem install compass
-
-- cd src/public
-- bower install
-- cd ../..
-- npm install
-
-# running
-- cd src
-- node Server
-
-# license
-Copyright Cody Seibert & Guillermo Martinez
-
-Setter is priority software.
+# Start MySQL
+docker run --name setter-db -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 mysql/mysql-server
 
 
-# notes
-- make sure that the src/public/bower.json is copied into bower.json before building
+# Remote into DB
+mysql -u root -p123456 -h 192.168.1.4

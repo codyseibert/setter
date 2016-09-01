@@ -8,7 +8,7 @@ RUN yum install -y nodejs
 COPY dist /app
 COPY node_modules /app/node_modules
 
-ENV MONGO_HOST 172.31.43.124
+ENV MYSQL_HOST 172.31.43.124
 
 EXPOSE 8081
 
